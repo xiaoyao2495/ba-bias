@@ -1,0 +1,48 @@
+import {validateOutput} from './structured-v4-schema.js';
+import {isTrustedInput} from './structured-v4-input.js';
+export function guardStructuredAnalysis(output,input){
+ const errors=[];const fail=code=>errors.push(code);
+ if(!isTrustedInput(input))return {ok:false,status:'FAILED',errors:['UNTRUSTED_INPUT_REBUILD_FROM_FACTS_REQUIRED']};
+ if(!validateOutput(output))return {ok:false,status:'FAILED',errors:['V4_SCHEMA_INVALID'],diagnostics:structuredClone(validateOutput.errors)};
+ const a=output,map=new Map(input.evidence.map(e=>[e.evidenceId,e])),w=input.windows.find(x=>x.horizon===a.horizon);
+ if(a.symbol!==input.symbol||a.evaluationTime!==input.evaluationTime)fail('IDENTITY_MISMATCH');
+ const ids=[...a.supportingEvidenceIds,...a.conflictingEvidenceIds,...a.structureEvidenceIds,...a.mechanismHypothesis.evidenceIds,...a.directionalRationale.evidenceIds,...a.reassessmentConditions.flatMap(c=>c.metricOrStructureEvidenceId?[c.metricOrStructureEvidenceId]:[])];
+ for(const id of ids){const e=map.get(id);if(!e||e.symbol!==a.symbol)fail('UNKNOWN_OR_FOREIGN_EVIDENCE');else if(e.dataTimes.some(t=>t>Date.parse(input.evaluationTime)))fail('FUTURE_EVIDENCE');else if(e.metricType==='UNKNOWN')fail('UNTYPED_EVIDENCE');}
+ const supports=new Set(a.supportingEvidenceIds),selected=[...supports,...a.conflictingEvidenceIds],p=Number(map.get(w.priceId)?.value),o=Number(map.get(w.oiId)?.value),prior=Number(map.get(w.previousPriceId)?.value),sign=a.direction.startsWith('BULLISH')?1:a.direction.startsWith('BEARISH')?-1:0;
+ if(a.supportingEvidenceIds.some(id=>a.conflictingEvidenceIds.includes(id)))fail('CONFLICT_SUPPORT_OVERLAP');
+ if(!supports.has(w.priceId))fail('PRIMARY_PRICE_REQUIRED');
+ if(!a.directionalRationale.evidenceIds.includes(w.priceId)||a.directionalRationale.evidenceIds.some(id=>!selected.includes(id)))fail('RATIONALE_BASIS_REQUIRED');
+ for(const id of supports){const e=map.get(id);if(e?.window===a.horizon&&id!==w.previousPriceId&&e.metricType!=='PRICE_ROLLING_CHANGE'&&Math.abs(e.observedAt-map.get(w.priceId)?.observedAt)>1)fail('SUPPORT_NOT_ALIGNED');}
+ if(supports.has(w.oiId)&&!w.aligned)fail('PRICE_OI_NOT_ALIGNED');
+ if(!w.aligned&&a.conviction!=='LOW')fail('LOW_REQUIRED');
+ if(a.direction.includes('REVERSAL')){if(!supports.has(w.previousPriceId)||p*prior>=0||!Number.isFinite(prior)||p*sign<=0)fail('PRIOR_AND_CURRENT_TURN_REQUIRED');if(a.directionalRationale.hypothesis!=='TURN')fail('REVERSAL_RATIONALE_REQUIRED');}
+ else if(a.directionalRationale.hypothesis==='TURN')fail('TURN_LABEL_MISMATCH');
+ if(sign&&p*sign<0){const other=selected.some(id=>['PRICE_CLOSED_CHANGE','PREVIOUS_PRICE_CHANGE'].includes(map.get(id)?.metricType)&&Number(map.get(id).value)*sign>0);if(a.directionalRationale.hypothesis!=='COUNTER_MOVE'||!other&&!(supports.has(w.oiId)&&p*o<0))fail('COUNTER_MOVE_BASIS_REQUIRED');}
+ if(a.direction==='NO_EDGE'){if(a.directionalRationale.hypothesis!=='NO_CLEAR_EDGE'||!['NO_ACTIONABLE_SETUP','WAIT_FOR_CONFIRMATION'].includes(a.tradeOpportunity))fail('NO_EDGE_CONTRADICTION');if(w.strongContinuation&&!selected.some(id=>{const e=map.get(id);return e?.scope!=='PREVIOUS_PRICE_WINDOW'&&(['PRICE_CLOSED_CHANGE','OI_QUANTITY_CHANGE'].includes(e?.metricType)&&Number(e.value)*p<0||e?.metricType==='RELATIVE_VOLUME'&&Number(e.value)<1);}))fail('NO_EDGE_CONFLICT_REQUIRED');}
+ else if(a.directionalRationale.hypothesis==='NO_CLEAR_EDGE')fail('DIRECTION_RATIONALE_MISMATCH');
+ if(a.conviction==='HIGH'&&(!w.strongContinuation||a.horizon!=='1h'||sign*p<=0||a.direction.includes('REVERSAL')||a.conflictingEvidenceIds.length||!supports.has(w.oiId)||!supports.has(input.symbol+':volume.relative1h')||Number(map.get(input.symbol+':volume.relative1h')?.value)<2||input.windows.some(x=>Number(map.get(x.priceId)?.value)*p<0)))fail('HIGH_UNSUPPORTED');
+ // Each constrained mechanism is an OI/price compatibility relation, never
+ // a participant assertion or a money-flow claim.
+ const m=a.mechanismHypothesis;
+ if(m.type!=='UNDETERMINED'){
+  if(!w.aligned||![w.priceId,w.oiId].every(id=>m.evidenceIds.includes(id)&&supports.has(id))||m.evidenceIds.some(id=>![w.priceId,w.oiId].includes(id)))fail('MECHANISM_PAIR_REQUIRED');
+  if(m.type==='CONTRACT_EXPANSION_COMPATIBLE'&&!(o>0)||m.type==='CONTRACT_CONTRACTION_COMPATIBLE'&&!(o<0))fail('MECHANISM_SIGN_MISMATCH');
+ }else if(m.evidenceIds.some(id=>!selected.includes(id)))fail('MECHANISM_BASIS_REQUIRED');
+ const structureSet=new Set(input.structures.map(s=>s.evidenceId));
+ for(const id of a.structureEvidenceIds)if(!structureSet.has(id))fail('UNSUPPORTED_STRUCTURE');
+ if(['LONG_SETUP','SHORT_SETUP'].includes(a.tradeOpportunity))fail('BAR_BOUNDARY_IS_NOT_ACTIONABLE_SETUP');
+ for(const c of a.reassessmentConditions){
+  if(c.conditionType==='PROGRAM_RULE'){
+   const r=input.rules.find(r=>r.id===c.ruleId&&r.horizon===a.horizon);if(!r)fail('UNKNOWN_OR_WRONG_WINDOW_RULE');
+   else if(!supports.has(r.baselineEvidenceId))fail('RULE_BASELINE_REQUIRED');
+   else if(r.outcome==='INVALIDATED'&&sign&&p*sign<0)fail('RULE_DIRECTION_CONFLICT');
+  }
+  if(c.conditionType==='STRUCTURE_BOUNDARY'){
+   const e=map.get(c.metricOrStructureEvidenceId),s=input.structures.find(s=>s.evidenceId===c.metricOrStructureEvidenceId);
+   if(!s||!a.structureEvidenceIds.includes(s.evidenceId)||e?.window!==a.horizon)fail('STRUCTURE_PROOF_REQUIRED');
+   if(s&&(s.kind==='BAR_LOW'?c.operator!=='LTE':c.operator!=='GTE'))fail('STRUCTURE_OPERATOR_MISMATCH');
+   if(c.consequence==='INVALIDATED'&&(sign===0||sign>0&&s?.kind!=='BAR_LOW'||sign<0&&s?.kind!=='BAR_HIGH'))fail('STRUCTURE_DIRECTION_CONFLICT');
+  }
+ }
+ return errors.length?{ok:false,status:'FAILED',errors:[...new Set(errors)]}:{ok:true,status:'EXPERIMENT_VALIDATED',errors:[],analysis:structuredClone(a)};
+}

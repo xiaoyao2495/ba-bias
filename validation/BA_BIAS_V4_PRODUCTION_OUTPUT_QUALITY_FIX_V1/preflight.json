@@ -1,0 +1,16 @@
+{
+  "gitCommit": null,
+  "gitStatus": "NOT_A_GIT_REPOSITORY",
+  "processObserved": {
+    "pid": 73752,
+    "command": "node src/scan-daemon.js",
+    "running": true
+  },
+  "offlineExternalRequests": 0,
+  "offlineDeliveries": 0,
+  "productionChangesSinceStart": [],
+  "awaitingForegroundPause": false,
+  "pauseConfirmedByUser": true,
+  "processExitVerified": true,
+  "scannerRestarted": false
+}

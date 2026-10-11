@@ -1,0 +1,15 @@
+{
+  "protectedFiles": 2531,
+  "productionFiles": 2103,
+  "changed": [
+    "test/structured-v4-live-preflight.test.js",
+    "scripts/structured-v4-live-preflight.js",
+    "src/analysis/experimental/structured-v4-schema.js",
+    "src/analysis/experimental/structured-v4-renderer.js",
+    "src/analysis/experimental/structured-v4-guard.js"
+  ],
+  "newData": [],
+  "externalCalls": 0,
+  "notifications": 0,
+  "productionIntegration": false
+}

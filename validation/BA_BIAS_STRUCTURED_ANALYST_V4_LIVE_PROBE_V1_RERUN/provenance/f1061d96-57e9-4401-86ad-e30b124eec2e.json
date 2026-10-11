@@ -1,0 +1,92 @@
+{
+  "sampleId": "s_hourly_20261010_1200_ZKUSDT",
+  "provenance": {
+    "sourceType": "LIVE_MODEL_RESPONSE",
+    "executionKind": "LIVE_API",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "requestedModel": "deepseek-flash",
+    "requestId": "f1061d96-57e9-4401-86ad-e30b124eec2e",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "serverResponseId": "98c1693a-7de6-4e68-8d59-a70027e146d8",
+    "requestedAt": "2026-10-10T20:54:29.390Z",
+    "receivedAt": "2026-10-10T20:54:31.438Z",
+    "requestHash": "f778252f37cd9756ca2dee759f9c2932f1da3b04b4b8009d07e07d9087bc694a",
+    "responseHash": "5c199847470394909093c11ca87455be675f89254d172c759a5e7ac9d0f208a1",
+    "inputHash": "2a13cc78b225a8e6bb075cddb9d2762d21012e48331dd4a19b722bbbec4621e6"
+  },
+  "validation": {
+    "ok": true,
+    "status": "EXPERIMENT_VALIDATED",
+    "errors": [],
+    "analysis": {
+      "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+      "status": "NOT_PRODUCTION",
+      "causalBacktestEligible": false,
+      "symbol": "ZKUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "direction": "BEARISH",
+      "horizon": "1h",
+      "conviction": "LOW",
+      "supportingEvidenceIds": [
+        "ZKUSDT:price.closed1h",
+        "ZKUSDT:oi.1h",
+        "ZKUSDT:volume.relative1h",
+        "ZKUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "ZKUSDT:price.closed24h",
+        "ZKUSDT:oi.24h",
+        "ZKUSDT:global.long.latest"
+      ],
+      "structureEvidenceIds": [],
+      "mechanismHypothesis": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ZKUSDT:price.closed1h",
+          "ZKUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "directionalRationale": {
+        "hypothesis": "CONTINUATION",
+        "evidenceIds": [
+          "ZKUSDT:price.closed1h",
+          "ZKUSDT:oi.1h",
+          "ZKUSDT:volume.relative1h",
+          "ZKUSDT:price.drawdown"
+        ],
+        "alternative": "OPPOSITE_MOVE",
+        "certainty": "CONDITIONAL_NOT_CONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "reassessmentConditions": [
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "PRICE_OPPOSITE_1h"
+        },
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "OI_REVERSED_1h"
+        }
+      ]
+    },
+    "provenanceValid": true,
+    "analysisValid": true,
+    "provenance": {
+      "sourceType": "LIVE_MODEL_RESPONSE",
+      "executionKind": "LIVE_API",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "requestedModel": "deepseek-flash",
+      "requestId": "f1061d96-57e9-4401-86ad-e30b124eec2e",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "98c1693a-7de6-4e68-8d59-a70027e146d8",
+      "requestedAt": "2026-10-10T20:54:29.390Z",
+      "receivedAt": "2026-10-10T20:54:31.438Z",
+      "requestHash": "f778252f37cd9756ca2dee759f9c2932f1da3b04b4b8009d07e07d9087bc694a",
+      "responseHash": "5c199847470394909093c11ca87455be675f89254d172c759a5e7ac9d0f208a1",
+      "inputHash": "2a13cc78b225a8e6bb075cddb9d2762d21012e48331dd4a19b722bbbec4621e6"
+    }
+  }
+}

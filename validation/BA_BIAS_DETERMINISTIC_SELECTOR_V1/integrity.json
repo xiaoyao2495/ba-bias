@@ -1,0 +1,36 @@
+{
+  "productionFiles": 6881,
+  "productionChanges": [],
+  "addedProduction": [],
+  "coreChanges": [],
+  "changedFiles": [
+    "src/config.js",
+    "src/main.js",
+    "src/intelligence/packet.js",
+    "test/no-edge-render-forensic.test.js",
+    "test/output-quality-authorization.js",
+    "test/analyst-v3-live-preflight.test.js",
+    "test/output-quality.test.js",
+    "test/directional.test.js",
+    "test/long-short.test.js",
+    "test/v4-production.test.js",
+    "test/core.test.js",
+    "test/hourly.test.js"
+  ],
+  "addedFiles": [
+    "src/market/opportunity-selector.js",
+    "scripts/selector-replay.js",
+    "test/selector.test.js"
+  ],
+  "apiRequests": 0,
+  "dingTalkSends": 0,
+  "scannerStarts": 0,
+  "integrityPass": true,
+  "finalCheckAfterReports": true,
+  "processChecks": {
+    "initial": "NO_SCANNER_PROCESS",
+    "final": "NO_SCANNER_PROCESS",
+    "signalsSent": 0
+  },
+  "finalCheckAt": "2026-10-11T10:31:25.763Z"
+}

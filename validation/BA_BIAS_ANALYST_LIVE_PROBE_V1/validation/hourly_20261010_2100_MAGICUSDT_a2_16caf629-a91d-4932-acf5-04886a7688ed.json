@@ -1,0 +1,502 @@
+{
+  "id": "hourly_20261010_2100_MAGICUSDT_a2_16caf629-a91d-4932-acf5-04886a7688ed",
+  "attempt": 2,
+  "requestTimestamp": "2026-10-10T17:02:18.186Z",
+  "responseTimestamp": "2026-10-10T17:02:21.634Z",
+  "latencyMs": 3448,
+  "model": "deepseek-flash",
+  "inputTokenUsage": 15482,
+  "outputTokenUsage": 1001,
+  "usage": {
+    "prompt_tokens": 15482,
+    "completion_tokens": 1001,
+    "total_tokens": 16483,
+    "prompt_tokens_details": {
+      "cached_tokens": 6528
+    },
+    "prompt_cache_hit_tokens": 6528,
+    "prompt_cache_miss_tokens": 8954
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"MAGICUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h窗口价格与OI同向收缩：已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h），同期OI数量变化-0.97%（MAGICUSDT:oi.1h），最近已收盘1h成交量为前24根均值的0.88倍（MAGICUSDT:volume.relative1h），短周期动能与参与量同步走弱，故以1h为评估窗口。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度仍为强势上涨（已收盘24h价格变化38.45%，MAGICUSDT:price.closed24h；24h OI数量变化69.02%，MAGICUSDT:oi.24h），但快照最新价较24h区间高点回落-34.53%（MAGICUSDT:price.drawdown），且最近已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h）伴随1h OI数量变化-0.97%（MAGICUSDT:oi.1h）与1h相对量0.88倍（MAGICUSDT:volume.relative1h），显示短周期上行动能减弱、参与量收缩，1h倾向偏空；因缺少对齐的强扩张OI与主动流数据，强度仅LOW。\",\"marketMechanism\":\"24h价格大幅上行且24h OI数量变化69.02%（MAGICUSDT:oi.24h），与新增敞口参与上行的可能性相容；随后1h价格-5.49%（MAGICUSDT:price.closed1h）与1h OI数量变化-0.97%（MAGICUSDT:oi.1h）同向收缩，与部分多头减仓或敞口了结的可能性相容，但无法确认单侧开平仓、强平或资金流向。\",\"supportingEvidenceIds\":[\"MAGICUSDT:price.closed1h\",\"MAGICUSDT:oi.1h\",\"MAGICUSDT:volume.relative1h\",\"MAGICUSDT:price.drawdown\",\"MAGICUSDT:volume.relative5m\"],\"conflictingEvidenceIds\":[\"MAGICUSDT:price.closed24h\",\"MAGICUSDT:oi.24h\",\"MAGICUSDT:price.closed4h\",\"MAGICUSDT:funding.latest\",\"MAGICUSDT:global.flip\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"1h内价格在-5.49%回落（MAGICUSDT:price.closed1h）后延续偏弱整理，OI数量变化维持负向或低位（参考MAGICUSDT:oi.1h），相对量不放大（MAGICUSDT:volume.relative1h），不出现反向强扩张。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"若后续新收盘滚动1h价格变化≥2.7462%（PRICE_OPPOSITE_1h）则当前1h偏空命题失效；若后续新采样精确1h OI数量变化≥5.0000%（OI_REVERSED_1h）则触发复核，仅提示敞口条件逆转。\"},\"alternativeScenario\":\"若1h价格重新转正并伴随OI数量变化回升至正向扩张（对照MAGICUSDT:price.closed1h与MAGICUSDT:oi.1h），则短周期偏空判断被削弱，行情可能重回24h上行延续（MAGICUSDT:price.closed24h、MAGICUSDT:oi.24h）。\",\"followUpChecks\":[\"跟踪下一根已收盘1h价格变化与同期OI数量变化是否同向：若价格转正且OI回升，则1h偏空倾向减弱；若价格续跌且OI继续收缩，则维持偏弱判断。\",\"观察最近已收盘1h相对量能否回到1倍以上（对照MAGICUSDT:volume.relative1h），以及Funding结算是否延续负值（MAGICUSDT:funding.latest），用于判断参与量与持仓成本条件是否变化。\"]}",
+  "raw": {
+    "id": "41d7380a-211b-40b9-8de9-a773b8879a52",
+    "object": "chat.completion",
+    "created": 1791651738,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"MAGICUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h窗口价格与OI同向收缩：已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h），同期OI数量变化-0.97%（MAGICUSDT:oi.1h），最近已收盘1h成交量为前24根均值的0.88倍（MAGICUSDT:volume.relative1h），短周期动能与参与量同步走弱，故以1h为评估窗口。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度仍为强势上涨（已收盘24h价格变化38.45%，MAGICUSDT:price.closed24h；24h OI数量变化69.02%，MAGICUSDT:oi.24h），但快照最新价较24h区间高点回落-34.53%（MAGICUSDT:price.drawdown），且最近已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h）伴随1h OI数量变化-0.97%（MAGICUSDT:oi.1h）与1h相对量0.88倍（MAGICUSDT:volume.relative1h），显示短周期上行动能减弱、参与量收缩，1h倾向偏空；因缺少对齐的强扩张OI与主动流数据，强度仅LOW。\",\"marketMechanism\":\"24h价格大幅上行且24h OI数量变化69.02%（MAGICUSDT:oi.24h），与新增敞口参与上行的可能性相容；随后1h价格-5.49%（MAGICUSDT:price.closed1h）与1h OI数量变化-0.97%（MAGICUSDT:oi.1h）同向收缩，与部分多头减仓或敞口了结的可能性相容，但无法确认单侧开平仓、强平或资金流向。\",\"supportingEvidenceIds\":[\"MAGICUSDT:price.closed1h\",\"MAGICUSDT:oi.1h\",\"MAGICUSDT:volume.relative1h\",\"MAGICUSDT:price.drawdown\",\"MAGICUSDT:volume.relative5m\"],\"conflictingEvidenceIds\":[\"MAGICUSDT:price.closed24h\",\"MAGICUSDT:oi.24h\",\"MAGICUSDT:price.closed4h\",\"MAGICUSDT:funding.latest\",\"MAGICUSDT:global.flip\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"1h内价格在-5.49%回落（MAGICUSDT:price.closed1h）后延续偏弱整理，OI数量变化维持负向或低位（参考MAGICUSDT:oi.1h），相对量不放大（MAGICUSDT:volume.relative1h），不出现反向强扩张。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"若后续新收盘滚动1h价格变化≥2.7462%（PRICE_OPPOSITE_1h）则当前1h偏空命题失效；若后续新采样精确1h OI数量变化≥5.0000%（OI_REVERSED_1h）则触发复核，仅提示敞口条件逆转。\"},\"alternativeScenario\":\"若1h价格重新转正并伴随OI数量变化回升至正向扩张（对照MAGICUSDT:price.closed1h与MAGICUSDT:oi.1h），则短周期偏空判断被削弱，行情可能重回24h上行延续（MAGICUSDT:price.closed24h、MAGICUSDT:oi.24h）。\",\"followUpChecks\":[\"跟踪下一根已收盘1h价格变化与同期OI数量变化是否同向：若价格转正且OI回升，则1h偏空倾向减弱；若价格续跌且OI继续收缩，则维持偏弱判断。\",\"观察最近已收盘1h相对量能否回到1倍以上（对照MAGICUSDT:volume.relative1h），以及Funding结算是否延续负值（MAGICUSDT:funding.latest），用于判断参与量与持仓成本条件是否变化。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 15482,
+      "completion_tokens": 1001,
+      "total_tokens": 16483,
+      "prompt_tokens_details": {
+        "cached_tokens": 6528
+      },
+      "prompt_cache_hit_tokens": 6528,
+      "prompt_cache_miss_tokens": 8954
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "parsedResponse": {
+    "version": "DIRECTIONAL_ANALYST_V2",
+    "symbol": "MAGICUSDT",
+    "evaluationTime": "2026-10-10T13:00:15.062Z",
+    "marketBias": "BEARISH",
+    "horizon": "1h",
+    "horizonReason": "1h窗口价格与OI同向收缩：已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h），同期OI数量变化-0.97%（MAGICUSDT:oi.1h），最近已收盘1h成交量为前24根均值的0.88倍（MAGICUSDT:volume.relative1h），短周期动能与参与量同步走弱，故以1h为评估窗口。",
+    "conviction": "LOW",
+    "marketThesis": "24h维度仍为强势上涨（已收盘24h价格变化38.45%，MAGICUSDT:price.closed24h；24h OI数量变化69.02%，MAGICUSDT:oi.24h），但快照最新价较24h区间高点回落-34.53%（MAGICUSDT:price.drawdown），且最近已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h）伴随1h OI数量变化-0.97%（MAGICUSDT:oi.1h）与1h相对量0.88倍（MAGICUSDT:volume.relative1h），显示短周期上行动能减弱、参与量收缩，1h倾向偏空；因缺少对齐的强扩张OI与主动流数据，强度仅LOW。",
+    "marketMechanism": "24h价格大幅上行且24h OI数量变化69.02%（MAGICUSDT:oi.24h），与新增敞口参与上行的可能性相容；随后1h价格-5.49%（MAGICUSDT:price.closed1h）与1h OI数量变化-0.97%（MAGICUSDT:oi.1h）同向收缩，与部分多头减仓或敞口了结的可能性相容，但无法确认单侧开平仓、强平或资金流向。",
+    "supportingEvidenceIds": [
+      "MAGICUSDT:price.closed1h",
+      "MAGICUSDT:oi.1h",
+      "MAGICUSDT:volume.relative1h",
+      "MAGICUSDT:price.drawdown",
+      "MAGICUSDT:volume.relative5m"
+    ],
+    "conflictingEvidenceIds": [
+      "MAGICUSDT:price.closed24h",
+      "MAGICUSDT:oi.24h",
+      "MAGICUSDT:price.closed4h",
+      "MAGICUSDT:funding.latest",
+      "MAGICUSDT:global.flip"
+    ],
+    "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+    "preferredScenario": "1h内价格在-5.49%回落（MAGICUSDT:price.closed1h）后延续偏弱整理，OI数量变化维持负向或低位（参考MAGICUSDT:oi.1h），相对量不放大（MAGICUSDT:volume.relative1h），不出现反向强扩张。",
+    "invalidation": {
+      "type": "OBSERVABLE_CONDITION",
+      "ruleIds": [
+        "PRICE_OPPOSITE_1h",
+        "OI_REVERSED_1h"
+      ],
+      "description": "若后续新收盘滚动1h价格变化≥2.7462%（PRICE_OPPOSITE_1h）则当前1h偏空命题失效；若后续新采样精确1h OI数量变化≥5.0000%（OI_REVERSED_1h）则触发复核，仅提示敞口条件逆转。"
+    },
+    "alternativeScenario": "若1h价格重新转正并伴随OI数量变化回升至正向扩张（对照MAGICUSDT:price.closed1h与MAGICUSDT:oi.1h），则短周期偏空判断被削弱，行情可能重回24h上行延续（MAGICUSDT:price.closed24h、MAGICUSDT:oi.24h）。",
+    "followUpChecks": [
+      "跟踪下一根已收盘1h价格变化与同期OI数量变化是否同向：若价格转正且OI回升，则1h偏空倾向减弱；若价格续跌且OI继续收缩，则维持偏弱判断。",
+      "观察最近已收盘1h相对量能否回到1倍以上（对照MAGICUSDT:volume.relative1h），以及Funding结算是否延续负值（MAGICUSDT:funding.latest），用于判断参与量与持仓成本条件是否变化。"
+    ]
+  },
+  "schemaValid": true,
+  "validationResult": {
+    "ok": false,
+    "errors": [
+      "UNTRUSTED_SYMBOL_OR_METRIC",
+      "UNTRUSTED_NUMBER_OR_PROBABILITY"
+    ],
+    "diagnostics": [
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-5.49%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "MAGICUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.97%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "MAGICUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.88倍",
+        "window": "1h",
+        "metric": {
+          "kind": "volume"
+        },
+        "evidenceIds": [
+          "MAGICUSDT:volume.relative1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "38.45%",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "MAGICUSDT:price.closed24h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "69.02%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "MAGICUSDT:oi.24h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "-34.53%",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-5.49%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "MAGICUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.97%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "MAGICUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "0.88倍",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "69.02%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "MAGICUSDT:oi.24h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-5.49%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "MAGICUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.97%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "MAGICUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "减仓",
+        "span": "与部分多头减仓或敞口了结的可能性相容",
+        "denied": false,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "平仓",
+        "span": "无法确认单侧开平仓、强平或资金流向",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "强平",
+        "span": "无法确认单侧开平仓、强平或资金流向",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-5.49%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "MAGICUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/preferredScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/preferredScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/preferredScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/alternativeScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/alternativeScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/alternativeScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/alternativeScenario"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "2.7462%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": true,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": "PRICE_OPPOSITE_1h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "5.0000%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": "OI_REVERSED_1h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "1倍",
+        "window": "1h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/followUpChecks/1"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/followUpChecks/1"
+      },
+      {
+        "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "path": "/"
+      }
+    ],
+    "contractVersion": "DIRECTIONAL_ANALYST_V2"
+  },
+  "failureCodes": [
+    "UNTRUSTED_SYMBOL_OR_METRIC",
+    "UNTRUSTED_NUMBER_OR_PROBABILITY"
+  ],
+  "evidenceIdsUsed": [
+    "MAGICUSDT:price.closed1h",
+    "MAGICUSDT:oi.1h",
+    "MAGICUSDT:volume.relative1h",
+    "MAGICUSDT:price.drawdown",
+    "MAGICUSDT:volume.relative5m",
+    "MAGICUSDT:price.closed24h",
+    "MAGICUSDT:oi.24h",
+    "MAGICUSDT:price.closed4h",
+    "MAGICUSDT:funding.latest",
+    "MAGICUSDT:global.flip"
+  ],
+  "status": "INVALID"
+}

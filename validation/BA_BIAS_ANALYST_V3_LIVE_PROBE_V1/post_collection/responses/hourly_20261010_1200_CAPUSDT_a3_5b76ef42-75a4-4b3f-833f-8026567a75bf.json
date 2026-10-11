@@ -1,0 +1,52 @@
+{
+  "id": "hourly_20261010_1200_CAPUSDT_a3_5b76ef42-75a4-4b3f-833f-8026567a75bf",
+  "attempt": 3,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "2026-10-10T04:00:23.632Z",
+  "causalBacktestEligible": false,
+  "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+  "researchExecutedAt": "2026-10-10T18:50:11.937Z",
+  "responseAt": "2026-10-10T18:50:14.514Z",
+  "latencyMs": 2576,
+  "model": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 24325,
+    "completion_tokens": 593,
+    "total_tokens": 24918,
+    "prompt_tokens_details": {
+      "cached_tokens": 2944
+    },
+    "prompt_cache_hit_tokens": 2944,
+    "prompt_cache_miss_tokens": 21381
+  },
+  "raw": {
+    "id": "cb91f938-0ed1-43c2-9ffb-6f38a12f040b",
+    "object": "chat.completion",
+    "created": 1791658212,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"CAPUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h已收盘价格变化为负，此前等长1h为正，同期1h OI数量小幅扩张；1h窗口价格与OI证据最直接，故选1h。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来1h倾向偏空：最近已收盘1h价格转负且同期OI数量小幅扩张，但24h与4h仍为正、快照价低于24h高点，方向证据强度有限。\",\"marketMechanism\":\"1h价格下降同时OI数量增加，与新增合约在下跌方向建立敞口的情形相容；OI增加仅表示合约规模扩张，不能确认单侧加仓、资金流入或具体开平仓行为。\",\"supportingEvidenceIds\":[\"CAPUSDT:price.closed1h\",\"CAPUSDT:oi.1h\",\"CAPUSDT:directional.price.previous1h\",\"CAPUSDT:price.drawdown\",\"CAPUSDT:volume.relative1h\"],\"conflictingEvidenceIds\":[\"CAPUSDT:price.closed4h\",\"CAPUSDT:price.closed24h\",\"CAPUSDT:oi.4h\",\"CAPUSDT:funding.latest\"],\"tradeOpportunity\":\"WAIT_FOR_CONFIRMATION\",\"preferredScenario\":\"1h内价格延续偏弱，已收盘1h变化维持负值或进一步走低，同时OI数量不出现明显收缩；若价格转正且OI同步扩张，则偏空假设需重新评估。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"后续新收盘滚动1h价格变化≥1.8055%（PRICE_OPPOSITE_1h）则偏空命题失效；后续新采样精确1h OI数量变化≤-5.0000%（OI_REVERSED_1h）仅触发复核。\"},\"alternativeScenario\":\"若1h价格重新转正并伴随OI数量继续扩张，则当前偏空假设被削弱，需转向评估4h/24h仍为正的延续情景；若价格下跌但OI明显收缩，则更接近敞口了结而非新增方向敞口。\",\"followUpChecks\":[\"核对下一根已收盘1h价格变化是否维持负值，以及同期1h OI数量是否继续扩张。\",\"观察4h与24h已收盘价格变化是否被1h弱势侵蚀，并核对最新已结算Funding的支付方向是否延续。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 24325,
+      "completion_tokens": 593,
+      "total_tokens": 24918,
+      "prompt_tokens_details": {
+        "cached_tokens": 2944
+      },
+      "prompt_cache_hit_tokens": 2944,
+      "prompt_cache_miss_tokens": 21381
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"CAPUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h已收盘价格变化为负，此前等长1h为正，同期1h OI数量小幅扩张；1h窗口价格与OI证据最直接，故选1h。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来1h倾向偏空：最近已收盘1h价格转负且同期OI数量小幅扩张，但24h与4h仍为正、快照价低于24h高点，方向证据强度有限。\",\"marketMechanism\":\"1h价格下降同时OI数量增加，与新增合约在下跌方向建立敞口的情形相容；OI增加仅表示合约规模扩张，不能确认单侧加仓、资金流入或具体开平仓行为。\",\"supportingEvidenceIds\":[\"CAPUSDT:price.closed1h\",\"CAPUSDT:oi.1h\",\"CAPUSDT:directional.price.previous1h\",\"CAPUSDT:price.drawdown\",\"CAPUSDT:volume.relative1h\"],\"conflictingEvidenceIds\":[\"CAPUSDT:price.closed4h\",\"CAPUSDT:price.closed24h\",\"CAPUSDT:oi.4h\",\"CAPUSDT:funding.latest\"],\"tradeOpportunity\":\"WAIT_FOR_CONFIRMATION\",\"preferredScenario\":\"1h内价格延续偏弱，已收盘1h变化维持负值或进一步走低，同时OI数量不出现明显收缩；若价格转正且OI同步扩张，则偏空假设需重新评估。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"后续新收盘滚动1h价格变化≥1.8055%（PRICE_OPPOSITE_1h）则偏空命题失效；后续新采样精确1h OI数量变化≤-5.0000%（OI_REVERSED_1h）仅触发复核。\"},\"alternativeScenario\":\"若1h价格重新转正并伴随OI数量继续扩张，则当前偏空假设被削弱，需转向评估4h/24h仍为正的延续情景；若价格下跌但OI明显收缩，则更接近敞口了结而非新增方向敞口。\",\"followUpChecks\":[\"核对下一根已收盘1h价格变化是否维持负值，以及同期1h OI数量是否继续扩张。\",\"观察4h与24h已收盘价格变化是否被1h弱势侵蚀，并核对最新已结算Funding的支付方向是否延续。\"]}"
+}

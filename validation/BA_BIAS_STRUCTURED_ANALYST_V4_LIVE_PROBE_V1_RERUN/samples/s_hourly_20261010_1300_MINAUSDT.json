@@ -1,0 +1,646 @@
+{
+  "sampleId": "s_hourly_20261010_1300_MINAUSDT",
+  "symbol": "MINAUSDT",
+  "runId": "hourly_20261010_1300",
+  "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+  "factsPath": "data/runs/hourly_20261010_1300/facts/MINAUSDT.json",
+  "factsHash": "df604d2ee0fa6967671fd022eac28c306632b738c6f2578ede2768329cb22b37",
+  "evidenceCount": 24,
+  "scenarioTags": [
+    "PRICE_UP_OI_EXPANSION",
+    "FUNDING_ABNORMAL",
+    "ACCOUNT_CHANGE_OR_FLIP",
+    "REAL_PRICE_TURN"
+  ],
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "timeAudit": {
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+    "collectionCompletedAt": "2026-10-10T05:00:26.923Z",
+    "availability": "UNKNOWN",
+    "causalBacktestEligible": false,
+    "isolatedFutureRows": [
+      {
+        "source": "hour",
+        "rows": 1,
+        "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+      },
+      {
+        "source": "five",
+        "rows": 1,
+        "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+      }
+    ],
+    "retainedFutureEvidence": 0,
+    "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+  },
+  "selectionReason": "Deterministic original-facts scenario coverage: ACCOUNT_CHANGE_OR_FLIP",
+  "finalStatus": "FIRST_PASS_VALID",
+  "attempts": [
+    {
+      "intentId": "7563ecf7-bb08-48dc-8aa5-c01fdb30c4e1",
+      "requestId": "09c4ca35-ad73-4aca-8a3f-987369bf1242",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "sampleId": "s_hourly_20261010_1300_MINAUSDT",
+      "attempt": 1,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "collectionCompletedAt": "2026-10-10T05:00:26.923Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence.",
+      "researchExecutedAt": "2026-10-10T20:54:23.728Z",
+      "receivedAt": "2026-10-10T20:54:26.261Z",
+      "actualModel": "deepseek-flash",
+      "physicalRequests": 1,
+      "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+      "httpStatus": "UNKNOWN_CLIENT_DOES_NOT_EXPOSE_STATUS",
+      "serverResponseId": "f3d2e7fc-9fd8-443c-92b9-bad1a6cdabae",
+      "serverRequestId": null,
+      "rawText": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"MINAUSDT\",\n  \"evaluationTime\": \"2026-10-10T05:00:16.899Z\",\n  \"direction\": \"BULLISH\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"MODERATE\",\n  \"supportingEvidenceIds\": [\n    \"MINAUSDT:price.closed1h\",\n    \"MINAUSDT:oi.1h\",\n    \"MINAUSDT:volume.relative1h\",\n    \"MINAUSDT:price.closed4h\",\n    \"MINAUSDT:price.closed24h\",\n    \"MINAUSDT:global.long.change1h\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"MINAUSDT:funding.latest\",\n    \"MINAUSDT:funding.sum24h\",\n    \"MINAUSDT:price.drawdown\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_EXPANSION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"MINAUSDT:price.closed1h\",\n      \"MINAUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"CONTINUATION\",\n    \"evidenceIds\": [\n      \"MINAUSDT:price.closed1h\",\n      \"MINAUSDT:oi.1h\",\n      \"MINAUSDT:volume.relative1h\",\n      \"MINAUSDT:price.closed4h\",\n      \"MINAUSDT:price.closed24h\",\n      \"MINAUSDT:global.long.change1h\",\n      \"MINAUSDT:funding.latest\",\n      \"MINAUSDT:funding.sum24h\",\n      \"MINAUSDT:price.drawdown\"\n    ],\n    \"alternative\": \"CONSOLIDATION\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_PULLBACK\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    },\n    {\n      \"conditionType\": \"ABSTRACT_REASSESSMENT\",\n      \"metricOrStructureEvidenceId\": \"MINAUSDT:global.flip\",\n      \"interpretation\": \"MONITOR_CHANGE\",\n      \"consequence\": \"REASSESS_ONLY\"\n    }\n  ]\n}",
+      "jsonParseable": true,
+      "schemaValid": true,
+      "validation": {
+        "ok": true,
+        "status": "EXPERIMENT_VALIDATED",
+        "errors": [],
+        "analysis": {
+          "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+          "status": "NOT_PRODUCTION",
+          "causalBacktestEligible": false,
+          "symbol": "MINAUSDT",
+          "evaluationTime": "2026-10-10T05:00:16.899Z",
+          "direction": "BULLISH",
+          "horizon": "1h",
+          "conviction": "MODERATE",
+          "supportingEvidenceIds": [
+            "MINAUSDT:price.closed1h",
+            "MINAUSDT:oi.1h",
+            "MINAUSDT:volume.relative1h",
+            "MINAUSDT:price.closed4h",
+            "MINAUSDT:price.closed24h",
+            "MINAUSDT:global.long.change1h"
+          ],
+          "conflictingEvidenceIds": [
+            "MINAUSDT:funding.latest",
+            "MINAUSDT:funding.sum24h",
+            "MINAUSDT:price.drawdown"
+          ],
+          "structureEvidenceIds": [],
+          "mechanismHypothesis": {
+            "type": "CONTRACT_EXPANSION_COMPATIBLE",
+            "evidenceIds": [
+              "MINAUSDT:price.closed1h",
+              "MINAUSDT:oi.1h"
+            ],
+            "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+          },
+          "directionalRationale": {
+            "hypothesis": "CONTINUATION",
+            "evidenceIds": [
+              "MINAUSDT:price.closed1h",
+              "MINAUSDT:oi.1h",
+              "MINAUSDT:volume.relative1h",
+              "MINAUSDT:price.closed4h",
+              "MINAUSDT:price.closed24h",
+              "MINAUSDT:global.long.change1h",
+              "MINAUSDT:funding.latest",
+              "MINAUSDT:funding.sum24h",
+              "MINAUSDT:price.drawdown"
+            ],
+            "alternative": "CONSOLIDATION",
+            "certainty": "CONDITIONAL_NOT_CONFIRMED"
+          },
+          "tradeOpportunity": "WAIT_FOR_PULLBACK",
+          "reassessmentConditions": [
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "PRICE_OPPOSITE_1h"
+            },
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "OI_REVERSED_1h"
+            },
+            {
+              "conditionType": "ABSTRACT_REASSESSMENT",
+              "metricOrStructureEvidenceId": "MINAUSDT:global.flip",
+              "interpretation": "MONITOR_CHANGE",
+              "consequence": "REASSESS_ONLY"
+            }
+          ]
+        },
+        "provenanceValid": true,
+        "analysisValid": true,
+        "provenance": {
+          "sourceType": "LIVE_MODEL_RESPONSE",
+          "executionKind": "LIVE_API",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "requestedModel": "deepseek-flash",
+          "requestId": "09c4ca35-ad73-4aca-8a3f-987369bf1242",
+          "requestIdKind": "LOCAL_TRACKING_ID",
+          "serverResponseId": "f3d2e7fc-9fd8-443c-92b9-bad1a6cdabae",
+          "requestedAt": "2026-10-10T20:54:23.728Z",
+          "receivedAt": "2026-10-10T20:54:26.261Z",
+          "requestHash": "455bf041061b98f8ce1ac30545bd9d5c92f34908d873e66398e98b6baea90d84",
+          "responseHash": "04462a1b9577a610d5ee612ff8fa30b409fedcf578e5b6cc92b101015162d0e3",
+          "inputHash": "e8042b5090f3a45c4fa96b0218ed589bbe2aa90de5290c99b4607c7b36d375a7"
+        }
+      },
+      "trustedProvenance": {
+        "sourceType": "LIVE_MODEL_RESPONSE",
+        "executionKind": "LIVE_API",
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "requestedModel": "deepseek-flash",
+        "requestId": "09c4ca35-ad73-4aca-8a3f-987369bf1242",
+        "requestIdKind": "LOCAL_TRACKING_ID",
+        "serverResponseId": "f3d2e7fc-9fd8-443c-92b9-bad1a6cdabae",
+        "requestedAt": "2026-10-10T20:54:23.728Z",
+        "receivedAt": "2026-10-10T20:54:26.261Z",
+        "requestHash": "455bf041061b98f8ce1ac30545bd9d5c92f34908d873e66398e98b6baea90d84",
+        "responseHash": "04462a1b9577a610d5ee612ff8fa30b409fedcf578e5b6cc92b101015162d0e3",
+        "inputHash": "e8042b5090f3a45c4fa96b0218ed589bbe2aa90de5290c99b4607c7b36d375a7"
+      },
+      "analysis": {
+        "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+        "status": "NOT_PRODUCTION",
+        "causalBacktestEligible": false,
+        "symbol": "MINAUSDT",
+        "evaluationTime": "2026-10-10T05:00:16.899Z",
+        "direction": "BULLISH",
+        "horizon": "1h",
+        "conviction": "MODERATE",
+        "supportingEvidenceIds": [
+          "MINAUSDT:price.closed1h",
+          "MINAUSDT:oi.1h",
+          "MINAUSDT:volume.relative1h",
+          "MINAUSDT:price.closed4h",
+          "MINAUSDT:price.closed24h",
+          "MINAUSDT:global.long.change1h"
+        ],
+        "conflictingEvidenceIds": [
+          "MINAUSDT:funding.latest",
+          "MINAUSDT:funding.sum24h",
+          "MINAUSDT:price.drawdown"
+        ],
+        "structureEvidenceIds": [],
+        "mechanismHypothesis": {
+          "type": "CONTRACT_EXPANSION_COMPATIBLE",
+          "evidenceIds": [
+            "MINAUSDT:price.closed1h",
+            "MINAUSDT:oi.1h"
+          ],
+          "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+        },
+        "directionalRationale": {
+          "hypothesis": "CONTINUATION",
+          "evidenceIds": [
+            "MINAUSDT:price.closed1h",
+            "MINAUSDT:oi.1h",
+            "MINAUSDT:volume.relative1h",
+            "MINAUSDT:price.closed4h",
+            "MINAUSDT:price.closed24h",
+            "MINAUSDT:global.long.change1h",
+            "MINAUSDT:funding.latest",
+            "MINAUSDT:funding.sum24h",
+            "MINAUSDT:price.drawdown"
+          ],
+          "alternative": "CONSOLIDATION",
+          "certainty": "CONDITIONAL_NOT_CONFIRMED"
+        },
+        "tradeOpportunity": "WAIT_FOR_PULLBACK",
+        "reassessmentConditions": [
+          {
+            "conditionType": "PROGRAM_RULE",
+            "ruleId": "PRICE_OPPOSITE_1h"
+          },
+          {
+            "conditionType": "PROGRAM_RULE",
+            "ruleId": "OI_REVERSED_1h"
+          },
+          {
+            "conditionType": "ABSTRACT_REASSESSMENT",
+            "metricOrStructureEvidenceId": "MINAUSDT:global.flip",
+            "interpretation": "MONITOR_CHANGE",
+            "consequence": "REASSESS_ONLY"
+          }
+        ]
+      },
+      "rendererAudit": {
+        "ok": true,
+        "status": "PASS",
+        "errors": [],
+        "claims": [
+          {
+            "renderedClaim": "支持: MINAUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 5.93956235 % | window=1h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘1小时价格变化 5.94%",
+            "evidenceId": "MINAUSDT:price.closed1h",
+            "factsFields": [
+              "evidence[3].result",
+              "evidence[3].phrase",
+              "evidence[3].dataTimes",
+              "evidence[3].formula",
+              "sources.hour.raw"
+            ],
+            "value": "5.93956235",
+            "unit": "%",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791604800000,
+              1791608399999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "MINAUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791608416899
+              },
+              "formula": "(close_end/open_start-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: MINAUSDT:oi.1h | OI_QUANTITY_CHANGE | 0.71882067 % | window=1h | observedAt=2026-10-10T05:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 0.72%（不代表资金净流入或多空加仓方向）",
+            "evidenceId": "MINAUSDT:oi.1h",
+            "factsFields": [
+              "evidence[11].result",
+              "evidence[11].phrase",
+              "evidence[11].dataTimes",
+              "evidence[11].formula",
+              "sources.oi.raw"
+            ],
+            "value": "0.71882067",
+            "unit": "%",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791604800000,
+              1791608400000
+            ],
+            "source": {
+              "endpoint": "/futures/data/openInterestHist",
+              "params": {
+                "symbol": "MINAUSDT",
+                "period": "1h",
+                "limit": 30,
+                "endTime": 1791608416899
+              },
+              "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: MINAUSDT:volume.relative1h | RELATIVE_VOLUME | 3.64037290 multiple | window=1h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 3.64 倍",
+            "evidenceId": "MINAUSDT:volume.relative1h",
+            "factsFields": [
+              "evidence[8].result",
+              "evidence[8].phrase",
+              "evidence[8].dataTimes",
+              "evidence[8].formula",
+              "sources.hour.raw"
+            ],
+            "value": "3.64037290",
+            "unit": "multiple",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791518400000,
+              1791608399999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "MINAUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791608416899
+              },
+              "formula": "last closed base volume / preceding 24 closed bars mean"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: MINAUSDT:price.closed4h | PRICE_CLOSED_CHANGE | 15.77881817 % | window=4h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘4小时价格变化 15.78%",
+            "evidenceId": "MINAUSDT:price.closed4h",
+            "factsFields": [
+              "evidence[4].result",
+              "evidence[4].phrase",
+              "evidence[4].dataTimes",
+              "evidence[4].formula",
+              "sources.hour.raw"
+            ],
+            "value": "15.77881817",
+            "unit": "%",
+            "window": "4h",
+            "scope": null,
+            "dataTimes": [
+              1791594000000,
+              1791608399999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "MINAUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791608416899
+              },
+              "formula": "(close_end/open_start-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: MINAUSDT:price.closed24h | PRICE_CLOSED_CHANGE | 18.15599174 % | window=24h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘24小时价格变化 18.16%",
+            "evidenceId": "MINAUSDT:price.closed24h",
+            "factsFields": [
+              "evidence[5].result",
+              "evidence[5].phrase",
+              "evidence[5].dataTimes",
+              "evidence[5].formula",
+              "sources.hour.raw"
+            ],
+            "value": "18.15599174",
+            "unit": "%",
+            "window": "24h",
+            "scope": null,
+            "dataTimes": [
+              1791522000000,
+              1791608399999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "MINAUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791608416899
+              },
+              "formula": "(close_end/open_start-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: MINAUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | 1.92000000 pp | window=1h | observedAt=2026-10-10T05:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 50.96% 到 49.04%，变化 -1.92 个百分点；多方变化 1.92 个百分点",
+            "evidenceId": "MINAUSDT:global.long.change1h",
+            "factsFields": [
+              "sources.accounts.raw (canonical deterministic formula: (longAccount_end - longAccount_start) * 100; percentage points; exact retained dataTimes: 1791604800000,1791608400000)"
+            ],
+            "value": "1.92000000",
+            "unit": "pp",
+            "window": "1h",
+            "scope": "GLOBAL_ACCOUNTS",
+            "dataTimes": [
+              1791604800000,
+              1791608400000
+            ],
+            "source": {
+              "endpoint": "/futures/data/globalLongShortAccountRatio",
+              "params": {
+                "symbol": "MINAUSDT",
+                "period": "1h",
+                "limit": 3,
+                "endTime": 1791608416899
+              },
+              "formula": "(longAccount_end - longAccount_start) * 100; percentage points"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "冲突: MINAUSDT:funding.latest | SETTLED_FUNDING | -0.18672600 % | window=UNDECLARED | observedAt=2026-10-10T00:00:00.002Z | availableAt=UNKNOWN | /fapi/v1/fundingRate | 北京时间10-10 08:00已结算Funding -0.1867%，空头支付多头",
+            "evidenceId": "MINAUSDT:funding.latest",
+            "factsFields": [
+              "evidence[14].result",
+              "evidence[14].phrase",
+              "evidence[14].dataTimes",
+              "evidence[14].formula",
+              "sources.funding.raw"
+            ],
+            "value": "-0.18672600",
+            "unit": "%",
+            "window": null,
+            "scope": null,
+            "dataTimes": [
+              1791590400002
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/fundingRate",
+              "params": {
+                "symbol": "MINAUSDT",
+                "startTime": 1791435616899,
+                "endTime": 1791608416899,
+                "limit": 1000
+              },
+              "formula": "fundingRate*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "冲突: MINAUSDT:funding.sum24h | SETTLED_FUNDING | -0.54299500 % | window=UNDECLARED | observedAt=2026-10-10T00:00:00.002Z | availableAt=UNKNOWN | /fapi/v1/fundingRate | 过去24小时实际3次结算费率之和 -0.5430%（非收益率）",
+            "evidenceId": "MINAUSDT:funding.sum24h",
+            "factsFields": [
+              "evidence[15].result",
+              "evidence[15].phrase",
+              "evidence[15].dataTimes",
+              "evidence[15].formula",
+              "sources.funding.raw"
+            ],
+            "value": "-0.54299500",
+            "unit": "%",
+            "window": null,
+            "scope": null,
+            "dataTimes": [
+              1791532800000,
+              1791561600000,
+              1791590400002
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/fundingRate",
+              "params": {
+                "symbol": "MINAUSDT",
+                "startTime": 1791435616899,
+                "endTime": 1791608416899,
+                "limit": 1000
+              },
+              "formula": "sum(actual settled fundingRate)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "冲突: MINAUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -0.18534671 % | window=24h | observedAt=2026-10-10T05:00:11.728Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -0.19%",
+            "evidenceId": "MINAUSDT:price.drawdown",
+            "factsFields": [
+              "evidence[7].result",
+              "evidence[7].phrase",
+              "evidence[7].dataTimes",
+              "evidence[7].formula",
+              "sources.hour.raw"
+            ],
+            "value": "-0.18534671",
+            "unit": "%",
+            "window": "24h",
+            "scope": null,
+            "dataTimes": [
+              1791608399999,
+              1791608411728
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "MINAUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791608416899
+              },
+              "formula": "(lastPrice/high-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          }
+        ],
+        "programRules": [
+          {
+            "renderedRule": {
+              "id": "PRICE_OPPOSITE_1h",
+              "horizon": "1h",
+              "metric": "PRICE_CLOSED_CHANGE",
+              "operator": "LTE",
+              "threshold": -2.969781175,
+              "outcome": "INVALIDATED",
+              "description": "后续新收盘滚动1h价格变化≤-2.9698%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+              "baselineEvidenceId": "MINAUSDT:price.closed1h"
+            },
+            "baselineFactsEvidenceId": "MINAUSDT:price.closed1h",
+            "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+            "formula": "opposite sign * max(1, abs(current price change)/2)"
+          },
+          {
+            "renderedRule": {
+              "id": "OI_REVERSED_1h",
+              "horizon": "1h",
+              "metric": "OI_QUANTITY_CHANGE",
+              "operator": "LTE",
+              "threshold": -5,
+              "outcome": "THESIS_WARNING",
+              "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+              "baselineEvidenceId": "MINAUSDT:oi.1h"
+            },
+            "baselineFactsEvidenceId": "MINAUSDT:oi.1h",
+            "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+            "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+          }
+        ],
+        "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+      },
+      "renderedText": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nMINAUSDT BULLISH / 1h / MODERATE\noriginalEvaluationTime=2026-10-10T05:00:16.899Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: MINAUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 5.93956235 % | window=1h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘1小时价格变化 5.94%\n支持: MINAUSDT:oi.1h | OI_QUANTITY_CHANGE | 0.71882067 % | window=1h | observedAt=2026-10-10T05:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 0.72%（不代表资金净流入或多空加仓方向）\n支持: MINAUSDT:volume.relative1h | RELATIVE_VOLUME | 3.64037290 multiple | window=1h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 3.64 倍\n支持: MINAUSDT:price.closed4h | PRICE_CLOSED_CHANGE | 15.77881817 % | window=4h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘4小时价格变化 15.78%\n支持: MINAUSDT:price.closed24h | PRICE_CLOSED_CHANGE | 18.15599174 % | window=24h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘24小时价格变化 18.16%\n支持: MINAUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | 1.92000000 pp | window=1h | observedAt=2026-10-10T05:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 50.96% 到 49.04%，变化 -1.92 个百分点；多方变化 1.92 个百分点\n冲突: MINAUSDT:funding.latest | SETTLED_FUNDING | -0.18672600 % | window=UNDECLARED | observedAt=2026-10-10T00:00:00.002Z | availableAt=UNKNOWN | /fapi/v1/fundingRate | 北京时间10-10 08:00已结算Funding -0.1867%，空头支付多头\n冲突: MINAUSDT:funding.sum24h | SETTLED_FUNDING | -0.54299500 % | window=UNDECLARED | observedAt=2026-10-10T00:00:00.002Z | availableAt=UNKNOWN | /fapi/v1/fundingRate | 过去24小时实际3次结算费率之和 -0.5430%（非收益率）\n冲突: MINAUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -0.18534671 % | window=24h | observedAt=2026-10-10T05:00:11.728Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -0.19%\n机制假设: 与合约规模扩张相容，不确认单侧新增仓位。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=CONSOLIDATION，并非已证实事实。\n交易机会: WAIT_FOR_PULLBACK\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE LTE -2.969781175% => INVALIDATED; 后续新收盘滚动1h价格变化≤-2.9698%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE LTE -5% => THESIS_WARNING; 后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核\nMINAUSDT:global.flip: 观察变化，仅复核，不自动失效",
+      "qualityReview": {
+        "status": "UNCERTAIN",
+        "directionalInclination": "PASS",
+        "futureHorizon": "PASS",
+        "supportEvidence": "PASS",
+        "majorConflictConsideration": "PASS",
+        "unaddressedOpposingPriceIds": [],
+        "unsupportedCausality": "PASS",
+        "beyondPastFactRecap": "UNCERTAIN",
+        "conditionalHypothesis": "PASS",
+        "observableReassessment": "PASS",
+        "concreteTradeOpportunity": "NOT_APPLICABLE",
+        "directionSeparatedFromTrade": "PASS",
+        "noEdgeReason": "NOT_APPLICABLE",
+        "limitation": "Finite hypothesis/evidence enums cannot expose detailed reasoning or prove predictive edge. Correct IDs do not establish interpretive relevance; no outcome-based assessment performed."
+      },
+      "tokenUsage": {
+        "prompt_tokens": 6359,
+        "completion_tokens": 632,
+        "total_tokens": 6991,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "prompt_cache_hit_tokens": 1280,
+        "prompt_cache_miss_tokens": 5079
+      },
+      "rawResponsePath": "validation/BA_BIAS_STRUCTURED_ANALYST_V4_LIVE_PROBE_V1_RERUN/raw_responses/09c4ca35-ad73-4aca-8a3f-987369bf1242.json",
+      "error": null
+    }
+  ],
+  "analysis": {
+    "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+    "status": "NOT_PRODUCTION",
+    "causalBacktestEligible": false,
+    "symbol": "MINAUSDT",
+    "evaluationTime": "2026-10-10T05:00:16.899Z",
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "MODERATE",
+    "supportingEvidenceIds": [
+      "MINAUSDT:price.closed1h",
+      "MINAUSDT:oi.1h",
+      "MINAUSDT:volume.relative1h",
+      "MINAUSDT:price.closed4h",
+      "MINAUSDT:price.closed24h",
+      "MINAUSDT:global.long.change1h"
+    ],
+    "conflictingEvidenceIds": [
+      "MINAUSDT:funding.latest",
+      "MINAUSDT:funding.sum24h",
+      "MINAUSDT:price.drawdown"
+    ],
+    "structureEvidenceIds": [],
+    "mechanismHypothesis": {
+      "type": "CONTRACT_EXPANSION_COMPATIBLE",
+      "evidenceIds": [
+        "MINAUSDT:price.closed1h",
+        "MINAUSDT:oi.1h"
+      ],
+      "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+    },
+    "directionalRationale": {
+      "hypothesis": "CONTINUATION",
+      "evidenceIds": [
+        "MINAUSDT:price.closed1h",
+        "MINAUSDT:oi.1h",
+        "MINAUSDT:volume.relative1h",
+        "MINAUSDT:price.closed4h",
+        "MINAUSDT:price.closed24h",
+        "MINAUSDT:global.long.change1h",
+        "MINAUSDT:funding.latest",
+        "MINAUSDT:funding.sum24h",
+        "MINAUSDT:price.drawdown"
+      ],
+      "alternative": "CONSOLIDATION",
+      "certainty": "CONDITIONAL_NOT_CONFIRMED"
+    },
+    "tradeOpportunity": "WAIT_FOR_PULLBACK",
+    "reassessmentConditions": [
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "PRICE_OPPOSITE_1h"
+      },
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "OI_REVERSED_1h"
+      },
+      {
+        "conditionType": "ABSTRACT_REASSESSMENT",
+        "metricOrStructureEvidenceId": "MINAUSDT:global.flip",
+        "interpretation": "MONITOR_CHANGE",
+        "consequence": "REASSESS_ONLY"
+      }
+    ]
+  }
+}

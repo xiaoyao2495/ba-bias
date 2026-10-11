@@ -1,0 +1,52 @@
+{
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "counts": [
+    {
+      "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+      "category": "NUMERIC_OR_WINDOW_BINDING",
+      "responses": 9,
+      "samples": 7,
+      "firstResponses": 7,
+      "recoveryResponses": 2,
+      "finalStillInvalidSamples": 1
+    },
+    {
+      "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+      "category": "SEMANTIC_CAUSAL_REJECTION",
+      "responses": 23,
+      "samples": 8,
+      "firstResponses": 8,
+      "recoveryResponses": 15,
+      "finalStillInvalidSamples": 7
+    },
+    {
+      "code": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+      "category": "STRUCTURE_OR_NEGATION_CONTRACT",
+      "responses": 5,
+      "samples": 3,
+      "firstResponses": 3,
+      "recoveryResponses": 2,
+      "finalStillInvalidSamples": 1
+    },
+    {
+      "code": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+      "category": "FUNDING_REFERENCE_CONTRACT",
+      "responses": 3,
+      "samples": 1,
+      "firstResponses": 1,
+      "recoveryResponses": 2,
+      "finalStillInvalidSamples": 1
+    },
+    {
+      "code": "SUPPORT_SAMPLES_NOT_ALIGNED",
+      "category": "EVIDENCE_TIME_ALIGNMENT",
+      "responses": 3,
+      "samples": 1,
+      "firstResponses": 1,
+      "recoveryResponses": 2,
+      "finalStillInvalidSamples": 1
+    }
+  ],
+  "note": "Validator outcomes are fixed. Rejection codes are not independent proof of model falsehood; manual review distinguishes possible false rejection and real generation issues."
+}

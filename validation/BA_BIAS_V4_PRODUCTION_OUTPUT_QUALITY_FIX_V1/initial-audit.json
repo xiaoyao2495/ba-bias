@@ -1,0 +1,4300 @@
+[
+  {
+    "symbol": "2ZUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.78330181",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "50.48000000",
+          "shortPct": "49.52000000",
+          "changes": {
+            "1h": "-0.16000000",
+            "4h": "-0.09000000",
+            "24h": "2.48000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791662400000
+          }
+        },
+        "topAccounts": {
+          "longPct": "60.16000000",
+          "shortPct": "39.84000000",
+          "changes": {
+            "1h": "0.19000000",
+            "4h": "0.65000000",
+            "24h": "2.11000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "52.37000000",
+          "shortPct": "47.63000000",
+          "changes": {
+            "1h": "0.13000000",
+            "4h": "1.28000000",
+            "24h": "0.56000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "9.68000000",
+          "globalChange4hPp": "-0.09000000",
+          "topChange4hPp": "0.65000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_FLIP"
+      ],
+      "price": -2.88230584,
+      "oi": -2.10315406,
+      "oi1": -1.02585374,
+      "oi24": -1.81491213,
+      "funding": 0.00254,
+      "volume": 1.3794274
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791662400000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "APRUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "0.53262317",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641015226,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "69.62000000",
+          "shortPct": "30.38000000",
+          "changes": {
+            "1h": "1.03000000",
+            "4h": "1.20000000",
+            "24h": "8.36000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        }
+      },
+      "anomalies": [
+        "OI_4H",
+        "PRICE_24H"
+      ],
+      "price": -27.90055249,
+      "oi": 36.99528495,
+      "oi1": 2.20206766,
+      "oi24": 80.39698552,
+      "funding": 0.017339,
+      "volume": 1.49155973
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "70.37000000",
+          "shortPct": "29.63000000",
+          "changes": {
+            "1h": "-0.34000000",
+            "4h": "-0.37000000",
+            "24h": "8.79000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "73.14000000",
+          "shortPct": "26.86000000",
+          "changes": {
+            "1h": "-0.09000000",
+            "4h": "-0.16000000",
+            "24h": "9.31000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "52.20000000",
+          "shortPct": "47.80000000",
+          "changes": {
+            "1h": "0.20000000",
+            "4h": "0.87000000",
+            "24h": "-0.08000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "2.77000000",
+          "globalChange4hPp": "-0.37000000",
+          "topChange4hPp": "-0.16000000"
+        }
+      },
+      "anomalies": [
+        "PRICE_24H"
+      ],
+      "price": -30.41474654,
+      "oi": 3.28568364,
+      "oi1": 0.09089634,
+      "oi24": 104.94037239,
+      "funding": 0.005,
+      "volume": 0.3980777
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "ARCUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.34696527",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.19000000",
+          "shortPct": "48.81000000",
+          "changes": {
+            "1h": "-0.05000000",
+            "4h": "-0.04000000",
+            "24h": "1.19000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791622800000
+          }
+        },
+        "topAccounts": {
+          "longPct": "51.51000000",
+          "shortPct": "48.49000000",
+          "changes": {
+            "1h": "-0.10000000",
+            "4h": "-0.09000000",
+            "24h": "0.29000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "71.23000000",
+          "shortPct": "28.77000000",
+          "changes": {
+            "1h": "0.01000000",
+            "4h": "0.01000000",
+            "24h": "0.00000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "0.32000000",
+          "globalChange4hPp": "-0.04000000",
+          "topChange4hPp": "-0.09000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -2.34387542,
+      "oi": -0.03931278,
+      "oi1": -0.04380805,
+      "oi24": -0.36079706,
+      "funding": 0.005,
+      "volume": 1.23220348
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791622800000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "ARUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.05960746",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641169286,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "48.93000000",
+          "shortPct": "51.07000000",
+          "changes": {
+            "1h": "-0.42000000",
+            "4h": "-1.98000000",
+            "24h": "0.32000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791633600000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_FLIP"
+      ],
+      "price": 0.39254171,
+      "oi": 0.56829827,
+      "oi1": 0.04303239,
+      "oi24": -1.7419159,
+      "funding": 0.007062,
+      "volume": 0.39310574
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "47.76000000",
+          "shortPct": "52.24000000",
+          "changes": {
+            "1h": "-0.17000000",
+            "4h": "-1.54000000",
+            "24h": "-2.17000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791633600000
+          }
+        },
+        "topAccounts": {
+          "longPct": "56.77000000",
+          "shortPct": "43.23000000",
+          "changes": {
+            "1h": "-0.33000000",
+            "4h": "-0.79000000",
+            "24h": "-0.85000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "72.63000000",
+          "shortPct": "27.37000000",
+          "changes": {
+            "1h": "0.11000000",
+            "4h": "0.48000000",
+            "24h": "0.85000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "9.01000000",
+          "globalChange4hPp": "-1.54000000",
+          "topChange4hPp": "-0.79000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "VOLUME_SPIKE"
+      ],
+      "price": -3.06807287,
+      "oi": -0.17770664,
+      "oi1": -1.08370726,
+      "oi24": -2.06440634,
+      "funding": 0.007177,
+      "volume": 2.00267108
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791633600000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "ARXUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-3.20084418",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "53.27000000",
+          "shortPct": "46.73000000",
+          "changes": {
+            "1h": "1.11000000",
+            "4h": "2.91000000",
+            "24h": "-5.15000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791676800000
+          }
+        },
+        "topAccounts": {
+          "longPct": "52.30000000",
+          "shortPct": "47.70000000",
+          "changes": {
+            "1h": "1.53000000",
+            "4h": "3.88000000",
+            "24h": "-6.12000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791684000000
+          }
+        },
+        "topPositions": {
+          "longPct": "53.95000000",
+          "shortPct": "46.05000000",
+          "changes": {
+            "1h": "-0.04000000",
+            "4h": "0.05000000",
+            "24h": "0.34000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-0.97000000",
+          "globalChange4hPp": "2.91000000",
+          "topChange4hPp": "3.88000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_1H",
+        "PRICE_24H"
+      ],
+      "price": 8.20573223,
+      "oi": -0.56391703,
+      "oi1": -0.37035465,
+      "oi24": 2.95832829,
+      "funding": 0.010634,
+      "volume": 1.49493678
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791676800000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791684000000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "BRUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-3.17330051",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "47.69000000",
+          "shortPct": "52.31000000",
+          "changes": {
+            "1h": "0.48000000",
+            "4h": "1.56000000",
+            "24h": "-3.66000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791651600000
+          }
+        },
+        "topAccounts": {
+          "longPct": "51.37000000",
+          "shortPct": "48.63000000",
+          "changes": {
+            "1h": "0.80000000",
+            "4h": "2.48000000",
+            "24h": "-2.72000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791687600000
+          }
+        },
+        "topPositions": {
+          "longPct": "69.25000000",
+          "shortPct": "30.75000000",
+          "changes": {
+            "1h": "0.72000000",
+            "4h": "0.69000000",
+            "24h": "0.03000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "3.68000000",
+          "globalChange4hPp": "1.56000000",
+          "topChange4hPp": "2.48000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_1H"
+      ],
+      "price": 3.3996511,
+      "oi": -1.07445341,
+      "oi1": -1.4944964,
+      "oi24": -5.46056194,
+      "funding": 0.005,
+      "volume": 1.71326375
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791651600000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791687600000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "CHIPUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 1,
+    "direction": "INVALID",
+    "horizon": null,
+    "conviction": null,
+    "p1": "-0.72646405",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.00000000",
+          "shortPct": "49.00000000",
+          "changes": {
+            "1h": "-0.06000000",
+            "4h": "0.75000000",
+            "24h": "-7.01000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791684000000
+          }
+        },
+        "topAccounts": {
+          "longPct": "50.24000000",
+          "shortPct": "49.76000000",
+          "changes": {
+            "1h": "0.39000000",
+            "4h": "1.70000000",
+            "24h": "-12.21000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "SINGLE_SAMPLE",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791691200000
+          }
+        },
+        "topPositions": {
+          "longPct": "61.52000000",
+          "shortPct": "38.48000000",
+          "changes": {
+            "1h": "-0.15000000",
+            "4h": "-0.32000000",
+            "24h": "0.12000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-0.76000000",
+          "globalChange4hPp": "0.75000000",
+          "topChange4hPp": "1.70000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_24H"
+      ],
+      "price": 27.86666667,
+      "oi": 3.72081346,
+      "oi1": 0.81167525,
+      "oi24": 55.61460605,
+      "funding": 0.001732,
+      "volume": 1.3486783
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791684000000
+      },
+      "topAccounts": {
+        "status": "SINGLE_SAMPLE",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791691200000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "ENSUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.81378438",
+    "previousRun": "hourly_20261010_2100",
+    "previousOutput": 1791637631478,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "50.93000000",
+          "shortPct": "49.07000000",
+          "changes": {
+            "1h": "0.38000000",
+            "4h": "1.09000000",
+            "24h": "2.61000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791633600000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 2.42091672,
+      "oi": -0.05903736,
+      "oi1": -0.2737994,
+      "oi24": -1.46676202,
+      "funding": 0.01,
+      "volume": 0.46195057
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "54.59000000",
+          "shortPct": "45.41000000",
+          "changes": {
+            "1h": "0.46000000",
+            "4h": "1.23000000",
+            "24h": "5.22000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791633600000
+          }
+        },
+        "topAccounts": {
+          "longPct": "65.10000000",
+          "shortPct": "34.90000000",
+          "changes": {
+            "1h": "0.73000000",
+            "4h": "1.41000000",
+            "24h": "3.64000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "76.86000000",
+          "shortPct": "23.14000000",
+          "changes": {
+            "1h": "0.38000000",
+            "4h": "0.19000000",
+            "24h": "1.11000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "10.51000000",
+          "globalChange4hPp": "1.23000000",
+          "topChange4hPp": "1.41000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "VOLUME_SPIKE"
+      ],
+      "price": -2.59904913,
+      "oi": 2.17030255,
+      "oi1": 2.35746433,
+      "oi24": -1.59481407,
+      "funding": 0.008816,
+      "volume": 6.40904284
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791633600000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "ERAUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-5.14138817",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791640975986,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "61.23000000",
+          "shortPct": "38.77000000",
+          "changes": {
+            "1h": "-3.63000000",
+            "4h": "-5.37000000",
+            "24h": "-6.17000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        }
+      },
+      "anomalies": [
+        "FUNDING_CHANGE",
+        "FUNDING_EXTREME",
+        "PRICE_24H",
+        "VOLUME_SPIKE"
+      ],
+      "price": 30.46555521,
+      "oi": 8.59687058,
+      "oi1": 0.50935198,
+      "oi24": 96.19739147,
+      "funding": -1.006331,
+      "volume": 3.32942818
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "64.64000000",
+          "shortPct": "35.36000000",
+          "changes": {
+            "1h": "1.35000000",
+            "4h": "-0.29000000",
+            "24h": "-2.32000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "63.68000000",
+          "shortPct": "36.32000000",
+          "changes": {
+            "1h": "1.04000000",
+            "4h": "0.47000000",
+            "24h": "-2.95000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "55.42000000",
+          "shortPct": "44.58000000",
+          "changes": {
+            "1h": "-1.11000000",
+            "4h": "-0.87000000",
+            "24h": "-2.82000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-0.96000000",
+          "globalChange4hPp": "-0.29000000",
+          "topChange4hPp": "0.47000000"
+        }
+      },
+      "anomalies": [
+        "FUNDING_CHANGE",
+        "FUNDING_EXTREME",
+        "PRICE_1H",
+        "PRICE_24H"
+      ],
+      "price": 8.42647059,
+      "oi": -6.45220057,
+      "oi1": -3.86955244,
+      "oi24": 58.23668481,
+      "funding": -0.413158,
+      "volume": 0.57979514
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "GENIUSUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "NO_EDGE",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-0.28910090",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "47.02000000",
+          "shortPct": "52.98000000",
+          "changes": {
+            "1h": "-3.39000000",
+            "4h": "-3.19000000",
+            "24h": "-0.63000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "SINGLE_SAMPLE",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791691200000
+          }
+        },
+        "topAccounts": {
+          "longPct": "58.62000000",
+          "shortPct": "41.38000000",
+          "changes": {
+            "1h": "-4.25000000",
+            "4h": "-4.10000000",
+            "24h": "-1.97000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "72.37000000",
+          "shortPct": "27.63000000",
+          "changes": {
+            "1h": "0.06000000",
+            "4h": "-0.02000000",
+            "24h": "3.00000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "11.60000000",
+          "globalChange4hPp": "-3.19000000",
+          "topChange4hPp": "-4.10000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 0.40756914,
+      "oi": -0.12687555,
+      "oi1": -0.20908786,
+      "oi24": -2.76008276,
+      "funding": 0.005,
+      "volume": 1.0085348
+    },
+    "flip": {
+      "global": {
+        "status": "SINGLE_SAMPLE",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791691200000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "GRASSUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.39248496",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641290078,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "50.17000000",
+          "shortPct": "49.83000000",
+          "changes": {
+            "1h": "-0.56000000",
+            "4h": "0.05000000",
+            "24h": "1.99000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791615600000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 0.96123542,
+      "oi": 0.02713641,
+      "oi1": -0.26362941,
+      "oi24": -1.1402217,
+      "funding": 0.005,
+      "volume": 0.3725051
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "52.16000000",
+          "shortPct": "47.84000000",
+          "changes": {
+            "1h": "-0.14000000",
+            "4h": "2.43000000",
+            "24h": "2.41000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791684000000
+          }
+        },
+        "topAccounts": {
+          "longPct": "50.92000000",
+          "shortPct": "49.08000000",
+          "changes": {
+            "1h": "0.30000000",
+            "4h": "1.46000000",
+            "24h": "1.63000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791684000000
+          }
+        },
+        "topPositions": {
+          "longPct": "67.99000000",
+          "shortPct": "32.01000000",
+          "changes": {
+            "1h": "0.07000000",
+            "4h": "-0.13000000",
+            "24h": "-0.12000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-1.24000000",
+          "globalChange4hPp": "2.43000000",
+          "topChange4hPp": "1.46000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 2.07118748,
+      "oi": -0.13850405,
+      "oi1": -0.04261114,
+      "oi24": -0.88150301,
+      "funding": 0.005,
+      "volume": 1.6079539
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791684000000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791684000000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "HEIUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.09002826",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641317301,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "50.97000000",
+          "shortPct": "49.03000000",
+          "changes": {
+            "1h": "0.13000000",
+            "4h": "0.49000000",
+            "24h": "1.07000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791612000000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 2.08970017,
+      "oi": -0.13221197,
+      "oi1": -0.18414949,
+      "oi24": 0.15923004,
+      "funding": 0.005,
+      "volume": 0.24357214
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.47000000",
+          "shortPct": "48.53000000",
+          "changes": {
+            "1h": "-0.02000000",
+            "4h": "-0.07000000",
+            "24h": "1.67000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791612000000
+          }
+        },
+        "topAccounts": {
+          "longPct": "62.73000000",
+          "shortPct": "37.27000000",
+          "changes": {
+            "1h": "-0.14000000",
+            "4h": "0.14000000",
+            "24h": "1.26000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "78.48000000",
+          "shortPct": "21.52000000",
+          "changes": {
+            "1h": "-0.22000000",
+            "4h": "0.08000000",
+            "24h": "2.60000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "11.26000000",
+          "globalChange4hPp": "-0.07000000",
+          "topChange4hPp": "0.14000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "VOLUME_SPIKE"
+      ],
+      "price": -1.68593449,
+      "oi": -0.72497971,
+      "oi1": -0.79955908,
+      "oi24": 0.21876205,
+      "funding": 0.005,
+      "volume": 3.07975092
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791612000000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "JCTUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "NO_EDGE",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-3.70560988",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641073304,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.44000000",
+          "shortPct": "50.56000000",
+          "changes": {
+            "1h": "3.75000000",
+            "4h": "-0.43000000",
+            "24h": "-7.53000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791626400000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_1H"
+      ],
+      "price": 5.70570571,
+      "oi": 0.7506625,
+      "oi1": -1.68081527,
+      "oi24": -0.68794601,
+      "funding": 0.027369,
+      "volume": 0.93355847
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "64.82000000",
+          "shortPct": "35.18000000",
+          "changes": {
+            "1h": "-0.60000000",
+            "4h": "1.24000000",
+            "24h": "11.71000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791662400000
+          }
+        },
+        "topAccounts": {
+          "longPct": "64.74000000",
+          "shortPct": "35.26000000",
+          "changes": {
+            "1h": "-0.18000000",
+            "4h": "1.05000000",
+            "24h": "13.08000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791666000000
+          }
+        },
+        "topPositions": {
+          "longPct": "62.93000000",
+          "shortPct": "37.07000000",
+          "changes": {
+            "1h": "-0.23000000",
+            "4h": "-0.67000000",
+            "24h": "-0.30000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-0.08000000",
+          "globalChange4hPp": "1.24000000",
+          "topChange4hPp": "1.05000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_1H",
+        "PRICE_24H"
+      ],
+      "price": -26.87207488,
+      "oi": 1.87790051,
+      "oi1": -0.00303357,
+      "oi24": -0.43738462,
+      "funding": 0.005,
+      "volume": 0.30813478
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791662400000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791666000000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "KITEUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.55868692",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "47.32000000",
+          "shortPct": "52.68000000",
+          "changes": {
+            "1h": "-0.70000000",
+            "4h": "0.64000000",
+            "24h": "4.47000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "62.45000000",
+          "shortPct": "37.55000000",
+          "changes": {
+            "1h": "-0.55000000",
+            "4h": "1.12000000",
+            "24h": "5.23000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "84.81000000",
+          "shortPct": "15.19000000",
+          "changes": {
+            "1h": "0.10000000",
+            "4h": "0.53000000",
+            "24h": "0.64000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "15.13000000",
+          "globalChange4hPp": "0.64000000",
+          "topChange4hPp": "1.12000000"
+        }
+      },
+      "anomalies": [
+        "TOP_GLOBAL_DIVERGENCE"
+      ],
+      "price": 2.99613137,
+      "oi": -0.45096482,
+      "oi1": -0.12547462,
+      "oi24": 0.73657452,
+      "funding": 0.005,
+      "volume": 0.92431323
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "LAUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "MODERATE",
+    "p1": "0.74289876",
+    "previousRun": "hourly_20261010_2100",
+    "previousOutput": 1791637496380,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "52.22000000",
+          "shortPct": "47.78000000",
+          "changes": {
+            "1h": "0.23000000",
+            "4h": "1.83000000",
+            "24h": "4.08000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791597600000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_FLIP",
+        "PRICE_24H"
+      ],
+      "price": 8.29493088,
+      "oi": 0.70558735,
+      "oi1": 0.11870331,
+      "oi24": 2.48186519,
+      "funding": -0.052779,
+      "volume": 1.1627652
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "55.56000000",
+          "shortPct": "44.44000000",
+          "changes": {
+            "1h": "0.54000000",
+            "4h": "1.20000000",
+            "24h": "5.03000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "61.81000000",
+          "shortPct": "38.19000000",
+          "changes": {
+            "1h": "0.04000000",
+            "4h": "-0.07000000",
+            "24h": "2.20000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "69.55000000",
+          "shortPct": "30.45000000",
+          "changes": {
+            "1h": "-0.76000000",
+            "4h": "2.26000000",
+            "24h": "1.21000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "6.25000000",
+          "globalChange4hPp": "1.20000000",
+          "topChange4hPp": "-0.07000000"
+        }
+      },
+      "anomalies": [
+        "FUNDING_EXTREME",
+        "FUNDING_FLIP",
+        "OI_4H",
+        "PRICE_24H",
+        "VOLUME_SPIKE"
+      ],
+      "price": 10.37297903,
+      "oi": 16.05704214,
+      "oi1": 4.78211602,
+      "oi24": 20.22857257,
+      "funding": -0.260017,
+      "volume": 2.87544695
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "LDOUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.40963855",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "50.48000000",
+          "shortPct": "49.52000000",
+          "changes": {
+            "1h": "-0.11000000",
+            "4h": "0.01000000",
+            "24h": "3.23000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791676800000
+          }
+        },
+        "topAccounts": {
+          "longPct": "60.55000000",
+          "shortPct": "39.45000000",
+          "changes": {
+            "1h": "-0.32000000",
+            "4h": "0.04000000",
+            "24h": "2.18000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "77.11000000",
+          "shortPct": "22.89000000",
+          "changes": {
+            "1h": "-0.28000000",
+            "4h": "-0.95000000",
+            "24h": "-0.71000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "10.07000000",
+          "globalChange4hPp": "0.01000000",
+          "topChange4hPp": "0.04000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_FLIP"
+      ],
+      "price": -0.80094229,
+      "oi": -0.5817622,
+      "oi1": -0.59035811,
+      "oi24": -0.17507588,
+      "funding": -0.001504,
+      "volume": 1.95001994
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791676800000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "LUMIAUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "NO_EDGE",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-0.61905202",
+    "previousRun": "hourly_20261010_2100",
+    "previousOutput": 1791637402695,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "60.16000000",
+          "shortPct": "39.84000000",
+          "changes": {
+            "1h": "-3.32000000",
+            "4h": "-2.03000000",
+            "24h": "-16.23000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DISTRIBUTION_SHIFT",
+        "OI_4H",
+        "PRICE_1H",
+        "PRICE_24H",
+        "VOLUME_SPIKE"
+      ],
+      "price": 46.69817187,
+      "oi": 13.96219535,
+      "oi1": 6.64343335,
+      "oi24": 56.33570381,
+      "funding": 0.005,
+      "volume": 4.5287179
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "59.83000000",
+          "shortPct": "40.17000000",
+          "changes": {
+            "1h": "0.20000000",
+            "4h": "0.65000000",
+            "24h": "-16.17000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "63.60000000",
+          "shortPct": "36.40000000",
+          "changes": {
+            "1h": "-0.20000000",
+            "4h": "-1.36000000",
+            "24h": "-19.43000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "68.36000000",
+          "shortPct": "31.64000000",
+          "changes": {
+            "1h": "-0.55000000",
+            "4h": "-1.69000000",
+            "24h": "-18.81000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "3.77000000",
+          "globalChange4hPp": "0.65000000",
+          "topChange4hPp": "-1.36000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DISTRIBUTION_SHIFT",
+        "PRICE_24H",
+        "TOP_ACCOUNT_DISTRIBUTION_SHIFT",
+        "TOP_POSITION_DISTRIBUTION_SHIFT"
+      ],
+      "price": 29.93353474,
+      "oi": 5.14159462,
+      "oi1": 1.15436589,
+      "oi24": 74.83864276,
+      "funding": 0.005,
+      "volume": 0.51570798
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "MAGICUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "NO_EDGE",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-0.50133006",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791640989292,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.45000000",
+          "shortPct": "50.55000000",
+          "changes": {
+            "1h": "-0.75000000",
+            "4h": "-1.08000000",
+            "24h": "-10.93000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "SINGLE_SAMPLE",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791640800000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_CHANGE",
+        "FUNDING_EXTREME",
+        "PRICE_24H"
+      ],
+      "price": 34.81983133,
+      "oi": -9.01835434,
+      "oi1": -2.64783987,
+      "oi24": 61.31472985,
+      "funding": -0.468788,
+      "volume": 0.69031981
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.45000000",
+          "shortPct": "48.55000000",
+          "changes": {
+            "1h": "0.16000000",
+            "4h": "1.42000000",
+            "24h": "13.75000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791687600000
+          }
+        },
+        "topAccounts": {
+          "longPct": "55.45000000",
+          "shortPct": "44.55000000",
+          "changes": {
+            "1h": "0.08000000",
+            "4h": "0.32000000",
+            "24h": "20.11000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791622800000
+          }
+        },
+        "topPositions": {
+          "longPct": "56.57000000",
+          "shortPct": "43.43000000",
+          "changes": {
+            "1h": "0.27000000",
+            "4h": "2.16000000",
+            "24h": "3.10000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "4.00000000",
+          "globalChange4hPp": "1.42000000",
+          "topChange4hPp": "0.32000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_CHANGE",
+        "FUNDING_EXTREME",
+        "PRICE_24H",
+        "TOP_ACCOUNT_DISTRIBUTION_SHIFT"
+      ],
+      "price": -36.34275966,
+      "oi": -0.19210611,
+      "oi1": 1.89496583,
+      "oi24": -32.14811874,
+      "funding": -0.142819,
+      "volume": 0.26037874
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791687600000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791622800000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "MAGMAUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "0.56622577",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "58.06000000",
+          "shortPct": "41.94000000",
+          "changes": {
+            "1h": "0.03000000",
+            "4h": "-0.13000000",
+            "24h": "0.65000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "64.69000000",
+          "shortPct": "35.31000000",
+          "changes": {
+            "1h": "-0.14000000",
+            "4h": "-0.03000000",
+            "24h": "-0.23000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "53.18000000",
+          "shortPct": "46.82000000",
+          "changes": {
+            "1h": "0.07000000",
+            "4h": "1.41000000",
+            "24h": "-0.18000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "6.63000000",
+          "globalChange4hPp": "-0.13000000",
+          "topChange4hPp": "-0.03000000"
+        }
+      },
+      "anomalies": [
+        "VOLUME_SPIKE"
+      ],
+      "price": 6.81041536,
+      "oi": -0.80134334,
+      "oi1": 0.34834441,
+      "oi24": -4.75925866,
+      "funding": 0.005,
+      "volume": 0.96215781
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "METUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.11183105",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641390311,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.50000000",
+          "shortPct": "48.50000000",
+          "changes": {
+            "1h": "-0.29000000",
+            "4h": "0.78000000",
+            "24h": "-3.46000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791626400000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -0.44486069,
+      "oi": 1.07155156,
+      "oi1": 0.61862406,
+      "oi24": -11.96618403,
+      "funding": -0.031141,
+      "volume": 0.84627249
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.49000000",
+          "shortPct": "48.51000000",
+          "changes": {
+            "1h": "-0.10000000",
+            "4h": "0.50000000",
+            "24h": "2.08000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791626400000
+          }
+        },
+        "topAccounts": {
+          "longPct": "55.85000000",
+          "shortPct": "44.15000000",
+          "changes": {
+            "1h": "0.02000000",
+            "4h": "0.62000000",
+            "24h": "2.01000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "51.95000000",
+          "shortPct": "48.05000000",
+          "changes": {
+            "1h": "0.08000000",
+            "4h": "0.09000000",
+            "24h": "-0.67000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "4.36000000",
+          "globalChange4hPp": "0.50000000",
+          "topChange4hPp": "0.62000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 0.78992841,
+      "oi": -1.68086684,
+      "oi1": 0.0433823,
+      "oi24": -8.54610712,
+      "funding": -0.024874,
+      "volume": 0.62056337
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791626400000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "MINAUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.39620050",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641026416,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.75000000",
+          "shortPct": "50.25000000",
+          "changes": {
+            "1h": "0.16000000",
+            "4h": "-0.09000000",
+            "24h": "1.80000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791637200000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_CHANGE",
+        "FUNDING_EXTREME",
+        "PRICE_24H"
+      ],
+      "price": 8.96673833,
+      "oi": -0.80430569,
+      "oi1": -0.22000026,
+      "oi24": -4.42601625,
+      "funding": -0.278182,
+      "volume": 0.5014921
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.23000000",
+          "shortPct": "50.77000000",
+          "changes": {
+            "1h": "-0.42000000",
+            "4h": "0.24000000",
+            "24h": "0.19000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791637200000
+          }
+        },
+        "topAccounts": {
+          "longPct": "55.88000000",
+          "shortPct": "44.12000000",
+          "changes": {
+            "1h": "-0.20000000",
+            "4h": "0.62000000",
+            "24h": "0.90000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "56.92000000",
+          "shortPct": "43.08000000",
+          "changes": {
+            "1h": "0.34000000",
+            "4h": "1.00000000",
+            "24h": "0.62000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "6.65000000",
+          "globalChange4hPp": "0.24000000",
+          "topChange4hPp": "0.62000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_CHANGE",
+        "FUNDING_EXTREME"
+      ],
+      "price": -0.3936552,
+      "oi": 2.83671561,
+      "oi1": -1.1420319,
+      "oi24": -0.685692,
+      "funding": -0.16177,
+      "volume": 0.55493912
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791637200000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "NEIROUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.22670441",
+    "previousRun": "hourly_20261010_2100",
+    "previousOutput": 1791637711116,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "50.26000000",
+          "shortPct": "49.74000000",
+          "changes": {
+            "1h": "-0.06000000",
+            "4h": "0.47000000",
+            "24h": "1.37000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791633600000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 3.96015549,
+      "oi": 0.86765308,
+      "oi1": 0.04340245,
+      "oi24": 4.00635271,
+      "funding": 0.005,
+      "volume": 0.32633472
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.72000000",
+          "shortPct": "48.28000000",
+          "changes": {
+            "1h": "-0.54000000",
+            "4h": "-0.47000000",
+            "24h": "2.80000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791633600000
+          }
+        },
+        "topAccounts": {
+          "longPct": "61.33000000",
+          "shortPct": "38.67000000",
+          "changes": {
+            "1h": "-0.39000000",
+            "4h": "-0.28000000",
+            "24h": "3.08000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "83.90000000",
+          "shortPct": "16.10000000",
+          "changes": {
+            "1h": "0.04000000",
+            "4h": "-0.27000000",
+            "24h": "1.19000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "9.61000000",
+          "globalChange4hPp": "-0.47000000",
+          "topChange4hPp": "-0.28000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -2.74131723,
+      "oi": -0.81682621,
+      "oi1": -0.10153826,
+      "oi24": 2.98473092,
+      "funding": 0.005,
+      "volume": 1.78620906
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791633600000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "NIGHTUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.27685448",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "54.60000000",
+          "shortPct": "45.40000000",
+          "changes": {
+            "1h": "0.32000000",
+            "4h": "3.16000000",
+            "24h": "5.32000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791615600000
+          }
+        },
+        "topAccounts": {
+          "longPct": "58.31000000",
+          "shortPct": "41.69000000",
+          "changes": {
+            "1h": "0.42000000",
+            "4h": "2.81000000",
+            "24h": "3.58000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "73.40000000",
+          "shortPct": "26.60000000",
+          "changes": {
+            "1h": "0.04000000",
+            "4h": "0.15000000",
+            "24h": "-2.72000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "3.71000000",
+          "globalChange4hPp": "3.16000000",
+          "topChange4hPp": "2.81000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "VOLUME_SPIKE"
+      ],
+      "price": 4.25850631,
+      "oi": -0.63091192,
+      "oi1": -0.3480918,
+      "oi24": -1.62438624,
+      "funding": 0.005,
+      "volume": 0.70700672
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791615600000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "ONEUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-0.92906223",
+    "previousRun": "hourly_20261010_2100",
+    "previousOutput": 1791637603315,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.99000000",
+          "shortPct": "50.01000000",
+          "changes": {
+            "1h": "0.00000000",
+            "4h": "-0.06000000",
+            "24h": "0.54000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791633600000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -3.61434516,
+      "oi": 2.44605066,
+      "oi1": 0.63425271,
+      "oi24": 2.92545214,
+      "funding": -0.009564,
+      "volume": 0.93612992
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.49000000",
+          "shortPct": "50.51000000",
+          "changes": {
+            "1h": "-0.16000000",
+            "4h": "-0.17000000",
+            "24h": "-0.76000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791666000000
+          }
+        },
+        "topAccounts": {
+          "longPct": "56.38000000",
+          "shortPct": "43.62000000",
+          "changes": {
+            "1h": "-0.15000000",
+            "4h": "-0.34000000",
+            "24h": "-1.11000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "56.33000000",
+          "shortPct": "43.67000000",
+          "changes": {
+            "1h": "-0.08000000",
+            "4h": "0.13000000",
+            "24h": "0.68000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "6.89000000",
+          "globalChange4hPp": "-0.17000000",
+          "topChange4hPp": "-0.34000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -1.74605459,
+      "oi": -0.99741165,
+      "oi1": -0.43231037,
+      "oi24": 0.88283618,
+      "funding": -0.016839,
+      "volume": 0.93968199
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791666000000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "OUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.10592160",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "54.88000000",
+          "shortPct": "45.12000000",
+          "changes": {
+            "1h": "0.24000000",
+            "4h": "-0.43000000",
+            "24h": "5.57000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791662400000
+          }
+        },
+        "topAccounts": {
+          "longPct": "53.44000000",
+          "shortPct": "46.56000000",
+          "changes": {
+            "1h": "0.03000000",
+            "4h": "0.05000000",
+            "24h": "4.63000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791676800000
+          }
+        },
+        "topPositions": {
+          "longPct": "65.33000000",
+          "shortPct": "34.67000000",
+          "changes": {
+            "1h": "0.04000000",
+            "4h": "0.18000000",
+            "24h": "-1.45000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-1.44000000",
+          "globalChange4hPp": "-0.43000000",
+          "topChange4hPp": "0.05000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -3.83039738,
+      "oi": -0.81668996,
+      "oi1": -0.49169322,
+      "oi24": 1.38474064,
+      "funding": 0.008274,
+      "volume": 0.65119251
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791662400000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791676800000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "PENGUUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.47825033",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.53000000",
+          "shortPct": "50.47000000",
+          "changes": {
+            "1h": "0.04000000",
+            "4h": "-0.54000000",
+            "24h": "-0.11000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791680400000
+          }
+        },
+        "topAccounts": {
+          "longPct": "59.90000000",
+          "shortPct": "40.10000000",
+          "changes": {
+            "1h": "-0.14000000",
+            "4h": "-0.09000000",
+            "24h": "0.50000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "74.50000000",
+          "shortPct": "25.50000000",
+          "changes": {
+            "1h": "0.20000000",
+            "4h": "0.18000000",
+            "24h": "0.72000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "10.37000000",
+          "globalChange4hPp": "-0.54000000",
+          "topChange4hPp": "-0.09000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -2.00024099,
+      "oi": -2.17171674,
+      "oi1": -1.21791734,
+      "oi24": -2.45696049,
+      "funding": 0.003455,
+      "volume": 1.96330187
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791680400000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "PIXELUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.92055154",
+    "previousRun": "hourly_20261010_1200",
+    "previousOutput": 1791604849200,
+    "oldSummary": {
+      "anomalies": [
+        "OI_4H",
+        "PRICE_1H",
+        "PRICE_24H",
+        "VOLUME_SPIKE"
+      ],
+      "price": 27.40499829,
+      "oi": 21.39337052,
+      "funding": -0.01771,
+      "volume": 5.58621527
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "52.59000000",
+          "shortPct": "47.41000000",
+          "changes": {
+            "1h": "-1.23000000",
+            "4h": "-4.20000000",
+            "24h": "-16.33000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "62.78000000",
+          "shortPct": "37.22000000",
+          "changes": {
+            "1h": "-0.46000000",
+            "4h": "-2.14000000",
+            "24h": "-7.15000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "64.77000000",
+          "shortPct": "35.23000000",
+          "changes": {
+            "1h": "-0.44000000",
+            "4h": "1.51000000",
+            "24h": "3.22000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "10.19000000",
+          "globalChange4hPp": "-4.20000000",
+          "topChange4hPp": "-2.14000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DISTRIBUTION_SHIFT",
+        "PRICE_24H"
+      ],
+      "price": -20.00802461,
+      "oi": 2.39922973,
+      "oi1": -1.80260956,
+      "oi24": 1.62175764,
+      "funding": 0.005,
+      "volume": 0.63807692
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "POLUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.08802196",
+    "previousRun": "hourly_20261010_2100",
+    "previousOutput": 1791637548748,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.80000000",
+          "shortPct": "50.20000000",
+          "changes": {
+            "1h": "-0.06000000",
+            "4h": "0.65000000",
+            "24h": "-0.85000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791608400000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_FLIP"
+      ],
+      "price": 1.8398706,
+      "oi": -0.21688414,
+      "oi1": 0.00452753,
+      "oi24": -3.23698357,
+      "funding": -3.7e-05,
+      "volume": 0.27087397
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.09000000",
+          "shortPct": "48.91000000",
+          "changes": {
+            "1h": "0.18000000",
+            "4h": "0.34000000",
+            "24h": "1.04000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791658800000
+          }
+        },
+        "topAccounts": {
+          "longPct": "59.20000000",
+          "shortPct": "40.80000000",
+          "changes": {
+            "1h": "0.20000000",
+            "4h": "0.48000000",
+            "24h": "0.55000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "75.30000000",
+          "shortPct": "24.70000000",
+          "changes": {
+            "1h": "-0.18000000",
+            "4h": "-0.06000000",
+            "24h": "0.37000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "8.11000000",
+          "globalChange4hPp": "0.34000000",
+          "topChange4hPp": "0.48000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_FLIP",
+        "VOLUME_SPIKE"
+      ],
+      "price": 1.38665595,
+      "oi": -0.37078952,
+      "oi1": -0.20832471,
+      "oi24": -1.80559386,
+      "funding": -0.001496,
+      "volume": 1.17743921
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791658800000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "PUMPUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.69956140",
+    "previousRun": "hourly_20261010_2100",
+    "previousOutput": 1791637788498,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.01000000",
+          "shortPct": "50.99000000",
+          "changes": {
+            "1h": "-0.08000000",
+            "4h": "-0.04000000",
+            "24h": "-4.67000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791597600000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 0.10710461,
+      "oi": -0.13301494,
+      "oi1": -0.1186412,
+      "oi24": -0.18101309,
+      "funding": 0.005,
+      "volume": 0.28853768
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "48.50000000",
+          "shortPct": "51.50000000",
+          "changes": {
+            "1h": "-0.01000000",
+            "4h": "-0.45000000",
+            "24h": "-1.14000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791666000000
+          }
+        },
+        "topAccounts": {
+          "longPct": "54.56000000",
+          "shortPct": "45.44000000",
+          "changes": {
+            "1h": "-0.14000000",
+            "4h": "-0.55000000",
+            "24h": "-0.48000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "71.34000000",
+          "shortPct": "28.66000000",
+          "changes": {
+            "1h": "-0.22000000",
+            "4h": "-0.03000000",
+            "24h": "0.72000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "6.06000000",
+          "globalChange4hPp": "-0.45000000",
+          "topChange4hPp": "-0.55000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -0.95711393,
+      "oi": -0.69405471,
+      "oi1": -0.43724951,
+      "oi24": -0.64845549,
+      "funding": 0.005,
+      "volume": 1.5459501
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791666000000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "QNTUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-0.37540071",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641118620,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.72000000",
+          "shortPct": "50.28000000",
+          "changes": {
+            "1h": "0.30000000",
+            "4h": "0.25000000",
+            "24h": "0.57000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791637200000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "VOLUME_SPIKE"
+      ],
+      "price": 0.26794641,
+      "oi": -0.35578595,
+      "oi1": -0.4277903,
+      "oi24": 2.84565216,
+      "funding": -0.003682,
+      "volume": 1.47014621
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.72000000",
+          "shortPct": "50.28000000",
+          "changes": {
+            "1h": "-0.42000000",
+            "4h": "-0.48000000",
+            "24h": "-1.02000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "SINGLE_SAMPLE",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791691200000
+          }
+        },
+        "topAccounts": {
+          "longPct": "50.78000000",
+          "shortPct": "49.22000000",
+          "changes": {
+            "1h": "-0.26000000",
+            "4h": "0.10000000",
+            "24h": "0.34000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791644400000
+          }
+        },
+        "topPositions": {
+          "longPct": "59.65000000",
+          "shortPct": "40.35000000",
+          "changes": {
+            "1h": "-0.18000000",
+            "4h": "-0.68000000",
+            "24h": "-1.34000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "1.06000000",
+          "globalChange4hPp": "-0.48000000",
+          "topChange4hPp": "0.10000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_FLIP"
+      ],
+      "price": -4.27049147,
+      "oi": 0.30798655,
+      "oi1": 0.19115839,
+      "oi24": 3.44232603,
+      "funding": -0.009883,
+      "volume": 0.64199819
+    },
+    "flip": {
+      "global": {
+        "status": "SINGLE_SAMPLE",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791691200000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791644400000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "RIVERUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 1,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-0.43066322",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "76.90000000",
+          "shortPct": "23.10000000",
+          "changes": {
+            "1h": "-0.52000000",
+            "4h": "-0.98000000",
+            "24h": "-0.48000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "80.47000000",
+          "shortPct": "19.53000000",
+          "changes": {
+            "1h": "-0.52000000",
+            "4h": "-0.74000000",
+            "24h": "-0.44000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "61.95000000",
+          "shortPct": "38.05000000",
+          "changes": {
+            "1h": "0.18000000",
+            "4h": "0.36000000",
+            "24h": "0.79000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "3.57000000",
+          "globalChange4hPp": "-0.98000000",
+          "topChange4hPp": "-0.74000000"
+        }
+      },
+      "anomalies": [
+        "VOLUME_SPIKE"
+      ],
+      "price": -2.19966159,
+      "oi": 2.99311995,
+      "oi1": 2.46879651,
+      "oi24": 2.6879222,
+      "funding": 0.005,
+      "volume": 5.17292845
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "RLCUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.65978964",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641061737,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.22000000",
+          "shortPct": "48.78000000",
+          "changes": {
+            "1h": "1.53000000",
+            "4h": "1.69000000",
+            "24h": "1.41000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "SINGLE_SAMPLE",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791640800000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_CHANGE",
+        "FUNDING_EXTREME",
+        "PRICE_24H"
+      ],
+      "price": -10.37191256,
+      "oi": 4.0520438,
+      "oi1": 2.31604965,
+      "oi24": -20.96077992,
+      "funding": -0.120606,
+      "volume": 0.73666756
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.28000000",
+          "shortPct": "48.72000000",
+          "changes": {
+            "1h": "-0.44000000",
+            "4h": "-0.94000000",
+            "24h": "-0.64000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791640800000
+          }
+        },
+        "topAccounts": {
+          "longPct": "50.94000000",
+          "shortPct": "49.06000000",
+          "changes": {
+            "1h": "-0.14000000",
+            "4h": "-2.31000000",
+            "24h": "-0.14000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "55.15000000",
+          "shortPct": "44.85000000",
+          "changes": {
+            "1h": "-0.07000000",
+            "4h": "0.65000000",
+            "24h": "0.15000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-0.34000000",
+          "globalChange4hPp": "-0.94000000",
+          "topChange4hPp": "-2.31000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "FUNDING_CHANGE",
+        "FUNDING_EXTREME"
+      ],
+      "price": -6.52509653,
+      "oi": 4.55529989,
+      "oi1": 0.17141201,
+      "oi24": 2.3416296,
+      "funding": -0.140127,
+      "volume": 0.75473599
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791640800000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "ROSEUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 1,
+    "direction": "INVALID",
+    "horizon": null,
+    "conviction": null,
+    "p1": "-1.70377101",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "61.76000000",
+          "shortPct": "38.24000000",
+          "changes": {
+            "1h": "0.57000000",
+            "4h": "0.35000000",
+            "24h": "-0.97000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "68.64000000",
+          "shortPct": "31.36000000",
+          "changes": {
+            "1h": "0.64000000",
+            "4h": "0.27000000",
+            "24h": "-0.40000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "78.42000000",
+          "shortPct": "21.58000000",
+          "changes": {
+            "1h": "-0.23000000",
+            "4h": "-0.67000000",
+            "24h": "-0.24000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "6.88000000",
+          "globalChange4hPp": "0.35000000",
+          "topChange4hPp": "0.27000000"
+        }
+      },
+      "anomalies": [
+        "VOLUME_SPIKE"
+      ],
+      "price": 5.09646888,
+      "oi": 1.86133468,
+      "oi1": 0.82051218,
+      "oi24": 0.83853732,
+      "funding": 0.007291,
+      "volume": 2.64390394
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "SAHARAUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.50571720",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641442730,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "50.26000000",
+          "shortPct": "49.74000000",
+          "changes": {
+            "1h": "0.41000000",
+            "4h": "1.21000000",
+            "24h": "5.65000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "SINGLE_SAMPLE",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791640800000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 3.08613002,
+      "oi": -0.6809233,
+      "oi1": -0.0796485,
+      "oi24": -1.21845524,
+      "funding": 0.005,
+      "volume": 0.29939536
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "52.75000000",
+          "shortPct": "47.25000000",
+          "changes": {
+            "1h": "0.07000000",
+            "4h": "-0.25000000",
+            "24h": "4.38000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791640800000
+          }
+        },
+        "topAccounts": {
+          "longPct": "62.02000000",
+          "shortPct": "37.98000000",
+          "changes": {
+            "1h": "0.14000000",
+            "4h": "0.04000000",
+            "24h": "3.68000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "75.21000000",
+          "shortPct": "24.79000000",
+          "changes": {
+            "1h": "-0.13000000",
+            "4h": "0.22000000",
+            "24h": "0.09000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "9.27000000",
+          "globalChange4hPp": "-0.25000000",
+          "topChange4hPp": "0.04000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "VOLUME_SPIKE"
+      ],
+      "price": -0.6850097,
+      "oi": 0.52910251,
+      "oi1": 0.53735885,
+      "oi24": 0.6890744,
+      "funding": 0.005,
+      "volume": 2.52225676
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791640800000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "SEIUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.67597765",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641246843,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "48.66000000",
+          "shortPct": "51.34000000",
+          "changes": {
+            "1h": "0.36000000",
+            "4h": "0.76000000",
+            "24h": "-1.58000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791558000000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 3.43778521,
+      "oi": -0.39053207,
+      "oi1": -0.18215176,
+      "oi24": 1.67816316,
+      "funding": 0.01,
+      "volume": 0.66080138
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.09000000",
+          "shortPct": "48.91000000",
+          "changes": {
+            "1h": "-0.07000000",
+            "4h": "0.02000000",
+            "24h": "2.72000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791666000000
+          }
+        },
+        "topAccounts": {
+          "longPct": "62.28000000",
+          "shortPct": "37.72000000",
+          "changes": {
+            "1h": "-0.08000000",
+            "4h": "0.37000000",
+            "24h": "2.73000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "83.70000000",
+          "shortPct": "16.30000000",
+          "changes": {
+            "1h": "0.43000000",
+            "4h": "0.84000000",
+            "24h": "1.20000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "11.19000000",
+          "globalChange4hPp": "0.02000000",
+          "topChange4hPp": "0.37000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 0.96632946,
+      "oi": -1.20915742,
+      "oi1": -0.80277776,
+      "oi24": -0.67436768,
+      "funding": 0.005011,
+      "volume": 1.26813257
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791666000000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "SKYUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 1,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.72235172",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "44.70000000",
+          "shortPct": "55.30000000",
+          "changes": {
+            "1h": "0.06000000",
+            "4h": "-0.01000000",
+            "24h": "2.28000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "56.16000000",
+          "shortPct": "43.84000000",
+          "changes": {
+            "1h": "-0.06000000",
+            "4h": "0.14000000",
+            "24h": "1.76000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "67.21000000",
+          "shortPct": "32.79000000",
+          "changes": {
+            "1h": "0.25000000",
+            "4h": "0.27000000",
+            "24h": "0.71000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "11.46000000",
+          "globalChange4hPp": "-0.01000000",
+          "topChange4hPp": "0.14000000"
+        }
+      },
+      "anomalies": [
+        "VOLUME_SPIKE"
+      ],
+      "price": -1.08143322,
+      "oi": -0.24695278,
+      "oi1": -0.24900861,
+      "oi24": -0.92810062,
+      "funding": 0.005,
+      "volume": 1.62146485
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "SPKUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.73754001",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641350443,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "48.67000000",
+          "shortPct": "51.33000000",
+          "changes": {
+            "1h": "-0.26000000",
+            "4h": "-0.09000000",
+            "24h": "-1.57000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791558000000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 0.32664489,
+      "oi": -0.25998207,
+      "oi1": 0.05570856,
+      "oi24": 1.86950582,
+      "funding": 0.005,
+      "volume": 0.82613892
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "49.24000000",
+          "shortPct": "50.76000000",
+          "changes": {
+            "1h": "-0.88000000",
+            "4h": "-0.97000000",
+            "24h": "0.69000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "SINGLE_SAMPLE",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791691200000
+          }
+        },
+        "topAccounts": {
+          "longPct": "57.85000000",
+          "shortPct": "42.15000000",
+          "changes": {
+            "1h": "-0.51000000",
+            "4h": "-0.59000000",
+            "24h": "0.47000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "64.62000000",
+          "shortPct": "35.38000000",
+          "changes": {
+            "1h": "0.48000000",
+            "4h": "0.70000000",
+            "24h": "1.48000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "8.61000000",
+          "globalChange4hPp": "-0.97000000",
+          "topChange4hPp": "-0.59000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -1.42201835,
+      "oi": 0.0788356,
+      "oi1": 0.18162959,
+      "oi24": -1.25553032,
+      "funding": 0.005,
+      "volume": 1.77293771
+    },
+    "flip": {
+      "global": {
+        "status": "SINGLE_SAMPLE",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791691200000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "STRKUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-11.13077182",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641049554,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "54.69000000",
+          "shortPct": "45.31000000",
+          "changes": {
+            "1h": "-0.02000000",
+            "4h": "0.48000000",
+            "24h": "6.16000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791586800000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_1H",
+        "VOLUME_SPIKE"
+      ],
+      "price": 5.81167924,
+      "oi": 3.46970836,
+      "oi1": 1.16084175,
+      "oi24": -8.7637654,
+      "funding": 0.005,
+      "volume": 0.7793287
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "39.82000000",
+          "shortPct": "60.18000000",
+          "changes": {
+            "1h": "-3.30000000",
+            "4h": "-2.92000000",
+            "24h": "-12.18000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791651600000
+          }
+        },
+        "topAccounts": {
+          "longPct": "39.35000000",
+          "shortPct": "60.65000000",
+          "changes": {
+            "1h": "-0.55000000",
+            "4h": "-2.14000000",
+            "24h": "-12.19000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791648000000
+          }
+        },
+        "topPositions": {
+          "longPct": "53.66000000",
+          "shortPct": "46.34000000",
+          "changes": {
+            "1h": "0.92000000",
+            "4h": "0.09000000",
+            "24h": "-5.53000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-0.47000000",
+          "globalChange4hPp": "-2.92000000",
+          "topChange4hPp": "-2.14000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_1H",
+        "PRICE_24H",
+        "VOLUME_SPIKE",
+        "VOLUME_SPIKE"
+      ],
+      "price": 44.6880498,
+      "oi": 3.56268663,
+      "oi1": 1.17706009,
+      "oi24": 18.29636076,
+      "funding": -0.001779,
+      "volume": 2.12251265
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791651600000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791648000000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "SUPERUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.28315185",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641141536,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "50.94000000",
+          "shortPct": "49.06000000",
+          "changes": {
+            "1h": "0.79000000",
+            "4h": "0.73000000",
+            "24h": "-3.45000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791637200000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP",
+        "VOLUME_SPIKE"
+      ],
+      "price": 1.68218414,
+      "oi": 1.45337093,
+      "oi1": 0.82359744,
+      "oi24": 0.9592966,
+      "funding": 0.005,
+      "volume": 1.58289359
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "53.33000000",
+          "shortPct": "46.67000000",
+          "changes": {
+            "1h": "-0.12000000",
+            "4h": "-0.53000000",
+            "24h": "2.48000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791637200000
+          }
+        },
+        "topAccounts": {
+          "longPct": "59.97000000",
+          "shortPct": "40.03000000",
+          "changes": {
+            "1h": "-0.57000000",
+            "4h": "-0.67000000",
+            "24h": "2.17000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "63.84000000",
+          "shortPct": "36.16000000",
+          "changes": {
+            "1h": "0.03000000",
+            "4h": "-0.07000000",
+            "24h": "-0.43000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "6.64000000",
+          "globalChange4hPp": "-0.53000000",
+          "topChange4hPp": "-0.67000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 0.09619789,
+      "oi": -0.45948209,
+      "oi1": -0.25160496,
+      "oi24": 1.17818795,
+      "funding": 0.005,
+      "volume": 0.89583596
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791637200000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "TIAUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 1,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.68456376",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "64.44000000",
+          "shortPct": "35.56000000",
+          "changes": {
+            "1h": "-2.12000000",
+            "4h": "-3.44000000",
+            "24h": "-3.06000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "66.06000000",
+          "shortPct": "33.94000000",
+          "changes": {
+            "1h": "-1.21000000",
+            "4h": "-2.44000000",
+            "24h": "-5.04000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "67.94000000",
+          "shortPct": "32.06000000",
+          "changes": {
+            "1h": "-0.25000000",
+            "4h": "0.16000000",
+            "24h": "-7.32000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "1.62000000",
+          "globalChange4hPp": "-3.44000000",
+          "topChange4hPp": "-2.44000000"
+        }
+      },
+      "anomalies": [
+        "PRICE_24H"
+      ],
+      "price": 25.22598276,
+      "oi": -1.40068475,
+      "oi1": -0.64991771,
+      "oi24": 12.94882949,
+      "funding": 0.001986,
+      "volume": 1.61497027
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "USUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-10.11175441",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641004431,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "52.52000000",
+          "shortPct": "47.48000000",
+          "changes": {
+            "1h": "3.04000000",
+            "4h": "11.04000000",
+            "24h": "21.27000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "SINGLE_SAMPLE",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791640800000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DISTRIBUTION_SHIFT",
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_1H",
+        "PRICE_24H"
+      ],
+      "price": -32.99925761,
+      "oi": -2.56738539,
+      "oi1": -0.51551639,
+      "oi24": -23.19307327,
+      "funding": 0.007458,
+      "volume": 1.03859338
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "60.68000000",
+          "shortPct": "39.32000000",
+          "changes": {
+            "1h": "0.05000000",
+            "4h": "-1.97000000",
+            "24h": "29.25000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791640800000
+          }
+        },
+        "topAccounts": {
+          "longPct": "59.20000000",
+          "shortPct": "40.80000000",
+          "changes": {
+            "1h": "0.46000000",
+            "4h": "-5.49000000",
+            "24h": "25.81000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791637200000
+          }
+        },
+        "topPositions": {
+          "longPct": "60.04000000",
+          "shortPct": "39.96000000",
+          "changes": {
+            "1h": "-0.18000000",
+            "4h": "-0.49000000",
+            "24h": "5.30000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "-1.48000000",
+          "globalChange4hPp": "-1.97000000",
+          "topChange4hPp": "-5.49000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DISTRIBUTION_SHIFT",
+        "ACCOUNT_DOMINANCE_FLIP",
+        "PRICE_1H",
+        "PRICE_24H",
+        "TOP_ACCOUNT_DISTRIBUTION_SHIFT"
+      ],
+      "price": -24.12576803,
+      "oi": -6.83821448,
+      "oi1": -3.7400306,
+      "oi24": -26.07997914,
+      "funding": 0.005,
+      "volume": 1.37714832
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791640800000
+      },
+      "topAccounts": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791637200000
+      },
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "WALUSDT",
+    "story": "NEW_STORY",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-2.17911241",
+    "previousRun": null,
+    "previousOutput": null,
+    "oldSummary": null,
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "57.16000000",
+          "shortPct": "42.84000000",
+          "changes": {
+            "1h": "-0.34000000",
+            "4h": "0.92000000",
+            "24h": "-1.22000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topAccounts": {
+          "longPct": "58.47000000",
+          "shortPct": "41.53000000",
+          "changes": {
+            "1h": "-0.05000000",
+            "4h": "0.00000000",
+            "24h": "-4.37000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "51.95000000",
+          "shortPct": "48.05000000",
+          "changes": {
+            "1h": "-0.35000000",
+            "4h": "-1.57000000",
+            "24h": "-11.71000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "1.31000000",
+          "globalChange4hPp": "0.92000000",
+          "topChange4hPp": "0.00000000"
+        }
+      },
+      "anomalies": [
+        "FUNDING_EXTREME",
+        "FUNDING_FLIP",
+        "OI_4H"
+      ],
+      "price": 2.99803867,
+      "oi": 19.61569524,
+      "oi1": 6.7602228,
+      "oi24": 45.04918618,
+      "funding": -0.310567,
+      "volume": 0.75421382
+    },
+    "flip": {
+      "global": null,
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "WLFIUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 1,
+    "direction": "INVALID",
+    "horizon": null,
+    "conviction": null,
+    "p1": "0.10539259",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641362683,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "51.54000000",
+          "shortPct": "48.46000000",
+          "changes": {
+            "1h": "0.40000000",
+            "4h": "0.59000000",
+            "24h": "2.42000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791612000000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 5.80920564,
+      "oi": -0.0786477,
+      "oi1": 0.00244334,
+      "oi24": 1.43087988,
+      "funding": 0.005,
+      "volume": 0.83842947
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "55.98000000",
+          "shortPct": "44.02000000",
+          "changes": {
+            "1h": "-0.32000000",
+            "4h": "0.06000000",
+            "24h": "6.87000000"
+          },
+          "dominantSide": "LONG",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "SHORT",
+            "to": "LONG",
+            "timestamp": 1791612000000
+          }
+        },
+        "topAccounts": {
+          "longPct": "64.33000000",
+          "shortPct": "35.67000000",
+          "changes": {
+            "1h": "-0.27000000",
+            "4h": "-0.07000000",
+            "24h": "5.28000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "55.41000000",
+          "shortPct": "44.59000000",
+          "changes": {
+            "1h": "-0.03000000",
+            "4h": "-0.25000000",
+            "24h": "-1.87000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "8.35000000",
+          "globalChange4hPp": "0.06000000",
+          "topChange4hPp": "-0.07000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -1.62264802,
+      "oi": 0.06805846,
+      "oi1": 0.09423524,
+      "oi24": -0.30512828,
+      "funding": 0.005,
+      "volume": 0.83768085
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "SHORT",
+        "to": "LONG",
+        "timestamp": 1791612000000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  },
+  {
+    "symbol": "ZROUSDT",
+    "story": "MATERIAL_UPDATE",
+    "status": "SENT",
+    "parts": 2,
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "p1": "-1.72482552",
+    "previousRun": "hourly_20261010_2200",
+    "previousOutput": 1791641275496,
+    "oldSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "48.10000000",
+          "shortPct": "51.90000000",
+          "changes": {
+            "1h": "-0.38000000",
+            "4h": "-1.37000000",
+            "24h": "-10.29000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791612000000
+          }
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": -2.8403526,
+      "oi": 0.29274739,
+      "oi1": 0.05562533,
+      "oi24": -0.51484012,
+      "funding": 0.005,
+      "volume": 0.42593655
+    },
+    "currentSummary": {
+      "longShort": {
+        "global": {
+          "longPct": "48.77000000",
+          "shortPct": "51.23000000",
+          "changes": {
+            "1h": "0.22000000",
+            "4h": "0.11000000",
+            "24h": "-2.80000000"
+          },
+          "dominantSide": "SHORT",
+          "flip": {
+            "status": "CONFIRMED",
+            "from": "LONG",
+            "to": "SHORT",
+            "timestamp": 1791612000000
+          }
+        },
+        "topAccounts": {
+          "longPct": "55.84000000",
+          "shortPct": "44.16000000",
+          "changes": {
+            "1h": "0.19000000",
+            "4h": "0.47000000",
+            "24h": "-1.92000000"
+          },
+          "dominantSide": "LONG",
+          "flip": null
+        },
+        "topPositions": {
+          "longPct": "85.43000000",
+          "shortPct": "14.57000000",
+          "changes": {
+            "1h": "-0.04000000",
+            "4h": "0.43000000",
+            "24h": "1.82000000"
+          },
+          "dominantSide": null,
+          "flip": null
+        },
+        "divergence": {
+          "gapPp": "7.07000000",
+          "globalChange4hPp": "0.11000000",
+          "topChange4hPp": "0.47000000"
+        }
+      },
+      "anomalies": [
+        "ACCOUNT_DOMINANCE_FLIP"
+      ],
+      "price": 0.9566196,
+      "oi": -0.32809875,
+      "oi1": -0.33580726,
+      "oi24": -0.24882664,
+      "funding": 0.005,
+      "volume": 1.27906606
+    },
+    "flip": {
+      "global": {
+        "status": "CONFIRMED",
+        "from": "LONG",
+        "to": "SHORT",
+        "timestamp": 1791612000000
+      },
+      "topAccounts": null,
+      "topPositions": null,
+      "divergence": null
+    }
+  }
+]

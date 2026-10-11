@@ -1,0 +1,52 @@
+{
+  "id": "hourly_20261010_1200_MAGICUSDT_a2_77b659d8-c920-49e9-ad04-bf539dfeb1fd",
+  "attempt": 2,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "2026-10-10T04:00:18.985Z",
+  "causalBacktestEligible": false,
+  "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+  "researchExecutedAt": "2026-10-10T18:51:18.082Z",
+  "responseAt": "2026-10-10T18:51:20.994Z",
+  "latencyMs": 2910,
+  "model": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 25877,
+    "completion_tokens": 678,
+    "total_tokens": 26555,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 24213
+  },
+  "raw": {
+    "id": "4ce94e19-a145-4a3b-b16c-98c8f3440408",
+    "object": "chat.completion",
+    "created": 1791658278,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"MAGICUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化24.04%（MAGICUSDT:price.closed4h）为正，此前等长4h窗口6.26%（MAGICUSDT:directional.price.previous4h）亦为正，同期4h OI数量变化24.54%（MAGICUSDT:oi.4h）扩张，价格与合约规模同向，具备延续研究条件；1h已收盘转负且非强延续，故取4h。\",\"conviction\":\"LOW\",\"marketThesis\":\"4h窗口内倾向延续上行：已收盘4h价格与同期OI数量同向扩张，此前4h价格亦为正；但1h已收盘价格转负、24h高点回撤明显，且缺少主动买卖量、CVD与价格结构，延续假设证据强度有限。\",\"marketMechanism\":\"4h同期价格上行伴随OI合约数量扩张，与合约规模扩张、多空双方新增敞口并存的情形相容；OI增加不证明单侧加仓或资金流入，具体开平仓方向无法区分。\",\"supportingEvidenceIds\":[\"MAGICUSDT:price.closed4h\",\"MAGICUSDT:oi.4h\",\"MAGICUSDT:directional.price.previous4h\",\"MAGICUSDT:price.closed24h\",\"MAGICUSDT:oi.24h\",\"MAGICUSDT:volume.relative1h\"],\"conflictingEvidenceIds\":[\"MAGICUSDT:price.closed1h\",\"MAGICUSDT:price.drawdown\",\"MAGICUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h窗口内价格在已收盘4h正涨幅与OI扩张背景下维持偏强整理，回撤幅度不显著扩大，OI数量不出现明显收缩，则延续上行假设继续成立。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"若后续新收盘滚动4h价格变化≤-12.0179%（PRICE_OPPOSITE_4h）或新采样精确4h OI数量变化≤-12.2701%（OI_REVERSED_4h），则本4h延续假设失效或需复核。\"},\"alternativeScenario\":\"若1h负价格与24h高点回撤继续扩大，同时4h OI数量由扩张转为收缩，则上行动能可能衰减并转入更深的回撤整理，需重新评估方向。\",\"followUpChecks\":[\"核对下一根已收盘1h价格变化是否由负转正，以及1h OI数量变化是否维持扩张。\",\"核对新采样4h OI数量变化是否仍为正、未触及-12.2701%的复核阈值。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 25877,
+      "completion_tokens": 678,
+      "total_tokens": 26555,
+      "prompt_tokens_details": {
+        "cached_tokens": 1664
+      },
+      "prompt_cache_hit_tokens": 1664,
+      "prompt_cache_miss_tokens": 24213
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"MAGICUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化24.04%（MAGICUSDT:price.closed4h）为正，此前等长4h窗口6.26%（MAGICUSDT:directional.price.previous4h）亦为正，同期4h OI数量变化24.54%（MAGICUSDT:oi.4h）扩张，价格与合约规模同向，具备延续研究条件；1h已收盘转负且非强延续，故取4h。\",\"conviction\":\"LOW\",\"marketThesis\":\"4h窗口内倾向延续上行：已收盘4h价格与同期OI数量同向扩张，此前4h价格亦为正；但1h已收盘价格转负、24h高点回撤明显，且缺少主动买卖量、CVD与价格结构，延续假设证据强度有限。\",\"marketMechanism\":\"4h同期价格上行伴随OI合约数量扩张，与合约规模扩张、多空双方新增敞口并存的情形相容；OI增加不证明单侧加仓或资金流入，具体开平仓方向无法区分。\",\"supportingEvidenceIds\":[\"MAGICUSDT:price.closed4h\",\"MAGICUSDT:oi.4h\",\"MAGICUSDT:directional.price.previous4h\",\"MAGICUSDT:price.closed24h\",\"MAGICUSDT:oi.24h\",\"MAGICUSDT:volume.relative1h\"],\"conflictingEvidenceIds\":[\"MAGICUSDT:price.closed1h\",\"MAGICUSDT:price.drawdown\",\"MAGICUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h窗口内价格在已收盘4h正涨幅与OI扩张背景下维持偏强整理，回撤幅度不显著扩大，OI数量不出现明显收缩，则延续上行假设继续成立。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"若后续新收盘滚动4h价格变化≤-12.0179%（PRICE_OPPOSITE_4h）或新采样精确4h OI数量变化≤-12.2701%（OI_REVERSED_4h），则本4h延续假设失效或需复核。\"},\"alternativeScenario\":\"若1h负价格与24h高点回撤继续扩大，同时4h OI数量由扩张转为收缩，则上行动能可能衰减并转入更深的回撤整理，需重新评估方向。\",\"followUpChecks\":[\"核对下一根已收盘1h价格变化是否由负转正，以及1h OI数量变化是否维持扩张。\",\"核对新采样4h OI数量变化是否仍为正、未触及-12.2701%的复核阈值。\"]}"
+}

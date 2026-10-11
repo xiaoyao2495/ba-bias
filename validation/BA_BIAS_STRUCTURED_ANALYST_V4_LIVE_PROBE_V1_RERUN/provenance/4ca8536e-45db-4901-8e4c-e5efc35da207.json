@@ -1,0 +1,101 @@
+{
+  "sampleId": "s_hourly_20261010_1200_SENTUSDT",
+  "provenance": {
+    "sourceType": "LIVE_MODEL_RESPONSE",
+    "executionKind": "LIVE_API",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "requestedModel": "deepseek-flash",
+    "requestId": "4ca8536e-45db-4901-8e4c-e5efc35da207",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "serverResponseId": "6ec7b884-06d4-4b10-a336-f73d9aef5ea9",
+    "requestedAt": "2026-10-10T20:54:13.309Z",
+    "receivedAt": "2026-10-10T20:54:15.516Z",
+    "requestHash": "cb4251315142e386c06e5154d380d21b3dbc685ed1f6ae8f822d564bdc3173f2",
+    "responseHash": "3bf155c0273ebe8e5ea58cdc9c815583036c5111e3529364d768d765fb6650d3",
+    "inputHash": "d3e79f36fbf8571d70c61e8045fb1c71d96e253b73f6762220efcff7a08bc753"
+  },
+  "validation": {
+    "ok": true,
+    "status": "EXPERIMENT_VALIDATED",
+    "errors": [],
+    "analysis": {
+      "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+      "status": "NOT_PRODUCTION",
+      "causalBacktestEligible": false,
+      "symbol": "SENTUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "direction": "BEARISH",
+      "horizon": "1h",
+      "conviction": "LOW",
+      "supportingEvidenceIds": [
+        "SENTUSDT:price.closed1h",
+        "SENTUSDT:oi.1h",
+        "SENTUSDT:price.closed4h",
+        "SENTUSDT:price.closed24h",
+        "SENTUSDT:global.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "SENTUSDT:volume.relative1h",
+        "SENTUSDT:funding.latest"
+      ],
+      "structureEvidenceIds": [],
+      "mechanismHypothesis": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "SENTUSDT:price.closed1h",
+          "SENTUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "directionalRationale": {
+        "hypothesis": "CONTINUATION",
+        "evidenceIds": [
+          "SENTUSDT:price.closed1h",
+          "SENTUSDT:oi.1h",
+          "SENTUSDT:price.closed4h",
+          "SENTUSDT:price.closed24h",
+          "SENTUSDT:global.long.change1h",
+          "SENTUSDT:volume.relative1h",
+          "SENTUSDT:funding.latest"
+        ],
+        "alternative": "CONSOLIDATION",
+        "certainty": "CONDITIONAL_NOT_CONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "reassessmentConditions": [
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "PRICE_OPPOSITE_1h"
+        },
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "OI_REVERSED_1h"
+        },
+        {
+          "conditionType": "ABSTRACT_REASSESSMENT",
+          "metricOrStructureEvidenceId": "SENTUSDT:volume.relative1h",
+          "interpretation": "MONITOR_CHANGE",
+          "consequence": "REASSESS_ONLY"
+        }
+      ]
+    },
+    "provenanceValid": true,
+    "analysisValid": true,
+    "provenance": {
+      "sourceType": "LIVE_MODEL_RESPONSE",
+      "executionKind": "LIVE_API",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "requestedModel": "deepseek-flash",
+      "requestId": "4ca8536e-45db-4901-8e4c-e5efc35da207",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "6ec7b884-06d4-4b10-a336-f73d9aef5ea9",
+      "requestedAt": "2026-10-10T20:54:13.309Z",
+      "receivedAt": "2026-10-10T20:54:15.516Z",
+      "requestHash": "cb4251315142e386c06e5154d380d21b3dbc685ed1f6ae8f822d564bdc3173f2",
+      "responseHash": "3bf155c0273ebe8e5ea58cdc9c815583036c5111e3529364d768d765fb6650d3",
+      "inputHash": "d3e79f36fbf8571d70c61e8045fb1c71d96e253b73f6762220efcff7a08bc753"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "checkedAt": "2026-10-11T05:27:26.472798+00:00",
+  "baselineFiles": 4251,
+  "productionDataFiles": 4167,
+  "productionDataUnchanged": true,
+  "newProductionDataFiles": [],
+  "envUnchanged": true,
+  "coreContractUnchanged": true,
+  "protectedCoreFiles": [
+    "src/scan-daemon.js",
+    "src/config.js",
+    "src/main.js",
+    "src/analysis/structured-v4-prompt.json",
+    "src/analysis/active-analyst.json",
+    "src/content/story-judge.js",
+    "src/market/detector.js",
+    "src/market/long-short-detector.js",
+    "src/analysis/experimental/structured-v4-schema.js",
+    "src/analysis/experimental/structured-v4-executor.js",
+    "src/analysis/experimental/structured-v4-renderer.js",
+    "src/analysis/experimental/structured-v4-input.js",
+    "src/analysis/experimental/structured-v4-provenance.js",
+    "src/analysis/experimental/structured-v4-guard.js"
+  ],
+  "changedExistingFiles": [
+    {
+      "path": "src/analysis/directional-history.js",
+      "beforeSha256": "617033e5dffefa3f03e0434a1c105e5dd00ad4ebfec9cffe431408b0ca96b9c2",
+      "afterSha256": "ceaccf1647b9638452811a3694c599059130533d4ed1b40da2dc5f75253fa95b"
+    },
+    {
+      "path": "src/analysis/structured-v4-production.js",
+      "beforeSha256": "6b18c2ac420cc9f2c7f82378f09c976061ba51d3d599d648536395633ef1fca8",
+      "afterSha256": "dc94739d9b567f2e0d629bca4a56c6f100b4138118e95c4e27917b651e889376"
+    },
+    {
+      "path": "src/intelligence/compact-renderer.js",
+      "beforeSha256": "756b9d3089da1d8a08d4c3072da8c119982d92a0acc6ca358b26d64e346a2fee",
+      "afterSha256": "fc413820d29a5d57a7c81e55f780a347739c3f18f3ba3f6bcefe5da8c6ff9837"
+    },
+    {
+      "path": "src/intelligence/packet.js",
+      "beforeSha256": "9fd4d2419ac8a98294751db7c762ece663f162171cc0595f94ac7b54b9328624",
+      "afterSha256": "22cfa9757769f2b8e20c09909b4b6176b3ba898571e6ca2879e16558d84f0949"
+    },
+    {
+      "path": "src/storage/delivery-queue.js",
+      "beforeSha256": "0f09167beb11d5213fc28d8ad3d7b3f212d112aab62400ea2c01802d15723e04",
+      "afterSha256": "0ed937fdbced2576f3003cf8e2faadd70a59d6019ce883aca0bdfae5064f05e9"
+    },
+    {
+      "path": "src/storage/history.js",
+      "beforeSha256": "28cb9aa437a383468b59ae3701197ec635c358a56289afe1ed1ddc70e0ad1fec",
+      "afterSha256": "22a16fec688f310a10ef831f5153dfe0d92226e7b063246bb06502767f203c21"
+    },
+    {
+      "path": "test/analyst-generation.test.js",
+      "beforeSha256": "8d31af1120a8afe3f5db86b2df09e73dcd39b594d4bed92a65971b6b974cf270",
+      "afterSha256": "2e6fd1078aa5af0a3bdb10873969741c7aeb3a6ddca314b3fa360c681daa9e9d"
+    },
+    {
+      "path": "test/structured-v4.test.js",
+      "beforeSha256": "cb6b5b572a70052d6e8198bf0c8da2ffb4c57a91062d16fa3f4aca5c0d45974b",
+      "afterSha256": "99cc44985ca4c023fef6e9159503770a67dd827123f09a8843e392a463624df6"
+    },
+    {
+      "path": "test/compact.test.js",
+      "beforeSha256": "111c3bc5c22306332c741b74a8ee9e866193ae1b862a30592fa6f7d9425aee24",
+      "afterSha256": "e51c265267041d9bb9688329a83f28aeb24b049d05739eb13ca878b87f0056ff"
+    },
+    {
+      "path": "test/structured-v4-live-preflight.test.js",
+      "beforeSha256": "910b41015f5287b35a091727ce6d10980cd09148ac203c5a1a2f14675f46286b",
+      "afterSha256": "4a6ae765176be25adc2758a72777f4383362d674ce03eb6666c6c00664a8c54d"
+    },
+    {
+      "path": "test/analyst-alignment.test.js",
+      "beforeSha256": "bd3f7f0177c4a576d9f3921be9ecd3b0ad4f887ad6b83226e44f5323146f437e",
+      "afterSha256": "4589370c7a17053bf7c909ff790c503d10908712970154955bc9078db73a3068"
+    },
+    {
+      "path": "test/cutover-authorization.js",
+      "beforeSha256": "ae324296818435a8cb7294989e71001403c2ffcea91edd0ebf039ff20472c558",
+      "afterSha256": "7bc87621ba63ac87fe51ebe86bfa5cbab77c768400fc17f12ca68722f25390f7"
+    },
+    {
+      "path": "test/v4-production.test.js",
+      "beforeSha256": "ca98a274bef28f120fcbf32d0427218409c85ea3ec72e5a8585a66144494fb96",
+      "afterSha256": "4fb2ab7ee54d2990b5d027b9a0e34a944128810c9720e71a3a5357b3e6287378"
+    },
+    {
+      "path": "test/analyst-precision.test.js",
+      "beforeSha256": "daffa948dba2877e49f638767228507e59b6abccaecae1981e025548754e6d31",
+      "afterSha256": "e96c1ddbb825d4e08f30bfc1dcef81fb31c474b803001ea0800b70b23ecb2df8"
+    }
+  ],
+  "externalRequests": {
+    "binance": 0,
+    "deepseek": 0,
+    "dingtalk": 0
+  },
+  "historicalRedeliveries": 0,
+  "scannerStarted": false,
+  "scanProcessExitedConfirmed": true,
+  "gitCommit": null,
+  "gitStatus": "NOT_A_GIT_REPOSITORY",
+  "outboxStatuses": {
+    "SENT": 167,
+    "SHADOW": 2
+  },
+  "verdict": "OUTPUT_QUALITY_FIX_COMPLETE"
+}

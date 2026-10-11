@@ -1,0 +1,325 @@
+{
+  "intentId": "885655c6-de02-48ba-95dc-577bc58576db",
+  "requestId": "4d991ca6-201d-4b6d-90b0-de54fc292bdd",
+  "requestIdKind": "LOCAL_TRACKING_ID",
+  "sampleId": "s_hourly_20261010_1200_XAIUSDT",
+  "attempt": 1,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "2026-10-10T04:00:25.971Z",
+  "availability": "UNKNOWN",
+  "causalBacktestEligible": false,
+  "isolatedFutureRows": [
+    {
+      "source": "hour",
+      "rows": 1,
+      "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+    },
+    {
+      "source": "five",
+      "rows": 1,
+      "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+    }
+  ],
+  "retainedFutureEvidence": 0,
+  "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence.",
+  "researchExecutedAt": "2026-10-10T20:54:32.110Z",
+  "receivedAt": "2026-10-10T20:54:33.661Z",
+  "actualModel": "deepseek-flash",
+  "physicalRequests": 1,
+  "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+  "httpStatus": "UNKNOWN_CLIENT_DOES_NOT_EXPOSE_STATUS",
+  "serverResponseId": "27cfb657-8c27-4c46-b4b2-16f8069ec986",
+  "serverRequestId": null,
+  "rawText": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"XAIUSDT\",\n  \"evaluationTime\": \"2026-10-10T04:00:15.949Z\",\n  \"direction\": \"BULLISH\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"HIGH\",\n  \"supportingEvidenceIds\": [\n    \"XAIUSDT:price.closed1h\",\n    \"XAIUSDT:oi.1h\",\n    \"XAIUSDT:volume.relative1h\"\n  ],\n  \"conflictingEvidenceIds\": [],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_EXPANSION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"XAIUSDT:price.closed1h\",\n      \"XAIUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"CONTINUATION\",\n    \"evidenceIds\": [\n      \"XAIUSDT:price.closed1h\",\n      \"XAIUSDT:oi.1h\",\n      \"XAIUSDT:volume.relative1h\"\n    ],\n    \"alternative\": \"OPPOSITE_MOVE\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    }\n  ]\n}",
+  "jsonParseable": true,
+  "schemaValid": true,
+  "validation": {
+    "ok": true,
+    "status": "EXPERIMENT_VALIDATED",
+    "errors": [],
+    "analysis": {
+      "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+      "status": "NOT_PRODUCTION",
+      "causalBacktestEligible": false,
+      "symbol": "XAIUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "direction": "BULLISH",
+      "horizon": "1h",
+      "conviction": "HIGH",
+      "supportingEvidenceIds": [
+        "XAIUSDT:price.closed1h",
+        "XAIUSDT:oi.1h",
+        "XAIUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [],
+      "structureEvidenceIds": [],
+      "mechanismHypothesis": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "XAIUSDT:price.closed1h",
+          "XAIUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "directionalRationale": {
+        "hypothesis": "CONTINUATION",
+        "evidenceIds": [
+          "XAIUSDT:price.closed1h",
+          "XAIUSDT:oi.1h",
+          "XAIUSDT:volume.relative1h"
+        ],
+        "alternative": "OPPOSITE_MOVE",
+        "certainty": "CONDITIONAL_NOT_CONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "reassessmentConditions": [
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "PRICE_OPPOSITE_1h"
+        },
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "OI_REVERSED_1h"
+        }
+      ]
+    },
+    "provenanceValid": true,
+    "analysisValid": true,
+    "provenance": {
+      "sourceType": "LIVE_MODEL_RESPONSE",
+      "executionKind": "LIVE_API",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "requestedModel": "deepseek-flash",
+      "requestId": "4d991ca6-201d-4b6d-90b0-de54fc292bdd",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "27cfb657-8c27-4c46-b4b2-16f8069ec986",
+      "requestedAt": "2026-10-10T20:54:32.110Z",
+      "receivedAt": "2026-10-10T20:54:33.661Z",
+      "requestHash": "93dd344ca8f8e527821c36ecf0590e5c9514d3c77bfecaa6bf3c50468257945e",
+      "responseHash": "ea9c473b6f27a30db74ddd7aa8d0b8b305a15c310731513d8ea0edab5b0f4b0b",
+      "inputHash": "b71d6786e25fb957a16e0eb232596a2b94246acbc5e789ae6679b9366886b05b"
+    }
+  },
+  "trustedProvenance": {
+    "sourceType": "LIVE_MODEL_RESPONSE",
+    "executionKind": "LIVE_API",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "requestedModel": "deepseek-flash",
+    "requestId": "4d991ca6-201d-4b6d-90b0-de54fc292bdd",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "serverResponseId": "27cfb657-8c27-4c46-b4b2-16f8069ec986",
+    "requestedAt": "2026-10-10T20:54:32.110Z",
+    "receivedAt": "2026-10-10T20:54:33.661Z",
+    "requestHash": "93dd344ca8f8e527821c36ecf0590e5c9514d3c77bfecaa6bf3c50468257945e",
+    "responseHash": "ea9c473b6f27a30db74ddd7aa8d0b8b305a15c310731513d8ea0edab5b0f4b0b",
+    "inputHash": "b71d6786e25fb957a16e0eb232596a2b94246acbc5e789ae6679b9366886b05b"
+  },
+  "analysis": {
+    "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+    "status": "NOT_PRODUCTION",
+    "causalBacktestEligible": false,
+    "symbol": "XAIUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "HIGH",
+    "supportingEvidenceIds": [
+      "XAIUSDT:price.closed1h",
+      "XAIUSDT:oi.1h",
+      "XAIUSDT:volume.relative1h"
+    ],
+    "conflictingEvidenceIds": [],
+    "structureEvidenceIds": [],
+    "mechanismHypothesis": {
+      "type": "CONTRACT_EXPANSION_COMPATIBLE",
+      "evidenceIds": [
+        "XAIUSDT:price.closed1h",
+        "XAIUSDT:oi.1h"
+      ],
+      "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+    },
+    "directionalRationale": {
+      "hypothesis": "CONTINUATION",
+      "evidenceIds": [
+        "XAIUSDT:price.closed1h",
+        "XAIUSDT:oi.1h",
+        "XAIUSDT:volume.relative1h"
+      ],
+      "alternative": "OPPOSITE_MOVE",
+      "certainty": "CONDITIONAL_NOT_CONFIRMED"
+    },
+    "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+    "reassessmentConditions": [
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "PRICE_OPPOSITE_1h"
+      },
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "OI_REVERSED_1h"
+      }
+    ]
+  },
+  "rendererAudit": {
+    "ok": true,
+    "status": "PASS",
+    "errors": [],
+    "claims": [
+      {
+        "renderedClaim": "支持: XAIUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 1.76982401 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 1.77%",
+        "evidenceId": "XAIUSDT:price.closed1h",
+        "factsFields": [
+          "evidence[3].result",
+          "evidence[3].phrase",
+          "evidence[3].dataTimes",
+          "evidence[3].formula",
+          "sources.hour.raw"
+        ],
+        "value": "1.76982401",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XAIUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: XAIUSDT:oi.1h | OI_QUANTITY_CHANGE | 27.15130071 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 27.15%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "XAIUSDT:oi.1h",
+        "factsFields": [
+          "evidence[11].result",
+          "evidence[11].phrase",
+          "evidence[11].dataTimes",
+          "evidence[11].formula",
+          "sources.oi.raw"
+        ],
+        "value": "27.15130071",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "XAIUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: XAIUSDT:volume.relative1h | RELATIVE_VOLUME | 23.29332460 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 23.29 倍",
+        "evidenceId": "XAIUSDT:volume.relative1h",
+        "factsFields": [
+          "evidence[8].result",
+          "evidence[8].phrase",
+          "evidence[8].dataTimes",
+          "evidence[8].formula",
+          "sources.hour.raw"
+        ],
+        "value": "23.29332460",
+        "unit": "multiple",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791514800000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XAIUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      }
+    ],
+    "programRules": [
+      {
+        "renderedRule": {
+          "id": "PRICE_OPPOSITE_1h",
+          "horizon": "1h",
+          "metric": "PRICE_CLOSED_CHANGE",
+          "operator": "LTE",
+          "threshold": -1,
+          "outcome": "INVALIDATED",
+          "description": "后续新收盘滚动1h价格变化≤-1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+          "baselineEvidenceId": "XAIUSDT:price.closed1h"
+        },
+        "baselineFactsEvidenceId": "XAIUSDT:price.closed1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(1, abs(current price change)/2)"
+      },
+      {
+        "renderedRule": {
+          "id": "OI_REVERSED_1h",
+          "horizon": "1h",
+          "metric": "OI_QUANTITY_CHANGE",
+          "operator": "LTE",
+          "threshold": -13.575650355,
+          "outcome": "THESIS_WARNING",
+          "description": "后续新采样精确1h OI数量变化≤-13.5757%，原敞口变化条件明显逆转，只触发复核",
+          "baselineEvidenceId": "XAIUSDT:oi.1h"
+        },
+        "baselineFactsEvidenceId": "XAIUSDT:oi.1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+      }
+    ],
+    "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+  },
+  "renderedText": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nXAIUSDT BULLISH / 1h / HIGH\noriginalEvaluationTime=2026-10-10T04:00:15.949Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: XAIUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 1.76982401 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 1.77%\n支持: XAIUSDT:oi.1h | OI_QUANTITY_CHANGE | 27.15130071 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 27.15%（不代表资金净流入或多空加仓方向）\n支持: XAIUSDT:volume.relative1h | RELATIVE_VOLUME | 23.29332460 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 23.29 倍\n机制假设: 与合约规模扩张相容，不确认单侧新增仓位。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=OPPOSITE_MOVE，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE LTE -1% => INVALIDATED; 后续新收盘滚动1h价格变化≤-1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE LTE -13.575650355% => THESIS_WARNING; 后续新采样精确1h OI数量变化≤-13.5757%，原敞口变化条件明显逆转，只触发复核",
+  "qualityReview": {
+    "status": "UNCERTAIN",
+    "directionalInclination": "PASS",
+    "futureHorizon": "PASS",
+    "supportEvidence": "PASS",
+    "majorConflictConsideration": "PASS",
+    "unaddressedOpposingPriceIds": [],
+    "unsupportedCausality": "PASS",
+    "beyondPastFactRecap": "UNCERTAIN",
+    "conditionalHypothesis": "PASS",
+    "observableReassessment": "PASS",
+    "concreteTradeOpportunity": "NOT_APPLICABLE",
+    "directionSeparatedFromTrade": "PASS",
+    "noEdgeReason": "NOT_APPLICABLE",
+    "limitation": "Finite hypothesis/evidence enums cannot expose detailed reasoning or prove predictive edge. Correct IDs do not establish interpretive relevance; no outcome-based assessment performed."
+  },
+  "tokenUsage": {
+    "prompt_tokens": 6199,
+    "completion_tokens": 421,
+    "total_tokens": 6620,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 4919
+  },
+  "rawResponsePath": "validation/BA_BIAS_STRUCTURED_ANALYST_V4_LIVE_PROBE_V1_RERUN/raw_responses/4d991ca6-201d-4b6d-90b0-de54fc292bdd.json",
+  "error": null
+}

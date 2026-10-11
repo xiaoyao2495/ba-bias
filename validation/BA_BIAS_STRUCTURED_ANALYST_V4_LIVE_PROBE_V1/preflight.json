@@ -1,0 +1,94 @@
+{
+  "verdict": "V4_CONTRACT_FIX_REQUIRED",
+  "executionAllowed": false,
+  "phase": "A_PRECHECK",
+  "reason": "The existing core schema only admits synthetic/converted provenance, and renderer hardcodes it. A truthful live provenance requires core changes explicitly prohibited by this task.",
+  "schemaProvenance": {
+    "const": "SYNTHETIC_OR_CONVERTED"
+  },
+  "liveProvenanceDiagnostic": {
+    "ok": false,
+    "status": "FAILED",
+    "errors": [
+      "V4_SCHEMA_INVALID"
+    ],
+    "diagnostics": [
+      {
+        "instancePath": "/provenance",
+        "schemaPath": "#/properties/provenance/const",
+        "keyword": "const",
+        "params": {
+          "allowedValue": "SYNTHETIC_OR_CONVERTED"
+        },
+        "message": "must be equal to constant"
+      }
+    ]
+  },
+  "liveRenderedText": null,
+  "syntheticControl": {
+    "validation": {
+      "ok": true,
+      "status": "EXPERIMENT_VALIDATED",
+      "errors": [],
+      "analysis": {
+        "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+        "status": "NOT_PRODUCTION",
+        "provenance": "SYNTHETIC_OR_CONVERTED",
+        "causalBacktestEligible": false,
+        "symbol": "CAPUSDT",
+        "evaluationTime": "2026-10-10T04:00:15.949Z",
+        "direction": "BEARISH",
+        "horizon": "1h",
+        "conviction": "LOW",
+        "supportingEvidenceIds": [
+          "CAPUSDT:price.closed1h",
+          "CAPUSDT:oi.1h"
+        ],
+        "conflictingEvidenceIds": [
+          "CAPUSDT:price.closed4h",
+          "CAPUSDT:price.closed24h",
+          "CAPUSDT:oi.4h",
+          "CAPUSDT:funding.latest"
+        ],
+        "structureEvidenceIds": [],
+        "mechanismHypothesis": {
+          "type": "UNDETERMINED",
+          "evidenceIds": [],
+          "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+        },
+        "directionalRationale": {
+          "hypothesis": "CONTINUATION",
+          "evidenceIds": [
+            "CAPUSDT:price.closed1h"
+          ],
+          "alternative": "OPPOSITE_MOVE",
+          "certainty": "CONDITIONAL_NOT_CONFIRMED"
+        },
+        "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+        "reassessmentConditions": [
+          {
+            "conditionType": "ABSTRACT_REASSESSMENT",
+            "metricOrStructureEvidenceId": "CAPUSDT:price.closed1h",
+            "interpretation": "MONITOR_CHANGE",
+            "consequence": "REASSESS_ONLY"
+          }
+        ]
+      }
+    },
+    "rendererLabelsSynthetic": true
+  },
+  "inputCheck": {
+    "symbol": "CAPUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "evidenceCount": 23,
+    "allObservedWithinOriginalCutoff": true,
+    "availability": "UNKNOWN",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "causalBacktestEligible": false
+  },
+  "reproductionProvenance": "SYNTHETIC_OR_CONVERTED — offline counterexample, NOT a new model response",
+  "newExternalCalls": 0,
+  "reproductionFactsPath": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+  "reproductionSource": "Prior explicitly converted V4 offline control; not a selected live sample"
+}

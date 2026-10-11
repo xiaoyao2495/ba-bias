@@ -1,0 +1,234 @@
+{
+  "protectedFiles": 2567,
+  "productionFiles": 2103,
+  "changed": [],
+  "newData": [],
+  "frozenCoreMatchesBaseline": true,
+  "samples": [
+    {
+      "sampleId": "s_hourly_20261010_1200_PIXELUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:21.024Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_SENTUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:28.392Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1400_JCTUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T06:00:13.760Z",
+      "collectionCompletedAt": "2026-10-10T06:00:25.713Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_USUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:18.973Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_RLCUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:23.087Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1300_MINAUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "collectionCompletedAt": "2026-10-10T05:00:26.923Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1300_BRUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "collectionCompletedAt": "2026-10-10T05:00:37.819Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_ZKUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:27.099Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_XAIUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:25.971Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_XMRUSDT",
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:31.188Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+    }
+  ],
+  "keyPresent": true,
+  "actualDeepSeekCalls": 0,
+  "binanceCalls": 0,
+  "dingTalkCalls": 0,
+  "scannerStarted": false
+}

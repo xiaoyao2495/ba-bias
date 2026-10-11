@@ -1,0 +1,159 @@
+{
+  "2ZUSDT": [],
+  "APRUSDT": [
+    "oi:threshold_change",
+    "oi24:threshold_change",
+    "anomaly_set_change"
+  ],
+  "ARCUSDT": [],
+  "ARUSDT": [
+    "price:sign_change",
+    "oi:sign_change",
+    "anomaly_set_change"
+  ],
+  "ARXUSDT": [],
+  "BRUSDT": [],
+  "CHIPUSDT": [],
+  "ENSUSDT": [
+    "price:sign_change",
+    "oi:sign_change",
+    "anomaly_set_change",
+    "volume_change"
+  ],
+  "ERAUSDT": [
+    "price:threshold_change",
+    "oi:sign_change",
+    "oi:threshold_change",
+    "oi24:threshold_change",
+    "funding:threshold_change",
+    "anomaly_set_change"
+  ],
+  "GENIUSUSDT": [],
+  "GRASSUSDT": [
+    "oi:sign_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "HEIUSDT": [
+    "price:sign_change",
+    "anomaly_set_change",
+    "volume_change"
+  ],
+  "JCTUSDT": [
+    "price:sign_change",
+    "price:threshold_change",
+    "anomaly_set_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "KITEUSDT": [],
+  "LAUSDT": [
+    "oi:threshold_change",
+    "oi24:threshold_change",
+    "funding:threshold_change",
+    "anomaly_set_change"
+  ],
+  "LDOUSDT": [],
+  "LUMIAUSDT": [
+    "price:threshold_change",
+    "oi24:threshold_change",
+    "anomaly_set_change"
+  ],
+  "MAGICUSDT": [
+    "price:sign_change",
+    "price:threshold_change",
+    "oi24:threshold_change",
+    "funding:threshold_change",
+    "anomaly_set_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "MAGMAUSDT": [],
+  "METUSDT": [
+    "price:sign_change",
+    "oi:sign_change"
+  ],
+  "MINAUSDT": [
+    "price:sign_change",
+    "oi:sign_change",
+    "funding:threshold_change",
+    "anomaly_set_change"
+  ],
+  "NEIROUSDT": [
+    "price:sign_change",
+    "oi:sign_change"
+  ],
+  "NIGHTUSDT": [],
+  "ONEUSDT": [
+    "oi:sign_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "OUSDT": [],
+  "PENGUUSDT": [],
+  "PIXELUSDT": [
+    "price:sign_change",
+    "price:threshold_change",
+    "oi:threshold_change",
+    "funding:sign_change",
+    "anomaly_set_change"
+  ],
+  "POLUSDT": [
+    "anomaly_set_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "PUMPUSDT": [
+    "price:sign_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "QNTUSDT": [
+    "price:sign_change",
+    "oi:sign_change",
+    "anomaly_set_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "RIVERUSDT": [],
+  "RLCUSDT": [
+    "oi24:threshold_change",
+    "anomaly_set_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "ROSEUSDT": [],
+  "SAHARAUSDT": [
+    "price:sign_change",
+    "oi:sign_change",
+    "anomaly_set_change",
+    "volume_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "SEIUSDT": [
+    "global:flip_identity_or_status_change"
+  ],
+  "SKYUSDT": [],
+  "SPKUSDT": [
+    "price:sign_change",
+    "oi:sign_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "STRKUSDT": [
+    "price:threshold_change",
+    "oi24:threshold_change",
+    "funding:sign_change",
+    "anomaly_set_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "SUPERUSDT": [
+    "oi:sign_change",
+    "anomaly_set_change"
+  ],
+  "TIAUSDT": [],
+  "USUSDT": [
+    "anomaly_set_change",
+    "global:flip_identity_or_status_change"
+  ],
+  "WALUSDT": [],
+  "WLFIUSDT": [
+    "price:sign_change",
+    "oi:sign_change"
+  ],
+  "ZROUSDT": [
+    "price:sign_change",
+    "oi:sign_change"
+  ]
+}

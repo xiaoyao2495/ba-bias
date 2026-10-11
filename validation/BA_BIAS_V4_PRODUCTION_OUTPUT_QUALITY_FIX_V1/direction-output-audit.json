@@ -1,0 +1,1435 @@
+{
+  "counts": {
+    "sameSign": 37,
+    "oppositeSign": 0,
+    "noEdge": 4,
+    "invalid": 3,
+    "horizon": {
+      "1h": 41
+    },
+    "conviction": {
+      "LOW": 40,
+      "MODERATE": 1
+    }
+  },
+  "fidelity": [
+    {
+      "symbol": "2ZUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "2ZUSDT:price.closed1h",
+        "2ZUSDT:oi.1h",
+        "2ZUSDT:volume.relative1h",
+        "2ZUSDT:price.closed4h",
+        "2ZUSDT:price.closed24h",
+        "2ZUSDT:global.long.change1h",
+        "2ZUSDT:topPositions.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "2ZUSDT:global.flip",
+        "2ZUSDT:topAccounts.long.change1h",
+        "2ZUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "2ZUSDT:price.closed1h",
+          "2ZUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.78330181
+    },
+    {
+      "symbol": "APRUSDT",
+      "valid": true,
+      "originalDirection": "BULLISH",
+      "displayDirection": "BULLISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "APRUSDT:price.closed1h",
+        "APRUSDT:oi.1h",
+        "APRUSDT:price.closed4h",
+        "APRUSDT:topPositions.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "APRUSDT:volume.relative1h",
+        "APRUSDT:price.closed24h",
+        "APRUSDT:global.long.change1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "APRUSDT:price.closed1h",
+          "APRUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": 0.53262317
+    },
+    {
+      "symbol": "ARCUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "ARCUSDT:price.closed1h",
+        "ARCUSDT:oi.1h",
+        "ARCUSDT:price.closed4h",
+        "ARCUSDT:price.closed24h",
+        "ARCUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "ARCUSDT:global.flip",
+        "ARCUSDT:global.long.change24h",
+        "ARCUSDT:topPositions.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ARCUSDT:price.closed1h",
+          "ARCUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.34696527
+    },
+    {
+      "symbol": "ARUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "ARUSDT:price.closed1h",
+        "ARUSDT:oi.1h",
+        "ARUSDT:volume.relative1h",
+        "ARUSDT:global.short.change1h",
+        "ARUSDT:topAccounts.short.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "ARUSDT:topPositions.long.latest",
+        "ARUSDT:topPositions.long.change1h",
+        "ARUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ARUSDT:price.closed1h",
+          "ARUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.05960746
+    },
+    {
+      "symbol": "ARXUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "ARXUSDT:price.closed1h",
+        "ARXUSDT:oi.1h",
+        "ARXUSDT:volume.relative1h",
+        "ARXUSDT:price.closed4h",
+        "ARXUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "ARXUSDT:price.closed24h",
+        "ARXUSDT:oi.24h",
+        "ARXUSDT:global.long.change1h",
+        "ARXUSDT:topAccounts.long.change1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ARXUSDT:price.closed1h",
+          "ARXUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -3.20084418
+    },
+    {
+      "symbol": "BRUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "BRUSDT:price.closed1h",
+        "BRUSDT:oi.1h",
+        "BRUSDT:volume.relative1h",
+        "BRUSDT:price.closed4h",
+        "BRUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "BRUSDT:price.closed24h",
+        "BRUSDT:topPositions.long.latest",
+        "BRUSDT:topAccounts.flip"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "BRUSDT:price.closed1h",
+          "BRUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -3.17330051
+    },
+    {
+      "symbol": "CHIPUSDT",
+      "valid": false,
+      "originalDirection": "NO_EDGE",
+      "displayDirection": null,
+      "originalHorizon": "1h",
+      "displayHorizon": null,
+      "originalConviction": "LOW",
+      "displayConviction": null,
+      "supportingEvidenceIds": [
+        "CHIPUSDT:price.closed1h",
+        "CHIPUSDT:oi.1h",
+        "CHIPUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "CHIPUSDT:price.closed24h",
+        "CHIPUSDT:price.drawdown",
+        "CHIPUSDT:global.flip"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "CHIPUSDT:price.closed1h",
+          "CHIPUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+      "p1": -0.72646405
+    },
+    {
+      "symbol": "ENSUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "ENSUSDT:price.closed1h",
+        "ENSUSDT:oi.1h",
+        "ENSUSDT:volume.relative1h",
+        "ENSUSDT:price.last",
+        "ENSUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "ENSUSDT:global.long.change1h",
+        "ENSUSDT:topAccounts.long.change1h",
+        "ENSUSDT:topPositions.long.change1h",
+        "ENSUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "ENSUSDT:price.closed1h",
+          "ENSUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.81378438
+    },
+    {
+      "symbol": "ERAUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "ERAUSDT:price.closed1h",
+        "ERAUSDT:oi.1h",
+        "ERAUSDT:volume.relative1h",
+        "ERAUSDT:topPositions.long.change1h",
+        "ERAUSDT:topPositions.short.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "ERAUSDT:price.closed24h",
+        "ERAUSDT:oi.24h",
+        "ERAUSDT:funding.latest",
+        "ERAUSDT:global.long.change1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ERAUSDT:price.closed1h",
+          "ERAUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -5.14138817
+    },
+    {
+      "symbol": "GENIUSUSDT",
+      "valid": true,
+      "originalDirection": "NO_EDGE",
+      "displayDirection": "NO_EDGE",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "GENIUSUSDT:price.closed1h",
+        "GENIUSUSDT:oi.1h",
+        "GENIUSUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "GENIUSUSDT:price.closed24h",
+        "GENIUSUSDT:global.short.change1h",
+        "GENIUSUSDT:topAccounts.short.change1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "GENIUSUSDT:price.closed1h",
+          "GENIUSUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+      "p1": -0.2891009
+    },
+    {
+      "symbol": "GRASSUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "GRASSUSDT:price.closed1h",
+        "GRASSUSDT:oi.1h",
+        "GRASSUSDT:volume.relative1h",
+        "GRASSUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "GRASSUSDT:price.closed24h",
+        "GRASSUSDT:global.flip",
+        "GRASSUSDT:topAccounts.flip"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "GRASSUSDT:price.closed1h",
+          "GRASSUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.39248496
+    },
+    {
+      "symbol": "HEIUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "HEIUSDT:price.closed1h",
+        "HEIUSDT:oi.1h",
+        "HEIUSDT:volume.relative1h",
+        "HEIUSDT:price.drawdown",
+        "HEIUSDT:price.closed4h"
+      ],
+      "conflictingEvidenceIds": [
+        "HEIUSDT:global.flip",
+        "HEIUSDT:topPositions.long.latest",
+        "HEIUSDT:topAccounts.long.latest",
+        "HEIUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "HEIUSDT:price.closed1h",
+          "HEIUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.09002826
+    },
+    {
+      "symbol": "JCTUSDT",
+      "valid": true,
+      "originalDirection": "NO_EDGE",
+      "displayDirection": "NO_EDGE",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "JCTUSDT:price.closed1h",
+        "JCTUSDT:oi.1h",
+        "JCTUSDT:volume.relative1h",
+        "JCTUSDT:price.last"
+      ],
+      "conflictingEvidenceIds": [
+        "JCTUSDT:price.closed4h",
+        "JCTUSDT:oi.4h",
+        "JCTUSDT:global.long.change1h",
+        "JCTUSDT:topPositions.long.change1h"
+      ],
+      "mechanism": {
+        "type": "UNDETERMINED",
+        "evidenceIds": [
+          "JCTUSDT:price.closed1h",
+          "JCTUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+      "p1": -3.70560988
+    },
+    {
+      "symbol": "KITEUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "KITEUSDT:price.closed1h",
+        "KITEUSDT:oi.1h",
+        "KITEUSDT:volume.relative1h",
+        "KITEUSDT:global.short.change1h",
+        "KITEUSDT:topAccounts.short.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "KITEUSDT:price.closed24h",
+        "KITEUSDT:oi.24h",
+        "KITEUSDT:global.long.change24h",
+        "KITEUSDT:topPositions.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "KITEUSDT:price.closed1h",
+          "KITEUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.55868692
+    },
+    {
+      "symbol": "LAUSDT",
+      "valid": true,
+      "originalDirection": "BULLISH",
+      "displayDirection": "BULLISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "MODERATE",
+      "displayConviction": "MODERATE",
+      "supportingEvidenceIds": [
+        "LAUSDT:price.closed1h",
+        "LAUSDT:oi.1h",
+        "LAUSDT:volume.relative1h",
+        "LAUSDT:price.closed4h",
+        "LAUSDT:price.closed24h",
+        "LAUSDT:global.long.change1h",
+        "LAUSDT:topPositions.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "LAUSDT:price.drawdown",
+        "LAUSDT:topPositions.short.change1h",
+        "LAUSDT:topAccounts.short.change4h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "LAUSDT:price.closed1h",
+          "LAUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_PULLBACK",
+      "p1": 0.74289876
+    },
+    {
+      "symbol": "LDOUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "LDOUSDT:price.closed1h",
+        "LDOUSDT:oi.1h",
+        "LDOUSDT:volume.relative1h",
+        "LDOUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "LDOUSDT:global.flip",
+        "LDOUSDT:global.long.change24h",
+        "LDOUSDT:topPositions.long.latest",
+        "LDOUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "LDOUSDT:price.closed1h",
+          "LDOUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.40963855
+    },
+    {
+      "symbol": "LUMIAUSDT",
+      "valid": true,
+      "originalDirection": "NO_EDGE",
+      "displayDirection": "NO_EDGE",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "LUMIAUSDT:price.closed1h",
+        "LUMIAUSDT:oi.1h",
+        "LUMIAUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "LUMIAUSDT:price.closed4h",
+        "LUMIAUSDT:price.closed24h",
+        "LUMIAUSDT:price.drawdown"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "LUMIAUSDT:price.closed1h",
+          "LUMIAUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -0.61905202
+    },
+    {
+      "symbol": "MAGICUSDT",
+      "valid": true,
+      "originalDirection": "NO_EDGE",
+      "displayDirection": "NO_EDGE",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "MAGICUSDT:price.closed1h",
+        "MAGICUSDT:oi.1h",
+        "MAGICUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "MAGICUSDT:directional.price.previous1h",
+        "MAGICUSDT:price.closed24h",
+        "MAGICUSDT:oi.24h"
+      ],
+      "mechanism": {
+        "type": "UNDETERMINED",
+        "evidenceIds": [
+          "MAGICUSDT:price.closed1h",
+          "MAGICUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -0.50133006
+    },
+    {
+      "symbol": "MAGMAUSDT",
+      "valid": true,
+      "originalDirection": "BULLISH",
+      "displayDirection": "BULLISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "MAGMAUSDT:price.closed1h",
+        "MAGMAUSDT:oi.1h",
+        "MAGMAUSDT:price.closed4h",
+        "MAGMAUSDT:price.closed24h",
+        "MAGMAUSDT:topPositions.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "MAGMAUSDT:volume.relative1h",
+        "MAGMAUSDT:topAccounts.long.change1h",
+        "MAGMAUSDT:global.long.change4h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "MAGMAUSDT:price.closed1h",
+          "MAGMAUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": 0.56622577
+    },
+    {
+      "symbol": "METUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "METUSDT:price.closed1h",
+        "METUSDT:oi.1h",
+        "METUSDT:volume.relative1h",
+        "METUSDT:price.closed4h",
+        "METUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "METUSDT:price.closed24h",
+        "METUSDT:funding.latest",
+        "METUSDT:global.flip"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "METUSDT:price.closed1h",
+          "METUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.11183105
+    },
+    {
+      "symbol": "MINAUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "MINAUSDT:price.closed1h",
+        "MINAUSDT:oi.1h",
+        "MINAUSDT:volume.relative1h",
+        "MINAUSDT:global.short.change1h",
+        "MINAUSDT:global.long.change1h",
+        "MINAUSDT:topAccounts.short.change1h",
+        "MINAUSDT:topAccounts.long.change1h",
+        "MINAUSDT:topPositions.short.change1h",
+        "MINAUSDT:topPositions.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "MINAUSDT:price.closed4h",
+        "MINAUSDT:oi.4h",
+        "MINAUSDT:funding.latest",
+        "MINAUSDT:funding.sum24h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "MINAUSDT:price.closed1h",
+          "MINAUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.3962005
+    },
+    {
+      "symbol": "NEIROUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "NEIROUSDT:price.closed1h",
+        "NEIROUSDT:oi.1h",
+        "NEIROUSDT:volume.relative1h",
+        "NEIROUSDT:price.closed4h",
+        "NEIROUSDT:price.closed24h",
+        "NEIROUSDT:global.long.change1h",
+        "NEIROUSDT:topAccounts.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "NEIROUSDT:global.flip",
+        "NEIROUSDT:topPositions.long.latest",
+        "NEIROUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "NEIROUSDT:price.closed1h",
+          "NEIROUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.22670441
+    },
+    {
+      "symbol": "NIGHTUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "NIGHTUSDT:price.closed1h",
+        "NIGHTUSDT:oi.1h",
+        "NIGHTUSDT:volume.relative1h",
+        "NIGHTUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "NIGHTUSDT:price.closed24h",
+        "NIGHTUSDT:global.long.change1h",
+        "NIGHTUSDT:topAccounts.long.change1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "NIGHTUSDT:price.closed1h",
+          "NIGHTUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.27685448
+    },
+    {
+      "symbol": "ONEUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "ONEUSDT:price.closed1h",
+        "ONEUSDT:oi.1h",
+        "ONEUSDT:global.flip",
+        "ONEUSDT:global.short.change1h",
+        "ONEUSDT:topAccounts.short.change1h",
+        "ONEUSDT:topPositions.short.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "ONEUSDT:funding.latest",
+        "ONEUSDT:funding.sum24h",
+        "ONEUSDT:topPositions.long.change4h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ONEUSDT:price.closed1h",
+          "ONEUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -0.92906223
+    },
+    {
+      "symbol": "OUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "OUSDT:price.closed1h",
+        "OUSDT:oi.1h",
+        "OUSDT:volume.relative1h",
+        "OUSDT:price.closed4h",
+        "OUSDT:price.closed24h"
+      ],
+      "conflictingEvidenceIds": [
+        "OUSDT:directional.price.previous1h",
+        "OUSDT:global.flip",
+        "OUSDT:topAccounts.flip",
+        "OUSDT:topPositions.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "OUSDT:price.closed1h",
+          "OUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.1059216
+    },
+    {
+      "symbol": "PENGUUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "PENGUUSDT:price.closed1h",
+        "PENGUUSDT:oi.1h",
+        "PENGUUSDT:volume.relative1h",
+        "PENGUUSDT:price.closed4h",
+        "PENGUUSDT:price.closed24h"
+      ],
+      "conflictingEvidenceIds": [
+        "PENGUUSDT:global.flip",
+        "PENGUUSDT:topPositions.long.latest",
+        "PENGUUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "PENGUUSDT:price.closed1h",
+          "PENGUUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.47825033
+    },
+    {
+      "symbol": "PIXELUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "PIXELUSDT:price.closed1h",
+        "PIXELUSDT:oi.1h",
+        "PIXELUSDT:volume.relative1h",
+        "PIXELUSDT:price.closed4h",
+        "PIXELUSDT:price.closed24h"
+      ],
+      "conflictingEvidenceIds": [
+        "PIXELUSDT:global.short.change1h",
+        "PIXELUSDT:topPositions.long.change1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "PIXELUSDT:price.closed1h",
+          "PIXELUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.92055154
+    },
+    {
+      "symbol": "POLUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "POLUSDT:price.closed1h",
+        "POLUSDT:oi.1h",
+        "POLUSDT:volume.relative1h",
+        "POLUSDT:price.closed4h",
+        "POLUSDT:oi.4h"
+      ],
+      "conflictingEvidenceIds": [
+        "POLUSDT:price.closed24h",
+        "POLUSDT:oi.24h",
+        "POLUSDT:global.flip",
+        "POLUSDT:topPositions.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "POLUSDT:price.closed1h",
+          "POLUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.08802196
+    },
+    {
+      "symbol": "PUMPUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "PUMPUSDT:price.closed1h",
+        "PUMPUSDT:oi.1h",
+        "PUMPUSDT:volume.relative1h",
+        "PUMPUSDT:price.drawdown",
+        "PUMPUSDT:global.flip"
+      ],
+      "conflictingEvidenceIds": [
+        "PUMPUSDT:topPositions.long.latest",
+        "PUMPUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "PUMPUSDT:price.closed1h",
+          "PUMPUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.6995614
+    },
+    {
+      "symbol": "QNTUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "QNTUSDT:price.closed1h",
+        "QNTUSDT:oi.1h",
+        "QNTUSDT:volume.relative1h",
+        "QNTUSDT:price.drawdown",
+        "QNTUSDT:global.short.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "QNTUSDT:directional.price.previous1h",
+        "QNTUSDT:topAccounts.flip",
+        "QNTUSDT:topPositions.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "QNTUSDT:price.closed1h",
+          "QNTUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -0.37540071
+    },
+    {
+      "symbol": "RIVERUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "RIVERUSDT:price.closed1h",
+        "RIVERUSDT:oi.1h",
+        "RIVERUSDT:volume.relative1h",
+        "RIVERUSDT:price.drawdown",
+        "RIVERUSDT:global.long.change1h",
+        "RIVERUSDT:topAccounts.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "RIVERUSDT:topPositions.long.change1h",
+        "RIVERUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "RIVERUSDT:price.closed1h",
+          "RIVERUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -0.43066322
+    },
+    {
+      "symbol": "RLCUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "RLCUSDT:price.closed1h",
+        "RLCUSDT:oi.1h",
+        "RLCUSDT:volume.relative1h",
+        "RLCUSDT:price.drawdown",
+        "RLCUSDT:global.long.change1h",
+        "RLCUSDT:topAccounts.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "RLCUSDT:price.closed4h",
+        "RLCUSDT:funding.latest",
+        "RLCUSDT:topPositions.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "RLCUSDT:price.closed1h",
+          "RLCUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.65978964
+    },
+    {
+      "symbol": "ROSEUSDT",
+      "valid": false,
+      "originalDirection": "NO_EDGE",
+      "displayDirection": null,
+      "originalHorizon": "1h",
+      "displayHorizon": null,
+      "originalConviction": "LOW",
+      "displayConviction": null,
+      "supportingEvidenceIds": [
+        "ROSEUSDT:price.closed1h",
+        "ROSEUSDT:oi.1h",
+        "ROSEUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "ROSEUSDT:price.closed4h",
+        "ROSEUSDT:price.closed24h",
+        "ROSEUSDT:directional.price.previous1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ROSEUSDT:price.closed1h",
+          "ROSEUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.70377101
+    },
+    {
+      "symbol": "SAHARAUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "SAHARAUSDT:price.closed1h",
+        "SAHARAUSDT:oi.1h",
+        "SAHARAUSDT:volume.relative1h",
+        "SAHARAUSDT:price.drawdown",
+        "SAHARAUSDT:topPositions.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "SAHARAUSDT:global.long.change1h",
+        "SAHARAUSDT:topAccounts.long.change1h",
+        "SAHARAUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "SAHARAUSDT:price.closed1h",
+          "SAHARAUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.5057172
+    },
+    {
+      "symbol": "SEIUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "SEIUSDT:price.closed1h",
+        "SEIUSDT:oi.1h",
+        "SEIUSDT:price.drawdown",
+        "SEIUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "SEIUSDT:price.closed24h",
+        "SEIUSDT:global.flip",
+        "SEIUSDT:topPositions.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "SEIUSDT:price.closed1h",
+          "SEIUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.67597765
+    },
+    {
+      "symbol": "SKYUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "SKYUSDT:price.closed1h",
+        "SKYUSDT:oi.1h",
+        "SKYUSDT:volume.relative1h",
+        "SKYUSDT:price.drawdown",
+        "SKYUSDT:global.long.change1h",
+        "SKYUSDT:topAccounts.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "SKYUSDT:directional.price.previous1h",
+        "SKYUSDT:topPositions.long.change1h",
+        "SKYUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "SKYUSDT:price.closed1h",
+          "SKYUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.72235172
+    },
+    {
+      "symbol": "SPKUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "SPKUSDT:price.closed1h",
+        "SPKUSDT:oi.1h",
+        "SPKUSDT:volume.relative1h",
+        "SPKUSDT:global.short.change1h",
+        "SPKUSDT:topAccounts.short.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "SPKUSDT:topPositions.long.change1h",
+        "SPKUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "SPKUSDT:price.closed1h",
+          "SPKUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.73754001
+    },
+    {
+      "symbol": "STRKUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "STRKUSDT:price.closed1h",
+        "STRKUSDT:oi.1h",
+        "STRKUSDT:volume.relative1h",
+        "STRKUSDT:price.drawdown",
+        "STRKUSDT:global.short.change1h",
+        "STRKUSDT:topPositions.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "STRKUSDT:price.closed4h",
+        "STRKUSDT:price.closed24h",
+        "STRKUSDT:directional.price.previous1h",
+        "STRKUSDT:funding.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "STRKUSDT:price.closed1h",
+          "STRKUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -11.13077182
+    },
+    {
+      "symbol": "SUPERUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "SUPERUSDT:price.closed1h",
+        "SUPERUSDT:oi.1h",
+        "SUPERUSDT:price.drawdown",
+        "SUPERUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "SUPERUSDT:price.closed24h",
+        "SUPERUSDT:global.flip",
+        "SUPERUSDT:topPositions.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "SUPERUSDT:price.closed1h",
+          "SUPERUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.28315185
+    },
+    {
+      "symbol": "TIAUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "TIAUSDT:price.closed1h",
+        "TIAUSDT:oi.1h",
+        "TIAUSDT:volume.relative1h",
+        "TIAUSDT:global.short.change1h",
+        "TIAUSDT:topAccounts.short.change1h",
+        "TIAUSDT:topPositions.short.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "TIAUSDT:price.closed24h",
+        "TIAUSDT:oi.24h",
+        "TIAUSDT:price.drawdown",
+        "TIAUSDT:volume.relative5m"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "TIAUSDT:price.closed1h",
+          "TIAUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.68456376
+    },
+    {
+      "symbol": "USUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "USUSDT:price.closed1h",
+        "USUSDT:oi.1h",
+        "USUSDT:volume.relative1h",
+        "USUSDT:price.drawdown",
+        "USUSDT:price.rolling24h"
+      ],
+      "conflictingEvidenceIds": [
+        "USUSDT:price.closed4h",
+        "USUSDT:directional.price.previous1h",
+        "USUSDT:global.flip",
+        "USUSDT:topAccounts.flip"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "USUSDT:price.closed1h",
+          "USUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -10.11175441
+    },
+    {
+      "symbol": "WALUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "WALUSDT:price.closed1h",
+        "WALUSDT:oi.1h",
+        "WALUSDT:volume.relative1h",
+        "WALUSDT:price.drawdown",
+        "WALUSDT:topPositions.short.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "WALUSDT:price.closed4h",
+        "WALUSDT:price.closed24h",
+        "WALUSDT:funding.latest",
+        "WALUSDT:global.long.change1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "WALUSDT:price.closed1h",
+          "WALUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -2.17911241
+    },
+    {
+      "symbol": "WLFIUSDT",
+      "valid": false,
+      "originalDirection": "NO_EDGE",
+      "displayDirection": null,
+      "originalHorizon": "1h",
+      "displayHorizon": null,
+      "originalConviction": "LOW",
+      "displayConviction": null,
+      "supportingEvidenceIds": [
+        "WLFIUSDT:price.closed1h",
+        "WLFIUSDT:oi.1h",
+        "WLFIUSDT:volume.relative1h"
+      ],
+      "conflictingEvidenceIds": [
+        "WLFIUSDT:price.closed4h",
+        "WLFIUSDT:price.closed24h",
+        "WLFIUSDT:global.long.change1h",
+        "WLFIUSDT:topAccounts.long.change1h",
+        "WLFIUSDT:topPositions.long.change1h"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "WLFIUSDT:price.closed1h",
+          "WLFIUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+      "p1": 0.10539259
+    },
+    {
+      "symbol": "ZROUSDT",
+      "valid": true,
+      "originalDirection": "BEARISH",
+      "displayDirection": "BEARISH",
+      "originalHorizon": "1h",
+      "displayHorizon": "1h",
+      "originalConviction": "LOW",
+      "displayConviction": "LOW",
+      "supportingEvidenceIds": [
+        "ZROUSDT:price.closed1h",
+        "ZROUSDT:oi.1h",
+        "ZROUSDT:volume.relative1h",
+        "ZROUSDT:price.closed4h",
+        "ZROUSDT:global.flip",
+        "ZROUSDT:global.long.change24h"
+      ],
+      "conflictingEvidenceIds": [
+        "ZROUSDT:price.closed24h",
+        "ZROUSDT:topPositions.long.latest",
+        "ZROUSDT:topAccounts.long.latest"
+      ],
+      "mechanism": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ZROUSDT:price.closed1h",
+          "ZROUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "p1": -1.72482552
+    }
+  ]
+}

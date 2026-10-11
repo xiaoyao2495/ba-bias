@@ -1,0 +1,26 @@
+{
+  "changed": [
+    "test/analyst-generation.test.js",
+    "test/structured-v4.test.js",
+    "test/compact.test.js",
+    "test/validation-recovery.test.js",
+    "test/structured-v4-live-preflight.test.js",
+    "test/analyst-alignment.test.js",
+    "test/long-short.test.js",
+    "test/directional-fixture.js",
+    "test/hourly.test.js",
+    "src/main.js",
+    "src/analysis/directional-history.js",
+    "src/intelligence/compact-renderer.js",
+    "src/intelligence/packet.js",
+    "src/analysis/experimental/structured-v4-schema.js",
+    "src/analysis/experimental/structured-v4-renderer.js",
+    "src/analysis/experimental/structured-v4-input.js",
+    "src/analysis/experimental/structured-v4-provenance.js",
+    "src/analysis/experimental/structured-v4-guard.js"
+  ],
+  "authorized": true,
+  "businessGuardEquivalentAfterSchemaMetadataSelection": true,
+  "oldGuardHash": "ac08c3d3adebf8d9cdcb5b168c544aefd29585ead5f90824452247ac3fc521c5",
+  "normalizedNewGuardHash": "ac08c3d3adebf8d9cdcb5b168c544aefd29585ead5f90824452247ac3fc521c5"
+}

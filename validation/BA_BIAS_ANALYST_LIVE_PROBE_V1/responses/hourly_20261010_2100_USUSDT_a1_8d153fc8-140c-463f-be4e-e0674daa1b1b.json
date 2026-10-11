@@ -1,0 +1,49 @@
+{
+  "id": "hourly_20261010_2100_USUSDT_a1_8d153fc8-140c-463f-be4e-e0674daa1b1b",
+  "attempt": 1,
+  "requestTimestamp": "2026-10-10T17:02:36.906Z",
+  "responseTimestamp": "2026-10-10T17:02:41.025Z",
+  "latencyMs": 4119,
+  "model": "deepseek-flash",
+  "inputTokenUsage": 6252,
+  "outputTokenUsage": 738,
+  "usage": {
+    "prompt_tokens": 6252,
+    "completion_tokens": 738,
+    "total_tokens": 6990,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 5100
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"USUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h窗口对齐且反转证据可用：已收盘1h价格-14.12%较此前等长1h窗口+12.84%真实转向，同期OI数量+0.30%小幅扩张，价格下行伴随敞口未收缩，故以1h为评估horizon。\",\"conviction\":\"LOW\",\"marketThesis\":\"已收盘1h价格-14.12%较此前1h+12.84%转向下行，同期OI数量+0.30%小幅扩张，价格下行与敞口未收缩并存，倾向未来1h维持偏弱；但1h相对量0.89倍低于前24根均值，且24h OI数量-21.66%显示中期敞口大幅收缩，强度仅LOW。\",\"marketMechanism\":\"价格1h下行且同窗口OI数量小幅上升，与新增空头敞口或部分多头承接并存的可能性相容；24h OI数量-21.66%与价格-29.18%同向收缩，也可能反映此前杠杆敞口持续了结。以上均为可能机制，不确认单侧开平仓、强平或资金流向。\",\"supportingEvidenceIds\":[\"USUSDT:price.closed1h\",\"USUSDT:directional.price.previous1h\",\"USUSDT:oi.1h\",\"USUSDT:price.closed24h\",\"USUSDT:oi.24h\",\"USUSDT:price.drawdown\"],\"conflictingEvidenceIds\":[\"USUSDT:volume.relative1h\",\"USUSDT:global.long.change1h\",\"USUSDT:global.short.change1h\",\"USUSDT:funding.latest\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"未来1h价格延续偏弱，已收盘1h变化维持负值或再度下探，同时OI数量不出现明显收缩；若1h相对量继续低于前24根均值，则下行延续力度受限。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"若后续新收盘滚动1h价格变化≥7.0608%，方向命题按PRICE_OPPOSITE_1h失效；若后续新采样精确1h OI数量变化≤-5.0000%，按OI_REVERSED_1h触发复核。\"},\"alternativeScenario\":\"若未来1h价格转为上行且OI数量同步扩张，则当前偏弱倾向被削弱，可能进入反弹修复；但全市场空方账户占比1h仅下降0.55个百分点、Funding最新结算0.0075%仍为多头支付空头，账户与资金费率翻转本身不足以确认反转。\",\"followUpChecks\":[\"跟踪后续新收盘1h价格变化是否达到+7.0608%以上，以及精确1h OI数量变化是否≤-5.0000%，分别对应方向失效与敞口逆转复核。\",\"观察1h相对量能否回到前24根均值以上，并留意全市场多空账户占比与最新结算Funding是否延续当前方向，以判断下行参与度是否持续。\"]}",
+  "raw": {
+    "id": "e259ceec-ca8a-436c-8d91-e314a85f8bd9",
+    "object": "chat.completion",
+    "created": 1791651757,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"USUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h窗口对齐且反转证据可用：已收盘1h价格-14.12%较此前等长1h窗口+12.84%真实转向，同期OI数量+0.30%小幅扩张，价格下行伴随敞口未收缩，故以1h为评估horizon。\",\"conviction\":\"LOW\",\"marketThesis\":\"已收盘1h价格-14.12%较此前1h+12.84%转向下行，同期OI数量+0.30%小幅扩张，价格下行与敞口未收缩并存，倾向未来1h维持偏弱；但1h相对量0.89倍低于前24根均值，且24h OI数量-21.66%显示中期敞口大幅收缩，强度仅LOW。\",\"marketMechanism\":\"价格1h下行且同窗口OI数量小幅上升，与新增空头敞口或部分多头承接并存的可能性相容；24h OI数量-21.66%与价格-29.18%同向收缩，也可能反映此前杠杆敞口持续了结。以上均为可能机制，不确认单侧开平仓、强平或资金流向。\",\"supportingEvidenceIds\":[\"USUSDT:price.closed1h\",\"USUSDT:directional.price.previous1h\",\"USUSDT:oi.1h\",\"USUSDT:price.closed24h\",\"USUSDT:oi.24h\",\"USUSDT:price.drawdown\"],\"conflictingEvidenceIds\":[\"USUSDT:volume.relative1h\",\"USUSDT:global.long.change1h\",\"USUSDT:global.short.change1h\",\"USUSDT:funding.latest\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"未来1h价格延续偏弱，已收盘1h变化维持负值或再度下探，同时OI数量不出现明显收缩；若1h相对量继续低于前24根均值，则下行延续力度受限。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"若后续新收盘滚动1h价格变化≥7.0608%，方向命题按PRICE_OPPOSITE_1h失效；若后续新采样精确1h OI数量变化≤-5.0000%，按OI_REVERSED_1h触发复核。\"},\"alternativeScenario\":\"若未来1h价格转为上行且OI数量同步扩张，则当前偏弱倾向被削弱，可能进入反弹修复；但全市场空方账户占比1h仅下降0.55个百分点、Funding最新结算0.0075%仍为多头支付空头，账户与资金费率翻转本身不足以确认反转。\",\"followUpChecks\":[\"跟踪后续新收盘1h价格变化是否达到+7.0608%以上，以及精确1h OI数量变化是否≤-5.0000%，分别对应方向失效与敞口逆转复核。\",\"观察1h相对量能否回到前24根均值以上，并留意全市场多空账户占比与最新结算Funding是否延续当前方向，以判断下行参与度是否持续。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6252,
+      "completion_tokens": 738,
+      "total_tokens": 6990,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 5100
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  }
+}

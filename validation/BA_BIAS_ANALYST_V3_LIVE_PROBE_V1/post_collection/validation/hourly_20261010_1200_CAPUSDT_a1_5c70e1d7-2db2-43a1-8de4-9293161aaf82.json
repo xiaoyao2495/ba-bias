@@ -1,0 +1,411 @@
+{
+  "id": "hourly_20261010_1200_CAPUSDT_a1_5c70e1d7-2db2-43a1-8de4-9293161aaf82",
+  "attempt": 1,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "2026-10-10T04:00:23.632Z",
+  "causalBacktestEligible": false,
+  "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+  "researchExecutedAt": "2026-10-10T18:50:04.833Z",
+  "responseAt": "2026-10-10T18:50:08.301Z",
+  "latencyMs": 3468,
+  "model": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 9969,
+    "completion_tokens": 710,
+    "total_tokens": 10679,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 9969
+  },
+  "raw": {
+    "id": "f33998f6-f447-4941-a931-840627e3ba76",
+    "object": "chat.completion",
+    "created": 1791658205,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"CAPUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h已收盘价格变化-3.61%（CAPUSDT:price.closed1h），此前等长1h为+4.49%（CAPUSDT:directional.price.previous1h），同期1h OI数量变化+0.79%（CAPUSDT:oi.1h），价格转跌而合约规模小幅扩张，1h窗口证据最直接。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来1h倾向偏空：最近已收盘1h价格-3.61%且同期OI数量+0.79%，显示下跌伴随合约规模小幅扩张；但24h仍+22.78%、快照价距24h高点-10.27%，且1h成交量达前24根均值16.99倍，方向证据强度有限。\",\"marketMechanism\":\"1h价格下降3.61%同时OI数量增加0.79%，与新增合约在下跌方向建立敞口的情形相容；OI增加仅表示合约规模扩张，不能确认单侧加仓、资金流入或具体开平仓行为。\",\"supportingEvidenceIds\":[\"CAPUSDT:price.closed1h\",\"CAPUSDT:oi.1h\",\"CAPUSDT:directional.price.previous1h\",\"CAPUSDT:price.drawdown\",\"CAPUSDT:volume.relative1h\"],\"conflictingEvidenceIds\":[\"CAPUSDT:price.closed4h\",\"CAPUSDT:price.closed24h\",\"CAPUSDT:oi.4h\",\"CAPUSDT:funding.latest\"],\"tradeOpportunity\":\"WAIT_FOR_CONFIRMATION\",\"preferredScenario\":\"1h内价格延续偏弱，已收盘1h变化维持负值或进一步走低，同时OI数量不出现明显收缩；若价格转正且OI同步扩张，则偏空假设需重新评估。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"后续新收盘滚动1h价格变化≥1.8055%（PRICE_OPPOSITE_1h）则偏空命题失效；后续新采样精确1h OI数量变化≤-5.0000%（OI_REVERSED_1h）仅触发复核。\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"]},\"alternativeScenario\":\"若1h价格重新转正并伴随OI数量继续扩张，则当前偏空假设被削弱，需转向评估4h/24h仍为正的延续情景；若价格下跌但OI明显收缩，则更接近敞口了结而非新增方向敞口。\",\"followUpChecks\":[\"核对下一根已收盘1h价格变化是否维持负值，以及同期1h OI数量是否继续扩张。\",\"观察4h价格变化3.32%与24h价格变化22.78%是否被1h弱势侵蚀，并核对最新已结算Funding 0.0322%的支付方向是否延续。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 9969,
+      "completion_tokens": 710,
+      "total_tokens": 10679,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 9969
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"CAPUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h已收盘价格变化-3.61%（CAPUSDT:price.closed1h），此前等长1h为+4.49%（CAPUSDT:directional.price.previous1h），同期1h OI数量变化+0.79%（CAPUSDT:oi.1h），价格转跌而合约规模小幅扩张，1h窗口证据最直接。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来1h倾向偏空：最近已收盘1h价格-3.61%且同期OI数量+0.79%，显示下跌伴随合约规模小幅扩张；但24h仍+22.78%、快照价距24h高点-10.27%，且1h成交量达前24根均值16.99倍，方向证据强度有限。\",\"marketMechanism\":\"1h价格下降3.61%同时OI数量增加0.79%，与新增合约在下跌方向建立敞口的情形相容；OI增加仅表示合约规模扩张，不能确认单侧加仓、资金流入或具体开平仓行为。\",\"supportingEvidenceIds\":[\"CAPUSDT:price.closed1h\",\"CAPUSDT:oi.1h\",\"CAPUSDT:directional.price.previous1h\",\"CAPUSDT:price.drawdown\",\"CAPUSDT:volume.relative1h\"],\"conflictingEvidenceIds\":[\"CAPUSDT:price.closed4h\",\"CAPUSDT:price.closed24h\",\"CAPUSDT:oi.4h\",\"CAPUSDT:funding.latest\"],\"tradeOpportunity\":\"WAIT_FOR_CONFIRMATION\",\"preferredScenario\":\"1h内价格延续偏弱，已收盘1h变化维持负值或进一步走低，同时OI数量不出现明显收缩；若价格转正且OI同步扩张，则偏空假设需重新评估。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"后续新收盘滚动1h价格变化≥1.8055%（PRICE_OPPOSITE_1h）则偏空命题失效；后续新采样精确1h OI数量变化≤-5.0000%（OI_REVERSED_1h）仅触发复核。\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"]},\"alternativeScenario\":\"若1h价格重新转正并伴随OI数量继续扩张，则当前偏空假设被削弱，需转向评估4h/24h仍为正的延续情景；若价格下跌但OI明显收缩，则更接近敞口了结而非新增方向敞口。\",\"followUpChecks\":[\"核对下一根已收盘1h价格变化是否维持负值，以及同期1h OI数量是否继续扩张。\",\"观察4h价格变化3.32%与24h价格变化22.78%是否被1h弱势侵蚀，并核对最新已结算Funding 0.0322%的支付方向是否延续。\"]}",
+  "parsedResponse": {
+    "version": "DIRECTIONAL_ANALYST_V2",
+    "symbol": "CAPUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "marketBias": "BEARISH",
+    "horizon": "1h",
+    "horizonReason": "1h已收盘价格变化-3.61%（CAPUSDT:price.closed1h），此前等长1h为+4.49%（CAPUSDT:directional.price.previous1h），同期1h OI数量变化+0.79%（CAPUSDT:oi.1h），价格转跌而合约规模小幅扩张，1h窗口证据最直接。",
+    "conviction": "LOW",
+    "marketThesis": "未来1h倾向偏空：最近已收盘1h价格-3.61%且同期OI数量+0.79%，显示下跌伴随合约规模小幅扩张；但24h仍+22.78%、快照价距24h高点-10.27%，且1h成交量达前24根均值16.99倍，方向证据强度有限。",
+    "marketMechanism": "1h价格下降3.61%同时OI数量增加0.79%，与新增合约在下跌方向建立敞口的情形相容；OI增加仅表示合约规模扩张，不能确认单侧加仓、资金流入或具体开平仓行为。",
+    "supportingEvidenceIds": [
+      "CAPUSDT:price.closed1h",
+      "CAPUSDT:oi.1h",
+      "CAPUSDT:directional.price.previous1h",
+      "CAPUSDT:price.drawdown",
+      "CAPUSDT:volume.relative1h"
+    ],
+    "conflictingEvidenceIds": [
+      "CAPUSDT:price.closed4h",
+      "CAPUSDT:price.closed24h",
+      "CAPUSDT:oi.4h",
+      "CAPUSDT:funding.latest"
+    ],
+    "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+    "preferredScenario": "1h内价格延续偏弱，已收盘1h变化维持负值或进一步走低，同时OI数量不出现明显收缩；若价格转正且OI同步扩张，则偏空假设需重新评估。",
+    "invalidation": {
+      "type": "OBSERVABLE_CONDITION",
+      "ruleIds": [
+        "PRICE_OPPOSITE_1h",
+        "OI_REVERSED_1h"
+      ],
+      "description": "后续新收盘滚动1h价格变化≥1.8055%（PRICE_OPPOSITE_1h）则偏空命题失效；后续新采样精确1h OI数量变化≤-5.0000%（OI_REVERSED_1h）仅触发复核。"
+    },
+    "alternativeScenario": "若1h价格重新转正并伴随OI数量继续扩张，则当前偏空假设被削弱，需转向评估4h/24h仍为正的延续情景；若价格下跌但OI明显收缩，则更接近敞口了结而非新增方向敞口。",
+    "followUpChecks": [
+      "核对下一根已收盘1h价格变化是否维持负值，以及同期1h OI数量是否继续扩张。",
+      "观察4h价格变化3.32%与24h价格变化22.78%是否被1h弱势侵蚀，并核对最新已结算Funding 0.0322%的支付方向是否延续。"
+    ]
+  },
+  "validation": {
+    "ok": false,
+    "errors": [
+      "UNTRUSTED_NUMBER_OR_PROBABILITY",
+      "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+    ],
+    "diagnostics": [
+      {
+        "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+        "literal": "CAPUSDT:price.closed1h",
+        "numberType": "EVIDENCE_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+        "literal": "CAPUSDT:directional.price.previous1h",
+        "numberType": "EVIDENCE_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+        "literal": "CAPUSDT:oi.1h",
+        "numberType": "EVIDENCE_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+        "literal": "CAPUSDT",
+        "numberType": "SYMBOL_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+        "literal": "CAPUSDT",
+        "numberType": "SYMBOL_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+        "literal": "CAPUSDT",
+        "numberType": "SYMBOL_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-3.61%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "CAPUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "+4.49%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "unit": "%",
+          "previous": true,
+          "rolling": false
+        },
+        "evidenceIds": [
+          "CAPUSDT:directional.price.previous1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "+0.79%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "CAPUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-3.61%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "CAPUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "+0.79%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "CAPUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+22.78%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "-10.27%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "16.99倍",
+        "numberType": "MARKET_VALUE",
+        "window": "1h",
+        "metric": {
+          "kind": "volume"
+        },
+        "evidenceIds": [
+          "CAPUSDT:volume.relative1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "3.61%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "CAPUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.79%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "CAPUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "加仓",
+        "span": "不能确认单侧加仓、资金流入或具体开平仓行为",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "资金流入",
+        "span": "不能确认单侧加仓、资金流入或具体开平仓行为",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "平仓",
+        "span": "不能确认单侧加仓、资金流入或具体开平仓行为",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "1.8055%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": true,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": "PRICE_OPPOSITE_1h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "-5.0000%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": "OI_REVERSED_1h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "3.32%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "CAPUSDT:price.closed4h"
+        ],
+        "ruleId": null,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "22.78%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "CAPUSDT:price.closed24h"
+        ],
+        "ruleId": null,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.0322%",
+        "numberType": "MARKET_VALUE",
+        "window": "1h",
+        "metric": {
+          "kind": "funding",
+          "variant": "latest"
+        },
+        "evidenceIds": [
+          "CAPUSDT:funding.latest"
+        ],
+        "ruleId": null,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/followUpChecks/1"
+      },
+      {
+        "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "path": "/"
+      }
+    ],
+    "contractVersion": "DIRECTIONAL_ANALYST_V2"
+  },
+  "schemaValid": true,
+  "status": "INVALID"
+}

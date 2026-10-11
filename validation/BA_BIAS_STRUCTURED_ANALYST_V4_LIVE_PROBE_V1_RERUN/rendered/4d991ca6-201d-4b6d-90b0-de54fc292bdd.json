@@ -1,0 +1,134 @@
+{
+  "sampleId": "s_hourly_20261010_1200_XAIUSDT",
+  "text": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nXAIUSDT BULLISH / 1h / HIGH\noriginalEvaluationTime=2026-10-10T04:00:15.949Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: XAIUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 1.76982401 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 1.77%\n支持: XAIUSDT:oi.1h | OI_QUANTITY_CHANGE | 27.15130071 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 27.15%（不代表资金净流入或多空加仓方向）\n支持: XAIUSDT:volume.relative1h | RELATIVE_VOLUME | 23.29332460 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 23.29 倍\n机制假设: 与合约规模扩张相容，不确认单侧新增仓位。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=OPPOSITE_MOVE，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE LTE -1% => INVALIDATED; 后续新收盘滚动1h价格变化≤-1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE LTE -13.575650355% => THESIS_WARNING; 后续新采样精确1h OI数量变化≤-13.5757%，原敞口变化条件明显逆转，只触发复核",
+  "audit": {
+    "ok": true,
+    "status": "PASS",
+    "errors": [],
+    "claims": [
+      {
+        "renderedClaim": "支持: XAIUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 1.76982401 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 1.77%",
+        "evidenceId": "XAIUSDT:price.closed1h",
+        "factsFields": [
+          "evidence[3].result",
+          "evidence[3].phrase",
+          "evidence[3].dataTimes",
+          "evidence[3].formula",
+          "sources.hour.raw"
+        ],
+        "value": "1.76982401",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XAIUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: XAIUSDT:oi.1h | OI_QUANTITY_CHANGE | 27.15130071 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 27.15%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "XAIUSDT:oi.1h",
+        "factsFields": [
+          "evidence[11].result",
+          "evidence[11].phrase",
+          "evidence[11].dataTimes",
+          "evidence[11].formula",
+          "sources.oi.raw"
+        ],
+        "value": "27.15130071",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "XAIUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: XAIUSDT:volume.relative1h | RELATIVE_VOLUME | 23.29332460 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 23.29 倍",
+        "evidenceId": "XAIUSDT:volume.relative1h",
+        "factsFields": [
+          "evidence[8].result",
+          "evidence[8].phrase",
+          "evidence[8].dataTimes",
+          "evidence[8].formula",
+          "sources.hour.raw"
+        ],
+        "value": "23.29332460",
+        "unit": "multiple",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791514800000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XAIUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      }
+    ],
+    "programRules": [
+      {
+        "renderedRule": {
+          "id": "PRICE_OPPOSITE_1h",
+          "horizon": "1h",
+          "metric": "PRICE_CLOSED_CHANGE",
+          "operator": "LTE",
+          "threshold": -1,
+          "outcome": "INVALIDATED",
+          "description": "后续新收盘滚动1h价格变化≤-1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+          "baselineEvidenceId": "XAIUSDT:price.closed1h"
+        },
+        "baselineFactsEvidenceId": "XAIUSDT:price.closed1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(1, abs(current price change)/2)"
+      },
+      {
+        "renderedRule": {
+          "id": "OI_REVERSED_1h",
+          "horizon": "1h",
+          "metric": "OI_QUANTITY_CHANGE",
+          "operator": "LTE",
+          "threshold": -13.575650355,
+          "outcome": "THESIS_WARNING",
+          "description": "后续新采样精确1h OI数量变化≤-13.5757%，原敞口变化条件明显逆转，只触发复核",
+          "baselineEvidenceId": "XAIUSDT:oi.1h"
+        },
+        "baselineFactsEvidenceId": "XAIUSDT:oi.1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+      }
+    ],
+    "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+  }
+}

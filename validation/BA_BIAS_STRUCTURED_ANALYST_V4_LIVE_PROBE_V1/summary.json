@@ -1,0 +1,41 @@
+{
+  "verdict": "V4_CONTRACT_FIX_REQUIRED",
+  "phase": "A_PRECHECK",
+  "plannedSamples": 10,
+  "executedSamples": 0,
+  "completedFirstResponses": 0,
+  "physicalRequests": 0,
+  "validApiResponses": 0,
+  "apiFailures": 0,
+  "firstSchemaValid": 0,
+  "firstFullValid": 0,
+  "eventuallyFullValid": 0,
+  "failedIndependentAnalyses": 0,
+  "notExecutedSamples": 10,
+  "rates": {
+    "firstSchema": null,
+    "firstFull": null,
+    "eventualFull": null,
+    "reason": "NOT_TESTED — denominator zero"
+  },
+  "batches": {
+    "first": "NOT_EXECUTED_PRECHECK_BLOCKED",
+    "firstSafetyGate": "NOT_APPLICABLE",
+    "second": "NOT_EXECUTED_PRECHECK_BLOCKED"
+  },
+  "directionCounts": null,
+  "structureReferenceCounts": null,
+  "rendererNumericCounts": null,
+  "tokens": null,
+  "contractReliability": "BLOCKED_LIVE_PROVENANCE",
+  "factualSafety": "NOT_TESTED_LIVE",
+  "directionalUsefulness": "UNKNOWN",
+  "productionIntegration": "NOT_TESTED",
+  "comparison": "UNPAIRED_DESCRIPTIVE_COMPARISON — no V4 live observations",
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "collectionCompletedAt": "NOT_APPLICABLE_NO_SELECTED_LIVE_SAMPLE",
+  "researchExecutedAt": "NOT_APPLICABLE_NO_REQUEST",
+  "externalCalls": 0,
+  "notifications": 0
+}

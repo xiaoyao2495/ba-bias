@@ -1,0 +1,25 @@
+{
+  "planned": 10,
+  "submitted": 10,
+  "firstModelResponses": 10,
+  "requests": 30,
+  "responses": 30,
+  "apiErrors": 0,
+  "apiStopped": false,
+  "firstSchemaValid": 9,
+  "firstPassValid": 0,
+  "recovery1Valid": 0,
+  "recovery2Valid": 0,
+  "eventuallyValid": 0,
+  "finalInvalid": 10,
+  "notAttempted": 0,
+  "firstSuccessRate": 0,
+  "finalSuccessRate": 0,
+  "biasCounts": {
+    "BULLISH": 0,
+    "BEARISH": 0,
+    "BULLISH_REVERSAL": 0,
+    "BEARISH_REVERSAL": 0,
+    "NO_EDGE": 0
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "total": 92,
+  "passed": 92,
+  "checks": [
+    {
+      "file": "src/analysis/active-analyst.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-alignment-guard.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-analyst.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-context.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-generation.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-history.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-legacy-guard.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-schema.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/evidence-precision-validator.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/evidence-text-validator.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-executor.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-guard.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-input.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-provenance.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-renderer.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-schema.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/structured-v4-production.js",
+      "passed": true
+    },
+    {
+      "file": "src/clients/binance.js",
+      "passed": true
+    },
+    {
+      "file": "src/clients/deepseek.js",
+      "passed": true
+    },
+    {
+      "file": "src/clients/dingtalk.js",
+      "passed": true
+    },
+    {
+      "file": "src/clients/http.js",
+      "passed": true
+    },
+    {
+      "file": "src/config.js",
+      "passed": true
+    },
+    {
+      "file": "src/content/claim-guard.js",
+      "passed": true
+    },
+    {
+      "file": "src/content/draft-writer.js",
+      "passed": true
+    },
+    {
+      "file": "src/content/schemas.js",
+      "passed": true
+    },
+    {
+      "file": "src/content/story-judge.js",
+      "passed": true
+    },
+    {
+      "file": "src/intelligence/compact-renderer.js",
+      "passed": true
+    },
+    {
+      "file": "src/intelligence/notification-evidence.js",
+      "passed": true
+    },
+    {
+      "file": "src/intelligence/packet.js",
+      "passed": true
+    },
+    {
+      "file": "src/intelligence/v4-conditions.js",
+      "passed": true
+    },
+    {
+      "file": "src/logging.js",
+      "passed": true
+    },
+    {
+      "file": "src/main.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/detector.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/facts-engine.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/long-short-detector.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/long-short-discovery.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/long-short-facts.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/opportunity-selector.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/scanner.js",
+      "passed": true
+    },
+    {
+      "file": "src/scan-daemon.js",
+      "passed": true
+    },
+    {
+      "file": "src/scheduler.js",
+      "passed": true
+    },
+    {
+      "file": "src/storage/delivery-queue.js",
+      "passed": true
+    },
+    {
+      "file": "src/storage/delivery.js",
+      "passed": true
+    },
+    {
+      "file": "src/storage/history.js",
+      "passed": true
+    },
+    {
+      "file": "src/storage/message-boundaries.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-alignment-attribution.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-alignment-replay.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-alignment-report.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-generation-offline.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-live-probe-report.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-live-probe.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-precision-prepare.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-precision-replay.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-precision-report.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-semantic-grounding-replay.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-v3-live-preflight.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-v3-post-collection-probe.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/analyst-version.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/compact-replay.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/selector-replay.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/structured-v4-live-preflight.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/structured-v4-live-rerun.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/structured-v4-provenance-offline.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/structured-v4-provenance-replay.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/v4-failure-render-replay.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/v4-output-quality-replay.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/validation-recovery-replay.js",
+      "passed": true
+    },
+    {
+      "file": "test/analyst-alignment.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/analyst-generation.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/analyst-live-probe.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/analyst-precision.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/analyst-v3-live-preflight.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/analyst-v3-post-collection.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/compact-fixture.js",
+      "passed": true
+    },
+    {
+      "file": "test/compact.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/core.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/cutover-authorization.js",
+      "passed": true
+    },
+    {
+      "file": "test/directional-fixture.js",
+      "passed": true
+    },
+    {
+      "file": "test/directional.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/fixtures.js",
+      "passed": true
+    },
+    {
+      "file": "test/hourly.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/long-short.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/no-edge-render-forensic.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/output-quality-authorization.js",
+      "passed": true
+    },
+    {
+      "file": "test/output-quality.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/selector.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/structured-v4-live-preflight.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/structured-v4-live-rerun.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/structured-v4-provenance.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/structured-v4.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/v4-production.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/validation-recovery.test.js",
+      "passed": true
+    }
+  ]
+}

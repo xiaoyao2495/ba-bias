@@ -1,0 +1,50 @@
+{
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "plannedSamples": 10,
+  "executableSamples": 10,
+  "attemptedSamples": 10,
+  "completedFirstResponses": 10,
+  "physicalRequests": 29,
+  "responses": 29,
+  "apiFailures": 0,
+  "firstSchemaValid": 10,
+  "allSchemaValid": 29,
+  "firstFullValid": 0,
+  "recovery1Valid": 1,
+  "recovery2Valid": 1,
+  "eventuallyValid": 2,
+  "finalInvalid": 8,
+  "notAttempted": 0,
+  "firstSchemaRate": 1.0,
+  "firstFullRate": 0.0,
+  "firstFullRateOverAttempted": 0.0,
+  "finalFullRate": 0.2,
+  "firstFailedRecoverySuccessRate": 0.2,
+  "productionTwoCallBudgetWouldValidate": 1,
+  "biasCounts": {
+    "BULLISH": 2,
+    "BEARISH": 0,
+    "BULLISH_REVERSAL": 0,
+    "BEARISH_REVERSAL": 0,
+    "NO_EDGE": 0
+  },
+  "firstRawBiasCounts": {
+    "BEARISH": 4,
+    "BULLISH": 4,
+    "NO_EDGE": 2
+  },
+  "tokens": {
+    "prompt_tokens": 564374,
+    "completion_tokens": 20176,
+    "total_tokens": 584550,
+    "prompt_cache_hit_tokens": 56448,
+    "prompt_cache_miss_tokens": 507926
+  },
+  "estimatedCost": null,
+  "costReason": "No verified unit prices supplied; no pricing service called. Usage is recorded, cost is not guessed.",
+  "comparison": "UNPAIRED_DESCRIPTIVE_COMPARISON",
+  "productionIntegration": "NOT_TESTED",
+  "predictiveEdge": "NOT_TESTED — NOT_CAUSAL_BACKTEST",
+  "contractReliability": "NOT_READY"
+}

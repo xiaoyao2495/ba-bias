@@ -1,0 +1,42 @@
+{
+  "sampleId": "s_hourly_20261010_1200_PIXELUSDT",
+  "provenance": {
+    "sourceType": "LIVE_MODEL_RESPONSE",
+    "executionKind": "LIVE_API",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "requestedModel": "deepseek-flash",
+    "requestId": "c806c048-99f5-4995-ba9b-d0213b0f2c14",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "serverResponseId": "2eb1c74b-d5c9-406d-8a73-c6ea2f86da1e",
+    "requestedAt": "2026-10-10T20:54:08.363Z",
+    "receivedAt": "2026-10-10T20:54:10.349Z",
+    "requestHash": "ef5883bc4d9ea81cfe69fc3401eb10aa77149b9a8e9488bd5cc79d5bc1bd6b51",
+    "responseHash": "7815ed3024558f79cfe93c8fb4657d3cbcad029a9c1667f08062bcf78fa814ac",
+    "inputHash": "75e1168b24becdb021a4092ff3b3e01d6d1c640ec3d8a71f74f31a057467692e"
+  },
+  "validation": {
+    "ok": false,
+    "status": "FAILED",
+    "errors": [
+      "MECHANISM_SIGN_MISMATCH"
+    ],
+    "provenanceValid": true,
+    "analysisValid": false,
+    "provenance": {
+      "sourceType": "LIVE_MODEL_RESPONSE",
+      "executionKind": "LIVE_API",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "requestedModel": "deepseek-flash",
+      "requestId": "c806c048-99f5-4995-ba9b-d0213b0f2c14",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "2eb1c74b-d5c9-406d-8a73-c6ea2f86da1e",
+      "requestedAt": "2026-10-10T20:54:08.363Z",
+      "receivedAt": "2026-10-10T20:54:10.349Z",
+      "requestHash": "ef5883bc4d9ea81cfe69fc3401eb10aa77149b9a8e9488bd5cc79d5bc1bd6b51",
+      "responseHash": "7815ed3024558f79cfe93c8fb4657d3cbcad029a9c1667f08062bcf78fa814ac",
+      "inputHash": "75e1168b24becdb021a4092ff3b3e01d6d1c640ec3d8a71f74f31a057467692e"
+    }
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "id": "hourly_20261010_1200_MAGICUSDT_a3_99f280e9-116e-4910-b26f-291fc792497f",
+  "attempt": 3,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "2026-10-10T04:00:18.985Z",
+  "causalBacktestEligible": false,
+  "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+  "researchExecutedAt": "2026-10-10T18:51:21.361Z",
+  "responseAt": "2026-10-10T18:51:24.083Z",
+  "latencyMs": 2721,
+  "model": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 23794,
+    "completion_tokens": 678,
+    "total_tokens": 24472,
+    "prompt_tokens_details": {
+      "cached_tokens": 3072
+    },
+    "prompt_cache_hit_tokens": 3072,
+    "prompt_cache_miss_tokens": 20722
+  },
+  "raw": {
+    "id": "4474b96d-cbb9-4b02-84f0-7be3b03ba777",
+    "object": "chat.completion",
+    "created": 1791658281,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"MAGICUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化24.04%（MAGICUSDT:price.closed4h）为正，此前等长4h窗口6.26%（MAGICUSDT:directional.price.previous4h）亦为正，同期4h OI数量变化24.54%（MAGICUSDT:oi.4h）扩张，价格与合约规模同向，具备延续研究条件；1h已收盘转负且非强延续，故取4h。\",\"conviction\":\"LOW\",\"marketThesis\":\"4h窗口内倾向延续上行：已收盘4h价格与同期OI数量同向扩张，此前4h价格亦为正；但1h已收盘价格转负、24h高点回撤明显，且缺少主动买卖量、CVD与价格结构，延续假设证据强度有限。\",\"marketMechanism\":\"4h同期价格上行伴随OI合约数量扩张，与合约规模扩张、多空双方新增敞口并存的情形相容；OI增加不证明单侧加仓或资金流入，具体开平仓方向无法区分。\",\"supportingEvidenceIds\":[\"MAGICUSDT:price.closed4h\",\"MAGICUSDT:oi.4h\",\"MAGICUSDT:directional.price.previous4h\",\"MAGICUSDT:price.closed24h\",\"MAGICUSDT:oi.24h\",\"MAGICUSDT:volume.relative1h\"],\"conflictingEvidenceIds\":[\"MAGICUSDT:price.closed1h\",\"MAGICUSDT:price.drawdown\",\"MAGICUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h窗口内价格在已收盘4h正涨幅与OI扩张背景下维持偏强整理，回撤幅度不显著扩大，OI数量不出现明显收缩，则延续上行假设继续成立。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"若后续新收盘滚动4h价格变化≤-12.0179%（PRICE_OPPOSITE_4h）或新采样精确4h OI数量变化≤-12.2701%（OI_REVERSED_4h），则本4h延续假设失效或需复核。\"},\"alternativeScenario\":\"若1h负价格与24h高点回撤继续扩大，同时4h OI数量由扩张转为收缩，则上行动能可能衰减并转入更深的回撤整理，需重新评估方向。\",\"followUpChecks\":[\"核对下一根已收盘1h价格变化是否由负转正，以及1h OI数量变化是否维持扩张。\",\"核对新采样4h OI数量变化是否仍为正、未触及-12.2701%的复核阈值。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 23794,
+      "completion_tokens": 678,
+      "total_tokens": 24472,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072
+      },
+      "prompt_cache_hit_tokens": 3072,
+      "prompt_cache_miss_tokens": 20722
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"MAGICUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化24.04%（MAGICUSDT:price.closed4h）为正，此前等长4h窗口6.26%（MAGICUSDT:directional.price.previous4h）亦为正，同期4h OI数量变化24.54%（MAGICUSDT:oi.4h）扩张，价格与合约规模同向，具备延续研究条件；1h已收盘转负且非强延续，故取4h。\",\"conviction\":\"LOW\",\"marketThesis\":\"4h窗口内倾向延续上行：已收盘4h价格与同期OI数量同向扩张，此前4h价格亦为正；但1h已收盘价格转负、24h高点回撤明显，且缺少主动买卖量、CVD与价格结构，延续假设证据强度有限。\",\"marketMechanism\":\"4h同期价格上行伴随OI合约数量扩张，与合约规模扩张、多空双方新增敞口并存的情形相容；OI增加不证明单侧加仓或资金流入，具体开平仓方向无法区分。\",\"supportingEvidenceIds\":[\"MAGICUSDT:price.closed4h\",\"MAGICUSDT:oi.4h\",\"MAGICUSDT:directional.price.previous4h\",\"MAGICUSDT:price.closed24h\",\"MAGICUSDT:oi.24h\",\"MAGICUSDT:volume.relative1h\"],\"conflictingEvidenceIds\":[\"MAGICUSDT:price.closed1h\",\"MAGICUSDT:price.drawdown\",\"MAGICUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h窗口内价格在已收盘4h正涨幅与OI扩张背景下维持偏强整理，回撤幅度不显著扩大，OI数量不出现明显收缩，则延续上行假设继续成立。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"若后续新收盘滚动4h价格变化≤-12.0179%（PRICE_OPPOSITE_4h）或新采样精确4h OI数量变化≤-12.2701%（OI_REVERSED_4h），则本4h延续假设失效或需复核。\"},\"alternativeScenario\":\"若1h负价格与24h高点回撤继续扩大，同时4h OI数量由扩张转为收缩，则上行动能可能衰减并转入更深的回撤整理，需重新评估方向。\",\"followUpChecks\":[\"核对下一根已收盘1h价格变化是否由负转正，以及1h OI数量变化是否维持扩张。\",\"核对新采样4h OI数量变化是否仍为正、未触及-12.2701%的复核阈值。\"]}",
+  "parsedResponse": {
+    "version": "DIRECTIONAL_ANALYST_V2",
+    "symbol": "MAGICUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "marketBias": "BULLISH",
+    "horizon": "4h",
+    "horizonReason": "4h已收盘价格变化24.04%（MAGICUSDT:price.closed4h）为正，此前等长4h窗口6.26%（MAGICUSDT:directional.price.previous4h）亦为正，同期4h OI数量变化24.54%（MAGICUSDT:oi.4h）扩张，价格与合约规模同向，具备延续研究条件；1h已收盘转负且非强延续，故取4h。",
+    "conviction": "LOW",
+    "marketThesis": "4h窗口内倾向延续上行：已收盘4h价格与同期OI数量同向扩张，此前4h价格亦为正；但1h已收盘价格转负、24h高点回撤明显，且缺少主动买卖量、CVD与价格结构，延续假设证据强度有限。",
+    "marketMechanism": "4h同期价格上行伴随OI合约数量扩张，与合约规模扩张、多空双方新增敞口并存的情形相容；OI增加不证明单侧加仓或资金流入，具体开平仓方向无法区分。",
+    "supportingEvidenceIds": [
+      "MAGICUSDT:price.closed4h",
+      "MAGICUSDT:oi.4h",
+      "MAGICUSDT:directional.price.previous4h",
+      "MAGICUSDT:price.closed24h",
+      "MAGICUSDT:oi.24h",
+      "MAGICUSDT:volume.relative1h"
+    ],
+    "conflictingEvidenceIds": [
+      "MAGICUSDT:price.closed1h",
+      "MAGICUSDT:price.drawdown",
+      "MAGICUSDT:global.short.change1h"
+    ],
+    "tradeOpportunity": "WAIT_FOR_PULLBACK",
+    "preferredScenario": "4h窗口内价格在已收盘4h正涨幅与OI扩张背景下维持偏强整理，回撤幅度不显著扩大，OI数量不出现明显收缩，则延续上行假设继续成立。",
+    "invalidation": {
+      "type": "OBSERVABLE_CONDITION",
+      "ruleIds": [
+        "PRICE_OPPOSITE_4h",
+        "OI_REVERSED_4h"
+      ],
+      "description": "若后续新收盘滚动4h价格变化≤-12.0179%（PRICE_OPPOSITE_4h）或新采样精确4h OI数量变化≤-12.2701%（OI_REVERSED_4h），则本4h延续假设失效或需复核。"
+    },
+    "alternativeScenario": "若1h负价格与24h高点回撤继续扩大，同时4h OI数量由扩张转为收缩，则上行动能可能衰减并转入更深的回撤整理，需重新评估方向。",
+    "followUpChecks": [
+      "核对下一根已收盘1h价格变化是否由负转正，以及1h OI数量变化是否维持扩张。",
+      "核对新采样4h OI数量变化是否仍为正、未触及-12.2701%的复核阈值。"
+    ]
+  },
+  "validation": {
+    "ok": false,
+    "errors": [
+      "UNSUPPORTED_CAUSE_OR_ORDER"
+    ],
+    "diagnostics": [
+      {
+        "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+        "literal": "MAGICUSDT:price.closed4h",
+        "numberType": "EVIDENCE_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+        "literal": "MAGICUSDT:directional.price.previous4h",
+        "numberType": "EVIDENCE_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+        "literal": "MAGICUSDT:oi.4h",
+        "numberType": "EVIDENCE_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+        "literal": "MAGICUSDT",
+        "numberType": "SYMBOL_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+        "literal": "MAGICUSDT",
+        "numberType": "SYMBOL_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+        "literal": "MAGICUSDT",
+        "numberType": "SYMBOL_IDENTIFIER",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "24.04%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "MAGICUSDT:price.closed4h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "6.26%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "unit": "%",
+          "previous": true,
+          "rolling": false
+        },
+        "evidenceIds": [
+          "MAGICUSDT:directional.price.previous4h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "24.54%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "MAGICUSDT:oi.4h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "PERMITTED_UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "match": "主动买",
+        "span": "且缺少主动买卖量、CVD与价格结构",
+        "denied": true,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "match": "CVD",
+        "span": "且缺少主动买卖量、CVD与价格结构",
+        "denied": true,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "加仓",
+        "span": "OI增加不证明单侧加仓或资金流入",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "资金流入",
+        "span": "OI增加不证明单侧加仓或资金流入",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "平仓",
+        "span": "具体开平仓方向无法区分",
+        "denied": false,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": false
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "-12.0179%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": true,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": "PRICE_OPPOSITE_4h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "-12.2701%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": "OI_REVERSED_4h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "-12.2701%",
+        "numberType": "PERCENT_CHANGE",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": "OI_REVERSED_4h",
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      }
+    ],
+    "contractVersion": "DIRECTIONAL_ANALYST_V2"
+  },
+  "schemaValid": true,
+  "status": "INVALID"
+}

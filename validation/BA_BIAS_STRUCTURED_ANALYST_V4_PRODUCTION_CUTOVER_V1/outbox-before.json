@@ -1,0 +1,1842 @@
+[
+  {
+    "file": "data/outbox/hourly_20261010_2100_BATUSDT.json",
+    "storyKey": "aa3e673f35c260fdb3b6d393",
+    "deliveryId": "delivery_141f3d33b34511a46e193ddba522e6c8",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_API3USDT.json",
+    "storyKey": "1d38cf55a8e2b818b91ddbce",
+    "deliveryId": "delivery_926aea647cb4eb0240c2cb85946f38aa",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_STRKUSDT.json",
+    "storyKey": "fb9a57944e77de6ec84584e8",
+    "deliveryId": "delivery_c14061493c498d1bce366f1eebb01409",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_ARUSDT.json",
+    "storyKey": "380eb6b7a6cacc1fd884b7f5",
+    "deliveryId": "delivery_c7b5fb56143fe267cfa59e9fc0b8d415",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_HEIUSDT.json",
+    "storyKey": "58eafc7b61c3b8f63b26b544",
+    "deliveryId": "delivery_b9c522a3f850e50c25978ceedb83a4cf",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1600_LUMIAUSDT.json",
+    "storyKey": "83d5aae3f1d84820e7f2dd66",
+    "deliveryId": "delivery_78b382e26704461ecef1c10f014c338f",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_APRUSDT.json",
+    "storyKey": "0d7bd67c123c910a1b784c05",
+    "deliveryId": "delivery_ebeac34689f9ca02526663380d94a1cb",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_PIEVERSEUSDT.json",
+    "storyKey": "d6949e16cf8b3aeae9383ae7",
+    "deliveryId": "delivery_d6b2663a5574d90f1e256607fb329511",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_STABLEUSDT.json",
+    "storyKey": "42bfeac1597609964d4f44bd",
+    "deliveryId": "delivery_9be4d2f0d18d8e3e9b9ebf9262f89721",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_JCTUSDT.json",
+    "storyKey": "3aaa97697adb4995c66e8841",
+    "deliveryId": "delivery_ab283736a2478415026a7f8346b895d9",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_MORPHOUSDT.json",
+    "storyKey": "c47539ca5cf186541e74576d",
+    "deliveryId": "delivery_3584ecb96d4002cd58691798c88b866c",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_SEIUSDT.json",
+    "storyKey": "691ceae7f717da42a36d1805",
+    "deliveryId": "delivery_635744b3ba94c065e8c4068e57d717bb",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_RLCUSDT.json",
+    "storyKey": "7f7a492e22193a80b3d9a859",
+    "deliveryId": "delivery_f3b64bd1cc435d7c1e41f11fb998211a",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_ARUSDT.json",
+    "storyKey": "642029f9af93c602a1b1c7f7",
+    "deliveryId": "delivery_9a0694be8cc8a70d47786b42893501f6",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_POLUSDT.json",
+    "storyKey": "df1521c29025d48db41cc617",
+    "deliveryId": "delivery_0c3ec9b8a95d94166f92c3269cbf2433",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_BATUSDT.json",
+    "storyKey": "9d437dd45640afc7f5db5b49",
+    "deliveryId": "delivery_12417b7e5f5cef3f5f1e1eae822845ed",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_CAPUSDT.json",
+    "storyKey": "dd8c8687388bc8766b9d3359",
+    "deliveryId": "delivery_d3709c8b4fc255fe08a6243a3ca18cae",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1600_MAGICUSDT.json",
+    "storyKey": "9d0427a8930eacd30e884358",
+    "deliveryId": "delivery_096789de5d6bb613548d061784c42fbe",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_MINAUSDT.json",
+    "storyKey": "76f16d6e14e757f508be064e",
+    "deliveryId": "delivery_cead9bad9aa23ea51911439c49d87817",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_KAITOUSDT.json",
+    "storyKey": "77d809659364fcdfa7885637",
+    "deliveryId": "delivery_d930aac477b984a84dda339e2808342d",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_ERAUSDT.json",
+    "storyKey": "9dc21369ddf63c1c3829bb1f",
+    "deliveryId": "delivery_af43cb7184c786ca29051016ad1b9bba",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_HEIUSDT.json",
+    "storyKey": "ea7270f126226fa1bf452b0d",
+    "deliveryId": "delivery_03cb84ba14ff6212c811a198144572b3",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_USUSDT.json",
+    "storyKey": "2c49d1f7ccedd308cafd8db7",
+    "deliveryId": "delivery_f6cd8462569ae8857b205eaa6e727f8a",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_KMNOUSDT.json",
+    "storyKey": "4a5fccad6846b646e37e3a09",
+    "deliveryId": "delivery_670b65beb217922ffa3e22f308133f15",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1300_MAGICUSDT.json",
+    "storyKey": "dd4ae8c1d8402a7097cc8a64",
+    "deliveryId": "delivery_ead9d1b3570f395c9d2b114a3d0a80c5",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_ERAUSDT.json",
+    "storyKey": "a7308a9c2c9de35541fc28ea",
+    "deliveryId": "delivery_a9bc186942298fbbcf2639bf241c6b8a",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_SKLUSDT.json",
+    "storyKey": "eac02cbff80e10e78542b7c3",
+    "deliveryId": "delivery_89fe4f85961c3b9f6243b2fd668570e8",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_CAPUSDT.json",
+    "storyKey": "863f7cfa710354a9367c97d8",
+    "deliveryId": "delivery_561979c8238dd30e48e53836d1438fb6",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_BATUSDT.json",
+    "storyKey": "e598c42800e56c58681aa069",
+    "deliveryId": "delivery_63a6208d3f518fd7b5389a30eeede32f",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_CHRUSDT.json",
+    "storyKey": "6d727db0e6acbf2b4d23bd04",
+    "deliveryId": "delivery_029757ee5251249cb5a3f53fe219e2f7",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_SAHARAUSDT.json",
+    "storyKey": "18aeeb5c817f025e1178f827",
+    "deliveryId": "delivery_86df4f19c50222b2e1eac586f3ddbc38",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_ZROUSDT.json",
+    "storyKey": "cdd26a6d2e243debbd2337f3",
+    "deliveryId": "delivery_bf28e5697e0c339e076d569ca37b7c96",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_LUMIAUSDT.json",
+    "storyKey": "3aef6e258b4834a1078d589c",
+    "deliveryId": "delivery_f62f882b96f808c0c0449f31a4e916c6",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_CELRUSDT.json",
+    "storyKey": "cf6b76783b3ae68c918f04fb",
+    "deliveryId": "delivery_dbaeb15dde5dddb9cdcf8fe39d45bec6",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_LAUSDT.json",
+    "storyKey": "f9dc09e835dc9bfeefa3e109",
+    "deliveryId": "delivery_831f6d644dad6fb155ceb42abe34aceb",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1200_PIXELUSDT.json",
+    "storyKey": "7853341931ce257e34081385",
+    "deliveryId": "delivery_320ccf55c7581f84af75c401d8fabe4e",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_MAGICUSDT.json",
+    "storyKey": "47e1595c9942b56c0f4e2ad5",
+    "deliveryId": "delivery_aa435a786d6b282ff1c6564294ae1e15",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_EULUSDT.json",
+    "storyKey": "1a802dcf33bf917d8bc33eab",
+    "deliveryId": "delivery_397c36f621c0c00f97f2618d99a53c82",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_APRUSDT.json",
+    "storyKey": "b5f0a8194f90ad5dcf05542e",
+    "deliveryId": "delivery_b98270492ff43147ec408a42be61e784",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_1000BONKUSDT.json",
+    "storyKey": "6023c2e25ea532f789df5c9e",
+    "deliveryId": "delivery_fdeae34d92ea09aab527c46da22a4b14",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_ONEUSDT.json",
+    "storyKey": "d3de5adb16b0fe7da4baceea",
+    "deliveryId": "delivery_1e28d51d602804d081b0dd2031447673",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_ERAUSDT.json",
+    "storyKey": "841f878617d6ee39456bc547",
+    "deliveryId": "delivery_a2d2dcbda8b3767f1830f5d5d607a615",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_AIOTUSDT.json",
+    "storyKey": "65c071fedbda5832f2a6895e",
+    "deliveryId": "delivery_9643fe1ee3d9b8c65b6391117ff639c6",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_MAGICUSDT.json",
+    "storyKey": "dab79bd03965d5e2e9e2ec8e",
+    "deliveryId": "delivery_b91eaa85c4a8eb38206b0ce5904c87a1",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_AINUSDT.json",
+    "storyKey": "4b4d5fff7d3a4aa54a17a61c",
+    "deliveryId": "delivery_43f4083936d712f3e50337d45a17c578",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_RONINUSDT.json",
+    "storyKey": "d05d68075605b334a146c88f",
+    "deliveryId": "delivery_62c1720ae231a4ba064bcdf5df053912",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_ARPAUSDT.json",
+    "storyKey": "7cd3619e7af68995aad14a36",
+    "deliveryId": "delivery_7b64812854b1ef59be7d8f9ee592b4b2",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_USUSDT.json",
+    "storyKey": "984f824e0677ddb6ebbee704",
+    "deliveryId": "delivery_07ddc502c9d1d17c8731f6a35f428513",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_CAPUSDT.json",
+    "storyKey": "8b24731e7645f2a8d4b0a4e7",
+    "deliveryId": "delivery_9f4707e2605a40d1295b93092d8fe338",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_WIFUSDT.json",
+    "storyKey": "17f34a759282741301b17ff4",
+    "deliveryId": "delivery_9891967822ec098fb03e505dcaf33277",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_RLCUSDT.json",
+    "storyKey": "859599da122e190aff68f362",
+    "deliveryId": "delivery_13950badc7a3fe7b3ff15c24f7dd9aea",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1400_KAIAUSDT.json",
+    "storyKey": "a9d803c666925b89d0bef668",
+    "deliveryId": "delivery_4b4c8f48e56427b3b65f2c1323adbcca",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_BABYUSDT.json",
+    "storyKey": "a99889996c3bb3af028493ef",
+    "deliveryId": "delivery_a54fbcd6bd6212e7484a45741abc494b",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1300_C98USDT.json",
+    "storyKey": "d4cc75f10f4d785eb2998c9b",
+    "deliveryId": "delivery_47ce22b31f5c36d6e4e5e80601406cfd",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/live_v1_verified_20261010_MAGICUSDT.json",
+    "storyKey": "7408d667b40c7dc41c892cef",
+    "deliveryId": null,
+    "status": "SHADOW",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_BATUSDT.json",
+    "storyKey": "c28bd193e8f480f446cdce85",
+    "deliveryId": "delivery_c5ec82de18b36c80f2e21ce6b7876073",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_ENSUSDT.json",
+    "storyKey": "ac689eaddd067e9a272168e7",
+    "deliveryId": "delivery_aa66aad9a8c7d0789ca3d2ef82029c8f",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_GRASSUSDT.json",
+    "storyKey": "fb477f23c465cbcd19d115f0",
+    "deliveryId": "delivery_7365097fcb60bb36f46235f04a0bb3c7",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_CTSIUSDT.json",
+    "storyKey": "2506118dad6aa7797666daeb",
+    "deliveryId": "delivery_7fe156b7f314e814e4eca707809c1b7f",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_PEOPLEUSDT.json",
+    "storyKey": "a023240113c2da73f9c60b08",
+    "deliveryId": "delivery_d61899b6ccc0b7cb7f7723a940d70854",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_SPKUSDT.json",
+    "storyKey": "d31921241143798fa36de84b",
+    "deliveryId": "delivery_a9ad5a1f7098466df083996bb5a6f935",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_0GUSDT.json",
+    "storyKey": "e4363cef4210ea855e36adb9",
+    "deliveryId": "delivery_85feab415697d07d1dc2195b35765d93",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_ALGOUSDT.json",
+    "storyKey": "4cdef8818e5d481a74fd4b4b",
+    "deliveryId": "delivery_51c0cbaedaf7b94f33718f5d62519dfc",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_LUMIAUSDT.json",
+    "storyKey": "e059755aff8f7a775b002b2f",
+    "deliveryId": "delivery_8312d624665bfcf0e65debff08ecd712",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1500_LPTUSDT.json",
+    "storyKey": "4b79ece9e5ea5f431fba8bb6",
+    "deliveryId": "delivery_9fd27d844eda64bbd48edc055b004da5",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_STRKUSDT.json",
+    "storyKey": "ee05c5fd7261e1000191445d",
+    "deliveryId": "delivery_1b9bf2bea51858fc05df99105d2b9556",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_SUPERUSDT.json",
+    "storyKey": "8998f3573589dab842a4c6d5",
+    "deliveryId": "delivery_1a35fe0cae1dfa409c77f70853f93eab",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_JCTUSDT.json",
+    "storyKey": "84da2b0fd67be09a49f73270",
+    "deliveryId": "delivery_72d9a72cb2729a4c5be46eef93b38dcd",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_NEIROUSDT.json",
+    "storyKey": "c379be3e09fed2342619bb11",
+    "deliveryId": "delivery_1c15c147715dbbf88b7346d74f4a8780",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_WLFIUSDT.json",
+    "storyKey": "1ac91d6919ad6599a5b1db67",
+    "deliveryId": "delivery_929b6aa0d466ab3529aea4190348df98",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_METUSDT.json",
+    "storyKey": "b6549b0e05d8018123cffeda",
+    "deliveryId": "delivery_a885f94479007b759ad37222d1307bff",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_MAGICUSDT.json",
+    "storyKey": "7e361320a16a1a30e998aeb3",
+    "deliveryId": "delivery_38ccb5d1ea3fdbd3c0e711fabb250d37",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_HEMIUSDT.json",
+    "storyKey": "986cba612ae4521df23035c2",
+    "deliveryId": "delivery_de0cb0c2e2dd4743c2bc77ba3a53fda7",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_AIOTUSDT.json",
+    "storyKey": "54d52de20f484c45c84c613a",
+    "deliveryId": "delivery_3dcda52d28dfd1a80c6860e08964912f",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_OPGUSDT.json",
+    "storyKey": "408a316b5b01b0615ec6607b",
+    "deliveryId": "delivery_87c3d9fa74b8897ad4623b2e96f4be62",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_CFXUSDT.json",
+    "storyKey": "435ef5d000dd773d8ec95abe",
+    "deliveryId": "delivery_5f33895f2ef7985bd5ab2ef1713e1cea",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_FARTCOINUSDT.json",
+    "storyKey": "90b2e1bb1848000c6a75967e",
+    "deliveryId": "delivery_11fd6a75e92f4586964fcdf0a905f634",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_VETUSDT.json",
+    "storyKey": "377ec61800a5fae6c227cee2",
+    "deliveryId": "delivery_3e49e3ecdc3d8219a1e7874829c98c4c",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_AINUSDT.json",
+    "storyKey": "4203352c55787edd6f7ea1d8",
+    "deliveryId": "delivery_4621a8a17cb13336af71966f77bdb400",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_CELRUSDT.json",
+    "storyKey": "c3f10f547bb08895d4c0ca63",
+    "deliveryId": "delivery_8e81a0bffab7267c050efdfac5101cb3",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_QNTUSDT.json",
+    "storyKey": "c4333714c57f0c901bdbc211",
+    "deliveryId": "delivery_961a5dc6ae4b73bb34dd6f667e8c7906",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_MINAUSDT.json",
+    "storyKey": "3ce84fa3168a5a2c72489af8",
+    "deliveryId": "delivery_a4b6742a2038d70ee41a9882ea7f5594",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_VTHOUSDT.json",
+    "storyKey": "38695de9b6a0afbf3e5da317",
+    "deliveryId": "delivery_19a07b5e9f7c32095cbcb46bcba89e37",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_KAIAUSDT.json",
+    "storyKey": "4e214114eab0ce098c18d210",
+    "deliveryId": "delivery_93894d1e036859d60ede0c8f708e5764",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_XLMUSDT.json",
+    "storyKey": "224da3caa5f3ff0a0695545f",
+    "deliveryId": "delivery_b69bb88a1bc03b132fd8a83fd08cd1c4",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_MANAUSDT.json",
+    "storyKey": "69b1cacbf2e6ba6d552714df",
+    "deliveryId": "delivery_7e6512056d2978db498fb95d029babdc",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_MOVRUSDT.json",
+    "storyKey": "f08bd7067e375d0a309c945c",
+    "deliveryId": "delivery_efaa8c3e334139c9a28b30a7af2f2331",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_LUMIAUSDT.json",
+    "storyKey": "29a8ec37c66114935a5e6f5a",
+    "deliveryId": "delivery_b4bb89b8dcaafc82aa65c4897082436a",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_ARPAUSDT.json",
+    "storyKey": "ad0db196247b28c9bb79da6e",
+    "deliveryId": "delivery_2ec581d3f18202bc30a280c6c0564d49",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_IOSTUSDT.json",
+    "storyKey": "27f49eceb9ab4b9a30201baa",
+    "deliveryId": "delivery_a3a98189920013be8b3ea7f249567d13",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1400_USUSDT.json",
+    "storyKey": "89b170ef6993cd91c5371ae7",
+    "deliveryId": "delivery_9819f1e0d9e157fb995ef7f1c709676c",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_C98USDT.json",
+    "storyKey": "85bc22d0fa26f32aac42fd42",
+    "deliveryId": "delivery_806670bf95401610a05534babfdbc542",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/live_v1_verified_20261010_PIXELUSDT.json",
+    "storyKey": "69de55648b5184b2883ccb5c",
+    "deliveryId": null,
+    "status": "SHADOW",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2100_PUMPUSDT.json",
+    "storyKey": "7bfdc00fc37fb5da68e0a387",
+    "deliveryId": "delivery_dd1b9624a6c156300a0d2a7faa7c1ff5",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_XMRUSDT.json",
+    "storyKey": "36fcc5431e914f3f9c522322",
+    "deliveryId": "delivery_947b96d6d53f26feb63f142093038dbe",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_JCTUSDT.json",
+    "storyKey": "f7a1d6ade6bf183e0ae3100d",
+    "deliveryId": "delivery_5daeadb75a41d637daf240c4f2301668",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1500_MAGICUSDT.json",
+    "storyKey": "f9ac42e564ba6c35b11ae71d",
+    "deliveryId": "delivery_ec65a20ddec3e5be86076708c6f29e0e",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_CAPUSDT.json",
+    "storyKey": "58234c33dec9e548de08d5dc",
+    "deliveryId": "delivery_88535ff6fa3e54a141107013741d7015",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2200_MINAUSDT.json",
+    "storyKey": "6f1d637643986c33d466fc11",
+    "deliveryId": "delivery_a32d6c126e076f028fef70eee216b02a",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1200_XAIUSDT.json",
+    "storyKey": "d3211c058dbed69e1d776122",
+    "deliveryId": "delivery_4b5cff2acf6e23327d29cb937f63c750",
+    "status": "SENT",
+    "parts": []
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_ERAUSDT.json",
+    "storyKey": "1e7d89c56d66a5f9fc34133e",
+    "deliveryId": "delivery_f5711c9b8b1465aca45c4c0d08983a38",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_MAGICUSDT.json",
+    "storyKey": "8cd079032816e92f6f0ec528",
+    "deliveryId": "delivery_a61ecc543c9531d6e0f3cc4125a10861",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_RLCUSDT.json",
+    "storyKey": "2e2b9cc1d580249a2c86ce00",
+    "deliveryId": "delivery_b6afd252e76b4da095413611bb7741a5",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_2000_AGTUSDT.json",
+    "storyKey": "9e1b9f451ea727e753a7684d",
+    "deliveryId": "delivery_6c4ca2a68f91474e14473f457de0c491",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  },
+  {
+    "file": "data/outbox/hourly_20261010_1700_SENTUSDT.json",
+    "storyKey": "0566a009f23b7bcf5a28ce05",
+    "deliveryId": "delivery_28e5b6b62544ada71e85ca59e8c76639",
+    "status": "SENT",
+    "parts": [
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      },
+      {
+        "id": null,
+        "status": "SENT"
+      }
+    ]
+  }
+]

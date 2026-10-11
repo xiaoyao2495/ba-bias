@@ -1,0 +1,879 @@
+{
+  "selected": [
+    {
+      "symbol": "ERAUSDT",
+      "runId": "hourly_20261010_2100",
+      "evaluationTime": "2026-10-10T13:00:15.062Z",
+      "file": "data/runs/hourly_20261010_2100/facts/ERAUSDT.json",
+      "factsHash": "a2657a08d5de67d0faf47dfa370318cd3cb0e0990e44af5c6f3862ae395f7643",
+      "evidenceCount": 27,
+      "inputComplete": true,
+      "p4": 3.17658829,
+      "oi4": 11.4880653,
+      "p1": 1.96514646,
+      "oi1": 0.16994037,
+      "mainFacts": [
+        {
+          "kind": "PRICE_24H",
+          "evidenceIds": [
+            "ERAUSDT:price.rolling24h"
+          ],
+          "value": "33.39205637",
+          "threshold": 8,
+          "strength": 4.17400704625
+        },
+        {
+          "kind": "OI_4H",
+          "evidenceIds": [
+            "ERAUSDT:oi.4h"
+          ],
+          "value": "11.48806530",
+          "threshold": 10,
+          "strength": 1.14880653
+        },
+        {
+          "kind": "FUNDING_EXTREME",
+          "evidenceIds": [
+            "ERAUSDT:funding.latest"
+          ],
+          "value": "-1.00633100",
+          "threshold": 0.1,
+          "strength": 5
+        },
+        {
+          "kind": "VOLUME_SPIKE",
+          "evidenceIds": [
+            "ERAUSDT:volume.relative1h"
+          ],
+          "value": "2.20117406",
+          "threshold": 2,
+          "strength": 1.10058703
+        },
+        {
+          "kind": "FUNDING_CHANGE",
+          "evidenceIds": [
+            "ERAUSDT:funding.change",
+            "ERAUSDT:funding.latest"
+          ],
+          "value": "-0.99372100",
+          "strength": 1
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": 1.96514646,
+          "oi": 0.16994037,
+          "previousPrice": -0.94293412,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "4h",
+          "price": 3.17658829,
+          "oi": 11.4880653,
+          "previousPrice": 19.0235189,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        },
+        {
+          "horizon": "24h",
+          "price": 32.12684177,
+          "oi": 93.66127283,
+          "previousPrice": -12.03155819,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        }
+      ],
+      "funding": [
+        {
+          "id": "ERAUSDT:funding.latest",
+          "result": "-1.00633100"
+        },
+        {
+          "id": "ERAUSDT:funding.sum24h",
+          "result": "-1.18316800"
+        },
+        {
+          "id": "ERAUSDT:funding.change",
+          "result": "-0.99372100"
+        }
+      ],
+      "drawdown": "-8.63317244",
+      "selectionReason": "任务优先Symbol；采用最早可读且质量合格的历史Facts，不预设方向"
+    },
+    {
+      "symbol": "MAGICUSDT",
+      "runId": "hourly_20261010_2100",
+      "evaluationTime": "2026-10-10T13:00:15.062Z",
+      "file": "data/runs/hourly_20261010_2100/facts/MAGICUSDT.json",
+      "factsHash": "844ac731a5da653e16d38d635a49700389a50d03b8218c37e1323e6973c17abf",
+      "evidenceCount": 28,
+      "inputComplete": true,
+      "p4": 1.32325142,
+      "oi4": -4.62538359,
+      "p1": -5.49237415,
+      "oi1": -0.96538669,
+      "mainFacts": [
+        {
+          "kind": "PRICE_24H",
+          "evidenceIds": [
+            "MAGICUSDT:price.rolling24h"
+          ],
+          "value": "38.40888544",
+          "threshold": 8,
+          "strength": 4.80111068
+        },
+        {
+          "kind": "PRICE_1H",
+          "evidenceIds": [
+            "MAGICUSDT:price.closed1h"
+          ],
+          "value": "-5.49237415",
+          "threshold": 3,
+          "strength": 1.8307913833333334
+        },
+        {
+          "kind": "FUNDING_EXTREME",
+          "evidenceIds": [
+            "MAGICUSDT:funding.latest"
+          ],
+          "value": "-0.46878800",
+          "threshold": 0.1,
+          "strength": 4.68788
+        },
+        {
+          "kind": "FUNDING_CHANGE",
+          "evidenceIds": [
+            "MAGICUSDT:funding.change",
+            "MAGICUSDT:funding.latest"
+          ],
+          "value": "-0.41135100",
+          "strength": 1
+        },
+        {
+          "kind": "ACCOUNT_DOMINANCE_FLIP",
+          "value": "CONFIRMED",
+          "scope": "GLOBAL_ACCOUNTS",
+          "strength": 2,
+          "threshold": "strict crossing of 50%; 2 consecutive samples confirm",
+          "evidenceIds": [
+            "MAGICUSDT:global.flip"
+          ]
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": -5.49237415,
+          "oi": -0.96538669,
+          "previousPrice": 1.19514806,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "4h",
+          "price": 1.32325142,
+          "oi": -4.62538359,
+          "previousPrice": -30.93140134,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "24h",
+          "price": 38.44763012,
+          "oi": 69.02445646,
+          "previousPrice": 19.73704563,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        }
+      ],
+      "funding": [
+        {
+          "id": "MAGICUSDT:funding.latest",
+          "result": "-0.46878800"
+        },
+        {
+          "id": "MAGICUSDT:funding.sum24h",
+          "result": "-0.53170100"
+        },
+        {
+          "id": "MAGICUSDT:funding.change",
+          "result": "-0.41135100"
+        }
+      ],
+      "drawdown": "-34.52868227",
+      "selectionReason": "任务优先Symbol；采用最早可读且质量合格的历史Facts，不预设方向"
+    },
+    {
+      "symbol": "APRUSDT",
+      "runId": "hourly_20261010_2100",
+      "evaluationTime": "2026-10-10T13:00:15.062Z",
+      "file": "data/runs/hourly_20261010_2100/facts/APRUSDT.json",
+      "factsHash": "245e366902fe82500aa8b9114e4a357b9182bb1ca4f8e30a70ae275da5f2c6ac",
+      "evidenceCount": 27,
+      "inputComplete": true,
+      "p4": -17.1368861,
+      "oi4": 53.38728908,
+      "p1": 2.05920206,
+      "oi1": 1.34011192,
+      "mainFacts": [
+        {
+          "kind": "PRICE_24H",
+          "evidenceIds": [
+            "APRUSDT:price.rolling24h"
+          ],
+          "value": "-27.13107241",
+          "threshold": 8,
+          "strength": 3.39138405125
+        },
+        {
+          "kind": "OI_4H",
+          "evidenceIds": [
+            "APRUSDT:oi.4h"
+          ],
+          "value": "53.38728908",
+          "threshold": 10,
+          "strength": 5
+        },
+        {
+          "kind": "VOLUME_SPIKE",
+          "evidenceIds": [
+            "APRUSDT:volume.relative1h"
+          ],
+          "value": "4.12980293",
+          "threshold": 2,
+          "strength": 2.064901465
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": 2.05920206,
+          "oi": 1.34011192,
+          "previousPrice": -3.96039604,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "4h",
+          "price": -17.1368861,
+          "oi": 53.38728908,
+          "previousPrice": -11.79723502,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        },
+        {
+          "horizon": "24h",
+          "price": -27.31439047,
+          "oi": 76.40029958,
+          "previousPrice": 9.31863727,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        }
+      ],
+      "funding": [
+        {
+          "id": "APRUSDT:funding.latest",
+          "result": "0.01733900"
+        },
+        {
+          "id": "APRUSDT:funding.sum24h",
+          "result": "0.04233900"
+        },
+        {
+          "id": "APRUSDT:funding.change",
+          "result": "0.01233900"
+        }
+      ],
+      "drawdown": "-28.37837838",
+      "selectionReason": "任务优先Symbol；采用最早可读且质量合格的历史Facts，不预设方向"
+    },
+    {
+      "symbol": "USUSDT",
+      "runId": "hourly_20261010_2100",
+      "evaluationTime": "2026-10-10T13:00:15.062Z",
+      "file": "data/runs/hourly_20261010_2100/facts/USUSDT.json",
+      "factsHash": "7590ba09ee02704147d0355dce6b14c00109a66b382c42d2839e4ac8285c4256",
+      "evidenceCount": 27,
+      "inputComplete": true,
+      "p4": -6.03027546,
+      "oi4": -3.60960785,
+      "p1": -14.12156033,
+      "oi1": 0.29952203,
+      "mainFacts": [
+        {
+          "kind": "PRICE_24H",
+          "evidenceIds": [
+            "USUSDT:price.rolling24h"
+          ],
+          "value": "-29.47666989",
+          "threshold": 8,
+          "strength": 3.68458373625
+        },
+        {
+          "kind": "PRICE_1H",
+          "evidenceIds": [
+            "USUSDT:price.closed1h"
+          ],
+          "value": "-14.12156033",
+          "threshold": 3,
+          "strength": 4.707186776666666
+        },
+        {
+          "kind": "ACCOUNT_DISTRIBUTION_SHIFT",
+          "scope": "GLOBAL_ACCOUNTS",
+          "window": "24h",
+          "value": "-16.36000000",
+          "unit": "percentage_points",
+          "threshold": 15,
+          "strength": 1.0906666666666667,
+          "evidenceIds": [
+            "USUSDT:global.short.change24h",
+            "USUSDT:global.long.change24h"
+          ]
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": -14.12156033,
+          "oi": 0.29952203,
+          "previousPrice": 12.83734811,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "4h",
+          "price": -6.03027546,
+          "oi": -3.60960785,
+          "previousPrice": -13.60014293,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        },
+        {
+          "horizon": "24h",
+          "price": -29.18367983,
+          "oi": -21.66197468,
+          "previousPrice": 124.88605287,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        }
+      ],
+      "funding": [
+        {
+          "id": "USUSDT:funding.latest",
+          "result": "0.00745800"
+        },
+        {
+          "id": "USUSDT:funding.sum24h",
+          "result": "0.11152300"
+        },
+        {
+          "id": "USUSDT:funding.change",
+          "result": "-0.00170500"
+        }
+      ],
+      "drawdown": "-37.83553590",
+      "selectionReason": "任务优先Symbol；采用最早可读且质量合格的历史Facts，不预设方向"
+    },
+    {
+      "symbol": "BATUSDT",
+      "runId": "hourly_20261010_2100",
+      "evaluationTime": "2026-10-10T13:00:15.062Z",
+      "file": "data/runs/hourly_20261010_2100/facts/BATUSDT.json",
+      "factsHash": "76c837f3664ba2569ffbe944b36e34709a6effc77a6df44a54b42daa63ef1d84",
+      "evidenceCount": 27,
+      "inputComplete": true,
+      "p4": -0.95567154,
+      "oi4": 13.49855314,
+      "p1": -8.08432255,
+      "oi1": -4.88567273,
+      "mainFacts": [
+        {
+          "kind": "PRICE_24H",
+          "evidenceIds": [
+            "BATUSDT:price.rolling24h"
+          ],
+          "value": "19.92457574",
+          "threshold": 8,
+          "strength": 2.4905719675
+        },
+        {
+          "kind": "PRICE_1H",
+          "evidenceIds": [
+            "BATUSDT:price.closed1h"
+          ],
+          "value": "-8.08432255",
+          "threshold": 3,
+          "strength": 2.694774183333333
+        },
+        {
+          "kind": "OI_4H",
+          "evidenceIds": [
+            "BATUSDT:oi.4h"
+          ],
+          "value": "13.49855314",
+          "threshold": 10,
+          "strength": 1.349855314
+        },
+        {
+          "kind": "VOLUME_SPIKE",
+          "evidenceIds": [
+            "BATUSDT:volume.relative1h"
+          ],
+          "value": "5.76165114",
+          "threshold": 2,
+          "strength": 2.88082557
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": -8.08432255,
+          "oi": -4.88567273,
+          "previousPrice": 7.58954786,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "4h",
+          "price": -0.95567154,
+          "oi": 13.49855314,
+          "previousPrice": 0.17667845,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "24h",
+          "price": 20.97512795,
+          "oi": 60.65117385,
+          "previousPrice": 7.54297856,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        }
+      ],
+      "funding": [
+        {
+          "id": "BATUSDT:funding.latest",
+          "result": "0.00332500"
+        },
+        {
+          "id": "BATUSDT:funding.sum24h",
+          "result": "0.00392700"
+        },
+        {
+          "id": "BATUSDT:funding.change",
+          "result": "-0.00009000"
+        }
+      ],
+      "drawdown": "-16.15292862",
+      "selectionReason": "任务优先Symbol；采用最早可读且质量合格的历史Facts，不预设方向"
+    },
+    {
+      "symbol": "WIFUSDT",
+      "runId": "hourly_20261010_2100",
+      "evaluationTime": "2026-10-10T13:00:15.062Z",
+      "file": "data/runs/hourly_20261010_2100/facts/WIFUSDT.json",
+      "factsHash": "c3cd332a36efc278bd4b6b021101f547541c8878020fce21f9726eed2b7064ec",
+      "evidenceCount": 28,
+      "inputComplete": true,
+      "p4": -0.64102564,
+      "oi4": -0.51629891,
+      "p1": -0.18399264,
+      "oi1": -0.08312204,
+      "mainFacts": [
+        {
+          "kind": "ACCOUNT_DOMINANCE_FLIP",
+          "value": "CONFIRMED",
+          "scope": "GLOBAL_ACCOUNTS",
+          "strength": 2,
+          "threshold": "strict crossing of 50%; 2 consecutive samples confirm",
+          "evidenceIds": [
+            "WIFUSDT:global.flip"
+          ]
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": -0.18399264,
+          "oi": -0.08312204,
+          "previousPrice": -0.04599816,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        },
+        {
+          "horizon": "4h",
+          "price": -0.64102564,
+          "oi": -0.51629891,
+          "previousPrice": -0.50113895,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        },
+        {
+          "horizon": "24h",
+          "price": 2.94117647,
+          "oi": -0.81736204,
+          "previousPrice": -4.65852555,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        }
+      ],
+      "funding": [
+        {
+          "id": "WIFUSDT:funding.latest",
+          "result": "0.00500000"
+        },
+        {
+          "id": "WIFUSDT:funding.sum24h",
+          "result": "0.02255600"
+        },
+        {
+          "id": "WIFUSDT:funding.change",
+          "result": "0.00000000"
+        }
+      ],
+      "drawdown": "-2.47079964",
+      "selectionReason": "任务优先Symbol；采用最早可读且质量合格的历史Facts，不预设方向"
+    },
+    {
+      "symbol": "AIOTUSDT",
+      "runId": "hourly_20261010_2200",
+      "evaluationTime": "2026-10-10T14:00:12.629Z",
+      "file": "data/runs/hourly_20261010_2200/facts/AIOTUSDT.json",
+      "factsHash": "157c46e444be55461252ab28acec42307f6f72e028656338692469742bb14fa2",
+      "evidenceCount": 27,
+      "inputComplete": true,
+      "p4": 11.53184165,
+      "oi4": 19.69227927,
+      "p1": 0.87565674,
+      "oi1": 0.77091841,
+      "mainFacts": [
+        {
+          "kind": "PRICE_24H",
+          "evidenceIds": [
+            "AIOTUSDT:price.rolling24h"
+          ],
+          "value": "18.48297921",
+          "threshold": 8,
+          "strength": 2.31037240125
+        },
+        {
+          "kind": "OI_4H",
+          "evidenceIds": [
+            "AIOTUSDT:oi.4h"
+          ],
+          "value": "19.69227927",
+          "threshold": 10,
+          "strength": 1.969227927
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": 0.87565674,
+          "oi": 0.77091841,
+          "previousPrice": 0.09733307,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        },
+        {
+          "horizon": "4h",
+          "price": 11.53184165,
+          "oi": 19.69227927,
+          "previousPrice": 2.37885463,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        },
+        {
+          "horizon": "24h",
+          "price": 18.43728581,
+          "oi": 4.34575053,
+          "previousPrice": 27.5721364,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        }
+      ],
+      "funding": [
+        {
+          "id": "AIOTUSDT:funding.latest",
+          "result": "0.00500000"
+        },
+        {
+          "id": "AIOTUSDT:funding.sum24h",
+          "result": "0.07373900"
+        },
+        {
+          "id": "AIOTUSDT:funding.change",
+          "result": "-0.02835700"
+        }
+      ],
+      "drawdown": "-2.92025459",
+      "selectionReason": "补充4h价格上涨/OI扩张：按已保存4h涨幅排序"
+    },
+    {
+      "symbol": "AGTUSDT",
+      "runId": "hourly_20261010_2100",
+      "evaluationTime": "2026-10-10T13:00:15.062Z",
+      "file": "data/runs/hourly_20261010_2100/facts/AGTUSDT.json",
+      "factsHash": "07c5cf81893290fb1318f15035b6a4459f648897f869539b6b988900e404074f",
+      "evidenceCount": 27,
+      "inputComplete": true,
+      "p4": -21.6918304,
+      "oi4": 7.49701641,
+      "p1": 0.89000213,
+      "oi1": -0.16155563,
+      "mainFacts": [
+        {
+          "kind": "PRICE_24H",
+          "evidenceIds": [
+            "AGTUSDT:price.rolling24h"
+          ],
+          "value": "-24.57886982",
+          "threshold": 8,
+          "strength": 3.0723587275
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": 0.89000213,
+          "oi": -0.16155563,
+          "previousPrice": -0.68293716,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "4h",
+          "price": -21.6918304,
+          "oi": 7.49701641,
+          "previousPrice": -0.18562825,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        },
+        {
+          "horizon": "24h",
+          "price": -24.61072837,
+          "oi": 6.34033898,
+          "previousPrice": -9.96883619,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        }
+      ],
+      "funding": [
+        {
+          "id": "AGTUSDT:funding.latest",
+          "result": "0.00500000"
+        },
+        {
+          "id": "AGTUSDT:funding.sum24h",
+          "result": "0.04450800"
+        },
+        {
+          "id": "AGTUSDT:funding.change",
+          "result": "0.00000000"
+        }
+      ],
+      "drawdown": "-25.55717149",
+      "selectionReason": "补充4h价格下跌/OI扩张：按已保存4h跌幅排序"
+    },
+    {
+      "symbol": "NIGHTUSDT",
+      "runId": "hourly_20261010_2100",
+      "evaluationTime": "2026-10-10T13:00:15.062Z",
+      "file": "data/runs/hourly_20261010_2100/facts/NIGHTUSDT.json",
+      "factsHash": "1e04e285a7c6c1c20cf876bd37949da6ef62c8a4ee78df9a45259bc994085dd9",
+      "evidenceCount": 28,
+      "inputComplete": true,
+      "p4": -2.75415148,
+      "oi4": -2.07765359,
+      "p1": -2,
+      "oi1": -0.73756631,
+      "mainFacts": [
+        {
+          "kind": "ACCOUNT_DOMINANCE_FLIP",
+          "value": "CONFIRMED",
+          "scope": "GLOBAL_ACCOUNTS",
+          "strength": 2,
+          "threshold": "strict crossing of 50%; 2 consecutive samples confirm",
+          "evidenceIds": [
+            "NIGHTUSDT:global.flip"
+          ]
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": -2,
+          "oi": -0.73756631,
+          "previousPrice": 0.20449898,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "4h",
+          "price": -2.75415148,
+          "oi": -2.07765359,
+          "previousPrice": 5.19591141,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "24h",
+          "price": 6.47450111,
+          "oi": 4.2206977,
+          "previousPrice": 0.84992172,
+          "aligned": true,
+          "reversalEvidenceAvailable": false
+        }
+      ],
+      "funding": [
+        {
+          "id": "NIGHTUSDT:funding.latest",
+          "result": "0.00500000"
+        },
+        {
+          "id": "NIGHTUSDT:funding.sum24h",
+          "result": "0.03000000"
+        },
+        {
+          "id": "NIGHTUSDT:funding.change",
+          "result": "0.00000000"
+        }
+      ],
+      "drawdown": "-7.63461538",
+      "selectionReason": "补充4h价格下跌/OI收缩：按已保存4h跌幅排序"
+    },
+    {
+      "symbol": "WLFIUSDT",
+      "runId": "hourly_20261010_2200",
+      "evaluationTime": "2026-10-10T14:00:12.629Z",
+      "file": "data/runs/hourly_20261010_2200/facts/WLFIUSDT.json",
+      "factsHash": "2770517d0dc955ff546a191519aeb16cbafa0338360770255a091288492a546f",
+      "evidenceCount": 28,
+      "inputComplete": true,
+      "p4": -0.26242127,
+      "oi4": -0.0786477,
+      "p1": 0.01754386,
+      "oi1": 0.00244334,
+      "mainFacts": [
+        {
+          "kind": "ACCOUNT_DOMINANCE_FLIP",
+          "value": "CONFIRMED",
+          "scope": "GLOBAL_ACCOUNTS",
+          "strength": 2,
+          "threshold": "strict crossing of 50%; 2 consecutive samples confirm",
+          "evidenceIds": [
+            "WLFIUSDT:global.flip"
+          ]
+        }
+      ],
+      "windows": [
+        {
+          "horizon": "1h",
+          "price": 0.01754386,
+          "oi": 0.00244334,
+          "previousPrice": -0.01754078,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "4h",
+          "price": -0.26242127,
+          "oi": -0.0786477,
+          "previousPrice": 0.21037868,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        },
+        {
+          "horizon": "24h",
+          "price": 5.80920564,
+          "oi": 1.43087988,
+          "previousPrice": -3.30222541,
+          "aligned": true,
+          "reversalEvidenceAvailable": true
+        }
+      ],
+      "funding": [
+        {
+          "id": "WLFIUSDT:funding.latest",
+          "result": "0.00500000"
+        },
+        {
+          "id": "WLFIUSDT:funding.sum24h",
+          "result": "0.02633800"
+        },
+        {
+          "id": "WLFIUSDT:funding.change",
+          "result": "0.00000000"
+        }
+      ],
+      "drawdown": "-2.14555441",
+      "selectionReason": "补充相对平静：仅按当时1h价格/OI绝对变化之和最小排序"
+    }
+  ],
+  "excluded": [
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/FRAXUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/GWEIUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/NILUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/ONUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/OUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/UAIUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/YGGUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/CCUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ENJUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/KITEUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/LIGHTUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/NILUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/RIVERUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ROSEUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/SOONUSDT.json",
+      "error": "NO_DEEP_ANOMALY"
+    }
+  ],
+  "poolSize": 111
+}

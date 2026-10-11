@@ -1,0 +1,38 @@
+{
+  "generationVersion": "DIRECTIONAL_ANALYST_GENERATION_V3",
+  "inputFormatVersion": "DIRECTIONAL_INPUT_PRESENTATION_V3",
+  "inputSchemaVersion": "DIRECTIONAL_INPUT_V1 with existing open metadata fields",
+  "outputSchemaVersion": "DIRECTIONAL_ANALYST_V2",
+  "validatorVersion": "DIRECTIONAL_ANALYST_V2_PRECISION_V1",
+  "modelParameters": {
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "thinking": {
+      "type": "disabled"
+    },
+    "max_tokens": 6000,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "parameterStatus": "existing live probe parameters; client unchanged; runtime model config remains authoritative",
+  "modelClientHash": "1cb36a44426e97d1a4b93f27b5fd217525420b63fd05d5e78b623ba45071f73d",
+  "configHash": "e249c21c29eeb24ffc80b651616008d2f1550d3ee2ab29351c0d1cc43d56d67f",
+  "maximumCalls": 2,
+  "prompt": "DIRECTIONAL_ANALYST_GENERATION_V3。你是独立未来行情方向研究员；对已确认事实提出有期限、有竞争情景的研究假设，不否决已合格事实新闻。输出DIRECTIONAL_ANALYST_V2严格JSON，version固定为DIRECTIONAL_ANALYST_V2，使用输入contractVersion，不复制输入容器version；direction字段实际名marketBias。遵守Schema全部必填字段，不添加extraNotes或解释字段。先读contentContract，再看evidenceGuide分类索引，最终数值和来源以evidence为准。\nOBSERVATION：仅引用输入Registry已有Evidence ID，不拼接ID。优先用{{evidenceId}}，程序Renderer确定性展示精确数值；支持/冲突列表选论据，背景引用可不在列表但必须在Registry。不需要在每个文字字段复写百分比。若手写数字，必须保留指标、单位、正负号、舍入、时间窗口和口径。当前快照、滚动24h、已收盘窗口、此前等长窗口分别表达；跨周期逐一标记，不当作同期。dataTimes不得超过evaluationTime；缺失不等于中性。\nMECHANISM只放marketMechanism：同期价格与OI合约数量变化允许解释统计组合。OI增加表示合约规模扩张，不证明单侧加仓或资金流入；OI收缩且价格上涨才可提出与部分空头回补的可能性相容，价格下降/OI收缩可提出与部分多头敞口了结的可能性相容，均不能确认具体行为。OI增加不单凭Funding推断回补。不要在marketThesis把拥挤、抛压、获利了结等参与者状态写成已证实事实；否定说明须紧邻断言，不能用末尾免责声明掩盖前文确定性因果。账户比例不是持仓比例；顶部账户与顶部持仓分开，顶部持仓份额也不是全市场OI多空占比。正已结算Funding多头支付空头，负已结算Funding空头支付多头，支付关系须引用真实最新结算ID；相邻结算变化用百分点，不假设相同结算周期。\nFORECAST_HYPOTHESIS：marketThesis明确未来所选horizon的倾向及限制；preferredScenario描述主情景，alternativeScenario描述竞争情景。不把未来当已证明事实；禁止精确目标价、胜率、概率、收益率和虚构结构。不要因预测不确定就一律NO_EDGE，也不强迫选择明确方向或固定方向分布。与当前价格相反的假设须有明确冲突及参与量依据。\n方向：BULLISH/BEARISH是有依据的向上/向下延续假设。BULLISH_REVERSAL须此前同长度价格负、当前正；BEARISH_REVERSAL须此前同长度正、当前负；引用两端价格ID，解释真实转向，不能只因大涨大跌、Funding极端、账户多数或账户翻转选REVERSAL。不需要未接入ICT/MSS/BOS/FVG，也不得称结构反转已确认。NO_EDGE须解释真实冲突或不足，不用继续观察逃避有依据判断。\n方向与交易机会独立：BULLISH可WAIT_FOR_PULLBACK/AVOID_CHASING，BEARISH可WAIT_FOR_CONFIRMATION/NO_ACTIONABLE_SETUP。当前priceStructure=false，不得LONG_SETUP/SHORT_SETUP，不造入场止损目标。缺少对齐OI必须LOW；HIGH仍须所选1h有strongContinuation、当前价格方向与预测一致、对齐OI扩张，相对1h量至少2倍且引用其ID，无冲突ID且其他当前价格周期不反向，定性强度不等于胜率。\ninvalidation优先真实结构，但当前无结构不能PRICE_STRUCTURE_INVALIDATION。OBSERVABLE_CONDITION只选择当前horizon输入rules，价格规则INVALIDATED、OI规则THESIS_WARNING；规则须与预测方向相符，不能把当前上涨的相反规则用于相反预测。引用ruleId，不自造数值；OI逆转仅复核。无适用规则可METRIC_BASED_REASSESSMENT且ruleIds=[]，定性写后续同期价格/OI改变时复核，不自动INVALIDATED；无法构造复核条件可INSUFFICIENT_STRUCTURE_DATA且ruleIds=[]，明确缺失。HORIZON_EXPIRED由程序处理，不新增输出类型。\n字段职责见contentContract.outputContract.fieldRoles：每字段一个主要判断，建议160字符以内、正式每文字1至400字符；不写主力/庄家/聪明钱故事，不要求填满长度。followUpChecks必须1至2项；支持1至128个已有ID、冲突0至128个，去重；invalidation.ruleIds最多2个。输出前核对版本/对象/时间、字段长度、周期、ID、反转符号与失效规则；仍须通过完整正式验证。",
+  "recoveryPrompt": "受控恢复：上一份输出未通过正式合同。阅读repairErrors全部代码、contractRepair.preciseErrors完整诊断和contentContract.recovery中的逐字段指引，逐项修复后重新生成完整Schema对象。保持原始观察事实和evaluationTime不变，不编造缺失数据、不删除必填字段。合法ID只从contractRepair.allowedEvidenceIds选择；原响应不是事实来源。原方向缺依据时可以重新选择有依据方向或NO_EDGE，但不按固定模板强制改方向。检查未报错字段也未引入新数字、新结构或超长；恢复后仍执行全部验证器，不保证通过。",
+  "files": {
+    "src/analysis/directional-generation.js": "09bee8b4c7934e0b0757de421947bd4d68e162c27d60b47ea4c489e0b78b67a7",
+    "src/analysis/directional-analyst.js": "404b67053ae1ae703f595acd3cc8f4ec9b4a74b28a0595fb87bb6ad2a7cf7737",
+    "DIRECTIONAL_ANALYST_INPUT_SCHEMA.json": "a4701e5664446c6195596d908fad4be26fa2819d76693b9d15e919701175e359",
+    "DIRECTIONAL_ANALYST_OUTPUT_SCHEMA.json": "9f0c4b3a17467bbee1451e70ae58fa019ffa304d87b8b58463272d3822813013",
+    "src/analysis/directional-schema.js": "468bed6794f90b542f7e9869e8466c11a56fa0dda285a480d174d0f4924fd920",
+    "src/analysis/directional-alignment-guard.js": "b229221a49dfc0ac3a7b2e23e1f9ed2debd65ab235742929f38c435ab2ed5f55",
+    "src/analysis/directional-legacy-guard.js": "d3e73b614cd990c68fbb47c90773f85cc554329ad52aa376c294381b56279f7d",
+    "src/analysis/evidence-precision-validator.js": "b45f82738d1083a5288991ec94df40ea5f2460e32ecb1c6f22555e2bd6eadb1b",
+    "src/analysis/evidence-text-validator.js": "93bfafcab8137ecab5d1b8f62639eab7c1e1cb19a4743fead5b1226b916d2ad5",
+    "src/analysis/directional-context.js": "31d0845f5c0df2b6e5574958e21e64fa242b474652048114951469b0d2f4a8e8",
+    "src/content/claim-guard.js": "998ad806deafc75238d9a2564bf10f6cc18a647606d0071ed48f595713e082e1"
+  },
+  "policy": "Next live probe must check hashes/model parameters first; no mid-probe prompt changes; no live probe authorized by this task."
+}

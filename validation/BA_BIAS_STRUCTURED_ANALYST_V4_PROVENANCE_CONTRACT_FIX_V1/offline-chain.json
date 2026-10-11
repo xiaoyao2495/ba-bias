@@ -1,0 +1,386 @@
+{
+  "verdict": "V4_PROVENANCE_CONTRACT_READY",
+  "mockCases": 16,
+  "matched": 16,
+  "realApiRequests": 0,
+  "realModelResponses": 0,
+  "forgedLocalLive": {
+    "provenanceValid": false,
+    "errors": [
+      "PROVENANCE_UNVERIFIED_REQUEST_RESPONSE"
+    ]
+  },
+  "businessRuleBodyByteEquivalentAfterValidatorRename": true,
+  "businessBodySHA256": "f86c7d88475ccdb6656cf6fbe96c1d6a4344a6a9b57fdb7179abb31954aaefcf",
+  "actualLiveNetworkPath": "NOT_EXECUTED",
+  "liveLabelBranch": "FORMAT_TESTED_WITHOUT_FORGED_RECEIPT",
+  "rows": [
+    {
+      "name": "historical synthetic compatibility CAPUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/0de6ca76-16c5-4627-98ee-ac2e426fdcbb.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility KAIAUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/KAIAUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/b94465cb-4abd-4d0c-9e55-51d2c5043420.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility XPLUSDT",
+      "inputSource": "data/runs/hourly_20261010_1300/facts/XPLUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/f95d937d-8ddf-4345-8ab3-4822660bda4f.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility BATUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/BATUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/3a638e9c-3503-4bfd-aa34-2a72cce10fba.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility MINAUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/MINAUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/b0afdd07-da92-41ba-9aac-1ccbbc12cf21.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility XLMUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/XLMUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/37290f99-7840-4916-a015-24bc6b152fdd.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility OGNUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/OGNUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/30151ec9-d702-4a93-a9f0-efcb9cf1c84a.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility MAGICUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/MAGICUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/75967220-53e7-460f-81fb-3eb12ea26b25.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility INJUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/INJUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/be748cdc-5253-4658-bc8b-9230c50ca1fc.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "historical synthetic compatibility RAYSOLUSDT",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/RAYSOLUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "SYNTHETIC_OR_CONVERTED",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": true,
+      "errors": [],
+      "rendererSourceLabel": "SYNTHETIC_OR_CONVERTED",
+      "expectedAnalysisValid": true,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/edb2f792-2192-48c2-bae8-281612aea431.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "business self claims LIVE",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "LIVE_MODEL_RESPONSE",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": false,
+      "provenanceValid": true,
+      "analysisValid": false,
+      "errors": [
+        "V4_SCHEMA_INVALID",
+        "BUSINESS_PROVENANCE_CONFLICT"
+      ],
+      "rendererSourceLabel": "NO_VALID_RENDER",
+      "expectedAnalysisValid": false,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/8c8c387b-d45c-4c00-905c-c1f4a1b7ad04.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "foreign Evidence",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "ABSENT",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": false,
+      "errors": [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE"
+      ],
+      "rendererSourceLabel": "NO_VALID_RENDER",
+      "expectedAnalysisValid": false,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/1277c424-fe72-4eeb-b760-7f1c2458e4a8.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "undefined range",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "ABSENT",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": false,
+      "errors": [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE",
+        "UNSUPPORTED_STRUCTURE"
+      ],
+      "rendererSourceLabel": "NO_VALID_RENDER",
+      "expectedAnalysisValid": false,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/f405a1cb-8a5f-4e43-b223-53793eb1a884.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "wrong reversal",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "ABSENT",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": false,
+      "errors": [
+        "PRIOR_AND_CURRENT_TURN_REQUIRED",
+        "COUNTER_MOVE_BASIS_REQUIRED"
+      ],
+      "rendererSourceLabel": "NO_VALID_RENDER",
+      "expectedAnalysisValid": false,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/a5f0f197-90c5-4202-ad2f-efaf8d1dc7f5.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "wrong mechanism",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "ABSENT",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": true,
+      "provenanceValid": true,
+      "analysisValid": false,
+      "errors": [
+        "MECHANISM_SIGN_MISMATCH"
+      ],
+      "rendererSourceLabel": "NO_VALID_RENDER",
+      "expectedAnalysisValid": false,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/c3062677-bd30-40a2-8543-1b17dd6e9d74.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    },
+    {
+      "name": "invented numeric target",
+      "inputSource": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "context": "MOCK controlled dispatch receipt",
+      "businessSourceField": "ABSENT",
+      "expectedProvenance": "SYNTHETIC_OR_CONVERTED",
+      "actualProvenance": "SYNTHETIC_OR_CONVERTED",
+      "envelopeSchema": true,
+      "businessSchema": false,
+      "provenanceValid": true,
+      "analysisValid": false,
+      "errors": [
+        "V4_SCHEMA_INVALID"
+      ],
+      "rendererSourceLabel": "NO_VALID_RENDER",
+      "expectedAnalysisValid": false,
+      "resultPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/validation/BA_BIAS_STRUCTURED_ANALYST_V4_PROVENANCE_CONTRACT_FIX_V1/mock-results/88416481-14a6-4fd6-8cdd-9ef38a05afed.json",
+      "counts": {
+        "transportAttempts": 1,
+        "livePhysicalRequests": 0,
+        "mockCalls": 1
+      },
+      "productionSideEffects": 0
+    }
+  ]
+}

@@ -1,0 +1,714 @@
+{
+  "intentId": "fcce1822-aca9-41a7-aa04-93d40d754bce",
+  "sampleId": "s_hourly_20261010_1200_SENTUSDT",
+  "attempt": 1,
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "system": "You are an independent historical crypto directional researcher. Return ONLY JSON matching the supplied business schema. This is NOT_PRODUCTION, POST_COLLECTION_HISTORICAL_RESEARCH, causalBacktestEligible=false. evaluationTime is the original observation cutoff, not now. Choose your own uncertain future 1h/4h/24h hypothesis from the five directions; do not merely map the last price sign. Consider all relevant contemporaneous evidence and competing windows. No outcome data is supplied. No invented facts, prose, source/provenance fields, targets, probabilities, structures, or thresholds.\nUse only exact evidence IDs from input. Supporting and conflicting roles must be disjoint and relevant. Reference the primary closed price evidence for your chosen horizon in support AND directionalRationale. Rationale evidence must be selected support/conflict. Preserve indicator type, unit, window and timestamp. Same-horizon supporting evidence except previous-price/rolling-price must end within 1ms of the primary closed price; other facts can be background or explicitly labelled conflict. Unaligned OI cannot support a price/OI mechanism; unaligned windows require LOW conviction.\nNon-UNDETERMINED mechanisms require EXACTLY the chosen horizon's aligned price and OI IDs, both supporting. Expansion requires positive OI quantity change; contraction negative. This is compatibility only, never confirmed participant behavior or funds flow. UNDETERMINED may reference selected evidence. Account percentages are not positions; top positions are not global OI shares. Funding settlement does not determine future direction.\nREVERSAL needs supported prior equal-length and current opposite-sign price evidence, direction matching current sign, hypothesis TURN. TURN is exclusive to REVERSAL. Counter-current directions require COUNTER_MOVE and actual competing price evidence or opposite price/OI signs. NO_EDGE requires NO_CLEAR_EDGE, no actionable setup/wait for confirmation; in strong continuation it requires an actual selected conflict (opposite price/OI evidence or relative volume below 1). Do not use NO_EDGE to hide invalid output. HIGH is allowed only for genuinely aligned strong 1h continuation with price and OI plus relative1h volume >=2 in support, no selected conflicts, no opposite window prices, and no reversal/NO_EDGE. MODERATE/LOW remain available.\nstructures is normally empty: no ranges, support/resistance, invented price levels or actionable LONG_SETUP/SHORT_SETUP. Select exact supplied same-horizon PROGRAM_RULE IDs with their baseline evidence supporting, or ABSTRACT_REASSESSMENT of a real evidence ID (MONITOR_CHANGE, REASSESS_ONLY), or INSUFFICIENT_STRUCTURE_DATA. An INVALIDATED price rule conflicting with a counter-current hypothesis is not a valid directional invalidation. Direction and trade opportunity are separate. Evidence verifies observations, not future truth.\nBUSINESS_SCHEMA={\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"version\",\"status\",\"causalBacktestEligible\",\"symbol\",\"evaluationTime\",\"direction\",\"horizon\",\"conviction\",\"supportingEvidenceIds\",\"conflictingEvidenceIds\",\"structureEvidenceIds\",\"mechanismHypothesis\",\"directionalRationale\",\"tradeOpportunity\",\"reassessmentConditions\"],\"properties\":{\"version\":{\"const\":\"STRUCTURED_ANALYST_V4_EXPERIMENT\"},\"status\":{\"const\":\"NOT_PRODUCTION\"},\"causalBacktestEligible\":{\"const\":false},\"symbol\":{\"type\":\"string\"},\"evaluationTime\":{\"type\":\"string\"},\"direction\":{\"enum\":[\"BULLISH\",\"BEARISH\",\"BULLISH_REVERSAL\",\"BEARISH_REVERSAL\",\"NO_EDGE\"]},\"horizon\":{\"enum\":[\"1h\",\"4h\",\"24h\"]},\"conviction\":{\"enum\":[\"LOW\",\"MODERATE\",\"HIGH\"]},\"supportingEvidenceIds\":{\"type\":\"array\",\"uniqueItems\":true,\"items\":{\"type\":\"string\",\"minLength\":1},\"minItems\":1},\"conflictingEvidenceIds\":{\"type\":\"array\",\"uniqueItems\":true,\"items\":{\"type\":\"string\",\"minLength\":1}},\"structureEvidenceIds\":{\"type\":\"array\",\"uniqueItems\":true,\"items\":{\"type\":\"string\",\"minLength\":1}},\"mechanismHypothesis\":{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"type\",\"evidenceIds\",\"limitation\"],\"properties\":{\"type\":{\"enum\":[\"CO_MOVEMENT_ONLY\",\"CONTRACT_EXPANSION_COMPATIBLE\",\"CONTRACT_CONTRACTION_COMPATIBLE\",\"UNDETERMINED\"]},\"evidenceIds\":{\"type\":\"array\",\"uniqueItems\":true,\"items\":{\"type\":\"string\",\"minLength\":1}},\"limitation\":{\"const\":\"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"}}},\"directionalRationale\":{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"hypothesis\",\"evidenceIds\",\"alternative\",\"certainty\"],\"properties\":{\"hypothesis\":{\"enum\":[\"CONTINUATION\",\"TURN\",\"COUNTER_MOVE\",\"NO_CLEAR_EDGE\"]},\"evidenceIds\":{\"type\":\"array\",\"uniqueItems\":true,\"items\":{\"type\":\"string\",\"minLength\":1},\"minItems\":1},\"alternative\":{\"enum\":[\"OPPOSITE_MOVE\",\"CONSOLIDATION\",\"CONTINUATION\"]},\"certainty\":{\"const\":\"CONDITIONAL_NOT_CONFIRMED\"}}},\"tradeOpportunity\":{\"enum\":[\"WAIT_FOR_CONFIRMATION\",\"WAIT_FOR_PULLBACK\",\"NO_ACTIONABLE_SETUP\",\"LONG_SETUP\",\"SHORT_SETUP\"]},\"reassessmentConditions\":{\"type\":\"array\",\"minItems\":1,\"items\":{\"oneOf\":[{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"conditionType\",\"ruleId\"],\"properties\":{\"conditionType\":{\"const\":\"PROGRAM_RULE\"},\"ruleId\":{\"type\":\"string\"}}},{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"conditionType\",\"metricOrStructureEvidenceId\",\"interpretation\",\"consequence\"],\"properties\":{\"conditionType\":{\"const\":\"ABSTRACT_REASSESSMENT\"},\"metricOrStructureEvidenceId\":{\"type\":\"string\"},\"interpretation\":{\"const\":\"MONITOR_CHANGE\"},\"consequence\":{\"const\":\"REASSESS_ONLY\"}}},{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"conditionType\",\"metricOrStructureEvidenceId\",\"operator\",\"consequence\"],\"properties\":{\"conditionType\":{\"const\":\"STRUCTURE_BOUNDARY\"},\"metricOrStructureEvidenceId\":{\"type\":\"string\"},\"operator\":{\"enum\":[\"LTE\",\"GTE\"]},\"consequence\":{\"enum\":[\"REASSESS_ONLY\",\"INVALIDATED\"]}}},{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"conditionType\",\"consequence\"],\"properties\":{\"conditionType\":{\"const\":\"INSUFFICIENT_STRUCTURE_DATA\"},\"consequence\":{\"const\":\"NO_MECHANICAL_INVALIDATION\"}}}]}}}}",
+  "input": {
+    "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+    "status": "NOT_PRODUCTION",
+    "causalBacktestEligible": false,
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "symbol": "SENTUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "availability": "UNKNOWN",
+    "evidence": [
+      {
+        "evidenceId": "SENTUSDT:price.rolling24h",
+        "symbol": "SENTUSDT",
+        "metricType": "PRICE_ROLLING_CHANGE",
+        "value": "-17.51824818",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604808590,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604808590
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/ticker/24hr",
+          "params": {},
+          "formula": "(lastPrice/openPrice-1)*100"
+        },
+        "semanticDescription": "滚动24小时价格变化 -17.52%"
+      },
+      {
+        "evidenceId": "SENTUSDT:price.last",
+        "symbol": "SENTUSDT",
+        "metricType": "PRICE_SNAPSHOT",
+        "value": "0.0203400",
+        "unit": "USDT",
+        "window": null,
+        "scope": null,
+        "observedAt": 1791604808590,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791604808590
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/ticker/24hr",
+          "params": {},
+          "formula": "lastPrice"
+        },
+        "semanticDescription": "快照最新价格 0.0203400 USDT"
+      },
+      {
+        "evidenceId": "SENTUSDT:volume.rolling24h",
+        "symbol": "SENTUSDT",
+        "metricType": "QUOTE_VOLUME",
+        "value": "17627299.7667500",
+        "unit": "USDT",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604808590,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604808590
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/ticker/24hr",
+          "params": {},
+          "formula": "quoteVolume"
+        },
+        "semanticDescription": "滚动24小时成交额 17627299.77 USDT"
+      },
+      {
+        "evidenceId": "SENTUSDT:price.closed1h",
+        "symbol": "SENTUSDT",
+        "metricType": "PRICE_CLOSED_CHANGE",
+        "value": "-1.07003891",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "semanticDescription": "截至北京时间12:00，已收盘1小时价格变化 -1.07%"
+      },
+      {
+        "evidenceId": "SENTUSDT:price.closed4h",
+        "symbol": "SENTUSDT",
+        "metricType": "PRICE_CLOSED_CHANGE",
+        "value": "-2.39923225",
+        "unit": "%",
+        "window": "4h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791590400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "semanticDescription": "截至北京时间12:00，已收盘4小时价格变化 -2.40%"
+      },
+      {
+        "evidenceId": "SENTUSDT:price.closed24h",
+        "symbol": "SENTUSDT",
+        "metricType": "PRICE_CLOSED_CHANGE",
+        "value": "-17.51824818",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "semanticDescription": "截至北京时间12:00，已收盘24小时价格变化 -17.52%"
+      },
+      {
+        "evidenceId": "SENTUSDT:price.rangeLowHigh",
+        "symbol": "SENTUSDT",
+        "metricType": "RANGE_AMPLITUDE_NOT_BOUNDARY",
+        "value": "23.12623274",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(high/low-1)*100"
+        },
+        "semanticDescription": "已收盘24小时区间低点至高点幅度 23.13%"
+      },
+      {
+        "evidenceId": "SENTUSDT:price.drawdown",
+        "symbol": "SENTUSDT",
+        "metricType": "SNAPSHOT_DRAWDOWN",
+        "value": "-18.54225070",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604808590,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791604799999,
+          1791604808590
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(lastPrice/high-1)*100"
+        },
+        "semanticDescription": "已收盘24小时区间高点至快照最新价变化 -18.54%"
+      },
+      {
+        "evidenceId": "SENTUSDT:volume.relative1h",
+        "symbol": "SENTUSDT",
+        "metricType": "RELATIVE_VOLUME",
+        "value": "1.09159919",
+        "unit": "multiple",
+        "window": "1h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791514800000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "semanticDescription": "最近已收盘1小时成交量为前24根均值的 1.09 倍"
+      },
+      {
+        "evidenceId": "SENTUSDT:volume.relative5m",
+        "symbol": "SENTUSDT",
+        "metricType": "RELATIVE_VOLUME",
+        "value": "0.44543583",
+        "unit": "multiple",
+        "window": "5m",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791597300000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "5m",
+            "limit": 40,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "semanticDescription": "最近已收盘5分钟成交量为前24根均值的 0.45 倍"
+      },
+      {
+        "evidenceId": "SENTUSDT:volume.closed1h",
+        "symbol": "SENTUSDT",
+        "metricType": "QUOTE_VOLUME",
+        "value": "736458.7768000",
+        "unit": "USDT",
+        "window": "1h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "quoteAssetVolume field 7"
+        },
+        "semanticDescription": "最近已收盘1小时成交额 736458.78 USDT"
+      },
+      {
+        "evidenceId": "SENTUSDT:oi.1h",
+        "symbol": "SENTUSDT",
+        "metricType": "OI_QUANTITY_CHANGE",
+        "value": "-0.09864243",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "SENTUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "semanticDescription": "1小时OI数量变化 -0.10%（不代表资金净流入或多空加仓方向）"
+      },
+      {
+        "evidenceId": "SENTUSDT:oi.4h",
+        "symbol": "SENTUSDT",
+        "metricType": "OI_QUANTITY_CHANGE",
+        "value": "1.38701430",
+        "unit": "%",
+        "window": "4h",
+        "scope": null,
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791590400000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "SENTUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "semanticDescription": "4小时OI数量变化 1.39%（不代表资金净流入或多空加仓方向）"
+      },
+      {
+        "evidenceId": "SENTUSDT:oi.24h",
+        "symbol": "SENTUSDT",
+        "metricType": "OI_QUANTITY_CHANGE",
+        "value": "4.89420022",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "SENTUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "semanticDescription": "24小时OI数量变化 4.89%（不代表资金净流入或多空加仓方向）"
+      },
+      {
+        "evidenceId": "SENTUSDT:funding.latest",
+        "symbol": "SENTUSDT",
+        "metricType": "SETTLED_FUNDING",
+        "value": "0.00500000",
+        "unit": "%",
+        "window": null,
+        "scope": null,
+        "observedAt": 1791604800007,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791604800007
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/fundingRate",
+          "params": {
+            "symbol": "SENTUSDT",
+            "startTime": 1791432015949,
+            "endTime": 1791604815949,
+            "limit": 1000
+          },
+          "formula": "fundingRate*100"
+        },
+        "semanticDescription": "北京时间10-10 12:00已结算Funding 0.0050%，多头支付空头"
+      },
+      {
+        "evidenceId": "SENTUSDT:funding.sum24h",
+        "symbol": "SENTUSDT",
+        "metricType": "SETTLED_FUNDING",
+        "value": "0.03000000",
+        "unit": "%",
+        "window": null,
+        "scope": null,
+        "observedAt": 1791604800007,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791532800000,
+          1791547200003,
+          1791561600000,
+          1791576000000,
+          1791590400002,
+          1791604800007
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/fundingRate",
+          "params": {
+            "symbol": "SENTUSDT",
+            "startTime": 1791432015949,
+            "endTime": 1791604815949,
+            "limit": 1000
+          },
+          "formula": "sum(actual settled fundingRate)*100"
+        },
+        "semanticDescription": "过去24小时实际6次结算费率之和 0.0300%（非收益率）"
+      },
+      {
+        "evidenceId": "SENTUSDT:funding.change",
+        "symbol": "SENTUSDT",
+        "metricType": "SETTLED_FUNDING_CHANGE",
+        "value": "0.00000000",
+        "unit": "pp",
+        "window": null,
+        "scope": null,
+        "observedAt": 1791604800007,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791590400002,
+          1791604800007
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/fundingRate",
+          "params": {
+            "symbol": "SENTUSDT",
+            "startTime": 1791432015949,
+            "endTime": 1791604815949,
+            "limit": 1000
+          },
+          "formula": "(last.fundingRate - previous.fundingRate)*100"
+        },
+        "semanticDescription": "相邻实际结算Funding变化 0.0000 个百分点（保留各周期时间，不假设周期相同）"
+      },
+      {
+        "evidenceId": "SENTUSDT:global.long.latest",
+        "symbol": "SENTUSDT",
+        "metricType": "GLOBAL_ACCOUNT_SHARE",
+        "value": "36.56000000",
+        "unit": "%",
+        "window": null,
+        "scope": "GLOBAL_ACCOUNTS",
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "SENTUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791604815949
+          },
+          "formula": "longAccount * 100"
+        },
+        "semanticDescription": "全市场净多/净空头账户：多 36.56%、空 63.44%（账户比例不代表仓位或资金比例）"
+      },
+      {
+        "evidenceId": "SENTUSDT:global.short.change1h",
+        "symbol": "SENTUSDT",
+        "metricType": "GLOBAL_ACCOUNT_SHARE",
+        "value": "0.36000000",
+        "unit": "pp",
+        "window": "1h",
+        "scope": "GLOBAL_ACCOUNTS",
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "SENTUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791604815949
+          },
+          "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points"
+        },
+        "semanticDescription": "全市场净多/净空头账户空方占比1小时从 63.08% 到 63.44%，变化 0.36 个百分点；多方变化 -0.36 个百分点"
+      },
+      {
+        "evidenceId": "SENTUSDT:global.long.change1h",
+        "symbol": "SENTUSDT",
+        "metricType": "GLOBAL_ACCOUNT_SHARE",
+        "value": "-0.36000000",
+        "unit": "pp",
+        "window": "1h",
+        "scope": "GLOBAL_ACCOUNTS",
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "SENTUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791604815949
+          },
+          "formula": "(longAccount_end - longAccount_start) * 100; percentage points"
+        },
+        "semanticDescription": "全市场净多/净空头账户空方占比1小时从 63.08% 到 63.44%，变化 0.36 个百分点；多方变化 -0.36 个百分点"
+      },
+      {
+        "evidenceId": "SENTUSDT:directional.price.previous1h",
+        "symbol": "SENTUSDT",
+        "metricType": "PREVIOUS_PRICE_CHANGE",
+        "value": "-2.28136882",
+        "unit": "%",
+        "window": "1h",
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "observedAt": 1791601199999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791597600000,
+          1791601199999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(previous equal-length closed window close/open - 1)*100"
+        },
+        "semanticDescription": "此前已收盘1小时价格变化 -2.28%"
+      },
+      {
+        "evidenceId": "SENTUSDT:directional.price.previous4h",
+        "symbol": "SENTUSDT",
+        "metricType": "PREVIOUS_PRICE_CHANGE",
+        "value": "-1.88323917",
+        "unit": "%",
+        "window": "4h",
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "observedAt": 1791590399999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791576000000,
+          1791590399999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(previous equal-length closed window close/open - 1)*100"
+        },
+        "semanticDescription": "此前已收盘4小时价格变化 -1.88%"
+      },
+      {
+        "evidenceId": "SENTUSDT:directional.price.previous24h",
+        "symbol": "SENTUSDT",
+        "metricType": "PREVIOUS_PRICE_CHANGE",
+        "value": "-3.06483301",
+        "unit": "%",
+        "window": "24h",
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "observedAt": 1791518399999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791432000000,
+          1791518399999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "SENTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(previous equal-length closed window close/open - 1)*100"
+        },
+        "semanticDescription": "此前已收盘24小时价格变化 -3.06%"
+      }
+    ],
+    "structures": [],
+    "windows": [
+      {
+        "horizon": "1h",
+        "priceId": "SENTUSDT:price.closed1h",
+        "oiId": "SENTUSDT:oi.1h",
+        "previousPriceId": "SENTUSDT:directional.price.previous1h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": false
+      },
+      {
+        "horizon": "4h",
+        "priceId": "SENTUSDT:price.closed4h",
+        "oiId": "SENTUSDT:oi.4h",
+        "previousPriceId": "SENTUSDT:directional.price.previous4h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": false
+      },
+      {
+        "horizon": "24h",
+        "priceId": "SENTUSDT:price.closed24h",
+        "oiId": "SENTUSDT:oi.24h",
+        "previousPriceId": "SENTUSDT:directional.price.previous24h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": false
+      }
+    ],
+    "rules": [
+      {
+        "id": "PRICE_OPPOSITE_1h",
+        "horizon": "1h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 1,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "SENTUSDT:price.closed1h"
+      },
+      {
+        "id": "OI_REVERSED_1h",
+        "horizon": "1h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "GTE",
+        "threshold": 5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "SENTUSDT:oi.1h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_4h",
+        "horizon": "4h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 1.199616125,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动4h价格变化≥1.1996%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "SENTUSDT:price.closed4h"
+      },
+      {
+        "id": "OI_REVERSED_4h",
+        "horizon": "4h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确4h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "SENTUSDT:oi.4h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_24h",
+        "horizon": "24h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 8.75912409,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动24h价格变化≥8.7591%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "SENTUSDT:price.closed24h"
+      },
+      {
+        "id": "OI_REVERSED_24h",
+        "horizon": "24h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确24h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "SENTUSDT:oi.24h"
+      }
+    ]
+  },
+  "parameters": {
+    "temperature": 0,
+    "thinking": {
+      "type": "disabled"
+    },
+    "max_tokens": 6000,
+    "response_format": {
+      "type": "json_object"
+    },
+    "transportRetries": 0,
+    "concurrency": 1,
+    "timeoutMs": 60000
+  },
+  "budgetReservedBeforeDispatch": 3
+}

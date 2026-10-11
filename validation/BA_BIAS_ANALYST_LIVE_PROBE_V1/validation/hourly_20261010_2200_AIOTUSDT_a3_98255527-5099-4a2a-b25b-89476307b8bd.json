@@ -1,0 +1,570 @@
+{
+  "id": "hourly_20261010_2200_AIOTUSDT_a3_98255527-5099-4a2a-b25b-89476307b8bd",
+  "attempt": 3,
+  "requestTimestamp": "2026-10-10T17:03:19.292Z",
+  "responseTimestamp": "2026-10-10T17:03:22.515Z",
+  "latencyMs": 3223,
+  "model": "deepseek-flash",
+  "inputTokenUsage": 15063,
+  "outputTokenUsage": 975,
+  "usage": {
+    "prompt_tokens": 15063,
+    "completion_tokens": 975,
+    "total_tokens": 16038,
+    "prompt_tokens_details": {
+      "cached_tokens": 11392
+    },
+    "prompt_cache_hit_tokens": 11392,
+    "prompt_cache_miss_tokens": 3671
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"AIOTUSDT\",\"evaluationTime\":\"2026-10-10T14:00:12.629Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h窗口价格与OI同向扩张且为强延续：已收盘4h价格变化11.53%（AIOTUSDT:price.closed4h），同期OI数量变化19.69%（AIOTUSDT:oi.4h），此前4h价格变化2.38%（AIOTUSDT:directional.price.previous4h）；1h与24h窗口同向但强度较弱。\",\"conviction\":\"MODERATE\",\"marketThesis\":\"已收盘4h价格变化11.53%且同期OI数量变化19.69%，价格上行伴随敞口扩张，属强延续窗口；1h价格变化0.88%、1h OI数量变化0.77%仍同向，24h价格变化18.44%、24h OI数量变化4.35%亦同向。但最新价较24h区间高点回落2.92%（AIOTUSDT:price.drawdown），24h区间低点至高点幅度28.41%（AIOTUSDT:price.rangeLowHigh），且全市场空方账户占比4h上升6.17个百分点（AIOTUSDT:global.short.change4h），故为方向倾向而非追高机会。\",\"marketMechanism\":\"价格上行与同窗口OI数量扩张并存，与新增敞口参与上行的情形相容；1h OI仅增0.77%而价格涨0.88%，扩张幅度有限，不能据此确认单侧开仓、强平或资金流入。最新已结算Funding 0.0050%为多头支付空头（AIOTUSDT:funding.latest），过去24小时6次结算合计0.0737%（AIOTUSDT:funding.sum24h），仅说明多头持仓成本为正，不保证未来方向。\",\"supportingEvidenceIds\":[\"AIOTUSDT:price.closed4h\",\"AIOTUSDT:oi.4h\",\"AIOTUSDT:directional.price.previous4h\",\"AIOTUSDT:price.closed1h\",\"AIOTUSDT:oi.1h\",\"AIOTUSDT:price.closed24h\",\"AIOTUSDT:oi.24h\",\"AIOTUSDT:volume.relative1h\",\"AIOTUSDT:volume.relative5m\"],\"conflictingEvidenceIds\":[\"AIOTUSDT:price.drawdown\",\"AIOTUSDT:price.rangeLowHigh\",\"AIOTUSDT:global.short.change4h\",\"AIOTUSDT:global.long.change4h\",\"AIOTUSDT:funding.latest\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"未来4小时价格在已收盘4h变化11.53%与OI数量变化19.69%的同向基础上维持偏强，回踩后仍不出现4h价格变化≤-5.7659%的相反走势；若1h价格与OI继续同向扩张，则延续倾向增强。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"若后续新收盘滚动4h价格变化≤-5.7659%（PRICE_OPPOSITE_4h）则方向命题失效；若后续新采样精确4h OI数量变化≤-9.8461%（OI_REVERSED_4h）则触发复核，仅表示原敞口扩张条件逆转，不自动否定方向。\"},\"alternativeScenario\":\"若后续4h价格转跌且OI数量同步收缩，或1h价格与OI由同向扩张转为背离，则当前偏强延续假设被削弱，行情可能转为区间震荡或回吐24h涨幅；全市场空方账户占比继续上升（4h已升6.17个百分点）亦可能伴随上行受阻。\",\"followUpChecks\":[\"跟踪后续新收盘滚动4h价格变化是否触及≤-5.7659%（PRICE_OPPOSITE_4h），以及精确4h OI数量变化是否触及≤-9.8461%（OI_REVERSED_4h）。\",\"跟踪后续1h价格变化与1h OI数量变化是否维持同向扩张，并观察最新价与24h区间高点（当前回落2.92%）的距离变化。\"]}",
+  "raw": {
+    "id": "b685f00e-a852-4231-a234-4fa6d7a0679d",
+    "object": "chat.completion",
+    "created": 1791651799,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"AIOTUSDT\",\"evaluationTime\":\"2026-10-10T14:00:12.629Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h窗口价格与OI同向扩张且为强延续：已收盘4h价格变化11.53%（AIOTUSDT:price.closed4h），同期OI数量变化19.69%（AIOTUSDT:oi.4h），此前4h价格变化2.38%（AIOTUSDT:directional.price.previous4h）；1h与24h窗口同向但强度较弱。\",\"conviction\":\"MODERATE\",\"marketThesis\":\"已收盘4h价格变化11.53%且同期OI数量变化19.69%，价格上行伴随敞口扩张，属强延续窗口；1h价格变化0.88%、1h OI数量变化0.77%仍同向，24h价格变化18.44%、24h OI数量变化4.35%亦同向。但最新价较24h区间高点回落2.92%（AIOTUSDT:price.drawdown），24h区间低点至高点幅度28.41%（AIOTUSDT:price.rangeLowHigh），且全市场空方账户占比4h上升6.17个百分点（AIOTUSDT:global.short.change4h），故为方向倾向而非追高机会。\",\"marketMechanism\":\"价格上行与同窗口OI数量扩张并存，与新增敞口参与上行的情形相容；1h OI仅增0.77%而价格涨0.88%，扩张幅度有限，不能据此确认单侧开仓、强平或资金流入。最新已结算Funding 0.0050%为多头支付空头（AIOTUSDT:funding.latest），过去24小时6次结算合计0.0737%（AIOTUSDT:funding.sum24h），仅说明多头持仓成本为正，不保证未来方向。\",\"supportingEvidenceIds\":[\"AIOTUSDT:price.closed4h\",\"AIOTUSDT:oi.4h\",\"AIOTUSDT:directional.price.previous4h\",\"AIOTUSDT:price.closed1h\",\"AIOTUSDT:oi.1h\",\"AIOTUSDT:price.closed24h\",\"AIOTUSDT:oi.24h\",\"AIOTUSDT:volume.relative1h\",\"AIOTUSDT:volume.relative5m\"],\"conflictingEvidenceIds\":[\"AIOTUSDT:price.drawdown\",\"AIOTUSDT:price.rangeLowHigh\",\"AIOTUSDT:global.short.change4h\",\"AIOTUSDT:global.long.change4h\",\"AIOTUSDT:funding.latest\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"未来4小时价格在已收盘4h变化11.53%与OI数量变化19.69%的同向基础上维持偏强，回踩后仍不出现4h价格变化≤-5.7659%的相反走势；若1h价格与OI继续同向扩张，则延续倾向增强。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"若后续新收盘滚动4h价格变化≤-5.7659%（PRICE_OPPOSITE_4h）则方向命题失效；若后续新采样精确4h OI数量变化≤-9.8461%（OI_REVERSED_4h）则触发复核，仅表示原敞口扩张条件逆转，不自动否定方向。\"},\"alternativeScenario\":\"若后续4h价格转跌且OI数量同步收缩，或1h价格与OI由同向扩张转为背离，则当前偏强延续假设被削弱，行情可能转为区间震荡或回吐24h涨幅；全市场空方账户占比继续上升（4h已升6.17个百分点）亦可能伴随上行受阻。\",\"followUpChecks\":[\"跟踪后续新收盘滚动4h价格变化是否触及≤-5.7659%（PRICE_OPPOSITE_4h），以及精确4h OI数量变化是否触及≤-9.8461%（OI_REVERSED_4h）。\",\"跟踪后续1h价格变化与1h OI数量变化是否维持同向扩张，并观察最新价与24h区间高点（当前回落2.92%）的距离变化。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 15063,
+      "completion_tokens": 975,
+      "total_tokens": 16038,
+      "prompt_tokens_details": {
+        "cached_tokens": 11392
+      },
+      "prompt_cache_hit_tokens": 11392,
+      "prompt_cache_miss_tokens": 3671
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "parsedResponse": {
+    "version": "DIRECTIONAL_ANALYST_V2",
+    "symbol": "AIOTUSDT",
+    "evaluationTime": "2026-10-10T14:00:12.629Z",
+    "marketBias": "BULLISH",
+    "horizon": "4h",
+    "horizonReason": "4h窗口价格与OI同向扩张且为强延续：已收盘4h价格变化11.53%（AIOTUSDT:price.closed4h），同期OI数量变化19.69%（AIOTUSDT:oi.4h），此前4h价格变化2.38%（AIOTUSDT:directional.price.previous4h）；1h与24h窗口同向但强度较弱。",
+    "conviction": "MODERATE",
+    "marketThesis": "已收盘4h价格变化11.53%且同期OI数量变化19.69%，价格上行伴随敞口扩张，属强延续窗口；1h价格变化0.88%、1h OI数量变化0.77%仍同向，24h价格变化18.44%、24h OI数量变化4.35%亦同向。但最新价较24h区间高点回落2.92%（AIOTUSDT:price.drawdown），24h区间低点至高点幅度28.41%（AIOTUSDT:price.rangeLowHigh），且全市场空方账户占比4h上升6.17个百分点（AIOTUSDT:global.short.change4h），故为方向倾向而非追高机会。",
+    "marketMechanism": "价格上行与同窗口OI数量扩张并存，与新增敞口参与上行的情形相容；1h OI仅增0.77%而价格涨0.88%，扩张幅度有限，不能据此确认单侧开仓、强平或资金流入。最新已结算Funding 0.0050%为多头支付空头（AIOTUSDT:funding.latest），过去24小时6次结算合计0.0737%（AIOTUSDT:funding.sum24h），仅说明多头持仓成本为正，不保证未来方向。",
+    "supportingEvidenceIds": [
+      "AIOTUSDT:price.closed4h",
+      "AIOTUSDT:oi.4h",
+      "AIOTUSDT:directional.price.previous4h",
+      "AIOTUSDT:price.closed1h",
+      "AIOTUSDT:oi.1h",
+      "AIOTUSDT:price.closed24h",
+      "AIOTUSDT:oi.24h",
+      "AIOTUSDT:volume.relative1h",
+      "AIOTUSDT:volume.relative5m"
+    ],
+    "conflictingEvidenceIds": [
+      "AIOTUSDT:price.drawdown",
+      "AIOTUSDT:price.rangeLowHigh",
+      "AIOTUSDT:global.short.change4h",
+      "AIOTUSDT:global.long.change4h",
+      "AIOTUSDT:funding.latest"
+    ],
+    "tradeOpportunity": "WAIT_FOR_PULLBACK",
+    "preferredScenario": "未来4小时价格在已收盘4h变化11.53%与OI数量变化19.69%的同向基础上维持偏强，回踩后仍不出现4h价格变化≤-5.7659%的相反走势；若1h价格与OI继续同向扩张，则延续倾向增强。",
+    "invalidation": {
+      "type": "OBSERVABLE_CONDITION",
+      "ruleIds": [
+        "PRICE_OPPOSITE_4h",
+        "OI_REVERSED_4h"
+      ],
+      "description": "若后续新收盘滚动4h价格变化≤-5.7659%（PRICE_OPPOSITE_4h）则方向命题失效；若后续新采样精确4h OI数量变化≤-9.8461%（OI_REVERSED_4h）则触发复核，仅表示原敞口扩张条件逆转，不自动否定方向。"
+    },
+    "alternativeScenario": "若后续4h价格转跌且OI数量同步收缩，或1h价格与OI由同向扩张转为背离，则当前偏强延续假设被削弱，行情可能转为区间震荡或回吐24h涨幅；全市场空方账户占比继续上升（4h已升6.17个百分点）亦可能伴随上行受阻。",
+    "followUpChecks": [
+      "跟踪后续新收盘滚动4h价格变化是否触及≤-5.7659%（PRICE_OPPOSITE_4h），以及精确4h OI数量变化是否触及≤-9.8461%（OI_REVERSED_4h）。",
+      "跟踪后续1h价格变化与1h OI数量变化是否维持同向扩张，并观察最新价与24h区间高点（当前回落2.92%）的距离变化。"
+    ]
+  },
+  "schemaValid": true,
+  "validationResult": {
+    "ok": false,
+    "errors": [
+      "UNTRUSTED_SYMBOL_OR_METRIC",
+      "UNTRUSTED_NUMBER_OR_PROBABILITY",
+      "UNSUPPORTED_CAUSE_OR_ORDER",
+      "FORECAST_CERTAINTY_OR_STRUCTURE_UNSUPPORTED"
+    ],
+    "diagnostics": [
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "11.53%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "AIOTUSDT:price.closed4h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "19.69%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "AIOTUSDT:oi.4h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "2.38%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": true
+        },
+        "evidenceIds": [
+          "AIOTUSDT:directional.price.previous4h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "11.53%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "AIOTUSDT:price.closed4h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "19.69%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "AIOTUSDT:oi.4h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.88%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "AIOTUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.77%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "AIOTUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "18.44%",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "AIOTUSDT:price.closed24h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "4.35%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "AIOTUSDT:oi.24h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "2.92%",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "28.41%",
+        "window": "24h",
+        "metric": {
+          "kind": "range"
+        },
+        "evidenceIds": [
+          "AIOTUSDT:price.rangeLowHigh"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "6.17个百分点",
+        "window": "4h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.77%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "AIOTUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.88%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "AIOTUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.0050%",
+        "window": "4h",
+        "metric": {
+          "kind": "funding",
+          "variant": "latest"
+        },
+        "evidenceIds": [
+          "AIOTUSDT:funding.latest"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "6",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "0.0737%",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "开仓",
+        "span": "不能据此确认单侧开仓、强平或资金流入",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "强平",
+        "span": "不能据此确认单侧开仓、强平或资金流入",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "资金流入",
+        "span": "不能据此确认单侧开仓、强平或资金流入",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "保证",
+        "span": "不保证未来方向",
+        "denied": false,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": false
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      },
+      {
+        "code": "FORECAST_CERTAINTY_OR_STRUCTURE_UNSUPPORTED",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "11.53%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "19.69%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "-5.7659%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "6.17个百分点",
+        "window": "4h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "-5.7659%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": true,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": "PRICE_OPPOSITE_4h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "-9.8461%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": "OI_REVERSED_4h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "-5.7659%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": true,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": "PRICE_OPPOSITE_4h",
+        "field": "followUp0",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "-9.8461%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "followUp0",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "2.92%",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "path": "/"
+      }
+    ],
+    "contractVersion": "DIRECTIONAL_ANALYST_V2"
+  },
+  "failureCodes": [
+    "UNTRUSTED_SYMBOL_OR_METRIC",
+    "UNTRUSTED_NUMBER_OR_PROBABILITY",
+    "UNSUPPORTED_CAUSE_OR_ORDER",
+    "FORECAST_CERTAINTY_OR_STRUCTURE_UNSUPPORTED"
+  ],
+  "evidenceIdsUsed": [
+    "AIOTUSDT:price.closed4h",
+    "AIOTUSDT:oi.4h",
+    "AIOTUSDT:directional.price.previous4h",
+    "AIOTUSDT:price.closed1h",
+    "AIOTUSDT:oi.1h",
+    "AIOTUSDT:price.closed24h",
+    "AIOTUSDT:oi.24h",
+    "AIOTUSDT:volume.relative1h",
+    "AIOTUSDT:volume.relative5m",
+    "AIOTUSDT:price.drawdown",
+    "AIOTUSDT:price.rangeLowHigh",
+    "AIOTUSDT:global.short.change4h",
+    "AIOTUSDT:global.long.change4h",
+    "AIOTUSDT:funding.latest"
+  ],
+  "status": "INVALID"
+}

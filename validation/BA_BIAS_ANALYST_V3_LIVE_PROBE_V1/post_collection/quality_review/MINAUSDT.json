@@ -1,0 +1,34 @@
+{
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "symbol": "MINAUSDT",
+  "dimensions": {
+    "FACTUAL_GROUNDING": "UNCERTAIN",
+    "EVIDENCE_RELEVANCE": "PASS",
+    "HORIZON_CLARITY": "PASS",
+    "FORWARD_HYPOTHESIS": "PASS",
+    "CONTRARY_EVIDENCE": "PASS",
+    "INVALIDATION_QUALITY": "PASS",
+    "DIRECTION_COHERENCE": "PASS",
+    "ACTIONABILITY": "UNCERTAIN"
+  },
+  "basis": {
+    "FACTUAL_GROUNDING": "Registry observations and numbers pass formal guard, but scenario invokes an unspecified prior/closed range lower boundary unavailable as verified price structure in input.",
+    "EVIDENCE_RELEVANCE": "Selected current price and aligned OI match horizon; conflict/participation limitations are acknowledged.",
+    "HORIZON_CLARITY": "Explicit future 4h relative to original market cutoff; historical simulation, not future from actual API invocation.",
+    "FORWARD_HYPOTHESIS": "未来4h倾向为上行延续假设：4h价格与OI数量同向扩张，已结算Funding为负（空头支付多头）不构成多头拥挤证据；但1h OI收缩、24h区间高点回撤-1.02%及缺乏主动买卖量数据限制强度，故仅低置信。",
+    "CONTRARY_EVIDENCE": "OI contraction/short-window weakness and low participation described; LOW does not establish prediction edge.",
+    "INVALIDATION_QUALITY": "Existing same-horizon price opposite rule invalidates thesis; OI reversed rule only warns; not a structure stop.",
+    "DIRECTION_COHERENCE": "Weak bullish hypothesis is consistent with current upward price and acknowledged opposing evidence, no certainty.",
+    "ACTIONABILITY": "WAIT_FOR_PULLBACK is separated from bias; no direct setup or numeric entry, but unspecified range boundary makes scenario incompletely reproducible."
+  },
+  "overall": "CONTRACT_VALID_BUT_RESEARCH_QUALITY_QUALIFIED",
+  "subjectiveDimensions": [
+    "EVIDENCE_RELEVANCE",
+    "DIRECTION_COHERENCE",
+    "ACTIONABILITY"
+  ],
+  "modelOutputUnchanged": true,
+  "predictionAccuracy": "NOT_EVALUATED",
+  "snapshotPerformanceEligible": false
+}

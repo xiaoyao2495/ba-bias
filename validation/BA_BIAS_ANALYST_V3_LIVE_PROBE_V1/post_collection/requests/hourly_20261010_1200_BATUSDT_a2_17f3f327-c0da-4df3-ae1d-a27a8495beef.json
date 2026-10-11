@@ -1,0 +1,2759 @@
+{
+  "id": "hourly_20261010_1200_BATUSDT_a2_17f3f327-c0da-4df3-ae1d-a27a8495beef",
+  "sample": {
+    "sampleId": "hourly_20261010_1200_BATUSDT_2026-10-10T04:00:15.949Z",
+    "symbol": "BATUSDT",
+    "runId": "hourly_20261010_1200",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "originalFactsPath": "data/runs/hourly_20261010_1200/facts/BATUSDT.json",
+    "originalFactsHash": "0b4984f8abf571e8164a407a701173bc532eddd13cf73924b39824b0f560e422",
+    "evidenceCount": 23,
+    "scenarioTags": [
+      "PRICE_DOWN_OI_CONTRACTION",
+      "MULTI_WINDOW_CONFLICT"
+    ],
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+    "causalBacktestEligible": false,
+    "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+    "selectionReason": "Deterministic original-facts coverage: PRICE_DOWN_OI_CONTRACTION"
+  },
+  "mode": {
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+    "causalBacktestEligible": false,
+    "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+    "researchExecutedAt": "2026-10-10T18:50:38.172Z"
+  },
+  "system": "DIRECTIONAL_ANALYST_GENERATION_V3。你是独立未来行情方向研究员；对已确认事实提出有期限、有竞争情景的研究假设，不否决已合格事实新闻。输出DIRECTIONAL_ANALYST_V2严格JSON，version固定为DIRECTIONAL_ANALYST_V2，使用输入contractVersion，不复制输入容器version；direction字段实际名marketBias。遵守Schema全部必填字段，不添加extraNotes或解释字段。先读contentContract，再看evidenceGuide分类索引，最终数值和来源以evidence为准。\nOBSERVATION：仅引用输入Registry已有Evidence ID，不拼接ID。优先用{{evidenceId}}，程序Renderer确定性展示精确数值；支持/冲突列表选论据，背景引用可不在列表但必须在Registry。不需要在每个文字字段复写百分比。若手写数字，必须保留指标、单位、正负号、舍入、时间窗口和口径。当前快照、滚动24h、已收盘窗口、此前等长窗口分别表达；跨周期逐一标记，不当作同期。dataTimes不得超过evaluationTime；缺失不等于中性。\nMECHANISM只放marketMechanism：同期价格与OI合约数量变化允许解释统计组合。OI增加表示合约规模扩张，不证明单侧加仓或资金流入；OI收缩且价格上涨才可提出与部分空头回补的可能性相容，价格下降/OI收缩可提出与部分多头敞口了结的可能性相容，均不能确认具体行为。OI增加不单凭Funding推断回补。不要在marketThesis把拥挤、抛压、获利了结等参与者状态写成已证实事实；否定说明须紧邻断言，不能用末尾免责声明掩盖前文确定性因果。账户比例不是持仓比例；顶部账户与顶部持仓分开，顶部持仓份额也不是全市场OI多空占比。正已结算Funding多头支付空头，负已结算Funding空头支付多头，支付关系须引用真实最新结算ID；相邻结算变化用百分点，不假设相同结算周期。\nFORECAST_HYPOTHESIS：marketThesis明确未来所选horizon的倾向及限制；preferredScenario描述主情景，alternativeScenario描述竞争情景。不把未来当已证明事实；禁止精确目标价、胜率、概率、收益率和虚构结构。不要因预测不确定就一律NO_EDGE，也不强迫选择明确方向或固定方向分布。与当前价格相反的假设须有明确冲突及参与量依据。\n方向：BULLISH/BEARISH是有依据的向上/向下延续假设。BULLISH_REVERSAL须此前同长度价格负、当前正；BEARISH_REVERSAL须此前同长度正、当前负；引用两端价格ID，解释真实转向，不能只因大涨大跌、Funding极端、账户多数或账户翻转选REVERSAL。不需要未接入ICT/MSS/BOS/FVG，也不得称结构反转已确认。NO_EDGE须解释真实冲突或不足，不用继续观察逃避有依据判断。\n方向与交易机会独立：BULLISH可WAIT_FOR_PULLBACK/AVOID_CHASING，BEARISH可WAIT_FOR_CONFIRMATION/NO_ACTIONABLE_SETUP。当前priceStructure=false，不得LONG_SETUP/SHORT_SETUP，不造入场止损目标。缺少对齐OI必须LOW；HIGH仍须所选1h有strongContinuation、当前价格方向与预测一致、对齐OI扩张，相对1h量至少2倍且引用其ID，无冲突ID且其他当前价格周期不反向，定性强度不等于胜率。\ninvalidation优先真实结构，但当前无结构不能PRICE_STRUCTURE_INVALIDATION。OBSERVABLE_CONDITION只选择当前horizon输入rules，价格规则INVALIDATED、OI规则THESIS_WARNING；规则须与预测方向相符，不能把当前上涨的相反规则用于相反预测。引用ruleId，不自造数值；OI逆转仅复核。无适用规则可METRIC_BASED_REASSESSMENT且ruleIds=[]，定性写后续同期价格/OI改变时复核，不自动INVALIDATED；无法构造复核条件可INSUFFICIENT_STRUCTURE_DATA且ruleIds=[]，明确缺失。HORIZON_EXPIRED由程序处理，不新增输出类型。\n字段职责见contentContract.outputContract.fieldRoles：每字段一个主要判断，建议160字符以内、正式每文字1至400字符；不写主力/庄家/聪明钱故事，不要求填满长度。followUpChecks必须1至2项；支持1至128个已有ID、冲突0至128个，去重；invalidation.ruleIds最多2个。输出前核对版本/对象/时间、字段长度、周期、ID、反转符号与失效规则；仍须通过完整正式验证。\n受控恢复：上一份输出未通过正式合同。阅读repairErrors全部代码、contractRepair.preciseErrors完整诊断和contentContract.recovery中的逐字段指引，逐项修复后重新生成完整Schema对象。保持原始观察事实和evaluationTime不变，不编造缺失数据、不删除必填字段。合法ID只从contractRepair.allowedEvidenceIds选择；原响应不是事实来源。原方向缺依据时可以重新选择有依据方向或NO_EDGE，但不按固定模板强制改方向。检查未报错字段也未引入新数字、新结构或超长；恢复后仍执行全部验证器，不保证通过。输出严格遵守Schema：{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"version\",\"symbol\",\"evaluationTime\",\"marketBias\",\"horizon\",\"horizonReason\",\"conviction\",\"marketThesis\",\"marketMechanism\",\"supportingEvidenceIds\",\"conflictingEvidenceIds\",\"tradeOpportunity\",\"preferredScenario\",\"invalidation\",\"alternativeScenario\",\"followUpChecks\"],\"properties\":{\"version\":{\"const\":\"DIRECTIONAL_ANALYST_V2\"},\"symbol\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"evaluationTime\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"marketBias\":{\"enum\":[\"BULLISH\",\"BEARISH\",\"BULLISH_REVERSAL\",\"BEARISH_REVERSAL\",\"NO_EDGE\"]},\"horizon\":{\"enum\":[\"1h\",\"4h\",\"24h\"]},\"horizonReason\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"conviction\":{\"enum\":[\"LOW\",\"MODERATE\",\"HIGH\"]},\"marketThesis\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"marketMechanism\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"supportingEvidenceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":128,\"uniqueItems\":true,\"minItems\":1},\"conflictingEvidenceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":128,\"uniqueItems\":true},\"tradeOpportunity\":{\"enum\":[\"LONG_SETUP\",\"SHORT_SETUP\",\"WAIT_FOR_PULLBACK\",\"WAIT_FOR_CONFIRMATION\",\"AVOID_CHASING\",\"NO_ACTIONABLE_SETUP\"]},\"preferredScenario\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"invalidation\":{\"type\":\"object\",\"additionalProperties\":false,\"allOf\":[{\"if\":{\"properties\":{\"type\":{\"const\":\"OBSERVABLE_CONDITION\"}}},\"then\":{\"properties\":{\"ruleIds\":{\"type\":\"array\",\"minItems\":1}}},\"else\":{\"if\":{\"properties\":{\"type\":{\"const\":\"INSUFFICIENT_STRUCTURE_DATA\"}}},\"then\":{\"properties\":{\"ruleIds\":{\"type\":\"array\",\"maxItems\":0}}}}}],\"required\":[\"type\",\"ruleIds\",\"description\"],\"properties\":{\"type\":{\"enum\":[\"OBSERVABLE_CONDITION\",\"INSUFFICIENT_STRUCTURE_DATA\",\"METRIC_BASED_REASSESSMENT\",\"PRICE_STRUCTURE_INVALIDATION\"]},\"ruleIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":2,\"uniqueItems\":true},\"description\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400}}},\"alternativeScenario\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"followUpChecks\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"minItems\":1,\"maxItems\":2}}}",
+  "input": {
+    "version": "DIRECTIONAL_INPUT_V1",
+    "contractVersion": "DIRECTIONAL_ANALYST_V2",
+    "symbol": "BATUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "contentContract": {
+      "generationVersion": "DIRECTIONAL_ANALYST_GENERATION_V3",
+      "inputFormatVersion": "DIRECTIONAL_INPUT_PRESENTATION_V3",
+      "validatorVersion": "DIRECTIONAL_ANALYST_V2_PRECISION_V1",
+      "research": {
+        "symbol": "BATUSDT",
+        "evaluationTime": "2026-10-10T04:00:15.949Z",
+        "horizons": [
+          "1h",
+          "4h",
+          "24h"
+        ],
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "BATUSDT:price.rolling24h"
+            ]
+          },
+          {
+            "kind": "FUNDING_FLIP",
+            "evidenceIds": [
+              "BATUSDT:funding.change",
+              "BATUSDT:funding.latest"
+            ]
+          }
+        ],
+        "horizonEvidence": [
+          {
+            "horizon": "1h",
+            "priceId": "BATUSDT:price.closed1h",
+            "oiId": "BATUSDT:oi.1h",
+            "previousPriceId": "BATUSDT:directional.price.previous1h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": false
+          },
+          {
+            "horizon": "4h",
+            "priceId": "BATUSDT:price.closed4h",
+            "oiId": "BATUSDT:oi.4h",
+            "previousPriceId": "BATUSDT:directional.price.previous4h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": false
+          },
+          {
+            "horizon": "24h",
+            "priceId": "BATUSDT:price.closed24h",
+            "oiId": "BATUSDT:oi.24h",
+            "previousPriceId": "BATUSDT:directional.price.previous24h",
+            "aligned": true,
+            "strongContinuation": true,
+            "observedPriceSign": 1,
+            "reversalEvidenceAvailable": false
+          }
+        ],
+        "missing": [
+          "未接入可靠价格结构、主动买卖量、CVD、Basis、OI/流通市值",
+          "topAccounts:SOURCE_MISSING",
+          "topPositions:SOURCE_MISSING"
+        ]
+      },
+      "observation": "Registry facts only; exact metric/unit/window/scope, no future observations.",
+      "mechanism": "Conditional possible explanation supported by price and OI; not a confirmed opening, closing, liquidation or funds-flow claim.",
+      "forecast": "marketThesis/preferredScenario/alternativeScenario are uncertain horizon-bound hypotheses; evidence verifies inputs, not future truth.",
+      "invalidation": "Only selected predefined INVALIDATED rules automate invalidation. Qualitative reassessment does not.",
+      "outputContract": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "required": [
+          "version",
+          "symbol",
+          "evaluationTime",
+          "marketBias",
+          "horizon",
+          "horizonReason",
+          "conviction",
+          "marketThesis",
+          "marketMechanism",
+          "supportingEvidenceIds",
+          "conflictingEvidenceIds",
+          "tradeOpportunity",
+          "preferredScenario",
+          "invalidation",
+          "alternativeScenario",
+          "followUpChecks"
+        ],
+        "fieldRoles": {
+          "version": "固定DIRECTIONAL_ANALYST_V2，不复制输入容器version。",
+          "symbol": "原样复制研究对象。",
+          "evaluationTime": "原样复制评价时间。",
+          "marketBias": "未来horizon的定性方向假设，不是历史涨跌标签。",
+          "horizon": "从1h/4h/24h选择有证据的未来研究期限。",
+          "horizonReason": "说明为何选此周期；引用该周期价格/OI，不罗列全部背景。",
+          "conviction": "定性证据强度LOW/MODERATE/HIGH，不是概率。",
+          "marketThesis": "FORECAST_HYPOTHESIS：一句方向倾向、主要依据和主要限制；不重复全部数字、不声称参与者行为已发生。",
+          "marketMechanism": "MECHANISM：只解释一个有同期价格/OI依据的可能机制；无法区分具体开平仓时明确未知。",
+          "supportingEvidenceIds": "选择真正支持论点的已有ID；含所选周期价格，OI可用且对齐时一并考虑。反转须含此前等长价格ID。",
+          "conflictingEvidenceIds": "选择不利事实的已有ID；确实无冲突可为[]，不为凑数把支持写成冲突。",
+          "tradeOpportunity": "独立评估可执行性；方向明确也可等待或无setup。",
+          "preferredScenario": "未来horizon内主假设如何演变，定性可观察；当前快照价不是未来目标价。",
+          "invalidation": "对象type/ruleIds/description：用真实规则或定性复核或结构不足，不造结构点位。",
+          "alternativeScenario": "竞争性未来情景及触发重新评估的变化；与preferredScenario分工。",
+          "followUpChecks": "1至2个简短后续核对点，不重述整份研判。"
+        },
+        "biases": [
+          "BULLISH",
+          "BEARISH",
+          "BULLISH_REVERSAL",
+          "BEARISH_REVERSAL",
+          "NO_EDGE"
+        ],
+        "horizons": [
+          "1h",
+          "4h",
+          "24h"
+        ],
+        "opportunities": [
+          "LONG_SETUP",
+          "SHORT_SETUP",
+          "WAIT_FOR_PULLBACK",
+          "WAIT_FOR_CONFIRMATION",
+          "AVOID_CHASING",
+          "NO_ACTIONABLE_SETUP"
+        ],
+        "textLimits": {
+          "minLength": 1,
+          "maxLength": 400,
+          "recommendedLength": 160,
+          "followUpMinItems": 1,
+          "followUpMaxItems": 2,
+          "supportMinItems": 1,
+          "evidenceMaxItems": 128,
+          "ruleMaxItems": 2
+        },
+        "emptyPolicy": "必填文字不可为空；conflictingEvidenceIds可[]；定性复核及结构不足ruleIds可[]。不增字段。"
+      },
+      "probeContext": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+        "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+        "causalBacktestEligible": false,
+        "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+        "researchExecutedAt": "2026-10-10T18:50:38.172Z"
+      },
+      "recovery": {
+        "targets": [
+          {
+            "diagnostic": {
+              "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+              "literal": "BATUSDT:price.closed24h",
+              "numberType": "EVIDENCE_IDENTIFIER",
+              "field": "horizonReason",
+              "role": "OBSERVATION_AND_HORIZON"
+            },
+            "guidance": "仅复制allowedEvidenceIds中的完整ID和原symbol，不构造或借用其他指标ID。"
+          },
+          {
+            "diagnostic": {
+              "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+              "literal": "BATUSDT:oi.24h",
+              "numberType": "EVIDENCE_IDENTIFIER",
+              "field": "horizonReason",
+              "role": "OBSERVATION_AND_HORIZON"
+            },
+            "guidance": "仅复制allowedEvidenceIds中的完整ID和原symbol，不构造或借用其他指标ID。"
+          },
+          {
+            "diagnostic": {
+              "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+              "literal": "BATUSDT",
+              "numberType": "SYMBOL_IDENTIFIER",
+              "field": "horizonReason",
+              "role": "OBSERVATION_AND_HORIZON"
+            },
+            "guidance": "根据完整诊断复核该字段与正式Schema/事实约束，不把错误字段简单删除。"
+          },
+          {
+            "diagnostic": {
+              "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+              "literal": "BATUSDT",
+              "numberType": "SYMBOL_IDENTIFIER",
+              "field": "horizonReason",
+              "role": "OBSERVATION_AND_HORIZON"
+            },
+            "guidance": "根据完整诊断复核该字段与正式Schema/事实约束，不把错误字段简单删除。"
+          },
+          {
+            "diagnostic": {
+              "code": "VERIFIED_NUMERIC_FACT",
+              "literal": "24.70%",
+              "numberType": "PERCENT_CHANGE",
+              "window": "24h",
+              "metric": {
+                "kind": "price",
+                "rolling": false,
+                "previous": false
+              },
+              "evidenceIds": [
+                "BATUSDT:price.closed24h"
+              ],
+              "ruleId": null,
+              "field": "horizonReason",
+              "role": "OBSERVATION_AND_HORIZON"
+            },
+            "guidance": "核对诊断literal/field与Registry的单位、周期、dataTimes；优先真实ID占位符，不把快照变成未来目标。"
+          },
+          {
+            "diagnostic": {
+              "code": "VERIFIED_NUMERIC_FACT",
+              "literal": "50.18%",
+              "numberType": "PERCENT_CHANGE",
+              "window": "24h",
+              "metric": {
+                "kind": "oi"
+              },
+              "evidenceIds": [
+                "BATUSDT:oi.24h"
+              ],
+              "ruleId": null,
+              "field": "horizonReason",
+              "role": "OBSERVATION_AND_HORIZON"
+            },
+            "guidance": "核对诊断literal/field与Registry的单位、周期、dataTimes；优先真实ID占位符，不把快照变成未来目标。"
+          },
+          {
+            "diagnostic": {
+              "code": "UNVERIFIED_NUMERIC_FACT",
+              "literal": "-2.28%",
+              "numberType": "PERCENT_CHANGE",
+              "window": "4h",
+              "metric": {
+                "kind": "price",
+                "rolling": false,
+                "previous": false
+              },
+              "evidenceIds": [],
+              "ruleId": null,
+              "field": "horizonReason",
+              "role": "OBSERVATION_AND_HORIZON"
+            },
+            "guidance": "核对诊断literal/field与Registry的单位、周期、dataTimes；优先真实ID占位符，不把快照变成未来目标。"
+          },
+          {
+            "diagnostic": {
+              "code": "VERIFIED_NUMERIC_FACT",
+              "literal": "-1.50%",
+              "numberType": "PERCENT_CHANGE",
+              "window": "4h",
+              "metric": {
+                "kind": "price",
+                "rolling": false,
+                "previous": false
+              },
+              "evidenceIds": [
+                "BATUSDT:price.closed4h"
+              ],
+              "ruleId": null,
+              "field": "horizonReason",
+              "role": "OBSERVATION_AND_HORIZON"
+            },
+            "guidance": "核对诊断literal/field与Registry的单位、周期、dataTimes；优先真实ID占位符，不把快照变成未来目标。"
+          },
+          {
+            "diagnostic": {
+              "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+              "match": "平仓",
+              "span": "无法区分具体开平仓行为",
+              "denied": false,
+              "field": "marketMechanism",
+              "role": "MECHANISM",
+              "allowed": false
+            },
+            "guidance": "区分观察与可能机制；机制仅在marketMechanism且须同期价格/OI支持，不能确认开平仓、资金流、拥挤或抛压。核对账户/持仓和Funding支付方向。"
+          },
+          {
+            "diagnostic": {
+              "code": "VERIFIED_NUMERIC_FACT",
+              "literal": "24.70%",
+              "numberType": "PERCENT_CHANGE",
+              "window": "24h",
+              "metric": {
+                "kind": "price",
+                "rolling": false,
+                "previous": false
+              },
+              "evidenceIds": [
+                "BATUSDT:price.closed24h"
+              ],
+              "ruleId": null,
+              "field": "preferredScenario",
+              "role": "FORECAST_HYPOTHESIS"
+            },
+            "guidance": "核对诊断literal/field与Registry的单位、周期、dataTimes；优先真实ID占位符，不把快照变成未来目标。"
+          },
+          {
+            "diagnostic": {
+              "code": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+              "match": "结构失效",
+              "span": "不设结构失效",
+              "denied": false,
+              "field": "invalidation",
+              "role": "REASSESSMENT",
+              "allowed": false
+            },
+            "guidance": "只选当前周期真实适用rules；无结构不得编造点位，可使用空ruleIds的定性复核或结构不足。"
+          },
+          {
+            "diagnostic": {
+              "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+              "path": "/"
+            },
+            "guidance": "核对诊断literal/field与Registry的单位、周期、dataTimes；优先真实ID占位符，不把快照变成未来目标。"
+          }
+        ],
+        "allErrorCodes": [
+          "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "UNSUPPORTED_CAUSE_OR_ORDER",
+          "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+        ],
+        "fieldRoles": {
+          "version": "固定DIRECTIONAL_ANALYST_V2，不复制输入容器version。",
+          "symbol": "原样复制研究对象。",
+          "evaluationTime": "原样复制评价时间。",
+          "marketBias": "未来horizon的定性方向假设，不是历史涨跌标签。",
+          "horizon": "从1h/4h/24h选择有证据的未来研究期限。",
+          "horizonReason": "说明为何选此周期；引用该周期价格/OI，不罗列全部背景。",
+          "conviction": "定性证据强度LOW/MODERATE/HIGH，不是概率。",
+          "marketThesis": "FORECAST_HYPOTHESIS：一句方向倾向、主要依据和主要限制；不重复全部数字、不声称参与者行为已发生。",
+          "marketMechanism": "MECHANISM：只解释一个有同期价格/OI依据的可能机制；无法区分具体开平仓时明确未知。",
+          "supportingEvidenceIds": "选择真正支持论点的已有ID；含所选周期价格，OI可用且对齐时一并考虑。反转须含此前等长价格ID。",
+          "conflictingEvidenceIds": "选择不利事实的已有ID；确实无冲突可为[]，不为凑数把支持写成冲突。",
+          "tradeOpportunity": "独立评估可执行性；方向明确也可等待或无setup。",
+          "preferredScenario": "未来horizon内主假设如何演变，定性可观察；当前快照价不是未来目标价。",
+          "invalidation": "对象type/ruleIds/description：用真实规则或定性复核或结构不足，不造结构点位。",
+          "alternativeScenario": "竞争性未来情景及触发重新评估的变化；与preferredScenario分工。",
+          "followUpChecks": "1至2个简短后续核对点，不重述整份研判。"
+        },
+        "allowedRules": [
+          {
+            "id": "PRICE_OPPOSITE_1h",
+            "horizon": "1h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 1.13886848,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动1h价格变化≥1.1389%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "BATUSDT:price.closed1h"
+          },
+          {
+            "id": "OI_REVERSED_1h",
+            "horizon": "1h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "GTE",
+            "threshold": 5,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "BATUSDT:oi.1h"
+          },
+          {
+            "id": "PRICE_OPPOSITE_4h",
+            "horizon": "4h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 1,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动4h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "BATUSDT:price.closed4h"
+          },
+          {
+            "id": "OI_REVERSED_4h",
+            "horizon": "4h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "GTE",
+            "threshold": 5,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确4h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "BATUSDT:oi.4h"
+          },
+          {
+            "id": "PRICE_OPPOSITE_24h",
+            "horizon": "24h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "LTE",
+            "threshold": -12.34764673,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动24h价格变化≤-12.3476%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "BATUSDT:price.closed24h"
+          },
+          {
+            "id": "OI_REVERSED_24h",
+            "horizon": "24h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "LTE",
+            "threshold": -25.09154427,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确24h OI数量变化≤-25.0915%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "BATUSDT:oi.24h"
+          }
+        ],
+        "immutableFacts": "evidence、symbol、evaluationTime均保持原始值；修复输出而非改写事实。"
+      }
+    },
+    "evidenceGuide": {
+      "allowedEvidenceIds": [
+        "BATUSDT:price.rolling24h",
+        "BATUSDT:price.last",
+        "BATUSDT:volume.rolling24h",
+        "BATUSDT:price.closed1h",
+        "BATUSDT:price.closed4h",
+        "BATUSDT:price.closed24h",
+        "BATUSDT:price.rangeLowHigh",
+        "BATUSDT:price.drawdown",
+        "BATUSDT:volume.relative1h",
+        "BATUSDT:volume.relative5m",
+        "BATUSDT:volume.closed1h",
+        "BATUSDT:oi.1h",
+        "BATUSDT:oi.4h",
+        "BATUSDT:oi.24h",
+        "BATUSDT:funding.latest",
+        "BATUSDT:funding.sum24h",
+        "BATUSDT:funding.change",
+        "BATUSDT:global.long.latest",
+        "BATUSDT:global.short.change1h",
+        "BATUSDT:global.long.change1h",
+        "BATUSDT:directional.price.previous1h",
+        "BATUSDT:directional.price.previous4h",
+        "BATUSDT:directional.price.previous24h"
+      ],
+      "primaryPriceByHorizon": {
+        "1h": "BATUSDT:price.closed1h",
+        "4h": "BATUSDT:price.closed4h",
+        "24h": "BATUSDT:price.closed24h"
+      },
+      "previousPriceByHorizon": {
+        "1h": "BATUSDT:directional.price.previous1h",
+        "4h": "BATUSDT:directional.price.previous4h",
+        "24h": "BATUSDT:directional.price.previous24h"
+      },
+      "referenceRule": "All textual references must exist in evidence. Supporting/conflicting arrays describe argumentative roles, not an exhaustive list of background observations. Different windows retain their own labels and times.",
+      "groups": {
+        "PRICE": [
+          {
+            "evidenceId": "BATUSDT:price.rolling24h",
+            "group": "PRICE",
+            "metric": "price.rolling24h",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "ROLLING_WINDOW",
+            "window": "24h",
+            "samplingPeriod": null,
+            "dataTimes": [
+              1791518400000,
+              1791604809058
+            ],
+            "meaning": "滚动24小时价格变化 24.53%",
+            "value": "24.52653291",
+            "source": "/fapi/v1/ticker/24hr"
+          },
+          {
+            "evidenceId": "BATUSDT:price.last",
+            "group": "PRICE",
+            "metric": "price.last",
+            "unit": "USDT",
+            "scope": null,
+            "observationWindow": "SEE_VERIFIED_PHRASE",
+            "window": null,
+            "samplingPeriod": null,
+            "dataTimes": [
+              1791604809058
+            ],
+            "meaning": "快照最新价格 0.132820 USDT",
+            "value": "0.132820",
+            "source": "/fapi/v1/ticker/24hr"
+          },
+          {
+            "evidenceId": "BATUSDT:price.closed1h",
+            "group": "PRICE",
+            "metric": "price.closed1h",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "CLOSED_WINDOW",
+            "window": "1h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791601200000,
+              1791604799999
+            ],
+            "meaning": "截至北京时间12:00，已收盘1小时价格变化 -2.28%",
+            "value": "-2.27773696",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:price.closed4h",
+            "group": "PRICE",
+            "metric": "price.closed4h",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "CLOSED_WINDOW",
+            "window": "4h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791590400000,
+              1791604799999
+            ],
+            "meaning": "截至北京时间12:00，已收盘4小时价格变化 -1.50%",
+            "value": "-1.49607466",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:price.closed24h",
+            "group": "PRICE",
+            "metric": "price.closed24h",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "CLOSED_WINDOW",
+            "window": "24h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791518400000,
+              1791604799999
+            ],
+            "meaning": "截至北京时间12:00，已收盘24小时价格变化 24.70%",
+            "value": "24.69529346",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:price.rangeLowHigh",
+            "group": "PRICE",
+            "metric": "price.rangeLowHigh",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "SEE_VERIFIED_PHRASE",
+            "window": "24h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791518400000,
+              1791604799999
+            ],
+            "meaning": "已收盘24小时区间低点至高点幅度 38.30%",
+            "value": "38.30495577",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:price.drawdown",
+            "group": "PRICE",
+            "metric": "price.drawdown",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "SEE_VERIFIED_PHRASE",
+            "window": "24h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791604799999,
+              1791604809058
+            ],
+            "meaning": "已收盘24小时区间高点至快照最新价变化 -8.65%",
+            "value": "-8.65199450",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:directional.price.previous1h",
+            "group": "PRICE",
+            "metric": "directional.price.previous1h",
+            "unit": "PERCENT",
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "observationWindow": "PREVIOUS_EQUAL_LENGTH_CLOSED_WINDOW",
+            "window": "1h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791597600000,
+              1791601199999
+            ],
+            "meaning": "此前已收盘1小时价格变化 -0.75%",
+            "value": "-0.75094780",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:directional.price.previous4h",
+            "group": "PRICE",
+            "metric": "directional.price.previous4h",
+            "unit": "PERCENT",
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "observationWindow": "PREVIOUS_EQUAL_LENGTH_CLOSED_WINDOW",
+            "window": "4h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791576000000,
+              1791590399999
+            ],
+            "meaning": "此前已收盘4小时价格变化 -0.30%",
+            "value": "-0.29548644",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:directional.price.previous24h",
+            "group": "PRICE",
+            "metric": "directional.price.previous24h",
+            "unit": "PERCENT",
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "observationWindow": "PREVIOUS_EQUAL_LENGTH_CLOSED_WINDOW",
+            "window": "24h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791432000000,
+              1791518399999
+            ],
+            "meaning": "此前已收盘24小时价格变化 1.84%",
+            "value": "1.84265801",
+            "source": "/fapi/v1/klines"
+          }
+        ],
+        "OI_QUANTITY": [
+          {
+            "evidenceId": "BATUSDT:oi.1h",
+            "group": "OI_QUANTITY",
+            "metric": "oi.1h",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "SEE_VERIFIED_PHRASE",
+            "window": "1h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791601200000,
+              1791604800000
+            ],
+            "meaning": "1小时OI数量变化 -0.89%（不代表资金净流入或多空加仓方向）",
+            "value": "-0.89260923",
+            "source": "/futures/data/openInterestHist"
+          },
+          {
+            "evidenceId": "BATUSDT:oi.4h",
+            "group": "OI_QUANTITY",
+            "metric": "oi.4h",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "SEE_VERIFIED_PHRASE",
+            "window": "4h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791590400000,
+              1791604800000
+            ],
+            "meaning": "4小时OI数量变化 -0.15%（不代表资金净流入或多空加仓方向）",
+            "value": "-0.14724259",
+            "source": "/futures/data/openInterestHist"
+          },
+          {
+            "evidenceId": "BATUSDT:oi.24h",
+            "group": "OI_QUANTITY",
+            "metric": "oi.24h",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "SEE_VERIFIED_PHRASE",
+            "window": "24h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791518400000,
+              1791604800000
+            ],
+            "meaning": "24小时OI数量变化 50.18%（不代表资金净流入或多空加仓方向）",
+            "value": "50.18308854",
+            "source": "/futures/data/openInterestHist"
+          }
+        ],
+        "FUNDING": [
+          {
+            "evidenceId": "BATUSDT:funding.latest",
+            "group": "FUNDING",
+            "metric": "funding.latest",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "ACTUAL_SETTLEMENT_TIMES",
+            "window": null,
+            "samplingPeriod": null,
+            "dataTimes": [
+              1791590400002
+            ],
+            "meaning": "北京时间10-10 08:00已结算Funding 0.0034%，多头支付空头",
+            "value": "0.00341500",
+            "source": "/fapi/v1/fundingRate"
+          },
+          {
+            "evidenceId": "BATUSDT:funding.sum24h",
+            "group": "FUNDING",
+            "metric": "funding.sum24h",
+            "unit": "PERCENT",
+            "scope": null,
+            "observationWindow": "ACTUAL_SETTLEMENT_TIMES",
+            "window": null,
+            "samplingPeriod": null,
+            "dataTimes": [
+              1791532800000,
+              1791561600000,
+              1791590400002
+            ],
+            "meaning": "过去24小时实际3次结算费率之和 0.0106%（非收益率）",
+            "value": "0.01060200",
+            "source": "/fapi/v1/fundingRate"
+          },
+          {
+            "evidenceId": "BATUSDT:funding.change",
+            "group": "FUNDING",
+            "metric": "funding.change",
+            "unit": "PERCENTAGE_POINTS",
+            "scope": null,
+            "observationWindow": "ACTUAL_SETTLEMENT_TIMES",
+            "window": null,
+            "samplingPeriod": null,
+            "dataTimes": [
+              1791561600000,
+              1791590400002
+            ],
+            "meaning": "相邻实际结算Funding变化 0.0062 个百分点（保留各周期时间，不假设周期相同）",
+            "value": "0.00622800",
+            "source": "/fapi/v1/fundingRate"
+          }
+        ],
+        "VOLUME": [
+          {
+            "evidenceId": "BATUSDT:volume.rolling24h",
+            "group": "VOLUME",
+            "metric": "volume.rolling24h",
+            "unit": "USDT",
+            "scope": null,
+            "observationWindow": "ROLLING_WINDOW",
+            "window": "24h",
+            "samplingPeriod": null,
+            "dataTimes": [
+              1791518400000,
+              1791604809058
+            ],
+            "meaning": "滚动24小时成交额 88878465.52 USDT",
+            "value": "88878465.524586",
+            "source": "/fapi/v1/ticker/24hr"
+          },
+          {
+            "evidenceId": "BATUSDT:volume.relative1h",
+            "group": "VOLUME",
+            "metric": "volume.relative1h",
+            "unit": "MULTIPLE_OF_PREVIOUS_24_BARS",
+            "scope": null,
+            "observationWindow": "CLOSED_BAR_VS_PREVIOUS_24_BARS",
+            "window": "1h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791514800000,
+              1791604799999
+            ],
+            "meaning": "最近已收盘1小时成交量为前24根均值的 0.71 倍",
+            "value": "0.70805206",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:volume.relative5m",
+            "group": "VOLUME",
+            "metric": "volume.relative5m",
+            "unit": "MULTIPLE_OF_PREVIOUS_24_BARS",
+            "scope": null,
+            "observationWindow": "CLOSED_BAR_VS_PREVIOUS_24_BARS",
+            "window": "5m",
+            "samplingPeriod": "5m",
+            "dataTimes": [
+              1791597300000,
+              1791604799999
+            ],
+            "meaning": "最近已收盘5分钟成交量为前24根均值的 0.50 倍",
+            "value": "0.50467687",
+            "source": "/fapi/v1/klines"
+          },
+          {
+            "evidenceId": "BATUSDT:volume.closed1h",
+            "group": "VOLUME",
+            "metric": "volume.closed1h",
+            "unit": "USDT",
+            "scope": null,
+            "observationWindow": "CLOSED_WINDOW",
+            "window": "1h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791601200000,
+              1791604799999
+            ],
+            "meaning": "最近已收盘1小时成交额 2664903.59 USDT",
+            "value": "2664903.5854100",
+            "source": "/fapi/v1/klines"
+          }
+        ],
+        "GLOBAL_ACCOUNTS": [
+          {
+            "evidenceId": "BATUSDT:global.long.latest",
+            "group": "GLOBAL_ACCOUNTS",
+            "metric": "global.long.latest",
+            "unit": "PERCENT",
+            "scope": "GLOBAL_ACCOUNTS",
+            "observationWindow": "LATEST_SAMPLE",
+            "window": null,
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791604800000
+            ],
+            "meaning": "全市场净多/净空头账户：多 56.11%、空 43.89%（账户比例不代表仓位或资金比例）",
+            "value": "56.11000000",
+            "source": "/futures/data/globalLongShortAccountRatio"
+          },
+          {
+            "evidenceId": "BATUSDT:global.short.change1h",
+            "group": "GLOBAL_ACCOUNTS",
+            "metric": "global.short.change1h",
+            "unit": "PERCENTAGE_POINTS",
+            "scope": "GLOBAL_ACCOUNTS",
+            "observationWindow": "SEE_VERIFIED_PHRASE",
+            "window": "1h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791601200000,
+              1791604800000
+            ],
+            "meaning": "全市场净多/净空头账户空方占比1小时从 43.69% 到 43.89%，变化 0.20 个百分点；多方变化 -0.20 个百分点",
+            "value": "0.20000000",
+            "source": "/futures/data/globalLongShortAccountRatio"
+          },
+          {
+            "evidenceId": "BATUSDT:global.long.change1h",
+            "group": "GLOBAL_ACCOUNTS",
+            "metric": "global.long.change1h",
+            "unit": "PERCENTAGE_POINTS",
+            "scope": "GLOBAL_ACCOUNTS",
+            "observationWindow": "SEE_VERIFIED_PHRASE",
+            "window": "1h",
+            "samplingPeriod": "1h",
+            "dataTimes": [
+              1791601200000,
+              1791604800000
+            ],
+            "meaning": "全市场净多/净空头账户空方占比1小时从 43.69% 到 43.89%，变化 0.20 个百分点；多方变化 -0.20 个百分点",
+            "value": "-0.20000000",
+            "source": "/futures/data/globalLongShortAccountRatio"
+          }
+        ],
+        "TOP_TRADER_ACCOUNTS": [],
+        "TOP_TRADER_POSITIONS": [],
+        "TOP_GLOBAL_ACCOUNTS_DIVERGENCE": [],
+        "OTHER_VERIFIED": []
+      }
+    },
+    "evidence": [
+      {
+        "evidenceId": "BATUSDT:price.rolling24h",
+        "result": "24.52653291",
+        "phrase": "滚动24小时价格变化 24.53%",
+        "dataTimes": [
+          1791518400000,
+          1791604809058
+        ],
+        "formula": "(lastPrice/openPrice-1)*100",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "BATUSDT:price.last",
+        "result": "0.132820",
+        "phrase": "快照最新价格 0.132820 USDT",
+        "dataTimes": [
+          1791604809058
+        ],
+        "formula": "lastPrice",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "BATUSDT:volume.rolling24h",
+        "result": "88878465.524586",
+        "phrase": "滚动24小时成交额 88878465.52 USDT",
+        "dataTimes": [
+          1791518400000,
+          1791604809058
+        ],
+        "formula": "quoteVolume",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "BATUSDT:price.closed1h",
+        "result": "-2.27773696",
+        "phrase": "截至北京时间12:00，已收盘1小时价格变化 -2.28%",
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "BATUSDT:price.closed4h",
+        "result": "-1.49607466",
+        "phrase": "截至北京时间12:00，已收盘4小时价格变化 -1.50%",
+        "dataTimes": [
+          1791590400000,
+          1791604799999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "4h"
+      },
+      {
+        "evidenceId": "BATUSDT:price.closed24h",
+        "result": "24.69529346",
+        "phrase": "截至北京时间12:00，已收盘24小时价格变化 24.70%",
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "BATUSDT:price.rangeLowHigh",
+        "result": "38.30495577",
+        "phrase": "已收盘24小时区间低点至高点幅度 38.30%",
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "formula": "(high/low-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "BATUSDT:price.drawdown",
+        "result": "-8.65199450",
+        "phrase": "已收盘24小时区间高点至快照最新价变化 -8.65%",
+        "dataTimes": [
+          1791604799999,
+          1791604809058
+        ],
+        "formula": "(lastPrice/high-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "BATUSDT:volume.relative1h",
+        "result": "0.70805206",
+        "phrase": "最近已收盘1小时成交量为前24根均值的 0.71 倍",
+        "dataTimes": [
+          1791514800000,
+          1791604799999
+        ],
+        "formula": "last closed base volume / preceding 24 closed bars mean",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "BATUSDT:volume.relative5m",
+        "result": "0.50467687",
+        "phrase": "最近已收盘5分钟成交量为前24根均值的 0.50 倍",
+        "dataTimes": [
+          1791597300000,
+          1791604799999
+        ],
+        "formula": "last closed base volume / preceding 24 closed bars mean",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "BATUSDT:volume.closed1h",
+        "result": "2664903.5854100",
+        "phrase": "最近已收盘1小时成交额 2664903.59 USDT",
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "formula": "quoteAssetVolume field 7",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "BATUSDT:oi.1h",
+        "result": "-0.89260923",
+        "phrase": "1小时OI数量变化 -0.89%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "BATUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "BATUSDT:oi.4h",
+        "result": "-0.14724259",
+        "phrase": "4小时OI数量变化 -0.15%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791590400000,
+          1791604800000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "BATUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "4h"
+      },
+      {
+        "evidenceId": "BATUSDT:oi.24h",
+        "result": "50.18308854",
+        "phrase": "24小时OI数量变化 50.18%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791518400000,
+          1791604800000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "BATUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791604815949
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "BATUSDT:funding.latest",
+        "result": "0.00341500",
+        "phrase": "北京时间10-10 08:00已结算Funding 0.0034%，多头支付空头",
+        "dataTimes": [
+          1791590400002
+        ],
+        "formula": "fundingRate*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "BATUSDT",
+          "startTime": 1791432015949,
+          "endTime": 1791604815949,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "BATUSDT:funding.sum24h",
+        "result": "0.01060200",
+        "phrase": "过去24小时实际3次结算费率之和 0.0106%（非收益率）",
+        "dataTimes": [
+          1791532800000,
+          1791561600000,
+          1791590400002
+        ],
+        "formula": "sum(actual settled fundingRate)*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "BATUSDT",
+          "startTime": 1791432015949,
+          "endTime": 1791604815949,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "BATUSDT:funding.change",
+        "result": "0.00622800",
+        "phrase": "相邻实际结算Funding变化 0.0062 个百分点（保留各周期时间，不假设周期相同）",
+        "dataTimes": [
+          1791561600000,
+          1791590400002
+        ],
+        "formula": "(last.fundingRate - previous.fundingRate)*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "BATUSDT",
+          "startTime": 1791432015949,
+          "endTime": 1791604815949,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "BATUSDT:global.long.latest",
+        "result": "56.11000000",
+        "phrase": "全市场净多/净空头账户：多 56.11%、空 43.89%（账户比例不代表仓位或资金比例）",
+        "dataTimes": [
+          1791604800000
+        ],
+        "formula": "longAccount * 100",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "BATUSDT",
+          "period": "1h",
+          "limit": 3,
+          "endTime": 1791604815949
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": null
+      },
+      {
+        "evidenceId": "BATUSDT:global.short.change1h",
+        "result": "0.20000000",
+        "phrase": "全市场净多/净空头账户空方占比1小时从 43.69% 到 43.89%，变化 0.20 个百分点；多方变化 -0.20 个百分点",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "BATUSDT",
+          "period": "1h",
+          "limit": 3,
+          "endTime": 1791604815949
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "BATUSDT:global.long.change1h",
+        "result": "-0.20000000",
+        "phrase": "全市场净多/净空头账户空方占比1小时从 43.69% 到 43.89%，变化 0.20 个百分点；多方变化 -0.20 个百分点",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "BATUSDT",
+          "period": "1h",
+          "limit": 3,
+          "endTime": 1791604815949
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "BATUSDT:directional.price.previous1h",
+        "result": "-0.75094780",
+        "phrase": "此前已收盘1小时价格变化 -0.75%",
+        "dataTimes": [
+          1791597600000,
+          1791601199999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "BATUSDT:directional.price.previous4h",
+        "result": "-0.29548644",
+        "phrase": "此前已收盘4小时价格变化 -0.30%",
+        "dataTimes": [
+          1791576000000,
+          1791590399999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "4h"
+      },
+      {
+        "evidenceId": "BATUSDT:directional.price.previous24h",
+        "result": "1.84265801",
+        "phrase": "此前已收盘24小时价格变化 1.84%",
+        "dataTimes": [
+          1791432000000,
+          1791518399999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "BATUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791604815949
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "24h"
+      }
+    ],
+    "windows": [
+      {
+        "horizon": "1h",
+        "priceId": "BATUSDT:price.closed1h",
+        "oiId": "BATUSDT:oi.1h",
+        "previousPriceId": "BATUSDT:directional.price.previous1h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": false
+      },
+      {
+        "horizon": "4h",
+        "priceId": "BATUSDT:price.closed4h",
+        "oiId": "BATUSDT:oi.4h",
+        "previousPriceId": "BATUSDT:directional.price.previous4h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": false
+      },
+      {
+        "horizon": "24h",
+        "priceId": "BATUSDT:price.closed24h",
+        "oiId": "BATUSDT:oi.24h",
+        "previousPriceId": "BATUSDT:directional.price.previous24h",
+        "aligned": true,
+        "strongContinuation": true,
+        "observedPriceSign": 1,
+        "reversalEvidenceAvailable": false
+      }
+    ],
+    "entryReference": {
+      "price": "0.132820",
+      "timestamp": 1791604809058,
+      "evidenceId": "BATUSDT:price.last"
+    },
+    "capabilities": {
+      "priceStructure": false,
+      "takerFlow": false,
+      "cvd": false,
+      "basis": false,
+      "oiMarketCap": false
+    },
+    "rules": [
+      {
+        "id": "PRICE_OPPOSITE_1h",
+        "horizon": "1h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 1.13886848,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动1h价格变化≥1.1389%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "BATUSDT:price.closed1h"
+      },
+      {
+        "id": "OI_REVERSED_1h",
+        "horizon": "1h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "GTE",
+        "threshold": 5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "BATUSDT:oi.1h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_4h",
+        "horizon": "4h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 1,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动4h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "BATUSDT:price.closed4h"
+      },
+      {
+        "id": "OI_REVERSED_4h",
+        "horizon": "4h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "GTE",
+        "threshold": 5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确4h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "BATUSDT:oi.4h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_24h",
+        "horizon": "24h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "LTE",
+        "threshold": -12.34764673,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动24h价格变化≤-12.3476%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "BATUSDT:price.closed24h"
+      },
+      {
+        "id": "OI_REVERSED_24h",
+        "horizon": "24h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -25.09154427,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确24h OI数量变化≤-25.0915%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "BATUSDT:oi.24h"
+      }
+    ],
+    "unavailable": [
+      "未接入可靠价格结构、主动买卖量、CVD、Basis、OI/流通市值",
+      "topAccounts:SOURCE_MISSING",
+      "topPositions:SOURCE_MISSING"
+    ],
+    "repairErrors": [
+      "UNTRUSTED_NUMBER_OR_PROBABILITY",
+      "UNSUPPORTED_CAUSE_OR_ORDER",
+      "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+    ],
+    "contractRepair": {
+      "originalInput": {
+        "version": "DIRECTIONAL_INPUT_V1",
+        "contractVersion": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "BATUSDT",
+        "evaluationTime": "2026-10-10T04:00:15.949Z",
+        "contentContract": {
+          "generationVersion": "DIRECTIONAL_ANALYST_GENERATION_V3",
+          "inputFormatVersion": "DIRECTIONAL_INPUT_PRESENTATION_V3",
+          "validatorVersion": "DIRECTIONAL_ANALYST_V2_PRECISION_V1",
+          "research": {
+            "symbol": "BATUSDT",
+            "evaluationTime": "2026-10-10T04:00:15.949Z",
+            "horizons": [
+              "1h",
+              "4h",
+              "24h"
+            ],
+            "anomalies": [
+              {
+                "kind": "PRICE_24H",
+                "evidenceIds": [
+                  "BATUSDT:price.rolling24h"
+                ]
+              },
+              {
+                "kind": "FUNDING_FLIP",
+                "evidenceIds": [
+                  "BATUSDT:funding.change",
+                  "BATUSDT:funding.latest"
+                ]
+              }
+            ],
+            "horizonEvidence": [
+              {
+                "horizon": "1h",
+                "priceId": "BATUSDT:price.closed1h",
+                "oiId": "BATUSDT:oi.1h",
+                "previousPriceId": "BATUSDT:directional.price.previous1h",
+                "aligned": true,
+                "strongContinuation": false,
+                "observedPriceSign": -1,
+                "reversalEvidenceAvailable": false
+              },
+              {
+                "horizon": "4h",
+                "priceId": "BATUSDT:price.closed4h",
+                "oiId": "BATUSDT:oi.4h",
+                "previousPriceId": "BATUSDT:directional.price.previous4h",
+                "aligned": true,
+                "strongContinuation": false,
+                "observedPriceSign": -1,
+                "reversalEvidenceAvailable": false
+              },
+              {
+                "horizon": "24h",
+                "priceId": "BATUSDT:price.closed24h",
+                "oiId": "BATUSDT:oi.24h",
+                "previousPriceId": "BATUSDT:directional.price.previous24h",
+                "aligned": true,
+                "strongContinuation": true,
+                "observedPriceSign": 1,
+                "reversalEvidenceAvailable": false
+              }
+            ],
+            "missing": [
+              "未接入可靠价格结构、主动买卖量、CVD、Basis、OI/流通市值",
+              "topAccounts:SOURCE_MISSING",
+              "topPositions:SOURCE_MISSING"
+            ]
+          },
+          "observation": "Registry facts only; exact metric/unit/window/scope, no future observations.",
+          "mechanism": "Conditional possible explanation supported by price and OI; not a confirmed opening, closing, liquidation or funds-flow claim.",
+          "forecast": "marketThesis/preferredScenario/alternativeScenario are uncertain horizon-bound hypotheses; evidence verifies inputs, not future truth.",
+          "invalidation": "Only selected predefined INVALIDATED rules automate invalidation. Qualitative reassessment does not.",
+          "outputContract": {
+            "version": "DIRECTIONAL_ANALYST_V2",
+            "required": [
+              "version",
+              "symbol",
+              "evaluationTime",
+              "marketBias",
+              "horizon",
+              "horizonReason",
+              "conviction",
+              "marketThesis",
+              "marketMechanism",
+              "supportingEvidenceIds",
+              "conflictingEvidenceIds",
+              "tradeOpportunity",
+              "preferredScenario",
+              "invalidation",
+              "alternativeScenario",
+              "followUpChecks"
+            ],
+            "fieldRoles": {
+              "version": "固定DIRECTIONAL_ANALYST_V2，不复制输入容器version。",
+              "symbol": "原样复制研究对象。",
+              "evaluationTime": "原样复制评价时间。",
+              "marketBias": "未来horizon的定性方向假设，不是历史涨跌标签。",
+              "horizon": "从1h/4h/24h选择有证据的未来研究期限。",
+              "horizonReason": "说明为何选此周期；引用该周期价格/OI，不罗列全部背景。",
+              "conviction": "定性证据强度LOW/MODERATE/HIGH，不是概率。",
+              "marketThesis": "FORECAST_HYPOTHESIS：一句方向倾向、主要依据和主要限制；不重复全部数字、不声称参与者行为已发生。",
+              "marketMechanism": "MECHANISM：只解释一个有同期价格/OI依据的可能机制；无法区分具体开平仓时明确未知。",
+              "supportingEvidenceIds": "选择真正支持论点的已有ID；含所选周期价格，OI可用且对齐时一并考虑。反转须含此前等长价格ID。",
+              "conflictingEvidenceIds": "选择不利事实的已有ID；确实无冲突可为[]，不为凑数把支持写成冲突。",
+              "tradeOpportunity": "独立评估可执行性；方向明确也可等待或无setup。",
+              "preferredScenario": "未来horizon内主假设如何演变，定性可观察；当前快照价不是未来目标价。",
+              "invalidation": "对象type/ruleIds/description：用真实规则或定性复核或结构不足，不造结构点位。",
+              "alternativeScenario": "竞争性未来情景及触发重新评估的变化；与preferredScenario分工。",
+              "followUpChecks": "1至2个简短后续核对点，不重述整份研判。"
+            },
+            "biases": [
+              "BULLISH",
+              "BEARISH",
+              "BULLISH_REVERSAL",
+              "BEARISH_REVERSAL",
+              "NO_EDGE"
+            ],
+            "horizons": [
+              "1h",
+              "4h",
+              "24h"
+            ],
+            "opportunities": [
+              "LONG_SETUP",
+              "SHORT_SETUP",
+              "WAIT_FOR_PULLBACK",
+              "WAIT_FOR_CONFIRMATION",
+              "AVOID_CHASING",
+              "NO_ACTIONABLE_SETUP"
+            ],
+            "textLimits": {
+              "minLength": 1,
+              "maxLength": 400,
+              "recommendedLength": 160,
+              "followUpMinItems": 1,
+              "followUpMaxItems": 2,
+              "supportMinItems": 1,
+              "evidenceMaxItems": 128,
+              "ruleMaxItems": 2
+            },
+            "emptyPolicy": "必填文字不可为空；conflictingEvidenceIds可[]；定性复核及结构不足ruleIds可[]。不增字段。"
+          },
+          "probeContext": {
+            "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+            "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+            "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+            "causalBacktestEligible": false,
+            "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+            "researchExecutedAt": "2026-10-10T18:50:34.868Z"
+          }
+        },
+        "evidenceGuide": {
+          "allowedEvidenceIds": [
+            "BATUSDT:price.rolling24h",
+            "BATUSDT:price.last",
+            "BATUSDT:volume.rolling24h",
+            "BATUSDT:price.closed1h",
+            "BATUSDT:price.closed4h",
+            "BATUSDT:price.closed24h",
+            "BATUSDT:price.rangeLowHigh",
+            "BATUSDT:price.drawdown",
+            "BATUSDT:volume.relative1h",
+            "BATUSDT:volume.relative5m",
+            "BATUSDT:volume.closed1h",
+            "BATUSDT:oi.1h",
+            "BATUSDT:oi.4h",
+            "BATUSDT:oi.24h",
+            "BATUSDT:funding.latest",
+            "BATUSDT:funding.sum24h",
+            "BATUSDT:funding.change",
+            "BATUSDT:global.long.latest",
+            "BATUSDT:global.short.change1h",
+            "BATUSDT:global.long.change1h",
+            "BATUSDT:directional.price.previous1h",
+            "BATUSDT:directional.price.previous4h",
+            "BATUSDT:directional.price.previous24h"
+          ],
+          "primaryPriceByHorizon": {
+            "1h": "BATUSDT:price.closed1h",
+            "4h": "BATUSDT:price.closed4h",
+            "24h": "BATUSDT:price.closed24h"
+          },
+          "previousPriceByHorizon": {
+            "1h": "BATUSDT:directional.price.previous1h",
+            "4h": "BATUSDT:directional.price.previous4h",
+            "24h": "BATUSDT:directional.price.previous24h"
+          },
+          "referenceRule": "All textual references must exist in evidence. Supporting/conflicting arrays describe argumentative roles, not an exhaustive list of background observations. Different windows retain their own labels and times.",
+          "groups": {
+            "PRICE": [
+              {
+                "evidenceId": "BATUSDT:price.rolling24h",
+                "group": "PRICE",
+                "metric": "price.rolling24h",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "ROLLING_WINDOW",
+                "window": "24h",
+                "samplingPeriod": null,
+                "dataTimes": [
+                  1791518400000,
+                  1791604809058
+                ],
+                "meaning": "滚动24小时价格变化 24.53%",
+                "value": "24.52653291",
+                "source": "/fapi/v1/ticker/24hr"
+              },
+              {
+                "evidenceId": "BATUSDT:price.last",
+                "group": "PRICE",
+                "metric": "price.last",
+                "unit": "USDT",
+                "scope": null,
+                "observationWindow": "SEE_VERIFIED_PHRASE",
+                "window": null,
+                "samplingPeriod": null,
+                "dataTimes": [
+                  1791604809058
+                ],
+                "meaning": "快照最新价格 0.132820 USDT",
+                "value": "0.132820",
+                "source": "/fapi/v1/ticker/24hr"
+              },
+              {
+                "evidenceId": "BATUSDT:price.closed1h",
+                "group": "PRICE",
+                "metric": "price.closed1h",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "CLOSED_WINDOW",
+                "window": "1h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791601200000,
+                  1791604799999
+                ],
+                "meaning": "截至北京时间12:00，已收盘1小时价格变化 -2.28%",
+                "value": "-2.27773696",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:price.closed4h",
+                "group": "PRICE",
+                "metric": "price.closed4h",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "CLOSED_WINDOW",
+                "window": "4h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791590400000,
+                  1791604799999
+                ],
+                "meaning": "截至北京时间12:00，已收盘4小时价格变化 -1.50%",
+                "value": "-1.49607466",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:price.closed24h",
+                "group": "PRICE",
+                "metric": "price.closed24h",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "CLOSED_WINDOW",
+                "window": "24h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791518400000,
+                  1791604799999
+                ],
+                "meaning": "截至北京时间12:00，已收盘24小时价格变化 24.70%",
+                "value": "24.69529346",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:price.rangeLowHigh",
+                "group": "PRICE",
+                "metric": "price.rangeLowHigh",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "SEE_VERIFIED_PHRASE",
+                "window": "24h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791518400000,
+                  1791604799999
+                ],
+                "meaning": "已收盘24小时区间低点至高点幅度 38.30%",
+                "value": "38.30495577",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:price.drawdown",
+                "group": "PRICE",
+                "metric": "price.drawdown",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "SEE_VERIFIED_PHRASE",
+                "window": "24h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791604799999,
+                  1791604809058
+                ],
+                "meaning": "已收盘24小时区间高点至快照最新价变化 -8.65%",
+                "value": "-8.65199450",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:directional.price.previous1h",
+                "group": "PRICE",
+                "metric": "directional.price.previous1h",
+                "unit": "PERCENT",
+                "scope": "PREVIOUS_PRICE_WINDOW",
+                "observationWindow": "PREVIOUS_EQUAL_LENGTH_CLOSED_WINDOW",
+                "window": "1h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791597600000,
+                  1791601199999
+                ],
+                "meaning": "此前已收盘1小时价格变化 -0.75%",
+                "value": "-0.75094780",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:directional.price.previous4h",
+                "group": "PRICE",
+                "metric": "directional.price.previous4h",
+                "unit": "PERCENT",
+                "scope": "PREVIOUS_PRICE_WINDOW",
+                "observationWindow": "PREVIOUS_EQUAL_LENGTH_CLOSED_WINDOW",
+                "window": "4h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791576000000,
+                  1791590399999
+                ],
+                "meaning": "此前已收盘4小时价格变化 -0.30%",
+                "value": "-0.29548644",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:directional.price.previous24h",
+                "group": "PRICE",
+                "metric": "directional.price.previous24h",
+                "unit": "PERCENT",
+                "scope": "PREVIOUS_PRICE_WINDOW",
+                "observationWindow": "PREVIOUS_EQUAL_LENGTH_CLOSED_WINDOW",
+                "window": "24h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791432000000,
+                  1791518399999
+                ],
+                "meaning": "此前已收盘24小时价格变化 1.84%",
+                "value": "1.84265801",
+                "source": "/fapi/v1/klines"
+              }
+            ],
+            "OI_QUANTITY": [
+              {
+                "evidenceId": "BATUSDT:oi.1h",
+                "group": "OI_QUANTITY",
+                "metric": "oi.1h",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "SEE_VERIFIED_PHRASE",
+                "window": "1h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791601200000,
+                  1791604800000
+                ],
+                "meaning": "1小时OI数量变化 -0.89%（不代表资金净流入或多空加仓方向）",
+                "value": "-0.89260923",
+                "source": "/futures/data/openInterestHist"
+              },
+              {
+                "evidenceId": "BATUSDT:oi.4h",
+                "group": "OI_QUANTITY",
+                "metric": "oi.4h",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "SEE_VERIFIED_PHRASE",
+                "window": "4h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791590400000,
+                  1791604800000
+                ],
+                "meaning": "4小时OI数量变化 -0.15%（不代表资金净流入或多空加仓方向）",
+                "value": "-0.14724259",
+                "source": "/futures/data/openInterestHist"
+              },
+              {
+                "evidenceId": "BATUSDT:oi.24h",
+                "group": "OI_QUANTITY",
+                "metric": "oi.24h",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "SEE_VERIFIED_PHRASE",
+                "window": "24h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791518400000,
+                  1791604800000
+                ],
+                "meaning": "24小时OI数量变化 50.18%（不代表资金净流入或多空加仓方向）",
+                "value": "50.18308854",
+                "source": "/futures/data/openInterestHist"
+              }
+            ],
+            "FUNDING": [
+              {
+                "evidenceId": "BATUSDT:funding.latest",
+                "group": "FUNDING",
+                "metric": "funding.latest",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "ACTUAL_SETTLEMENT_TIMES",
+                "window": null,
+                "samplingPeriod": null,
+                "dataTimes": [
+                  1791590400002
+                ],
+                "meaning": "北京时间10-10 08:00已结算Funding 0.0034%，多头支付空头",
+                "value": "0.00341500",
+                "source": "/fapi/v1/fundingRate"
+              },
+              {
+                "evidenceId": "BATUSDT:funding.sum24h",
+                "group": "FUNDING",
+                "metric": "funding.sum24h",
+                "unit": "PERCENT",
+                "scope": null,
+                "observationWindow": "ACTUAL_SETTLEMENT_TIMES",
+                "window": null,
+                "samplingPeriod": null,
+                "dataTimes": [
+                  1791532800000,
+                  1791561600000,
+                  1791590400002
+                ],
+                "meaning": "过去24小时实际3次结算费率之和 0.0106%（非收益率）",
+                "value": "0.01060200",
+                "source": "/fapi/v1/fundingRate"
+              },
+              {
+                "evidenceId": "BATUSDT:funding.change",
+                "group": "FUNDING",
+                "metric": "funding.change",
+                "unit": "PERCENTAGE_POINTS",
+                "scope": null,
+                "observationWindow": "ACTUAL_SETTLEMENT_TIMES",
+                "window": null,
+                "samplingPeriod": null,
+                "dataTimes": [
+                  1791561600000,
+                  1791590400002
+                ],
+                "meaning": "相邻实际结算Funding变化 0.0062 个百分点（保留各周期时间，不假设周期相同）",
+                "value": "0.00622800",
+                "source": "/fapi/v1/fundingRate"
+              }
+            ],
+            "VOLUME": [
+              {
+                "evidenceId": "BATUSDT:volume.rolling24h",
+                "group": "VOLUME",
+                "metric": "volume.rolling24h",
+                "unit": "USDT",
+                "scope": null,
+                "observationWindow": "ROLLING_WINDOW",
+                "window": "24h",
+                "samplingPeriod": null,
+                "dataTimes": [
+                  1791518400000,
+                  1791604809058
+                ],
+                "meaning": "滚动24小时成交额 88878465.52 USDT",
+                "value": "88878465.524586",
+                "source": "/fapi/v1/ticker/24hr"
+              },
+              {
+                "evidenceId": "BATUSDT:volume.relative1h",
+                "group": "VOLUME",
+                "metric": "volume.relative1h",
+                "unit": "MULTIPLE_OF_PREVIOUS_24_BARS",
+                "scope": null,
+                "observationWindow": "CLOSED_BAR_VS_PREVIOUS_24_BARS",
+                "window": "1h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791514800000,
+                  1791604799999
+                ],
+                "meaning": "最近已收盘1小时成交量为前24根均值的 0.71 倍",
+                "value": "0.70805206",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:volume.relative5m",
+                "group": "VOLUME",
+                "metric": "volume.relative5m",
+                "unit": "MULTIPLE_OF_PREVIOUS_24_BARS",
+                "scope": null,
+                "observationWindow": "CLOSED_BAR_VS_PREVIOUS_24_BARS",
+                "window": "5m",
+                "samplingPeriod": "5m",
+                "dataTimes": [
+                  1791597300000,
+                  1791604799999
+                ],
+                "meaning": "最近已收盘5分钟成交量为前24根均值的 0.50 倍",
+                "value": "0.50467687",
+                "source": "/fapi/v1/klines"
+              },
+              {
+                "evidenceId": "BATUSDT:volume.closed1h",
+                "group": "VOLUME",
+                "metric": "volume.closed1h",
+                "unit": "USDT",
+                "scope": null,
+                "observationWindow": "CLOSED_WINDOW",
+                "window": "1h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791601200000,
+                  1791604799999
+                ],
+                "meaning": "最近已收盘1小时成交额 2664903.59 USDT",
+                "value": "2664903.5854100",
+                "source": "/fapi/v1/klines"
+              }
+            ],
+            "GLOBAL_ACCOUNTS": [
+              {
+                "evidenceId": "BATUSDT:global.long.latest",
+                "group": "GLOBAL_ACCOUNTS",
+                "metric": "global.long.latest",
+                "unit": "PERCENT",
+                "scope": "GLOBAL_ACCOUNTS",
+                "observationWindow": "LATEST_SAMPLE",
+                "window": null,
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791604800000
+                ],
+                "meaning": "全市场净多/净空头账户：多 56.11%、空 43.89%（账户比例不代表仓位或资金比例）",
+                "value": "56.11000000",
+                "source": "/futures/data/globalLongShortAccountRatio"
+              },
+              {
+                "evidenceId": "BATUSDT:global.short.change1h",
+                "group": "GLOBAL_ACCOUNTS",
+                "metric": "global.short.change1h",
+                "unit": "PERCENTAGE_POINTS",
+                "scope": "GLOBAL_ACCOUNTS",
+                "observationWindow": "SEE_VERIFIED_PHRASE",
+                "window": "1h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791601200000,
+                  1791604800000
+                ],
+                "meaning": "全市场净多/净空头账户空方占比1小时从 43.69% 到 43.89%，变化 0.20 个百分点；多方变化 -0.20 个百分点",
+                "value": "0.20000000",
+                "source": "/futures/data/globalLongShortAccountRatio"
+              },
+              {
+                "evidenceId": "BATUSDT:global.long.change1h",
+                "group": "GLOBAL_ACCOUNTS",
+                "metric": "global.long.change1h",
+                "unit": "PERCENTAGE_POINTS",
+                "scope": "GLOBAL_ACCOUNTS",
+                "observationWindow": "SEE_VERIFIED_PHRASE",
+                "window": "1h",
+                "samplingPeriod": "1h",
+                "dataTimes": [
+                  1791601200000,
+                  1791604800000
+                ],
+                "meaning": "全市场净多/净空头账户空方占比1小时从 43.69% 到 43.89%，变化 0.20 个百分点；多方变化 -0.20 个百分点",
+                "value": "-0.20000000",
+                "source": "/futures/data/globalLongShortAccountRatio"
+              }
+            ],
+            "TOP_TRADER_ACCOUNTS": [],
+            "TOP_TRADER_POSITIONS": [],
+            "TOP_GLOBAL_ACCOUNTS_DIVERGENCE": [],
+            "OTHER_VERIFIED": []
+          }
+        },
+        "evidence": [
+          {
+            "evidenceId": "BATUSDT:price.rolling24h",
+            "result": "24.52653291",
+            "phrase": "滚动24小时价格变化 24.53%",
+            "dataTimes": [
+              1791518400000,
+              1791604809058
+            ],
+            "formula": "(lastPrice/openPrice-1)*100",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "BATUSDT:price.last",
+            "result": "0.132820",
+            "phrase": "快照最新价格 0.132820 USDT",
+            "dataTimes": [
+              1791604809058
+            ],
+            "formula": "lastPrice",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "BATUSDT:volume.rolling24h",
+            "result": "88878465.524586",
+            "phrase": "滚动24小时成交额 88878465.52 USDT",
+            "dataTimes": [
+              1791518400000,
+              1791604809058
+            ],
+            "formula": "quoteVolume",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "BATUSDT:price.closed1h",
+            "result": "-2.27773696",
+            "phrase": "截至北京时间12:00，已收盘1小时价格变化 -2.28%",
+            "dataTimes": [
+              1791601200000,
+              1791604799999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "BATUSDT:price.closed4h",
+            "result": "-1.49607466",
+            "phrase": "截至北京时间12:00，已收盘4小时价格变化 -1.50%",
+            "dataTimes": [
+              1791590400000,
+              1791604799999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "4h"
+          },
+          {
+            "evidenceId": "BATUSDT:price.closed24h",
+            "result": "24.69529346",
+            "phrase": "截至北京时间12:00，已收盘24小时价格变化 24.70%",
+            "dataTimes": [
+              1791518400000,
+              1791604799999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "BATUSDT:price.rangeLowHigh",
+            "result": "38.30495577",
+            "phrase": "已收盘24小时区间低点至高点幅度 38.30%",
+            "dataTimes": [
+              1791518400000,
+              1791604799999
+            ],
+            "formula": "(high/low-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "BATUSDT:price.drawdown",
+            "result": "-8.65199450",
+            "phrase": "已收盘24小时区间高点至快照最新价变化 -8.65%",
+            "dataTimes": [
+              1791604799999,
+              1791604809058
+            ],
+            "formula": "(lastPrice/high-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "BATUSDT:volume.relative1h",
+            "result": "0.70805206",
+            "phrase": "最近已收盘1小时成交量为前24根均值的 0.71 倍",
+            "dataTimes": [
+              1791514800000,
+              1791604799999
+            ],
+            "formula": "last closed base volume / preceding 24 closed bars mean",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "BATUSDT:volume.relative5m",
+            "result": "0.50467687",
+            "phrase": "最近已收盘5分钟成交量为前24根均值的 0.50 倍",
+            "dataTimes": [
+              1791597300000,
+              1791604799999
+            ],
+            "formula": "last closed base volume / preceding 24 closed bars mean",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "5m",
+              "limit": 40,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "BATUSDT:volume.closed1h",
+            "result": "2664903.5854100",
+            "phrase": "最近已收盘1小时成交额 2664903.59 USDT",
+            "dataTimes": [
+              1791601200000,
+              1791604799999
+            ],
+            "formula": "quoteAssetVolume field 7",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "BATUSDT:oi.1h",
+            "result": "-0.89260923",
+            "phrase": "1小时OI数量变化 -0.89%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791601200000,
+              1791604800000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "BATUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "BATUSDT:oi.4h",
+            "result": "-0.14724259",
+            "phrase": "4小时OI数量变化 -0.15%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791590400000,
+              1791604800000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "BATUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "4h"
+          },
+          {
+            "evidenceId": "BATUSDT:oi.24h",
+            "result": "50.18308854",
+            "phrase": "24小时OI数量变化 50.18%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791518400000,
+              1791604800000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "BATUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791604815949
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "BATUSDT:funding.latest",
+            "result": "0.00341500",
+            "phrase": "北京时间10-10 08:00已结算Funding 0.0034%，多头支付空头",
+            "dataTimes": [
+              1791590400002
+            ],
+            "formula": "fundingRate*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "BATUSDT",
+              "startTime": 1791432015949,
+              "endTime": 1791604815949,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "BATUSDT:funding.sum24h",
+            "result": "0.01060200",
+            "phrase": "过去24小时实际3次结算费率之和 0.0106%（非收益率）",
+            "dataTimes": [
+              1791532800000,
+              1791561600000,
+              1791590400002
+            ],
+            "formula": "sum(actual settled fundingRate)*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "BATUSDT",
+              "startTime": 1791432015949,
+              "endTime": 1791604815949,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "BATUSDT:funding.change",
+            "result": "0.00622800",
+            "phrase": "相邻实际结算Funding变化 0.0062 个百分点（保留各周期时间，不假设周期相同）",
+            "dataTimes": [
+              1791561600000,
+              1791590400002
+            ],
+            "formula": "(last.fundingRate - previous.fundingRate)*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "BATUSDT",
+              "startTime": 1791432015949,
+              "endTime": 1791604815949,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "BATUSDT:global.long.latest",
+            "result": "56.11000000",
+            "phrase": "全市场净多/净空头账户：多 56.11%、空 43.89%（账户比例不代表仓位或资金比例）",
+            "dataTimes": [
+              1791604800000
+            ],
+            "formula": "longAccount * 100",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "BATUSDT",
+              "period": "1h",
+              "limit": 3,
+              "endTime": 1791604815949
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": null
+          },
+          {
+            "evidenceId": "BATUSDT:global.short.change1h",
+            "result": "0.20000000",
+            "phrase": "全市场净多/净空头账户空方占比1小时从 43.69% 到 43.89%，变化 0.20 个百分点；多方变化 -0.20 个百分点",
+            "dataTimes": [
+              1791601200000,
+              1791604800000
+            ],
+            "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "BATUSDT",
+              "period": "1h",
+              "limit": 3,
+              "endTime": 1791604815949
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "BATUSDT:global.long.change1h",
+            "result": "-0.20000000",
+            "phrase": "全市场净多/净空头账户空方占比1小时从 43.69% 到 43.89%，变化 0.20 个百分点；多方变化 -0.20 个百分点",
+            "dataTimes": [
+              1791601200000,
+              1791604800000
+            ],
+            "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "BATUSDT",
+              "period": "1h",
+              "limit": 3,
+              "endTime": 1791604815949
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "BATUSDT:directional.price.previous1h",
+            "result": "-0.75094780",
+            "phrase": "此前已收盘1小时价格变化 -0.75%",
+            "dataTimes": [
+              1791597600000,
+              1791601199999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "BATUSDT:directional.price.previous4h",
+            "result": "-0.29548644",
+            "phrase": "此前已收盘4小时价格变化 -0.30%",
+            "dataTimes": [
+              1791576000000,
+              1791590399999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "4h"
+          },
+          {
+            "evidenceId": "BATUSDT:directional.price.previous24h",
+            "result": "1.84265801",
+            "phrase": "此前已收盘24小时价格变化 1.84%",
+            "dataTimes": [
+              1791432000000,
+              1791518399999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "BATUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791604815949
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "24h"
+          }
+        ],
+        "windows": [
+          {
+            "horizon": "1h",
+            "priceId": "BATUSDT:price.closed1h",
+            "oiId": "BATUSDT:oi.1h",
+            "previousPriceId": "BATUSDT:directional.price.previous1h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": false
+          },
+          {
+            "horizon": "4h",
+            "priceId": "BATUSDT:price.closed4h",
+            "oiId": "BATUSDT:oi.4h",
+            "previousPriceId": "BATUSDT:directional.price.previous4h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": false
+          },
+          {
+            "horizon": "24h",
+            "priceId": "BATUSDT:price.closed24h",
+            "oiId": "BATUSDT:oi.24h",
+            "previousPriceId": "BATUSDT:directional.price.previous24h",
+            "aligned": true,
+            "strongContinuation": true,
+            "observedPriceSign": 1,
+            "reversalEvidenceAvailable": false
+          }
+        ],
+        "entryReference": {
+          "price": "0.132820",
+          "timestamp": 1791604809058,
+          "evidenceId": "BATUSDT:price.last"
+        },
+        "capabilities": {
+          "priceStructure": false,
+          "takerFlow": false,
+          "cvd": false,
+          "basis": false,
+          "oiMarketCap": false
+        },
+        "rules": [
+          {
+            "id": "PRICE_OPPOSITE_1h",
+            "horizon": "1h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 1.13886848,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动1h价格变化≥1.1389%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "BATUSDT:price.closed1h"
+          },
+          {
+            "id": "OI_REVERSED_1h",
+            "horizon": "1h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "GTE",
+            "threshold": 5,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "BATUSDT:oi.1h"
+          },
+          {
+            "id": "PRICE_OPPOSITE_4h",
+            "horizon": "4h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 1,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动4h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "BATUSDT:price.closed4h"
+          },
+          {
+            "id": "OI_REVERSED_4h",
+            "horizon": "4h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "GTE",
+            "threshold": 5,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确4h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "BATUSDT:oi.4h"
+          },
+          {
+            "id": "PRICE_OPPOSITE_24h",
+            "horizon": "24h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "LTE",
+            "threshold": -12.34764673,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动24h价格变化≤-12.3476%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "BATUSDT:price.closed24h"
+          },
+          {
+            "id": "OI_REVERSED_24h",
+            "horizon": "24h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "LTE",
+            "threshold": -25.09154427,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确24h OI数量变化≤-25.0915%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "BATUSDT:oi.24h"
+          }
+        ],
+        "unavailable": [
+          "未接入可靠价格结构、主动买卖量、CVD、Basis、OI/流通市值",
+          "topAccounts:SOURCE_MISSING",
+          "topPositions:SOURCE_MISSING"
+        ]
+      },
+      "originalResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "BATUSDT",
+        "evaluationTime": "2026-10-10T04:00:15.949Z",
+        "marketBias": "NO_EDGE",
+        "horizon": "24h",
+        "horizonReason": "24h窗口是唯一具备强延续特征的周期：已收盘24h价格变化24.70%（BATUSDT:price.closed24h）且24h OI数量变化50.18%（BATUSDT:oi.24h）同向扩张；但1h与4h已收盘价格分别为-2.28%与-1.50%，与24h方向相反，短周期冲突使24h方向假设证据不足。",
+        "conviction": "LOW",
+        "marketThesis": "24h维度价格与OI数量同步扩张，存在上行延续的假设空间，但1h、4h已收盘价格转负且1h OI收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。",
+        "marketMechanism": "24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。",
+        "supportingEvidenceIds": [
+          "BATUSDT:price.closed24h",
+          "BATUSDT:oi.24h",
+          "BATUSDT:price.rolling24h"
+        ],
+        "conflictingEvidenceIds": [
+          "BATUSDT:price.closed1h",
+          "BATUSDT:price.closed4h",
+          "BATUSDT:oi.1h",
+          "BATUSDT:price.drawdown"
+        ],
+        "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+        "preferredScenario": "24h内价格在已收盘24h涨幅24.70%的基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。",
+        "invalidation": {
+          "type": "METRIC_BASED_REASSESSMENT",
+          "ruleIds": [],
+          "description": "无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。"
+        },
+        "alternativeScenario": "若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。",
+        "followUpChecks": [
+          "核对后续新收盘1h与4h价格变化是否转正并与24h方向一致",
+          "核对后续1h与24h OI数量变化是否同向扩张"
+        ]
+      },
+      "preciseErrors": [
+        {
+          "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+          "literal": "BATUSDT:price.closed24h",
+          "numberType": "EVIDENCE_IDENTIFIER",
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+          "literal": "BATUSDT:oi.24h",
+          "numberType": "EVIDENCE_IDENTIFIER",
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+          "literal": "BATUSDT",
+          "numberType": "SYMBOL_IDENTIFIER",
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+          "literal": "BATUSDT",
+          "numberType": "SYMBOL_IDENTIFIER",
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "24.70%",
+          "numberType": "PERCENT_CHANGE",
+          "window": "24h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [
+            "BATUSDT:price.closed24h"
+          ],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "50.18%",
+          "numberType": "PERCENT_CHANGE",
+          "window": "24h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [
+            "BATUSDT:oi.24h"
+          ],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "-2.28%",
+          "numberType": "PERCENT_CHANGE",
+          "window": "4h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-1.50%",
+          "numberType": "PERCENT_CHANGE",
+          "window": "4h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [
+            "BATUSDT:price.closed4h"
+          ],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "平仓",
+          "span": "无法区分具体开平仓行为",
+          "denied": false,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": false
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "24.70%",
+          "numberType": "PERCENT_CHANGE",
+          "window": "24h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [
+            "BATUSDT:price.closed24h"
+          ],
+          "ruleId": null,
+          "field": "preferredScenario",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "match": "结构失效",
+          "span": "不设结构失效",
+          "denied": false,
+          "field": "invalidation",
+          "role": "REASSESSMENT",
+          "allowed": false
+        },
+        {
+          "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "path": "/"
+        }
+      ],
+      "allowedEvidenceIds": [
+        "BATUSDT:price.rolling24h",
+        "BATUSDT:price.last",
+        "BATUSDT:volume.rolling24h",
+        "BATUSDT:price.closed1h",
+        "BATUSDT:price.closed4h",
+        "BATUSDT:price.closed24h",
+        "BATUSDT:price.rangeLowHigh",
+        "BATUSDT:price.drawdown",
+        "BATUSDT:volume.relative1h",
+        "BATUSDT:volume.relative5m",
+        "BATUSDT:volume.closed1h",
+        "BATUSDT:oi.1h",
+        "BATUSDT:oi.4h",
+        "BATUSDT:oi.24h",
+        "BATUSDT:funding.latest",
+        "BATUSDT:funding.sum24h",
+        "BATUSDT:funding.change",
+        "BATUSDT:global.long.latest",
+        "BATUSDT:global.short.change1h",
+        "BATUSDT:global.long.change1h",
+        "BATUSDT:directional.price.previous1h",
+        "BATUSDT:directional.price.previous4h",
+        "BATUSDT:directional.price.previous24h"
+      ],
+      "mustFix": "逐字段修复全部诊断，重新生成完整V2对象；不新增事实/ID/结构，不把原响应当证据；可重新研究方向，但仍执行完整验证。"
+    }
+  },
+  "generationParameters": {
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "thinking": {
+      "type": "disabled"
+    },
+    "max_tokens": 6000,
+    "response_format": {
+      "type": "json_object"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "sampleId": "s_hourly_20261010_1200_PIXELUSDT",
+  "provenance": {
+    "sourceType": "LIVE_MODEL_RESPONSE",
+    "executionKind": "LIVE_API",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "requestedModel": "deepseek-flash",
+    "requestId": "a3cad1d7-f5c8-46c7-b7a2-8e79b035532f",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "serverResponseId": "a38656a4-b8a1-4258-bb55-f161b57f0e64",
+    "requestedAt": "2026-10-10T20:54:10.729Z",
+    "receivedAt": "2026-10-10T20:54:12.626Z",
+    "requestHash": "521c96f78d708f2c5ffab245adf01491671a88258156aa5fd2b5dea7ee5741fd",
+    "responseHash": "a68826a119fb153fa15131852c90e80895260c94b762794cc273a595a136df51",
+    "inputHash": "75e1168b24becdb021a4092ff3b3e01d6d1c640ec3d8a71f74f31a057467692e"
+  },
+  "validation": {
+    "ok": true,
+    "status": "EXPERIMENT_VALIDATED",
+    "errors": [],
+    "analysis": {
+      "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+      "status": "NOT_PRODUCTION",
+      "causalBacktestEligible": false,
+      "symbol": "PIXELUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "direction": "BEARISH_REVERSAL",
+      "horizon": "1h",
+      "conviction": "LOW",
+      "supportingEvidenceIds": [
+        "PIXELUSDT:price.closed1h",
+        "PIXELUSDT:directional.price.previous1h",
+        "PIXELUSDT:oi.1h",
+        "PIXELUSDT:volume.relative1h",
+        "PIXELUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "PIXELUSDT:price.closed4h",
+        "PIXELUSDT:price.closed24h",
+        "PIXELUSDT:oi.4h",
+        "PIXELUSDT:oi.24h"
+      ],
+      "structureEvidenceIds": [],
+      "mechanismHypothesis": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "PIXELUSDT:price.closed1h",
+          "PIXELUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "directionalRationale": {
+        "hypothesis": "TURN",
+        "evidenceIds": [
+          "PIXELUSDT:price.closed1h",
+          "PIXELUSDT:directional.price.previous1h",
+          "PIXELUSDT:oi.1h",
+          "PIXELUSDT:volume.relative1h",
+          "PIXELUSDT:price.drawdown",
+          "PIXELUSDT:price.closed4h",
+          "PIXELUSDT:price.closed24h"
+        ],
+        "alternative": "OPPOSITE_MOVE",
+        "certainty": "CONDITIONAL_NOT_CONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "reassessmentConditions": [
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "PRICE_OPPOSITE_1h"
+        },
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "OI_REVERSED_1h"
+        },
+        {
+          "conditionType": "ABSTRACT_REASSESSMENT",
+          "metricOrStructureEvidenceId": "PIXELUSDT:volume.relative1h",
+          "interpretation": "MONITOR_CHANGE",
+          "consequence": "REASSESS_ONLY"
+        }
+      ]
+    },
+    "provenanceValid": true,
+    "analysisValid": true,
+    "provenance": {
+      "sourceType": "LIVE_MODEL_RESPONSE",
+      "executionKind": "LIVE_API",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "requestedModel": "deepseek-flash",
+      "requestId": "a3cad1d7-f5c8-46c7-b7a2-8e79b035532f",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "a38656a4-b8a1-4258-bb55-f161b57f0e64",
+      "requestedAt": "2026-10-10T20:54:10.729Z",
+      "receivedAt": "2026-10-10T20:54:12.626Z",
+      "requestHash": "521c96f78d708f2c5ffab245adf01491671a88258156aa5fd2b5dea7ee5741fd",
+      "responseHash": "a68826a119fb153fa15131852c90e80895260c94b762794cc273a595a136df51",
+      "inputHash": "75e1168b24becdb021a4092ff3b3e01d6d1c640ec3d8a71f74f31a057467692e"
+    }
+  }
+}

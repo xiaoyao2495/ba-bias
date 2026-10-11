@@ -1,0 +1,73 @@
+{
+  "requestId": "c806c048-99f5-4995-ba9b-d0213b0f2c14",
+  "sampleId": "s_hourly_20261010_1200_PIXELUSDT",
+  "raw": {
+    "id": "2eb1c74b-d5c9-406d-8a73-c6ea2f86da1e",
+    "object": "chat.completion",
+    "created": 1791665648,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"PIXELUSDT\",\n  \"evaluationTime\": \"2026-10-10T04:00:15.949Z\",\n  \"direction\": \"BEARISH_REVERSAL\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"LOW\",\n  \"supportingEvidenceIds\": [\n    \"PIXELUSDT:price.closed1h\",\n    \"PIXELUSDT:directional.price.previous1h\",\n    \"PIXELUSDT:oi.1h\",\n    \"PIXELUSDT:volume.relative1h\",\n    \"PIXELUSDT:price.drawdown\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"PIXELUSDT:price.closed4h\",\n    \"PIXELUSDT:price.closed24h\",\n    \"PIXELUSDT:oi.4h\",\n    \"PIXELUSDT:oi.24h\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_CONTRACTION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"PIXELUSDT:price.closed1h\",\n      \"PIXELUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"TURN\",\n    \"evidenceIds\": [\n      \"PIXELUSDT:price.closed1h\",\n      \"PIXELUSDT:directional.price.previous1h\",\n      \"PIXELUSDT:oi.1h\",\n      \"PIXELUSDT:volume.relative1h\",\n      \"PIXELUSDT:price.drawdown\",\n      \"PIXELUSDT:price.closed4h\",\n      \"PIXELUSDT:price.closed24h\"\n    ],\n    \"alternative\": \"OPPOSITE_MOVE\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    },\n    {\n      \"conditionType\": \"ABSTRACT_REASSESSMENT\",\n      \"metricOrStructureEvidenceId\": \"PIXELUSDT:volume.relative1h\",\n      \"interpretation\": \"MONITOR_CHANGE\",\n      \"consequence\": \"REASSESS_ONLY\"\n    }\n  ]\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6279,
+      "completion_tokens": 630,
+      "total_tokens": 6909,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 6279
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "record": {
+    "requestId": "c806c048-99f5-4995-ba9b-d0213b0f2c14",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "model": "deepseek-flash",
+    "requestedAt": "2026-10-10T20:54:08.363Z",
+    "requestHash": "ef5883bc4d9ea81cfe69fc3401eb10aa77149b9a8e9488bd5cc79d5bc1bd6b51",
+    "inputHash": "75e1168b24becdb021a4092ff3b3e01d6d1c640ec3d8a71f74f31a057467692e",
+    "executionKind": "LIVE_API",
+    "physicalRequests": 1,
+    "responseHash": "7815ed3024558f79cfe93c8fb4657d3cbcad029a9c1667f08062bcf78fa814ac",
+    "receivedAt": "2026-10-10T20:54:10.349Z",
+    "serverResponseId": "2eb1c74b-d5c9-406d-8a73-c6ea2f86da1e",
+    "rawResponse": {
+      "id": "2eb1c74b-d5c9-406d-8a73-c6ea2f86da1e",
+      "object": "chat.completion",
+      "created": 1791665648,
+      "model": "deepseek-flash",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"PIXELUSDT\",\n  \"evaluationTime\": \"2026-10-10T04:00:15.949Z\",\n  \"direction\": \"BEARISH_REVERSAL\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"LOW\",\n  \"supportingEvidenceIds\": [\n    \"PIXELUSDT:price.closed1h\",\n    \"PIXELUSDT:directional.price.previous1h\",\n    \"PIXELUSDT:oi.1h\",\n    \"PIXELUSDT:volume.relative1h\",\n    \"PIXELUSDT:price.drawdown\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"PIXELUSDT:price.closed4h\",\n    \"PIXELUSDT:price.closed24h\",\n    \"PIXELUSDT:oi.4h\",\n    \"PIXELUSDT:oi.24h\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_CONTRACTION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"PIXELUSDT:price.closed1h\",\n      \"PIXELUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"TURN\",\n    \"evidenceIds\": [\n      \"PIXELUSDT:price.closed1h\",\n      \"PIXELUSDT:directional.price.previous1h\",\n      \"PIXELUSDT:oi.1h\",\n      \"PIXELUSDT:volume.relative1h\",\n      \"PIXELUSDT:price.drawdown\",\n      \"PIXELUSDT:price.closed4h\",\n      \"PIXELUSDT:price.closed24h\"\n    ],\n    \"alternative\": \"OPPOSITE_MOVE\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    },\n    {\n      \"conditionType\": \"ABSTRACT_REASSESSMENT\",\n      \"metricOrStructureEvidenceId\": \"PIXELUSDT:volume.relative1h\",\n      \"interpretation\": \"MONITOR_CHANGE\",\n      \"consequence\": \"REASSESS_ONLY\"\n    }\n  ]\n}"
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 6279,
+        "completion_tokens": 630,
+        "total_tokens": 6909,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 6279
+      },
+      "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+    }
+  }
+}

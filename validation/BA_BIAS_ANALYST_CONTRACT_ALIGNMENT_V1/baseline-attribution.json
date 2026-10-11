@@ -1,0 +1,5740 @@
+{
+  "independentResearch": 70,
+  "responses": 140,
+  "schemaPass": 95,
+  "completePass": 1,
+  "unavailableResearch": 69,
+  "missing": 0,
+  "categoriesAllResponses": {
+    "PROMPT_SCHEMA_CONFLICT": {
+      "responses": 109,
+      "research": 65,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "EVIDENCE_NOT_EXPOSED": {
+      "responses": 0,
+      "research": 0,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "EVIDENCE_HALLUCINATED": {
+      "responses": 2,
+      "research": 2,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "WINDOW_MISMATCH": {
+      "responses": 68,
+      "research": 55,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "NUMERIC_FACT_ERROR": {
+      "responses": 11,
+      "research": 11,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "HYPOTHESIS_FALSE_REJECTION": {
+      "responses": 58,
+      "research": 46,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "UNSUPPORTED_CAUSAL_CLAIM": {
+      "responses": 0,
+      "research": 0,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "INVALIDATION_CONTRACT_ERROR": {
+      "responses": 17,
+      "research": 16,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "OTHER": {
+      "responses": 99,
+      "research": 64,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    }
+  },
+  "categories69FailedResearch": {
+    "PROMPT_SCHEMA_CONFLICT": {
+      "responses": 109,
+      "research": 65,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "EVIDENCE_NOT_EXPOSED": {
+      "responses": 0,
+      "research": 0,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "EVIDENCE_HALLUCINATED": {
+      "responses": 2,
+      "research": 2,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "WINDOW_MISMATCH": {
+      "responses": 67,
+      "research": 54,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "NUMERIC_FACT_ERROR": {
+      "responses": 11,
+      "research": 11,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "HYPOTHESIS_FALSE_REJECTION": {
+      "responses": 58,
+      "research": 46,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "UNSUPPORTED_CAUSAL_CLAIM": {
+      "responses": 0,
+      "research": 0,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "INVALIDATION_CONTRACT_ERROR": {
+      "responses": 16,
+      "research": 15,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    },
+    "OTHER": {
+      "responses": 98,
+      "research": 63,
+      "blocksBaseline": "Only in conjunction with other validation failures; counts overlap"
+    }
+  },
+  "rows": [
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "1000BONKUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/44/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "1000BONKUSDT:volume.closed1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "1000BONKUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "1000BONKUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "1000BONKUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/45/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "1000BONKUSDT:volume.closed1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "1000BONKUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "1000BONKUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "API3USDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/74/raw/choices/0/message/content",
+      "oldErrors": [
+        "INVALID_LLM_JSON"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "INVALID_LLM_JSON"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "API3USDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/75/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ARPAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/20/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARPAUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARPAUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARPAUSDT:price.last"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ARPAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/21/raw/choices/0/message/content",
+      "oldErrors": [
+        "INVALID_LLM_JSON"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "INVALID_LLM_JSON"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ARUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/38/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARUSDT:price.rangeLowHigh"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARUSDT:price.drawdown"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ARUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/39/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "BATUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/17/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "WRONG_ACCOUNT_OR_OI_SCOPE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:global.long.change1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:funding.sum24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "BATUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/18/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "description2"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:funding.sum24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "CAPUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/30/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/required",
+              "keyword": "required",
+              "params": {
+                "missingProperty": "alternativeScenario"
+              },
+              "message": "must have required property 'alternativeScenario'"
+            },
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenario"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CAPUSDT:price.closed4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CAPUSDT:oi.4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CAPUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CAPUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CAPUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "CAPUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/31/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CAPUSDT:global.long.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "CELRUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/65/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CELRUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CELRUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CELRUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "CELRUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/66/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "UNDECLARED_TEXT_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CELRUSDT:global.long.change1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "CFXUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/4/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CFXUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CFXUSDT:global.short.change4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CFXUSDT:global.short.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "CFXUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/5/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNTRUSTED_SYMBOL_OR_METRIC",
+        "UNDECLARED_TEXT_EVIDENCE"
+      ],
+      "categories": [
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CFXUSDT:global.short.change4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CFXUSDT:global.short.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CFXUSDT:directional.price.previous4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CFXUSDT:directional.price.previous24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ENSUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/68/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "evaluationTimeNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ENSUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ENSUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ENSUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/69/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/marketThesis",
+              "schemaPath": "#/properties/marketThesis/maxLength",
+              "keyword": "maxLength",
+              "params": {
+                "limit": 400
+              },
+              "message": "must NOT have more than 400 characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ERAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/7/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReason_note"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ERAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/8/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "EVIDENCE_HALLUCINATED"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/required",
+              "keyword": "required",
+              "params": {
+                "missingProperty": "alternativeScenario"
+              },
+              "message": "must have required property 'alternativeScenario'"
+            },
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenario"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "EVIDENCE_HALLUCINATED",
+          "reason": "引用不在实际输入Registry",
+          "evidenceId": "PRICE_OPPOSITE_4h"
+        },
+        {
+          "category": "EVIDENCE_HALLUCINATED",
+          "reason": "引用不在实际输入Registry",
+          "evidenceId": "OI_REVERSED_4h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "EULUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/114/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNDECLARED_TEXT_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "EULUSDT:price.last"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "EULUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/115/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "ruleIds_note"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "EULUSDT:price.last"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "FARTCOINUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/93/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "NUMERIC_FACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "FARTCOINUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "FARTCOINUSDT:global.long.change1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "FARTCOINUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/94/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "WRONG_ACCOUNT_OR_OI_SCOPE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "FARTCOINUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "FARTCOINUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "HEIUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/100/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:price.closed1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:price.closed4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:oi.1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:oi.4h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "HEIUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/101/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenarioNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "HEMIUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/106/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION",
+        "NUMERIC_FACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEMIUSDT:volume.closed1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEMIUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEMIUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEMIUSDT:price.rangeLowHigh"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "HEMIUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/107/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEMIUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEMIUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "IOSTUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/58/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "IOSTUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "IOSTUSDT:funding.sum24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "IOSTUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/59/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "IOSTUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "IOSTUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "JCTUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/27/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "JCTUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "JCTUSDT:funding.sum24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "JCTUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/28/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "JCTUSDT:price.closed1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "KMNOUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/96/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "KMNOUSDT:price.closed24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "KMNOUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/97/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION",
+        "NUMERIC_FACT_ERROR"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "LAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/33/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "LAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/34/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReason_note"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "LAUSDT:price.closed4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "LAUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "LAUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "LAUSDT:oi.1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "LUMIAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/10/raw/choices/0/message/content",
+      "oldErrors": [
+        "INVALID_LLM_JSON"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "INVALID_LLM_JSON"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "LUMIAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/11/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "LUMIAUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "MAGICUSDT",
+      "attempt": 1,
+      "baselineValid": true,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/1/raw/choices/0/message/content",
+      "oldErrors": [],
+      "categories": [],
+      "issues": []
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "MAGICUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/2/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "INVALIDATION_CONTRACT_ERROR"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "MORPHOUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/122/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MORPHOUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MORPHOUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "MORPHOUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/123/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE"
+      ],
+      "categories": [
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MORPHOUSDT:global.short.change1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "MOVRUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/78/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "MOVRUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/79/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "WRONG_ACCOUNT_OR_OI_SCOPE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MOVRUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "NEIROUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/89/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "OTHER",
+        "NUMERIC_FACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "NEIROUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "NEIROUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "NEIROUSDT:oi.1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "NEIROUSDT:oi.4h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "NEIROUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/90/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "NEIROUSDT:volume.closed1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "NEIROUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "NEIROUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "NEIROUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ONEUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/61/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ONEUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ONEUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "ONEUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/62/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ONEUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ONEUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "PEOPLEUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/71/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PEOPLEUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "PEOPLEUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/72/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION",
+        "NUMERIC_FACT_ERROR"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "PIEVERSEUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/117/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PIEVERSEUSDT:global.long.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "PIEVERSEUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/118/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "NUMERIC_FACT_ERROR",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PIEVERSEUSDT:volume.closed1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PIEVERSEUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PIEVERSEUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "POLUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/47/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "POLUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/48/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "PUMPUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/110/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PUMPUSDT:price.drawdown"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PUMPUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PUMPUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PUMPUSDT:global.short.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "PUMPUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/111/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "description_note"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PUMPUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "RLCUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/24/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "NUMERIC_FACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:price.last"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:price.closed1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "RLCUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/25/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:oi.1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "STRKUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/84/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "STRKUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "STRKUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "STRKUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/85/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "STRKUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "STRKUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "STRKUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "USUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/14/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "USUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/15/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "description2"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "USUSDT:price.closed24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "USUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "VETUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/54/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VETUSDT:oi.1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VETUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VETUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VETUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "VETUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/55/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VETUSDT:oi.1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VETUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VETUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VETUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "VTHOUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/50/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "description2"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VTHOUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VTHOUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VTHOUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "VTHOUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/51/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "VTHOUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "WIFUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/81/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "WIFUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/82/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "WIFUSDT:global.short.change1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "WIFUSDT:global.short.change4h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "XLMUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/41/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XLMUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XLMUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XLMUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2100",
+      "symbol": "XLMUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2100/deepseek-calls.json#/42/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "OTHER",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XLMUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XLMUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XLMUSDT:global.long.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "AIOTUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/32/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "AIOTUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "AIOTUSDT:funding.sum24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "AIOTUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/33/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "AIOTUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ALGOUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/62/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "NUMERIC_FACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ALGOUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ALGOUSDT:global.short.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ALGOUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/63/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ALGOUSDT:directional.price.previous4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ALGOUSDT:global.short.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "APRUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/11/raw/choices/0/message/content",
+      "oldErrors": [
+        "INVALID_LLM_JSON"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "INVALID_LLM_JSON"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "APRUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/12/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "APRUSDT:price.last"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ARPAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/41/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARPAUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARPAUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ARPAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/42/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ARUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/51/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ARUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ARUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/52/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "BABYUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/96/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/required",
+              "keyword": "required",
+              "params": {
+                "missingProperty": "alternativeScenario"
+              },
+              "message": "must have required property 'alternativeScenario'"
+            },
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenario"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BABYUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BABYUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BABYUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "BABYUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/97/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BABYUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BABYUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BABYUSDT:oi.1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BABYUSDT:oi.4h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "BATUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/17/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:global.long.change1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:global.long.change4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "BATUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/18/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "BATUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "CAPUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/29/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT",
+        "EVIDENCE_HALLUCINATED"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/required",
+              "keyword": "required",
+              "params": {
+                "missingProperty": "alternativeScenario"
+              },
+              "message": "must have required property 'alternativeScenario'"
+            },
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenario"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CAPUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CAPUSDT:global.long.latest"
+        },
+        {
+          "category": "EVIDENCE_HALLUCINATED",
+          "reason": "引用不在实际输入Registry",
+          "evidenceId": "PRICE_OPPOSITE_4h"
+        },
+        {
+          "category": "EVIDENCE_HALLUCINATED",
+          "reason": "引用不在实际输入Registry",
+          "evidenceId": "OI_REVERSED_4h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "CAPUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/30/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "CELRUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/47/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "WRONG_ACCOUNT_OR_OI_SCOPE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "NUMERIC_FACT_ERROR"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "CELRUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/48/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CELRUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "CELRUSDT:directional.price.previous24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ENSUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/66/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "WRONG_ACCOUNT_OR_OI_SCOPE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ENSUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ENSUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/67/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "followUpChecks_note"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ENSUSDT:global.short.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ERAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/1/raw/choices/0/message/content",
+      "oldErrors": [
+        "INVALID_LLM_JSON"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "INVALID_LLM_JSON"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ERAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/2/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "descriptionNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ERAUSDT:price.closed1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ERAUSDT:oi.1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ERAUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "GRASSUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/83/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenarioNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "GRASSUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "GRASSUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/84/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "GRASSUSDT:volume.relative1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "HEIUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/90/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "HEIUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/91/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "NUMERIC_FACT_ERROR",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "HEIUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "JCTUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/26/raw/choices/0/message/content",
+      "oldErrors": [
+        "INVALID_LLM_JSON"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "INVALID_LLM_JSON"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "JCTUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/27/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/required",
+              "keyword": "required",
+              "params": {
+                "missingProperty": "alternativeScenario"
+              },
+              "message": "must have required property 'alternativeScenario'"
+            },
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenario"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "JCTUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "JCTUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "JCTUSDT:price.last"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "KAITOUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/93/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/required",
+              "keyword": "required",
+              "params": {
+                "missingProperty": "alternativeScenario"
+              },
+              "message": "must have required property 'alternativeScenario'"
+            },
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenarioNote"
+              },
+              "message": "must NOT have additional properties"
+            },
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenario"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "KAITOUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "KAITOUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "KAITOUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/94/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "WRONG_ACCOUNT_OR_OI_SCOPE",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "KAITOUSDT:price.last"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "LAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/35/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "conflictingEvidenceIds_note"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "LAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/36/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "LAUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "LAUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "MAGICUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/4/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "evaluationTimeNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MAGICUSDT:directional.price.previous1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MAGICUSDT:volume.relative1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MAGICUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MAGICUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MAGICUSDT:global.short.change1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MAGICUSDT:global.short.change4h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "MAGICUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/5/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "NO_EDGE_NEEDS_REAL_CONFLICT",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MAGICUSDT:global.short.change4h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "MANAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/120/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:oi.1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:global.short.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "MANAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/121/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/marketMechanism",
+              "schemaPath": "#/properties/marketMechanism/maxLength",
+              "keyword": "maxLength",
+              "params": {
+                "limit": 400
+              },
+              "message": "must NOT have more than 400 characters"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:global.long.change1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:global.long.change4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MANAUSDT:global.long.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "METUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/109/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "OTHER",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:price.closed4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:price.rangeLowHigh"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:price.drawdown"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:global.short.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "METUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/110/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:volume.relative1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:global.short.change1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:global.short.change4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:global.short.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "METUSDT:funding.sum24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "MINAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/14/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MINAUSDT:directional.price.previous1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MINAUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MINAUSDT:global.long.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "MINAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/15/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MINAUSDT:funding.sum24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "MOVRUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/74/raw/choices/0/message/content",
+      "oldErrors": [
+        "SUPPORT_SAMPLES_NOT_ALIGNED",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "SUPPORT_SAMPLES_NOT_ALIGNED",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "MOVRUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "MOVRUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/75/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "INVALIDATION_CONTRACT_ERROR"
+      ],
+      "issues": [
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "OPGUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/114/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "OPGUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "OPGUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "OPGUSDT:price.rangeLowHigh"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "OPGUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/115/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "OPGUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "OPGUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "PUMPUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/105/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PUMPUSDT:global.short.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PUMPUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "PUMPUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/106/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "PUMPUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "QNTUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/38/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "HYPOTHESIS_FALSE_REJECTION"
+      ],
+      "issues": [
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "QNTUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/39/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "QNTUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "QNTUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "QNTUSDT:global.short.change1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "RLCUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/23/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:price.rangeLowHigh"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:directional.price.previous24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:funding.sum24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "RLCUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/24/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReason_note"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:price.rangeLowHigh"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:price.drawdown"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "RLCUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "SAHARAUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/123/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "horizonReasonNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SAHARAUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SAHARAUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "SAHARAUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/124/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SAHARAUSDT:global.long.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SAHARAUSDT:global.short.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "SEIUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/71/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "description2"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SEIUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SEIUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "SEIUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/72/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/required",
+              "keyword": "required",
+              "params": {
+                "missingProperty": "alternativeScenario"
+              },
+              "message": "must have required property 'alternativeScenario'"
+            },
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenario"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SEIUSDT:price.closed1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SEIUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "SPKUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/99/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SPKUSDT:global.short.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SPKUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SPKUSDT:funding.sum24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "SPKUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/100/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "OTHER",
+        "INVALIDATION_CONTRACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "INVALIDATION_CONTRACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SPKUSDT:oi.1h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SPKUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "STABLEUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/117/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "STABLEUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/118/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "STABLEUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "STABLEUSDT:global.short.change1h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "STRKUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/20/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNTRUSTED_SYMBOL_OR_METRIC",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "STRKUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/21/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "ruleIdsNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "SUPERUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/44/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SUPERUSDT:price.rangeLowHigh"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SUPERUSDT:funding.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SUPERUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SUPERUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "SUPERUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/45/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "marketBiasNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SUPERUSDT:price.rangeLowHigh"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "SUPERUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "USUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/8/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "/invalidation",
+              "schemaPath": "#/properties/invalidation/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenario"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "USUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "USUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/9/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "UNSUPPORTED_CAUSE_OR_ORDER"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "USUSDT:directional.price.previous24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "WLFIUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/102/raw/choices/0/message/content",
+      "oldErrors": [
+        "INVALID_LLM_JSON"
+      ],
+      "categories": [
+        "OTHER"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "INVALID_LLM_JSON"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "WLFIUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/103/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "WRONG_ACCOUNT_OR_OI_SCOPE"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "WLFIUSDT:global.long.latest"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "WLFIUSDT:global.flip"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "WLFIUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "XMRUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/58/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XMRUSDT:global.flip"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "XMRUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/59/raw/choices/0/message/content",
+      "oldErrors": [
+        "DIRECTIONAL_SCHEMA_INVALID"
+      ],
+      "categories": [
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "SCHEMA_CONTRACT_FAILURE_NOT_PROMPT_REQUIRED",
+          "schemaErrors": [
+            {
+              "instancePath": "",
+              "schemaPath": "#/additionalProperties",
+              "keyword": "additionalProperties",
+              "params": {
+                "additionalProperty": "alternativeScenarioNote"
+              },
+              "message": "must NOT have additional properties"
+            }
+          ]
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XMRUSDT:price.closed4h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "XMRUSDT:global.short.change24h"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ZROUSDT",
+      "attempt": 1,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/79/raw/choices/0/message/content",
+      "oldErrors": [
+        "MIXED_SUPPORT_WINDOWS",
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+      ],
+      "categories": [
+        "WINDOW_MISMATCH",
+        "OTHER",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "WINDOW_MISMATCH",
+          "reason": "MIXED_SUPPORT_WINDOWS",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ZROUSDT:global.short.change24h"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ZROUSDT:funding.latest"
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261010_2200",
+      "symbol": "ZROUSDT",
+      "attempt": 2,
+      "baselineValid": false,
+      "reference": "data/runs/hourly_20261010_2200/deepseek-calls.json#/80/raw/choices/0/message/content",
+      "oldErrors": [
+        "UNDECLARED_TEXT_EVIDENCE",
+        "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+        "UNTRUSTED_NUMBER_OR_PROBABILITY"
+      ],
+      "categories": [
+        "OTHER",
+        "HYPOTHESIS_FALSE_REJECTION",
+        "NUMERIC_FACT_ERROR",
+        "PROMPT_SCHEMA_CONFLICT"
+      ],
+      "issues": [
+        {
+          "category": "OTHER",
+          "reason": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "HYPOTHESIS_FALSE_REJECTION",
+          "reason": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "certainty": "REQUIRES_CLAUSE_REVIEW"
+        },
+        {
+          "category": "NUMERIC_FACT_ERROR",
+          "reason": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "certainty": "ERROR_PATH_CONFIRMED"
+        },
+        {
+          "category": "PROMPT_SCHEMA_CONFLICT",
+          "reason": "正文中的真实Registry引用被附加必须列入支持/冲突列表的限制拒绝；列表上限8",
+          "evidenceId": "ZROUSDT:funding.latest"
+        }
+      ]
+    }
+  ],
+  "limitations": "Clause-level hypothesis labels are candidate false rejections, not a blanket assertion that these whole responses should pass. Schema failure itself is OTHER unless a prompt requirement truly conflicts. Numeric rules are invalidation errors, not invented observed values."
+}

@@ -1,0 +1,571 @@
+{
+  "sampleId": "s_hourly_20261010_1200_SENTUSDT",
+  "symbol": "SENTUSDT",
+  "runId": "hourly_20261010_1200",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "factsPath": "data/runs/hourly_20261010_1200/facts/SENTUSDT.json",
+  "factsHash": "082849d701635dbdfe0b801d91929a9e896cb8a01a8fe90e21586ea178f5dba1",
+  "evidenceCount": 23,
+  "scenarioTags": [
+    "PRICE_DOWN_OI_EXPANSION",
+    "DRAWDOWN"
+  ],
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "timeAudit": {
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:28.392Z",
+    "availability": "UNKNOWN",
+    "causalBacktestEligible": false,
+    "isolatedFutureRows": [
+      {
+        "source": "hour",
+        "rows": 1,
+        "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+      },
+      {
+        "source": "five",
+        "rows": 1,
+        "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+      }
+    ],
+    "retainedFutureEvidence": 0,
+    "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+  },
+  "selectionReason": "Deterministic original-facts scenario coverage: PRICE_DOWN_OI_EXPANSION",
+  "finalStatus": "FIRST_PASS_VALID",
+  "attempts": [
+    {
+      "intentId": "fcce1822-aca9-41a7-aa04-93d40d754bce",
+      "requestId": "4ca8536e-45db-4901-8e4c-e5efc35da207",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "sampleId": "s_hourly_20261010_1200_SENTUSDT",
+      "attempt": 1,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:28.392Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence.",
+      "researchExecutedAt": "2026-10-10T20:54:13.309Z",
+      "receivedAt": "2026-10-10T20:54:15.516Z",
+      "actualModel": "deepseek-flash",
+      "physicalRequests": 1,
+      "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+      "httpStatus": "UNKNOWN_CLIENT_DOES_NOT_EXPOSE_STATUS",
+      "serverResponseId": "6ec7b884-06d4-4b10-a336-f73d9aef5ea9",
+      "serverRequestId": null,
+      "rawText": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"SENTUSDT\",\n  \"evaluationTime\": \"2026-10-10T04:00:15.949Z\",\n  \"direction\": \"BEARISH\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"LOW\",\n  \"supportingEvidenceIds\": [\n    \"SENTUSDT:price.closed1h\",\n    \"SENTUSDT:oi.1h\",\n    \"SENTUSDT:price.closed4h\",\n    \"SENTUSDT:price.closed24h\",\n    \"SENTUSDT:global.long.change1h\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"SENTUSDT:volume.relative1h\",\n    \"SENTUSDT:funding.latest\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_CONTRACTION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"SENTUSDT:price.closed1h\",\n      \"SENTUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"CONTINUATION\",\n    \"evidenceIds\": [\n      \"SENTUSDT:price.closed1h\",\n      \"SENTUSDT:oi.1h\",\n      \"SENTUSDT:price.closed4h\",\n      \"SENTUSDT:price.closed24h\",\n      \"SENTUSDT:global.long.change1h\",\n      \"SENTUSDT:volume.relative1h\",\n      \"SENTUSDT:funding.latest\"\n    ],\n    \"alternative\": \"CONSOLIDATION\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    },\n    {\n      \"conditionType\": \"ABSTRACT_REASSESSMENT\",\n      \"metricOrStructureEvidenceId\": \"SENTUSDT:volume.relative1h\",\n      \"interpretation\": \"MONITOR_CHANGE\",\n      \"consequence\": \"REASSESS_ONLY\"\n    }\n  ]\n}",
+      "jsonParseable": true,
+      "schemaValid": true,
+      "validation": {
+        "ok": true,
+        "status": "EXPERIMENT_VALIDATED",
+        "errors": [],
+        "analysis": {
+          "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+          "status": "NOT_PRODUCTION",
+          "causalBacktestEligible": false,
+          "symbol": "SENTUSDT",
+          "evaluationTime": "2026-10-10T04:00:15.949Z",
+          "direction": "BEARISH",
+          "horizon": "1h",
+          "conviction": "LOW",
+          "supportingEvidenceIds": [
+            "SENTUSDT:price.closed1h",
+            "SENTUSDT:oi.1h",
+            "SENTUSDT:price.closed4h",
+            "SENTUSDT:price.closed24h",
+            "SENTUSDT:global.long.change1h"
+          ],
+          "conflictingEvidenceIds": [
+            "SENTUSDT:volume.relative1h",
+            "SENTUSDT:funding.latest"
+          ],
+          "structureEvidenceIds": [],
+          "mechanismHypothesis": {
+            "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+            "evidenceIds": [
+              "SENTUSDT:price.closed1h",
+              "SENTUSDT:oi.1h"
+            ],
+            "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+          },
+          "directionalRationale": {
+            "hypothesis": "CONTINUATION",
+            "evidenceIds": [
+              "SENTUSDT:price.closed1h",
+              "SENTUSDT:oi.1h",
+              "SENTUSDT:price.closed4h",
+              "SENTUSDT:price.closed24h",
+              "SENTUSDT:global.long.change1h",
+              "SENTUSDT:volume.relative1h",
+              "SENTUSDT:funding.latest"
+            ],
+            "alternative": "CONSOLIDATION",
+            "certainty": "CONDITIONAL_NOT_CONFIRMED"
+          },
+          "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+          "reassessmentConditions": [
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "PRICE_OPPOSITE_1h"
+            },
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "OI_REVERSED_1h"
+            },
+            {
+              "conditionType": "ABSTRACT_REASSESSMENT",
+              "metricOrStructureEvidenceId": "SENTUSDT:volume.relative1h",
+              "interpretation": "MONITOR_CHANGE",
+              "consequence": "REASSESS_ONLY"
+            }
+          ]
+        },
+        "provenanceValid": true,
+        "analysisValid": true,
+        "provenance": {
+          "sourceType": "LIVE_MODEL_RESPONSE",
+          "executionKind": "LIVE_API",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "requestedModel": "deepseek-flash",
+          "requestId": "4ca8536e-45db-4901-8e4c-e5efc35da207",
+          "requestIdKind": "LOCAL_TRACKING_ID",
+          "serverResponseId": "6ec7b884-06d4-4b10-a336-f73d9aef5ea9",
+          "requestedAt": "2026-10-10T20:54:13.309Z",
+          "receivedAt": "2026-10-10T20:54:15.516Z",
+          "requestHash": "cb4251315142e386c06e5154d380d21b3dbc685ed1f6ae8f822d564bdc3173f2",
+          "responseHash": "3bf155c0273ebe8e5ea58cdc9c815583036c5111e3529364d768d765fb6650d3",
+          "inputHash": "d3e79f36fbf8571d70c61e8045fb1c71d96e253b73f6762220efcff7a08bc753"
+        }
+      },
+      "trustedProvenance": {
+        "sourceType": "LIVE_MODEL_RESPONSE",
+        "executionKind": "LIVE_API",
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "requestedModel": "deepseek-flash",
+        "requestId": "4ca8536e-45db-4901-8e4c-e5efc35da207",
+        "requestIdKind": "LOCAL_TRACKING_ID",
+        "serverResponseId": "6ec7b884-06d4-4b10-a336-f73d9aef5ea9",
+        "requestedAt": "2026-10-10T20:54:13.309Z",
+        "receivedAt": "2026-10-10T20:54:15.516Z",
+        "requestHash": "cb4251315142e386c06e5154d380d21b3dbc685ed1f6ae8f822d564bdc3173f2",
+        "responseHash": "3bf155c0273ebe8e5ea58cdc9c815583036c5111e3529364d768d765fb6650d3",
+        "inputHash": "d3e79f36fbf8571d70c61e8045fb1c71d96e253b73f6762220efcff7a08bc753"
+      },
+      "analysis": {
+        "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+        "status": "NOT_PRODUCTION",
+        "causalBacktestEligible": false,
+        "symbol": "SENTUSDT",
+        "evaluationTime": "2026-10-10T04:00:15.949Z",
+        "direction": "BEARISH",
+        "horizon": "1h",
+        "conviction": "LOW",
+        "supportingEvidenceIds": [
+          "SENTUSDT:price.closed1h",
+          "SENTUSDT:oi.1h",
+          "SENTUSDT:price.closed4h",
+          "SENTUSDT:price.closed24h",
+          "SENTUSDT:global.long.change1h"
+        ],
+        "conflictingEvidenceIds": [
+          "SENTUSDT:volume.relative1h",
+          "SENTUSDT:funding.latest"
+        ],
+        "structureEvidenceIds": [],
+        "mechanismHypothesis": {
+          "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+          "evidenceIds": [
+            "SENTUSDT:price.closed1h",
+            "SENTUSDT:oi.1h"
+          ],
+          "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+        },
+        "directionalRationale": {
+          "hypothesis": "CONTINUATION",
+          "evidenceIds": [
+            "SENTUSDT:price.closed1h",
+            "SENTUSDT:oi.1h",
+            "SENTUSDT:price.closed4h",
+            "SENTUSDT:price.closed24h",
+            "SENTUSDT:global.long.change1h",
+            "SENTUSDT:volume.relative1h",
+            "SENTUSDT:funding.latest"
+          ],
+          "alternative": "CONSOLIDATION",
+          "certainty": "CONDITIONAL_NOT_CONFIRMED"
+        },
+        "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+        "reassessmentConditions": [
+          {
+            "conditionType": "PROGRAM_RULE",
+            "ruleId": "PRICE_OPPOSITE_1h"
+          },
+          {
+            "conditionType": "PROGRAM_RULE",
+            "ruleId": "OI_REVERSED_1h"
+          },
+          {
+            "conditionType": "ABSTRACT_REASSESSMENT",
+            "metricOrStructureEvidenceId": "SENTUSDT:volume.relative1h",
+            "interpretation": "MONITOR_CHANGE",
+            "consequence": "REASSESS_ONLY"
+          }
+        ]
+      },
+      "rendererAudit": {
+        "ok": true,
+        "status": "PASS",
+        "errors": [],
+        "claims": [
+          {
+            "renderedClaim": "支持: SENTUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -1.07003891 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 -1.07%",
+            "evidenceId": "SENTUSDT:price.closed1h",
+            "factsFields": [
+              "evidence[3].result",
+              "evidence[3].phrase",
+              "evidence[3].dataTimes",
+              "evidence[3].formula",
+              "sources.hour.raw"
+            ],
+            "value": "-1.07003891",
+            "unit": "%",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791601200000,
+              1791604799999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "SENTUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791604815949
+              },
+              "formula": "(close_end/open_start-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: SENTUSDT:oi.1h | OI_QUANTITY_CHANGE | -0.09864243 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 -0.10%（不代表资金净流入或多空加仓方向）",
+            "evidenceId": "SENTUSDT:oi.1h",
+            "factsFields": [
+              "evidence[11].result",
+              "evidence[11].phrase",
+              "evidence[11].dataTimes",
+              "evidence[11].formula",
+              "sources.oi.raw"
+            ],
+            "value": "-0.09864243",
+            "unit": "%",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791601200000,
+              1791604800000
+            ],
+            "source": {
+              "endpoint": "/futures/data/openInterestHist",
+              "params": {
+                "symbol": "SENTUSDT",
+                "period": "1h",
+                "limit": 30,
+                "endTime": 1791604815949
+              },
+              "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: SENTUSDT:price.closed4h | PRICE_CLOSED_CHANGE | -2.39923225 % | window=4h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘4小时价格变化 -2.40%",
+            "evidenceId": "SENTUSDT:price.closed4h",
+            "factsFields": [
+              "evidence[4].result",
+              "evidence[4].phrase",
+              "evidence[4].dataTimes",
+              "evidence[4].formula",
+              "sources.hour.raw"
+            ],
+            "value": "-2.39923225",
+            "unit": "%",
+            "window": "4h",
+            "scope": null,
+            "dataTimes": [
+              1791590400000,
+              1791604799999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "SENTUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791604815949
+              },
+              "formula": "(close_end/open_start-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: SENTUSDT:price.closed24h | PRICE_CLOSED_CHANGE | -17.51824818 % | window=24h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘24小时价格变化 -17.52%",
+            "evidenceId": "SENTUSDT:price.closed24h",
+            "factsFields": [
+              "evidence[5].result",
+              "evidence[5].phrase",
+              "evidence[5].dataTimes",
+              "evidence[5].formula",
+              "sources.hour.raw"
+            ],
+            "value": "-17.51824818",
+            "unit": "%",
+            "window": "24h",
+            "scope": null,
+            "dataTimes": [
+              1791518400000,
+              1791604799999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "SENTUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791604815949
+              },
+              "formula": "(close_end/open_start-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: SENTUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | -0.36000000 pp | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 63.08% 到 63.44%，变化 0.36 个百分点；多方变化 -0.36 个百分点",
+            "evidenceId": "SENTUSDT:global.long.change1h",
+            "factsFields": [
+              "sources.accounts.raw (canonical deterministic formula: (longAccount_end - longAccount_start) * 100; percentage points; exact retained dataTimes: 1791601200000,1791604800000)"
+            ],
+            "value": "-0.36000000",
+            "unit": "pp",
+            "window": "1h",
+            "scope": "GLOBAL_ACCOUNTS",
+            "dataTimes": [
+              1791601200000,
+              1791604800000
+            ],
+            "source": {
+              "endpoint": "/futures/data/globalLongShortAccountRatio",
+              "params": {
+                "symbol": "SENTUSDT",
+                "period": "1h",
+                "limit": 3,
+                "endTime": 1791604815949
+              },
+              "formula": "(longAccount_end - longAccount_start) * 100; percentage points"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "冲突: SENTUSDT:volume.relative1h | RELATIVE_VOLUME | 1.09159919 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 1.09 倍",
+            "evidenceId": "SENTUSDT:volume.relative1h",
+            "factsFields": [
+              "evidence[8].result",
+              "evidence[8].phrase",
+              "evidence[8].dataTimes",
+              "evidence[8].formula",
+              "sources.hour.raw"
+            ],
+            "value": "1.09159919",
+            "unit": "multiple",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791514800000,
+              1791604799999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "SENTUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791604815949
+              },
+              "formula": "last closed base volume / preceding 24 closed bars mean"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "冲突: SENTUSDT:funding.latest | SETTLED_FUNDING | 0.00500000 % | window=UNDECLARED | observedAt=2026-10-10T04:00:00.007Z | availableAt=UNKNOWN | /fapi/v1/fundingRate | 北京时间10-10 12:00已结算Funding 0.0050%，多头支付空头",
+            "evidenceId": "SENTUSDT:funding.latest",
+            "factsFields": [
+              "evidence[14].result",
+              "evidence[14].phrase",
+              "evidence[14].dataTimes",
+              "evidence[14].formula",
+              "sources.funding.raw"
+            ],
+            "value": "0.00500000",
+            "unit": "%",
+            "window": null,
+            "scope": null,
+            "dataTimes": [
+              1791604800007
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/fundingRate",
+              "params": {
+                "symbol": "SENTUSDT",
+                "startTime": 1791432015949,
+                "endTime": 1791604815949,
+                "limit": 1000
+              },
+              "formula": "fundingRate*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          }
+        ],
+        "programRules": [
+          {
+            "renderedRule": {
+              "id": "PRICE_OPPOSITE_1h",
+              "horizon": "1h",
+              "metric": "PRICE_CLOSED_CHANGE",
+              "operator": "GTE",
+              "threshold": 1,
+              "outcome": "INVALIDATED",
+              "description": "后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+              "baselineEvidenceId": "SENTUSDT:price.closed1h"
+            },
+            "baselineFactsEvidenceId": "SENTUSDT:price.closed1h",
+            "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+            "formula": "opposite sign * max(1, abs(current price change)/2)"
+          },
+          {
+            "renderedRule": {
+              "id": "OI_REVERSED_1h",
+              "horizon": "1h",
+              "metric": "OI_QUANTITY_CHANGE",
+              "operator": "GTE",
+              "threshold": 5,
+              "outcome": "THESIS_WARNING",
+              "description": "后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+              "baselineEvidenceId": "SENTUSDT:oi.1h"
+            },
+            "baselineFactsEvidenceId": "SENTUSDT:oi.1h",
+            "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+            "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+          }
+        ],
+        "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+      },
+      "renderedText": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nSENTUSDT BEARISH / 1h / LOW\noriginalEvaluationTime=2026-10-10T04:00:15.949Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: SENTUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -1.07003891 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 -1.07%\n支持: SENTUSDT:oi.1h | OI_QUANTITY_CHANGE | -0.09864243 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 -0.10%（不代表资金净流入或多空加仓方向）\n支持: SENTUSDT:price.closed4h | PRICE_CLOSED_CHANGE | -2.39923225 % | window=4h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘4小时价格变化 -2.40%\n支持: SENTUSDT:price.closed24h | PRICE_CLOSED_CHANGE | -17.51824818 % | window=24h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘24小时价格变化 -17.52%\n支持: SENTUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | -0.36000000 pp | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 63.08% 到 63.44%，变化 0.36 个百分点；多方变化 -0.36 个百分点\n冲突: SENTUSDT:volume.relative1h | RELATIVE_VOLUME | 1.09159919 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 1.09 倍\n冲突: SENTUSDT:funding.latest | SETTLED_FUNDING | 0.00500000 % | window=UNDECLARED | observedAt=2026-10-10T04:00:00.007Z | availableAt=UNKNOWN | /fapi/v1/fundingRate | 北京时间10-10 12:00已结算Funding 0.0050%，多头支付空头\n机制假设: 与合约规模收缩相容，不确认具体开平仓行为。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=CONSOLIDATION，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE GTE 1% => INVALIDATED; 后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE GTE 5% => THESIS_WARNING; 后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核\nSENTUSDT:volume.relative1h: 观察变化，仅复核，不自动失效",
+      "qualityReview": {
+        "status": "UNCERTAIN",
+        "directionalInclination": "PASS",
+        "futureHorizon": "PASS",
+        "supportEvidence": "PASS",
+        "majorConflictConsideration": "PASS",
+        "unaddressedOpposingPriceIds": [],
+        "unsupportedCausality": "PASS",
+        "beyondPastFactRecap": "UNCERTAIN",
+        "conditionalHypothesis": "PASS",
+        "observableReassessment": "PASS",
+        "concreteTradeOpportunity": "NOT_APPLICABLE",
+        "directionSeparatedFromTrade": "PASS",
+        "noEdgeReason": "NOT_APPLICABLE",
+        "limitation": "Finite hypothesis/evidence enums cannot expose detailed reasoning or prove predictive edge. Correct IDs do not establish interpretive relevance; no outcome-based assessment performed."
+      },
+      "tokenUsage": {
+        "prompt_tokens": 6184,
+        "completion_tokens": 585,
+        "total_tokens": 6769,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "prompt_cache_hit_tokens": 1280,
+        "prompt_cache_miss_tokens": 4904
+      },
+      "rawResponsePath": "validation/BA_BIAS_STRUCTURED_ANALYST_V4_LIVE_PROBE_V1_RERUN/raw_responses/4ca8536e-45db-4901-8e4c-e5efc35da207.json",
+      "error": null
+    }
+  ],
+  "analysis": {
+    "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+    "status": "NOT_PRODUCTION",
+    "causalBacktestEligible": false,
+    "symbol": "SENTUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "supportingEvidenceIds": [
+      "SENTUSDT:price.closed1h",
+      "SENTUSDT:oi.1h",
+      "SENTUSDT:price.closed4h",
+      "SENTUSDT:price.closed24h",
+      "SENTUSDT:global.long.change1h"
+    ],
+    "conflictingEvidenceIds": [
+      "SENTUSDT:volume.relative1h",
+      "SENTUSDT:funding.latest"
+    ],
+    "structureEvidenceIds": [],
+    "mechanismHypothesis": {
+      "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+      "evidenceIds": [
+        "SENTUSDT:price.closed1h",
+        "SENTUSDT:oi.1h"
+      ],
+      "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+    },
+    "directionalRationale": {
+      "hypothesis": "CONTINUATION",
+      "evidenceIds": [
+        "SENTUSDT:price.closed1h",
+        "SENTUSDT:oi.1h",
+        "SENTUSDT:price.closed4h",
+        "SENTUSDT:price.closed24h",
+        "SENTUSDT:global.long.change1h",
+        "SENTUSDT:volume.relative1h",
+        "SENTUSDT:funding.latest"
+      ],
+      "alternative": "CONSOLIDATION",
+      "certainty": "CONDITIONAL_NOT_CONFIRMED"
+    },
+    "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+    "reassessmentConditions": [
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "PRICE_OPPOSITE_1h"
+      },
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "OI_REVERSED_1h"
+      },
+      {
+        "conditionType": "ABSTRACT_REASSESSMENT",
+        "metricOrStructureEvidenceId": "SENTUSDT:volume.relative1h",
+        "interpretation": "MONITOR_CHANGE",
+        "consequence": "REASSESS_ONLY"
+      }
+    ]
+  }
+}

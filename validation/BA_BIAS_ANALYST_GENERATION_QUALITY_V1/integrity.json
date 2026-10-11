@@ -1,0 +1,14 @@
+{
+  "baselineFiles": 2352,
+  "protectedFilesUnchanged": 2351,
+  "changedExisting": [
+    "src/analysis/directional-analyst.js"
+  ],
+  "productionDataFiles": 2103,
+  "newData": [],
+  "envUnchanged": true,
+  "oldValidationUnchanged": true,
+  "realExternalApiCalls": 0,
+  "dingTalkSends": 0,
+  "scanStarted": false
+}

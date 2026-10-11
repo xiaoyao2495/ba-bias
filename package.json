@@ -1,0 +1,26 @@
+{
+  "name": "ba-bias",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Independent Binance Futures research and reviewed Square drafts",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "doctor": "node src/main.js doctor",
+    "doctor:deepseek": "node src/main.js doctor --live-deepseek",
+    "scan": "node src/scan-daemon.js",
+    "once": "node src/main.js once",
+    "scheduler": "node src/scheduler.js",
+    "test": "node --test test/*.test.js",
+    "scan:once": "node src/main.js scan"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "axios": "^1.19.0",
+    "big.js": "^7.0.1",
+    "node-cron": "^4.6.0",
+    "proper-lockfile": "^4.1.2"
+  }
+}

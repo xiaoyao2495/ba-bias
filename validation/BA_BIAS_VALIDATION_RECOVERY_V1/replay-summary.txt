@@ -1,0 +1,47 @@
+{
+  "independentResearch": 70,
+  "modelResponses": 140,
+  "jsonParsed": 133,
+  "schemaPass": 95,
+  "oldNumericRejected": 95,
+  "confirmedNegationSnippets": 58,
+  "confirmedNegationSnippetsCleared": 58,
+  "confirmedNegationAffectedAttempts": 52,
+  "newPassingResponses": 1,
+  "newPassingResponseBiases": {
+    "BULLISH": 0,
+    "BEARISH": 0,
+    "BULLISH_REVERSAL": 0,
+    "BEARISH_REVERSAL": 0,
+    "NO_EDGE": 1
+  },
+  "newPassingResearch": 1,
+  "newPassingResearchBiases": {
+    "BULLISH": 0,
+    "BEARISH": 0,
+    "BULLISH_REVERSAL": 0,
+    "BEARISH_REVERSAL": 0,
+    "NO_EDGE": 1
+  },
+  "stillFailedResearch": 69,
+  "missingRecords": 0,
+  "stillRejectedSchemaResponses": 94,
+  "numericGateFalseRejectionsRemoved": 67,
+  "remainingNumericRejected": 28,
+  "onlyMissingJudgeAngle": 27,
+  "judgeOtherFailures": 1,
+  "deterministicJudgeRecoveries": 0,
+  "fullJudgeRecoveries": 0,
+  "compactCases": 4,
+  "allCompactCorePreserved": true,
+  "changedBaselineFiles": [
+    "src/analysis/directional-analyst.js",
+    "src/content/schemas.js",
+    "src/content/story-judge.js",
+    "src/intelligence/compact-renderer.js",
+    "src/intelligence/packet.js",
+    "src/main.js",
+    "test/compact.test.js"
+  ],
+  "unexpectedChangedFiles": []
+}

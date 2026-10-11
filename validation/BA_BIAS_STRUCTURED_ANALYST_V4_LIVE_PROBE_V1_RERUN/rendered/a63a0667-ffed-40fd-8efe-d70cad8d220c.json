@@ -1,0 +1,250 @@
+{
+  "sampleId": "s_hourly_20261010_1200_XMRUSDT",
+  "text": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nXMRUSDT BEARISH / 1h / LOW\noriginalEvaluationTime=2026-10-10T04:00:15.949Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: XMRUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -0.90019042 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 -0.90%\n支持: XMRUSDT:oi.1h | OI_QUANTITY_CHANGE | -0.17507436 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 -0.18%（不代表资金净流入或多空加仓方向）\n支持: XMRUSDT:price.closed4h | PRICE_CLOSED_CHANGE | -0.70537900 % | window=4h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘4小时价格变化 -0.71%\n支持: XMRUSDT:price.closed24h | PRICE_CLOSED_CHANGE | -4.53063040 % | window=24h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘24小时价格变化 -4.53%\n支持: XMRUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -6.18716305 % | window=24h | observedAt=2026-10-10T04:00:09.223Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -6.19%\n冲突: XMRUSDT:directional.price.previous1h | PREVIOUS_PRICE_CHANGE | 0.44824855 % | window=1h | observedAt=2026-10-10T02:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 此前已收盘1小时价格变化 0.45%\n冲突: XMRUSDT:volume.relative5m | RELATIVE_VOLUME | 2.79837281 multiple | window=5m | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘5分钟成交量为前24根均值的 2.80 倍\n机制假设: 与合约规模收缩相容，不确认具体开平仓行为。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=OPPOSITE_MOVE，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE GTE 1% => INVALIDATED; 后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE GTE 5% => THESIS_WARNING; 后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+  "audit": {
+    "ok": true,
+    "status": "PASS",
+    "errors": [],
+    "claims": [
+      {
+        "renderedClaim": "支持: XMRUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -0.90019042 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 -0.90%",
+        "evidenceId": "XMRUSDT:price.closed1h",
+        "factsFields": [
+          "evidence[3].result",
+          "evidence[3].phrase",
+          "evidence[3].dataTimes",
+          "evidence[3].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-0.90019042",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XMRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: XMRUSDT:oi.1h | OI_QUANTITY_CHANGE | -0.17507436 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 -0.18%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "XMRUSDT:oi.1h",
+        "factsFields": [
+          "evidence[11].result",
+          "evidence[11].phrase",
+          "evidence[11].dataTimes",
+          "evidence[11].formula",
+          "sources.oi.raw"
+        ],
+        "value": "-0.17507436",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "XMRUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: XMRUSDT:price.closed4h | PRICE_CLOSED_CHANGE | -0.70537900 % | window=4h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘4小时价格变化 -0.71%",
+        "evidenceId": "XMRUSDT:price.closed4h",
+        "factsFields": [
+          "evidence[4].result",
+          "evidence[4].phrase",
+          "evidence[4].dataTimes",
+          "evidence[4].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-0.70537900",
+        "unit": "%",
+        "window": "4h",
+        "scope": null,
+        "dataTimes": [
+          1791590400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XMRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: XMRUSDT:price.closed24h | PRICE_CLOSED_CHANGE | -4.53063040 % | window=24h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘24小时价格变化 -4.53%",
+        "evidenceId": "XMRUSDT:price.closed24h",
+        "factsFields": [
+          "evidence[5].result",
+          "evidence[5].phrase",
+          "evidence[5].dataTimes",
+          "evidence[5].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-4.53063040",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XMRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: XMRUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -6.18716305 % | window=24h | observedAt=2026-10-10T04:00:09.223Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -6.19%",
+        "evidenceId": "XMRUSDT:price.drawdown",
+        "factsFields": [
+          "evidence[7].result",
+          "evidence[7].phrase",
+          "evidence[7].dataTimes",
+          "evidence[7].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-6.18716305",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791604799999,
+          1791604809223
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XMRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(lastPrice/high-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: XMRUSDT:directional.price.previous1h | PREVIOUS_PRICE_CHANGE | 0.44824855 % | window=1h | observedAt=2026-10-10T02:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 此前已收盘1小时价格变化 0.45%",
+        "evidenceId": "XMRUSDT:directional.price.previous1h",
+        "factsFields": [
+          "sources.hour.raw (previous equal-length closed bars: [1] open, [4] close, [0]/[6] times)"
+        ],
+        "value": "0.44824855",
+        "unit": "%",
+        "window": "1h",
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "dataTimes": [
+          1791597600000,
+          1791601199999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XMRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(previous equal-length closed window close/open - 1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: XMRUSDT:volume.relative5m | RELATIVE_VOLUME | 2.79837281 multiple | window=5m | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘5分钟成交量为前24根均值的 2.80 倍",
+        "evidenceId": "XMRUSDT:volume.relative5m",
+        "factsFields": [
+          "evidence[9].result",
+          "evidence[9].phrase",
+          "evidence[9].dataTimes",
+          "evidence[9].formula",
+          "sources.hour.raw"
+        ],
+        "value": "2.79837281",
+        "unit": "multiple",
+        "window": "5m",
+        "scope": null,
+        "dataTimes": [
+          1791597300000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "XMRUSDT",
+            "interval": "5m",
+            "limit": 40,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      }
+    ],
+    "programRules": [
+      {
+        "renderedRule": {
+          "id": "PRICE_OPPOSITE_1h",
+          "horizon": "1h",
+          "metric": "PRICE_CLOSED_CHANGE",
+          "operator": "GTE",
+          "threshold": 1,
+          "outcome": "INVALIDATED",
+          "description": "后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+          "baselineEvidenceId": "XMRUSDT:price.closed1h"
+        },
+        "baselineFactsEvidenceId": "XMRUSDT:price.closed1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(1, abs(current price change)/2)"
+      },
+      {
+        "renderedRule": {
+          "id": "OI_REVERSED_1h",
+          "horizon": "1h",
+          "metric": "OI_QUANTITY_CHANGE",
+          "operator": "GTE",
+          "threshold": 5,
+          "outcome": "THESIS_WARNING",
+          "description": "后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+          "baselineEvidenceId": "XMRUSDT:oi.1h"
+        },
+        "baselineFactsEvidenceId": "XMRUSDT:oi.1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+      }
+    ],
+    "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+  }
+}

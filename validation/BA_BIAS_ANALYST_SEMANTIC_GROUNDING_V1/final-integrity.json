@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-11",
+  "protectedFiles": 2499,
+  "productionFiles": 2103,
+  "changed": [],
+  "newData": [],
+  "frozenDatasetChanges": [],
+  "newFiles": [
+    "BA_BIAS_ANALYST_SEMANTIC_GROUNDING_REPLAY.md",
+    "BA_BIAS_STRUCTURED_ANALYST_V4_SPIKE.md",
+    "BA_BIAS_ANALYST_SEMANTIC_GROUNDING_DECISION.md",
+    "BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1.md",
+    "test/structured-v4.test.js",
+    "scripts/analyst-semantic-grounding-replay.js",
+    "src/analysis/experimental/structured-v4-schema.js",
+    "src/analysis/experimental/structured-v4-renderer.js",
+    "src/analysis/experimental/structured-v4-input.js",
+    "src/analysis/experimental/structured-v4-guard.js",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/audit.json",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/dataset-freeze.json",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/before-hashes.json",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/replay.json",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/v4-output-schema.json",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/static-checks.json",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/v4-offline-experiments.json",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/test-output.txt",
+    "validation/BA_BIAS_ANALYST_SEMANTIC_GROUNDING_V1/integrity.json"
+  ],
+  "newApiCalls": 0,
+  "notifications": 0,
+  "scannerStarted": false
+}

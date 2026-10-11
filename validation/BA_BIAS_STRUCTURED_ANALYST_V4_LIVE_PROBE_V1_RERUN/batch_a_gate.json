@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "errors": [],
+  "reviewedSamples": 5,
+  "reviewedAttempts": 6,
+  "review": "Independent original-Facts rebuild and source/renderer audit, full guard preserved, no structure objects supplied, failures never relabelled NO_EDGE; subjective quality separately recorded.",
+  "at": "2026-10-10T20:54:23.141Z",
+  "integrity": {
+    "protectedFiles": 2567,
+    "productionFiles": 2103,
+    "changed": [],
+    "newData": []
+  },
+  "budget": {
+    "transportAttempts": 6,
+    "livePhysicalRequests": 6,
+    "mockCalls": 0
+  },
+  "binanceRequests": 0,
+  "dingTalkRequests": 0,
+  "scannerStarted": false
+}

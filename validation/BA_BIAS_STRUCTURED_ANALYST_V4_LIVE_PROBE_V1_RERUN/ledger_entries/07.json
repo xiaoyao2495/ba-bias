@@ -1,0 +1,10 @@
+{
+  "sampleId": "s_hourly_20261010_1300_MINAUSDT",
+  "attempt": 1,
+  "requestId": "09c4ca35-ad73-4aca-8a3f-987369bf1242",
+  "intentId": "7563ecf7-bb08-48dc-8aa5-c01fdb30c4e1",
+  "physicalRequests": 1,
+  "requestedAt": "2026-10-10T20:54:23.728Z",
+  "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+  "sourceType": "LIVE_MODEL_RESPONSE"
+}

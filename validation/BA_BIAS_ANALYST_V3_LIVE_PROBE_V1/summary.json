@@ -1,0 +1,33 @@
+{
+  "status": "BLOCKED_CAUSAL_AVAILABILITY",
+  "plannedSamples": 10,
+  "inspectedFacts": 396,
+  "availabilityPass": 0,
+  "attemptedSamples": 0,
+  "completedFirstResponses": 0,
+  "physicalRequests": 0,
+  "apiFailures": 0,
+  "responses": 0,
+  "firstSchemaValid": 0,
+  "firstFullValid": 0,
+  "recovery1Valid": 0,
+  "recovery2Valid": 0,
+  "eventuallyValid": 0,
+  "finalInvalid": 0,
+  "notAttempted": 396,
+  "firstSuccessRate": null,
+  "firstSuccessOverAttempts": null,
+  "finalSuccessRate": null,
+  "biasCounts": {
+    "BULLISH": 0,
+    "BEARISH": 0,
+    "BULLISH_REVERSAL": 0,
+    "BEARISH_REVERSAL": 0,
+    "NO_EDGE": 0
+  },
+  "qualityReview": "NOT_TESTED",
+  "productionIntegration": "NOT_TESTED",
+  "comparison": "UNPAIRED_DESCRIPTIVE_COMPARISON — no V3 observations",
+  "tokens": null,
+  "estimatedCost": null
+}

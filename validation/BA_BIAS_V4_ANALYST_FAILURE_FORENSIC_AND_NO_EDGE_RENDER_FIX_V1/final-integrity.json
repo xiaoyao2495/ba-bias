@@ -1,0 +1,85 @@
+{
+  "protectedFileCount": 4890,
+  "productionChanged": [],
+  "addedProduction": [],
+  "coreChanged": [],
+  "changedFiles": [
+    "src/intelligence/v4-conditions.js",
+    "src/intelligence/compact-renderer.js",
+    "src/intelligence/packet.js",
+    "test/output-quality-authorization.js",
+    "test/output-quality.test.js",
+    "test/v4-production.test.js"
+  ],
+  "productionUnchanged": true,
+  "coreUnchanged": true,
+  "directionalRegression": [
+    {
+      "symbol": "ERAUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "GENIUSUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "JCTUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "LUMIAUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "PIXELUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "RLCUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "USUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "WALUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    }
+  ],
+  "failedRegression": [
+    {
+      "symbol": "INJUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "IOSTUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "LAUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    },
+    {
+      "symbol": "POLUSDT",
+      "compactEqual": true,
+      "fullEqual": true
+    }
+  ],
+  "externalRequests": 0,
+  "deliveryRequests": 0,
+  "restarted": false,
+  "scannerProcessRecheck": "NO_MATCHES_READ_ONLY_PS",
+  "finalCheckAfterReports": true
+}

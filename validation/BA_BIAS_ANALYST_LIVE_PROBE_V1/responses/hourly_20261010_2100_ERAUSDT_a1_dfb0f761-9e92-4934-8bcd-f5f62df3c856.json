@@ -1,0 +1,49 @@
+{
+  "id": "hourly_20261010_2100_ERAUSDT_a1_dfb0f761-9e92-4934-8bcd-f5f62df3c856",
+  "attempt": 1,
+  "requestTimestamp": "2026-10-10T17:02:02.670Z",
+  "responseTimestamp": "2026-10-10T17:02:07.395Z",
+  "latencyMs": 4725,
+  "model": "deepseek-flash",
+  "inputTokenUsage": 6256,
+  "outputTokenUsage": 857,
+  "usage": {
+    "prompt_tokens": 6256,
+    "completion_tokens": 857,
+    "total_tokens": 7113,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 6256
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"ERAUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h窗口价格与OI同向扩张且为强延续：已收盘4h价格变化3.18%（ERAUSDT:price.closed4h），同期OI数量变化11.49%（ERAUSDT:oi.4h），此前4h价格变化19.02%（ERAUSDT:directional.price.previous4h），1h与24h窗口均无同向OI扩张配合，故以4h为评估horizon。\",\"conviction\":\"MODERATE\",\"marketThesis\":\"ERAUSDT在已收盘4h窗口价格上行3.18%且OI数量同步增加11.49%，此前4h窗口价格已上行19.02%，显示上涨伴随敞口扩张而非缩量；最近已收盘1h成交量达前24根均值2.20倍，1h价格续涨1.97%，动能尚未明显衰竭。但24h区间高点至快照最新价回撤-8.63%，且已结算Funding -1.0063%为空头支付多头、24h账户空方占比上升2.22个百分点，说明追多拥挤与回撤风险并存，倾向4h内偏多但强度受限。\",\"marketMechanism\":\"价格上行与同窗口OI数量增加相容于新增多头敞口或空头继续建仓的可能，但OI为合约数量、不代表资金净流入或单侧开平仓方向；最近已结算Funding -1.0063%为空头支付多头，与空头持仓承压或部分空头回补的可能性相容，但无法据此确认强平或单边行为。\",\"supportingEvidenceIds\":[\"ERAUSDT:price.closed4h\",\"ERAUSDT:oi.4h\",\"ERAUSDT:directional.price.previous4h\",\"ERAUSDT:price.closed1h\",\"ERAUSDT:volume.relative1h\",\"ERAUSDT:price.closed24h\",\"ERAUSDT:oi.24h\"],\"conflictingEvidenceIds\":[\"ERAUSDT:price.drawdown\",\"ERAUSDT:funding.latest\",\"ERAUSDT:global.short.change24h\",\"ERAUSDT:global.long.change24h\",\"ERAUSDT:volume.relative5m\",\"ERAUSDT:oi.1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h内价格在已收盘4h上行3.18%与OI数量增加11.49%的背景下维持偏强，回撤幅度收窄，1h价格与OI继续同向温和扩张，价格不跌破近期已收盘结构。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"若后续新收盘滚动4h价格变化≤-1.5883%（PRICE_OPPOSITE_4h）则方向命题失效；若后续新采样精确4h OI数量变化≤-5.7440%（OI_REVERSED_4h）则触发复核，仅表示敞口条件逆转而非结构失守。\"},\"alternativeScenario\":\"若4h内价格上行但OI数量转为收缩，或已结算Funding负值进一步扩大而价格不再创新高，则当前偏多倾向可能转为高位震荡甚至回撤，需重新评估而非直接反手。\",\"followUpChecks\":[\"跟踪后续新收盘4h价格变化是否触及-1.5883%失效阈值，以及精确4h OI数量变化是否≤-5.7440%触发复核。\",\"观察1h价格与OI是否继续同向扩张，以及已结算Funding是否维持空头支付多头；若1h价格转跌且OI收缩，则偏多依据减弱。\"],\"horizon\":\"4h\"}",
+  "raw": {
+    "id": "4d9baad5-ccce-48ca-92cf-f4acecf52d5c",
+    "object": "chat.completion",
+    "created": 1791651723,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"ERAUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h窗口价格与OI同向扩张且为强延续：已收盘4h价格变化3.18%（ERAUSDT:price.closed4h），同期OI数量变化11.49%（ERAUSDT:oi.4h），此前4h价格变化19.02%（ERAUSDT:directional.price.previous4h），1h与24h窗口均无同向OI扩张配合，故以4h为评估horizon。\",\"conviction\":\"MODERATE\",\"marketThesis\":\"ERAUSDT在已收盘4h窗口价格上行3.18%且OI数量同步增加11.49%，此前4h窗口价格已上行19.02%，显示上涨伴随敞口扩张而非缩量；最近已收盘1h成交量达前24根均值2.20倍，1h价格续涨1.97%，动能尚未明显衰竭。但24h区间高点至快照最新价回撤-8.63%，且已结算Funding -1.0063%为空头支付多头、24h账户空方占比上升2.22个百分点，说明追多拥挤与回撤风险并存，倾向4h内偏多但强度受限。\",\"marketMechanism\":\"价格上行与同窗口OI数量增加相容于新增多头敞口或空头继续建仓的可能，但OI为合约数量、不代表资金净流入或单侧开平仓方向；最近已结算Funding -1.0063%为空头支付多头，与空头持仓承压或部分空头回补的可能性相容，但无法据此确认强平或单边行为。\",\"supportingEvidenceIds\":[\"ERAUSDT:price.closed4h\",\"ERAUSDT:oi.4h\",\"ERAUSDT:directional.price.previous4h\",\"ERAUSDT:price.closed1h\",\"ERAUSDT:volume.relative1h\",\"ERAUSDT:price.closed24h\",\"ERAUSDT:oi.24h\"],\"conflictingEvidenceIds\":[\"ERAUSDT:price.drawdown\",\"ERAUSDT:funding.latest\",\"ERAUSDT:global.short.change24h\",\"ERAUSDT:global.long.change24h\",\"ERAUSDT:volume.relative5m\",\"ERAUSDT:oi.1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h内价格在已收盘4h上行3.18%与OI数量增加11.49%的背景下维持偏强，回撤幅度收窄，1h价格与OI继续同向温和扩张，价格不跌破近期已收盘结构。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"若后续新收盘滚动4h价格变化≤-1.5883%（PRICE_OPPOSITE_4h）则方向命题失效；若后续新采样精确4h OI数量变化≤-5.7440%（OI_REVERSED_4h）则触发复核，仅表示敞口条件逆转而非结构失守。\"},\"alternativeScenario\":\"若4h内价格上行但OI数量转为收缩，或已结算Funding负值进一步扩大而价格不再创新高，则当前偏多倾向可能转为高位震荡甚至回撤，需重新评估而非直接反手。\",\"followUpChecks\":[\"跟踪后续新收盘4h价格变化是否触及-1.5883%失效阈值，以及精确4h OI数量变化是否≤-5.7440%触发复核。\",\"观察1h价格与OI是否继续同向扩张，以及已结算Funding是否维持空头支付多头；若1h价格转跌且OI收缩，则偏多依据减弱。\"],\"horizon\":\"4h\"}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6256,
+      "completion_tokens": 857,
+      "total_tokens": 7113,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 6256
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  }
+}

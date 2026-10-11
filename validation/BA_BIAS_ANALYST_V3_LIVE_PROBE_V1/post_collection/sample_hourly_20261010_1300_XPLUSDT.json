@@ -1,0 +1,741 @@
+{
+  "sampleId": "hourly_20261010_1300_XPLUSDT_2026-10-10T05:00:16.899Z",
+  "symbol": "XPLUSDT",
+  "runId": "hourly_20261010_1300",
+  "evaluationTime": "2026-10-10T05:00:16.899Z",
+  "originalFactsPath": "data/runs/hourly_20261010_1300/facts/XPLUSDT.json",
+  "originalFactsHash": "2f6b802e33b877cd4ef83529462945acb243c28c5ac7fa61b3ce4ab9ff997bae",
+  "evidenceCount": 23,
+  "scenarioTags": [
+    "PRICE_UP_OI_CONTRACTION",
+    "REAL_PRICE_TURN"
+  ],
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+  "collectionCompletedAt": "2026-10-10T05:00:41.249Z",
+  "causalBacktestEligible": false,
+  "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+  "selectionReason": "Deterministic original-facts coverage: PRICE_UP_OI_CONTRACTION",
+  "status": "RECOVERY_2_VALID",
+  "attempts": [
+    {
+      "id": "hourly_20261010_1300_XPLUSDT_a1_a35b05a0-6fd2-4b53-8ade-2dd0d4a0b3a2",
+      "attempt": 1,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "collectionCompletedAt": "2026-10-10T05:00:41.249Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "researchExecutedAt": "2026-10-10T18:50:25.571Z",
+      "responseAt": "2026-10-10T18:50:28.717Z",
+      "latencyMs": 3145,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 10050,
+        "completion_tokens": 669,
+        "total_tokens": 10719,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 8514
+      },
+      "raw": {
+        "id": "aca22321-7a30-4308-a090-100fdd10c4e3",
+        "object": "chat.completion",
+        "created": 1791658225,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"XPLUSDT\",\"evaluationTime\":\"2026-10-10T05:00:16.899Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化1.82%（XPLUSDT:price.closed4h）且此前等长4h为1.79%（XPLUSDT:directional.price.previous4h），连续同向；同期4h OI数量变化-0.30%（XPLUSDT:oi.4h）为温和收缩，方向证据较1h更连续。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来4h倾向温和偏多延续：4h与24h已收盘价格均为正且4h连续两窗同向，但OI数量同期收缩、1h量能低于均值，缺乏扩张确认，故仅低强度假设。\",\"marketMechanism\":\"4h价格上行1.82%同时OI数量收缩0.30%，该统计组合可与部分空头回补或多头敞口了结并存，无法区分具体开平仓行为；1h价格微升0.21%而OI再降0.17%，同样不构成单侧加仓证据。\",\"supportingEvidenceIds\":[\"XPLUSDT:price.closed4h\",\"XPLUSDT:directional.price.previous4h\",\"XPLUSDT:price.closed24h\",\"XPLUSDT:price.closed1h\",\"XPLUSDT:oi.4h\"],\"conflictingEvidenceIds\":[\"XPLUSDT:oi.1h\",\"XPLUSDT:oi.24h\",\"XPLUSDT:volume.relative1h\",\"XPLUSDT:price.drawdown\",\"XPLUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。\"},\"alternativeScenario\":\"若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格跌破近期已收盘低点，则偏多延续假设让位于下行竞争情景，需重新评估。\",\"followUpChecks\":[\"核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。\",\"跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。\"]}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 10050,
+          "completion_tokens": 669,
+          "total_tokens": 10719,
+          "prompt_tokens_details": {
+            "cached_tokens": 1536
+          },
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 8514
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"XPLUSDT\",\"evaluationTime\":\"2026-10-10T05:00:16.899Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化1.82%（XPLUSDT:price.closed4h）且此前等长4h为1.79%（XPLUSDT:directional.price.previous4h），连续同向；同期4h OI数量变化-0.30%（XPLUSDT:oi.4h）为温和收缩，方向证据较1h更连续。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来4h倾向温和偏多延续：4h与24h已收盘价格均为正且4h连续两窗同向，但OI数量同期收缩、1h量能低于均值，缺乏扩张确认，故仅低强度假设。\",\"marketMechanism\":\"4h价格上行1.82%同时OI数量收缩0.30%，该统计组合可与部分空头回补或多头敞口了结并存，无法区分具体开平仓行为；1h价格微升0.21%而OI再降0.17%，同样不构成单侧加仓证据。\",\"supportingEvidenceIds\":[\"XPLUSDT:price.closed4h\",\"XPLUSDT:directional.price.previous4h\",\"XPLUSDT:price.closed24h\",\"XPLUSDT:price.closed1h\",\"XPLUSDT:oi.4h\"],\"conflictingEvidenceIds\":[\"XPLUSDT:oi.1h\",\"XPLUSDT:oi.24h\",\"XPLUSDT:volume.relative1h\",\"XPLUSDT:price.drawdown\",\"XPLUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。\"},\"alternativeScenario\":\"若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格跌破近期已收盘低点，则偏多延续假设让位于下行竞争情景，需重新评估。\",\"followUpChecks\":[\"核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。\",\"跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。\"]}",
+      "parsedResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "XPLUSDT",
+        "evaluationTime": "2026-10-10T05:00:16.899Z",
+        "marketBias": "BULLISH",
+        "horizon": "4h",
+        "horizonReason": "4h已收盘价格变化1.82%（XPLUSDT:price.closed4h）且此前等长4h为1.79%（XPLUSDT:directional.price.previous4h），连续同向；同期4h OI数量变化-0.30%（XPLUSDT:oi.4h）为温和收缩，方向证据较1h更连续。",
+        "conviction": "LOW",
+        "marketThesis": "未来4h倾向温和偏多延续：4h与24h已收盘价格均为正且4h连续两窗同向，但OI数量同期收缩、1h量能低于均值，缺乏扩张确认，故仅低强度假设。",
+        "marketMechanism": "4h价格上行1.82%同时OI数量收缩0.30%，该统计组合可与部分空头回补或多头敞口了结并存，无法区分具体开平仓行为；1h价格微升0.21%而OI再降0.17%，同样不构成单侧加仓证据。",
+        "supportingEvidenceIds": [
+          "XPLUSDT:price.closed4h",
+          "XPLUSDT:directional.price.previous4h",
+          "XPLUSDT:price.closed24h",
+          "XPLUSDT:price.closed1h",
+          "XPLUSDT:oi.4h"
+        ],
+        "conflictingEvidenceIds": [
+          "XPLUSDT:oi.1h",
+          "XPLUSDT:oi.24h",
+          "XPLUSDT:volume.relative1h",
+          "XPLUSDT:price.drawdown",
+          "XPLUSDT:global.short.change1h"
+        ],
+        "tradeOpportunity": "WAIT_FOR_PULLBACK",
+        "preferredScenario": "4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。",
+        "invalidation": {
+          "type": "OBSERVABLE_CONDITION",
+          "ruleIds": [
+            "PRICE_OPPOSITE_4h",
+            "OI_REVERSED_4h"
+          ],
+          "description": "后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。"
+        },
+        "alternativeScenario": "若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格跌破近期已收盘低点，则偏多延续假设让位于下行竞争情景，需重新评估。",
+        "followUpChecks": [
+          "核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。",
+          "跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。"
+        ]
+      },
+      "validation": {
+        "ok": false,
+        "errors": [
+          "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "UNSUPPORTED_CAUSE_OR_ORDER",
+          "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+        ],
+        "diagnostics": [
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "XPLUSDT:price.closed4h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "XPLUSDT:directional.price.previous4h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "XPLUSDT:oi.4h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "XPLUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "XPLUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "XPLUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "1.82%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "price",
+              "rolling": false,
+              "previous": false
+            },
+            "evidenceIds": [
+              "XPLUSDT:price.closed4h"
+            ],
+            "ruleId": null,
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "1.79%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "price",
+              "rolling": false,
+              "previous": true
+            },
+            "evidenceIds": [
+              "XPLUSDT:directional.price.previous4h"
+            ],
+            "ruleId": null,
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "-0.30%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "oi"
+            },
+            "evidenceIds": [
+              "XPLUSDT:oi.4h"
+            ],
+            "ruleId": null,
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "1.82%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "price",
+              "rolling": false,
+              "previous": false
+            },
+            "evidenceIds": [
+              "XPLUSDT:price.closed4h"
+            ],
+            "ruleId": null,
+            "field": "marketMechanism",
+            "role": "MECHANISM"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "0.30%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "oi"
+            },
+            "evidenceIds": [
+              "XPLUSDT:oi.4h"
+            ],
+            "ruleId": null,
+            "field": "marketMechanism",
+            "role": "MECHANISM"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "0.21%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "1h",
+            "metric": {
+              "kind": "price",
+              "rolling": false,
+              "previous": false
+            },
+            "evidenceIds": [
+              "XPLUSDT:price.closed1h"
+            ],
+            "ruleId": null,
+            "field": "marketMechanism",
+            "role": "MECHANISM"
+          },
+          {
+            "code": "UNVERIFIED_NUMERIC_FACT",
+            "literal": "0.17%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "1h",
+            "metric": {
+              "kind": "oi"
+            },
+            "evidenceIds": [],
+            "ruleId": null,
+            "field": "marketMechanism",
+            "role": "MECHANISM"
+          },
+          {
+            "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "回补",
+            "span": "该统计组合可与部分空头回补或多头敞口了结并存",
+            "denied": false,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": false
+          },
+          {
+            "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "平仓",
+            "span": "无法区分具体开平仓行为",
+            "denied": false,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": false
+          },
+          {
+            "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "加仓",
+            "span": "同样不构成单侧加仓证据",
+            "denied": true,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": true
+          },
+          {
+            "code": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+            "match": "跌破",
+            "span": "或1h量能持续低于前24根均值并伴随价格跌破近期已收盘低点",
+            "denied": false,
+            "field": "alternativeScenario",
+            "role": "FORECAST_HYPOTHESIS",
+            "allowed": false
+          },
+          {
+            "code": "VERIFIED_RULE_LITERAL",
+            "literal": "-1.0000%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "price",
+              "rolling": true,
+              "previous": false
+            },
+            "evidenceIds": [],
+            "ruleId": "PRICE_OPPOSITE_4h",
+            "field": "invalidation",
+            "role": "REASSESSMENT"
+          },
+          {
+            "code": "VERIFIED_RULE_LITERAL",
+            "literal": "5.0000%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "oi"
+            },
+            "evidenceIds": [],
+            "ruleId": "OI_REVERSED_4h",
+            "field": "invalidation",
+            "role": "REASSESSMENT"
+          },
+          {
+            "code": "VERIFIED_VOLUME_NORMALIZATION_BASELINE",
+            "literal": "1倍",
+            "numberType": "MARKET_VALUE",
+            "window": "1h",
+            "evidenceIds": [
+              "XPLUSDT:volume.relative1h"
+            ],
+            "field": "followUp1",
+            "role": "FORECAST_HYPOTHESIS"
+          },
+          {
+            "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+            "path": "/"
+          }
+        ],
+        "contractVersion": "DIRECTIONAL_ANALYST_V2"
+      },
+      "schemaValid": true,
+      "status": "INVALID"
+    },
+    {
+      "id": "hourly_20261010_1300_XPLUSDT_a2_c4c782fe-ac31-494b-9fd4-a124f2feccfd",
+      "attempt": 2,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "collectionCompletedAt": "2026-10-10T05:00:41.249Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "researchExecutedAt": "2026-10-10T18:50:29.088Z",
+      "responseAt": "2026-10-10T18:50:31.647Z",
+      "latencyMs": 2558,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 23982,
+        "completion_tokens": 606,
+        "total_tokens": 24588,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 22318
+      },
+      "raw": {
+        "id": "fd1427a8-fe1e-48ee-8136-a8c3c6a674f5",
+        "object": "chat.completion",
+        "created": 1791658229,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"XPLUSDT\",\"evaluationTime\":\"2026-10-10T05:00:16.899Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化为正且此前等长4h窗口亦为正，方向连续；同期4h OI数量变化为小幅收缩，故以4h为研究期限，1h与24h仅作背景。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来4h倾向温和偏多延续：4h与24h已收盘价格变化均为正，但同期OI数量收缩、1h量能低于前24根均值，缺乏扩张确认，故仅低强度假设。\",\"marketMechanism\":\"4h价格上行同时OI数量小幅收缩，该统计组合可与部分空头回补或多头敞口了结并存，无法区分具体开平仓行为；OI增加本身也不构成单侧加仓证据。\",\"supportingEvidenceIds\":[\"XPLUSDT:price.closed4h\",\"XPLUSDT:directional.price.previous4h\",\"XPLUSDT:price.closed24h\",\"XPLUSDT:price.closed1h\",\"XPLUSDT:oi.4h\"],\"conflictingEvidenceIds\":[\"XPLUSDT:oi.1h\",\"XPLUSDT:oi.24h\",\"XPLUSDT:volume.relative1h\",\"XPLUSDT:price.drawdown\",\"XPLUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。\"},\"alternativeScenario\":\"若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格走弱，则偏多延续假设让位于下行竞争情景，需重新评估。\",\"followUpChecks\":[\"核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。\",\"跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。\"]}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 23982,
+          "completion_tokens": 606,
+          "total_tokens": 24588,
+          "prompt_tokens_details": {
+            "cached_tokens": 1664
+          },
+          "prompt_cache_hit_tokens": 1664,
+          "prompt_cache_miss_tokens": 22318
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"XPLUSDT\",\"evaluationTime\":\"2026-10-10T05:00:16.899Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化为正且此前等长4h窗口亦为正，方向连续；同期4h OI数量变化为小幅收缩，故以4h为研究期限，1h与24h仅作背景。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来4h倾向温和偏多延续：4h与24h已收盘价格变化均为正，但同期OI数量收缩、1h量能低于前24根均值，缺乏扩张确认，故仅低强度假设。\",\"marketMechanism\":\"4h价格上行同时OI数量小幅收缩，该统计组合可与部分空头回补或多头敞口了结并存，无法区分具体开平仓行为；OI增加本身也不构成单侧加仓证据。\",\"supportingEvidenceIds\":[\"XPLUSDT:price.closed4h\",\"XPLUSDT:directional.price.previous4h\",\"XPLUSDT:price.closed24h\",\"XPLUSDT:price.closed1h\",\"XPLUSDT:oi.4h\"],\"conflictingEvidenceIds\":[\"XPLUSDT:oi.1h\",\"XPLUSDT:oi.24h\",\"XPLUSDT:volume.relative1h\",\"XPLUSDT:price.drawdown\",\"XPLUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。\"},\"alternativeScenario\":\"若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格走弱，则偏多延续假设让位于下行竞争情景，需重新评估。\",\"followUpChecks\":[\"核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。\",\"跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。\"]}",
+      "parsedResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "XPLUSDT",
+        "evaluationTime": "2026-10-10T05:00:16.899Z",
+        "marketBias": "BULLISH",
+        "horizon": "4h",
+        "horizonReason": "4h已收盘价格变化为正且此前等长4h窗口亦为正，方向连续；同期4h OI数量变化为小幅收缩，故以4h为研究期限，1h与24h仅作背景。",
+        "conviction": "LOW",
+        "marketThesis": "未来4h倾向温和偏多延续：4h与24h已收盘价格变化均为正，但同期OI数量收缩、1h量能低于前24根均值，缺乏扩张确认，故仅低强度假设。",
+        "marketMechanism": "4h价格上行同时OI数量小幅收缩，该统计组合可与部分空头回补或多头敞口了结并存，无法区分具体开平仓行为；OI增加本身也不构成单侧加仓证据。",
+        "supportingEvidenceIds": [
+          "XPLUSDT:price.closed4h",
+          "XPLUSDT:directional.price.previous4h",
+          "XPLUSDT:price.closed24h",
+          "XPLUSDT:price.closed1h",
+          "XPLUSDT:oi.4h"
+        ],
+        "conflictingEvidenceIds": [
+          "XPLUSDT:oi.1h",
+          "XPLUSDT:oi.24h",
+          "XPLUSDT:volume.relative1h",
+          "XPLUSDT:price.drawdown",
+          "XPLUSDT:global.short.change1h"
+        ],
+        "tradeOpportunity": "WAIT_FOR_PULLBACK",
+        "preferredScenario": "4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。",
+        "invalidation": {
+          "type": "OBSERVABLE_CONDITION",
+          "ruleIds": [
+            "PRICE_OPPOSITE_4h",
+            "OI_REVERSED_4h"
+          ],
+          "description": "后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。"
+        },
+        "alternativeScenario": "若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格走弱，则偏多延续假设让位于下行竞争情景，需重新评估。",
+        "followUpChecks": [
+          "核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。",
+          "跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。"
+        ]
+      },
+      "validation": {
+        "ok": false,
+        "errors": [
+          "UNSUPPORTED_CAUSE_OR_ORDER"
+        ],
+        "diagnostics": [
+          {
+            "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "回补",
+            "span": "该统计组合可与部分空头回补或多头敞口了结并存",
+            "denied": false,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": false
+          },
+          {
+            "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "平仓",
+            "span": "无法区分具体开平仓行为",
+            "denied": false,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": false
+          },
+          {
+            "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "加仓",
+            "span": "OI增加本身也不构成单侧加仓证据",
+            "denied": true,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": true
+          },
+          {
+            "code": "VERIFIED_RULE_LITERAL",
+            "literal": "-1.0000%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "price",
+              "rolling": true,
+              "previous": false
+            },
+            "evidenceIds": [],
+            "ruleId": "PRICE_OPPOSITE_4h",
+            "field": "invalidation",
+            "role": "REASSESSMENT"
+          },
+          {
+            "code": "VERIFIED_RULE_LITERAL",
+            "literal": "5.0000%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "oi"
+            },
+            "evidenceIds": [],
+            "ruleId": "OI_REVERSED_4h",
+            "field": "invalidation",
+            "role": "REASSESSMENT"
+          },
+          {
+            "code": "VERIFIED_VOLUME_NORMALIZATION_BASELINE",
+            "literal": "1倍",
+            "numberType": "MARKET_VALUE",
+            "window": "1h",
+            "evidenceIds": [
+              "XPLUSDT:volume.relative1h"
+            ],
+            "field": "followUp1",
+            "role": "FORECAST_HYPOTHESIS"
+          }
+        ],
+        "contractVersion": "DIRECTIONAL_ANALYST_V2"
+      },
+      "schemaValid": true,
+      "status": "INVALID"
+    },
+    {
+      "id": "hourly_20261010_1300_XPLUSDT_a3_1a2f82c2-2194-4b35-85a5-161b383fab32",
+      "attempt": 3,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "collectionCompletedAt": "2026-10-10T05:00:41.249Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "researchExecutedAt": "2026-10-10T18:50:32.015Z",
+      "responseAt": "2026-10-10T18:50:34.325Z",
+      "latencyMs": 2309,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 21481,
+        "completion_tokens": 605,
+        "total_tokens": 22086,
+        "prompt_tokens_details": {
+          "cached_tokens": 2944
+        },
+        "prompt_cache_hit_tokens": 2944,
+        "prompt_cache_miss_tokens": 18537
+      },
+      "raw": {
+        "id": "eb6b6704-3d98-4f26-af48-f216200e472c",
+        "object": "chat.completion",
+        "created": 1791658232,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"XPLUSDT\",\"evaluationTime\":\"2026-10-10T05:00:16.899Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化为正且此前等长4h窗口亦为正，方向连续；同期4h OI数量变化为小幅收缩，故以4h为研究期限，1h与24h仅作背景。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来4h倾向温和偏多延续：4h与24h已收盘价格变化均为正，但同期OI数量收缩、1h量能低于前24根均值，缺乏扩张确认，故仅低强度假设。\",\"marketMechanism\":\"4h价格上行同时OI数量小幅收缩，该统计组合与部分空头敞口缩减或多头敞口缩减的可能性相容，但无法区分具体行为；OI增加本身也不构成单侧加仓证据。\",\"supportingEvidenceIds\":[\"XPLUSDT:price.closed4h\",\"XPLUSDT:directional.price.previous4h\",\"XPLUSDT:price.closed24h\",\"XPLUSDT:price.closed1h\",\"XPLUSDT:oi.4h\"],\"conflictingEvidenceIds\":[\"XPLUSDT:oi.1h\",\"XPLUSDT:oi.24h\",\"XPLUSDT:volume.relative1h\",\"XPLUSDT:price.drawdown\",\"XPLUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。\"},\"alternativeScenario\":\"若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格走弱，则偏多延续假设让位于下行竞争情景，需重新评估。\",\"followUpChecks\":[\"核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。\",\"跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。\"]}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 21481,
+          "completion_tokens": 605,
+          "total_tokens": 22086,
+          "prompt_tokens_details": {
+            "cached_tokens": 2944
+          },
+          "prompt_cache_hit_tokens": 2944,
+          "prompt_cache_miss_tokens": 18537
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"XPLUSDT\",\"evaluationTime\":\"2026-10-10T05:00:16.899Z\",\"marketBias\":\"BULLISH\",\"horizon\":\"4h\",\"horizonReason\":\"4h已收盘价格变化为正且此前等长4h窗口亦为正，方向连续；同期4h OI数量变化为小幅收缩，故以4h为研究期限，1h与24h仅作背景。\",\"conviction\":\"LOW\",\"marketThesis\":\"未来4h倾向温和偏多延续：4h与24h已收盘价格变化均为正，但同期OI数量收缩、1h量能低于前24根均值，缺乏扩张确认，故仅低强度假设。\",\"marketMechanism\":\"4h价格上行同时OI数量小幅收缩，该统计组合与部分空头敞口缩减或多头敞口缩减的可能性相容，但无法区分具体行为；OI增加本身也不构成单侧加仓证据。\",\"supportingEvidenceIds\":[\"XPLUSDT:price.closed4h\",\"XPLUSDT:directional.price.previous4h\",\"XPLUSDT:price.closed24h\",\"XPLUSDT:price.closed1h\",\"XPLUSDT:oi.4h\"],\"conflictingEvidenceIds\":[\"XPLUSDT:oi.1h\",\"XPLUSDT:oi.24h\",\"XPLUSDT:volume.relative1h\",\"XPLUSDT:price.drawdown\",\"XPLUSDT:global.short.change1h\"],\"tradeOpportunity\":\"WAIT_FOR_PULLBACK\",\"preferredScenario\":\"4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_4h\",\"OI_REVERSED_4h\"],\"description\":\"后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。\"},\"alternativeScenario\":\"若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格走弱，则偏多延续假设让位于下行竞争情景，需重新评估。\",\"followUpChecks\":[\"核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。\",\"跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。\"]}",
+      "parsedResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "XPLUSDT",
+        "evaluationTime": "2026-10-10T05:00:16.899Z",
+        "marketBias": "BULLISH",
+        "horizon": "4h",
+        "horizonReason": "4h已收盘价格变化为正且此前等长4h窗口亦为正，方向连续；同期4h OI数量变化为小幅收缩，故以4h为研究期限，1h与24h仅作背景。",
+        "conviction": "LOW",
+        "marketThesis": "未来4h倾向温和偏多延续：4h与24h已收盘价格变化均为正，但同期OI数量收缩、1h量能低于前24根均值，缺乏扩张确认，故仅低强度假设。",
+        "marketMechanism": "4h价格上行同时OI数量小幅收缩，该统计组合与部分空头敞口缩减或多头敞口缩减的可能性相容，但无法区分具体行为；OI增加本身也不构成单侧加仓证据。",
+        "supportingEvidenceIds": [
+          "XPLUSDT:price.closed4h",
+          "XPLUSDT:directional.price.previous4h",
+          "XPLUSDT:price.closed24h",
+          "XPLUSDT:price.closed1h",
+          "XPLUSDT:oi.4h"
+        ],
+        "conflictingEvidenceIds": [
+          "XPLUSDT:oi.1h",
+          "XPLUSDT:oi.24h",
+          "XPLUSDT:volume.relative1h",
+          "XPLUSDT:price.drawdown",
+          "XPLUSDT:global.short.change1h"
+        ],
+        "tradeOpportunity": "WAIT_FOR_PULLBACK",
+        "preferredScenario": "4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。",
+        "invalidation": {
+          "type": "OBSERVABLE_CONDITION",
+          "ruleIds": [
+            "PRICE_OPPOSITE_4h",
+            "OI_REVERSED_4h"
+          ],
+          "description": "后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。"
+        },
+        "alternativeScenario": "若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格走弱，则偏多延续假设让位于下行竞争情景，需重新评估。",
+        "followUpChecks": [
+          "核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。",
+          "跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。"
+        ]
+      },
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "diagnostics": [
+          {
+            "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "加仓",
+            "span": "OI增加本身也不构成单侧加仓证据",
+            "denied": true,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": true
+          },
+          {
+            "code": "VERIFIED_RULE_LITERAL",
+            "literal": "-1.0000%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "price",
+              "rolling": true,
+              "previous": false
+            },
+            "evidenceIds": [],
+            "ruleId": "PRICE_OPPOSITE_4h",
+            "field": "invalidation",
+            "role": "REASSESSMENT"
+          },
+          {
+            "code": "VERIFIED_RULE_LITERAL",
+            "literal": "5.0000%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "oi"
+            },
+            "evidenceIds": [],
+            "ruleId": "OI_REVERSED_4h",
+            "field": "invalidation",
+            "role": "REASSESSMENT"
+          },
+          {
+            "code": "VERIFIED_VOLUME_NORMALIZATION_BASELINE",
+            "literal": "1倍",
+            "numberType": "MARKET_VALUE",
+            "window": "1h",
+            "evidenceIds": [
+              "XPLUSDT:volume.relative1h"
+            ],
+            "field": "followUp1",
+            "role": "FORECAST_HYPOTHESIS"
+          }
+        ],
+        "contractVersion": "DIRECTIONAL_ANALYST_V2",
+        "referencedEvidenceIds": [
+          "XPLUSDT:price.closed4h",
+          "XPLUSDT:directional.price.previous4h",
+          "XPLUSDT:price.closed24h",
+          "XPLUSDT:price.closed1h",
+          "XPLUSDT:oi.4h",
+          "XPLUSDT:oi.1h",
+          "XPLUSDT:oi.24h",
+          "XPLUSDT:volume.relative1h",
+          "XPLUSDT:price.drawdown",
+          "XPLUSDT:global.short.change1h"
+        ],
+        "rendered": {
+          "horizonReason": "4h已收盘价格变化为正且此前等长4h窗口亦为正，方向连续；同期4h OI数量变化为小幅收缩，故以4h为研究期限，1h与24h仅作背景。",
+          "marketThesis": "未来4h倾向温和偏多延续：4h与24h已收盘价格变化均为正，但同期OI数量收缩、1h量能低于前24根均值，缺乏扩张确认，故仅低强度假设。",
+          "marketMechanism": "4h价格上行同时OI数量小幅收缩，该统计组合与部分空头敞口缩减或多头敞口缩减的可能性相容，但无法区分具体行为；OI增加本身也不构成单侧加仓证据。",
+          "preferredScenario": "4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。",
+          "alternativeScenario": "若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格走弱，则偏多延续假设让位于下行竞争情景，需重新评估。",
+          "invalidationDescription": "后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。",
+          "followUpChecks": [
+            "核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。",
+            "跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。"
+          ]
+        }
+      },
+      "schemaValid": true,
+      "status": "RECOVERY_2_VALID"
+    }
+  ],
+  "analysis": {
+    "version": "DIRECTIONAL_ANALYST_V2",
+    "symbol": "XPLUSDT",
+    "evaluationTime": "2026-10-10T05:00:16.899Z",
+    "marketBias": "BULLISH",
+    "horizon": "4h",
+    "horizonReason": "4h已收盘价格变化为正且此前等长4h窗口亦为正，方向连续；同期4h OI数量变化为小幅收缩，故以4h为研究期限，1h与24h仅作背景。",
+    "conviction": "LOW",
+    "marketThesis": "未来4h倾向温和偏多延续：4h与24h已收盘价格变化均为正，但同期OI数量收缩、1h量能低于前24根均值，缺乏扩张确认，故仅低强度假设。",
+    "marketMechanism": "4h价格上行同时OI数量小幅收缩，该统计组合与部分空头敞口缩减或多头敞口缩减的可能性相容，但无法区分具体行为；OI增加本身也不构成单侧加仓证据。",
+    "supportingEvidenceIds": [
+      "XPLUSDT:price.closed4h",
+      "XPLUSDT:directional.price.previous4h",
+      "XPLUSDT:price.closed24h",
+      "XPLUSDT:price.closed1h",
+      "XPLUSDT:oi.4h"
+    ],
+    "conflictingEvidenceIds": [
+      "XPLUSDT:oi.1h",
+      "XPLUSDT:oi.24h",
+      "XPLUSDT:volume.relative1h",
+      "XPLUSDT:price.drawdown",
+      "XPLUSDT:global.short.change1h"
+    ],
+    "tradeOpportunity": "WAIT_FOR_PULLBACK",
+    "preferredScenario": "4h内价格在已收盘正变化基础上维持偏强整理，回踩不破近期已收盘区间下沿后再度尝试上行；OI数量若由收缩转为温和扩张则延续假设增强。",
+    "invalidation": {
+      "type": "OBSERVABLE_CONDITION",
+      "ruleIds": [
+        "PRICE_OPPOSITE_4h",
+        "OI_REVERSED_4h"
+      ],
+      "description": "后续新收盘滚动4h价格变化≤-1.0000%（PRICE_OPPOSITE_4h）则方向命题失效；若新采样4h OI数量变化≥5.0000%（OI_REVERSED_4h）仅触发复核，不自动失效。"
+    },
+    "alternativeScenario": "若4h价格转跌且OI数量同步扩张，或1h量能持续低于前24根均值并伴随价格走弱，则偏多延续假设让位于下行竞争情景，需重新评估。",
+    "followUpChecks": [
+      "核对下一根已收盘4h价格变化是否维持正值，并同步观察4h OI数量变化方向。",
+      "跟踪1h成交量相对前24根均值倍数能否回升至1倍以上，以判断参与度是否配合。"
+    ]
+  }
+}

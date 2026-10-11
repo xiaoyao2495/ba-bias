@@ -1,0 +1,352 @@
+{
+  "firstRawBiasCounts": {
+    "BULLISH": 2,
+    "BEARISH": 4,
+    "BULLISH_REVERSAL": 0,
+    "BEARISH_REVERSAL": 2,
+    "NO_EDGE": 2
+  },
+  "lastRawBiasCounts": {
+    "BULLISH": 2,
+    "BEARISH": 5,
+    "BULLISH_REVERSAL": 1,
+    "BEARISH_REVERSAL": 0,
+    "NO_EDGE": 2
+  },
+  "errors": {
+    "UNTRUSTED_SYMBOL_OR_METRIC": {
+      "responses": 23,
+      "samples": 8
+    },
+    "UNTRUSTED_NUMBER_OR_PROBABILITY": {
+      "responses": 27,
+      "samples": 10
+    },
+    "UNSUPPORTED_CAUSE_OR_ORDER": {
+      "responses": 15,
+      "samples": 7
+    },
+    "UNAVAILABLE_INDICATOR_OR_STRUCTURE": {
+      "responses": 5,
+      "samples": 3
+    },
+    "REVERSAL_DIRECTION_NOT_SUPPORTED": {
+      "responses": 2,
+      "samples": 2
+    },
+    "INVALIDATION_RULE_DIRECTION_CONFLICT": {
+      "responses": 2,
+      "samples": 2
+    },
+    "WRONG_ACCOUNT_OR_OI_SCOPE": {
+      "responses": 3,
+      "samples": 1
+    },
+    "FUNDING_DIRECTION_MUST_USE_EVIDENCE": {
+      "responses": 3,
+      "samples": 1
+    },
+    "FORECAST_CERTAINTY_OR_STRUCTURE_UNSUPPORTED": {
+      "responses": 3,
+      "samples": 1
+    },
+    "DIRECTIONAL_SCHEMA_INVALID": {
+      "responses": 3,
+      "samples": 2
+    }
+  },
+  "unknownEvidenceOccurrences": 0,
+  "futureInputEvidence": 0,
+  "schemaPassedResponses": 27,
+  "schemaFailures": [
+    {
+      "symbol": "NIGHTUSDT",
+      "attempt": 1,
+      "diagnostics": [
+        {
+          "code": "DIRECTIONAL_SCHEMA_INVALID",
+          "schemaErrors": [
+            {
+              "instancePath": "/marketThesis",
+              "schemaPath": "#/properties/marketThesis/maxLength",
+              "keyword": "maxLength",
+              "params": {
+                "limit": 400
+              },
+              "message": "must NOT have more than 400 characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "WLFIUSDT",
+      "attempt": 2,
+      "diagnostics": [
+        {
+          "code": "DIRECTIONAL_SCHEMA_INVALID",
+          "schemaErrors": [
+            {
+              "instancePath": "/marketThesis",
+              "schemaPath": "#/properties/marketThesis/maxLength",
+              "keyword": "maxLength",
+              "params": {
+                "limit": 400
+              },
+              "message": "must NOT have more than 400 characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "WLFIUSDT",
+      "attempt": 3,
+      "diagnostics": [
+        {
+          "code": "DIRECTIONAL_SCHEMA_INVALID",
+          "schemaErrors": [
+            {
+              "instancePath": "/marketThesis",
+              "schemaPath": "#/properties/marketThesis/maxLength",
+              "keyword": "maxLength",
+              "params": {
+                "limit": 400
+              },
+              "message": "must NOT have more than 400 characters"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "symbol": "ERAUSDT",
+      "runId": "hourly_20261010_2100",
+      "available": true,
+      "oldFirstSchema": false,
+      "oldFirstValid": false,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "ANALYST_UNAVAILABLE",
+      "v2ReplayBias": null,
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "MAGICUSDT",
+      "runId": "hourly_20261010_2100",
+      "available": true,
+      "oldFirstSchema": true,
+      "oldFirstValid": true,
+      "oldEventuallyValid": true,
+      "v2ReplayStatus": "VALIDATED",
+      "v2ReplayBias": "NO_EDGE",
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "APRUSDT",
+      "runId": "hourly_20261010_2100",
+      "available": false,
+      "oldFirstSchema": null,
+      "oldFirstValid": null,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "NOT_AVAILABLE",
+      "v2ReplayBias": null,
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "USUSDT",
+      "runId": "hourly_20261010_2100",
+      "available": true,
+      "oldFirstSchema": true,
+      "oldFirstValid": false,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "ANALYST_UNAVAILABLE",
+      "v2ReplayBias": null,
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "BATUSDT",
+      "runId": "hourly_20261010_2100",
+      "available": true,
+      "oldFirstSchema": true,
+      "oldFirstValid": false,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "ANALYST_UNAVAILABLE",
+      "v2ReplayBias": null,
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "WIFUSDT",
+      "runId": "hourly_20261010_2100",
+      "available": true,
+      "oldFirstSchema": true,
+      "oldFirstValid": false,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "VALIDATED",
+      "v2ReplayBias": "NO_EDGE",
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "AIOTUSDT",
+      "runId": "hourly_20261010_2200",
+      "available": true,
+      "oldFirstSchema": true,
+      "oldFirstValid": false,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "VALIDATED",
+      "v2ReplayBias": "BULLISH",
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "AGTUSDT",
+      "runId": "hourly_20261010_2100",
+      "available": false,
+      "oldFirstSchema": null,
+      "oldFirstValid": null,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "NOT_AVAILABLE",
+      "v2ReplayBias": null,
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "NIGHTUSDT",
+      "runId": "hourly_20261010_2100",
+      "available": false,
+      "oldFirstSchema": null,
+      "oldFirstValid": null,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "NOT_AVAILABLE",
+      "v2ReplayBias": null,
+      "newFirstSchema": false,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    },
+    {
+      "symbol": "WLFIUSDT",
+      "runId": "hourly_20261010_2200",
+      "available": true,
+      "oldFirstSchema": null,
+      "oldFirstValid": null,
+      "oldEventuallyValid": false,
+      "v2ReplayStatus": "ANALYST_UNAVAILABLE",
+      "v2ReplayBias": null,
+      "newFirstSchema": true,
+      "newFirstStatus": "INVALID",
+      "newFinalStatus": "FINAL_INVALID"
+    }
+  ],
+  "comparisonSummary": {
+    "matchedSamples": 7,
+    "notAvailable": 3,
+    "oldFirstSchema": 5,
+    "oldFirstCompleteValid": 1,
+    "oldEventuallyValid": 1,
+    "v2OfflineEventuallyValid": 3,
+    "newFirstSchema": 7,
+    "newFirstCompleteValid": 0,
+    "newEventuallyValid": 0
+  },
+  "tokenTotals": {
+    "input": 359312,
+    "output": 29421
+  },
+  "rawModelNames": [
+    "deepseek-flash"
+  ],
+  "quality": [
+    {
+      "symbol": "ERAUSDT",
+      "runId": "hourly_20261010_2100",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_FORWARD_HYPOTHESIS",
+      "manualReview": "有4h上行/OI扩张与极端负Funding背景，原始倾向有未来horizon并考虑回撤。仍出现“价格不跌破近期已收盘结构”，实际无可靠结构；“追多拥挤”也未有持仓拥挤证据。自家Symbol、合法裸ID、空方占比表达及局部否定又引发格式/语义误拒绝。不能把整份失败仅解释为格式问题。"
+    },
+    {
+      "symbol": "MAGICUSDT",
+      "runId": "hourly_20261010_2100",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_FORWARD_HYPOTHESIS",
+      "manualReview": "24h上涨/OI扩张、1h价格与OI收缩、-34.53%回撤与相对量0.88倍是真实背景；未来1h偏弱假设有基本支持及24h逆向竞争。主阻断是本Symbol/裸ID误判、回撤描述与相对量指标识别、未来情景中复述基线数字，以及未定义“1倍以上”观察阈值。最后仍失败，不将其作为有效预测计数。"
+    },
+    {
+      "symbol": "APRUSDT",
+      "runId": "hourly_20261010_2100",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_FORWARD_HYPOTHESIS",
+      "manualReview": "首次BEARISH_REVERSAL主周期1h与当时真实转向相反：此前1h-3.96039604%、当前+2.05920206%，应是向上转向。第一次恢复改BULLISH_REVERSAL，纠正部分分类和失效规则错误，但正号数字与标注先前窗口仍误拒绝，同时“回补及新开多共同参与”不符合现有OI净扩张时平仓机制规则。未通过，不能宣称反转联调成功。"
+    },
+    {
+      "symbol": "USUSDT",
+      "runId": "hourly_20261010_2100",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_FORWARD_HYPOTHESIS",
+      "manualReview": "1h实际价格-14.12156033%、OI+0.29952203%且此前价格+12.83734811%；24h价格/OI收缩属于长周期背景。未来1h偏弱并考虑低相对量，有条件假设；早期OI→具体单侧敞口语句及后续条件解释边界需复核。仍有裸ID/正号/口径问题，拒绝状态保留。"
+    },
+    {
+      "symbol": "BATUSDT",
+      "runId": "hourly_20261010_2100",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_FORWARD_HYPOTHESIS",
+      "manualReview": "此前1h+7.58954786%、当前1h-8.08432255%、OI-4.88567273%与相对量5.76165114倍有真实短线转弱依据。模型没有强制用REVERSAL，而是BEARISH。Funding0.0033%多头支付空头与源数据一致，但仅在正文裸ID出现，没有进入guard的实际引用集合，导致支付关系拒绝，并非已证明把支付方向说反。观察阈值中文“以上”及相对量别名也拒绝。"
+    },
+    {
+      "symbol": "WIFUSDT",
+      "runId": "hourly_20261010_2100",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_NO_EDGE",
+      "manualReview": "原始NO_EDGE有实际冲突：24h价格+2.94117647%、OI-0.81736204%，而1h/4h价格/OI走弱、相对量约0.40倍；不是仅因缺少ICT才弃权。较低量与多周期矛盾可支持不作方向结论，但裸ID、数字语法及一处分句“回补推动价格”机制标记/窗口不充分仍失败。不归类VALID_NO_EDGE。"
+    },
+    {
+      "symbol": "AIOTUSDT",
+      "runId": "hourly_20261010_2200",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_FORWARD_HYPOTHESIS",
+      "manualReview": "4h价格+11.53184165%、OI+19.69227927%、其他周期同向，账户空方4h+6.17pp与回撤是竞争背景；preferredScenario明确未来4h偏强而不是纯历史复述。模型写“不保证未来方向”却被两类确定性/因果规则拒绝，已用隔离生产入口诊断确认局部否定误拦截；还有裸ID、future基线和数字口径解析问题。整体仍未通过。"
+    },
+    {
+      "symbol": "AGTUSDT",
+      "runId": "hourly_20261010_2100",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_FORWARD_HYPOTHESIS",
+      "manualReview": "首次1h BEARISH_REVERSAL与真实当前1h+0.89000213%、此前-0.68293716%转向冲突；恢复到4h BEARISH，4h价格-21.69183040%、OI+7.49701641%有下行竞争解释，纠正了方向/失效规则，但裸ID与正号、此前窗口数字语法未解决。"
+    },
+    {
+      "symbol": "NIGHTUSDT",
+      "runId": "hourly_20261010_2100",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_FORWARD_HYPOTHESIS",
+      "manualReview": "选入是为了4h价格/OI同时收缩，与24h上行/账户翻转形成竞争。首次marketThesis超过400字符，恢复缩短后通过Schema，却仍有裸ID和数字解析问题。原始文本存在未来4h偏弱假设，不是纯历史复述；解释“此前上涨阶段有敞口累积”还需准确窗口绑定。"
+    },
+    {
+      "symbol": "WLFIUSDT",
+      "runId": "hourly_20261010_2200",
+      "acceptedClassification": "NOT_VALIDATED",
+      "rawResearchType": "UNVALIDATED_NO_EDGE",
+      "manualReview": "1h价格/OI近乎持平、相对量低、4h走弱与24h上涨竞争，原始NO_EDGE有真实理由，并非仅缺少结构。首轮未来0.0570附近的精确价位情景不应当作为已验证未来价格；该数字为当前参考价，不等于凭空捏造，但预测性质未被验证。复核/失效描述将价格或OI阈值合并为“失效或复核”，含糊；恢复2/3的marketThesis均超过400字符。"
+    }
+  ],
+  "verdict": {
+    "CONTRACT_READINESS": "FAIL",
+    "FACTUAL_SAFETY": "PARTIAL_GUARD_ACTIVE_WITH_FALSE_REJECTIONS",
+    "DIRECTIONAL_USEFULNESS": "NOT_ESTABLISHED_NO_VALID_LIVE_OUTPUT",
+    "PRODUCTION_INTEGRATION": "NOT_TESTED",
+    "restoreHourlyScan": false
+  }
+}

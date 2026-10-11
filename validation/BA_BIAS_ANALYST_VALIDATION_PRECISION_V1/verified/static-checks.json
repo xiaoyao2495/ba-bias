@@ -1,0 +1,277 @@
+{
+  "checkedAt": "2026-10-10T18:00:10.545Z",
+  "count": 54,
+  "passed": 54,
+  "checks": [
+    {
+      "file": "scripts/analyst-alignment-attribution.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-alignment-replay.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-alignment-report.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-live-probe-report.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-live-probe.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-precision-prepare.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-precision-replay.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-precision-report.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/compact-replay.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "scripts/validation-recovery-replay.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-alignment-guard.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-analyst.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-context.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-history.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-legacy-guard.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-schema.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/evidence-precision-validator.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/evidence-text-validator.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/clients/binance.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/clients/deepseek.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/clients/dingtalk.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/clients/http.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/config.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/content/claim-guard.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/content/draft-writer.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/content/schemas.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/content/story-judge.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/intelligence/compact-renderer.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/intelligence/packet.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/logging.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/main.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/market/detector.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/market/facts-engine.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/market/long-short-detector.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/market/long-short-discovery.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/market/long-short-facts.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/market/scanner.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/scan-daemon.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/scheduler.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/storage/delivery-queue.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/storage/delivery.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "src/storage/history.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-alignment.test.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-live-probe.test.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-precision.test.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/compact-fixture.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/compact.test.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/core.test.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/directional-fixture.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/directional.test.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/fixtures.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/hourly.test.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/long-short.test.js",
+      "passed": true,
+      "error": null
+    },
+    {
+      "file": "test/validation-recovery.test.js",
+      "passed": true,
+      "error": null
+    }
+  ]
+}

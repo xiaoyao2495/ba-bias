@@ -1,0 +1,1694 @@
+{
+  "id": "hourly_20261010_2100_USUSDT_a2_aba8aae6-f9ab-43de-b204-be1c9e40e699",
+  "sample": {
+    "symbol": "USUSDT",
+    "runId": "hourly_20261010_2100",
+    "evaluationTime": "2026-10-10T13:00:15.062Z"
+  },
+  "requestTimestamp": "2026-10-10T17:02:41.027Z",
+  "system": "你是独立未来行情方向研究员，不否决已合格事实新闻。输出DIRECTIONAL_ANALYST_V2严格JSON，字段与Schema逐项一致，不添加extraNotes/解释字段。\nOBSERVATION：输入evidence是真实可引用集合，只能用其中精确Evidence ID。事实数字优先{{evidenceId}}，可手写但必须指标、单位、窗口、口径和舍入一致。OI为合约数量，不是名义价值或单侧仓位。账户比例不是仓位比例；顶部账户与顶部持仓分开；未接入/缺失不是中性。\nMECHANISM：marketMechanism可提出有价格及同窗口OI支持的可能机制，例如价格上行/OI下降与部分空头回补的可能性相容；绝不声称已确认单侧开平仓、强平或资金流入。不同候选不套固定机制。\nFORECAST_HYPOTHESIS：marketThesis、preferredScenario、alternativeScenario对未来明确horizon给出不确定倾向，证据证明依据事实，不证明未来结果。不要因无法证明预测必然正确一律NO_EDGE。与当下走势相反的倾向需要明确冲突/参与量依据；只有Funding或账户翻转不支持反转。禁止胜率、概率、收益率、目标价和未经验证的结构价位或ICT事件。\n引用规则：支持/冲突列表仅选真正支持论点或不利于论点的已有ID；正文的背景引用可不在列表，但必须在输入Registry。允许显式跨周期比较，不把24h写成1h，不把滚动与已收盘或此前等长窗口混淆；不同周期不是同时发生的证据。反转是假设，须当前与此前同长度价格窗口真实转向，不需要未接入MSS/BOS/FVG，不能声称结构反转已确认。\nLOW/MODERATE/HIGH为定性强度非胜率；缺少对齐OI必须LOW；HIGH需要当前1h价格/OI一致扩张和相对量佐证且无重大冲突。方向与交易机会分离，无可靠结构不得LONG_SETUP/SHORT_SETUP。\ninvalidation：OBSERVABLE_CONDITION只用当前horizon真实rules，价格规则INVALIDATED，OI规则THESIS_WARNING。METRIC_BASED_REASSESSMENT可写未来同期价格/OI转弱等可观察条件，ruleIds可空；不得用模糊描述自动INVALIDATED。INSUFFICIENT_STRUCTURE_DATA须ruleIds空，说明缺失，不能编价格。PRICE_STRUCTURE_INVALIDATION只有实际结构可用才可用，当前未接入。HORIZON_EXPIRED由程序到期处理。已有程序阈值可作为指标观察参考，但不能自行造阈值。\n正已结算Funding多头支付空头，负已结算Funding空头支付多头，支付关系引用真实最新结算ID；Funding不能保证未来方向。否定风险说明不代表肯定相应行为。followUpChecks最多两项，各文字最多400字符。支持/冲突最多128 ID，不要求凑数。version固定为DIRECTIONAL_ANALYST_V2，使用输入contractVersion，不复制输入容器version；symbol/evaluationTime照输入；direction字段实际名marketBias。输出严格遵守Schema：{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"version\",\"symbol\",\"evaluationTime\",\"marketBias\",\"horizon\",\"horizonReason\",\"conviction\",\"marketThesis\",\"marketMechanism\",\"supportingEvidenceIds\",\"conflictingEvidenceIds\",\"tradeOpportunity\",\"preferredScenario\",\"invalidation\",\"alternativeScenario\",\"followUpChecks\"],\"properties\":{\"version\":{\"const\":\"DIRECTIONAL_ANALYST_V2\"},\"symbol\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"evaluationTime\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"marketBias\":{\"enum\":[\"BULLISH\",\"BEARISH\",\"BULLISH_REVERSAL\",\"BEARISH_REVERSAL\",\"NO_EDGE\"]},\"horizon\":{\"enum\":[\"1h\",\"4h\",\"24h\"]},\"horizonReason\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"conviction\":{\"enum\":[\"LOW\",\"MODERATE\",\"HIGH\"]},\"marketThesis\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"marketMechanism\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"supportingEvidenceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":128,\"uniqueItems\":true,\"minItems\":1},\"conflictingEvidenceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":128,\"uniqueItems\":true},\"tradeOpportunity\":{\"enum\":[\"LONG_SETUP\",\"SHORT_SETUP\",\"WAIT_FOR_PULLBACK\",\"WAIT_FOR_CONFIRMATION\",\"AVOID_CHASING\",\"NO_ACTIONABLE_SETUP\"]},\"preferredScenario\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"invalidation\":{\"type\":\"object\",\"additionalProperties\":false,\"allOf\":[{\"if\":{\"properties\":{\"type\":{\"const\":\"OBSERVABLE_CONDITION\"}}},\"then\":{\"properties\":{\"ruleIds\":{\"type\":\"array\",\"minItems\":1}}},\"else\":{\"if\":{\"properties\":{\"type\":{\"const\":\"INSUFFICIENT_STRUCTURE_DATA\"}}},\"then\":{\"properties\":{\"ruleIds\":{\"type\":\"array\",\"maxItems\":0}}}}}],\"required\":[\"type\",\"ruleIds\",\"description\"],\"properties\":{\"type\":{\"enum\":[\"OBSERVABLE_CONDITION\",\"INSUFFICIENT_STRUCTURE_DATA\",\"METRIC_BASED_REASSESSMENT\",\"PRICE_STRUCTURE_INVALIDATION\"]},\"ruleIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":2,\"uniqueItems\":true},\"description\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400}}},\"alternativeScenario\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"followUpChecks\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"minItems\":1,\"maxItems\":2}}}",
+  "input": {
+    "version": "DIRECTIONAL_INPUT_V1",
+    "symbol": "USUSDT",
+    "evaluationTime": "2026-10-10T13:00:15.062Z",
+    "entryReference": {
+      "price": "0.0226260",
+      "timestamp": 1791637208112,
+      "evidenceId": "USUSDT:price.last"
+    },
+    "capabilities": {
+      "priceStructure": false,
+      "takerFlow": false,
+      "cvd": false,
+      "basis": false,
+      "oiMarketCap": false
+    },
+    "evidence": [
+      {
+        "evidenceId": "USUSDT:price.rolling24h",
+        "result": "-29.47666989",
+        "phrase": "滚动24小时价格变化 -29.48%",
+        "dataTimes": [
+          1791550800000,
+          1791637208112
+        ],
+        "formula": "(lastPrice/openPrice-1)*100",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "USUSDT:price.last",
+        "result": "0.0226260",
+        "phrase": "快照最新价格 0.0226260 USDT",
+        "dataTimes": [
+          1791637208112
+        ],
+        "formula": "lastPrice",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "USUSDT:volume.rolling24h",
+        "result": "571124051.0543740",
+        "phrase": "滚动24小时成交额 571124051.05 USDT",
+        "dataTimes": [
+          1791550800000,
+          1791637208112
+        ],
+        "formula": "quoteVolume",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "USUSDT:price.closed1h",
+        "result": "-14.12156033",
+        "phrase": "截至北京时间21:00，已收盘1小时价格变化 -14.12%",
+        "dataTimes": [
+          1791633600000,
+          1791637199999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "USUSDT:price.closed4h",
+        "result": "-6.03027546",
+        "phrase": "截至北京时间21:00，已收盘4小时价格变化 -6.03%",
+        "dataTimes": [
+          1791622800000,
+          1791637199999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "4h"
+      },
+      {
+        "evidenceId": "USUSDT:price.closed24h",
+        "result": "-29.18367983",
+        "phrase": "截至北京时间21:00，已收盘24小时价格变化 -29.18%",
+        "dataTimes": [
+          1791550800000,
+          1791637199999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "USUSDT:price.rangeLowHigh",
+        "result": "61.33421986",
+        "phrase": "已收盘24小时区间低点至高点幅度 61.33%",
+        "dataTimes": [
+          1791550800000,
+          1791637199999
+        ],
+        "formula": "(high/low-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "USUSDT:price.drawdown",
+        "result": "-37.83553590",
+        "phrase": "已收盘24小时区间高点至快照最新价变化 -37.84%",
+        "dataTimes": [
+          1791637199999,
+          1791637208112
+        ],
+        "formula": "(lastPrice/high-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "USUSDT:volume.relative1h",
+        "result": "0.89293169",
+        "phrase": "最近已收盘1小时成交量为前24根均值的 0.89 倍",
+        "dataTimes": [
+          1791547200000,
+          1791637199999
+        ],
+        "formula": "last closed base volume / preceding 24 closed bars mean",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "USUSDT:volume.relative5m",
+        "result": "1.42345324",
+        "phrase": "最近已收盘5分钟成交量为前24根均值的 1.42 倍",
+        "dataTimes": [
+          1791629700000,
+          1791637199999
+        ],
+        "formula": "last closed base volume / preceding 24 closed bars mean",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "USUSDT:volume.closed1h",
+        "result": "18862090.0911730",
+        "phrase": "最近已收盘1小时成交额 18862090.09 USDT",
+        "dataTimes": [
+          1791633600000,
+          1791637199999
+        ],
+        "formula": "quoteAssetVolume field 7",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "USUSDT:oi.1h",
+        "result": "0.29952203",
+        "phrase": "1小时OI数量变化 0.30%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791633600000,
+          1791637200000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "USUSDT:oi.4h",
+        "result": "-3.60960785",
+        "phrase": "4小时OI数量变化 -3.61%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791622800000,
+          1791637200000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "4h"
+      },
+      {
+        "evidenceId": "USUSDT:oi.24h",
+        "result": "-21.66197468",
+        "phrase": "24小时OI数量变化 -21.66%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791550800000,
+          1791637200000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "USUSDT:funding.latest",
+        "result": "0.00745800",
+        "phrase": "北京时间10-10 20:00已结算Funding 0.0075%，多头支付空头",
+        "dataTimes": [
+          1791633600003
+        ],
+        "formula": "fundingRate*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "USUSDT",
+          "startTime": 1791464415062,
+          "endTime": 1791637215062,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "USUSDT:funding.sum24h",
+        "result": "0.11152300",
+        "phrase": "过去24小时实际6次结算费率之和 0.1115%（非收益率）",
+        "dataTimes": [
+          1791561600000,
+          1791576000000,
+          1791590400002,
+          1791604800007,
+          1791619200001,
+          1791633600003
+        ],
+        "formula": "sum(actual settled fundingRate)*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "USUSDT",
+          "startTime": 1791464415062,
+          "endTime": 1791637215062,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "USUSDT:funding.change",
+        "result": "-0.00170500",
+        "phrase": "相邻实际结算Funding变化 -0.0017 个百分点（保留各周期时间，不假设周期相同）",
+        "dataTimes": [
+          1791619200001,
+          1791633600003
+        ],
+        "formula": "(last.fundingRate - previous.fundingRate)*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "USUSDT",
+          "startTime": 1791464415062,
+          "endTime": 1791637215062,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "USUSDT:global.long.latest",
+        "result": "49.48000000",
+        "phrase": "全市场净多/净空头账户：多 49.48%、空 50.52%（账户比例不代表仓位或资金比例）",
+        "dataTimes": [
+          1791637200000
+        ],
+        "formula": "longAccount * 100",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": null
+      },
+      {
+        "evidenceId": "USUSDT:global.short.change1h",
+        "result": "-0.55000000",
+        "phrase": "全市场净多/净空头账户空方占比1小时从 51.07% 到 50.52%，变化 -0.55 个百分点；多方变化 0.55 个百分点",
+        "dataTimes": [
+          1791633600000,
+          1791637200000
+        ],
+        "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "USUSDT:global.long.change1h",
+        "result": "0.55000000",
+        "phrase": "全市场净多/净空头账户空方占比1小时从 51.07% 到 50.52%，变化 -0.55 个百分点；多方变化 0.55 个百分点",
+        "dataTimes": [
+          1791633600000,
+          1791637200000
+        ],
+        "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "USUSDT:global.short.change4h",
+        "result": "-9.38000000",
+        "phrase": "全市场净多/净空头账户空方占比4小时从 59.90% 到 50.52%，变化 -9.38 个百分点；多方变化 9.38 个百分点",
+        "dataTimes": [
+          1791622800000,
+          1791637200000
+        ],
+        "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "4h"
+      },
+      {
+        "evidenceId": "USUSDT:global.long.change4h",
+        "result": "9.38000000",
+        "phrase": "全市场净多/净空头账户空方占比4小时从 59.90% 到 50.52%，变化 -9.38 个百分点；多方变化 9.38 个百分点",
+        "dataTimes": [
+          1791622800000,
+          1791637200000
+        ],
+        "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "4h"
+      },
+      {
+        "evidenceId": "USUSDT:global.short.change24h",
+        "result": "-16.36000000",
+        "phrase": "全市场净多/净空头账户空方占比24小时从 66.88% 到 50.52%，变化 -16.36 个百分点；多方变化 16.36 个百分点",
+        "dataTimes": [
+          1791550800000,
+          1791637200000
+        ],
+        "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "24h"
+      },
+      {
+        "evidenceId": "USUSDT:global.long.change24h",
+        "result": "16.36000000",
+        "phrase": "全市场净多/净空头账户空方占比24小时从 66.88% 到 50.52%，变化 -16.36 个百分点；多方变化 16.36 个百分点",
+        "dataTimes": [
+          1791550800000,
+          1791637200000
+        ],
+        "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "USUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "24h"
+      },
+      {
+        "evidenceId": "USUSDT:directional.price.previous1h",
+        "result": "12.83734811",
+        "phrase": "此前已收盘1小时价格变化 12.84%",
+        "dataTimes": [
+          1791630000000,
+          1791633599999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "USUSDT:directional.price.previous4h",
+        "result": "-13.60014293",
+        "phrase": "此前已收盘4小时价格变化 -13.60%",
+        "dataTimes": [
+          1791608400000,
+          1791622799999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "4h"
+      },
+      {
+        "evidenceId": "USUSDT:directional.price.previous24h",
+        "result": "124.88605287",
+        "phrase": "此前已收盘24小时价格变化 124.89%",
+        "dataTimes": [
+          1791464400000,
+          1791550799999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "USUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "24h"
+      }
+    ],
+    "windows": [
+      {
+        "horizon": "1h",
+        "priceId": "USUSDT:price.closed1h",
+        "oiId": "USUSDT:oi.1h",
+        "previousPriceId": "USUSDT:directional.price.previous1h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": true
+      },
+      {
+        "horizon": "4h",
+        "priceId": "USUSDT:price.closed4h",
+        "oiId": "USUSDT:oi.4h",
+        "previousPriceId": "USUSDT:directional.price.previous4h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": false
+      },
+      {
+        "horizon": "24h",
+        "priceId": "USUSDT:price.closed24h",
+        "oiId": "USUSDT:oi.24h",
+        "previousPriceId": "USUSDT:directional.price.previous24h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": true
+      }
+    ],
+    "rules": [
+      {
+        "id": "PRICE_OPPOSITE_1h",
+        "horizon": "1h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 7.060780165,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动1h价格变化≥7.0608%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "USUSDT:price.closed1h"
+      },
+      {
+        "id": "OI_REVERSED_1h",
+        "horizon": "1h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "USUSDT:oi.1h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_4h",
+        "horizon": "4h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 3.01513773,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动4h价格变化≥3.0151%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "USUSDT:price.closed4h"
+      },
+      {
+        "id": "OI_REVERSED_4h",
+        "horizon": "4h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "GTE",
+        "threshold": 5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确4h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "USUSDT:oi.4h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_24h",
+        "horizon": "24h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 14.591839915,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动24h价格变化≥14.5918%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "USUSDT:price.closed24h"
+      },
+      {
+        "id": "OI_REVERSED_24h",
+        "horizon": "24h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "GTE",
+        "threshold": 10.83098734,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确24h OI数量变化≥10.8310%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "USUSDT:oi.24h"
+      }
+    ],
+    "unavailable": [
+      "未接入可靠价格结构、主动买卖量、CVD、Basis、OI/流通市值",
+      "topAccounts:BINANCE_MARKET_DATA_KEY_MISSING",
+      "topPositions:BINANCE_MARKET_DATA_KEY_MISSING"
+    ],
+    "contractVersion": "DIRECTIONAL_ANALYST_V2",
+    "evidenceGuide": {
+      "allowedEvidenceIds": [
+        "USUSDT:price.rolling24h",
+        "USUSDT:price.last",
+        "USUSDT:volume.rolling24h",
+        "USUSDT:price.closed1h",
+        "USUSDT:price.closed4h",
+        "USUSDT:price.closed24h",
+        "USUSDT:price.rangeLowHigh",
+        "USUSDT:price.drawdown",
+        "USUSDT:volume.relative1h",
+        "USUSDT:volume.relative5m",
+        "USUSDT:volume.closed1h",
+        "USUSDT:oi.1h",
+        "USUSDT:oi.4h",
+        "USUSDT:oi.24h",
+        "USUSDT:funding.latest",
+        "USUSDT:funding.sum24h",
+        "USUSDT:funding.change",
+        "USUSDT:global.long.latest",
+        "USUSDT:global.short.change1h",
+        "USUSDT:global.long.change1h",
+        "USUSDT:global.short.change4h",
+        "USUSDT:global.long.change4h",
+        "USUSDT:global.short.change24h",
+        "USUSDT:global.long.change24h",
+        "USUSDT:directional.price.previous1h",
+        "USUSDT:directional.price.previous4h",
+        "USUSDT:directional.price.previous24h"
+      ],
+      "primaryPriceByHorizon": {
+        "1h": "USUSDT:price.closed1h",
+        "4h": "USUSDT:price.closed4h",
+        "24h": "USUSDT:price.closed24h"
+      },
+      "previousPriceByHorizon": {
+        "1h": "USUSDT:directional.price.previous1h",
+        "4h": "USUSDT:directional.price.previous4h",
+        "24h": "USUSDT:directional.price.previous24h"
+      },
+      "referenceRule": "All textual references must exist in evidence. Supporting/conflicting arrays describe argumentative roles, not an exhaustive list of background observations. Different windows retain their own labels and times."
+    },
+    "contentContract": {
+      "observation": "Registry facts only; exact metric/unit/window/scope, no future observations.",
+      "mechanism": "Conditional possible explanation supported by price and OI; not a confirmed opening, closing, liquidation or funds-flow claim.",
+      "forecast": "marketThesis/preferredScenario/alternativeScenario are uncertain horizon-bound hypotheses; evidence verifies inputs, not future truth.",
+      "invalidation": "Only selected predefined INVALIDATED rules automate invalidation. Qualitative reassessment does not."
+    },
+    "repairErrors": [
+      "UNTRUSTED_NUMBER_OR_PROBABILITY",
+      "UNTRUSTED_SYMBOL_OR_METRIC",
+      "UNSUPPORTED_CAUSE_OR_ORDER",
+      "WRONG_ACCOUNT_OR_OI_SCOPE"
+    ],
+    "contractRepair": {
+      "originalInput": {
+        "version": "DIRECTIONAL_INPUT_V1",
+        "symbol": "USUSDT",
+        "evaluationTime": "2026-10-10T13:00:15.062Z",
+        "entryReference": {
+          "price": "0.0226260",
+          "timestamp": 1791637208112,
+          "evidenceId": "USUSDT:price.last"
+        },
+        "capabilities": {
+          "priceStructure": false,
+          "takerFlow": false,
+          "cvd": false,
+          "basis": false,
+          "oiMarketCap": false
+        },
+        "evidence": [
+          {
+            "evidenceId": "USUSDT:price.rolling24h",
+            "result": "-29.47666989",
+            "phrase": "滚动24小时价格变化 -29.48%",
+            "dataTimes": [
+              1791550800000,
+              1791637208112
+            ],
+            "formula": "(lastPrice/openPrice-1)*100",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "USUSDT:price.last",
+            "result": "0.0226260",
+            "phrase": "快照最新价格 0.0226260 USDT",
+            "dataTimes": [
+              1791637208112
+            ],
+            "formula": "lastPrice",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "USUSDT:volume.rolling24h",
+            "result": "571124051.0543740",
+            "phrase": "滚动24小时成交额 571124051.05 USDT",
+            "dataTimes": [
+              1791550800000,
+              1791637208112
+            ],
+            "formula": "quoteVolume",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "USUSDT:price.closed1h",
+            "result": "-14.12156033",
+            "phrase": "截至北京时间21:00，已收盘1小时价格变化 -14.12%",
+            "dataTimes": [
+              1791633600000,
+              1791637199999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "USUSDT:price.closed4h",
+            "result": "-6.03027546",
+            "phrase": "截至北京时间21:00，已收盘4小时价格变化 -6.03%",
+            "dataTimes": [
+              1791622800000,
+              1791637199999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "4h"
+          },
+          {
+            "evidenceId": "USUSDT:price.closed24h",
+            "result": "-29.18367983",
+            "phrase": "截至北京时间21:00，已收盘24小时价格变化 -29.18%",
+            "dataTimes": [
+              1791550800000,
+              1791637199999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "USUSDT:price.rangeLowHigh",
+            "result": "61.33421986",
+            "phrase": "已收盘24小时区间低点至高点幅度 61.33%",
+            "dataTimes": [
+              1791550800000,
+              1791637199999
+            ],
+            "formula": "(high/low-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "USUSDT:price.drawdown",
+            "result": "-37.83553590",
+            "phrase": "已收盘24小时区间高点至快照最新价变化 -37.84%",
+            "dataTimes": [
+              1791637199999,
+              1791637208112
+            ],
+            "formula": "(lastPrice/high-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "USUSDT:volume.relative1h",
+            "result": "0.89293169",
+            "phrase": "最近已收盘1小时成交量为前24根均值的 0.89 倍",
+            "dataTimes": [
+              1791547200000,
+              1791637199999
+            ],
+            "formula": "last closed base volume / preceding 24 closed bars mean",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "USUSDT:volume.relative5m",
+            "result": "1.42345324",
+            "phrase": "最近已收盘5分钟成交量为前24根均值的 1.42 倍",
+            "dataTimes": [
+              1791629700000,
+              1791637199999
+            ],
+            "formula": "last closed base volume / preceding 24 closed bars mean",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "5m",
+              "limit": 40,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "USUSDT:volume.closed1h",
+            "result": "18862090.0911730",
+            "phrase": "最近已收盘1小时成交额 18862090.09 USDT",
+            "dataTimes": [
+              1791633600000,
+              1791637199999
+            ],
+            "formula": "quoteAssetVolume field 7",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "USUSDT:oi.1h",
+            "result": "0.29952203",
+            "phrase": "1小时OI数量变化 0.30%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791633600000,
+              1791637200000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "USUSDT:oi.4h",
+            "result": "-3.60960785",
+            "phrase": "4小时OI数量变化 -3.61%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791622800000,
+              1791637200000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "4h"
+          },
+          {
+            "evidenceId": "USUSDT:oi.24h",
+            "result": "-21.66197468",
+            "phrase": "24小时OI数量变化 -21.66%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791550800000,
+              1791637200000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "USUSDT:funding.latest",
+            "result": "0.00745800",
+            "phrase": "北京时间10-10 20:00已结算Funding 0.0075%，多头支付空头",
+            "dataTimes": [
+              1791633600003
+            ],
+            "formula": "fundingRate*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "USUSDT",
+              "startTime": 1791464415062,
+              "endTime": 1791637215062,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "USUSDT:funding.sum24h",
+            "result": "0.11152300",
+            "phrase": "过去24小时实际6次结算费率之和 0.1115%（非收益率）",
+            "dataTimes": [
+              1791561600000,
+              1791576000000,
+              1791590400002,
+              1791604800007,
+              1791619200001,
+              1791633600003
+            ],
+            "formula": "sum(actual settled fundingRate)*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "USUSDT",
+              "startTime": 1791464415062,
+              "endTime": 1791637215062,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "USUSDT:funding.change",
+            "result": "-0.00170500",
+            "phrase": "相邻实际结算Funding变化 -0.0017 个百分点（保留各周期时间，不假设周期相同）",
+            "dataTimes": [
+              1791619200001,
+              1791633600003
+            ],
+            "formula": "(last.fundingRate - previous.fundingRate)*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "USUSDT",
+              "startTime": 1791464415062,
+              "endTime": 1791637215062,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "USUSDT:global.long.latest",
+            "result": "49.48000000",
+            "phrase": "全市场净多/净空头账户：多 49.48%、空 50.52%（账户比例不代表仓位或资金比例）",
+            "dataTimes": [
+              1791637200000
+            ],
+            "formula": "longAccount * 100",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": null
+          },
+          {
+            "evidenceId": "USUSDT:global.short.change1h",
+            "result": "-0.55000000",
+            "phrase": "全市场净多/净空头账户空方占比1小时从 51.07% 到 50.52%，变化 -0.55 个百分点；多方变化 0.55 个百分点",
+            "dataTimes": [
+              1791633600000,
+              1791637200000
+            ],
+            "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "USUSDT:global.long.change1h",
+            "result": "0.55000000",
+            "phrase": "全市场净多/净空头账户空方占比1小时从 51.07% 到 50.52%，变化 -0.55 个百分点；多方变化 0.55 个百分点",
+            "dataTimes": [
+              1791633600000,
+              1791637200000
+            ],
+            "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "USUSDT:global.short.change4h",
+            "result": "-9.38000000",
+            "phrase": "全市场净多/净空头账户空方占比4小时从 59.90% 到 50.52%，变化 -9.38 个百分点；多方变化 9.38 个百分点",
+            "dataTimes": [
+              1791622800000,
+              1791637200000
+            ],
+            "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "4h"
+          },
+          {
+            "evidenceId": "USUSDT:global.long.change4h",
+            "result": "9.38000000",
+            "phrase": "全市场净多/净空头账户空方占比4小时从 59.90% 到 50.52%，变化 -9.38 个百分点；多方变化 9.38 个百分点",
+            "dataTimes": [
+              1791622800000,
+              1791637200000
+            ],
+            "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "4h"
+          },
+          {
+            "evidenceId": "USUSDT:global.short.change24h",
+            "result": "-16.36000000",
+            "phrase": "全市场净多/净空头账户空方占比24小时从 66.88% 到 50.52%，变化 -16.36 个百分点；多方变化 16.36 个百分点",
+            "dataTimes": [
+              1791550800000,
+              1791637200000
+            ],
+            "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "24h"
+          },
+          {
+            "evidenceId": "USUSDT:global.long.change24h",
+            "result": "16.36000000",
+            "phrase": "全市场净多/净空头账户空方占比24小时从 66.88% 到 50.52%，变化 -16.36 个百分点；多方变化 16.36 个百分点",
+            "dataTimes": [
+              1791550800000,
+              1791637200000
+            ],
+            "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "USUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "24h"
+          },
+          {
+            "evidenceId": "USUSDT:directional.price.previous1h",
+            "result": "12.83734811",
+            "phrase": "此前已收盘1小时价格变化 12.84%",
+            "dataTimes": [
+              1791630000000,
+              1791633599999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "USUSDT:directional.price.previous4h",
+            "result": "-13.60014293",
+            "phrase": "此前已收盘4小时价格变化 -13.60%",
+            "dataTimes": [
+              1791608400000,
+              1791622799999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "4h"
+          },
+          {
+            "evidenceId": "USUSDT:directional.price.previous24h",
+            "result": "124.88605287",
+            "phrase": "此前已收盘24小时价格变化 124.89%",
+            "dataTimes": [
+              1791464400000,
+              1791550799999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "USUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "24h"
+          }
+        ],
+        "windows": [
+          {
+            "horizon": "1h",
+            "priceId": "USUSDT:price.closed1h",
+            "oiId": "USUSDT:oi.1h",
+            "previousPriceId": "USUSDT:directional.price.previous1h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": true
+          },
+          {
+            "horizon": "4h",
+            "priceId": "USUSDT:price.closed4h",
+            "oiId": "USUSDT:oi.4h",
+            "previousPriceId": "USUSDT:directional.price.previous4h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": false
+          },
+          {
+            "horizon": "24h",
+            "priceId": "USUSDT:price.closed24h",
+            "oiId": "USUSDT:oi.24h",
+            "previousPriceId": "USUSDT:directional.price.previous24h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": true
+          }
+        ],
+        "rules": [
+          {
+            "id": "PRICE_OPPOSITE_1h",
+            "horizon": "1h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 7.060780165,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动1h价格变化≥7.0608%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "USUSDT:price.closed1h"
+          },
+          {
+            "id": "OI_REVERSED_1h",
+            "horizon": "1h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "LTE",
+            "threshold": -5,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "USUSDT:oi.1h"
+          },
+          {
+            "id": "PRICE_OPPOSITE_4h",
+            "horizon": "4h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 3.01513773,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动4h价格变化≥3.0151%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "USUSDT:price.closed4h"
+          },
+          {
+            "id": "OI_REVERSED_4h",
+            "horizon": "4h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "GTE",
+            "threshold": 5,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确4h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "USUSDT:oi.4h"
+          },
+          {
+            "id": "PRICE_OPPOSITE_24h",
+            "horizon": "24h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 14.591839915,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动24h价格变化≥14.5918%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "USUSDT:price.closed24h"
+          },
+          {
+            "id": "OI_REVERSED_24h",
+            "horizon": "24h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "GTE",
+            "threshold": 10.83098734,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确24h OI数量变化≥10.8310%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "USUSDT:oi.24h"
+          }
+        ],
+        "unavailable": [
+          "未接入可靠价格结构、主动买卖量、CVD、Basis、OI/流通市值",
+          "topAccounts:BINANCE_MARKET_DATA_KEY_MISSING",
+          "topPositions:BINANCE_MARKET_DATA_KEY_MISSING"
+        ],
+        "contractVersion": "DIRECTIONAL_ANALYST_V2",
+        "evidenceGuide": {
+          "allowedEvidenceIds": [
+            "USUSDT:price.rolling24h",
+            "USUSDT:price.last",
+            "USUSDT:volume.rolling24h",
+            "USUSDT:price.closed1h",
+            "USUSDT:price.closed4h",
+            "USUSDT:price.closed24h",
+            "USUSDT:price.rangeLowHigh",
+            "USUSDT:price.drawdown",
+            "USUSDT:volume.relative1h",
+            "USUSDT:volume.relative5m",
+            "USUSDT:volume.closed1h",
+            "USUSDT:oi.1h",
+            "USUSDT:oi.4h",
+            "USUSDT:oi.24h",
+            "USUSDT:funding.latest",
+            "USUSDT:funding.sum24h",
+            "USUSDT:funding.change",
+            "USUSDT:global.long.latest",
+            "USUSDT:global.short.change1h",
+            "USUSDT:global.long.change1h",
+            "USUSDT:global.short.change4h",
+            "USUSDT:global.long.change4h",
+            "USUSDT:global.short.change24h",
+            "USUSDT:global.long.change24h",
+            "USUSDT:directional.price.previous1h",
+            "USUSDT:directional.price.previous4h",
+            "USUSDT:directional.price.previous24h"
+          ],
+          "primaryPriceByHorizon": {
+            "1h": "USUSDT:price.closed1h",
+            "4h": "USUSDT:price.closed4h",
+            "24h": "USUSDT:price.closed24h"
+          },
+          "previousPriceByHorizon": {
+            "1h": "USUSDT:directional.price.previous1h",
+            "4h": "USUSDT:directional.price.previous4h",
+            "24h": "USUSDT:directional.price.previous24h"
+          },
+          "referenceRule": "All textual references must exist in evidence. Supporting/conflicting arrays describe argumentative roles, not an exhaustive list of background observations. Different windows retain their own labels and times."
+        },
+        "contentContract": {
+          "observation": "Registry facts only; exact metric/unit/window/scope, no future observations.",
+          "mechanism": "Conditional possible explanation supported by price and OI; not a confirmed opening, closing, liquidation or funds-flow claim.",
+          "forecast": "marketThesis/preferredScenario/alternativeScenario are uncertain horizon-bound hypotheses; evidence verifies inputs, not future truth.",
+          "invalidation": "Only selected predefined INVALIDATED rules automate invalidation. Qualitative reassessment does not."
+        }
+      },
+      "originalResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "USUSDT",
+        "evaluationTime": "2026-10-10T13:00:15.062Z",
+        "marketBias": "BEARISH",
+        "horizon": "1h",
+        "horizonReason": "1h窗口对齐且反转证据可用：已收盘1h价格-14.12%较此前等长1h窗口+12.84%真实转向，同期OI数量+0.30%小幅扩张，价格下行伴随敞口未收缩，故以1h为评估horizon。",
+        "conviction": "LOW",
+        "marketThesis": "已收盘1h价格-14.12%较此前1h+12.84%转向下行，同期OI数量+0.30%小幅扩张，价格下行与敞口未收缩并存，倾向未来1h维持偏弱；但1h相对量0.89倍低于前24根均值，且24h OI数量-21.66%显示中期敞口大幅收缩，强度仅LOW。",
+        "marketMechanism": "价格1h下行且同窗口OI数量小幅上升，与新增空头敞口或部分多头承接并存的可能性相容；24h OI数量-21.66%与价格-29.18%同向收缩，也可能反映此前杠杆敞口持续了结。以上均为可能机制，不确认单侧开平仓、强平或资金流向。",
+        "supportingEvidenceIds": [
+          "USUSDT:price.closed1h",
+          "USUSDT:directional.price.previous1h",
+          "USUSDT:oi.1h",
+          "USUSDT:price.closed24h",
+          "USUSDT:oi.24h",
+          "USUSDT:price.drawdown"
+        ],
+        "conflictingEvidenceIds": [
+          "USUSDT:volume.relative1h",
+          "USUSDT:global.long.change1h",
+          "USUSDT:global.short.change1h",
+          "USUSDT:funding.latest"
+        ],
+        "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+        "preferredScenario": "未来1h价格延续偏弱，已收盘1h变化维持负值或再度下探，同时OI数量不出现明显收缩；若1h相对量继续低于前24根均值，则下行延续力度受限。",
+        "invalidation": {
+          "type": "OBSERVABLE_CONDITION",
+          "ruleIds": [
+            "PRICE_OPPOSITE_1h",
+            "OI_REVERSED_1h"
+          ],
+          "description": "若后续新收盘滚动1h价格变化≥7.0608%，方向命题按PRICE_OPPOSITE_1h失效；若后续新采样精确1h OI数量变化≤-5.0000%，按OI_REVERSED_1h触发复核。"
+        },
+        "alternativeScenario": "若未来1h价格转为上行且OI数量同步扩张，则当前偏弱倾向被削弱，可能进入反弹修复；但全市场空方账户占比1h仅下降0.55个百分点、Funding最新结算0.0075%仍为多头支付空头，账户与资金费率翻转本身不足以确认反转。",
+        "followUpChecks": [
+          "跟踪后续新收盘1h价格变化是否达到+7.0608%以上，以及精确1h OI数量变化是否≤-5.0000%，分别对应方向失效与敞口逆转复核。",
+          "观察1h相对量能否回到前24根均值以上，并留意全市场多空账户占比与最新结算Funding是否延续当前方向，以判断下行参与度是否持续。"
+        ]
+      },
+      "preciseErrors": [
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-14.12%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [
+            "USUSDT:price.closed1h"
+          ],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+12.84%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": true
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+0.30%",
+          "window": "1h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-14.12%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [
+            "USUSDT:price.closed1h"
+          ],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+12.84%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": true
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+0.30%",
+          "window": "1h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "0.89倍",
+          "window": "1h",
+          "metric": null,
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-21.66%",
+          "window": "24h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [
+            "USUSDT:oi.24h"
+          ],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS",
+          "path": "/marketThesis"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-21.66%",
+          "window": "24h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [
+            "USUSDT:oi.24h"
+          ],
+          "ruleId": null,
+          "field": "marketMechanism",
+          "role": "MECHANISM"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-29.18%",
+          "window": "24h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [
+            "USUSDT:price.closed24h"
+          ],
+          "ruleId": null,
+          "field": "marketMechanism",
+          "role": "MECHANISM"
+        },
+        {
+          "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "杠杆",
+          "span": "也可能反映此前杠杆敞口持续了结",
+          "denied": false,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": false
+        },
+        {
+          "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "平仓",
+          "span": "不确认单侧开平仓、强平或资金流向",
+          "denied": true,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": true
+        },
+        {
+          "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "强平",
+          "span": "不确认单侧开平仓、强平或资金流向",
+          "denied": true,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": true
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "0.55个百分点",
+          "window": "1h",
+          "metric": null,
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "alternativeScenario",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "0.0075%",
+          "window": "1h",
+          "metric": {
+            "kind": "funding",
+            "variant": "change"
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "alternativeScenario",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "WRONG_ACCOUNT_OR_OI_SCOPE",
+          "match": "账户与资金",
+          "span": "账户与资金费率翻转本身不足以确认反转",
+          "denied": false,
+          "field": "alternativeScenario",
+          "role": "FORECAST_HYPOTHESIS",
+          "allowed": false
+        },
+        {
+          "code": "VERIFIED_RULE_LITERAL",
+          "literal": "7.0608%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": true,
+            "previous": false
+          },
+          "evidenceIds": [],
+          "ruleId": "PRICE_OPPOSITE_1h",
+          "field": "invalidation",
+          "role": "REASSESSMENT"
+        },
+        {
+          "code": "VERIFIED_RULE_LITERAL",
+          "literal": "-5.0000%",
+          "window": "1h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": "OI_REVERSED_1h",
+          "field": "invalidation",
+          "role": "REASSESSMENT"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+7.0608%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "followUp0",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "-5.0000%",
+          "window": "1h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "followUp0",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "path": "/"
+        }
+      ],
+      "allowedEvidenceIds": [
+        "USUSDT:price.rolling24h",
+        "USUSDT:price.last",
+        "USUSDT:volume.rolling24h",
+        "USUSDT:price.closed1h",
+        "USUSDT:price.closed4h",
+        "USUSDT:price.closed24h",
+        "USUSDT:price.rangeLowHigh",
+        "USUSDT:price.drawdown",
+        "USUSDT:volume.relative1h",
+        "USUSDT:volume.relative5m",
+        "USUSDT:volume.closed1h",
+        "USUSDT:oi.1h",
+        "USUSDT:oi.4h",
+        "USUSDT:oi.24h",
+        "USUSDT:funding.latest",
+        "USUSDT:funding.sum24h",
+        "USUSDT:funding.change",
+        "USUSDT:global.long.latest",
+        "USUSDT:global.short.change1h",
+        "USUSDT:global.long.change1h",
+        "USUSDT:global.short.change4h",
+        "USUSDT:global.long.change4h",
+        "USUSDT:global.short.change24h",
+        "USUSDT:global.long.change24h",
+        "USUSDT:directional.price.previous1h",
+        "USUSDT:directional.price.previous4h",
+        "USUSDT:directional.price.previous24h"
+      ],
+      "mustFix": "Repair contract fields and unsupported assertions; do not invent observations or IDs."
+    }
+  },
+  "generationParameters": {
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "thinking": {
+      "type": "disabled"
+    },
+    "max_tokens": 6000,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "promptVersion": "DIRECTIONAL_ANALYST_V2",
+  "schemaVersion": "DIRECTIONAL_ANALYST_V2"
+}

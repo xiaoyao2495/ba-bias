@@ -1,0 +1,123 @@
+{
+  "mode": "READ_ONLY_CONTEXT_VALIDATION_NOT_A_PREDICTION",
+  "networkCalls": 0,
+  "checks": [
+    {
+      "file": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_1200/facts/MAGICUSDT.json",
+      "symbol": "MAGICUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "validInput": true,
+      "futureEvidence": false,
+      "evidenceCount": 22,
+      "capabilities": {
+        "priceStructure": false,
+        "takerFlow": false,
+        "cvd": false,
+        "basis": false,
+        "oiMarketCap": false
+      },
+      "windows": [
+        {
+          "horizon": "1h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        },
+        {
+          "horizon": "4h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        },
+        {
+          "horizon": "24h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        }
+      ],
+      "unchanged": true
+    },
+    {
+      "file": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_1200/facts/PIXELUSDT.json",
+      "symbol": "PIXELUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "validInput": true,
+      "futureEvidence": false,
+      "evidenceCount": 22,
+      "capabilities": {
+        "priceStructure": false,
+        "takerFlow": false,
+        "cvd": false,
+        "basis": false,
+        "oiMarketCap": false
+      },
+      "windows": [
+        {
+          "horizon": "1h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        },
+        {
+          "horizon": "4h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        },
+        {
+          "horizon": "24h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        }
+      ],
+      "unchanged": true
+    },
+    {
+      "file": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_1200/facts/XMRUSDT.json",
+      "symbol": "XMRUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "validInput": true,
+      "futureEvidence": false,
+      "evidenceCount": 22,
+      "capabilities": {
+        "priceStructure": false,
+        "takerFlow": false,
+        "cvd": false,
+        "basis": false,
+        "oiMarketCap": false
+      },
+      "windows": [
+        {
+          "horizon": "1h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        },
+        {
+          "horizon": "4h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        },
+        {
+          "horizon": "24h",
+          "hasPrice": true,
+          "hasOi": true,
+          "hasPreviousPrice": true,
+          "aligned": true
+        }
+      ],
+      "unchanged": true
+    }
+  ]
+}

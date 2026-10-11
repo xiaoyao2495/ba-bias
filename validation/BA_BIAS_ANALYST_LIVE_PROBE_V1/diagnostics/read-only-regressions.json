@@ -1,0 +1,188 @@
+[
+  {
+    "label": "OFFLINE_DIAGNOSTIC_ONLY_NOT_A_LIVE_RESULT",
+    "text": "过去4h价格上涨3.18%，OI数量增长11.49%。",
+    "ok": true,
+    "errors": [],
+    "diagnostics": [
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "3.18%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "ERAUSDT:price.closed4h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "11.49%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "ERAUSDT:oi.4h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      }
+    ]
+  },
+  {
+    "label": "OFFLINE_DIAGNOSTIC_ONLY_NOT_A_LIVE_RESULT",
+    "text": "过去4h价格上涨+3.18%，OI数量增长+11.49%。",
+    "ok": false,
+    "errors": [
+      "UNTRUSTED_NUMBER_OR_PROBABILITY"
+    ],
+    "diagnostics": [
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+3.18%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+11.49%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "path": "/"
+      }
+    ]
+  },
+  {
+    "label": "OFFLINE_DIAGNOSTIC_ONLY_NOT_A_LIVE_RESULT",
+    "text": "ERAUSDT过去4h价格上涨3.18%，OI数量增长11.49%。",
+    "ok": false,
+    "errors": [
+      "UNTRUSTED_SYMBOL_OR_METRIC"
+    ],
+    "diagnostics": [
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "3.18%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "ERAUSDT:price.closed4h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "11.49%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "ERAUSDT:oi.4h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      }
+    ]
+  },
+  {
+    "label": "OFFLINE_DIAGNOSTIC_ONLY_NOT_A_LIVE_RESULT",
+    "text": "无法确认强平行为。",
+    "ok": true,
+    "errors": [],
+    "diagnostics": [
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "强平",
+        "span": "无法确认强平行为",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      }
+    ]
+  },
+  {
+    "label": "OFFLINE_DIAGNOSTIC_ONLY_NOT_A_LIVE_RESULT",
+    "text": "无法据此确认强平行为。",
+    "ok": false,
+    "errors": [
+      "UNSUPPORTED_CAUSE_OR_ORDER"
+    ],
+    "diagnostics": [
+      {
+        "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "强平",
+        "span": "无法据此确认强平行为",
+        "denied": false,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": false
+      }
+    ]
+  },
+  {
+    "label": "OFFLINE_DIAGNOSTIC_ONLY_NOT_A_LIVE_RESULT",
+    "text": "不保证未来方向。",
+    "ok": false,
+    "errors": [
+      "UNSUPPORTED_CAUSE_OR_ORDER",
+      "FORECAST_CERTAINTY_OR_STRUCTURE_UNSUPPORTED"
+    ],
+    "diagnostics": [
+      {
+        "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "保证",
+        "span": "不保证未来方向",
+        "denied": false,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": false
+      },
+      {
+        "code": "FORECAST_CERTAINTY_OR_STRUCTURE_UNSUPPORTED",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      }
+    ]
+  }
+]

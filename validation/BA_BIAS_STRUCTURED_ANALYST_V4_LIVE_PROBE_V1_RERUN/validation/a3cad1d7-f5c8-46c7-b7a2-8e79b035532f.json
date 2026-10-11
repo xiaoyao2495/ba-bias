@@ -1,0 +1,535 @@
+{
+  "intentId": "75d1721a-0a98-4e9d-a152-f7373c9c47a9",
+  "requestId": "a3cad1d7-f5c8-46c7-b7a2-8e79b035532f",
+  "requestIdKind": "LOCAL_TRACKING_ID",
+  "sampleId": "s_hourly_20261010_1200_PIXELUSDT",
+  "attempt": 2,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "2026-10-10T04:00:21.024Z",
+  "availability": "UNKNOWN",
+  "causalBacktestEligible": false,
+  "isolatedFutureRows": [
+    {
+      "source": "hour",
+      "rows": 1,
+      "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+    },
+    {
+      "source": "five",
+      "rows": 1,
+      "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+    }
+  ],
+  "retainedFutureEvidence": 0,
+  "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence.",
+  "researchExecutedAt": "2026-10-10T20:54:10.729Z",
+  "receivedAt": "2026-10-10T20:54:12.626Z",
+  "actualModel": "deepseek-flash",
+  "physicalRequests": 1,
+  "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+  "httpStatus": "UNKNOWN_CLIENT_DOES_NOT_EXPOSE_STATUS",
+  "serverResponseId": "a38656a4-b8a1-4258-bb55-f161b57f0e64",
+  "serverRequestId": null,
+  "rawText": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"PIXELUSDT\",\n  \"evaluationTime\": \"2026-10-10T04:00:15.949Z\",\n  \"direction\": \"BEARISH_REVERSAL\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"LOW\",\n  \"supportingEvidenceIds\": [\n    \"PIXELUSDT:price.closed1h\",\n    \"PIXELUSDT:directional.price.previous1h\",\n    \"PIXELUSDT:oi.1h\",\n    \"PIXELUSDT:volume.relative1h\",\n    \"PIXELUSDT:price.drawdown\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"PIXELUSDT:price.closed4h\",\n    \"PIXELUSDT:price.closed24h\",\n    \"PIXELUSDT:oi.4h\",\n    \"PIXELUSDT:oi.24h\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_EXPANSION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"PIXELUSDT:price.closed1h\",\n      \"PIXELUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"TURN\",\n    \"evidenceIds\": [\n      \"PIXELUSDT:price.closed1h\",\n      \"PIXELUSDT:directional.price.previous1h\",\n      \"PIXELUSDT:oi.1h\",\n      \"PIXELUSDT:volume.relative1h\",\n      \"PIXELUSDT:price.drawdown\",\n      \"PIXELUSDT:price.closed4h\",\n      \"PIXELUSDT:price.closed24h\"\n    ],\n    \"alternative\": \"OPPOSITE_MOVE\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    },\n    {\n      \"conditionType\": \"ABSTRACT_REASSESSMENT\",\n      \"metricOrStructureEvidenceId\": \"PIXELUSDT:volume.relative1h\",\n      \"interpretation\": \"MONITOR_CHANGE\",\n      \"consequence\": \"REASSESS_ONLY\"\n    }\n  ]\n}",
+  "jsonParseable": true,
+  "schemaValid": true,
+  "validation": {
+    "ok": true,
+    "status": "EXPERIMENT_VALIDATED",
+    "errors": [],
+    "analysis": {
+      "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+      "status": "NOT_PRODUCTION",
+      "causalBacktestEligible": false,
+      "symbol": "PIXELUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "direction": "BEARISH_REVERSAL",
+      "horizon": "1h",
+      "conviction": "LOW",
+      "supportingEvidenceIds": [
+        "PIXELUSDT:price.closed1h",
+        "PIXELUSDT:directional.price.previous1h",
+        "PIXELUSDT:oi.1h",
+        "PIXELUSDT:volume.relative1h",
+        "PIXELUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "PIXELUSDT:price.closed4h",
+        "PIXELUSDT:price.closed24h",
+        "PIXELUSDT:oi.4h",
+        "PIXELUSDT:oi.24h"
+      ],
+      "structureEvidenceIds": [],
+      "mechanismHypothesis": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "PIXELUSDT:price.closed1h",
+          "PIXELUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "directionalRationale": {
+        "hypothesis": "TURN",
+        "evidenceIds": [
+          "PIXELUSDT:price.closed1h",
+          "PIXELUSDT:directional.price.previous1h",
+          "PIXELUSDT:oi.1h",
+          "PIXELUSDT:volume.relative1h",
+          "PIXELUSDT:price.drawdown",
+          "PIXELUSDT:price.closed4h",
+          "PIXELUSDT:price.closed24h"
+        ],
+        "alternative": "OPPOSITE_MOVE",
+        "certainty": "CONDITIONAL_NOT_CONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "reassessmentConditions": [
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "PRICE_OPPOSITE_1h"
+        },
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "OI_REVERSED_1h"
+        },
+        {
+          "conditionType": "ABSTRACT_REASSESSMENT",
+          "metricOrStructureEvidenceId": "PIXELUSDT:volume.relative1h",
+          "interpretation": "MONITOR_CHANGE",
+          "consequence": "REASSESS_ONLY"
+        }
+      ]
+    },
+    "provenanceValid": true,
+    "analysisValid": true,
+    "provenance": {
+      "sourceType": "LIVE_MODEL_RESPONSE",
+      "executionKind": "LIVE_API",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "requestedModel": "deepseek-flash",
+      "requestId": "a3cad1d7-f5c8-46c7-b7a2-8e79b035532f",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "a38656a4-b8a1-4258-bb55-f161b57f0e64",
+      "requestedAt": "2026-10-10T20:54:10.729Z",
+      "receivedAt": "2026-10-10T20:54:12.626Z",
+      "requestHash": "521c96f78d708f2c5ffab245adf01491671a88258156aa5fd2b5dea7ee5741fd",
+      "responseHash": "a68826a119fb153fa15131852c90e80895260c94b762794cc273a595a136df51",
+      "inputHash": "75e1168b24becdb021a4092ff3b3e01d6d1c640ec3d8a71f74f31a057467692e"
+    }
+  },
+  "trustedProvenance": {
+    "sourceType": "LIVE_MODEL_RESPONSE",
+    "executionKind": "LIVE_API",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "requestedModel": "deepseek-flash",
+    "requestId": "a3cad1d7-f5c8-46c7-b7a2-8e79b035532f",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "serverResponseId": "a38656a4-b8a1-4258-bb55-f161b57f0e64",
+    "requestedAt": "2026-10-10T20:54:10.729Z",
+    "receivedAt": "2026-10-10T20:54:12.626Z",
+    "requestHash": "521c96f78d708f2c5ffab245adf01491671a88258156aa5fd2b5dea7ee5741fd",
+    "responseHash": "a68826a119fb153fa15131852c90e80895260c94b762794cc273a595a136df51",
+    "inputHash": "75e1168b24becdb021a4092ff3b3e01d6d1c640ec3d8a71f74f31a057467692e"
+  },
+  "analysis": {
+    "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+    "status": "NOT_PRODUCTION",
+    "causalBacktestEligible": false,
+    "symbol": "PIXELUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "direction": "BEARISH_REVERSAL",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "supportingEvidenceIds": [
+      "PIXELUSDT:price.closed1h",
+      "PIXELUSDT:directional.price.previous1h",
+      "PIXELUSDT:oi.1h",
+      "PIXELUSDT:volume.relative1h",
+      "PIXELUSDT:price.drawdown"
+    ],
+    "conflictingEvidenceIds": [
+      "PIXELUSDT:price.closed4h",
+      "PIXELUSDT:price.closed24h",
+      "PIXELUSDT:oi.4h",
+      "PIXELUSDT:oi.24h"
+    ],
+    "structureEvidenceIds": [],
+    "mechanismHypothesis": {
+      "type": "CONTRACT_EXPANSION_COMPATIBLE",
+      "evidenceIds": [
+        "PIXELUSDT:price.closed1h",
+        "PIXELUSDT:oi.1h"
+      ],
+      "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+    },
+    "directionalRationale": {
+      "hypothesis": "TURN",
+      "evidenceIds": [
+        "PIXELUSDT:price.closed1h",
+        "PIXELUSDT:directional.price.previous1h",
+        "PIXELUSDT:oi.1h",
+        "PIXELUSDT:volume.relative1h",
+        "PIXELUSDT:price.drawdown",
+        "PIXELUSDT:price.closed4h",
+        "PIXELUSDT:price.closed24h"
+      ],
+      "alternative": "OPPOSITE_MOVE",
+      "certainty": "CONDITIONAL_NOT_CONFIRMED"
+    },
+    "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+    "reassessmentConditions": [
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "PRICE_OPPOSITE_1h"
+      },
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "OI_REVERSED_1h"
+      },
+      {
+        "conditionType": "ABSTRACT_REASSESSMENT",
+        "metricOrStructureEvidenceId": "PIXELUSDT:volume.relative1h",
+        "interpretation": "MONITOR_CHANGE",
+        "consequence": "REASSESS_ONLY"
+      }
+    ]
+  },
+  "rendererAudit": {
+    "ok": true,
+    "status": "PASS",
+    "errors": [],
+    "claims": [
+      {
+        "renderedClaim": "支持: PIXELUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -4.59125112 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 -4.59%",
+        "evidenceId": "PIXELUSDT:price.closed1h",
+        "factsFields": [
+          "evidence[3].result",
+          "evidence[3].phrase",
+          "evidence[3].dataTimes",
+          "evidence[3].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-4.59125112",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: PIXELUSDT:directional.price.previous1h | PREVIOUS_PRICE_CHANGE | 9.05424200 % | window=1h | observedAt=2026-10-10T02:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 此前已收盘1小时价格变化 9.05%",
+        "evidenceId": "PIXELUSDT:directional.price.previous1h",
+        "factsFields": [
+          "sources.hour.raw (previous equal-length closed bars: [1] open, [4] close, [0]/[6] times)"
+        ],
+        "value": "9.05424200",
+        "unit": "%",
+        "window": "1h",
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "dataTimes": [
+          1791597600000,
+          1791601199999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(previous equal-length closed window close/open - 1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: PIXELUSDT:oi.1h | OI_QUANTITY_CHANGE | 4.80071215 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 4.80%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "PIXELUSDT:oi.1h",
+        "factsFields": [
+          "evidence[11].result",
+          "evidence[11].phrase",
+          "evidence[11].dataTimes",
+          "evidence[11].formula",
+          "sources.oi.raw"
+        ],
+        "value": "4.80071215",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: PIXELUSDT:volume.relative1h | RELATIVE_VOLUME | 5.58621527 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 5.59 倍",
+        "evidenceId": "PIXELUSDT:volume.relative1h",
+        "factsFields": [
+          "evidence[8].result",
+          "evidence[8].phrase",
+          "evidence[8].dataTimes",
+          "evidence[8].formula",
+          "sources.hour.raw"
+        ],
+        "value": "5.58621527",
+        "unit": "multiple",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791514800000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: PIXELUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -11.28724672 % | window=24h | observedAt=2026-10-10T04:00:08.690Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -11.29%",
+        "evidenceId": "PIXELUSDT:price.drawdown",
+        "factsFields": [
+          "evidence[7].result",
+          "evidence[7].phrase",
+          "evidence[7].dataTimes",
+          "evidence[7].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-11.28724672",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791604799999,
+          1791604808690
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(lastPrice/high-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: PIXELUSDT:price.closed4h | PRICE_CLOSED_CHANGE | 5.67876819 % | window=4h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘4小时价格变化 5.68%",
+        "evidenceId": "PIXELUSDT:price.closed4h",
+        "factsFields": [
+          "evidence[4].result",
+          "evidence[4].phrase",
+          "evidence[4].dataTimes",
+          "evidence[4].formula",
+          "sources.hour.raw"
+        ],
+        "value": "5.67876819",
+        "unit": "%",
+        "window": "4h",
+        "scope": null,
+        "dataTimes": [
+          1791590400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: PIXELUSDT:price.closed24h | PRICE_CLOSED_CHANGE | 28.05546046 % | window=24h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘24小时价格变化 28.06%",
+        "evidenceId": "PIXELUSDT:price.closed24h",
+        "factsFields": [
+          "evidence[5].result",
+          "evidence[5].phrase",
+          "evidence[5].dataTimes",
+          "evidence[5].formula",
+          "sources.hour.raw"
+        ],
+        "value": "28.05546046",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: PIXELUSDT:oi.4h | OI_QUANTITY_CHANGE | 21.39337052 % | window=4h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 4小时OI数量变化 21.39%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "PIXELUSDT:oi.4h",
+        "factsFields": [
+          "evidence[12].result",
+          "evidence[12].phrase",
+          "evidence[12].dataTimes",
+          "evidence[12].formula",
+          "sources.oi.raw"
+        ],
+        "value": "21.39337052",
+        "unit": "%",
+        "window": "4h",
+        "scope": null,
+        "dataTimes": [
+          1791590400000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: PIXELUSDT:oi.24h | OI_QUANTITY_CHANGE | 82.42719846 % | window=24h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 24小时OI数量变化 82.43%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "PIXELUSDT:oi.24h",
+        "factsFields": [
+          "evidence[13].result",
+          "evidence[13].phrase",
+          "evidence[13].dataTimes",
+          "evidence[13].formula",
+          "sources.oi.raw"
+        ],
+        "value": "82.42719846",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791518400000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "PIXELUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      }
+    ],
+    "programRules": [
+      {
+        "renderedRule": {
+          "id": "PRICE_OPPOSITE_1h",
+          "horizon": "1h",
+          "metric": "PRICE_CLOSED_CHANGE",
+          "operator": "GTE",
+          "threshold": 2.29562556,
+          "outcome": "INVALIDATED",
+          "description": "后续新收盘滚动1h价格变化≥2.2956%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+          "baselineEvidenceId": "PIXELUSDT:price.closed1h"
+        },
+        "baselineFactsEvidenceId": "PIXELUSDT:price.closed1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(1, abs(current price change)/2)"
+      },
+      {
+        "renderedRule": {
+          "id": "OI_REVERSED_1h",
+          "horizon": "1h",
+          "metric": "OI_QUANTITY_CHANGE",
+          "operator": "LTE",
+          "threshold": -5,
+          "outcome": "THESIS_WARNING",
+          "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+          "baselineEvidenceId": "PIXELUSDT:oi.1h"
+        },
+        "baselineFactsEvidenceId": "PIXELUSDT:oi.1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+      }
+    ],
+    "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+  },
+  "renderedText": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nPIXELUSDT BEARISH_REVERSAL / 1h / LOW\noriginalEvaluationTime=2026-10-10T04:00:15.949Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: PIXELUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -4.59125112 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 -4.59%\n支持: PIXELUSDT:directional.price.previous1h | PREVIOUS_PRICE_CHANGE | 9.05424200 % | window=1h | observedAt=2026-10-10T02:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 此前已收盘1小时价格变化 9.05%\n支持: PIXELUSDT:oi.1h | OI_QUANTITY_CHANGE | 4.80071215 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 4.80%（不代表资金净流入或多空加仓方向）\n支持: PIXELUSDT:volume.relative1h | RELATIVE_VOLUME | 5.58621527 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 5.59 倍\n支持: PIXELUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -11.28724672 % | window=24h | observedAt=2026-10-10T04:00:08.690Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -11.29%\n冲突: PIXELUSDT:price.closed4h | PRICE_CLOSED_CHANGE | 5.67876819 % | window=4h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘4小时价格变化 5.68%\n冲突: PIXELUSDT:price.closed24h | PRICE_CLOSED_CHANGE | 28.05546046 % | window=24h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘24小时价格变化 28.06%\n冲突: PIXELUSDT:oi.4h | OI_QUANTITY_CHANGE | 21.39337052 % | window=4h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 4小时OI数量变化 21.39%（不代表资金净流入或多空加仓方向）\n冲突: PIXELUSDT:oi.24h | OI_QUANTITY_CHANGE | 82.42719846 % | window=24h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 24小时OI数量变化 82.43%（不代表资金净流入或多空加仓方向）\n机制假设: 与合约规模扩张相容，不确认单侧新增仓位。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 有前期与近期价格证据的条件性转向假设；竞争情景=OPPOSITE_MOVE，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE GTE 2.29562556% => INVALIDATED; 后续新收盘滚动1h价格变化≥2.2956%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE LTE -5% => THESIS_WARNING; 后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核\nPIXELUSDT:volume.relative1h: 观察变化，仅复核，不自动失效",
+  "qualityReview": {
+    "status": "UNCERTAIN",
+    "directionalInclination": "PASS",
+    "futureHorizon": "PASS",
+    "supportEvidence": "PASS",
+    "majorConflictConsideration": "PASS",
+    "unaddressedOpposingPriceIds": [],
+    "unsupportedCausality": "PASS",
+    "beyondPastFactRecap": "UNCERTAIN",
+    "conditionalHypothesis": "PASS",
+    "observableReassessment": "PASS",
+    "concreteTradeOpportunity": "NOT_APPLICABLE",
+    "directionSeparatedFromTrade": "PASS",
+    "noEdgeReason": "NOT_APPLICABLE",
+    "limitation": "Finite hypothesis/evidence enums cannot expose detailed reasoning or prove predictive edge. Correct IDs do not establish interpretive relevance; no outcome-based assessment performed."
+  },
+  "tokenUsage": {
+    "prompt_tokens": 7139,
+    "completion_tokens": 631,
+    "total_tokens": 7770,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 5859
+  },
+  "rawResponsePath": "validation/BA_BIAS_STRUCTURED_ANALYST_V4_LIVE_PROBE_V1_RERUN/raw_responses/a3cad1d7-f5c8-46c7-b7a2-8e79b035532f.json",
+  "error": null
+}

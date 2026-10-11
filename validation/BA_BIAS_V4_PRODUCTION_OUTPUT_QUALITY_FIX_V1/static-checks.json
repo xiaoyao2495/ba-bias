@@ -1,0 +1,441 @@
+{
+  "total": 87,
+  "passed": 87,
+  "checks": [
+    {
+      "file": "scripts/analyst-alignment-attribution.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-alignment-replay.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-alignment-report.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-generation-offline.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-live-probe-report.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-live-probe.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-precision-prepare.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-precision-replay.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-precision-report.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-semantic-grounding-replay.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-v3-live-preflight.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-v3-post-collection-probe.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-version.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/compact-replay.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/structured-v4-live-preflight.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/structured-v4-live-rerun.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/structured-v4-provenance-offline.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/structured-v4-provenance-replay.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/v4-output-quality-replay.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/validation-recovery-replay.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/active-analyst.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-alignment-guard.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-analyst.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-context.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-generation.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-history.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-legacy-guard.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-schema.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/evidence-precision-validator.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/evidence-text-validator.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-executor.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-guard.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-input.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-provenance.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-renderer.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-schema.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/structured-v4-production.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/clients/binance.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/clients/deepseek.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/clients/dingtalk.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/clients/http.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/config.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/content/claim-guard.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/content/draft-writer.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/content/schemas.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/content/story-judge.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/intelligence/compact-renderer.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/intelligence/notification-evidence.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/intelligence/packet.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/intelligence/v4-conditions.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/logging.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/main.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/detector.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/facts-engine.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/long-short-detector.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/long-short-discovery.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/long-short-facts.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/scanner.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/scan-daemon.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/scheduler.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/storage/delivery-queue.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/storage/delivery.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/storage/history.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/storage/message-boundaries.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-alignment.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-generation.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-live-probe.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-precision.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-v3-live-preflight.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-v3-post-collection.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/compact-fixture.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/compact.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/core.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/cutover-authorization.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/directional-fixture.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/directional.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/fixtures.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/hourly.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/long-short.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/output-quality-authorization.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/output-quality.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/structured-v4-live-preflight.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/structured-v4-live-rerun.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/structured-v4-provenance.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/structured-v4.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/v4-production.test.js",
+      "passed": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/validation-recovery.test.js",
+      "passed": true,
+      "diagnostic": ""
+    }
+  ]
+}

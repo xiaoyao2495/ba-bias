@@ -1,0 +1,181 @@
+
+> ba-bias@1.0.0 test
+> node --test test/*.test.js
+
+✔ OI change uses quantities and exact 4h samples (1.873875ms)
+✔ OI nominal growth cannot masquerade as quantity (0.259041ms)
+✔ funding payment direction freezes both signs (0.081292ms)
+✔ funding sum uses actual irregular settlements and rejects future (3.140875ms)
+✔ funding duplicates rejected and wrong symbols excluded (0.344958ms)
+✔ rolling ticker, closed interval and low-high range distinct (2.902375ms)
+✔ account ratios explicitly describe accounts only (1.634667ms)
+✔ UTC / Shanghai dates and midnight daily limit (0.326667ms)
+✔ unclosed or malformed candles excluded (1.055416ms)
+✔ missing/stale/invalid/future core data refuse eligibility, not zero (5.807083ms)
+✔ gap candles and inexact OI samples never substituted (1.925792ms)
+✔ crypto filter rejects TradFi, trackers and ambiguity (1.526416ms)
+✔ independent OI, volume and funding anomaly triggers (7.601708ms)
+✔ new story vs material update; small price drift duplicates (1.035917ms)
+✔ claim guard renders only trusted evidence (1.400583ms)
+✔ guard rejects invented digits, causal claims, directions and symbols (3.16175ms)
+✔ guard rejects unknown evidence, future, missing and wrong symbol (2.235417ms)
+✔ judge parsing schema and score enforce fail closed (3.014291ms)
+✔ DingTalk shadow default never invokes transport; notification labels (0.941084ms)
+✔ HTTP bounded timeout/network/429 retries and global cooldown (0.98375ms)
+✔ HTTP permanent error and banned IP are not retried (0.927042ms)
+✔ HTTP concurrency is bounded and errors sanitized (23.073083ms)
+✔ Binance allowlist has no trading endpoint (0.17125ms)
+✔ atomic history, exclusive lock and daily count reconciliation (15.694584ms)
+✔ CLI explicit send, no traversal, no invalid switches (0.268458ms)
+{"event":"Binance market scan started","runId":"TEST_INTEGRATION"}
+{"event":"Symbols","runId":"TEST_INTEGRATION","count":1}
+{"event":"Deep candidates","runId":"TEST_INTEGRATION","count":1}
+{"event":"Facts packages","runId":"TEST_INTEGRATION","count":1,"eligible":1}
+{"event":"Story Judge started","runId":"TEST_INTEGRATION","symbol":"TESTUSDT"}
+{"event":"Intelligence Guard passed","runId":"TEST_INTEGRATION","symbol":"TESTUSDT"}
+{"event":"Outbox saved","runId":"TEST_INTEGRATION","symbol":"TESTUSDT"}
+{"event":"Run completed","runId":"TEST_INTEGRATION","status":"COMPLETE","generated":1,"sent":0,"durationMs":17,"output":"/var/folders/g_/yrsq1m3j6698_p9gz7dqmpr40000gn/T/ba-pipeline-85pW8u/runs/TEST_INTEGRATION"}
+{"event":"Run already executed","runId":"TEST_INTEGRATION","status":"COMPLETE"}
+{"event":"Binance market scan started","runId":"TEST_DUPLICATE"}
+{"event":"Symbols","runId":"TEST_DUPLICATE","count":1}
+{"event":"Deep candidates","runId":"TEST_DUPLICATE","count":1}
+{"event":"Facts packages","runId":"TEST_DUPLICATE","count":1,"eligible":1}
+{"event":"Story Judge started","runId":"TEST_DUPLICATE","symbol":"TESTUSDT"}
+{"event":"Run completed","runId":"TEST_DUPLICATE","status":"COMPLETE","generated":0,"sent":0,"durationMs":15,"output":"/var/folders/g_/yrsq1m3j6698_p9gz7dqmpr40000gn/T/ba-pipeline-85pW8u/runs/TEST_DUPLICATE"}
+{"event":"DingTalk skipped: no eligible stories","runId":"TEST_DUPLICATE"}
+✔ full mocked pipeline, outbox, same run protection and duplicate story (52.762125ms)
+✔ zero trading-volume candles are valid; zero baseline remains null (0.909667ms)
+✔ ineligible judge may return empty evidence and stays rejected (0.762375ms)
+✔ daily generation counts shadow and sent equally and separates next day (0.215375ms)
+✔ aborted HTTP never starts a request (0.091292ms)
+✔ scan budget aborts stalled symbol and preserves completed real-shaped fixture (30.859917ms)
+{"event":"Binance market scan started","runId":"TEST_ALL"}
+{"event":"Symbols","runId":"TEST_ALL","count":3}
+{"event":"Deep candidates","runId":"TEST_ALL","count":3}
+{"event":"Facts packages","runId":"TEST_ALL","count":3,"eligible":3}
+{"event":"Story Judge started","runId":"TEST_ALL","symbol":"ALPHAUSDT"}
+{"event":"Intelligence Guard passed","runId":"TEST_ALL","symbol":"ALPHAUSDT"}
+{"event":"Outbox saved","runId":"TEST_ALL","symbol":"ALPHAUSDT"}
+{"event":"Story Judge started","runId":"TEST_ALL","symbol":"BETAUSDT"}
+{"event":"Intelligence Guard passed","runId":"TEST_ALL","symbol":"BETAUSDT"}
+{"event":"Outbox saved","runId":"TEST_ALL","symbol":"BETAUSDT"}
+{"event":"Story Judge started","runId":"TEST_ALL","symbol":"GAMMAUSDT"}
+{"event":"Intelligence Guard passed","runId":"TEST_ALL","symbol":"GAMMAUSDT"}
+{"event":"Outbox saved","runId":"TEST_ALL","symbol":"GAMMAUSDT"}
+{"event":"Run completed","runId":"TEST_ALL","status":"COMPLETE","generated":3,"sent":0,"durationMs":33,"output":"/var/folders/g_/yrsq1m3j6698_p9gz7dqmpr40000gn/T/ba-caps-L6dlBW/runs/TEST_ALL"}
+✔ full pipeline outputs all three candidates beyond thirty daily records (59.753167ms)
+✔ native one-letter and Unicode base assets accepted; path-like symbols excluded (0.679125ms)
+✔ cron explicitly matches Asia/Shanghai 09-23 with exactly 15 daily slots (32.219917ms)
+✔ 23:00 and non-running hours wait for next day 09:00 (0.616791ms)
+✔ startup at scheduled hour does not scan immediately or catch up (1.284084ms)
+✔ off-hours and non-hourly events never scan (0.565291ms)
+✔ scheduled slot waits 10 seconds, stable hourly runId and enabled notices (0.679292ms)
+✔ missed slots do not catch up when process resumes later (0.367084ms)
+✔ same process same scheduled hour executes only once (0.382417ms)
+✔ overlap is recorded without queueing and next future hour remains usable (0.431ms)
+✔ run failure preserves foreground scheduler for next hour (1.49325ms)
+✔ SIGINT stops pending delay, removes listeners and starts no research (0.599167ms)
+✔ SIGTERM aborts active research and waits for persistence before stopping (0.511042ms)
+✔ manual and hourly modes share exactly the same research function (0.131542ms)
+✔ new intelligence is saved first, then all DingTalk parts confirmed and counted (70.150834ms)
+✔ no eligible story saves empty summary and never sends a status message (28.390875ms)
+✔ optional Writer rejection does not block verified intelligence (33.149333ms)
+✔ manual dry-run and scan-only still never notify (29.805291ms)
+✔ restart sees completed runId and never repeats API or notification (42.085958ms)
+✔ HTTP 200 with nonzero errcode is FAILED, never SENT (22.486375ms)
+✔ network timeout is UNKNOWN and receives no retry (21.358417ms)
+✔ explicit rejection permits at most two attempts; no infinite retry (0.891833ms)
+✔ confirmed SENT and ambiguous UNKNOWN/SENDING cannot resend (0.099875ms)
+✔ concurrent same article dispatch reserves single deliveryId (0.114583ms)
+✔ old Outbox, wrong runId or missing approval cannot dispatch (0.076083ms)
+✔ crash during SENDING recovers UNKNOWN without sending old articles (3.576416ms)
+✔ dead PID and stale lease recover automatically and parallel winner stays exclusive (2.884417ms)
+✔ active owner cannot be stolen and a released lock can be acquired again (2.842458ms)
+✔ scheduled overlap summaries persist and cannot overwrite completed run (2.745292ms)
+✔ hourly pipeline outputs all three and keeps independent daily sent counts (61.609375ms)
+✔ DingTalk keyword mode sends the original webhook without signature parameters (0.305042ms)
+✔ logs show Shanghai clock and omit secret fields (0.135583ms)
+✔ concurrent skipped writes preserve an existing complete run atomically (1.889583ms)
+✔ stopping during close delay records interrupted slot without research (0.394459ms)
+✔ scheduler start failure cleans up tasks and signal handlers (0.116625ms)
+✔ seven qualified candidates are all judged, persisted and delivered beyond old top-six limit (130.16725ms)
+✔ daily output exceeds thirty without skipping any Judge or new notification (174.930833ms)
+✔ duplicate receives explicit terminal state and no second intelligence notification (56.023625ms)
+✔ material price update is judged, persisted with comparison and sent again with new deliveryId (79.392625ms)
+✔ failure of one intelligence delivery does not lose any later intelligence (80.051625ms)
+✔ Judge failure records JUDGE_FAILED and does not skip subsequent qualified candidates (69.921417ms)
+✔ interrupted evaluation lists unfinished candidates without claiming not-newsworthy (108.215125ms)
+✔ intelligence uses rebuilt facts and never asserts unvalidated Judge narrative (2.641167ms)
+✔ long Unicode messages split without losing text or exceeding UTF-8 budget (0.466125ms)
+✔ per-message pacing persists across worker restarts (24.484625ms)
+✔ 429 keeps durable PENDING with cooldown and resumes after restart without resending SENT parts (22.811833ms)
+✔ unknown multipart delivery never blindly resends and full unsent content remains (8.244917ms)
+✔ queue cancellation leaves pending intelligence for a later worker (18.372084ms)
+✔ transient retry attempts are finite per part and retained after exhaustion (43.458958ms)
+✔ queue recovery turns only uncertain sending parts UNKNOWN; excludes legacy/dry-run records (8.012792ms)
+✔ scheduled research cancels and awaits queue worker before requesting research lock (0.520667ms)
+✔ SIGTERM aborts delivery worker and waits for its persistence (0.190125ms)
+✔ concurrent queue workers use the shared exclusive run lock (27.536667ms)
+✔ DingTalk business frequency rejection is persisted for cooldown instead of UNKNOWN (31.617209ms)
+✔ incomplete deep facts get a persisted evidence terminal state without calling Judge (16.923542ms)
+✔ nineteen candidates are all judged and all seven newsworthy intelligence records are delivered (261.648042ms)
+✔ two same-day research rounds actually generate and send thirty-eight qualified intelligence records (969.280917ms)
+✔ dry-run archives do not suppress a fresh real-mode intelligence notification or resend the archived record (44.324166ms)
+✔ crash recovery preserves completed evaluations and explicitly identifies unfinished candidates (6.871333ms)
+✔ recovery does not downgrade a completed summary when history commit was interrupted (21.834833ms)
+✔ global: response parsed with raw query provenance and scope (3.725ms)
+✔ topAccounts: response parsed with raw query provenance and scope (2.160041ms)
+✔ topPositions: response parsed with raw query provenance and scope (0.589125ms)
+✔ top position shares never become account percentages or global OI shares (4.130917ms)
+✔ exact 1h 4h 24h percentage points are deterministic, not relative percent (8.632042ms)
+✔ top accounts and top positions have exact historical deltas independently (3.335209ms)
+✔ strict single sample dominance crossing is not confirmed (1.709042ms)
+✔ two consecutive new side samples confirm flip; short return is transient (2.323792ms)
+✔ 50/50 and missing intermediate sample do not confirm a flip (1.425166ms)
+✔ aligned top/global gap is account divergence, never compared with positions (1.31725ms)
+✔ opposite 4h account directions qualify even with small current gap (3.440458ms)
+✔ mismatched sampling time prevents top/global comparison (0.404833ms)
+✔ future row stays in raw but cannot change latest, deltas or flip (0.265542ms)
+✔ missing 4h start does not substitute nearest or interpolate (0.228958ms)
+✔ intermediate gap invalidates window despite valid endpoints (0.209417ms)
+✔ wrong symbol suppresses unreliable latest conclusion (0.202542ms)
+✔ wrong period suppresses unreliable latest conclusion (0.082167ms)
+✔ wrong endpoint suppresses unreliable latest conclusion (0.0795ms)
+✔ zero denominator suppresses unreliable latest conclusion (0.189583ms)
+✔ invalid range suppresses unreliable latest conclusion (0.212834ms)
+✔ inconsistent ratio suppresses unreliable latest conclusion (0.216416ms)
+✔ duplicate time suppresses unreliable latest conclusion (0.48175ms)
+✔ stale suppresses unreliable latest conclusion (0.24375ms)
+✔ top interfaces absent or forbidden degrade while global metrics remain usable (0.405417ms)
+✔ top key absent makes no request; configured key only reaches top headers, not persisted source (0.400375ms)
+✔ facts, Judge and packet retain long/short evidence and contextual price OI (11.320167ms)
+✔ original price OI Funding detection remains identical when new data constant (3.430833ms)
+✔ verified rebuild rejects tampered long/short conclusions and uses raw (2.364958ms)
+✔ long/short change alone makes MATERIAL_UPDATE; unchanged observation is duplicate (4.2725ms)
+✔ single flip later confirmed is material, extra confirmed samples alone are stable (3.667209ms)
+✔ Claim Guard rejects unsupported interpretation: 空头账户增加表明空头持续加仓 (1.484ms)
+✔ Claim Guard rejects unsupported interpretation: 多头账户下降是多头获利了结 (0.906708ms)
+✔ Claim Guard rejects unsupported interpretation: OI增加证明大量新空头入场 (1.122208ms)
+✔ Claim Guard rejects unsupported interpretation: 顶部交易员比例高说明聪明钱看多 (1.856666ms)
+✔ Claim Guard rejects unsupported interpretation: 背离意味着价格即将反转 (1.025584ms)
+✔ Claim Guard rejects unsupported interpretation: 账户翻转说明趋势已经确认反转 (1.1975ms)
+✔ Judge rules explicitly distinguish all three scopes and prohibit trade-cause inference (1.234292ms)
+✔ independent accounts cover whole Crypto set, join old probes and deduplicate (611.569375ms)
+✔ time budget persists uncovered symbols/reasons and rotates them first next run (23.628166ms)
+✔ statistics request ceiling observes cooldown using MOCK time and counts retries (0.66575ms)
+✔ HTTP 429 during account discovery remains insufficient, never normal (0.332375ms)
+✔ seven account-only candidates all reach Judge and output without probe or article quota (758.41475ms)
+✔ consistent off-hour sample phase uses exact offsets, never rounded hour substitutes (0.696042ms)
+✔ partial valid anomaly is retained while missing windows stay uncovered (0.497333ms)
+✔ material account changes show previous and current values in notification (3.959959ms)
+✔ invalid ratio cannot reappear through the legacy account snapshot (0.583917ms)
+✔ identical observed distribution at next hour does not become material through timestamps alone (2.090042ms)
+✔ discovery persistence failure awaits other workers before restoring shared signal (12.291166ms)
+ℹ tests 139
+ℹ suites 0
+ℹ pass 139
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2820.679125

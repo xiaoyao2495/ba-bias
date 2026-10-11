@@ -1,0 +1,106 @@
+{
+  "mockOnly": true,
+  "networkCalls": 0,
+  "examples": [
+    {
+      "bias": "BULLISH",
+      "analysis": {
+        "version": "DIRECTIONAL_ANALYST_V1",
+        "symbol": "TESTUSDT",
+        "evaluationTime": "2026-10-10T04:30:00.000Z",
+        "marketBias": "BULLISH",
+        "horizon": "4h",
+        "horizonReason": "采用已有价格及敞口变化所支持的观察尺度。",
+        "conviction": "MODERATE",
+        "marketThesis": "{{TESTUSDT:price.closed4h}}；{{TESTUSDT:oi.4h}}。短线偏多，倾向延续，但等待回踩而非直接追价。",
+        "marketMechanism": "价格变化与未平仓规模变化同时出现，因果机制仍需观察。",
+        "supportingEvidenceIds": [
+          "TESTUSDT:price.closed4h",
+          "TESTUSDT:oi.4h"
+        ],
+        "conflictingEvidenceIds": [],
+        "tradeOpportunity": "WAIT_FOR_PULLBACK",
+        "preferredScenario": "观察价格变化是否延续。",
+        "invalidation": {
+          "type": "OBSERVABLE_CONDITION",
+          "ruleIds": [
+            "PRICE_OPPOSITE_4h",
+            "OI_REVERSED_4h"
+          ],
+          "description": "使用输入定义的可观察条件复核原方向，等待可靠结构数据。"
+        },
+        "alternativeScenario": "价格变化未能延续，进入相反方向或震荡。",
+        "followUpChecks": [
+          "复核后续完整价格与OI样本。"
+        ]
+      },
+      "notification": "检测 · TESTUSDT 市场情报（MOCK 合成数据）\n方向研究（条件性假设）：\n市场倾向：短线偏多，倾向上涨延续\n观察周期：未来4h；采用已有价格及敞口变化所支持的观察尺度。\n证据强度：中等（定性标签，非胜率）\n当前交易机会：等待回踩\n核心判断：截至北京时间12:00，已收盘4小时价格变化 10.00%；4小时OI数量变化 5.63%（不代表资金净流入或多空加仓方向）。短线偏多，倾向延续，但等待回踩而非直接追价。\n机制解释：价格变化与未平仓规模变化同时出现，因果机制仍需观察。\n支持事实：截至北京时间12:00，已收盘4小时价格变化 10.00%；4小时OI数量变化 5.63%（不代表资金净流入或多空加仓方向）\n竞争情景：价格变化未能延续，进入相反方向或震荡。\n失效/复核条件：后续新收盘滚动4h价格变化≤-5.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守；后续新采样精确4h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核\n后续关注：复核后续完整价格与OI样本。\n研判ID：MOCK_BULLISH"
+    },
+    {
+      "bias": "BEARISH_REVERSAL",
+      "analysis": {
+        "version": "DIRECTIONAL_ANALYST_V1",
+        "symbol": "TESTUSDT",
+        "evaluationTime": "2026-10-10T04:30:00.000Z",
+        "marketBias": "BEARISH_REVERSAL",
+        "horizon": "1h",
+        "horizonReason": "采用已有价格及敞口变化所支持的观察尺度。",
+        "conviction": "MODERATE",
+        "marketThesis": "{{TESTUSDT:directional.price.previous1h}}；{{TESTUSDT:price.closed1h}}。此前偏强而最新窗口转弱，可能进入回落，仍待后续确认。",
+        "marketMechanism": "价格变化与未平仓规模变化同时出现，因果机制仍需观察。",
+        "supportingEvidenceIds": [
+          "TESTUSDT:price.closed1h",
+          "TESTUSDT:oi.1h",
+          "TESTUSDT:directional.price.previous1h"
+        ],
+        "conflictingEvidenceIds": [],
+        "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+        "preferredScenario": "观察价格变化是否延续。",
+        "invalidation": {
+          "type": "OBSERVABLE_CONDITION",
+          "ruleIds": [
+            "PRICE_OPPOSITE_1h",
+            "OI_REVERSED_1h"
+          ],
+          "description": "使用输入定义的可观察条件复核原方向，等待可靠结构数据。"
+        },
+        "alternativeScenario": "价格变化未能延续，进入相反方向或震荡。",
+        "followUpChecks": [
+          "复核后续完整价格与OI样本。"
+        ]
+      },
+      "notification": "检测 · TESTUSDT 市场情报（MOCK 合成数据）\n方向研究（条件性假设）：\n市场倾向：可能向下反转或回落\n观察周期：未来1h；采用已有价格及敞口变化所支持的观察尺度。\n证据强度：中等（定性标签，非胜率）\n当前交易机会：等待确认\n核心判断：此前已收盘1小时价格变化 10.00%；截至北京时间12:00，已收盘1小时价格变化 -10.00%。此前偏强而最新窗口转弱，可能进入回落，仍待后续确认。\n机制解释：价格变化与未平仓规模变化同时出现，因果机制仍需观察。\n支持事实：截至北京时间12:00，已收盘1小时价格变化 -10.00%；1小时OI数量变化 1.35%（不代表资金净流入或多空加仓方向）；此前已收盘1小时价格变化 10.00%\n竞争情景：价格变化未能延续，进入相反方向或震荡。\n失效/复核条件：后续新收盘滚动1h价格变化≥5.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守；后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核\n后续关注：复核后续完整价格与OI样本。\n研判ID：MOCK_BEARISH_REVERSAL"
+    },
+    {
+      "bias": "NO_EDGE",
+      "analysis": {
+        "version": "DIRECTIONAL_ANALYST_V1",
+        "symbol": "TESTUSDT",
+        "evaluationTime": "2026-10-10T04:30:00.000Z",
+        "marketBias": "NO_EDGE",
+        "horizon": "1h",
+        "horizonReason": "采用已有价格及敞口变化所支持的观察尺度。",
+        "conviction": "LOW",
+        "marketThesis": "{{TESTUSDT:price.closed1h}}；{{TESTUSDT:oi.1h}}。当前方向依据不足，事实异常仍保留。",
+        "marketMechanism": "价格变化与未平仓规模变化同时出现，因果机制仍需观察。",
+        "supportingEvidenceIds": [
+          "TESTUSDT:price.closed1h",
+          "TESTUSDT:oi.1h"
+        ],
+        "conflictingEvidenceIds": [],
+        "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+        "preferredScenario": "观察价格变化是否延续。",
+        "invalidation": {
+          "type": "INSUFFICIENT_STRUCTURE_DATA",
+          "ruleIds": [],
+          "description": "使用输入定义的可观察条件复核原方向，等待可靠结构数据。"
+        },
+        "alternativeScenario": "价格变化未能延续，进入相反方向或震荡。",
+        "followUpChecks": [
+          "复核后续完整价格与OI样本。"
+        ]
+      },
+      "notification": "检测 · TESTUSDT 市场情报（MOCK 合成数据）\n方向研究（条件性假设）：\n市场倾向：暂无明确方向优势\n观察周期：未来1h；采用已有价格及敞口变化所支持的观察尺度。\n证据强度：低（定性标签，非胜率）\n当前交易机会：暂无可执行方案\n核心判断：截至北京时间12:00，已收盘1小时价格变化 0.00%；1小时OI数量变化 0.00%（不代表资金净流入或多空加仓方向）。当前方向依据不足，事实异常仍保留。\n机制解释：价格变化与未平仓规模变化同时出现，因果机制仍需观察。\n支持事实：截至北京时间12:00，已收盘1小时价格变化 0.00%；1小时OI数量变化 0.00%（不代表资金净流入或多空加仓方向）\n竞争情景：价格变化未能延续，进入相反方向或震荡。\n失效/复核条件：使用输入定义的可观察条件复核原方向，等待可靠结构数据。\n后续关注：复核后续完整价格与OI样本。\n研判ID：MOCK_NO_EDGE"
+    }
+  ]
+}

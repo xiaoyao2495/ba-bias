@@ -1,0 +1,1745 @@
+{
+  "id": "hourly_20261010_2100_APRUSDT_a3_7d552805-a845-402b-804f-b00718f94843",
+  "sample": {
+    "symbol": "APRUSDT",
+    "runId": "hourly_20261010_2100",
+    "evaluationTime": "2026-10-10T13:00:15.062Z"
+  },
+  "requestTimestamp": "2026-10-10T17:02:33.647Z",
+  "system": "你是独立未来行情方向研究员，不否决已合格事实新闻。输出DIRECTIONAL_ANALYST_V2严格JSON，字段与Schema逐项一致，不添加extraNotes/解释字段。\nOBSERVATION：输入evidence是真实可引用集合，只能用其中精确Evidence ID。事实数字优先{{evidenceId}}，可手写但必须指标、单位、窗口、口径和舍入一致。OI为合约数量，不是名义价值或单侧仓位。账户比例不是仓位比例；顶部账户与顶部持仓分开；未接入/缺失不是中性。\nMECHANISM：marketMechanism可提出有价格及同窗口OI支持的可能机制，例如价格上行/OI下降与部分空头回补的可能性相容；绝不声称已确认单侧开平仓、强平或资金流入。不同候选不套固定机制。\nFORECAST_HYPOTHESIS：marketThesis、preferredScenario、alternativeScenario对未来明确horizon给出不确定倾向，证据证明依据事实，不证明未来结果。不要因无法证明预测必然正确一律NO_EDGE。与当下走势相反的倾向需要明确冲突/参与量依据；只有Funding或账户翻转不支持反转。禁止胜率、概率、收益率、目标价和未经验证的结构价位或ICT事件。\n引用规则：支持/冲突列表仅选真正支持论点或不利于论点的已有ID；正文的背景引用可不在列表，但必须在输入Registry。允许显式跨周期比较，不把24h写成1h，不把滚动与已收盘或此前等长窗口混淆；不同周期不是同时发生的证据。反转是假设，须当前与此前同长度价格窗口真实转向，不需要未接入MSS/BOS/FVG，不能声称结构反转已确认。\nLOW/MODERATE/HIGH为定性强度非胜率；缺少对齐OI必须LOW；HIGH需要当前1h价格/OI一致扩张和相对量佐证且无重大冲突。方向与交易机会分离，无可靠结构不得LONG_SETUP/SHORT_SETUP。\ninvalidation：OBSERVABLE_CONDITION只用当前horizon真实rules，价格规则INVALIDATED，OI规则THESIS_WARNING。METRIC_BASED_REASSESSMENT可写未来同期价格/OI转弱等可观察条件，ruleIds可空；不得用模糊描述自动INVALIDATED。INSUFFICIENT_STRUCTURE_DATA须ruleIds空，说明缺失，不能编价格。PRICE_STRUCTURE_INVALIDATION只有实际结构可用才可用，当前未接入。HORIZON_EXPIRED由程序到期处理。已有程序阈值可作为指标观察参考，但不能自行造阈值。\n正已结算Funding多头支付空头，负已结算Funding空头支付多头，支付关系引用真实最新结算ID；Funding不能保证未来方向。否定风险说明不代表肯定相应行为。followUpChecks最多两项，各文字最多400字符。支持/冲突最多128 ID，不要求凑数。version固定为DIRECTIONAL_ANALYST_V2，使用输入contractVersion，不复制输入容器version；symbol/evaluationTime照输入；direction字段实际名marketBias。输出严格遵守Schema：{\"type\":\"object\",\"additionalProperties\":false,\"required\":[\"version\",\"symbol\",\"evaluationTime\",\"marketBias\",\"horizon\",\"horizonReason\",\"conviction\",\"marketThesis\",\"marketMechanism\",\"supportingEvidenceIds\",\"conflictingEvidenceIds\",\"tradeOpportunity\",\"preferredScenario\",\"invalidation\",\"alternativeScenario\",\"followUpChecks\"],\"properties\":{\"version\":{\"const\":\"DIRECTIONAL_ANALYST_V2\"},\"symbol\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"evaluationTime\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"marketBias\":{\"enum\":[\"BULLISH\",\"BEARISH\",\"BULLISH_REVERSAL\",\"BEARISH_REVERSAL\",\"NO_EDGE\"]},\"horizon\":{\"enum\":[\"1h\",\"4h\",\"24h\"]},\"horizonReason\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"conviction\":{\"enum\":[\"LOW\",\"MODERATE\",\"HIGH\"]},\"marketThesis\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"marketMechanism\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"supportingEvidenceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":128,\"uniqueItems\":true,\"minItems\":1},\"conflictingEvidenceIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":128,\"uniqueItems\":true},\"tradeOpportunity\":{\"enum\":[\"LONG_SETUP\",\"SHORT_SETUP\",\"WAIT_FOR_PULLBACK\",\"WAIT_FOR_CONFIRMATION\",\"AVOID_CHASING\",\"NO_ACTIONABLE_SETUP\"]},\"preferredScenario\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"invalidation\":{\"type\":\"object\",\"additionalProperties\":false,\"allOf\":[{\"if\":{\"properties\":{\"type\":{\"const\":\"OBSERVABLE_CONDITION\"}}},\"then\":{\"properties\":{\"ruleIds\":{\"type\":\"array\",\"minItems\":1}}},\"else\":{\"if\":{\"properties\":{\"type\":{\"const\":\"INSUFFICIENT_STRUCTURE_DATA\"}}},\"then\":{\"properties\":{\"ruleIds\":{\"type\":\"array\",\"maxItems\":0}}}}}],\"required\":[\"type\",\"ruleIds\",\"description\"],\"properties\":{\"type\":{\"enum\":[\"OBSERVABLE_CONDITION\",\"INSUFFICIENT_STRUCTURE_DATA\",\"METRIC_BASED_REASSESSMENT\",\"PRICE_STRUCTURE_INVALIDATION\"]},\"ruleIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1},\"maxItems\":2,\"uniqueItems\":true},\"description\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400}}},\"alternativeScenario\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"followUpChecks\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":400},\"minItems\":1,\"maxItems\":2}}}",
+  "input": {
+    "version": "DIRECTIONAL_INPUT_V1",
+    "symbol": "APRUSDT",
+    "evaluationTime": "2026-10-10T13:00:15.062Z",
+    "entryReference": {
+      "price": "0.0795000",
+      "timestamp": 1791637207960,
+      "evidenceId": "APRUSDT:price.last"
+    },
+    "capabilities": {
+      "priceStructure": false,
+      "takerFlow": false,
+      "cvd": false,
+      "basis": false,
+      "oiMarketCap": false
+    },
+    "evidence": [
+      {
+        "evidenceId": "APRUSDT:price.rolling24h",
+        "result": "-27.13107241",
+        "phrase": "滚动24小时价格变化 -27.13%",
+        "dataTimes": [
+          1791550800000,
+          1791637207960
+        ],
+        "formula": "(lastPrice/openPrice-1)*100",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "APRUSDT:price.last",
+        "result": "0.0795000",
+        "phrase": "快照最新价格 0.0795000 USDT",
+        "dataTimes": [
+          1791637207960
+        ],
+        "formula": "lastPrice",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "APRUSDT:volume.rolling24h",
+        "result": "28560193.4021000",
+        "phrase": "滚动24小时成交额 28560193.40 USDT",
+        "dataTimes": [
+          1791550800000,
+          1791637207960
+        ],
+        "formula": "quoteVolume",
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {},
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "APRUSDT:price.closed1h",
+        "result": "2.05920206",
+        "phrase": "截至北京时间21:00，已收盘1小时价格变化 2.06%",
+        "dataTimes": [
+          1791633600000,
+          1791637199999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "APRUSDT:price.closed4h",
+        "result": "-17.13688610",
+        "phrase": "截至北京时间21:00，已收盘4小时价格变化 -17.14%",
+        "dataTimes": [
+          1791622800000,
+          1791637199999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "4h"
+      },
+      {
+        "evidenceId": "APRUSDT:price.closed24h",
+        "result": "-27.31439047",
+        "phrase": "截至北京时间21:00，已收盘24小时价格变化 -27.31%",
+        "dataTimes": [
+          1791550800000,
+          1791637199999
+        ],
+        "formula": "(close_end/open_start-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "APRUSDT:price.rangeLowHigh",
+        "result": "52.89256198",
+        "phrase": "已收盘24小时区间低点至高点幅度 52.89%",
+        "dataTimes": [
+          1791550800000,
+          1791637199999
+        ],
+        "formula": "(high/low-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "APRUSDT:price.drawdown",
+        "result": "-28.37837838",
+        "phrase": "已收盘24小时区间高点至快照最新价变化 -28.38%",
+        "dataTimes": [
+          1791637199999,
+          1791637207960
+        ],
+        "formula": "(lastPrice/high-1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "APRUSDT:volume.relative1h",
+        "result": "4.12980293",
+        "phrase": "最近已收盘1小时成交量为前24根均值的 4.13 倍",
+        "dataTimes": [
+          1791547200000,
+          1791637199999
+        ],
+        "formula": "last closed base volume / preceding 24 closed bars mean",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "APRUSDT:volume.relative5m",
+        "result": "0.13263655",
+        "phrase": "最近已收盘5分钟成交量为前24根均值的 0.13 倍",
+        "dataTimes": [
+          1791629700000,
+          1791637199999
+        ],
+        "formula": "last closed base volume / preceding 24 closed bars mean",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "APRUSDT:volume.closed1h",
+        "result": "3919439.3780000",
+        "phrase": "最近已收盘1小时成交额 3919439.38 USDT",
+        "dataTimes": [
+          1791633600000,
+          1791637199999
+        ],
+        "formula": "quoteAssetVolume field 7",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "APRUSDT:oi.1h",
+        "result": "1.34011192",
+        "phrase": "1小时OI数量变化 1.34%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791633600000,
+          1791637200000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "1h"
+      },
+      {
+        "evidenceId": "APRUSDT:oi.4h",
+        "result": "53.38728908",
+        "phrase": "4小时OI数量变化 53.39%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791622800000,
+          1791637200000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "4h"
+      },
+      {
+        "evidenceId": "APRUSDT:oi.24h",
+        "result": "76.40029958",
+        "phrase": "24小时OI数量变化 76.40%（不代表资金净流入或多空加仓方向）",
+        "dataTimes": [
+          1791550800000,
+          1791637200000
+        ],
+        "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": null,
+        "window": "24h"
+      },
+      {
+        "evidenceId": "APRUSDT:funding.latest",
+        "result": "0.01733900",
+        "phrase": "北京时间10-10 20:00已结算Funding 0.0173%，多头支付空头",
+        "dataTimes": [
+          1791633600003
+        ],
+        "formula": "fundingRate*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "APRUSDT",
+          "startTime": 1791464415062,
+          "endTime": 1791637215062,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "APRUSDT:funding.sum24h",
+        "result": "0.04233900",
+        "phrase": "过去24小时实际6次结算费率之和 0.0423%（非收益率）",
+        "dataTimes": [
+          1791561600000,
+          1791576000000,
+          1791590400002,
+          1791604800007,
+          1791619200001,
+          1791633600003
+        ],
+        "formula": "sum(actual settled fundingRate)*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "APRUSDT",
+          "startTime": 1791464415062,
+          "endTime": 1791637215062,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "APRUSDT:funding.change",
+        "result": "0.01233900",
+        "phrase": "相邻实际结算Funding变化 0.0123 个百分点（保留各周期时间，不假设周期相同）",
+        "dataTimes": [
+          1791619200001,
+          1791633600003
+        ],
+        "formula": "(last.fundingRate - previous.fundingRate)*100",
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "APRUSDT",
+          "startTime": 1791464415062,
+          "endTime": 1791637215062,
+          "limit": 1000
+        },
+        "scope": null,
+        "window": null
+      },
+      {
+        "evidenceId": "APRUSDT:global.long.latest",
+        "result": "68.59000000",
+        "phrase": "全市场净多/净空头账户：多 68.59%、空 31.41%（账户比例不代表仓位或资金比例）",
+        "dataTimes": [
+          1791637200000
+        ],
+        "formula": "longAccount * 100",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": null
+      },
+      {
+        "evidenceId": "APRUSDT:global.short.change1h",
+        "result": "-0.45000000",
+        "phrase": "全市场净多/净空头账户空方占比1小时从 31.86% 到 31.41%，变化 -0.45 个百分点；多方变化 0.45 个百分点",
+        "dataTimes": [
+          1791633600000,
+          1791637200000
+        ],
+        "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "APRUSDT:global.long.change1h",
+        "result": "0.45000000",
+        "phrase": "全市场净多/净空头账户空方占比1小时从 31.86% 到 31.41%，变化 -0.45 个百分点；多方变化 0.45 个百分点",
+        "dataTimes": [
+          1791633600000,
+          1791637200000
+        ],
+        "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "APRUSDT:global.short.change4h",
+        "result": "-0.73000000",
+        "phrase": "全市场净多/净空头账户空方占比4小时从 32.14% 到 31.41%，变化 -0.73 个百分点；多方变化 0.73 个百分点",
+        "dataTimes": [
+          1791622800000,
+          1791637200000
+        ],
+        "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "4h"
+      },
+      {
+        "evidenceId": "APRUSDT:global.long.change4h",
+        "result": "0.73000000",
+        "phrase": "全市场净多/净空头账户空方占比4小时从 32.14% 到 31.41%，变化 -0.73 个百分点；多方变化 0.73 个百分点",
+        "dataTimes": [
+          1791622800000,
+          1791637200000
+        ],
+        "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "4h"
+      },
+      {
+        "evidenceId": "APRUSDT:global.short.change24h",
+        "result": "-7.20000000",
+        "phrase": "全市场净多/净空头账户空方占比24小时从 38.61% 到 31.41%，变化 -7.20 个百分点；多方变化 7.20 个百分点",
+        "dataTimes": [
+          1791550800000,
+          1791637200000
+        ],
+        "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "24h"
+      },
+      {
+        "evidenceId": "APRUSDT:global.long.change24h",
+        "result": "7.20000000",
+        "phrase": "全市场净多/净空头账户空方占比24小时从 38.61% 到 31.41%，变化 -7.20 个百分点；多方变化 7.20 个百分点",
+        "dataTimes": [
+          1791550800000,
+          1791637200000
+        ],
+        "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "APRUSDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791637215062
+        },
+        "scope": "GLOBAL_ACCOUNTS",
+        "window": "24h"
+      },
+      {
+        "evidenceId": "APRUSDT:directional.price.previous1h",
+        "result": "-3.96039604",
+        "phrase": "此前已收盘1小时价格变化 -3.96%",
+        "dataTimes": [
+          1791630000000,
+          1791633599999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "1h"
+      },
+      {
+        "evidenceId": "APRUSDT:directional.price.previous4h",
+        "result": "-11.79723502",
+        "phrase": "此前已收盘4小时价格变化 -11.80%",
+        "dataTimes": [
+          1791608400000,
+          1791622799999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "4h"
+      },
+      {
+        "evidenceId": "APRUSDT:directional.price.previous24h",
+        "result": "9.31863727",
+        "phrase": "此前已收盘24小时价格变化 9.32%",
+        "dataTimes": [
+          1791464400000,
+          1791550799999
+        ],
+        "formula": "(previous equal-length closed window close/open - 1)*100",
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "APRUSDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791637215062
+        },
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "window": "24h"
+      }
+    ],
+    "windows": [
+      {
+        "horizon": "1h",
+        "priceId": "APRUSDT:price.closed1h",
+        "oiId": "APRUSDT:oi.1h",
+        "previousPriceId": "APRUSDT:directional.price.previous1h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": 1,
+        "reversalEvidenceAvailable": true
+      },
+      {
+        "horizon": "4h",
+        "priceId": "APRUSDT:price.closed4h",
+        "oiId": "APRUSDT:oi.4h",
+        "previousPriceId": "APRUSDT:directional.price.previous4h",
+        "aligned": true,
+        "strongContinuation": true,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": false
+      },
+      {
+        "horizon": "24h",
+        "priceId": "APRUSDT:price.closed24h",
+        "oiId": "APRUSDT:oi.24h",
+        "previousPriceId": "APRUSDT:directional.price.previous24h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": true
+      }
+    ],
+    "rules": [
+      {
+        "id": "PRICE_OPPOSITE_1h",
+        "horizon": "1h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "LTE",
+        "threshold": -1.02960103,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动1h价格变化≤-1.0296%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "APRUSDT:price.closed1h"
+      },
+      {
+        "id": "OI_REVERSED_1h",
+        "horizon": "1h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "APRUSDT:oi.1h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_4h",
+        "horizon": "4h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 8.56844305,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动4h价格变化≥8.5684%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "APRUSDT:price.closed4h"
+      },
+      {
+        "id": "OI_REVERSED_4h",
+        "horizon": "4h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -26.69364454,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确4h OI数量变化≤-26.6936%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "APRUSDT:oi.4h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_24h",
+        "horizon": "24h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 13.657195235,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动24h价格变化≥13.6572%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "APRUSDT:price.closed24h"
+      },
+      {
+        "id": "OI_REVERSED_24h",
+        "horizon": "24h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -38.20014979,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确24h OI数量变化≤-38.2001%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "APRUSDT:oi.24h"
+      }
+    ],
+    "unavailable": [
+      "未接入可靠价格结构、主动买卖量、CVD、Basis、OI/流通市值",
+      "topAccounts:BINANCE_MARKET_DATA_KEY_MISSING",
+      "topPositions:BINANCE_MARKET_DATA_KEY_MISSING"
+    ],
+    "contractVersion": "DIRECTIONAL_ANALYST_V2",
+    "evidenceGuide": {
+      "allowedEvidenceIds": [
+        "APRUSDT:price.rolling24h",
+        "APRUSDT:price.last",
+        "APRUSDT:volume.rolling24h",
+        "APRUSDT:price.closed1h",
+        "APRUSDT:price.closed4h",
+        "APRUSDT:price.closed24h",
+        "APRUSDT:price.rangeLowHigh",
+        "APRUSDT:price.drawdown",
+        "APRUSDT:volume.relative1h",
+        "APRUSDT:volume.relative5m",
+        "APRUSDT:volume.closed1h",
+        "APRUSDT:oi.1h",
+        "APRUSDT:oi.4h",
+        "APRUSDT:oi.24h",
+        "APRUSDT:funding.latest",
+        "APRUSDT:funding.sum24h",
+        "APRUSDT:funding.change",
+        "APRUSDT:global.long.latest",
+        "APRUSDT:global.short.change1h",
+        "APRUSDT:global.long.change1h",
+        "APRUSDT:global.short.change4h",
+        "APRUSDT:global.long.change4h",
+        "APRUSDT:global.short.change24h",
+        "APRUSDT:global.long.change24h",
+        "APRUSDT:directional.price.previous1h",
+        "APRUSDT:directional.price.previous4h",
+        "APRUSDT:directional.price.previous24h"
+      ],
+      "primaryPriceByHorizon": {
+        "1h": "APRUSDT:price.closed1h",
+        "4h": "APRUSDT:price.closed4h",
+        "24h": "APRUSDT:price.closed24h"
+      },
+      "previousPriceByHorizon": {
+        "1h": "APRUSDT:directional.price.previous1h",
+        "4h": "APRUSDT:directional.price.previous4h",
+        "24h": "APRUSDT:directional.price.previous24h"
+      },
+      "referenceRule": "All textual references must exist in evidence. Supporting/conflicting arrays describe argumentative roles, not an exhaustive list of background observations. Different windows retain their own labels and times."
+    },
+    "contentContract": {
+      "observation": "Registry facts only; exact metric/unit/window/scope, no future observations.",
+      "mechanism": "Conditional possible explanation supported by price and OI; not a confirmed opening, closing, liquidation or funds-flow claim.",
+      "forecast": "marketThesis/preferredScenario/alternativeScenario are uncertain horizon-bound hypotheses; evidence verifies inputs, not future truth.",
+      "invalidation": "Only selected predefined INVALIDATED rules automate invalidation. Qualitative reassessment does not."
+    },
+    "repairErrors": [
+      "UNTRUSTED_NUMBER_OR_PROBABILITY",
+      "UNSUPPORTED_CAUSE_OR_ORDER"
+    ],
+    "contractRepair": {
+      "originalInput": {
+        "version": "DIRECTIONAL_INPUT_V1",
+        "symbol": "APRUSDT",
+        "evaluationTime": "2026-10-10T13:00:15.062Z",
+        "entryReference": {
+          "price": "0.0795000",
+          "timestamp": 1791637207960,
+          "evidenceId": "APRUSDT:price.last"
+        },
+        "capabilities": {
+          "priceStructure": false,
+          "takerFlow": false,
+          "cvd": false,
+          "basis": false,
+          "oiMarketCap": false
+        },
+        "evidence": [
+          {
+            "evidenceId": "APRUSDT:price.rolling24h",
+            "result": "-27.13107241",
+            "phrase": "滚动24小时价格变化 -27.13%",
+            "dataTimes": [
+              1791550800000,
+              1791637207960
+            ],
+            "formula": "(lastPrice/openPrice-1)*100",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "APRUSDT:price.last",
+            "result": "0.0795000",
+            "phrase": "快照最新价格 0.0795000 USDT",
+            "dataTimes": [
+              1791637207960
+            ],
+            "formula": "lastPrice",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "APRUSDT:volume.rolling24h",
+            "result": "28560193.4021000",
+            "phrase": "滚动24小时成交额 28560193.40 USDT",
+            "dataTimes": [
+              1791550800000,
+              1791637207960
+            ],
+            "formula": "quoteVolume",
+            "endpoint": "/fapi/v1/ticker/24hr",
+            "params": {},
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "APRUSDT:price.closed1h",
+            "result": "2.05920206",
+            "phrase": "截至北京时间21:00，已收盘1小时价格变化 2.06%",
+            "dataTimes": [
+              1791633600000,
+              1791637199999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "APRUSDT:price.closed4h",
+            "result": "-17.13688610",
+            "phrase": "截至北京时间21:00，已收盘4小时价格变化 -17.14%",
+            "dataTimes": [
+              1791622800000,
+              1791637199999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "4h"
+          },
+          {
+            "evidenceId": "APRUSDT:price.closed24h",
+            "result": "-27.31439047",
+            "phrase": "截至北京时间21:00，已收盘24小时价格变化 -27.31%",
+            "dataTimes": [
+              1791550800000,
+              1791637199999
+            ],
+            "formula": "(close_end/open_start-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "APRUSDT:price.rangeLowHigh",
+            "result": "52.89256198",
+            "phrase": "已收盘24小时区间低点至高点幅度 52.89%",
+            "dataTimes": [
+              1791550800000,
+              1791637199999
+            ],
+            "formula": "(high/low-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "APRUSDT:price.drawdown",
+            "result": "-28.37837838",
+            "phrase": "已收盘24小时区间高点至快照最新价变化 -28.38%",
+            "dataTimes": [
+              1791637199999,
+              1791637207960
+            ],
+            "formula": "(lastPrice/high-1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "APRUSDT:volume.relative1h",
+            "result": "4.12980293",
+            "phrase": "最近已收盘1小时成交量为前24根均值的 4.13 倍",
+            "dataTimes": [
+              1791547200000,
+              1791637199999
+            ],
+            "formula": "last closed base volume / preceding 24 closed bars mean",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "APRUSDT:volume.relative5m",
+            "result": "0.13263655",
+            "phrase": "最近已收盘5分钟成交量为前24根均值的 0.13 倍",
+            "dataTimes": [
+              1791629700000,
+              1791637199999
+            ],
+            "formula": "last closed base volume / preceding 24 closed bars mean",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "5m",
+              "limit": 40,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "APRUSDT:volume.closed1h",
+            "result": "3919439.3780000",
+            "phrase": "最近已收盘1小时成交额 3919439.38 USDT",
+            "dataTimes": [
+              1791633600000,
+              1791637199999
+            ],
+            "formula": "quoteAssetVolume field 7",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "APRUSDT:oi.1h",
+            "result": "1.34011192",
+            "phrase": "1小时OI数量变化 1.34%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791633600000,
+              1791637200000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "1h"
+          },
+          {
+            "evidenceId": "APRUSDT:oi.4h",
+            "result": "53.38728908",
+            "phrase": "4小时OI数量变化 53.39%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791622800000,
+              1791637200000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "4h"
+          },
+          {
+            "evidenceId": "APRUSDT:oi.24h",
+            "result": "76.40029958",
+            "phrase": "24小时OI数量变化 76.40%（不代表资金净流入或多空加仓方向）",
+            "dataTimes": [
+              1791550800000,
+              1791637200000
+            ],
+            "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100",
+            "endpoint": "/futures/data/openInterestHist",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": null,
+            "window": "24h"
+          },
+          {
+            "evidenceId": "APRUSDT:funding.latest",
+            "result": "0.01733900",
+            "phrase": "北京时间10-10 20:00已结算Funding 0.0173%，多头支付空头",
+            "dataTimes": [
+              1791633600003
+            ],
+            "formula": "fundingRate*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "APRUSDT",
+              "startTime": 1791464415062,
+              "endTime": 1791637215062,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "APRUSDT:funding.sum24h",
+            "result": "0.04233900",
+            "phrase": "过去24小时实际6次结算费率之和 0.0423%（非收益率）",
+            "dataTimes": [
+              1791561600000,
+              1791576000000,
+              1791590400002,
+              1791604800007,
+              1791619200001,
+              1791633600003
+            ],
+            "formula": "sum(actual settled fundingRate)*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "APRUSDT",
+              "startTime": 1791464415062,
+              "endTime": 1791637215062,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "APRUSDT:funding.change",
+            "result": "0.01233900",
+            "phrase": "相邻实际结算Funding变化 0.0123 个百分点（保留各周期时间，不假设周期相同）",
+            "dataTimes": [
+              1791619200001,
+              1791633600003
+            ],
+            "formula": "(last.fundingRate - previous.fundingRate)*100",
+            "endpoint": "/fapi/v1/fundingRate",
+            "params": {
+              "symbol": "APRUSDT",
+              "startTime": 1791464415062,
+              "endTime": 1791637215062,
+              "limit": 1000
+            },
+            "scope": null,
+            "window": null
+          },
+          {
+            "evidenceId": "APRUSDT:global.long.latest",
+            "result": "68.59000000",
+            "phrase": "全市场净多/净空头账户：多 68.59%、空 31.41%（账户比例不代表仓位或资金比例）",
+            "dataTimes": [
+              1791637200000
+            ],
+            "formula": "longAccount * 100",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": null
+          },
+          {
+            "evidenceId": "APRUSDT:global.short.change1h",
+            "result": "-0.45000000",
+            "phrase": "全市场净多/净空头账户空方占比1小时从 31.86% 到 31.41%，变化 -0.45 个百分点；多方变化 0.45 个百分点",
+            "dataTimes": [
+              1791633600000,
+              1791637200000
+            ],
+            "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "APRUSDT:global.long.change1h",
+            "result": "0.45000000",
+            "phrase": "全市场净多/净空头账户空方占比1小时从 31.86% 到 31.41%，变化 -0.45 个百分点；多方变化 0.45 个百分点",
+            "dataTimes": [
+              1791633600000,
+              1791637200000
+            ],
+            "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "APRUSDT:global.short.change4h",
+            "result": "-0.73000000",
+            "phrase": "全市场净多/净空头账户空方占比4小时从 32.14% 到 31.41%，变化 -0.73 个百分点；多方变化 0.73 个百分点",
+            "dataTimes": [
+              1791622800000,
+              1791637200000
+            ],
+            "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "4h"
+          },
+          {
+            "evidenceId": "APRUSDT:global.long.change4h",
+            "result": "0.73000000",
+            "phrase": "全市场净多/净空头账户空方占比4小时从 32.14% 到 31.41%，变化 -0.73 个百分点；多方变化 0.73 个百分点",
+            "dataTimes": [
+              1791622800000,
+              1791637200000
+            ],
+            "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "4h"
+          },
+          {
+            "evidenceId": "APRUSDT:global.short.change24h",
+            "result": "-7.20000000",
+            "phrase": "全市场净多/净空头账户空方占比24小时从 38.61% 到 31.41%，变化 -7.20 个百分点；多方变化 7.20 个百分点",
+            "dataTimes": [
+              1791550800000,
+              1791637200000
+            ],
+            "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "24h"
+          },
+          {
+            "evidenceId": "APRUSDT:global.long.change24h",
+            "result": "7.20000000",
+            "phrase": "全市场净多/净空头账户空方占比24小时从 38.61% 到 31.41%，变化 -7.20 个百分点；多方变化 7.20 个百分点",
+            "dataTimes": [
+              1791550800000,
+              1791637200000
+            ],
+            "formula": "(longAccount_end - longAccount_start) * 100; percentage points",
+            "endpoint": "/futures/data/globalLongShortAccountRatio",
+            "params": {
+              "symbol": "APRUSDT",
+              "period": "1h",
+              "limit": 30,
+              "endTime": 1791637215062
+            },
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "24h"
+          },
+          {
+            "evidenceId": "APRUSDT:directional.price.previous1h",
+            "result": "-3.96039604",
+            "phrase": "此前已收盘1小时价格变化 -3.96%",
+            "dataTimes": [
+              1791630000000,
+              1791633599999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "1h"
+          },
+          {
+            "evidenceId": "APRUSDT:directional.price.previous4h",
+            "result": "-11.79723502",
+            "phrase": "此前已收盘4小时价格变化 -11.80%",
+            "dataTimes": [
+              1791608400000,
+              1791622799999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "4h"
+          },
+          {
+            "evidenceId": "APRUSDT:directional.price.previous24h",
+            "result": "9.31863727",
+            "phrase": "此前已收盘24小时价格变化 9.32%",
+            "dataTimes": [
+              1791464400000,
+              1791550799999
+            ],
+            "formula": "(previous equal-length closed window close/open - 1)*100",
+            "endpoint": "/fapi/v1/klines",
+            "params": {
+              "symbol": "APRUSDT",
+              "interval": "1h",
+              "limit": 80,
+              "endTime": 1791637215062
+            },
+            "scope": "PREVIOUS_PRICE_WINDOW",
+            "window": "24h"
+          }
+        ],
+        "windows": [
+          {
+            "horizon": "1h",
+            "priceId": "APRUSDT:price.closed1h",
+            "oiId": "APRUSDT:oi.1h",
+            "previousPriceId": "APRUSDT:directional.price.previous1h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": 1,
+            "reversalEvidenceAvailable": true
+          },
+          {
+            "horizon": "4h",
+            "priceId": "APRUSDT:price.closed4h",
+            "oiId": "APRUSDT:oi.4h",
+            "previousPriceId": "APRUSDT:directional.price.previous4h",
+            "aligned": true,
+            "strongContinuation": true,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": false
+          },
+          {
+            "horizon": "24h",
+            "priceId": "APRUSDT:price.closed24h",
+            "oiId": "APRUSDT:oi.24h",
+            "previousPriceId": "APRUSDT:directional.price.previous24h",
+            "aligned": true,
+            "strongContinuation": false,
+            "observedPriceSign": -1,
+            "reversalEvidenceAvailable": true
+          }
+        ],
+        "rules": [
+          {
+            "id": "PRICE_OPPOSITE_1h",
+            "horizon": "1h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "LTE",
+            "threshold": -1.02960103,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动1h价格变化≤-1.0296%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "APRUSDT:price.closed1h"
+          },
+          {
+            "id": "OI_REVERSED_1h",
+            "horizon": "1h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "LTE",
+            "threshold": -5,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "APRUSDT:oi.1h"
+          },
+          {
+            "id": "PRICE_OPPOSITE_4h",
+            "horizon": "4h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 8.56844305,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动4h价格变化≥8.5684%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "APRUSDT:price.closed4h"
+          },
+          {
+            "id": "OI_REVERSED_4h",
+            "horizon": "4h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "LTE",
+            "threshold": -26.69364454,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确4h OI数量变化≤-26.6936%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "APRUSDT:oi.4h"
+          },
+          {
+            "id": "PRICE_OPPOSITE_24h",
+            "horizon": "24h",
+            "metric": "PRICE_CLOSED_CHANGE",
+            "operator": "GTE",
+            "threshold": 13.657195235,
+            "outcome": "INVALIDATED",
+            "description": "后续新收盘滚动24h价格变化≥13.6572%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+            "baselineEvidenceId": "APRUSDT:price.closed24h"
+          },
+          {
+            "id": "OI_REVERSED_24h",
+            "horizon": "24h",
+            "metric": "OI_QUANTITY_CHANGE",
+            "operator": "LTE",
+            "threshold": -38.20014979,
+            "outcome": "THESIS_WARNING",
+            "description": "后续新采样精确24h OI数量变化≤-38.2001%，原敞口变化条件明显逆转，只触发复核",
+            "baselineEvidenceId": "APRUSDT:oi.24h"
+          }
+        ],
+        "unavailable": [
+          "未接入可靠价格结构、主动买卖量、CVD、Basis、OI/流通市值",
+          "topAccounts:BINANCE_MARKET_DATA_KEY_MISSING",
+          "topPositions:BINANCE_MARKET_DATA_KEY_MISSING"
+        ],
+        "contractVersion": "DIRECTIONAL_ANALYST_V2",
+        "evidenceGuide": {
+          "allowedEvidenceIds": [
+            "APRUSDT:price.rolling24h",
+            "APRUSDT:price.last",
+            "APRUSDT:volume.rolling24h",
+            "APRUSDT:price.closed1h",
+            "APRUSDT:price.closed4h",
+            "APRUSDT:price.closed24h",
+            "APRUSDT:price.rangeLowHigh",
+            "APRUSDT:price.drawdown",
+            "APRUSDT:volume.relative1h",
+            "APRUSDT:volume.relative5m",
+            "APRUSDT:volume.closed1h",
+            "APRUSDT:oi.1h",
+            "APRUSDT:oi.4h",
+            "APRUSDT:oi.24h",
+            "APRUSDT:funding.latest",
+            "APRUSDT:funding.sum24h",
+            "APRUSDT:funding.change",
+            "APRUSDT:global.long.latest",
+            "APRUSDT:global.short.change1h",
+            "APRUSDT:global.long.change1h",
+            "APRUSDT:global.short.change4h",
+            "APRUSDT:global.long.change4h",
+            "APRUSDT:global.short.change24h",
+            "APRUSDT:global.long.change24h",
+            "APRUSDT:directional.price.previous1h",
+            "APRUSDT:directional.price.previous4h",
+            "APRUSDT:directional.price.previous24h"
+          ],
+          "primaryPriceByHorizon": {
+            "1h": "APRUSDT:price.closed1h",
+            "4h": "APRUSDT:price.closed4h",
+            "24h": "APRUSDT:price.closed24h"
+          },
+          "previousPriceByHorizon": {
+            "1h": "APRUSDT:directional.price.previous1h",
+            "4h": "APRUSDT:directional.price.previous4h",
+            "24h": "APRUSDT:directional.price.previous24h"
+          },
+          "referenceRule": "All textual references must exist in evidence. Supporting/conflicting arrays describe argumentative roles, not an exhaustive list of background observations. Different windows retain their own labels and times."
+        },
+        "contentContract": {
+          "observation": "Registry facts only; exact metric/unit/window/scope, no future observations.",
+          "mechanism": "Conditional possible explanation supported by price and OI; not a confirmed opening, closing, liquidation or funds-flow claim.",
+          "forecast": "marketThesis/preferredScenario/alternativeScenario are uncertain horizon-bound hypotheses; evidence verifies inputs, not future truth.",
+          "invalidation": "Only selected predefined INVALIDATED rules automate invalidation. Qualitative reassessment does not."
+        }
+      },
+      "originalResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "APRUSDT",
+        "evaluationTime": "2026-10-10T13:00:15.062Z",
+        "marketBias": "BULLISH_REVERSAL",
+        "horizon": "1h",
+        "horizonReason": "1h窗口出现真实转向：已收盘1h价格变化{{APRUSDT:price.closed1h}}为+2.06%，而此前等长1h窗口{{APRUSDT:directional.price.previous1h}}为-3.96%，同窗口OI数量变化{{APRUSDT:oi.1h}}为+1.34%，最近已收盘1h成交量为前24根均值的{{APRUSDT:volume.relative1h}}4.13倍，转向证据可用；4h与24h仍为深度负值且无反转证据。",
+        "conviction": "LOW",
+        "marketThesis": "24h已收盘价格变化{{APRUSDT:price.closed24h}}为-27.31%、已收盘24小时区间低点至高点幅度{{APRUSDT:price.rangeLowHigh}}为52.89%、自区间高点回撤{{APRUSDT:price.drawdown}}为-28.38%，中期下行背景明确；但最近已收盘1h价格{{APRUSDT:price.closed1h}}为+2.06%，较此前等长1h窗口{{APRUSDT:directional.price.previous1h}}的-3.96%真实转正，同窗口OI数量{{APRUSDT:oi.1h}}为+1.34%同向扩张，且1h成交量为前24根均值{{APRUSDT:volume.relative1h}}的4.13倍，构成短线反弹尝试。因缺少主动买卖量、CVD与价格结构，且4h/24h仍深度负值，仅给低强度、1h窗口的反弹倾向。",
+        "marketMechanism": "价格上行与同窗口OI数量小幅扩张并存，与部分空头回补及新开多头共同参与的可能性相容；但OI为合约数量、不代表资金净流入或单侧开平仓方向，无法确认强平或资金流向。24h OI数量变化{{APRUSDT:oi.24h}}为+76.40%与24h价格{{APRUSDT:price.closed24h}}-27.31%并存，也可能反映下跌过程中敞口累积而非单向建仓。",
+        "supportingEvidenceIds": [
+          "APRUSDT:price.closed1h",
+          "APRUSDT:directional.price.previous1h",
+          "APRUSDT:oi.1h",
+          "APRUSDT:volume.relative1h",
+          "APRUSDT:volume.closed1h"
+        ],
+        "conflictingEvidenceIds": [
+          "APRUSDT:price.closed4h",
+          "APRUSDT:price.closed24h",
+          "APRUSDT:price.drawdown",
+          "APRUSDT:oi.4h",
+          "APRUSDT:oi.24h",
+          "APRUSDT:funding.latest",
+          "APRUSDT:global.long.latest"
+        ],
+        "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+        "preferredScenario": "未来1h内，若价格维持或延续最近已收盘1h的+2.06%转向、且1h OI数量不出现明显收缩，则短线反弹尝试可能延续；但4h/24h深度负值与高波动区间限制其持续性，倾向视为弱反弹而非趋势反转。",
+        "invalidation": {
+          "type": "OBSERVABLE_CONDITION",
+          "ruleIds": [
+            "PRICE_OPPOSITE_1h",
+            "OI_REVERSED_1h"
+          ],
+          "description": "若后续新收盘滚动1h价格变化≤-1.0296%（PRICE_OPPOSITE_1h），则当前1h反弹方向命题失效；若后续新采样精确1h OI数量变化≤-5.0000%（OI_REVERSED_1h），则原敞口变化条件明显逆转，触发复核。"
+        },
+        "alternativeScenario": "若1h反弹未能延续，价格重新走弱并伴随1h OI数量收缩，则24h下行背景可能重新主导，短线转向尝试失败；该情形需以实际价格与OI数据确认，而非结构信号。",
+        "followUpChecks": [
+          "观察后续新收盘1h价格变化是否维持正值，并对照PRICE_OPPOSITE_1h阈值-1.0296%判断1h反弹方向是否失效。",
+          "观察后续精确1h OI数量变化是否接近OI_REVERSED_1h阈值-5.0000%，以评估短线敞口条件是否逆转。"
+        ]
+      },
+      "preciseErrors": [
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+2.06%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "-3.96%",
+          "window": "1h",
+          "metric": null,
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+1.34%",
+          "window": "1h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "4.13倍",
+          "window": "1h",
+          "metric": {
+            "kind": "volume"
+          },
+          "evidenceIds": [
+            "APRUSDT:volume.relative1h"
+          ],
+          "ruleId": null,
+          "field": "horizonReason",
+          "role": "OBSERVATION_AND_HORIZON"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-27.31%",
+          "window": "24h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [
+            "APRUSDT:price.closed24h"
+          ],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "52.89%",
+          "window": "24h",
+          "metric": {
+            "kind": "range"
+          },
+          "evidenceIds": [
+            "APRUSDT:price.rangeLowHigh"
+          ],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-28.38%",
+          "window": "24h",
+          "metric": {
+            "kind": "drawdown"
+          },
+          "evidenceIds": [
+            "APRUSDT:price.drawdown"
+          ],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+2.06%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "-3.96%",
+          "window": "1h",
+          "metric": null,
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+1.34%",
+          "window": "1h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "4.13倍",
+          "window": "1h",
+          "metric": {
+            "kind": "volume"
+          },
+          "evidenceIds": [
+            "APRUSDT:volume.relative1h"
+          ],
+          "ruleId": null,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "PERMITTED_UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "match": "主动买",
+          "span": "因缺少主动买卖量、CVD与价格结构",
+          "denied": true,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS",
+          "allowed": true
+        },
+        {
+          "code": "PERMITTED_UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+          "match": "CVD",
+          "span": "因缺少主动买卖量、CVD与价格结构",
+          "denied": true,
+          "field": "marketThesis",
+          "role": "FORECAST_HYPOTHESIS",
+          "allowed": true
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+76.40%",
+          "window": "24h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "marketMechanism",
+          "role": "MECHANISM"
+        },
+        {
+          "code": "VERIFIED_NUMERIC_FACT",
+          "literal": "-27.31%",
+          "window": "24h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [
+            "APRUSDT:price.closed24h"
+          ],
+          "ruleId": null,
+          "field": "marketMechanism",
+          "role": "MECHANISM"
+        },
+        {
+          "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "回补",
+          "span": "与部分空头回补及新开多头共同参与的可能性相容",
+          "denied": false,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": false
+        },
+        {
+          "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "开多",
+          "span": "与部分空头回补及新开多头共同参与的可能性相容",
+          "denied": false,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": true
+        },
+        {
+          "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "资金净流入",
+          "span": "OI为合约数量、不代表资金净流入或单侧开平仓方向",
+          "denied": true,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": true
+        },
+        {
+          "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "平仓",
+          "span": "OI为合约数量、不代表资金净流入或单侧开平仓方向",
+          "denied": true,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": true
+        },
+        {
+          "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "强平",
+          "span": "无法确认强平或资金流向",
+          "denied": true,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": true
+        },
+        {
+          "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+          "match": "建仓",
+          "span": "也可能反映下跌过程中敞口累积而非单向建仓",
+          "denied": true,
+          "field": "marketMechanism",
+          "role": "MECHANISM",
+          "allowed": true
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "+2.06%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": false,
+            "previous": false
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "preferredScenario",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "VERIFIED_RULE_LITERAL",
+          "literal": "-1.0296%",
+          "window": "1h",
+          "metric": {
+            "kind": "price",
+            "rolling": true,
+            "previous": false
+          },
+          "evidenceIds": [],
+          "ruleId": "PRICE_OPPOSITE_1h",
+          "field": "invalidation",
+          "role": "REASSESSMENT"
+        },
+        {
+          "code": "VERIFIED_RULE_LITERAL",
+          "literal": "-5.0000%",
+          "window": "1h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": "OI_REVERSED_1h",
+          "field": "invalidation",
+          "role": "REASSESSMENT"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "-1.0296%",
+          "window": "1h",
+          "metric": null,
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "followUp0",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNVERIFIED_NUMERIC_FACT",
+          "literal": "-5.0000%",
+          "window": "1h",
+          "metric": {
+            "kind": "oi"
+          },
+          "evidenceIds": [],
+          "ruleId": null,
+          "field": "followUp1",
+          "role": "FORECAST_HYPOTHESIS"
+        },
+        {
+          "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "path": "/"
+        }
+      ],
+      "allowedEvidenceIds": [
+        "APRUSDT:price.rolling24h",
+        "APRUSDT:price.last",
+        "APRUSDT:volume.rolling24h",
+        "APRUSDT:price.closed1h",
+        "APRUSDT:price.closed4h",
+        "APRUSDT:price.closed24h",
+        "APRUSDT:price.rangeLowHigh",
+        "APRUSDT:price.drawdown",
+        "APRUSDT:volume.relative1h",
+        "APRUSDT:volume.relative5m",
+        "APRUSDT:volume.closed1h",
+        "APRUSDT:oi.1h",
+        "APRUSDT:oi.4h",
+        "APRUSDT:oi.24h",
+        "APRUSDT:funding.latest",
+        "APRUSDT:funding.sum24h",
+        "APRUSDT:funding.change",
+        "APRUSDT:global.long.latest",
+        "APRUSDT:global.short.change1h",
+        "APRUSDT:global.long.change1h",
+        "APRUSDT:global.short.change4h",
+        "APRUSDT:global.long.change4h",
+        "APRUSDT:global.short.change24h",
+        "APRUSDT:global.long.change24h",
+        "APRUSDT:directional.price.previous1h",
+        "APRUSDT:directional.price.previous4h",
+        "APRUSDT:directional.price.previous24h"
+      ],
+      "mustFix": "Repair contract fields and unsupported assertions; do not invent observations or IDs."
+    }
+  },
+  "generationParameters": {
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "thinking": {
+      "type": "disabled"
+    },
+    "max_tokens": 6000,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "promptVersion": "DIRECTIONAL_ANALYST_V2",
+  "schemaVersion": "DIRECTIONAL_ANALYST_V2"
+}

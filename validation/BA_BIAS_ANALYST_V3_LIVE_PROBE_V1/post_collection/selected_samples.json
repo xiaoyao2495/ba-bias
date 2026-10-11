@@ -1,0 +1,990 @@
+{
+  "selected": [
+    {
+      "sampleId": "hourly_20261010_1200_CAPUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "CAPUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "originalFactsHash": "0789408fb8d8ad886626ae30c7e5ee65e0b64f2b64e0e59a190f126b6166c605",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "DRAWDOWN",
+        "MULTI_WINDOW_CONFLICT",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:23.632Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: PRICE_UP_OI_EXPANSION"
+    },
+    {
+      "sampleId": "hourly_20261010_1200_KAIAUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "KAIAUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/KAIAUSDT.json",
+      "originalFactsHash": "b8e2c2a80d1e09eb3da9e5dfb6957e31bf07e7c5d494879a57552985b639c7c6",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_EXPANSION",
+        "FUNDING_ABNORMAL",
+        "DRAWDOWN",
+        "MULTI_WINDOW_CONFLICT",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:19.107Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: PRICE_DOWN_OI_EXPANSION"
+    },
+    {
+      "sampleId": "hourly_20261010_1300_XPLUSDT_2026-10-10T05:00:16.899Z",
+      "symbol": "XPLUSDT",
+      "runId": "hourly_20261010_1300",
+      "evaluationTime": "2026-10-10T05:00:16.899Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1300/facts/XPLUSDT.json",
+      "originalFactsHash": "2f6b802e33b877cd4ef83529462945acb243c28c5ac7fa61b3ce4ab9ff997bae",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_CONTRACTION",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "collectionCompletedAt": "2026-10-10T05:00:41.249Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: PRICE_UP_OI_CONTRACTION"
+    },
+    {
+      "sampleId": "hourly_20261010_1200_BATUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "BATUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/BATUSDT.json",
+      "originalFactsHash": "0b4984f8abf571e8164a407a701173bc532eddd13cf73924b39824b0f560e422",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_CONTRACTION",
+        "MULTI_WINDOW_CONFLICT"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: PRICE_DOWN_OI_CONTRACTION"
+    },
+    {
+      "sampleId": "hourly_20261010_1200_MINAUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "MINAUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/MINAUSDT.json",
+      "originalFactsHash": "81b58bae06c91dd20bbd6a0ab1e7885986ea91b23f6d3c0ddee0f35abd800705",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "FUNDING_ABNORMAL",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:21.349Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: FUNDING_ABNORMAL"
+    },
+    {
+      "sampleId": "hourly_20261010_1200_XLMUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "XLMUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/XLMUSDT.json",
+      "originalFactsHash": "e807057eb7fbe5e5f0bb5cd1c88f27ab394ccb99804c6d0d5d6b9b9d5a077b67",
+      "evidenceCount": 24,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "ACCOUNT_CHANGE_OR_FLIP",
+        "MULTI_WINDOW_CONFLICT",
+        "REAL_PRICE_TURN",
+        "LOW_DISPLACEMENT"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:37.553Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: ACCOUNT_CHANGE_OR_FLIP"
+    },
+    {
+      "sampleId": "hourly_20261010_1200_OGNUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "OGNUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/OGNUSDT.json",
+      "originalFactsHash": "d58857ecf24b85e50d8d23979a32031e935a73479e46d2fb48c465d4ec7b91d0",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_CONTRACTION",
+        "DRAWDOWN",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:28.198Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: DRAWDOWN"
+    },
+    {
+      "sampleId": "hourly_20261010_1200_MAGICUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "MAGICUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/MAGICUSDT.json",
+      "originalFactsHash": "fb4e851b4b8210828d76694b5b3232940a52b9cc52ab42f39c2908717a09afe7",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "MULTI_WINDOW_CONFLICT",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:18.985Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: MULTI_WINDOW_CONFLICT"
+    },
+    {
+      "sampleId": "hourly_20261010_1200_INJUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "INJUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/INJUSDT.json",
+      "originalFactsHash": "7fdc8ffae881f103b8645c17425443eceae0f7fc891799cb9c03abe7b81ee045",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:34.518Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: REAL_PRICE_TURN"
+    },
+    {
+      "sampleId": "hourly_20261010_1200_RAYSOLUSDT_2026-10-10T04:00:15.949Z",
+      "symbol": "RAYSOLUSDT",
+      "runId": "hourly_20261010_1200",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "originalFactsPath": "data/runs/hourly_20261010_1200/facts/RAYSOLUSDT.json",
+      "originalFactsHash": "891e72c6028733b1f78437894bad5ec61be58f03a0cd7fabc060aafa11057678",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_CONTRACTION",
+        "REAL_PRICE_TURN",
+        "LOW_DISPLACEMENT"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:36.464Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "selectionReason": "Deterministic original-facts coverage: LOW_DISPLACEMENT"
+    }
+  ],
+  "excluded": [
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/ASTERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/CRVUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/GTCUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/HBARUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/ORCAUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/PONSUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/VVVUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/WUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/1000SHIBUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/AKEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/ALGOUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/API3USDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/ETHFIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/TRXUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/WLFIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/AEROUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/ETCUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/FARTCOINUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/JTOUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/MOVRUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/MUBARAKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/NMRUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/SUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/USELESSUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/VIRTUALUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/AEROUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/BOMEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/CTUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/EIGENUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/LABUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/MARSCOINUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/MOVRUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/RENDERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/1000BONKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/AXSUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/CYBERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/SEIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/STXUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/WIFUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/牛来USDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/1000BONKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/CCUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/CHIPUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/CYBERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/LSKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/PENDLEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/PHAUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/VETUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/CHIPUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/GWEIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/IMXUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/LSKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/LYNUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/MANTAUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/ORDIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/VETUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/1000BONKUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/AGTUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/API3USDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/APRUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/ARPAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/ARUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/BATUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/CAPUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/CELRUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/CFXUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/ENSUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/ERAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/EULUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/FARTCOINUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/FRAXUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/GWEIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/HEIUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/HEMIUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/IOSTUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/JCTUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/KMNOUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/LAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/LUMIAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/MAGICUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/MORPHOUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/MOVRUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/NEIROUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/NIGHTUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/NILUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/ONEUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/ONUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/OUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/PEOPLEUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/PIEVERSEUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/POLUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/PUMPUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/RLCUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/STRKUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/UAIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/USUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/VETUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/VTHOUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/WIFUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/XLMUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/YGGUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/AIOTUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ALGOUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/APRUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ARPAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ARUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/BABYUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/BATUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/CAPUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/CCUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/CELRUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ENJUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ENSUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ERAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/GRASSUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/HEIUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/JCTUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/KAITOUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/KITEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/LAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/LIGHTUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/MAGICUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/MANAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/METUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/MINAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/MOVRUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/NILUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/OPGUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/PUMPUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/QNTUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/RIVERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/RLCUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ROSEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/SAHARAUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/SEIUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/SOONUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/SPKUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/STABLEUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/STRKUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/SUPERUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/USUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/WLFIUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/XMRUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ZROUSDT.json",
+      "reason": "PRIOR_OPTIMIZATION_EXPOSURE"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/JUPUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/LITUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/PENGUUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/PYTHUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/SKLUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/TRUMPUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/1000PEPEUSDT.json",
+      "reason": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/ATOMUSDT.json",
+      "reason": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/ENAUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/ONDOUSDT.json",
+      "reason": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/QNTUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/UNIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/ARBUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/BCHUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/METUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/TAOUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/ZROUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/BATUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/CAPUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/ERAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/GMTUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/KAIAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/MAGICUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/PIXELUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/RLCUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/USUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/ZKUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/BATUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/BNBUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/BTCUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/CAPUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/DOGEUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/ERAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/ETHUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/GMTUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/HYPEUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/KAIAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/MAGICUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/MINAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/NEARUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/OGNUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/PIXELUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/PUMPUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/RLCUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/SOLUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/STRKUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/SUIUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/USUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/XRPUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/ZECUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/ZKUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    }
+  ],
+  "poolSize": 201,
+  "missingScenarios": []
+}

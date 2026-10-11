@@ -1,0 +1,17 @@
+{
+  "productionProcessRunning": false,
+  "pid": 68768,
+  "noSignalsSent": true,
+  "externalRequests": 0,
+  "productionChanges": [],
+  "auditStatus": "FORENSIC_AND_RENDER_FIX_COMPLETE",
+  "awaitingUserPause": false,
+  "productionProcessInitiallyRunning": true,
+  "userPauseConfirmed": true,
+  "exitVerified": true,
+  "productionCodeChanges": [
+    "src/intelligence/v4-conditions.js",
+    "src/intelligence/compact-renderer.js",
+    "src/intelligence/packet.js"
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "symbol",
+    "evaluationTime",
+    "entryReference",
+    "capabilities",
+    "evidence",
+    "windows",
+    "rules",
+    "unavailable"
+  ],
+  "properties": {
+    "contractRepair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "originalInput",
+        "originalResponse",
+        "preciseErrors",
+        "allowedEvidenceIds",
+        "mustFix"
+      ],
+      "properties": {
+        "originalInput": {
+          "type": "object"
+        },
+        "originalResponse": {},
+        "preciseErrors": {
+          "type": "array"
+        },
+        "allowedEvidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        },
+        "mustFix": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400
+        }
+      }
+    },
+    "contractVersion": {
+      "const": "DIRECTIONAL_ANALYST_V2"
+    },
+    "evidenceGuide": {
+      "type": "object"
+    },
+    "contentContract": {
+      "type": "object"
+    },
+    "repairErrors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 32
+    },
+    "version": {
+      "const": "DIRECTIONAL_INPUT_V1"
+    },
+    "symbol": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 400
+    },
+    "evaluationTime": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 400
+    },
+    "entryReference": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "price",
+        "timestamp",
+        "evidenceId"
+      ],
+      "properties": {
+        "price": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "evidenceId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "priceStructure",
+        "takerFlow",
+        "cvd",
+        "basis",
+        "oiMarketCap"
+      ],
+      "properties": {
+        "priceStructure": {
+          "const": false
+        },
+        "takerFlow": {
+          "const": false
+        },
+        "cvd": {
+          "const": false
+        },
+        "basis": {
+          "const": false
+        },
+        "oiMarketCap": {
+          "const": false
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidenceId",
+          "result",
+          "phrase",
+          "dataTimes",
+          "formula",
+          "endpoint",
+          "params",
+          "scope",
+          "window"
+        ],
+        "properties": {
+          "evidenceId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          },
+          "result": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "phrase": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "dataTimes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "formula": {
+            "type": "string"
+          },
+          "endpoint": {
+            "type": "string"
+          },
+          "params": {
+            "type": "object"
+          },
+          "scope": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "window": {
+            "enum": [
+              null,
+              "1h",
+              "4h",
+              "24h"
+            ]
+          }
+        }
+      }
+    },
+    "windows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "horizon",
+          "priceId",
+          "oiId",
+          "previousPriceId",
+          "aligned",
+          "strongContinuation"
+        ],
+        "properties": {
+          "observedPriceSign": {
+            "enum": [
+              -1,
+              0,
+              1
+            ]
+          },
+          "reversalEvidenceAvailable": {
+            "type": "boolean"
+          },
+          "horizon": {
+            "enum": [
+              "1h",
+              "4h",
+              "24h"
+            ]
+          },
+          "priceId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "oiId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "previousPriceId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "aligned": {
+            "type": "boolean"
+          },
+          "allowedBiases": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "BULLISH",
+                "BEARISH",
+                "BULLISH_REVERSAL",
+                "BEARISH_REVERSAL",
+                "NO_EDGE"
+              ]
+            }
+          },
+          "strongContinuation": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "horizon",
+          "metric",
+          "operator",
+          "threshold",
+          "outcome",
+          "description",
+          "baselineEvidenceId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          },
+          "horizon": {
+            "enum": [
+              "1h",
+              "4h",
+              "24h"
+            ]
+          },
+          "metric": {
+            "enum": [
+              "PRICE_CLOSED_CHANGE",
+              "OI_QUANTITY_CHANGE"
+            ]
+          },
+          "operator": {
+            "enum": [
+              "LTE",
+              "GTE"
+            ]
+          },
+          "threshold": {
+            "type": "number"
+          },
+          "outcome": {
+            "enum": [
+              "THESIS_WARNING",
+              "INVALIDATED"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          },
+          "baselineEvidenceId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          }
+        }
+      }
+    },
+    "unavailable": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "contractVersion"
+        ]
+      },
+      "then": {
+        "required": [
+          "evidenceGuide",
+          "contentContract"
+        ],
+        "properties": {
+          "windows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "observedPriceSign",
+                "reversalEvidenceAvailable"
+              ]
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "windows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "allowedBiases"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

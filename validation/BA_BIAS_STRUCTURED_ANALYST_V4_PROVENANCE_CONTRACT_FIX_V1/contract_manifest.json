@@ -1,0 +1,29 @@
+{
+  "version": "V4_PROVENANCE_ENVELOPE_V1",
+  "verdict": "V4_PROVENANCE_CONTRACT_READY",
+  "sources": [
+    "SYNTHETIC_OR_CONVERTED",
+    "LIVE_MODEL_RESPONSE"
+  ],
+  "modelBusinessSchema": "legacy business fields except runner-owned provenance; same remaining constraints",
+  "legacySchema": "preserved synthetic-only outputSchema",
+  "files": {
+    "test/structured-v4-live-preflight.test.js": "484dea69d9690c1d51f03b84c7cc9b47680909c9f58411aed80697817a1c4c62",
+    "scripts/structured-v4-live-preflight.js": "d18a26fe5c6b02945b3851b1d5cdafa888257a1154bd377a9a258385f51d672b",
+    "src/analysis/experimental/structured-v4-schema.js": "8914a7b2d86220240663d3bfd40b19dce2f3334f6a4c776a491c82f9287c17a7",
+    "src/analysis/experimental/structured-v4-renderer.js": "5c8ccb9c24e305c4f07e1ea69b0dd1a1b86afce7d80a21368b186848d15861c1",
+    "src/analysis/experimental/structured-v4-guard.js": "11079c691dcb2a1b31b53a56e409c33978bb8341ec589a6146a17a383942822b",
+    "src/analysis/experimental/structured-v4-provenance.js": "0f1605e51478e9e7e56e3004a48f4d2920bfec7d230886e01982be46a34448b7",
+    "src/analysis/experimental/structured-v4-executor.js": "af740756f1994cb96b720565743680a782fa573aa54235db3278996bb389514c",
+    "test/structured-v4-provenance.test.js": "a55c7194eccdcb12613da47e5195eef94bfc38a30112c711b78ffcb38f0e231d",
+    "scripts/structured-v4-provenance-replay.js": "89869a12312cdd8e83899b6b3d09fe0b3723efa7597d49596b3f8e54573b0401",
+    "scripts/structured-v4-provenance-offline.js": "999dab2b7fea5cf557e8f3f2634594fd60e786df13ce5cc0f8e12c8642b93d17"
+  },
+  "businessGuardBodySHA256": "f86c7d88475ccdb6656cf6fbe96c1d6a4344a6a9b57fdb7179abb31954aaefcf",
+  "businessGuardUnchangedAfterFunctionAndValidatorRename": true,
+  "livePrompt": "NOT_CREATED \u2014 prohibited scope",
+  "networkExecution": "NOT_EXECUTED",
+  "liveReplayFromSerializedJSON": "UNVERIFIED; cannot mint a live receipt from files",
+  "runtime": "Node.js ESM",
+  "generatedAt": "2026-10-10T20:35:31.166319+00:00"
+}

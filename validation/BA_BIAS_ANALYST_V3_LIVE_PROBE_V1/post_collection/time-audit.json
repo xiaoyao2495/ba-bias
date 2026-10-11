@@ -1,0 +1,271 @@
+[
+  {
+    "sampleId": "hourly_20261010_1200_CAPUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:23.632Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:50:04.833Z",
+      "2026-10-10T18:50:08.677Z",
+      "2026-10-10T18:50:11.937Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1200_KAIAUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:19.107Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:50:15.077Z",
+      "2026-10-10T18:50:18.669Z",
+      "2026-10-10T18:50:22.176Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1300_XPLUSDT_2026-10-10T05:00:16.899Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+    "collectionCompletedAt": "2026-10-10T05:00:41.249Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:50:25.571Z",
+      "2026-10-10T18:50:29.088Z",
+      "2026-10-10T18:50:32.015Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1200_BATUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:50:34.868Z",
+      "2026-10-10T18:50:38.172Z",
+      "2026-10-10T18:50:40.711Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1200_MINAUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:21.349Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:50:43.749Z",
+      "2026-10-10T18:50:47.513Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1200_XLMUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:37.553Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:50:51.220Z",
+      "2026-10-10T18:50:55.504Z",
+      "2026-10-10T18:50:59.197Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1200_OGNUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:28.198Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:51:02.924Z",
+      "2026-10-10T18:51:07.051Z",
+      "2026-10-10T18:51:10.488Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1200_MAGICUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:18.985Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:51:13.792Z",
+      "2026-10-10T18:51:18.082Z",
+      "2026-10-10T18:51:21.361Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1200_INJUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:34.518Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:51:24.639Z",
+      "2026-10-10T18:51:28.549Z",
+      "2026-10-10T18:51:31.892Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  },
+  {
+    "sampleId": "hourly_20261010_1200_RAYSOLUSDT_2026-10-10T04:00:15.949Z",
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "collectionCompletedAt": "2026-10-10T04:00:36.464Z",
+    "researchExecutedAt": [
+      "2026-10-10T18:51:35.437Z",
+      "2026-10-10T18:51:39.292Z",
+      "2026-10-10T18:51:42.382Z"
+    ],
+    "causalBacktestEligible": false,
+    "originalHashUnchanged": true,
+    "allTransmittedEvidenceEventsAtOrBeforeOriginalCutoff": true,
+    "originalFutureOrUnclosedRawRecordsExcluded": [
+      {
+        "source": "hour",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      },
+      {
+        "source": "five",
+        "futureOrUnclosedRows": 1,
+        "transmittedAsEvidence": false
+      }
+    ],
+    "originalAvailability": "UNKNOWN_OR_ACQUIRED_LATER — not promoted to causal eligibility"
+  }
+]

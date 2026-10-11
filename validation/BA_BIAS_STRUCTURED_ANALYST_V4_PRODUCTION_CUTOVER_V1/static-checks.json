@@ -1,0 +1,411 @@
+{
+  "passed": 81,
+  "total": 81,
+  "results": [
+    {
+      "file": "scripts/analyst-alignment-attribution.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-alignment-replay.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-alignment-report.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-generation-offline.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-live-probe-report.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-live-probe.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-precision-prepare.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-precision-replay.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-precision-report.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-semantic-grounding-replay.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-v3-live-preflight.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-v3-post-collection-probe.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/analyst-version.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/compact-replay.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/structured-v4-live-preflight.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/structured-v4-live-rerun.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/structured-v4-provenance-offline.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/structured-v4-provenance-replay.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "scripts/validation-recovery-replay.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/active-analyst.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-alignment-guard.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-analyst.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-context.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-generation.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-history.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-legacy-guard.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/directional-schema.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/evidence-precision-validator.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/evidence-text-validator.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-executor.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-guard.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-input.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-provenance.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-renderer.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-schema.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/analysis/structured-v4-production.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/clients/binance.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/clients/deepseek.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/clients/dingtalk.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/clients/http.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/config.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/content/claim-guard.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/content/draft-writer.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/content/schemas.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/content/story-judge.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/intelligence/compact-renderer.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/intelligence/packet.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/logging.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/main.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/market/detector.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/market/facts-engine.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/market/long-short-detector.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/market/long-short-discovery.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/market/long-short-facts.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/market/scanner.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/scan-daemon.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/scheduler.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/storage/delivery-queue.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/storage/delivery.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "src/storage/history.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-alignment.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-generation.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-live-probe.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-precision.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-v3-live-preflight.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/analyst-v3-post-collection.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/compact-fixture.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/compact.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/core.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/cutover-authorization.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/directional-fixture.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/directional.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/fixtures.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/hourly.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/long-short.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/structured-v4-live-preflight.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/structured-v4-live-rerun.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/structured-v4-provenance.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/structured-v4.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/v4-production.test.js",
+      "ok": true,
+      "error": null
+    },
+    {
+      "file": "test/validation-recovery.test.js",
+      "ok": true,
+      "error": null
+    }
+  ]
+}

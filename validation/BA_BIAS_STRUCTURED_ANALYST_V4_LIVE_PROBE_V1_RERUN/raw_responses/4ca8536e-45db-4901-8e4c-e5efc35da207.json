@@ -1,0 +1,73 @@
+{
+  "requestId": "4ca8536e-45db-4901-8e4c-e5efc35da207",
+  "sampleId": "s_hourly_20261010_1200_SENTUSDT",
+  "raw": {
+    "id": "6ec7b884-06d4-4b10-a336-f73d9aef5ea9",
+    "object": "chat.completion",
+    "created": 1791665653,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"SENTUSDT\",\n  \"evaluationTime\": \"2026-10-10T04:00:15.949Z\",\n  \"direction\": \"BEARISH\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"LOW\",\n  \"supportingEvidenceIds\": [\n    \"SENTUSDT:price.closed1h\",\n    \"SENTUSDT:oi.1h\",\n    \"SENTUSDT:price.closed4h\",\n    \"SENTUSDT:price.closed24h\",\n    \"SENTUSDT:global.long.change1h\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"SENTUSDT:volume.relative1h\",\n    \"SENTUSDT:funding.latest\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_CONTRACTION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"SENTUSDT:price.closed1h\",\n      \"SENTUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"CONTINUATION\",\n    \"evidenceIds\": [\n      \"SENTUSDT:price.closed1h\",\n      \"SENTUSDT:oi.1h\",\n      \"SENTUSDT:price.closed4h\",\n      \"SENTUSDT:price.closed24h\",\n      \"SENTUSDT:global.long.change1h\",\n      \"SENTUSDT:volume.relative1h\",\n      \"SENTUSDT:funding.latest\"\n    ],\n    \"alternative\": \"CONSOLIDATION\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    },\n    {\n      \"conditionType\": \"ABSTRACT_REASSESSMENT\",\n      \"metricOrStructureEvidenceId\": \"SENTUSDT:volume.relative1h\",\n      \"interpretation\": \"MONITOR_CHANGE\",\n      \"consequence\": \"REASSESS_ONLY\"\n    }\n  ]\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6184,
+      "completion_tokens": 585,
+      "total_tokens": 6769,
+      "prompt_tokens_details": {
+        "cached_tokens": 1280
+      },
+      "prompt_cache_hit_tokens": 1280,
+      "prompt_cache_miss_tokens": 4904
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "record": {
+    "requestId": "4ca8536e-45db-4901-8e4c-e5efc35da207",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "model": "deepseek-flash",
+    "requestedAt": "2026-10-10T20:54:13.309Z",
+    "requestHash": "cb4251315142e386c06e5154d380d21b3dbc685ed1f6ae8f822d564bdc3173f2",
+    "inputHash": "d3e79f36fbf8571d70c61e8045fb1c71d96e253b73f6762220efcff7a08bc753",
+    "executionKind": "LIVE_API",
+    "physicalRequests": 1,
+    "responseHash": "3bf155c0273ebe8e5ea58cdc9c815583036c5111e3529364d768d765fb6650d3",
+    "receivedAt": "2026-10-10T20:54:15.516Z",
+    "serverResponseId": "6ec7b884-06d4-4b10-a336-f73d9aef5ea9",
+    "rawResponse": {
+      "id": "6ec7b884-06d4-4b10-a336-f73d9aef5ea9",
+      "object": "chat.completion",
+      "created": 1791665653,
+      "model": "deepseek-flash",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"SENTUSDT\",\n  \"evaluationTime\": \"2026-10-10T04:00:15.949Z\",\n  \"direction\": \"BEARISH\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"LOW\",\n  \"supportingEvidenceIds\": [\n    \"SENTUSDT:price.closed1h\",\n    \"SENTUSDT:oi.1h\",\n    \"SENTUSDT:price.closed4h\",\n    \"SENTUSDT:price.closed24h\",\n    \"SENTUSDT:global.long.change1h\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"SENTUSDT:volume.relative1h\",\n    \"SENTUSDT:funding.latest\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_CONTRACTION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"SENTUSDT:price.closed1h\",\n      \"SENTUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"CONTINUATION\",\n    \"evidenceIds\": [\n      \"SENTUSDT:price.closed1h\",\n      \"SENTUSDT:oi.1h\",\n      \"SENTUSDT:price.closed4h\",\n      \"SENTUSDT:price.closed24h\",\n      \"SENTUSDT:global.long.change1h\",\n      \"SENTUSDT:volume.relative1h\",\n      \"SENTUSDT:funding.latest\"\n    ],\n    \"alternative\": \"CONSOLIDATION\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    },\n    {\n      \"conditionType\": \"ABSTRACT_REASSESSMENT\",\n      \"metricOrStructureEvidenceId\": \"SENTUSDT:volume.relative1h\",\n      \"interpretation\": \"MONITOR_CHANGE\",\n      \"consequence\": \"REASSESS_ONLY\"\n    }\n  ]\n}"
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 6184,
+        "completion_tokens": 585,
+        "total_tokens": 6769,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "prompt_cache_hit_tokens": 1280,
+        "prompt_cache_miss_tokens": 4904
+      },
+      "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "task": "BA_BIAS_ANALYST_LIVE_PROBE_V1",
+  "startedAt": "2026-10-10T17:02:02.667Z",
+  "timezone": "Asia/Shanghai",
+  "keyPresent": true,
+  "model": "deepseek-flash",
+  "baseOrigin": "https://api.deepseek.com",
+  "proxyEnabled": false,
+  "proxyConfigured": true,
+  "budget": {
+    "samples": 10,
+    "perSample": 3,
+    "requests": 30
+  },
+  "transportRetries": 0,
+  "promptHash": "dadd3048cf55d22d5db6a956a9995b3b73d8f6406212cd48c452b804ab671939",
+  "schemaHash": "7590bc172f0d61a05ec49051afde1d11e615a967fdff05d9363c8f07910f75eb",
+  "validatorHash": "ddca8343e980d52b4263251c28d5ac83d0cb38decaefb283baf7dab42b52d502",
+  "contractFiles": {
+    "src/analysis/directional-alignment-guard.js": "ddca8343e980d52b4263251c28d5ac83d0cb38decaefb283baf7dab42b52d502",
+    "src/analysis/directional-analyst.js": "c11df08f908d7485adb20585670f1fbb2ad6c365f153b8c8e4ec397bcbe8d538",
+    "src/analysis/directional-context.js": "31d0845f5c0df2b6e5574958e21e64fa242b474652048114951469b0d2f4a8e8",
+    "src/analysis/directional-history.js": "6c8065612dc6f9ba4cd915edc72361ea7d612667e3b75d7a8e3a8ea0f1eb4c96",
+    "src/analysis/directional-legacy-guard.js": "d3e73b614cd990c68fbb47c90773f85cc554329ad52aa376c294381b56279f7d",
+    "src/analysis/directional-schema.js": "468bed6794f90b542f7e9869e8466c11a56fa0dda285a480d174d0f4924fd920",
+    "src/analysis/evidence-text-validator.js": "93bfafcab8137ecab5d1b8f62639eab7c1e1cb19a4743fead5b1226b916d2ad5"
+  },
+  "safety": "Isolated Analyst requests only. No pipeline entry, transport only POST api.deepseek.com/chat/completions; original files hash protected."
+}

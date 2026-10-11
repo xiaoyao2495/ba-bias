@@ -1,0 +1,351 @@
+{
+  "checked": 69,
+  "passed": 69,
+  "rows": [
+    {
+      "file": "src/analysis/directional-alignment-guard.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-analyst.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-context.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-generation.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-history.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-legacy-guard.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/directional-schema.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/evidence-precision-validator.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/evidence-text-validator.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-guard.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-input.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-renderer.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-schema.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/clients/binance.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/clients/deepseek.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/clients/dingtalk.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/clients/http.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/config.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/content/claim-guard.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/content/draft-writer.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/content/schemas.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/content/story-judge.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/intelligence/compact-renderer.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/intelligence/packet.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/logging.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/main.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/detector.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/facts-engine.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/long-short-detector.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/long-short-discovery.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/long-short-facts.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/market/scanner.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/scan-daemon.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/scheduler.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/storage/delivery-queue.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/storage/delivery.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "src/storage/history.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-alignment-attribution.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-alignment-replay.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-alignment-report.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-generation-offline.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-live-probe-report.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-live-probe.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-precision-prepare.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-precision-replay.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-precision-report.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-semantic-grounding-replay.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-v3-live-preflight.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/analyst-v3-post-collection-probe.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/compact-replay.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/structured-v4-live-preflight.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "scripts/validation-recovery-replay.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-alignment.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-generation.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-live-probe.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-precision.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-v3-live-preflight.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/analyst-v3-post-collection.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/compact-fixture.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/compact.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/core.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/directional-fixture.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/directional.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/fixtures.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/hourly.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/long-short.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/structured-v4-live-preflight.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/structured-v4.test.js",
+      "ok": true,
+      "diagnostic": ""
+    },
+    {
+      "file": "test/validation-recovery.test.js",
+      "ok": true,
+      "diagnostic": ""
+    }
+  ]
+}

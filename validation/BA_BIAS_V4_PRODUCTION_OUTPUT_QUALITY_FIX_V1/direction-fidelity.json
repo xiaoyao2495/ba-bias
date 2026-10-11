@@ -1,0 +1,656 @@
+[
+  {
+    "symbol": "2ZUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "APRUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "ARCUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "ARUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "ARXUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "BRUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "CHIPUSDT",
+    "status": "FAILED",
+    "attempts": 2,
+    "errors": [
+      [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE",
+        "MECHANISM_SIGN_MISMATCH",
+        "UNSUPPORTED_STRUCTURE"
+      ],
+      [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE",
+        "UNSUPPORTED_STRUCTURE"
+      ]
+    ],
+    "direction": null,
+    "horizon": null,
+    "conviction": null,
+    "packetStatus": "FAILED",
+    "supportingMatches": null,
+    "conflictingMatches": null
+  },
+  {
+    "symbol": "ENSUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "ERAUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "GENIUSUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "NO_EDGE",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "GRASSUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "HEIUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "IOSTUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": null,
+    "supportingMatches": null,
+    "conflictingMatches": null
+  },
+  {
+    "symbol": "JCTUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "NO_EDGE",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "KITEUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "LAUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "MODERATE",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "LDOUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "LUMIAUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "NO_EDGE",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "MAGICUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "NO_EDGE",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "MAGMAUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "METUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "MINAUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "NEIROUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "NIGHTUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "ONEUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "OUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "PENGUUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "PIXELUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "POLUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "PUMPUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "QNTUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "RIVERUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "RLCUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "ROSEUSDT",
+    "status": "FAILED",
+    "attempts": 2,
+    "errors": [
+      [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE",
+        "MECHANISM_SIGN_MISMATCH",
+        "UNSUPPORTED_STRUCTURE"
+      ],
+      [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE",
+        "MECHANISM_SIGN_MISMATCH",
+        "UNSUPPORTED_STRUCTURE"
+      ]
+    ],
+    "direction": null,
+    "horizon": null,
+    "conviction": null,
+    "packetStatus": "FAILED",
+    "supportingMatches": null,
+    "conflictingMatches": null
+  },
+  {
+    "symbol": "SAHARAUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "SEIUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "SKYUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "SPKUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "STRKUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "SUPERUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "TIAUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "USUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "WALUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  },
+  {
+    "symbol": "WLFIUSDT",
+    "status": "FAILED",
+    "attempts": 2,
+    "errors": [
+      [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE",
+        "UNSUPPORTED_STRUCTURE"
+      ],
+      [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE",
+        "UNSUPPORTED_STRUCTURE"
+      ]
+    ],
+    "direction": null,
+    "horizon": null,
+    "conviction": null,
+    "packetStatus": "FAILED",
+    "supportingMatches": null,
+    "conflictingMatches": null
+  },
+  {
+    "symbol": "ZROUSDT",
+    "status": "VALIDATED",
+    "attempts": 1,
+    "errors": [
+      []
+    ],
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "packetStatus": "VALIDATED",
+    "supportingMatches": true,
+    "conflictingMatches": true
+  }
+]

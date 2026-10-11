@@ -1,0 +1,10 @@
+{
+  "sampleId": "s_hourly_20261010_1200_RLCUSDT",
+  "attempt": 1,
+  "requestId": "f730ba23-2844-4333-ae3a-e38b68d3b629",
+  "intentId": "b54361a8-9052-46ec-b40f-9ca00e4af011",
+  "physicalRequests": 1,
+  "requestedAt": "2026-10-10T20:54:20.346Z",
+  "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+  "sourceType": "LIVE_MODEL_RESPONSE"
+}

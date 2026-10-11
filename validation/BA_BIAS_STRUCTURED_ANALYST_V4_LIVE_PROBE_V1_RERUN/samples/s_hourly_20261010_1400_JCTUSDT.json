@@ -1,0 +1,561 @@
+{
+  "sampleId": "s_hourly_20261010_1400_JCTUSDT",
+  "symbol": "JCTUSDT",
+  "runId": "hourly_20261010_1400",
+  "originalEvaluationTime": "2026-10-10T06:00:13.760Z",
+  "factsPath": "data/runs/hourly_20261010_1400/facts/JCTUSDT.json",
+  "factsHash": "5cc4e93a1efbe3f39f8b09fb7bf251e310faa4a005701e2060a9dfaed1ac2993",
+  "evidenceCount": 23,
+  "scenarioTags": [
+    "PRICE_UP_OI_CONTRACTION"
+  ],
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "timeAudit": {
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "originalEvaluationTime": "2026-10-10T06:00:13.760Z",
+    "collectionCompletedAt": "2026-10-10T06:00:25.713Z",
+    "availability": "UNKNOWN",
+    "causalBacktestEligible": false,
+    "isolatedFutureRows": [
+      {
+        "source": "hour",
+        "rows": 1,
+        "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+      },
+      {
+        "source": "five",
+        "rows": 1,
+        "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+      }
+    ],
+    "retainedFutureEvidence": 0,
+    "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+  },
+  "selectionReason": "Deterministic original-facts scenario coverage: PRICE_UP_OI_CONTRACTION",
+  "finalStatus": "FIRST_PASS_VALID",
+  "attempts": [
+    {
+      "intentId": "20faa68d-b352-46b3-9a6d-c6bbd3b9f60c",
+      "requestId": "e6f42b05-540d-4ae7-9779-fcc65e25b927",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "sampleId": "s_hourly_20261010_1400_JCTUSDT",
+      "attempt": 1,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T06:00:13.760Z",
+      "collectionCompletedAt": "2026-10-10T06:00:25.713Z",
+      "availability": "UNKNOWN",
+      "causalBacktestEligible": false,
+      "isolatedFutureRows": [
+        {
+          "source": "hour",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        },
+        {
+          "source": "five",
+          "rows": 1,
+          "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+        }
+      ],
+      "retainedFutureEvidence": 0,
+      "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence.",
+      "researchExecutedAt": "2026-10-10T20:54:16.182Z",
+      "receivedAt": "2026-10-10T20:54:17.829Z",
+      "actualModel": "deepseek-flash",
+      "physicalRequests": 1,
+      "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+      "httpStatus": "UNKNOWN_CLIENT_DOES_NOT_EXPOSE_STATUS",
+      "serverResponseId": "c41f13da-f47a-41e7-8eee-cce7312a7447",
+      "serverRequestId": null,
+      "rawText": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"JCTUSDT\",\n  \"evaluationTime\": \"2026-10-10T06:00:13.760Z\",\n  \"direction\": \"BULLISH\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"LOW\",\n  \"supportingEvidenceIds\": [\n    \"JCTUSDT:price.closed1h\",\n    \"JCTUSDT:oi.1h\",\n    \"JCTUSDT:price.last\",\n    \"JCTUSDT:price.drawdown\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"JCTUSDT:volume.relative1h\",\n    \"JCTUSDT:global.long.change1h\",\n    \"JCTUSDT:global.short.change1h\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_EXPANSION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"JCTUSDT:price.closed1h\",\n      \"JCTUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"CONTINUATION\",\n    \"evidenceIds\": [\n      \"JCTUSDT:price.closed1h\",\n      \"JCTUSDT:oi.1h\",\n      \"JCTUSDT:price.last\",\n      \"JCTUSDT:price.drawdown\",\n      \"JCTUSDT:volume.relative1h\",\n      \"JCTUSDT:global.long.change1h\",\n      \"JCTUSDT:global.short.change1h\"\n    ],\n    \"alternative\": \"CONSOLIDATION\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    },\n    {\n      \"conditionType\": \"ABSTRACT_REASSESSMENT\",\n      \"metricOrStructureEvidenceId\": \"JCTUSDT:volume.relative1h\",\n      \"interpretation\": \"MONITOR_CHANGE\",\n      \"consequence\": \"REASSESS_ONLY\"\n    }\n  ]\n}",
+      "jsonParseable": true,
+      "schemaValid": true,
+      "validation": {
+        "ok": true,
+        "status": "EXPERIMENT_VALIDATED",
+        "errors": [],
+        "analysis": {
+          "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+          "status": "NOT_PRODUCTION",
+          "causalBacktestEligible": false,
+          "symbol": "JCTUSDT",
+          "evaluationTime": "2026-10-10T06:00:13.760Z",
+          "direction": "BULLISH",
+          "horizon": "1h",
+          "conviction": "LOW",
+          "supportingEvidenceIds": [
+            "JCTUSDT:price.closed1h",
+            "JCTUSDT:oi.1h",
+            "JCTUSDT:price.last",
+            "JCTUSDT:price.drawdown"
+          ],
+          "conflictingEvidenceIds": [
+            "JCTUSDT:volume.relative1h",
+            "JCTUSDT:global.long.change1h",
+            "JCTUSDT:global.short.change1h"
+          ],
+          "structureEvidenceIds": [],
+          "mechanismHypothesis": {
+            "type": "CONTRACT_EXPANSION_COMPATIBLE",
+            "evidenceIds": [
+              "JCTUSDT:price.closed1h",
+              "JCTUSDT:oi.1h"
+            ],
+            "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+          },
+          "directionalRationale": {
+            "hypothesis": "CONTINUATION",
+            "evidenceIds": [
+              "JCTUSDT:price.closed1h",
+              "JCTUSDT:oi.1h",
+              "JCTUSDT:price.last",
+              "JCTUSDT:price.drawdown",
+              "JCTUSDT:volume.relative1h",
+              "JCTUSDT:global.long.change1h",
+              "JCTUSDT:global.short.change1h"
+            ],
+            "alternative": "CONSOLIDATION",
+            "certainty": "CONDITIONAL_NOT_CONFIRMED"
+          },
+          "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+          "reassessmentConditions": [
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "PRICE_OPPOSITE_1h"
+            },
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "OI_REVERSED_1h"
+            },
+            {
+              "conditionType": "ABSTRACT_REASSESSMENT",
+              "metricOrStructureEvidenceId": "JCTUSDT:volume.relative1h",
+              "interpretation": "MONITOR_CHANGE",
+              "consequence": "REASSESS_ONLY"
+            }
+          ]
+        },
+        "provenanceValid": true,
+        "analysisValid": true,
+        "provenance": {
+          "sourceType": "LIVE_MODEL_RESPONSE",
+          "executionKind": "LIVE_API",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "requestedModel": "deepseek-flash",
+          "requestId": "e6f42b05-540d-4ae7-9779-fcc65e25b927",
+          "requestIdKind": "LOCAL_TRACKING_ID",
+          "serverResponseId": "c41f13da-f47a-41e7-8eee-cce7312a7447",
+          "requestedAt": "2026-10-10T20:54:16.182Z",
+          "receivedAt": "2026-10-10T20:54:17.829Z",
+          "requestHash": "94d80660047cbdc59e71bab6b6f42002fcef28a6057e41887c73f470f4443b0f",
+          "responseHash": "cf5732b6352bced50dbd8b5fe1845dba445d9727c4f542fc1f702accb0b0bcaa",
+          "inputHash": "67ffee18baa905f83ae40f5869fffe6b8bcaeeb13a9d893e219770d4312786d5"
+        }
+      },
+      "trustedProvenance": {
+        "sourceType": "LIVE_MODEL_RESPONSE",
+        "executionKind": "LIVE_API",
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "requestedModel": "deepseek-flash",
+        "requestId": "e6f42b05-540d-4ae7-9779-fcc65e25b927",
+        "requestIdKind": "LOCAL_TRACKING_ID",
+        "serverResponseId": "c41f13da-f47a-41e7-8eee-cce7312a7447",
+        "requestedAt": "2026-10-10T20:54:16.182Z",
+        "receivedAt": "2026-10-10T20:54:17.829Z",
+        "requestHash": "94d80660047cbdc59e71bab6b6f42002fcef28a6057e41887c73f470f4443b0f",
+        "responseHash": "cf5732b6352bced50dbd8b5fe1845dba445d9727c4f542fc1f702accb0b0bcaa",
+        "inputHash": "67ffee18baa905f83ae40f5869fffe6b8bcaeeb13a9d893e219770d4312786d5"
+      },
+      "analysis": {
+        "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+        "status": "NOT_PRODUCTION",
+        "causalBacktestEligible": false,
+        "symbol": "JCTUSDT",
+        "evaluationTime": "2026-10-10T06:00:13.760Z",
+        "direction": "BULLISH",
+        "horizon": "1h",
+        "conviction": "LOW",
+        "supportingEvidenceIds": [
+          "JCTUSDT:price.closed1h",
+          "JCTUSDT:oi.1h",
+          "JCTUSDT:price.last",
+          "JCTUSDT:price.drawdown"
+        ],
+        "conflictingEvidenceIds": [
+          "JCTUSDT:volume.relative1h",
+          "JCTUSDT:global.long.change1h",
+          "JCTUSDT:global.short.change1h"
+        ],
+        "structureEvidenceIds": [],
+        "mechanismHypothesis": {
+          "type": "CONTRACT_EXPANSION_COMPATIBLE",
+          "evidenceIds": [
+            "JCTUSDT:price.closed1h",
+            "JCTUSDT:oi.1h"
+          ],
+          "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+        },
+        "directionalRationale": {
+          "hypothesis": "CONTINUATION",
+          "evidenceIds": [
+            "JCTUSDT:price.closed1h",
+            "JCTUSDT:oi.1h",
+            "JCTUSDT:price.last",
+            "JCTUSDT:price.drawdown",
+            "JCTUSDT:volume.relative1h",
+            "JCTUSDT:global.long.change1h",
+            "JCTUSDT:global.short.change1h"
+          ],
+          "alternative": "CONSOLIDATION",
+          "certainty": "CONDITIONAL_NOT_CONFIRMED"
+        },
+        "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+        "reassessmentConditions": [
+          {
+            "conditionType": "PROGRAM_RULE",
+            "ruleId": "PRICE_OPPOSITE_1h"
+          },
+          {
+            "conditionType": "PROGRAM_RULE",
+            "ruleId": "OI_REVERSED_1h"
+          },
+          {
+            "conditionType": "ABSTRACT_REASSESSMENT",
+            "metricOrStructureEvidenceId": "JCTUSDT:volume.relative1h",
+            "interpretation": "MONITOR_CHANGE",
+            "consequence": "REASSESS_ONLY"
+          }
+        ]
+      },
+      "rendererAudit": {
+        "ok": true,
+        "status": "PASS",
+        "errors": [],
+        "claims": [
+          {
+            "renderedClaim": "支持: JCTUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 12.39892183 % | window=1h | observedAt=2026-10-10T05:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间14:00，已收盘1小时价格变化 12.40%",
+            "evidenceId": "JCTUSDT:price.closed1h",
+            "factsFields": [
+              "evidence[3].result",
+              "evidence[3].phrase",
+              "evidence[3].dataTimes",
+              "evidence[3].formula",
+              "sources.hour.raw"
+            ],
+            "value": "12.39892183",
+            "unit": "%",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791608400000,
+              1791611999999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "JCTUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791612013760
+              },
+              "formula": "(close_end/open_start-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: JCTUSDT:oi.1h | OI_QUANTITY_CHANGE | 1.41920547 % | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 1.42%（不代表资金净流入或多空加仓方向）",
+            "evidenceId": "JCTUSDT:oi.1h",
+            "factsFields": [
+              "evidence[11].result",
+              "evidence[11].phrase",
+              "evidence[11].dataTimes",
+              "evidence[11].formula",
+              "sources.oi.raw"
+            ],
+            "value": "1.41920547",
+            "unit": "%",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791608400000,
+              1791612000000
+            ],
+            "source": {
+              "endpoint": "/futures/data/openInterestHist",
+              "params": {
+                "symbol": "JCTUSDT",
+                "period": "1h",
+                "limit": 30,
+                "endTime": 1791612013760
+              },
+              "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: JCTUSDT:price.last | PRICE_SNAPSHOT | 0.0029130 USDT | window=UNDECLARED | observedAt=2026-10-10T06:00:08.601Z | availableAt=UNKNOWN | /fapi/v1/ticker/24hr | 快照最新价格 0.0029130 USDT",
+            "evidenceId": "JCTUSDT:price.last",
+            "factsFields": [
+              "evidence[1].result",
+              "evidence[1].phrase",
+              "evidence[1].dataTimes",
+              "evidence[1].formula",
+              "sources.ticker.raw"
+            ],
+            "value": "0.0029130",
+            "unit": "USDT",
+            "window": null,
+            "scope": null,
+            "dataTimes": [
+              1791612008601
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/ticker/24hr",
+              "params": {},
+              "formula": "lastPrice"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "支持: JCTUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -0.78337875 % | window=24h | observedAt=2026-10-10T06:00:08.601Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -0.78%",
+            "evidenceId": "JCTUSDT:price.drawdown",
+            "factsFields": [
+              "evidence[7].result",
+              "evidence[7].phrase",
+              "evidence[7].dataTimes",
+              "evidence[7].formula",
+              "sources.hour.raw"
+            ],
+            "value": "-0.78337875",
+            "unit": "%",
+            "window": "24h",
+            "scope": null,
+            "dataTimes": [
+              1791611999999,
+              1791612008601
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "JCTUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791612013760
+              },
+              "formula": "(lastPrice/high-1)*100"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "冲突: JCTUSDT:volume.relative1h | RELATIVE_VOLUME | 0.44381487 multiple | window=1h | observedAt=2026-10-10T05:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 0.44 倍",
+            "evidenceId": "JCTUSDT:volume.relative1h",
+            "factsFields": [
+              "evidence[8].result",
+              "evidence[8].phrase",
+              "evidence[8].dataTimes",
+              "evidence[8].formula",
+              "sources.hour.raw"
+            ],
+            "value": "0.44381487",
+            "unit": "multiple",
+            "window": "1h",
+            "scope": null,
+            "dataTimes": [
+              1791522000000,
+              1791611999999
+            ],
+            "source": {
+              "endpoint": "/fapi/v1/klines",
+              "params": {
+                "symbol": "JCTUSDT",
+                "interval": "1h",
+                "limit": 80,
+                "endTime": 1791612013760
+              },
+              "formula": "last closed base volume / preceding 24 closed bars mean"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "冲突: JCTUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | -1.79000000 pp | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 46.18% 到 47.97%，变化 1.79 个百分点；多方变化 -1.79 个百分点",
+            "evidenceId": "JCTUSDT:global.long.change1h",
+            "factsFields": [
+              "sources.accounts.raw (canonical deterministic formula: (longAccount_end - longAccount_start) * 100; percentage points; exact retained dataTimes: 1791608400000,1791612000000)"
+            ],
+            "value": "-1.79000000",
+            "unit": "pp",
+            "window": "1h",
+            "scope": "GLOBAL_ACCOUNTS",
+            "dataTimes": [
+              1791608400000,
+              1791612000000
+            ],
+            "source": {
+              "endpoint": "/futures/data/globalLongShortAccountRatio",
+              "params": {
+                "symbol": "JCTUSDT",
+                "period": "1h",
+                "limit": 3,
+                "endTime": 1791612013760
+              },
+              "formula": "(longAccount_end - longAccount_start) * 100; percentage points"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          },
+          {
+            "renderedClaim": "冲突: JCTUSDT:global.short.change1h | GLOBAL_ACCOUNT_SHARE | 1.79000000 pp | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 46.18% 到 47.97%，变化 1.79 个百分点；多方变化 -1.79 个百分点",
+            "evidenceId": "JCTUSDT:global.short.change1h",
+            "factsFields": [
+              "sources.accounts.raw (canonical deterministic formula: (shortAccount_end - shortAccount_start) * 100; percentage points; exact retained dataTimes: 1791608400000,1791612000000)"
+            ],
+            "value": "1.79000000",
+            "unit": "pp",
+            "window": "1h",
+            "scope": "GLOBAL_ACCOUNTS",
+            "dataTimes": [
+              1791608400000,
+              1791612000000
+            ],
+            "source": {
+              "endpoint": "/futures/data/globalLongShortAccountRatio",
+              "params": {
+                "symbol": "JCTUSDT",
+                "period": "1h",
+                "limit": 3,
+                "endTime": 1791612013760
+              },
+              "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points"
+            },
+            "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+          }
+        ],
+        "programRules": [
+          {
+            "renderedRule": {
+              "id": "PRICE_OPPOSITE_1h",
+              "horizon": "1h",
+              "metric": "PRICE_CLOSED_CHANGE",
+              "operator": "LTE",
+              "threshold": -6.199460915,
+              "outcome": "INVALIDATED",
+              "description": "后续新收盘滚动1h价格变化≤-6.1995%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+              "baselineEvidenceId": "JCTUSDT:price.closed1h"
+            },
+            "baselineFactsEvidenceId": "JCTUSDT:price.closed1h",
+            "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+            "formula": "opposite sign * max(1, abs(current price change)/2)"
+          },
+          {
+            "renderedRule": {
+              "id": "OI_REVERSED_1h",
+              "horizon": "1h",
+              "metric": "OI_QUANTITY_CHANGE",
+              "operator": "LTE",
+              "threshold": -5,
+              "outcome": "THESIS_WARNING",
+              "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+              "baselineEvidenceId": "JCTUSDT:oi.1h"
+            },
+            "baselineFactsEvidenceId": "JCTUSDT:oi.1h",
+            "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+            "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+          }
+        ],
+        "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+      },
+      "renderedText": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nJCTUSDT BULLISH / 1h / LOW\noriginalEvaluationTime=2026-10-10T06:00:13.760Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: JCTUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 12.39892183 % | window=1h | observedAt=2026-10-10T05:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间14:00，已收盘1小时价格变化 12.40%\n支持: JCTUSDT:oi.1h | OI_QUANTITY_CHANGE | 1.41920547 % | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 1.42%（不代表资金净流入或多空加仓方向）\n支持: JCTUSDT:price.last | PRICE_SNAPSHOT | 0.0029130 USDT | window=UNDECLARED | observedAt=2026-10-10T06:00:08.601Z | availableAt=UNKNOWN | /fapi/v1/ticker/24hr | 快照最新价格 0.0029130 USDT\n支持: JCTUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -0.78337875 % | window=24h | observedAt=2026-10-10T06:00:08.601Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -0.78%\n冲突: JCTUSDT:volume.relative1h | RELATIVE_VOLUME | 0.44381487 multiple | window=1h | observedAt=2026-10-10T05:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 0.44 倍\n冲突: JCTUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | -1.79000000 pp | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 46.18% 到 47.97%，变化 1.79 个百分点；多方变化 -1.79 个百分点\n冲突: JCTUSDT:global.short.change1h | GLOBAL_ACCOUNT_SHARE | 1.79000000 pp | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 46.18% 到 47.97%，变化 1.79 个百分点；多方变化 -1.79 个百分点\n机制假设: 与合约规模扩张相容，不确认单侧新增仓位。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=CONSOLIDATION，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE LTE -6.199460915% => INVALIDATED; 后续新收盘滚动1h价格变化≤-6.1995%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE LTE -5% => THESIS_WARNING; 后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核\nJCTUSDT:volume.relative1h: 观察变化，仅复核，不自动失效",
+      "qualityReview": {
+        "status": "UNCERTAIN",
+        "directionalInclination": "PASS",
+        "futureHorizon": "PASS",
+        "supportEvidence": "PASS",
+        "majorConflictConsideration": "PASS",
+        "unaddressedOpposingPriceIds": [],
+        "unsupportedCausality": "PASS",
+        "beyondPastFactRecap": "UNCERTAIN",
+        "conditionalHypothesis": "PASS",
+        "observableReassessment": "PASS",
+        "concreteTradeOpportunity": "NOT_APPLICABLE",
+        "directionSeparatedFromTrade": "PASS",
+        "noEdgeReason": "NOT_APPLICABLE",
+        "limitation": "Finite hypothesis/evidence enums cannot expose detailed reasoning or prove predictive edge. Correct IDs do not establish interpretive relevance; no outcome-based assessment performed."
+      },
+      "tokenUsage": {
+        "prompt_tokens": 6186,
+        "completion_tokens": 578,
+        "total_tokens": 6764,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "prompt_cache_hit_tokens": 1280,
+        "prompt_cache_miss_tokens": 4906
+      },
+      "rawResponsePath": "validation/BA_BIAS_STRUCTURED_ANALYST_V4_LIVE_PROBE_V1_RERUN/raw_responses/e6f42b05-540d-4ae7-9779-fcc65e25b927.json",
+      "error": null
+    }
+  ],
+  "analysis": {
+    "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+    "status": "NOT_PRODUCTION",
+    "causalBacktestEligible": false,
+    "symbol": "JCTUSDT",
+    "evaluationTime": "2026-10-10T06:00:13.760Z",
+    "direction": "BULLISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "supportingEvidenceIds": [
+      "JCTUSDT:price.closed1h",
+      "JCTUSDT:oi.1h",
+      "JCTUSDT:price.last",
+      "JCTUSDT:price.drawdown"
+    ],
+    "conflictingEvidenceIds": [
+      "JCTUSDT:volume.relative1h",
+      "JCTUSDT:global.long.change1h",
+      "JCTUSDT:global.short.change1h"
+    ],
+    "structureEvidenceIds": [],
+    "mechanismHypothesis": {
+      "type": "CONTRACT_EXPANSION_COMPATIBLE",
+      "evidenceIds": [
+        "JCTUSDT:price.closed1h",
+        "JCTUSDT:oi.1h"
+      ],
+      "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+    },
+    "directionalRationale": {
+      "hypothesis": "CONTINUATION",
+      "evidenceIds": [
+        "JCTUSDT:price.closed1h",
+        "JCTUSDT:oi.1h",
+        "JCTUSDT:price.last",
+        "JCTUSDT:price.drawdown",
+        "JCTUSDT:volume.relative1h",
+        "JCTUSDT:global.long.change1h",
+        "JCTUSDT:global.short.change1h"
+      ],
+      "alternative": "CONSOLIDATION",
+      "certainty": "CONDITIONAL_NOT_CONFIRMED"
+    },
+    "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+    "reassessmentConditions": [
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "PRICE_OPPOSITE_1h"
+      },
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "OI_REVERSED_1h"
+      },
+      {
+        "conditionType": "ABSTRACT_REASSESSMENT",
+        "metricOrStructureEvidenceId": "JCTUSDT:volume.relative1h",
+        "interpretation": "MONITOR_CHANGE",
+        "consequence": "REASSESS_ONLY"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "startedAt": "2026-10-11T08:41:34.858071+00:00",
+  "finishedAt": "2026-10-11T08:46:31.799535+00:00",
+  "filesChecked": 5600,
+  "productionDataFiles": 5506,
+  "changed": [],
+  "added": [],
+  "scannerRunning": true,
+  "productionProcessModified": false,
+  "apiCallsByAudit": 0,
+  "productionWritesByAudit": 0,
+  "gitCommit": "NOT_A_GIT_REPOSITORY",
+  "integrityUnchanged": true,
+  "finalHashCheckAt": "2026-10-11T08:47:41.913625+00:00",
+  "finalProcessCheck": "PID52045 still running, same cwd/command/start"
+}

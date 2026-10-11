@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-10-10T20:35:31.164922+00:00",
+  "protectedFiles": 2531,
+  "productionFiles": 2103,
+  "authorizedChanged": [
+    "test/structured-v4-live-preflight.test.js",
+    "scripts/structured-v4-live-preflight.js",
+    "src/analysis/experimental/structured-v4-schema.js",
+    "src/analysis/experimental/structured-v4-renderer.js",
+    "src/analysis/experimental/structured-v4-guard.js"
+  ],
+  "unexpectedChanged": [],
+  "newData": [],
+  "beforeAfter": {
+    "test/structured-v4-live-preflight.test.js": {
+      "before": "514a050390395a208971e7885b37851a9efda601b55f5e84193842f923ddbdc1",
+      "after": "484dea69d9690c1d51f03b84c7cc9b47680909c9f58411aed80697817a1c4c62"
+    },
+    "scripts/structured-v4-live-preflight.js": {
+      "before": "4cc5a712101e876df848f90d9092463583c516491b7d118476d39d5892dc1292",
+      "after": "d18a26fe5c6b02945b3851b1d5cdafa888257a1154bd377a9a258385f51d672b"
+    },
+    "src/analysis/experimental/structured-v4-schema.js": {
+      "before": "35ef60fb812640117b38581058983155785b51e2b6bfc879065af7f7484f8bc8",
+      "after": "8914a7b2d86220240663d3bfd40b19dce2f3334f6a4c776a491c82f9287c17a7"
+    },
+    "src/analysis/experimental/structured-v4-renderer.js": {
+      "before": "3394574666ea01b0d6565b1e1fb09409d344b22661824bf046dffd0b22a0e1c5",
+      "after": "5c8ccb9c24e305c4f07e1ea69b0dd1a1b86afce7d80a21368b186848d15861c1"
+    },
+    "src/analysis/experimental/structured-v4-guard.js": {
+      "before": "ceb66ae5556cdfcb89d1ace3ffae837bd34c5c00de8cd7f90caca5c5691ea044",
+      "after": "11079c691dcb2a1b31b53a56e409c33978bb8341ec589a6146a17a383942822b"
+    }
+  },
+  "externalRequests": 0,
+  "deepseekRequests": 0,
+  "binanceRequests": 0,
+  "dingtalkSends": 0,
+  "scannerStarted": false,
+  "productionV3Unchanged": true,
+  "factsHistoryOutboxDeliveryEnvUnchanged": true
+}

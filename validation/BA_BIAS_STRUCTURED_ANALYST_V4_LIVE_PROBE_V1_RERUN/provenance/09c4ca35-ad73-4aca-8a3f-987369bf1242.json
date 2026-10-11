@@ -1,0 +1,105 @@
+{
+  "sampleId": "s_hourly_20261010_1300_MINAUSDT",
+  "provenance": {
+    "sourceType": "LIVE_MODEL_RESPONSE",
+    "executionKind": "LIVE_API",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "requestedModel": "deepseek-flash",
+    "requestId": "09c4ca35-ad73-4aca-8a3f-987369bf1242",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "serverResponseId": "f3d2e7fc-9fd8-443c-92b9-bad1a6cdabae",
+    "requestedAt": "2026-10-10T20:54:23.728Z",
+    "receivedAt": "2026-10-10T20:54:26.261Z",
+    "requestHash": "455bf041061b98f8ce1ac30545bd9d5c92f34908d873e66398e98b6baea90d84",
+    "responseHash": "04462a1b9577a610d5ee612ff8fa30b409fedcf578e5b6cc92b101015162d0e3",
+    "inputHash": "e8042b5090f3a45c4fa96b0218ed589bbe2aa90de5290c99b4607c7b36d375a7"
+  },
+  "validation": {
+    "ok": true,
+    "status": "EXPERIMENT_VALIDATED",
+    "errors": [],
+    "analysis": {
+      "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+      "status": "NOT_PRODUCTION",
+      "causalBacktestEligible": false,
+      "symbol": "MINAUSDT",
+      "evaluationTime": "2026-10-10T05:00:16.899Z",
+      "direction": "BULLISH",
+      "horizon": "1h",
+      "conviction": "MODERATE",
+      "supportingEvidenceIds": [
+        "MINAUSDT:price.closed1h",
+        "MINAUSDT:oi.1h",
+        "MINAUSDT:volume.relative1h",
+        "MINAUSDT:price.closed4h",
+        "MINAUSDT:price.closed24h",
+        "MINAUSDT:global.long.change1h"
+      ],
+      "conflictingEvidenceIds": [
+        "MINAUSDT:funding.latest",
+        "MINAUSDT:funding.sum24h",
+        "MINAUSDT:price.drawdown"
+      ],
+      "structureEvidenceIds": [],
+      "mechanismHypothesis": {
+        "type": "CONTRACT_EXPANSION_COMPATIBLE",
+        "evidenceIds": [
+          "MINAUSDT:price.closed1h",
+          "MINAUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "directionalRationale": {
+        "hypothesis": "CONTINUATION",
+        "evidenceIds": [
+          "MINAUSDT:price.closed1h",
+          "MINAUSDT:oi.1h",
+          "MINAUSDT:volume.relative1h",
+          "MINAUSDT:price.closed4h",
+          "MINAUSDT:price.closed24h",
+          "MINAUSDT:global.long.change1h",
+          "MINAUSDT:funding.latest",
+          "MINAUSDT:funding.sum24h",
+          "MINAUSDT:price.drawdown"
+        ],
+        "alternative": "CONSOLIDATION",
+        "certainty": "CONDITIONAL_NOT_CONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_PULLBACK",
+      "reassessmentConditions": [
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "PRICE_OPPOSITE_1h"
+        },
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "OI_REVERSED_1h"
+        },
+        {
+          "conditionType": "ABSTRACT_REASSESSMENT",
+          "metricOrStructureEvidenceId": "MINAUSDT:global.flip",
+          "interpretation": "MONITOR_CHANGE",
+          "consequence": "REASSESS_ONLY"
+        }
+      ]
+    },
+    "provenanceValid": true,
+    "analysisValid": true,
+    "provenance": {
+      "sourceType": "LIVE_MODEL_RESPONSE",
+      "executionKind": "LIVE_API",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "requestedModel": "deepseek-flash",
+      "requestId": "09c4ca35-ad73-4aca-8a3f-987369bf1242",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "f3d2e7fc-9fd8-443c-92b9-bad1a6cdabae",
+      "requestedAt": "2026-10-10T20:54:23.728Z",
+      "receivedAt": "2026-10-10T20:54:26.261Z",
+      "requestHash": "455bf041061b98f8ce1ac30545bd9d5c92f34908d873e66398e98b6baea90d84",
+      "responseHash": "04462a1b9577a610d5ee612ff8fa30b409fedcf578e5b6cc92b101015162d0e3",
+      "inputHash": "e8042b5090f3a45c4fa96b0218ed589bbe2aa90de5290c99b4607c7b36d375a7"
+    }
+  }
+}

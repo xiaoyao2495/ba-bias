@@ -1,0 +1,250 @@
+{
+  "sampleId": "s_hourly_20261010_1300_BRUSDT",
+  "text": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nBRUSDT BEARISH / 1h / LOW\noriginalEvaluationTime=2026-10-10T05:00:16.899Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: BRUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -0.81408872 % | window=1h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘1小时价格变化 -0.81%\n支持: BRUSDT:oi.1h | OI_QUANTITY_CHANGE | 0.62324440 % | window=1h | observedAt=2026-10-10T05:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 0.62%（不代表资金净流入或多空加仓方向）\n支持: BRUSDT:price.closed4h | PRICE_CLOSED_CHANGE | -3.18657261 % | window=4h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘4小时价格变化 -3.19%\n支持: BRUSDT:price.closed24h | PRICE_CLOSED_CHANGE | -8.25617580 % | window=24h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘24小时价格变化 -8.26%\n支持: BRUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -13.52920956 % | window=24h | observedAt=2026-10-10T05:00:10.908Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -13.53%\n冲突: BRUSDT:volume.relative1h | RELATIVE_VOLUME | 0.92199694 multiple | window=1h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 0.92 倍\n冲突: BRUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | -0.29000000 pp | window=1h | observedAt=2026-10-10T05:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 48.65% 到 48.94%，变化 0.29 个百分点；多方变化 -0.29 个百分点\n机制假设: 与合约规模扩张相容，不确认单侧新增仓位。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=CONSOLIDATION，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE GTE 1% => INVALIDATED; 后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE LTE -5% => THESIS_WARNING; 后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+  "audit": {
+    "ok": true,
+    "status": "PASS",
+    "errors": [],
+    "claims": [
+      {
+        "renderedClaim": "支持: BRUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -0.81408872 % | window=1h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘1小时价格变化 -0.81%",
+        "evidenceId": "BRUSDT:price.closed1h",
+        "factsFields": [
+          "evidence[3].result",
+          "evidence[3].phrase",
+          "evidence[3].dataTimes",
+          "evidence[3].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-0.81408872",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791604800000,
+          1791608399999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "BRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791608416899
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: BRUSDT:oi.1h | OI_QUANTITY_CHANGE | 0.62324440 % | window=1h | observedAt=2026-10-10T05:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 0.62%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "BRUSDT:oi.1h",
+        "factsFields": [
+          "evidence[11].result",
+          "evidence[11].phrase",
+          "evidence[11].dataTimes",
+          "evidence[11].formula",
+          "sources.oi.raw"
+        ],
+        "value": "0.62324440",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791604800000,
+          1791608400000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "BRUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791608416899
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: BRUSDT:price.closed4h | PRICE_CLOSED_CHANGE | -3.18657261 % | window=4h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘4小时价格变化 -3.19%",
+        "evidenceId": "BRUSDT:price.closed4h",
+        "factsFields": [
+          "evidence[4].result",
+          "evidence[4].phrase",
+          "evidence[4].dataTimes",
+          "evidence[4].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-3.18657261",
+        "unit": "%",
+        "window": "4h",
+        "scope": null,
+        "dataTimes": [
+          1791594000000,
+          1791608399999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "BRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791608416899
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: BRUSDT:price.closed24h | PRICE_CLOSED_CHANGE | -8.25617580 % | window=24h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间13:00，已收盘24小时价格变化 -8.26%",
+        "evidenceId": "BRUSDT:price.closed24h",
+        "factsFields": [
+          "evidence[5].result",
+          "evidence[5].phrase",
+          "evidence[5].dataTimes",
+          "evidence[5].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-8.25617580",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791522000000,
+          1791608399999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "BRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791608416899
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: BRUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -13.52920956 % | window=24h | observedAt=2026-10-10T05:00:10.908Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -13.53%",
+        "evidenceId": "BRUSDT:price.drawdown",
+        "factsFields": [
+          "evidence[7].result",
+          "evidence[7].phrase",
+          "evidence[7].dataTimes",
+          "evidence[7].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-13.52920956",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791608399999,
+          1791608410908
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "BRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791608416899
+          },
+          "formula": "(lastPrice/high-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: BRUSDT:volume.relative1h | RELATIVE_VOLUME | 0.92199694 multiple | window=1h | observedAt=2026-10-10T04:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 0.92 倍",
+        "evidenceId": "BRUSDT:volume.relative1h",
+        "factsFields": [
+          "evidence[8].result",
+          "evidence[8].phrase",
+          "evidence[8].dataTimes",
+          "evidence[8].formula",
+          "sources.hour.raw"
+        ],
+        "value": "0.92199694",
+        "unit": "multiple",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791518400000,
+          1791608399999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "BRUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791608416899
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: BRUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | -0.29000000 pp | window=1h | observedAt=2026-10-10T05:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 48.65% 到 48.94%，变化 0.29 个百分点；多方变化 -0.29 个百分点",
+        "evidenceId": "BRUSDT:global.long.change1h",
+        "factsFields": [
+          "sources.accounts.raw (canonical deterministic formula: (longAccount_end - longAccount_start) * 100; percentage points; exact retained dataTimes: 1791604800000,1791608400000)"
+        ],
+        "value": "-0.29000000",
+        "unit": "pp",
+        "window": "1h",
+        "scope": "GLOBAL_ACCOUNTS",
+        "dataTimes": [
+          1791604800000,
+          1791608400000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "BRUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791608416899
+          },
+          "formula": "(longAccount_end - longAccount_start) * 100; percentage points"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      }
+    ],
+    "programRules": [
+      {
+        "renderedRule": {
+          "id": "PRICE_OPPOSITE_1h",
+          "horizon": "1h",
+          "metric": "PRICE_CLOSED_CHANGE",
+          "operator": "GTE",
+          "threshold": 1,
+          "outcome": "INVALIDATED",
+          "description": "后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+          "baselineEvidenceId": "BRUSDT:price.closed1h"
+        },
+        "baselineFactsEvidenceId": "BRUSDT:price.closed1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(1, abs(current price change)/2)"
+      },
+      {
+        "renderedRule": {
+          "id": "OI_REVERSED_1h",
+          "horizon": "1h",
+          "metric": "OI_QUANTITY_CHANGE",
+          "operator": "LTE",
+          "threshold": -5,
+          "outcome": "THESIS_WARNING",
+          "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+          "baselineEvidenceId": "BRUSDT:oi.1h"
+        },
+        "baselineFactsEvidenceId": "BRUSDT:oi.1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+      }
+    ],
+    "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+  }
+}

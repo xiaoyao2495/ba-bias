@@ -1,0 +1,3402 @@
+{
+  "2ZUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791662400000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791662400000,
+          "confirmationSamples": 9,
+          "evidenceId": "2ZUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791666000000,
+        "firstObservedAt": 1791691287088,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/2ZUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691287088,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/2ZUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691287088,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "5e2cf5e46fce6dee9a4c6523329294bf15e7e190702b8b45117d89c8af5aa4e9",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "APRUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/APRUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "oi",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 36.99528495,
+        "current": 3.28568364,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "b5f0a8194f90ad5dcf05542e"
+      },
+      {
+        "metric": "oi24",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 80.39698552,
+        "current": 104.94037239,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "b5f0a8194f90ad5dcf05542e"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "OI_4H",
+          "PRICE_24H"
+        ],
+        "current": [
+          "PRICE_24H"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "b5f0a8194f90ad5dcf05542e"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "ce2ffbfd423cf69516926f48fca58acea89a866fd6a230b38a1bd22dd501e80e",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "31ebefcdb010bde8e61f72c1439f75f855d226b519c9e231b5f7418f635fa36e"
+  },
+  "ARCUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791622800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791622800000,
+          "confirmationSamples": 20,
+          "evidenceId": "ARCUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791626400000,
+        "firstObservedAt": 1791691265069,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ARCUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637262581,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ARCUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637262581,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/ARCUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640868200,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ARCUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691265069,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "08c8d5b304ddbfa74d087a8b6e6a46b80acf59f919be3d8c7f3fd3b63f6f25b0",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "ARUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/ARUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.39254171,
+        "current": -3.06807287,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "380eb6b7a6cacc1fd884b7f5"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.56829827,
+        "current": -0.17770664,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "380eb6b7a6cacc1fd884b7f5"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_FLIP"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "VOLUME_SPIKE"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "380eb6b7a6cacc1fd884b7f5"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791633600000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791633600000,
+          "confirmationSamples": 17,
+          "evidenceId": "ARUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791637200000,
+        "firstObservedAt": 1791691235816,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2100",
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ARUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637228832,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ARUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637228832,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/ARUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640834571,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ARUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691235816,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "8411749b176bb6470fb00bd951e091d3888fc845e614819292aa476526b4bfda",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "3b257f5353782cb0524567e57fa11ab5d38130e51803379310c3214795c0ca56"
+  },
+  "ARXUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791676800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791676800000,
+          "confirmationSamples": 5,
+          "evidenceId": "ARXUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791680400000,
+        "firstObservedAt": 1791691221371,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ARXUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691221371,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ARXUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691221371,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791684000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791684000000,
+          "confirmationSamples": 3,
+          "evidenceId": "ARXUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791687600000,
+        "firstObservedAt": 1791691339142,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ARXUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691339142,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ARXUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691339142,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "06cd9d47bb796b336d608e1c7a97be40170368e51eb3d442c10aabae8977f405",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "BRUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791651600000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791651600000,
+          "confirmationSamples": 12,
+          "evidenceId": "BRUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791655200000,
+        "firstObservedAt": 1791691268783,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/BRUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691268783,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/BRUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691268783,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791687600000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791687600000,
+          "confirmationSamples": 2,
+          "evidenceId": "BRUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791691200000,
+        "firstObservedAt": 1791691330854,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/BRUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691330854,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/BRUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691330854,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "702b9204e9e2f726bb24c172d0730044a27442d9b329ae8de1db86fc10dd4a3a",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "CHIPUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791684000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791684000000,
+          "confirmationSamples": 3,
+          "evidenceId": "CHIPUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791687600000,
+        "firstObservedAt": 1791691219795,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/CHIPUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691219795,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/CHIPUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691219795,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791691200000,
+        "rawFlip": {
+          "status": "SINGLE_SAMPLE",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791691200000,
+          "confirmationSamples": 1,
+          "evidenceId": "CHIPUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": null,
+        "firstObservedAt": 1791691299669,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/CHIPUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691299669,
+          "status": "SINGLE_SAMPLE"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/CHIPUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691299669,
+            "status": "SINGLE_SAMPLE"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "a8766c13e592194efaa570aef0ebc4081e2544cd0c770d840fa08b4fe190bfa0",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "ENSUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ENSUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 2.42091672,
+        "current": -2.59904913,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "ac689eaddd067e9a272168e7"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -0.05903736,
+        "current": 2.17030255,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "ac689eaddd067e9a272168e7"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "VOLUME_SPIKE"
+        ],
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "ac689eaddd067e9a272168e7"
+      },
+      {
+        "metric": "volume",
+        "kind": "EXISTING_VOLUME_DELTA_RULE",
+        "previous": 0.46195057,
+        "current": 6.40904284,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "ac689eaddd067e9a272168e7"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791633600000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791633600000,
+          "confirmationSamples": 17,
+          "evidenceId": "ENSUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791637200000,
+        "firstObservedAt": 1791691236406,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2100"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ENSUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637229807,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ENSUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637229807,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/ENSUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640834153,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ENSUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691236406,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "9a8b60e09a93b8cdf189f2b3790f8ec1f5238836630e551d2d733fd788908a15",
+    "previousRunId": "hourly_20261010_2100",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791637215062,
+    "previousFactsSha256": "c635813c3b104d56a90d089f2db9b97addf3874cb06431aa0f3368db38029c13"
+  },
+  "ERAUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/ERAUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 30.46555521,
+        "current": 8.42647059,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "9dc21369ddf63c1c3829bb1f"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 8.59687058,
+        "current": -6.45220057,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "9dc21369ddf63c1c3829bb1f"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 8.59687058,
+        "current": -6.45220057,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "9dc21369ddf63c1c3829bb1f"
+      },
+      {
+        "metric": "oi24",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 96.19739147,
+        "current": 58.23668481,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "9dc21369ddf63c1c3829bb1f"
+      },
+      {
+        "metric": "funding",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": -1.006331,
+        "current": -0.413158,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "9dc21369ddf63c1c3829bb1f"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "FUNDING_CHANGE",
+          "FUNDING_EXTREME",
+          "PRICE_24H",
+          "VOLUME_SPIKE"
+        ],
+        "current": [
+          "FUNDING_CHANGE",
+          "FUNDING_EXTREME",
+          "PRICE_1H",
+          "PRICE_24H"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "9dc21369ddf63c1c3829bb1f"
+      },
+      {
+        "metric": "global.change4h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "-5.37000000",
+        "current": "-0.29000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "9dc21369ddf63c1c3829bb1f"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "537844dea54e0bdfec4d8db6825c0e2b67576a004499c7ab907c4bb3d3c97864",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "8682ef0358f8003d6fd0ca2fe21d2d339b767ba6f39be841dbf6bb0953fa7643"
+  },
+  "GENIUSUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791691200000,
+        "rawFlip": {
+          "status": "SINGLE_SAMPLE",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791691200000,
+          "confirmationSamples": 1,
+          "evidenceId": "GENIUSUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": null,
+        "firstObservedAt": 1791691219620,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/GENIUSUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691219620,
+          "status": "SINGLE_SAMPLE"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/GENIUSUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691219620,
+            "status": "SINGLE_SAMPLE"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "9f4f710b3ad2b5ca593e99e19e5d901a95078ba5ddbc08b038aa861c92bf53c4",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "GRASSUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/GRASSUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.02713641,
+        "current": -0.13850405,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb477f23c465cbcd19d115f0"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791615600000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791684000000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb477f23c465cbcd19d115f0"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791684000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791684000000,
+          "confirmationSamples": 3,
+          "evidenceId": "GRASSUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791687600000,
+        "firstObservedAt": 1791691258817,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/GRASSUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691258817,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/GRASSUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691258817,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791684000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791684000000,
+          "confirmationSamples": 3,
+          "evidenceId": "GRASSUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791687600000,
+        "firstObservedAt": 1791691325487,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/GRASSUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691325487,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/GRASSUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691325487,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "a4d09ecad35aa661dbee0c0def520f14bcbb0a33b6f01b15fd7f978f2caeaf49",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "0f373285de4b04fe9e4ea794a42a4d00f1783581d3abf995f6d3e23e728ccbe6"
+  },
+  "HEIUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/HEIUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 2.08970017,
+        "current": -1.68593449,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "58eafc7b61c3b8f63b26b544"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "VOLUME_SPIKE"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "58eafc7b61c3b8f63b26b544"
+      },
+      {
+        "metric": "volume",
+        "kind": "EXISTING_VOLUME_DELTA_RULE",
+        "previous": 0.24357214,
+        "current": 3.07975092,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "58eafc7b61c3b8f63b26b544"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791612000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791612000000,
+          "confirmationSamples": 23,
+          "evidenceId": "HEIUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791615600000,
+        "firstObservedAt": 1791691266671,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2100",
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/HEIUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637265299,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/HEIUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637265299,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/HEIUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640869916,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/HEIUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691266671,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "d504f7eec2d365a7bdb9266c7a67d44f0a70f8d39afbf0173c03df8d1b2bf30a",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "728203ac07991bd21ab388d09388c80747e28aa42df1582875f57dfcd5386957"
+  },
+  "JCTUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/JCTUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 5.70570571,
+        "current": -26.87207488,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "f7a1d6ade6bf183e0ae3100d"
+      },
+      {
+        "metric": "price",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 5.70570571,
+        "current": -26.87207488,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "f7a1d6ade6bf183e0ae3100d"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "PRICE_1H"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "PRICE_1H",
+          "PRICE_24H"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "f7a1d6ade6bf183e0ae3100d"
+      },
+      {
+        "metric": "global.longPct",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "49.44000000",
+        "current": "64.82000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "f7a1d6ade6bf183e0ae3100d"
+      },
+      {
+        "metric": "global.shortPct",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "50.56000000",
+        "current": "35.18000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "f7a1d6ade6bf183e0ae3100d"
+      },
+      {
+        "metric": "global.change24h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "-7.53000000",
+        "current": "11.71000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "f7a1d6ade6bf183e0ae3100d"
+      },
+      {
+        "metric": "global.dominantSide",
+        "kind": "EXISTING_DOMINANT_SIDE_CHANGE",
+        "previous": "SHORT",
+        "current": "LONG",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "f7a1d6ade6bf183e0ae3100d"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791626400000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791662400000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "f7a1d6ade6bf183e0ae3100d"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791662400000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791662400000,
+          "confirmationSamples": 9,
+          "evidenceId": "JCTUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791666000000,
+        "firstObservedAt": 1791691291516,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/JCTUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691291516,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/JCTUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691291516,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791666000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791666000000,
+          "confirmationSamples": 8,
+          "evidenceId": "JCTUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791669600000,
+        "firstObservedAt": 1791691302200,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/JCTUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691302200,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/JCTUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691302200,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "a61b47025822170927f194b86935838f6cb57ab1c66b1b67df699f2a0428e8c7",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "efca6b9e4f52b4b89f67c4551db5f8ab2b34965991098f66dfda5bafc2efeec8"
+  },
+  "KITEUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "1eaae2787559daf59347ed62195b7f15af93001a590ada56983df8b31a95f80a",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "LAUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/LAUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "oi",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 0.70558735,
+        "current": 16.05704214,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "f9dc09e835dc9bfeefa3e109"
+      },
+      {
+        "metric": "oi24",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 2.48186519,
+        "current": 20.22857257,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "f9dc09e835dc9bfeefa3e109"
+      },
+      {
+        "metric": "funding",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": -0.052779,
+        "current": -0.260017,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "f9dc09e835dc9bfeefa3e109"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_FLIP",
+          "PRICE_24H"
+        ],
+        "current": [
+          "FUNDING_EXTREME",
+          "FUNDING_FLIP",
+          "OI_4H",
+          "PRICE_24H",
+          "VOLUME_SPIKE"
+        ],
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "f9dc09e835dc9bfeefa3e109"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "39085767a3441a3ecbc439e80c153a9e21577e4b658e755d685224ffbbaa1684",
+    "previousRunId": "hourly_20261010_2100",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791637215062,
+    "previousFactsSha256": "1fc7de827889ee283a8d5ab2c98021afc32b25295bdd8d96f571c09dec937ff6"
+  },
+  "LDOUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791676800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791676800000,
+          "confirmationSamples": 5,
+          "evidenceId": "LDOUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791680400000,
+        "firstObservedAt": 1791691238951,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/LDOUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691238951,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/LDOUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691238951,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "b8e4037cb560836bc9cf03481b84f2986e606f1cb25052f1f4388f80c8cde1e1",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "LUMIAUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/LUMIAUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 46.69817187,
+        "current": 29.93353474,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "e059755aff8f7a775b002b2f"
+      },
+      {
+        "metric": "oi24",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 56.33570381,
+        "current": 74.83864276,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "e059755aff8f7a775b002b2f"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DISTRIBUTION_SHIFT",
+          "OI_4H",
+          "PRICE_1H",
+          "PRICE_24H",
+          "VOLUME_SPIKE"
+        ],
+        "current": [
+          "ACCOUNT_DISTRIBUTION_SHIFT",
+          "PRICE_24H",
+          "TOP_ACCOUNT_DISTRIBUTION_SHIFT",
+          "TOP_POSITION_DISTRIBUTION_SHIFT"
+        ],
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "e059755aff8f7a775b002b2f"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "2d80dc643f1fe814f440b835d7d24751217cc4e3641f5185793a4004ddcc04d9",
+    "previousRunId": "hourly_20261010_2100",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791637215062,
+    "previousFactsSha256": "7beac54d47f2f64f9c5d1352f0224f25fb09eb082f2d0b70debf7f7339bcfcd4"
+  },
+  "MAGICUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/MAGICUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 34.81983133,
+        "current": -36.34275966,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "47e1595c9942b56c0f4e2ad5"
+      },
+      {
+        "metric": "price",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 34.81983133,
+        "current": -36.34275966,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "47e1595c9942b56c0f4e2ad5"
+      },
+      {
+        "metric": "oi24",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 61.31472985,
+        "current": -32.14811874,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "47e1595c9942b56c0f4e2ad5"
+      },
+      {
+        "metric": "funding",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": -0.468788,
+        "current": -0.142819,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "47e1595c9942b56c0f4e2ad5"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_CHANGE",
+          "FUNDING_EXTREME",
+          "PRICE_24H"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_CHANGE",
+          "FUNDING_EXTREME",
+          "PRICE_24H",
+          "TOP_ACCOUNT_DISTRIBUTION_SHIFT"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "47e1595c9942b56c0f4e2ad5"
+      },
+      {
+        "metric": "global.change24h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "-10.93000000",
+        "current": "13.75000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "47e1595c9942b56c0f4e2ad5"
+      },
+      {
+        "metric": "global.dominantSide",
+        "kind": "EXISTING_DOMINANT_SIDE_CHANGE",
+        "previous": "SHORT",
+        "current": "LONG",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "47e1595c9942b56c0f4e2ad5"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "SINGLE_SAMPLE",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791640800000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791687600000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "47e1595c9942b56c0f4e2ad5"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791687600000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791687600000,
+          "confirmationSamples": 2,
+          "evidenceId": "MAGICUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791691200000,
+        "firstObservedAt": 1791691239643,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/MAGICUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691239643,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/MAGICUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691239643,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791622800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791622800000,
+          "confirmationSamples": 20,
+          "evidenceId": "MAGICUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791626400000,
+        "firstObservedAt": 1791691294076,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/MAGICUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691294076,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/MAGICUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691294076,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "5206aabd3656ec736c9bea3ae13c5dfb7253efb8b419ef3eb938948988a3989f",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "a3707d363d00e156bbc0e875430885349cb498f9cf691e0c2c9666e466857461"
+  },
+  "MAGMAUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "b81c2700e1b350b15590e3428d4ad0ab98fa41b1efd228a6d9e5cd5585c218a1",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "METUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/METUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -0.44486069,
+        "current": 0.78992841,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "b6549b0e05d8018123cffeda"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 1.07155156,
+        "current": -1.68086684,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "b6549b0e05d8018123cffeda"
+      },
+      {
+        "metric": "global.change24h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "-3.46000000",
+        "current": "2.08000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "b6549b0e05d8018123cffeda"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791626400000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791626400000,
+          "confirmationSamples": 19,
+          "evidenceId": "METUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791630000000,
+        "firstObservedAt": 1791691288276,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/METUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637294082,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/METUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637294082,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/METUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640898110,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/METUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691288276,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "584e63d52b4a8368cde5bdbac90c3701ee55ff7b05a4fe854431d2338fe5a710",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "f17176e9f49d151dfe22bed14e79f6754abf2d79e276d971199a66feae7d2331"
+  },
+  "MINAUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/MINAUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 8.96673833,
+        "current": -0.3936552,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "6f1d637643986c33d466fc11"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -0.80430569,
+        "current": 2.83671561,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "6f1d637643986c33d466fc11"
+      },
+      {
+        "metric": "funding",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": -0.278182,
+        "current": -0.16177,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "6f1d637643986c33d466fc11"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_CHANGE",
+          "FUNDING_EXTREME",
+          "PRICE_24H"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_CHANGE",
+          "FUNDING_EXTREME"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "6f1d637643986c33d466fc11"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791637200000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791637200000,
+          "confirmationSamples": 16,
+          "evidenceId": "MINAUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791640800000,
+        "firstObservedAt": 1791691240003,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/MINAUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637233729,
+          "status": "TRANSIENT_RETURN"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/MINAUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637233729,
+            "status": "TRANSIENT_RETURN"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/MINAUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640838632,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/MINAUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691240003,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "408f4f6415ba9afb6d5a73e932f18b971f14e6e62e722c85e6714b2b2f778c32",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "ad4ff77f1865772b49b5a4b48c2f3a2c51e84bec3e5f727c698332f6eee460a2"
+  },
+  "NEIROUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/NEIROUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 3.96015549,
+        "current": -2.74131723,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "c379be3e09fed2342619bb11"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.86765308,
+        "current": -0.81682621,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "c379be3e09fed2342619bb11"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791633600000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791633600000,
+          "confirmationSamples": 17,
+          "evidenceId": "NEIROUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791637200000,
+        "firstObservedAt": 1791691256541,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2100"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/NEIROUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637252181,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/NEIROUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637252181,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/NEIROUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640858103,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/NEIROUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691256541,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "5e10354a785edf194a778cb8d3ab1d1d27f2420beba613a5fe568ecd14cffd71",
+    "previousRunId": "hourly_20261010_2100",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791637215062,
+    "previousFactsSha256": "677c0e404babddc1a7d0c77d4b905e86f3b465e7326fb7fc3ee290f9efa5729e"
+  },
+  "NIGHTUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791615600000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791615600000,
+          "confirmationSamples": 22,
+          "evidenceId": "NIGHTUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791619200000,
+        "firstObservedAt": 1791691214191,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/NIGHTUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637300481,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/NIGHTUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637300481,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/NIGHTUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691214191,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "493e7e6b1367ab643008834741a9bad9af1e45b368caa0d7ef3ffca492b8b5c6",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "ONEUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ONEUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 2.44605066,
+        "current": -0.99741165,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "d3de5adb16b0fe7da4baceea"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791633600000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791666000000
+        },
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "d3de5adb16b0fe7da4baceea"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791666000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791666000000,
+          "confirmationSamples": 8,
+          "evidenceId": "ONEUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791669600000,
+        "firstObservedAt": 1791691233228,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ONEUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691233228,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ONEUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691233228,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "bba660e3508572efa543d08f92d53311333305f57bf9fe0ab7ae235fff0fcd84",
+    "previousRunId": "hourly_20261010_2100",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791637215062,
+    "previousFactsSha256": "8cdae5a6ac521b756de0a9471f9b6351eb5a03270a6c2d952e51cbe83c750c98"
+  },
+  "OUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791662400000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791662400000,
+          "confirmationSamples": 9,
+          "evidenceId": "OUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791666000000,
+        "firstObservedAt": 1791691221794,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/OUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691221794,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/OUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691221794,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791676800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791676800000,
+          "confirmationSamples": 5,
+          "evidenceId": "OUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791680400000,
+        "firstObservedAt": 1791691340421,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/OUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691340421,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/OUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691340421,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "435b8596196986958819d72447964bd99b6f6357b425737730c3447c733ab678",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "PENGUUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791680400000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791680400000,
+          "confirmationSamples": 4,
+          "evidenceId": "PENGUUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791684000000,
+        "firstObservedAt": 1791691262053,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/PENGUUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691262053,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/PENGUUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691262053,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "2ecdbb5dbd46750ed3bb1637cab86d7a1ba69f006a971b49f0992d01cae97a9b",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "PIXELUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_1200/facts/PIXELUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 27.40499829,
+        "current": -20.00802461,
+        "previousRunId": "hourly_20261010_1200",
+        "previousObservedAt": 1791604815949,
+        "comparisonSnapshotId": "7853341931ce257e34081385"
+      },
+      {
+        "metric": "price",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 27.40499829,
+        "current": -20.00802461,
+        "previousRunId": "hourly_20261010_1200",
+        "previousObservedAt": 1791604815949,
+        "comparisonSnapshotId": "7853341931ce257e34081385"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 21.39337052,
+        "current": 2.39922973,
+        "previousRunId": "hourly_20261010_1200",
+        "previousObservedAt": 1791604815949,
+        "comparisonSnapshotId": "7853341931ce257e34081385"
+      },
+      {
+        "metric": "funding",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -0.01771,
+        "current": 0.005,
+        "previousRunId": "hourly_20261010_1200",
+        "previousObservedAt": 1791604815949,
+        "comparisonSnapshotId": "7853341931ce257e34081385"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "OI_4H",
+          "PRICE_1H",
+          "PRICE_24H",
+          "VOLUME_SPIKE"
+        ],
+        "current": [
+          "ACCOUNT_DISTRIBUTION_SHIFT",
+          "PRICE_24H"
+        ],
+        "previousRunId": "hourly_20261010_1200",
+        "previousObservedAt": 1791604815949,
+        "comparisonSnapshotId": "7853341931ce257e34081385"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "051788ad51f67bac12bb0339f0b93e255d7f39bda3c96f98f36474f4f0b18477",
+    "previousRunId": "hourly_20261010_1200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791604815949,
+    "previousFactsSha256": "73fdb00e1af5c44a87d8b06fea973eb5deae56588a6587a512d08d249a8834fa"
+  },
+  "POLUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/POLUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_FLIP"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_FLIP",
+          "VOLUME_SPIKE"
+        ],
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "df1521c29025d48db41cc617"
+      },
+      {
+        "metric": "global.dominantSide",
+        "kind": "EXISTING_DOMINANT_SIDE_CHANGE",
+        "previous": "SHORT",
+        "current": "LONG",
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "df1521c29025d48db41cc617"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791608400000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791658800000
+        },
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "df1521c29025d48db41cc617"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791658800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791658800000,
+          "confirmationSamples": 10,
+          "evidenceId": "POLUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791662400000,
+        "firstObservedAt": 1791691256177,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/POLUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691256177,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/POLUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691256177,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "b5f5f19c1c5d88cfd730f0e6d246b3d39c4ef40447027680a30c50a55157349a",
+    "previousRunId": "hourly_20261010_2100",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791637215062,
+    "previousFactsSha256": "8da06793c508307015f4f8aad22569bafaa5777bcfed3cc8cee4fd538dacb74c"
+  },
+  "PUMPUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/PUMPUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.10710461,
+        "current": -0.95711393,
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "7bfdc00fc37fb5da68e0a387"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791597600000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791666000000
+        },
+        "previousRunId": "hourly_20261010_2100",
+        "previousObservedAt": 1791637215062,
+        "comparisonSnapshotId": "7bfdc00fc37fb5da68e0a387"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791666000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791666000000,
+          "confirmationSamples": 8,
+          "evidenceId": "PUMPUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791669600000,
+        "firstObservedAt": 1791691277654,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/PUMPUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691277654,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/PUMPUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691277654,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "70514e6de9d98b52b656d7506548460934161bdbcd7bda1cb2870f8fe5451225",
+    "previousRunId": "hourly_20261010_2100",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791637215062,
+    "previousFactsSha256": "ed7ea136ba039f90cb9d36071e47828abfdae46026d84e489125e9ce48fc72d6"
+  },
+  "QNTUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/QNTUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.26794641,
+        "current": -4.27049147,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "c4333714c57f0c901bdbc211"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -0.35578595,
+        "current": 0.30798655,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "c4333714c57f0c901bdbc211"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "VOLUME_SPIKE"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_FLIP"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "c4333714c57f0c901bdbc211"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791637200000
+        },
+        "current": {
+          "status": "SINGLE_SAMPLE",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791691200000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "c4333714c57f0c901bdbc211"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791691200000,
+        "rawFlip": {
+          "status": "SINGLE_SAMPLE",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791691200000,
+          "confirmationSamples": 1,
+          "evidenceId": "QNTUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": null,
+        "firstObservedAt": 1791691239392,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/QNTUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691239392,
+          "status": "SINGLE_SAMPLE"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/QNTUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691239392,
+            "status": "SINGLE_SAMPLE"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791644400000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791644400000,
+          "confirmationSamples": 14,
+          "evidenceId": "QNTUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791648000000,
+        "firstObservedAt": 1791691319398,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/QNTUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691319398,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/QNTUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691319398,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "ca6ac3649fa364e8b77067eb293528a15593c28d44b948436243dff27de23c7e",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "27aac48a644f7573a2d45ae3d3774dc020fa10ee94c4e7ab4802085214593e1d"
+  },
+  "RIVERUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "0f7ef88febc4bc4f451cbe69bf73cff37c1a658d67fc0db0670d0e37d0fb272f",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "RLCUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/RLCUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "oi24",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": -20.96077992,
+        "current": 2.3416296,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "7f7a492e22193a80b3d9a859"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_CHANGE",
+          "FUNDING_EXTREME",
+          "PRICE_24H"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "FUNDING_CHANGE",
+          "FUNDING_EXTREME"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "7f7a492e22193a80b3d9a859"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "SINGLE_SAMPLE",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "7f7a492e22193a80b3d9a859"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "FLIP_STATE_UPDATE",
+        "eventTime": 1791640800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000,
+          "confirmationSamples": 15,
+          "evidenceId": "RLCUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791644400000,
+        "firstObservedAt": 1791691228018,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/RLCUSDT.json",
+          "evaluationTime": 1791640812629,
+          "observedAcquisitionAt": 1791640825039,
+          "status": "SINGLE_SAMPLE"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/RLCUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640825039,
+            "status": "SINGLE_SAMPLE"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/RLCUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691228018,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "377d6adf1dabf1cee4bf3bd7a7f9a8a5529f43f3c496eac3d3b48e6ab9db64e8",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "7957153bd6d12da175f6cb5e316de013b66e8d234a89e150b22c44cdca24047c"
+  },
+  "ROSEUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "c694d8529b19e5a0fc63688fb4b4aa4bb208f5bd38403fb83492fa02c2ee701f",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "SAHARAUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/SAHARAUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 3.08613002,
+        "current": -0.6850097,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "18aeeb5c817f025e1178f827"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -0.6809233,
+        "current": 0.52910251,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "18aeeb5c817f025e1178f827"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "VOLUME_SPIKE"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "18aeeb5c817f025e1178f827"
+      },
+      {
+        "metric": "volume",
+        "kind": "EXISTING_VOLUME_DELTA_RULE",
+        "previous": 0.29939536,
+        "current": 2.52225676,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "18aeeb5c817f025e1178f827"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "SINGLE_SAMPLE",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "18aeeb5c817f025e1178f827"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "FLIP_STATE_UPDATE",
+        "eventTime": 1791640800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000,
+          "confirmationSamples": 15,
+          "evidenceId": "SAHARAUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791644400000,
+        "firstObservedAt": 1791691276925,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/SAHARAUSDT.json",
+          "evaluationTime": 1791640812629,
+          "observedAcquisitionAt": 1791640882854,
+          "status": "SINGLE_SAMPLE"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/SAHARAUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640882854,
+            "status": "SINGLE_SAMPLE"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/SAHARAUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691276925,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "09d480e5117662d4d7b745e7b02f95b4a7f63d862408b76ee724c17c32def315",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "b3132be1859989edb72eaef16a9c2b08d3b35280c338ba54ae6be8867a50e8fd"
+  },
+  "SEIUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/SEIUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "global.dominantSide",
+        "kind": "EXISTING_DOMINANT_SIDE_CHANGE",
+        "previous": "SHORT",
+        "current": "LONG",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "691ceae7f717da42a36d1805"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791558000000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791666000000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "691ceae7f717da42a36d1805"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791666000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791666000000,
+          "confirmationSamples": 8,
+          "evidenceId": "SEIUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791669600000,
+        "firstObservedAt": 1791691244806,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/SEIUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691244806,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/SEIUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691244806,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "c94a9a0ce1658c2feaa044b06982cf617b95b9c89b41ce7b3b4fd110ec429bd9",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "b16a388aaa852370f2919ab290e87cc88039c9403f1e809bbf4a502561f7342f"
+  },
+  "SKYUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "55a8d7a68c1c0be4b118fae763175495d83c41bba1ad1c182534eb50304f4f86",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "SPKUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/SPKUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.32664489,
+        "current": -1.42201835,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "d31921241143798fa36de84b"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -0.25998207,
+        "current": 0.0788356,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "d31921241143798fa36de84b"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791558000000
+        },
+        "current": {
+          "status": "SINGLE_SAMPLE",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791691200000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "d31921241143798fa36de84b"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791691200000,
+        "rawFlip": {
+          "status": "SINGLE_SAMPLE",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791691200000,
+          "confirmationSamples": 1,
+          "evidenceId": "SPKUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": null,
+        "firstObservedAt": 1791691276166,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/SPKUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691276166,
+          "status": "SINGLE_SAMPLE"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/SPKUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691276166,
+            "status": "SINGLE_SAMPLE"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "d07cb2393cde0abc2f9181835c8b7a19c897a6791ac05eaaa5dc81fe6b1f0e03",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "49f515eeda22f3b2234f8d34d50fce025f5686c4586ba425d55b7e2ce9834369"
+  },
+  "STRKUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/STRKUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": 5.81167924,
+        "current": 44.6880498,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      },
+      {
+        "metric": "oi24",
+        "kind": "EXISTING_DELTA_RULE",
+        "previous": -8.7637654,
+        "current": 18.29636076,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      },
+      {
+        "metric": "funding",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.005,
+        "current": -0.001779,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "PRICE_1H",
+          "VOLUME_SPIKE"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "PRICE_1H",
+          "PRICE_24H",
+          "VOLUME_SPIKE",
+          "VOLUME_SPIKE"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      },
+      {
+        "metric": "global.longPct",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "54.69000000",
+        "current": "39.82000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      },
+      {
+        "metric": "global.shortPct",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "45.31000000",
+        "current": "60.18000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      },
+      {
+        "metric": "global.change24h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "6.16000000",
+        "current": "-12.18000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      },
+      {
+        "metric": "global.dominantSide",
+        "kind": "EXISTING_DOMINANT_SIDE_CHANGE",
+        "previous": "LONG",
+        "current": "SHORT",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791586800000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791651600000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "fb9a57944e77de6ec84584e8"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791651600000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791651600000,
+          "confirmationSamples": 12,
+          "evidenceId": "STRKUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791655200000,
+        "firstObservedAt": 1791691251220,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/STRKUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691251220,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/STRKUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691251220,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "NEW_FLIP_EVENT",
+        "eventTime": 1791648000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791648000000,
+          "confirmationSamples": 13,
+          "evidenceId": "STRKUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791651600000,
+        "firstObservedAt": 1791691294437,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/STRKUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691294437,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/STRKUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691294437,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "4d2158de82dce5c4790090dde14231439a9ae8d137b043c591fb876be9a1951e",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "933bc31fbe94bf9a73e74789706798cbe551b7306eaa97cd1f4c0cac7a73fd23"
+  },
+  "SUPERUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/SUPERUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 1.45337093,
+        "current": -0.45948209,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "8998f3573589dab842a4c6d5"
+      },
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DOMINANCE_FLIP",
+          "VOLUME_SPIKE"
+        ],
+        "current": [
+          "ACCOUNT_DOMINANCE_FLIP"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "8998f3573589dab842a4c6d5"
+      },
+      {
+        "metric": "global.change24h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "-3.45000000",
+        "current": "2.48000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "8998f3573589dab842a4c6d5"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791637200000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791637200000,
+          "confirmationSamples": 16,
+          "evidenceId": "SUPERUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791640800000,
+        "firstObservedAt": 1791691248094,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/SUPERUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637242726,
+          "status": "SINGLE_SAMPLE"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/SUPERUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637242726,
+            "status": "SINGLE_SAMPLE"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/SUPERUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640847917,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/SUPERUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691248094,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "8604ef168f6b8205873b3761f76d93391f28f7594d670fe6014bca4f9f4f51e8",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "06e11024bd85a746c1f1fe27e0da4dc747380662d472f17ba5eb2cb930f6c925"
+  },
+  "TIAUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "1148967f3d3e0ea915636ffff4032409a528736cd04b692c41ccdddca2f6988c",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "USUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/USUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "anomalies",
+        "kind": "EXISTING_ANOMALY_SET_CHANGE",
+        "previous": [
+          "ACCOUNT_DISTRIBUTION_SHIFT",
+          "ACCOUNT_DOMINANCE_FLIP",
+          "PRICE_1H",
+          "PRICE_24H"
+        ],
+        "current": [
+          "ACCOUNT_DISTRIBUTION_SHIFT",
+          "ACCOUNT_DOMINANCE_FLIP",
+          "PRICE_1H",
+          "PRICE_24H",
+          "TOP_ACCOUNT_DISTRIBUTION_SHIFT"
+        ],
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "2c49d1f7ccedd308cafd8db7"
+      },
+      {
+        "metric": "global.longPct",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "52.52000000",
+        "current": "60.68000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "2c49d1f7ccedd308cafd8db7"
+      },
+      {
+        "metric": "global.shortPct",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "47.48000000",
+        "current": "39.32000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "2c49d1f7ccedd308cafd8db7"
+      },
+      {
+        "metric": "global.change4h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "11.04000000",
+        "current": "-1.97000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "2c49d1f7ccedd308cafd8db7"
+      },
+      {
+        "metric": "global.change24h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "21.27000000",
+        "current": "29.25000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "2c49d1f7ccedd308cafd8db7"
+      },
+      {
+        "metric": "global.flip",
+        "kind": "FLIP_IDENTITY_OR_STATE_CHANGE",
+        "previous": {
+          "status": "SINGLE_SAMPLE",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000
+        },
+        "current": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000
+        },
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "2c49d1f7ccedd308cafd8db7"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "FLIP_STATE_UPDATE",
+        "eventTime": 1791640800000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791640800000,
+          "confirmationSamples": 15,
+          "evidenceId": "USUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791644400000,
+        "firstObservedAt": 1791691214318,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/USUSDT.json",
+          "evaluationTime": 1791640812629,
+          "observedAcquisitionAt": 1791640907891,
+          "status": "SINGLE_SAMPLE"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/USUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640907891,
+            "status": "SINGLE_SAMPLE"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/USUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691214318,
+            "status": "CONFIRMED"
+          }
+        ]
+      },
+      "topAccounts": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791637200000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791637200000,
+          "confirmationSamples": 16,
+          "evidenceId": "USUSDT:topAccounts.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791640800000,
+        "firstObservedAt": 1791691338385,
+        "previouslyOutputInRuns": [],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261011_1200",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/USUSDT.json",
+          "evaluationTime": 1791691212917,
+          "observedAcquisitionAt": 1791691338385,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/USUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691338385,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "efbbcd0cbaa93b78ae6073ddf9207d85e6ccc9d762b48d6535fdc6dd3dd284db",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "1fdc7db1455ca72dc22d4b40c6dc0554a54e565a5837fb0b2178dbdffb8ce060"
+  },
+  "WALUSDT": {
+    "previousFactsPath": null,
+    "previousFactsAvailable": false,
+    "triggerEvidence": [
+      {
+        "type": "FIRST_OUTPUT",
+        "basis": "NO_PREVIOUS_OUTPUT"
+      }
+    ],
+    "events": {},
+    "currentFactsSha256": "de70d81c5186f7314e29c75506d57b41aaf439652042dbc31574984e844c47f0",
+    "previousRunId": null,
+    "qualified": true,
+    "oldQualified": true
+  },
+  "WLFIUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/WLFIUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 5.80920564,
+        "current": -1.62264802,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "1ac91d6919ad6599a5b1db67"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -0.0786477,
+        "current": 0.06805846,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "1ac91d6919ad6599a5b1db67"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791612000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "SHORT",
+          "to": "LONG",
+          "timestamp": 1791612000000,
+          "confirmationSamples": 23,
+          "evidenceId": "WLFIUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791615600000,
+        "firstObservedAt": 1791691281382,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/WLFIUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637284763,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/WLFIUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637284763,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/WLFIUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640888547,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/WLFIUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691281382,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "233af30168c0bc310ae32176fade466cfb8e322d7355b8045c84f9e93582517f",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "2770517d0dc955ff546a191519aeb16cbafa0338360770255a091288492a546f"
+  },
+  "ZROUSDT": {
+    "previousFactsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/ZROUSDT.json",
+    "previousFactsAvailable": true,
+    "triggerEvidence": [
+      {
+        "metric": "price",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": -2.8403526,
+        "current": 0.9566196,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "cdd26a6d2e243debbd2337f3"
+      },
+      {
+        "metric": "oi",
+        "kind": "EXISTING_SIGN_CHANGE_RULE",
+        "previous": 0.29274739,
+        "current": -0.32809875,
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "cdd26a6d2e243debbd2337f3"
+      },
+      {
+        "metric": "global.change24h",
+        "kind": "EXISTING_ACCOUNT_DELTA_RULE",
+        "previous": "-10.29000000",
+        "current": "-2.80000000",
+        "previousRunId": "hourly_20261010_2200",
+        "previousObservedAt": 1791640812629,
+        "comparisonSnapshotId": "cdd26a6d2e243debbd2337f3"
+      }
+    ],
+    "events": {
+      "global": {
+        "role": "PREVIOUSLY_KNOWN_FLIP_CONTEXT",
+        "eventTime": 1791612000000,
+        "rawFlip": {
+          "status": "CONFIRMED",
+          "from": "LONG",
+          "to": "SHORT",
+          "timestamp": 1791612000000,
+          "confirmationSamples": 23,
+          "evidenceId": "ZROUSDT:global.flip"
+        },
+        "dataTimestamp": 1791691200000,
+        "confirmationTime": 1791615600000,
+        "firstObservedAt": 1791691254462,
+        "previouslyOutputInRuns": [
+          "hourly_20261010_2200"
+        ],
+        "firstRetainedDetection": {
+          "runId": "hourly_20261010_2100",
+          "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ZROUSDT.json",
+          "evaluationTime": 1791637215062,
+          "observedAcquisitionAt": 1791637249640,
+          "status": "CONFIRMED"
+        },
+        "retainedDetections": [
+          {
+            "runId": "hourly_20261010_2100",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2100/facts/ZROUSDT.json",
+            "evaluationTime": 1791637215062,
+            "observedAcquisitionAt": 1791637249640,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261010_2200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261010_2200/facts/ZROUSDT.json",
+            "evaluationTime": 1791640812629,
+            "observedAcquisitionAt": 1791640855223,
+            "status": "CONFIRMED"
+          },
+          {
+            "runId": "hourly_20261011_1200",
+            "factsPath": "/Users/yaodebao/Desktop/git/ict03/ba-bias/data/runs/hourly_20261011_1200/facts/ZROUSDT.json",
+            "evaluationTime": 1791691212917,
+            "observedAcquisitionAt": 1791691254462,
+            "status": "CONFIRMED"
+          }
+        ]
+      }
+    },
+    "currentFactsSha256": "3ad52ea90152db3aff735dee04c6b5525248303e87df03799f305095256bd7f0",
+    "previousRunId": "hourly_20261010_2200",
+    "qualified": true,
+    "oldQualified": true,
+    "previousDataCutoff": 1791640812629,
+    "previousFactsSha256": "af1b48315cc66679ca9bb586d23384f1e5c91859063afc2d7ae50c627d63abaf"
+  }
+}

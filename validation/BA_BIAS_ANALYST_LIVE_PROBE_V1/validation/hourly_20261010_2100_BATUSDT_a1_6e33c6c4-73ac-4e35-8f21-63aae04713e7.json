@@ -1,0 +1,455 @@
+{
+  "id": "hourly_20261010_2100_BATUSDT_a1_6e33c6c4-73ac-4e35-8f21-63aae04713e7",
+  "attempt": 1,
+  "requestTimestamp": "2026-10-10T17:02:47.588Z",
+  "responseTimestamp": "2026-10-10T17:02:51.803Z",
+  "latencyMs": 4215,
+  "model": "deepseek-flash",
+  "inputTokenUsage": 6229,
+  "outputTokenUsage": 907,
+  "usage": {
+    "prompt_tokens": 6229,
+    "completion_tokens": 907,
+    "total_tokens": 7136,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 5077
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"BATUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h窗口出现同长度真实转向：已收盘1h价格变化-8.08%（BATUSDT:price.closed1h），而此前等长1h为+7.59%（BATUSDT:directional.price.previous1h）；同期1h OI数量变化-4.89%（BATUSDT:oi.1h），价格与OI同向收缩，且1h相对量5.76倍（BATUSDT:volume.relative1h）显示参与量放大，故以1h为评估horizon。\",\"conviction\":\"MODERATE\",\"marketThesis\":\"24h维度仍为强势上涨（已收盘24h +20.98%，BATUSDT:price.closed24h；24h OI数量+60.65%，BATUSDT:oi.24h），但最近1h价格-8.08%与此前1h +7.59%形成同长度反向，且1h OI数量-4.89%，价格与OI同向收缩，配合1h相对量5.76倍，倾向短线偏空；24h区间高点回撤-16.15%（BATUSDT:price.drawdown）说明高位抛压已现。\",\"marketMechanism\":\"价格上行后最近1h价格回落且同窗口OI数量下降，与部分多头敞口了结或空头回补后动能衰减的可能性相容；1h相对量5.76倍表明该窗口参与量显著高于前24根均值，但OI为合约数量口径，不能据此确认单侧开平仓、强平或资金流向。\",\"supportingEvidenceIds\":[\"BATUSDT:price.closed1h\",\"BATUSDT:directional.price.previous1h\",\"BATUSDT:oi.1h\",\"BATUSDT:volume.relative1h\",\"BATUSDT:price.drawdown\",\"BATUSDT:price.rangeLowHigh\"],\"conflictingEvidenceIds\":[\"BATUSDT:price.closed24h\",\"BATUSDT:oi.24h\",\"BATUSDT:price.rolling24h\",\"BATUSDT:global.long.latest\"],\"tradeOpportunity\":\"WAIT_FOR_CONFIRMATION\",\"preferredScenario\":\"1h维度延续偏空：若后续新收盘1h价格继续走弱且1h OI数量不再明显回升，则短线弱势延续，价格可能继续向24h区间下沿方向运行；该倾向为不确定假设，需后续同窗口价格与OI确认。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"若后续新收盘滚动1h价格变化≥4.0422%（PRICE_OPPOSITE_1h），则当前1h偏空方向命题失效；若后续新采样精确1h OI数量变化≥5.0000%（OI_REVERSED_1h），仅触发复核，不自动失效。\"},\"alternativeScenario\":\"若1h价格重新转强并收复最近1h跌幅，同时1h OI数量回升，则短线偏空假设被削弱，行情可能回到24h上行延续（已收盘24h +20.98%、24h OI数量+60.65%）；但24h窗口此前已连续同向，反转证据不足，需新的同窗口价格与OI配合。\",\"followUpChecks\":[\"跟踪后续新收盘1h价格变化是否达到+4.0422%以上（PRICE_OPPOSITE_1h失效阈值），以及1h OI数量变化是否回升至+5.0000%以上（OI_REVERSED_1h复核阈值）。\",\"观察1h相对量能否维持高位及24h区间高点回撤-16.15%是否继续扩大，同时留意已结算Funding 0.0033%多头支付空头（BATUSDT:funding.latest）是否延续，以判断短线抛压是否持续。\"]}",
+  "raw": {
+    "id": "487d9432-ad3d-47d9-8788-cb1dfd8092fd",
+    "object": "chat.completion",
+    "created": 1791651767,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"BATUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h窗口出现同长度真实转向：已收盘1h价格变化-8.08%（BATUSDT:price.closed1h），而此前等长1h为+7.59%（BATUSDT:directional.price.previous1h）；同期1h OI数量变化-4.89%（BATUSDT:oi.1h），价格与OI同向收缩，且1h相对量5.76倍（BATUSDT:volume.relative1h）显示参与量放大，故以1h为评估horizon。\",\"conviction\":\"MODERATE\",\"marketThesis\":\"24h维度仍为强势上涨（已收盘24h +20.98%，BATUSDT:price.closed24h；24h OI数量+60.65%，BATUSDT:oi.24h），但最近1h价格-8.08%与此前1h +7.59%形成同长度反向，且1h OI数量-4.89%，价格与OI同向收缩，配合1h相对量5.76倍，倾向短线偏空；24h区间高点回撤-16.15%（BATUSDT:price.drawdown）说明高位抛压已现。\",\"marketMechanism\":\"价格上行后最近1h价格回落且同窗口OI数量下降，与部分多头敞口了结或空头回补后动能衰减的可能性相容；1h相对量5.76倍表明该窗口参与量显著高于前24根均值，但OI为合约数量口径，不能据此确认单侧开平仓、强平或资金流向。\",\"supportingEvidenceIds\":[\"BATUSDT:price.closed1h\",\"BATUSDT:directional.price.previous1h\",\"BATUSDT:oi.1h\",\"BATUSDT:volume.relative1h\",\"BATUSDT:price.drawdown\",\"BATUSDT:price.rangeLowHigh\"],\"conflictingEvidenceIds\":[\"BATUSDT:price.closed24h\",\"BATUSDT:oi.24h\",\"BATUSDT:price.rolling24h\",\"BATUSDT:global.long.latest\"],\"tradeOpportunity\":\"WAIT_FOR_CONFIRMATION\",\"preferredScenario\":\"1h维度延续偏空：若后续新收盘1h价格继续走弱且1h OI数量不再明显回升，则短线弱势延续，价格可能继续向24h区间下沿方向运行；该倾向为不确定假设，需后续同窗口价格与OI确认。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"若后续新收盘滚动1h价格变化≥4.0422%（PRICE_OPPOSITE_1h），则当前1h偏空方向命题失效；若后续新采样精确1h OI数量变化≥5.0000%（OI_REVERSED_1h），仅触发复核，不自动失效。\"},\"alternativeScenario\":\"若1h价格重新转强并收复最近1h跌幅，同时1h OI数量回升，则短线偏空假设被削弱，行情可能回到24h上行延续（已收盘24h +20.98%、24h OI数量+60.65%）；但24h窗口此前已连续同向，反转证据不足，需新的同窗口价格与OI配合。\",\"followUpChecks\":[\"跟踪后续新收盘1h价格变化是否达到+4.0422%以上（PRICE_OPPOSITE_1h失效阈值），以及1h OI数量变化是否回升至+5.0000%以上（OI_REVERSED_1h复核阈值）。\",\"观察1h相对量能否维持高位及24h区间高点回撤-16.15%是否继续扩大，同时留意已结算Funding 0.0033%多头支付空头（BATUSDT:funding.latest）是否延续，以判断短线抛压是否持续。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6229,
+      "completion_tokens": 907,
+      "total_tokens": 7136,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 5077
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "parsedResponse": {
+    "version": "DIRECTIONAL_ANALYST_V2",
+    "symbol": "BATUSDT",
+    "evaluationTime": "2026-10-10T13:00:15.062Z",
+    "marketBias": "BEARISH",
+    "horizon": "1h",
+    "horizonReason": "1h窗口出现同长度真实转向：已收盘1h价格变化-8.08%（BATUSDT:price.closed1h），而此前等长1h为+7.59%（BATUSDT:directional.price.previous1h）；同期1h OI数量变化-4.89%（BATUSDT:oi.1h），价格与OI同向收缩，且1h相对量5.76倍（BATUSDT:volume.relative1h）显示参与量放大，故以1h为评估horizon。",
+    "conviction": "MODERATE",
+    "marketThesis": "24h维度仍为强势上涨（已收盘24h +20.98%，BATUSDT:price.closed24h；24h OI数量+60.65%，BATUSDT:oi.24h），但最近1h价格-8.08%与此前1h +7.59%形成同长度反向，且1h OI数量-4.89%，价格与OI同向收缩，配合1h相对量5.76倍，倾向短线偏空；24h区间高点回撤-16.15%（BATUSDT:price.drawdown）说明高位抛压已现。",
+    "marketMechanism": "价格上行后最近1h价格回落且同窗口OI数量下降，与部分多头敞口了结或空头回补后动能衰减的可能性相容；1h相对量5.76倍表明该窗口参与量显著高于前24根均值，但OI为合约数量口径，不能据此确认单侧开平仓、强平或资金流向。",
+    "supportingEvidenceIds": [
+      "BATUSDT:price.closed1h",
+      "BATUSDT:directional.price.previous1h",
+      "BATUSDT:oi.1h",
+      "BATUSDT:volume.relative1h",
+      "BATUSDT:price.drawdown",
+      "BATUSDT:price.rangeLowHigh"
+    ],
+    "conflictingEvidenceIds": [
+      "BATUSDT:price.closed24h",
+      "BATUSDT:oi.24h",
+      "BATUSDT:price.rolling24h",
+      "BATUSDT:global.long.latest"
+    ],
+    "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+    "preferredScenario": "1h维度延续偏空：若后续新收盘1h价格继续走弱且1h OI数量不再明显回升，则短线弱势延续，价格可能继续向24h区间下沿方向运行；该倾向为不确定假设，需后续同窗口价格与OI确认。",
+    "invalidation": {
+      "type": "OBSERVABLE_CONDITION",
+      "ruleIds": [
+        "PRICE_OPPOSITE_1h",
+        "OI_REVERSED_1h"
+      ],
+      "description": "若后续新收盘滚动1h价格变化≥4.0422%（PRICE_OPPOSITE_1h），则当前1h偏空方向命题失效；若后续新采样精确1h OI数量变化≥5.0000%（OI_REVERSED_1h），仅触发复核，不自动失效。"
+    },
+    "alternativeScenario": "若1h价格重新转强并收复最近1h跌幅，同时1h OI数量回升，则短线偏空假设被削弱，行情可能回到24h上行延续（已收盘24h +20.98%、24h OI数量+60.65%）；但24h窗口此前已连续同向，反转证据不足，需新的同窗口价格与OI配合。",
+    "followUpChecks": [
+      "跟踪后续新收盘1h价格变化是否达到+4.0422%以上（PRICE_OPPOSITE_1h失效阈值），以及1h OI数量变化是否回升至+5.0000%以上（OI_REVERSED_1h复核阈值）。",
+      "观察1h相对量能否维持高位及24h区间高点回撤-16.15%是否继续扩大，同时留意已结算Funding 0.0033%多头支付空头（BATUSDT:funding.latest）是否延续，以判断短线抛压是否持续。"
+    ]
+  },
+  "schemaValid": true,
+  "validationResult": {
+    "ok": false,
+    "errors": [
+      "UNTRUSTED_NUMBER_OR_PROBABILITY",
+      "UNTRUSTED_SYMBOL_OR_METRIC",
+      "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+    ],
+    "diagnostics": [
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-8.08%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "BATUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+7.59%",
+        "window": "1h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-4.89%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "BATUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "5.76倍",
+        "window": "1h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+20.98%",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+60.65%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-8.08%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "BATUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+7.59%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": true
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-4.89%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "BATUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "5.76倍",
+        "window": "1h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-16.15%",
+        "window": "24h",
+        "metric": {
+          "kind": "drawdown"
+        },
+        "evidenceIds": [
+          "BATUSDT:price.drawdown"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "5.76倍",
+        "window": "1h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "回补",
+        "span": "与部分多头敞口了结或空头回补后动能衰减的可能性相容",
+        "denied": false,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "平仓",
+        "span": "不能据此确认单侧开平仓、强平或资金流向",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "强平",
+        "span": "不能据此确认单侧开平仓、强平或资金流向",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+20.98%",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+60.65%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "4.0422%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": true,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": "PRICE_OPPOSITE_1h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "5.0000%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": "OI_REVERSED_1h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+4.0422%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "followUp0",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+5.0000%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "followUp0",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-16.15%",
+        "window": "24h",
+        "metric": {
+          "kind": "drawdown"
+        },
+        "evidenceIds": [
+          "BATUSDT:price.drawdown"
+        ],
+        "ruleId": null,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "0.0033%",
+        "window": "24h",
+        "metric": {
+          "kind": "funding",
+          "variant": "latest"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "FUNDING_DIRECTION_MUST_USE_EVIDENCE",
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/followUpChecks/1"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/followUpChecks/1"
+      },
+      {
+        "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "path": "/"
+      }
+    ],
+    "contractVersion": "DIRECTIONAL_ANALYST_V2"
+  },
+  "failureCodes": [
+    "UNTRUSTED_NUMBER_OR_PROBABILITY",
+    "UNTRUSTED_SYMBOL_OR_METRIC",
+    "FUNDING_DIRECTION_MUST_USE_EVIDENCE"
+  ],
+  "evidenceIdsUsed": [
+    "BATUSDT:price.closed1h",
+    "BATUSDT:directional.price.previous1h",
+    "BATUSDT:oi.1h",
+    "BATUSDT:volume.relative1h",
+    "BATUSDT:price.drawdown",
+    "BATUSDT:price.rangeLowHigh",
+    "BATUSDT:price.closed24h",
+    "BATUSDT:oi.24h",
+    "BATUSDT:price.rolling24h",
+    "BATUSDT:global.long.latest"
+  ],
+  "status": "INVALID"
+}

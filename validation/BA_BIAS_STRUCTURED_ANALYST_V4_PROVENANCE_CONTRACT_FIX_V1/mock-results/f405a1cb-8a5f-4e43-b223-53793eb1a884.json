@@ -1,0 +1,853 @@
+{
+  "version": "V4_PROVENANCE_EXPERIMENT_RESULT_V1",
+  "status": "NOT_PRODUCTION",
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "UNKNOWN",
+  "researchExecutedAt": "2026-10-10T20:31:03.090Z",
+  "causalBacktestEligible": false,
+  "input": {
+    "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+    "status": "NOT_PRODUCTION",
+    "causalBacktestEligible": false,
+    "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+    "symbol": "CAPUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+    "availability": "UNKNOWN",
+    "evidence": [
+      {
+        "evidenceId": "CAPUSDT:price.rolling24h",
+        "symbol": "CAPUSDT",
+        "metricType": "PRICE_ROLLING_CHANGE",
+        "value": "22.68309377",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604808634,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604808634
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/ticker/24hr",
+          "params": {},
+          "formula": "(lastPrice/openPrice-1)*100"
+        },
+        "semanticDescription": "滚动24小时价格变化 22.68%"
+      },
+      {
+        "evidenceId": "CAPUSDT:price.last",
+        "symbol": "CAPUSDT",
+        "metricType": "PRICE_SNAPSHOT",
+        "value": "0.0896200",
+        "unit": "USDT",
+        "window": null,
+        "scope": null,
+        "observedAt": 1791604808634,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791604808634
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/ticker/24hr",
+          "params": {},
+          "formula": "lastPrice"
+        },
+        "semanticDescription": "快照最新价格 0.0896200 USDT"
+      },
+      {
+        "evidenceId": "CAPUSDT:volume.rolling24h",
+        "symbol": "CAPUSDT",
+        "metricType": "QUOTE_VOLUME",
+        "value": "40134228.8995900",
+        "unit": "USDT",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604808634,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604808634
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/ticker/24hr",
+          "params": {},
+          "formula": "quoteVolume"
+        },
+        "semanticDescription": "滚动24小时成交额 40134228.90 USDT"
+      },
+      {
+        "evidenceId": "CAPUSDT:price.closed1h",
+        "symbol": "CAPUSDT",
+        "metricType": "PRICE_CLOSED_CHANGE",
+        "value": "-3.61096185",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "semanticDescription": "截至北京时间12:00，已收盘1小时价格变化 -3.61%"
+      },
+      {
+        "evidenceId": "CAPUSDT:price.closed4h",
+        "symbol": "CAPUSDT",
+        "metricType": "PRICE_CLOSED_CHANGE",
+        "value": "3.31759014",
+        "unit": "%",
+        "window": "4h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791590400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "semanticDescription": "截至北京时间12:00，已收盘4小时价格变化 3.32%"
+      },
+      {
+        "evidenceId": "CAPUSDT:price.closed24h",
+        "symbol": "CAPUSDT",
+        "metricType": "PRICE_CLOSED_CHANGE",
+        "value": "22.77891855",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "semanticDescription": "截至北京时间12:00，已收盘24小时价格变化 22.78%"
+      },
+      {
+        "evidenceId": "CAPUSDT:price.rangeLowHigh",
+        "symbol": "CAPUSDT",
+        "metricType": "RANGE_AMPLITUDE_NOT_BOUNDARY",
+        "value": "38.28049287",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(high/low-1)*100"
+        },
+        "semanticDescription": "已收盘24小时区间低点至高点幅度 38.28%"
+      },
+      {
+        "evidenceId": "CAPUSDT:price.drawdown",
+        "symbol": "CAPUSDT",
+        "metricType": "SNAPSHOT_DRAWDOWN",
+        "value": "-10.27232679",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604808634,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791604799999,
+          1791604808634
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(lastPrice/high-1)*100"
+        },
+        "semanticDescription": "已收盘24小时区间高点至快照最新价变化 -10.27%"
+      },
+      {
+        "evidenceId": "CAPUSDT:volume.relative1h",
+        "symbol": "CAPUSDT",
+        "metricType": "RELATIVE_VOLUME",
+        "value": "16.99150542",
+        "unit": "multiple",
+        "window": "1h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791514800000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "semanticDescription": "最近已收盘1小时成交量为前24根均值的 16.99 倍"
+      },
+      {
+        "evidenceId": "CAPUSDT:volume.relative5m",
+        "symbol": "CAPUSDT",
+        "metricType": "RELATIVE_VOLUME",
+        "value": "0.80434867",
+        "unit": "multiple",
+        "window": "5m",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791597300000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "5m",
+            "limit": 40,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "semanticDescription": "最近已收盘5分钟成交量为前24根均值的 0.80 倍"
+      },
+      {
+        "evidenceId": "CAPUSDT:volume.closed1h",
+        "symbol": "CAPUSDT",
+        "metricType": "QUOTE_VOLUME",
+        "value": "17810707.5349300",
+        "unit": "USDT",
+        "window": "1h",
+        "scope": null,
+        "observedAt": 1791604799999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "quoteAssetVolume field 7"
+        },
+        "semanticDescription": "最近已收盘1小时成交额 17810707.53 USDT"
+      },
+      {
+        "evidenceId": "CAPUSDT:oi.1h",
+        "symbol": "CAPUSDT",
+        "metricType": "OI_QUANTITY_CHANGE",
+        "value": "0.78866808",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "CAPUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "semanticDescription": "1小时OI数量变化 0.79%（不代表资金净流入或多空加仓方向）"
+      },
+      {
+        "evidenceId": "CAPUSDT:oi.4h",
+        "symbol": "CAPUSDT",
+        "metricType": "OI_QUANTITY_CHANGE",
+        "value": "2.14844813",
+        "unit": "%",
+        "window": "4h",
+        "scope": null,
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791590400000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "CAPUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "semanticDescription": "4小时OI数量变化 2.15%（不代表资金净流入或多空加仓方向）"
+      },
+      {
+        "evidenceId": "CAPUSDT:oi.24h",
+        "symbol": "CAPUSDT",
+        "metricType": "OI_QUANTITY_CHANGE",
+        "value": "0.75102824",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791518400000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "CAPUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "semanticDescription": "24小时OI数量变化 0.75%（不代表资金净流入或多空加仓方向）"
+      },
+      {
+        "evidenceId": "CAPUSDT:funding.latest",
+        "symbol": "CAPUSDT",
+        "metricType": "SETTLED_FUNDING",
+        "value": "0.03223900",
+        "unit": "%",
+        "window": null,
+        "scope": null,
+        "observedAt": 1791604800007,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791604800007
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/fundingRate",
+          "params": {
+            "symbol": "CAPUSDT",
+            "startTime": 1791432015949,
+            "endTime": 1791604815949,
+            "limit": 1000
+          },
+          "formula": "fundingRate*100"
+        },
+        "semanticDescription": "北京时间10-10 12:00已结算Funding 0.0322%，多头支付空头"
+      },
+      {
+        "evidenceId": "CAPUSDT:funding.sum24h",
+        "symbol": "CAPUSDT",
+        "metricType": "SETTLED_FUNDING",
+        "value": "0.12603300",
+        "unit": "%",
+        "window": null,
+        "scope": null,
+        "observedAt": 1791604800007,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791532800000,
+          1791547200003,
+          1791561600000,
+          1791576000000,
+          1791590400002,
+          1791604800007
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/fundingRate",
+          "params": {
+            "symbol": "CAPUSDT",
+            "startTime": 1791432015949,
+            "endTime": 1791604815949,
+            "limit": 1000
+          },
+          "formula": "sum(actual settled fundingRate)*100"
+        },
+        "semanticDescription": "过去24小时实际6次结算费率之和 0.1260%（非收益率）"
+      },
+      {
+        "evidenceId": "CAPUSDT:funding.change",
+        "symbol": "CAPUSDT",
+        "metricType": "SETTLED_FUNDING_CHANGE",
+        "value": "-0.01239000",
+        "unit": "pp",
+        "window": null,
+        "scope": null,
+        "observedAt": 1791604800007,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791590400002,
+          1791604800007
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/fundingRate",
+          "params": {
+            "symbol": "CAPUSDT",
+            "startTime": 1791432015949,
+            "endTime": 1791604815949,
+            "limit": 1000
+          },
+          "formula": "(last.fundingRate - previous.fundingRate)*100"
+        },
+        "semanticDescription": "相邻实际结算Funding变化 -0.0124 个百分点（保留各周期时间，不假设周期相同）"
+      },
+      {
+        "evidenceId": "CAPUSDT:global.long.latest",
+        "symbol": "CAPUSDT",
+        "metricType": "GLOBAL_ACCOUNT_SHARE",
+        "value": "58.50000000",
+        "unit": "%",
+        "window": null,
+        "scope": "GLOBAL_ACCOUNTS",
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "CAPUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791604815949
+          },
+          "formula": "longAccount * 100"
+        },
+        "semanticDescription": "全市场净多/净空头账户：多 58.50%、空 41.50%（账户比例不代表仓位或资金比例）"
+      },
+      {
+        "evidenceId": "CAPUSDT:global.short.change1h",
+        "symbol": "CAPUSDT",
+        "metricType": "GLOBAL_ACCOUNT_SHARE",
+        "value": "0.90000000",
+        "unit": "pp",
+        "window": "1h",
+        "scope": "GLOBAL_ACCOUNTS",
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "CAPUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791604815949
+          },
+          "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points"
+        },
+        "semanticDescription": "全市场净多/净空头账户空方占比1小时从 40.60% 到 41.50%，变化 0.90 个百分点；多方变化 -0.90 个百分点"
+      },
+      {
+        "evidenceId": "CAPUSDT:global.long.change1h",
+        "symbol": "CAPUSDT",
+        "metricType": "GLOBAL_ACCOUNT_SHARE",
+        "value": "-0.90000000",
+        "unit": "pp",
+        "window": "1h",
+        "scope": "GLOBAL_ACCOUNTS",
+        "observedAt": 1791604800000,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "CAPUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791604815949
+          },
+          "formula": "(longAccount_end - longAccount_start) * 100; percentage points"
+        },
+        "semanticDescription": "全市场净多/净空头账户空方占比1小时从 40.60% 到 41.50%，变化 0.90 个百分点；多方变化 -0.90 个百分点"
+      },
+      {
+        "evidenceId": "CAPUSDT:directional.price.previous1h",
+        "symbol": "CAPUSDT",
+        "metricType": "PREVIOUS_PRICE_CHANGE",
+        "value": "4.49135414",
+        "unit": "%",
+        "window": "1h",
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "observedAt": 1791601199999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791597600000,
+          1791601199999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(previous equal-length closed window close/open - 1)*100"
+        },
+        "semanticDescription": "此前已收盘1小时价格变化 4.49%"
+      },
+      {
+        "evidenceId": "CAPUSDT:directional.price.previous4h",
+        "symbol": "CAPUSDT",
+        "metricType": "PREVIOUS_PRICE_CHANGE",
+        "value": "11.35051943",
+        "unit": "%",
+        "window": "4h",
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "observedAt": 1791590399999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791576000000,
+          1791590399999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(previous equal-length closed window close/open - 1)*100"
+        },
+        "semanticDescription": "此前已收盘4小时价格变化 11.35%"
+      },
+      {
+        "evidenceId": "CAPUSDT:directional.price.previous24h",
+        "symbol": "CAPUSDT",
+        "metricType": "PREVIOUS_PRICE_CHANGE",
+        "value": "1.99637024",
+        "unit": "%",
+        "window": "24h",
+        "scope": "PREVIOUS_PRICE_WINDOW",
+        "observedAt": 1791518399999,
+        "availableAt": "UNKNOWN",
+        "dataTimes": [
+          1791432000000,
+          1791518399999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "CAPUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(previous equal-length closed window close/open - 1)*100"
+        },
+        "semanticDescription": "此前已收盘24小时价格变化 2.00%"
+      }
+    ],
+    "structures": [],
+    "windows": [
+      {
+        "horizon": "1h",
+        "priceId": "CAPUSDT:price.closed1h",
+        "oiId": "CAPUSDT:oi.1h",
+        "previousPriceId": "CAPUSDT:directional.price.previous1h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": -1,
+        "reversalEvidenceAvailable": true
+      },
+      {
+        "horizon": "4h",
+        "priceId": "CAPUSDT:price.closed4h",
+        "oiId": "CAPUSDT:oi.4h",
+        "previousPriceId": "CAPUSDT:directional.price.previous4h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": 1,
+        "reversalEvidenceAvailable": false
+      },
+      {
+        "horizon": "24h",
+        "priceId": "CAPUSDT:price.closed24h",
+        "oiId": "CAPUSDT:oi.24h",
+        "previousPriceId": "CAPUSDT:directional.price.previous24h",
+        "aligned": true,
+        "strongContinuation": false,
+        "observedPriceSign": 1,
+        "reversalEvidenceAvailable": false
+      }
+    ],
+    "rules": [
+      {
+        "id": "PRICE_OPPOSITE_1h",
+        "horizon": "1h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "GTE",
+        "threshold": 1.805480925,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动1h价格变化≥1.8055%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "CAPUSDT:price.closed1h"
+      },
+      {
+        "id": "OI_REVERSED_1h",
+        "horizon": "1h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "CAPUSDT:oi.1h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_4h",
+        "horizon": "4h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "LTE",
+        "threshold": -1.65879507,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动4h价格变化≤-1.6588%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "CAPUSDT:price.closed4h"
+      },
+      {
+        "id": "OI_REVERSED_4h",
+        "horizon": "4h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确4h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "CAPUSDT:oi.4h"
+      },
+      {
+        "id": "PRICE_OPPOSITE_24h",
+        "horizon": "24h",
+        "metric": "PRICE_CLOSED_CHANGE",
+        "operator": "LTE",
+        "threshold": -11.389459275,
+        "outcome": "INVALIDATED",
+        "description": "后续新收盘滚动24h价格变化≤-11.3895%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+        "baselineEvidenceId": "CAPUSDT:price.closed24h"
+      },
+      {
+        "id": "OI_REVERSED_24h",
+        "horizon": "24h",
+        "metric": "OI_QUANTITY_CHANGE",
+        "operator": "LTE",
+        "threshold": -5,
+        "outcome": "THESIS_WARNING",
+        "description": "后续新采样精确24h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+        "baselineEvidenceId": "CAPUSDT:oi.24h"
+      }
+    ]
+  },
+  "envelope": {
+    "version": "V4_PROVENANCE_ENVELOPE_V1",
+    "provenance": {
+      "sourceType": "SYNTHETIC_OR_CONVERTED",
+      "executionKind": "MOCK",
+      "provider": "mock",
+      "model": "mock-model",
+      "requestedModel": "mock-model",
+      "requestId": "f405a1cb-8a5f-4e43-b223-53793eb1a884",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "MOCK_RESPONSE_NOT_SERVER_AUTH_ID",
+      "requestedAt": "2026-10-10T20:31:03.090Z",
+      "receivedAt": "2026-10-10T20:31:03.091Z",
+      "requestHash": "ff29b77299408cabde5dd8b47d17dbc25e16ca31672d9c99c6a607271d18534c",
+      "responseHash": "97f2c84df24115bb5161ac95cbace692c4a8a17be20ab07357a4c0c37175bb19",
+      "inputHash": "fd8012f5a6a52b32569c1632e8b2034421b106d1e520e6b2fcc6466b2e5c3db9"
+    },
+    "analysis": {
+      "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+      "status": "NOT_PRODUCTION",
+      "causalBacktestEligible": false,
+      "symbol": "CAPUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "direction": "BEARISH",
+      "horizon": "1h",
+      "conviction": "LOW",
+      "supportingEvidenceIds": [
+        "CAPUSDT:price.closed1h",
+        "CAPUSDT:oi.1h"
+      ],
+      "conflictingEvidenceIds": [
+        "CAPUSDT:price.closed4h",
+        "CAPUSDT:price.closed24h",
+        "CAPUSDT:oi.4h",
+        "CAPUSDT:funding.latest"
+      ],
+      "structureEvidenceIds": [
+        "CAPUSDT:structure.rangeLow"
+      ],
+      "mechanismHypothesis": {
+        "type": "UNDETERMINED",
+        "evidenceIds": [],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "directionalRationale": {
+        "hypothesis": "CONTINUATION",
+        "evidenceIds": [
+          "CAPUSDT:price.closed1h"
+        ],
+        "alternative": "OPPOSITE_MOVE",
+        "certainty": "CONDITIONAL_NOT_CONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "reassessmentConditions": [
+        {
+          "conditionType": "ABSTRACT_REASSESSMENT",
+          "metricOrStructureEvidenceId": "CAPUSDT:price.closed1h",
+          "interpretation": "MONITOR_CHANGE",
+          "consequence": "REASSESS_ONLY"
+        }
+      ]
+    },
+    "audit": {
+      "legacySyntheticFieldRemoved": false,
+      "businessSourceConflict": false,
+      "parseError": null
+    }
+  },
+  "validation": {
+    "ok": false,
+    "status": "FAILED",
+    "errors": [
+      "UNKNOWN_OR_FOREIGN_EVIDENCE",
+      "UNSUPPORTED_STRUCTURE"
+    ],
+    "provenanceValid": true,
+    "analysisValid": false,
+    "provenance": {
+      "sourceType": "SYNTHETIC_OR_CONVERTED",
+      "executionKind": "MOCK",
+      "provider": "mock",
+      "model": "mock-model",
+      "requestedModel": "mock-model",
+      "requestId": "f405a1cb-8a5f-4e43-b223-53793eb1a884",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "MOCK_RESPONSE_NOT_SERVER_AUTH_ID",
+      "requestedAt": "2026-10-10T20:31:03.090Z",
+      "receivedAt": "2026-10-10T20:31:03.091Z",
+      "requestHash": "ff29b77299408cabde5dd8b47d17dbc25e16ca31672d9c99c6a607271d18534c",
+      "responseHash": "97f2c84df24115bb5161ac95cbace692c4a8a17be20ab07357a4c0c37175bb19",
+      "inputHash": "fd8012f5a6a52b32569c1632e8b2034421b106d1e520e6b2fcc6466b2e5c3db9"
+    }
+  },
+  "rendered": {
+    "status": "FAILED",
+    "validation": {
+      "ok": false,
+      "status": "FAILED",
+      "errors": [
+        "UNKNOWN_OR_FOREIGN_EVIDENCE",
+        "UNSUPPORTED_STRUCTURE"
+      ],
+      "provenanceValid": true,
+      "analysisValid": false,
+      "provenance": {
+        "sourceType": "SYNTHETIC_OR_CONVERTED",
+        "executionKind": "MOCK",
+        "provider": "mock",
+        "model": "mock-model",
+        "requestedModel": "mock-model",
+        "requestId": "f405a1cb-8a5f-4e43-b223-53793eb1a884",
+        "requestIdKind": "LOCAL_TRACKING_ID",
+        "serverResponseId": "MOCK_RESPONSE_NOT_SERVER_AUTH_ID",
+        "requestedAt": "2026-10-10T20:31:03.090Z",
+        "receivedAt": "2026-10-10T20:31:03.091Z",
+        "requestHash": "ff29b77299408cabde5dd8b47d17dbc25e16ca31672d9c99c6a607271d18534c",
+        "responseHash": "97f2c84df24115bb5161ac95cbace692c4a8a17be20ab07357a4c0c37175bb19",
+        "inputHash": "fd8012f5a6a52b32569c1632e8b2034421b106d1e520e6b2fcc6466b2e5c3db9"
+      }
+    },
+    "text": null
+  },
+  "requestRecords": [
+    {
+      "requestId": "f405a1cb-8a5f-4e43-b223-53793eb1a884",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "model": "mock-model",
+      "requestedAt": "2026-10-10T20:31:03.090Z",
+      "requestHash": "ff29b77299408cabde5dd8b47d17dbc25e16ca31672d9c99c6a607271d18534c",
+      "inputHash": "fd8012f5a6a52b32569c1632e8b2034421b106d1e520e6b2fcc6466b2e5c3db9",
+      "executionKind": "MOCK",
+      "physicalRequests": 0,
+      "responseHash": "97f2c84df24115bb5161ac95cbace692c4a8a17be20ab07357a4c0c37175bb19",
+      "receivedAt": "2026-10-10T20:31:03.091Z",
+      "serverResponseId": "MOCK_RESPONSE_NOT_SERVER_AUTH_ID",
+      "rawResponse": {
+        "id": "MOCK_RESPONSE_NOT_SERVER_AUTH_ID",
+        "model": "mock-model",
+        "choices": [
+          {
+            "message": {
+              "content": "{\"version\":\"STRUCTURED_ANALYST_V4_EXPERIMENT\",\"status\":\"NOT_PRODUCTION\",\"causalBacktestEligible\":false,\"symbol\":\"CAPUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"direction\":\"BEARISH\",\"horizon\":\"1h\",\"conviction\":\"LOW\",\"supportingEvidenceIds\":[\"CAPUSDT:price.closed1h\",\"CAPUSDT:oi.1h\"],\"conflictingEvidenceIds\":[\"CAPUSDT:price.closed4h\",\"CAPUSDT:price.closed24h\",\"CAPUSDT:oi.4h\",\"CAPUSDT:funding.latest\"],\"structureEvidenceIds\":[\"CAPUSDT:structure.rangeLow\"],\"mechanismHypothesis\":{\"type\":\"UNDETERMINED\",\"evidenceIds\":[],\"limitation\":\"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"},\"directionalRationale\":{\"hypothesis\":\"CONTINUATION\",\"evidenceIds\":[\"CAPUSDT:price.closed1h\"],\"alternative\":\"OPPOSITE_MOVE\",\"certainty\":\"CONDITIONAL_NOT_CONFIRMED\"},\"tradeOpportunity\":\"WAIT_FOR_CONFIRMATION\",\"reassessmentConditions\":[{\"conditionType\":\"ABSTRACT_REASSESSMENT\",\"metricOrStructureEvidenceId\":\"CAPUSDT:price.closed1h\",\"interpretation\":\"MONITOR_CHANGE\",\"consequence\":\"REASSESS_ONLY\"}]}"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "counts": {
+    "transportAttempts": 1,
+    "livePhysicalRequests": 0,
+    "mockCalls": 1
+  }
+}

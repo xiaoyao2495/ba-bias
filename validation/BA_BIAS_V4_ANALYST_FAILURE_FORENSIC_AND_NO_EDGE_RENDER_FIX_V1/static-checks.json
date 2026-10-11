@@ -1,0 +1,362 @@
+{
+  "total": 89,
+  "passed": 89,
+  "checks": [
+    {
+      "file": "src/analysis/active-analyst.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/directional-alignment-guard.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/directional-analyst.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/directional-context.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/directional-generation.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/directional-history.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/directional-legacy-guard.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/directional-schema.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/evidence-precision-validator.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/evidence-text-validator.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-executor.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-guard.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-input.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-provenance.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-renderer.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/experimental/structured-v4-schema.js",
+      "pass": true
+    },
+    {
+      "file": "src/analysis/structured-v4-production.js",
+      "pass": true
+    },
+    {
+      "file": "src/clients/binance.js",
+      "pass": true
+    },
+    {
+      "file": "src/clients/deepseek.js",
+      "pass": true
+    },
+    {
+      "file": "src/clients/dingtalk.js",
+      "pass": true
+    },
+    {
+      "file": "src/clients/http.js",
+      "pass": true
+    },
+    {
+      "file": "src/config.js",
+      "pass": true
+    },
+    {
+      "file": "src/content/claim-guard.js",
+      "pass": true
+    },
+    {
+      "file": "src/content/draft-writer.js",
+      "pass": true
+    },
+    {
+      "file": "src/content/schemas.js",
+      "pass": true
+    },
+    {
+      "file": "src/content/story-judge.js",
+      "pass": true
+    },
+    {
+      "file": "src/intelligence/compact-renderer.js",
+      "pass": true
+    },
+    {
+      "file": "src/intelligence/notification-evidence.js",
+      "pass": true
+    },
+    {
+      "file": "src/intelligence/packet.js",
+      "pass": true
+    },
+    {
+      "file": "src/intelligence/v4-conditions.js",
+      "pass": true
+    },
+    {
+      "file": "src/logging.js",
+      "pass": true
+    },
+    {
+      "file": "src/main.js",
+      "pass": true
+    },
+    {
+      "file": "src/market/detector.js",
+      "pass": true
+    },
+    {
+      "file": "src/market/facts-engine.js",
+      "pass": true
+    },
+    {
+      "file": "src/market/long-short-detector.js",
+      "pass": true
+    },
+    {
+      "file": "src/market/long-short-discovery.js",
+      "pass": true
+    },
+    {
+      "file": "src/market/long-short-facts.js",
+      "pass": true
+    },
+    {
+      "file": "src/market/scanner.js",
+      "pass": true
+    },
+    {
+      "file": "src/scan-daemon.js",
+      "pass": true
+    },
+    {
+      "file": "src/scheduler.js",
+      "pass": true
+    },
+    {
+      "file": "src/storage/delivery-queue.js",
+      "pass": true
+    },
+    {
+      "file": "src/storage/delivery.js",
+      "pass": true
+    },
+    {
+      "file": "src/storage/history.js",
+      "pass": true
+    },
+    {
+      "file": "src/storage/message-boundaries.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-alignment-attribution.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-alignment-replay.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-alignment-report.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-generation-offline.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-live-probe-report.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-live-probe.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-precision-prepare.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-precision-replay.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-precision-report.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-semantic-grounding-replay.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-v3-live-preflight.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-v3-post-collection-probe.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/analyst-version.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/compact-replay.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/structured-v4-live-preflight.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/structured-v4-live-rerun.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/structured-v4-provenance-offline.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/structured-v4-provenance-replay.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/v4-failure-render-replay.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/v4-output-quality-replay.js",
+      "pass": true
+    },
+    {
+      "file": "scripts/validation-recovery-replay.js",
+      "pass": true
+    },
+    {
+      "file": "test/analyst-alignment.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/analyst-generation.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/analyst-live-probe.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/analyst-precision.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/analyst-v3-live-preflight.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/analyst-v3-post-collection.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/compact-fixture.js",
+      "pass": true
+    },
+    {
+      "file": "test/compact.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/core.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/cutover-authorization.js",
+      "pass": true
+    },
+    {
+      "file": "test/directional-fixture.js",
+      "pass": true
+    },
+    {
+      "file": "test/directional.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/fixtures.js",
+      "pass": true
+    },
+    {
+      "file": "test/hourly.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/long-short.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/no-edge-render-forensic.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/output-quality-authorization.js",
+      "pass": true
+    },
+    {
+      "file": "test/output-quality.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/structured-v4-live-preflight.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/structured-v4-live-rerun.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/structured-v4-provenance.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/structured-v4.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/v4-production.test.js",
+      "pass": true
+    },
+    {
+      "file": "test/validation-recovery.test.js",
+      "pass": true
+    }
+  ]
+}

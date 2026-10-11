@@ -1,0 +1,918 @@
+{
+  "reused": false,
+  "previousSelectionStatus": "NOT_SELECTED_PRECHECK_BLOCKED",
+  "poolSize": 264,
+  "selected": [
+    {
+      "sampleId": "s_hourly_20261010_1200_PIXELUSDT",
+      "symbol": "PIXELUSDT",
+      "runId": "hourly_20261010_1200",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "factsPath": "data/runs/hourly_20261010_1200/facts/PIXELUSDT.json",
+      "factsHash": "73fdb00e1af5c44a87d8b06fea973eb5deae56588a6587a512d08d249a8834fa",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "DRAWDOWN",
+        "MULTI_WINDOW_CONFLICT",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+        "collectionCompletedAt": "2026-10-10T04:00:21.024Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: PRICE_UP_OI_EXPANSION"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_SENTUSDT",
+      "symbol": "SENTUSDT",
+      "runId": "hourly_20261010_1200",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "factsPath": "data/runs/hourly_20261010_1200/facts/SENTUSDT.json",
+      "factsHash": "082849d701635dbdfe0b801d91929a9e896cb8a01a8fe90e21586ea178f5dba1",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_EXPANSION",
+        "DRAWDOWN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+        "collectionCompletedAt": "2026-10-10T04:00:28.392Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: PRICE_DOWN_OI_EXPANSION"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1400_JCTUSDT",
+      "symbol": "JCTUSDT",
+      "runId": "hourly_20261010_1400",
+      "originalEvaluationTime": "2026-10-10T06:00:13.760Z",
+      "factsPath": "data/runs/hourly_20261010_1400/facts/JCTUSDT.json",
+      "factsHash": "5cc4e93a1efbe3f39f8b09fb7bf251e310faa4a005701e2060a9dfaed1ac2993",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_CONTRACTION"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T06:00:13.760Z",
+        "collectionCompletedAt": "2026-10-10T06:00:25.713Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: PRICE_UP_OI_CONTRACTION"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_USUSDT",
+      "symbol": "USUSDT",
+      "runId": "hourly_20261010_1200",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "factsPath": "data/runs/hourly_20261010_1200/facts/USUSDT.json",
+      "factsHash": "cddf4721fc1087ab55a845bf17661a8f93c8d253b52e4c5568883dd401c1ba75",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_CONTRACTION",
+        "DRAWDOWN",
+        "MULTI_WINDOW_CONFLICT"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+        "collectionCompletedAt": "2026-10-10T04:00:18.973Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: PRICE_DOWN_OI_CONTRACTION"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_RLCUSDT",
+      "symbol": "RLCUSDT",
+      "runId": "hourly_20261010_1200",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "factsPath": "data/runs/hourly_20261010_1200/facts/RLCUSDT.json",
+      "factsHash": "5670ccf6b94eb42df9fc7638f4f49b55984e77a357a5533b16255af64f798329",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "FUNDING_ABNORMAL",
+        "DRAWDOWN",
+        "MULTI_WINDOW_CONFLICT",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+        "collectionCompletedAt": "2026-10-10T04:00:23.087Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: FUNDING_ABNORMAL"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1300_MINAUSDT",
+      "symbol": "MINAUSDT",
+      "runId": "hourly_20261010_1300",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "factsPath": "data/runs/hourly_20261010_1300/facts/MINAUSDT.json",
+      "factsHash": "df604d2ee0fa6967671fd022eac28c306632b738c6f2578ede2768329cb22b37",
+      "evidenceCount": 24,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "FUNDING_ABNORMAL",
+        "ACCOUNT_CHANGE_OR_FLIP",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+        "collectionCompletedAt": "2026-10-10T05:00:26.923Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: ACCOUNT_CHANGE_OR_FLIP"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1300_BRUSDT",
+      "symbol": "BRUSDT",
+      "runId": "hourly_20261010_1300",
+      "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+      "factsPath": "data/runs/hourly_20261010_1300/facts/BRUSDT.json",
+      "factsHash": "dacfb92643fadbb651b916ad2381ac0de02364aaec8a5f9974746cf48c334858",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_EXPANSION",
+        "DRAWDOWN",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T05:00:16.899Z",
+        "collectionCompletedAt": "2026-10-10T05:00:37.819Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: DRAWDOWN"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_ZKUSDT",
+      "symbol": "ZKUSDT",
+      "runId": "hourly_20261010_1200",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "factsPath": "data/runs/hourly_20261010_1200/facts/ZKUSDT.json",
+      "factsHash": "b00c03200f0b1517e1e6bd3d0c0cff7e49e8fac21f443b79a58329e4b39f8848",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_EXPANSION",
+        "MULTI_WINDOW_CONFLICT",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+        "collectionCompletedAt": "2026-10-10T04:00:27.099Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: MULTI_WINDOW_CONFLICT"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_XAIUSDT",
+      "symbol": "XAIUSDT",
+      "runId": "hourly_20261010_1200",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "factsPath": "data/runs/hourly_20261010_1200/facts/XAIUSDT.json",
+      "factsHash": "740fbc9b8893f7938a333125c6de16316f726c90e8dc3c6411027ec83b54cbb6",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_UP_OI_EXPANSION",
+        "REAL_PRICE_TURN"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+        "collectionCompletedAt": "2026-10-10T04:00:25.971Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: REAL_PRICE_TURN"
+    },
+    {
+      "sampleId": "s_hourly_20261010_1200_XMRUSDT",
+      "symbol": "XMRUSDT",
+      "runId": "hourly_20261010_1200",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "factsPath": "data/runs/hourly_20261010_1200/facts/XMRUSDT.json",
+      "factsHash": "be77166c8e2726d3862306929b59e81cd0d57b2ea648ee30fed7a8d109d8f0d6",
+      "evidenceCount": 23,
+      "scenarioTags": [
+        "PRICE_DOWN_OI_CONTRACTION",
+        "REAL_PRICE_TURN",
+        "LOW_DISPLACEMENT"
+      ],
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "causalBacktestEligible": false,
+      "timeAudit": {
+        "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+        "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+        "collectionCompletedAt": "2026-10-10T04:00:31.188Z",
+        "availability": "UNKNOWN",
+        "causalBacktestEligible": false,
+        "isolatedFutureRows": [
+          {
+            "source": "hour",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          },
+          {
+            "source": "five",
+            "rows": 1,
+            "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+          }
+        ],
+        "retainedFutureEvidence": 0,
+        "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence."
+      },
+      "selectionReason": "Deterministic original-facts scenario coverage: LOW_DISPLACEMENT"
+    }
+  ],
+  "missingScenarios": [],
+  "excluded": [
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/ASTERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/BATUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/CAPUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/CRVUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/GTCUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/HBARUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/INJUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/KAIAUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/MAGICUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/MINAUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/OGNUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/ORCAUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/PONSUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/RAYSOLUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/VVVUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/WUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1200/facts/XLMUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/1000SHIBUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/AKEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/ALGOUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/API3USDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/ETHFIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/TRXUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/WLFIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1300/facts/XPLUSDT.json",
+      "reason": "PRIOR_V4_SPIKE_EVENT"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/AEROUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/ETCUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/FARTCOINUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/JTOUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/MOVRUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/MUBARAKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/NMRUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/SUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/USELESSUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1400/facts/VIRTUALUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/AEROUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/BOMEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/CTUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/EIGENUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/LABUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/MARSCOINUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/MOVRUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1500/facts/RENDERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/1000BONKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/AXSUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/CYBERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/SEIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/STXUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/WIFUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1600/facts/牛来USDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/1000BONKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/CCUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/CHIPUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/CYBERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/LSKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/PENDLEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/PHAUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_1700/facts/VETUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/CHIPUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/GWEIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/IMXUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/LSKUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/LYNUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/MANTAUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/ORDIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2000/facts/VETUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/FRAXUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/GWEIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/NILUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/ONUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/OUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/UAIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2100/facts/YGGUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/CCUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ENJUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/KITEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/LIGHTUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/NILUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/RIVERUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/ROSEUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_20261010_2200/facts/SOONUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/JUPUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/LITUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/PENGUUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/PYTHUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/SKLUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/hourly_acceptance_scan_20261010/facts/TRUMPUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/1000PEPEUSDT.json",
+      "reason": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/ATOMUSDT.json",
+      "reason": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/ENAUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/ONDOUSDT.json",
+      "reason": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/QNTUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_20261010/facts/UNIUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/ARBUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/BCHUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/METUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/TAOUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/live_v1_verified_20261010/facts/ZROUSDT.json",
+      "reason": "NO_DEEP_ANOMALY"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/BATUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/CAPUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/ERAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/GMTUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/KAIAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/MAGICUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/PIXELUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/RLCUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/USUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/once_2026101010/facts/ZKUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/BATUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/BNBUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/BTCUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/CAPUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/DOGEUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/ERAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/ETHUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/GMTUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/HYPEUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/KAIAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/MAGICUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/MINAUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/NEARUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/OGNUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/PIXELUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/PUMPUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/RLCUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/SOLUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/STRKUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/SUIUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/USUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/XRPUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/ZECUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    },
+    {
+      "file": "data/runs/scan_2026101010/facts/ZKUSDT.json",
+      "reason": "IDENTITY_NOT_VERIFIED"
+    }
+  ]
+}

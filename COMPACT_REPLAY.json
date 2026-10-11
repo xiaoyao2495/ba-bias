@@ -1,0 +1,238 @@
+{
+  "mode": "OFFLINE_READ_ONLY_FORMAT_REPLAY",
+  "externalApiCalls": 0,
+  "realDingTalkSends": 0,
+  "scannerStarted": false,
+  "historicOutboxUnchanged": true,
+  "protectedFilesUnchanged": true,
+  "staticChecks": [
+    {
+      "file": "src/analysis/directional-analyst.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-context.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-history.js",
+      "passed": true
+    },
+    {
+      "file": "src/analysis/directional-schema.js",
+      "passed": true
+    },
+    {
+      "file": "src/clients/binance.js",
+      "passed": true
+    },
+    {
+      "file": "src/clients/deepseek.js",
+      "passed": true
+    },
+    {
+      "file": "src/clients/dingtalk.js",
+      "passed": true
+    },
+    {
+      "file": "src/clients/http.js",
+      "passed": true
+    },
+    {
+      "file": "src/config.js",
+      "passed": true
+    },
+    {
+      "file": "src/content/claim-guard.js",
+      "passed": true
+    },
+    {
+      "file": "src/content/draft-writer.js",
+      "passed": true
+    },
+    {
+      "file": "src/content/schemas.js",
+      "passed": true
+    },
+    {
+      "file": "src/content/story-judge.js",
+      "passed": true
+    },
+    {
+      "file": "src/intelligence/compact-renderer.js",
+      "passed": true
+    },
+    {
+      "file": "src/intelligence/packet.js",
+      "passed": true
+    },
+    {
+      "file": "src/logging.js",
+      "passed": true
+    },
+    {
+      "file": "src/main.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/detector.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/facts-engine.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/long-short-detector.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/long-short-discovery.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/long-short-facts.js",
+      "passed": true
+    },
+    {
+      "file": "src/market/scanner.js",
+      "passed": true
+    },
+    {
+      "file": "src/scan-daemon.js",
+      "passed": true
+    },
+    {
+      "file": "src/scheduler.js",
+      "passed": true
+    },
+    {
+      "file": "src/storage/delivery-queue.js",
+      "passed": true
+    },
+    {
+      "file": "src/storage/delivery.js",
+      "passed": true
+    },
+    {
+      "file": "src/storage/history.js",
+      "passed": true
+    },
+    {
+      "file": "test/compact-fixture.js",
+      "passed": true
+    },
+    {
+      "file": "test/compact.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/core.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/directional-fixture.js",
+      "passed": true
+    },
+    {
+      "file": "test/directional.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/fixtures.js",
+      "passed": true
+    },
+    {
+      "file": "test/hourly.test.js",
+      "passed": true
+    },
+    {
+      "file": "test/long-short.test.js",
+      "passed": true
+    },
+    {
+      "file": "scripts/compact-replay.js",
+      "passed": true
+    }
+  ],
+  "examples": [
+    {
+      "label": "真实 WIF：已保存运行记录，只读回放",
+      "runId": "hourly_20261010_2100",
+      "symbol": "WIFUSDT",
+      "oldBodyChars": 3842,
+      "newBodyChars": 502,
+      "oldParts": 4,
+      "newParts": 1,
+      "oldPayloadChars": 4174,
+      "newPayloadChars": 585,
+      "reductionPct": 86.93,
+      "p0Lost": false,
+      "checks": {
+        "symbol": true,
+        "storySemantics": true,
+        "cutoff": true,
+        "trace": true,
+        "directionState": true,
+        "horizon": true,
+        "invalidation": true,
+        "risk": true,
+        "triggerFacts": true,
+        "lossless": true
+      },
+      "text": "检测 · WIFUSDT｜多空账户翻转（已有记录）\n首次情报（NEW_STORY）：以下为本轮已核实的异常事实。\n价格（已收盘）：1h -0.18%｜4h -0.64%｜24h +2.94%\nOI数量：1h -0.08%｜4h -0.52%｜24h -0.82%\n全市场账户：多 52.08%、空 47.92%\n多方变化（百分点）：1h +0.11｜4h +0.35｜24h +3.39\n24h多方：48.69% → 52.08%\n已有翻转记录：空 → 多；10-10 04:00（北京）；后续样本确认。实际事件时间仍需复核。\n1h成交量：前24根小时K线均值的 0.40倍\n市场判断：方向研判不可用，需人工复核。\n观察周期：1h（仅供复核，非有效方向结论）。\n观察：复核异常记录及后续同期价格、OI与成交量变化。\n风险：账户分布与OI不证明具体开平仓、资金流向或价格必然反转；顶部持仓份额不是全市场OI占比。\n顶部账户数据缺失，不能验证顶部与全市场背离。\n数据截止：10-10 21:00（北京）\nRunId：hourly_20261010_2100｜来源：Binance USDⓈ-M Futures"
+    },
+    {
+      "label": "Mock：有效 BULLISH",
+      "runId": "MOCK_VALID_DIRECTION",
+      "symbol": "TESTUSDT",
+      "oldBodyChars": 3703,
+      "newBodyChars": 656,
+      "oldParts": 4,
+      "newParts": 1,
+      "oldPayloadChars": 4039,
+      "newPayloadChars": 740,
+      "reductionPct": 82.28,
+      "p0Lost": false,
+      "checks": {
+        "symbol": true,
+        "storySemantics": true,
+        "cutoff": true,
+        "trace": true,
+        "directionState": true,
+        "horizon": true,
+        "invalidation": true,
+        "risk": true,
+        "triggerFacts": true,
+        "lossless": true
+      },
+      "text": "检测 · TESTUSDT｜滚动24h价格异动、1h价格异动、结算费率异常、成交量异常、结算费率翻转\n首次情报（NEW_STORY）：以下为本轮已核实的异常事实。\n价格（已收盘，截至10-10 12:00（北京））：1h +10.00%｜4h +10.00%｜24h +10.00%\nOI数量（采样10-10 12:00，北京）：1h +1.35%｜4h +5.63%｜24h +47.06%\n滚动24h价格（独立口径）： +10.00%\n1h成交量：前24根小时K线均值的 5.00倍\n已结算Funding：-0.2000%；10-10 10:30（北京）；空头支付多头。\n相邻实际结算：10-10 02:30 → 10-10 10:30（北京），变化 -0.3000个百分点。\n方向：偏多延续｜周期：4h｜强度：中等（定性，非胜率）\n短线偏多，作为后续可检验的研究假设。\n交易观察：等待确认\n失效/复核：后续新收盘滚动4h价格变化≤-5.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守；后续新采样精确4h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核\n替代情景：价格变化未能延续，进入相反方向或震荡。\n后续：复核后续完整价格与OI样本。\n风险：统计异动不证明确定性因果或资金流向，方向仅为条件性研究假设。\n数据截止：10-10 12:30（北京）\nRunId：MOCK_VALID_DIRECTION｜来源：Binance USDⓈ-M Futures"
+    },
+    {
+      "label": "Mock：MATERIAL_UPDATE，有效 BEARISH",
+      "runId": "MOCK_MATERIAL",
+      "symbol": "TESTUSDT",
+      "oldBodyChars": 3544,
+      "newBodyChars": 715,
+      "oldParts": 4,
+      "newParts": 1,
+      "oldPayloadChars": 3880,
+      "newPayloadChars": 799,
+      "reductionPct": 79.83,
+      "p0Lost": false,
+      "checks": {
+        "symbol": true,
+        "storySemantics": true,
+        "cutoff": true,
+        "trace": true,
+        "directionState": true,
+        "horizon": true,
+        "invalidation": true,
+        "risk": true,
+        "triggerFacts": true,
+        "lossless": true
+      },
+      "text": "检测 · TESTUSDT｜重要变化：滚动24h价格异动、1h价格异动、结算费率异常、成交量异常、结算费率翻转\n重要变化（MATERIAL_UPDATE）：本轮有实质新证据，见下列已验证数据。\n价格（已收盘，截至10-10 12:00（北京））：1h -10.00%｜4h -10.00%｜24h -10.00%\nOI数量（采样10-10 12:00，北京）：1h +1.35%｜4h +5.63%｜24h +47.06%\n滚动24h价格（独立口径）： -10.00%\n1h成交量：前24根小时K线均值的 5.00倍\n已结算Funding：-0.2000%；10-10 10:30（北京）；空头支付多头。\n相邻实际结算：10-10 02:30 → 10-10 10:30（北京），变化 -0.3000个百分点。\n相较上一轮滚动24h价格：+10.00% → -10.00%\n方向：偏空延续｜周期：4h｜强度：中等（定性，非胜率）\n方向更新：此前偏多延续 → 当前偏空延续\n短线偏空，作为后续可检验的研究假设。\n交易观察：等待确认\n失效/复核：后续新收盘滚动4h价格变化≥5.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守；后续新采样精确4h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核\n替代情景：价格变化未能延续，进入相反方向或震荡。\n后续：复核后续完整价格与OI样本。\n风险：统计异动不证明确定性因果或资金流向，方向仅为条件性研究假设。\n数据截止：10-10 12:30（北京）\nRunId：MOCK_MATERIAL｜来源：Binance USDⓈ-M Futures"
+    }
+  ]
+}

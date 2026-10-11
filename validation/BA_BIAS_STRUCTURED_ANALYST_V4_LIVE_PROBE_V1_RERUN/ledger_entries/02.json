@@ -1,0 +1,10 @@
+{
+  "sampleId": "s_hourly_20261010_1200_PIXELUSDT",
+  "attempt": 2,
+  "requestId": "a3cad1d7-f5c8-46c7-b7a2-8e79b035532f",
+  "intentId": "75d1721a-0a98-4e9d-a152-f7373c9c47a9",
+  "physicalRequests": 1,
+  "requestedAt": "2026-10-10T20:54:10.729Z",
+  "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+  "sourceType": "LIVE_MODEL_RESPONSE"
+}

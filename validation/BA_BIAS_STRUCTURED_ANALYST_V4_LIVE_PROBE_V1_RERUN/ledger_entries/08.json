@@ -1,0 +1,10 @@
+{
+  "sampleId": "s_hourly_20261010_1300_BRUSDT",
+  "attempt": 1,
+  "requestId": "8bd06ce4-6bd7-49ca-9989-c569d88518a3",
+  "intentId": "b53bffbc-b122-4ef5-b094-1006870c528c",
+  "physicalRequests": 1,
+  "requestedAt": "2026-10-10T20:54:26.930Z",
+  "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+  "sourceType": "LIVE_MODEL_RESPONSE"
+}

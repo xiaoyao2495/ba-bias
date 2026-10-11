@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-10T17:45:49.995Z",
+  "protectedFiles": 2277,
+  "productionDataFiles": 2103,
+  "changed": [
+    "src/analysis/directional-alignment-guard.js"
+  ],
+  "unexpected": [],
+  "newData": [],
+  "realApiCalls": 0,
+  "realDingTalkSends": 0,
+  "envChanged": false
+}

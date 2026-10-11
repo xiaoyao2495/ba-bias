@@ -1,0 +1,27 @@
+{
+  "protectedFiles": 2375,
+  "productionFiles": 2103,
+  "changed": [],
+  "newData": [],
+  "frozenContractUnchanged": true,
+  "sampleListUnchanged": true,
+  "allEvidenceTimeAndValueChecksPass": true,
+  "realDeepSeekRequests": 29,
+  "httpRetries": 0,
+  "otherExternalRequests": 0,
+  "productionDataChanged": false,
+  "historyOutboxEnvSentUnknownChanged": false,
+  "scannerStarted": false,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "causalBacktestEligible": false,
+  "reports": [
+    {
+      "file": "BA_BIAS_ANALYST_V3_LIVE_PROBE_V1_POST_COLLECTION.md",
+      "sha256": "f8b73749a917f3ef373803f1095a78f7be05271642eb41c611a8b20e5eb10b71"
+    },
+    {
+      "file": "BA_BIAS_ANALYST_V3_LIVE_PROBE_V1_RESULTS_POST_COLLECTION.md",
+      "sha256": "fd0c968fbb902dbc9c1b150d18fc05b5bd94f6d47dd205e6ed06a3f4b3a83dd6"
+    }
+  ]
+}

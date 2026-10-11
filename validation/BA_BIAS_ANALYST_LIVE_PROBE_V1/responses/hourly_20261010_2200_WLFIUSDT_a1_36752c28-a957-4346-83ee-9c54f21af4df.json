@@ -1,0 +1,49 @@
+{
+  "id": "hourly_20261010_2200_WLFIUSDT_a1_36752c28-a957-4346-83ee-9c54f21af4df",
+  "attempt": 1,
+  "requestTimestamp": "2026-10-10T17:03:48.735Z",
+  "responseTimestamp": "2026-10-10T17:03:53.046Z",
+  "latencyMs": 4311,
+  "model": "deepseek-flash",
+  "inputTokenUsage": 6535,
+  "outputTokenUsage": 890,
+  "usage": {
+    "prompt_tokens": 6535,
+    "completion_tokens": 890,
+    "total_tokens": 7425,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 5383
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"WLFIUSDT\",\"evaluationTime\":\"2026-10-10T14:00:12.629Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h窗口价格与OI同向扩张（价格+5.81%、OI+1.43%）但最近1h价格仅+0.02%、OI+0.00%，且1h/5m相对量0.84/0.58倍偏低，缺乏当前参与量确认；4h价格-0.26%与OI-0.08%同向收缩，短周期方向不明确，故以24h为评估horizon但方向倾向弱。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h已收盘价格+5.81%且OI数量+1.43%，价格与OI同向扩张，与新增敞口参与上行的可能性相容；但最近1h价格+0.02%、OI+0.00%停滞，1h相对量0.84倍、5m相对量0.58倍偏低，且价格自24h区间高点回撤-2.15%，上行缺乏当前参与量确认。全市场账户多空比51.54%/48.46%且24h多方占比+2.42个百分点、主导侧由SHORT转LONG，但账户比例不代表仓位或资金比例，不足以支撑方向。综合为NO_EDGE。\",\"marketMechanism\":\"24h价格上行5.81%同时OI数量增加1.43%，与部分新增敞口参与上行的可能性相容；最近1h价格与OI均近乎持平（+0.02%、+0.00%），与短线新增敞口停滞相容；4h价格-0.26%与OI-0.08%同向收缩，与部分敞口了结的可能性相容。以上均为条件性可能机制，不确认单侧开平仓、强平或资金流入。\",\"supportingEvidenceIds\":[\"WLFIUSDT:price.closed24h\",\"WLFIUSDT:oi.24h\",\"WLFIUSDT:price.rolling24h\",\"WLFIUSDT:volume.rolling24h\"],\"conflictingEvidenceIds\":[\"WLFIUSDT:price.closed1h\",\"WLFIUSDT:oi.1h\",\"WLFIUSDT:volume.relative1h\",\"WLFIUSDT:volume.relative5m\",\"WLFIUSDT:price.drawdown\",\"WLFIUSDT:price.closed4h\",\"WLFIUSDT:oi.4h\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"未来24h内价格在0.0570附近维持震荡整理，24h价格变化保持在-2.90%以上，OI数量变化不出现≤-5%的明显收缩；短线方向不明确，等待价格与OI同向扩张且相对量回升后再评估方向。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_24h\",\"OI_REVERSED_24h\"],\"description\":\"若后续新收盘滚动24h价格变化≤-2.9046%，或新采样精确24h OI数量变化≤-5.0000%，则当前弱倾向失效或需复核。\"},\"alternativeScenario\":\"若未来24h价格转为明显下行且OI数量同步收缩（24h价格变化≤-2.9046%或OI数量变化≤-5%），则当前价格与OI同向扩张的观察被否定，需转向偏空评估；若价格上行但OI数量明显收缩，则上行缺乏新增敞口参与，同样需重新评估。\",\"followUpChecks\":[\"跟踪后续新收盘1h价格变化与精确1h OI数量变化是否同向扩张，并观察1h相对量能否回升至1倍以上，以判断短线参与量是否恢复。\",\"跟踪后续新收盘24h价格变化是否接近-2.9046%阈值，以及24h OI数量变化是否接近-5%阈值，用于触发方向命题失效或复核。\"]}",
+  "raw": {
+    "id": "0756e0dc-cbb8-4b40-af20-7fff62e8481b",
+    "object": "chat.completion",
+    "created": 1791651828,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"WLFIUSDT\",\"evaluationTime\":\"2026-10-10T14:00:12.629Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h窗口价格与OI同向扩张（价格+5.81%、OI+1.43%）但最近1h价格仅+0.02%、OI+0.00%，且1h/5m相对量0.84/0.58倍偏低，缺乏当前参与量确认；4h价格-0.26%与OI-0.08%同向收缩，短周期方向不明确，故以24h为评估horizon但方向倾向弱。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h已收盘价格+5.81%且OI数量+1.43%，价格与OI同向扩张，与新增敞口参与上行的可能性相容；但最近1h价格+0.02%、OI+0.00%停滞，1h相对量0.84倍、5m相对量0.58倍偏低，且价格自24h区间高点回撤-2.15%，上行缺乏当前参与量确认。全市场账户多空比51.54%/48.46%且24h多方占比+2.42个百分点、主导侧由SHORT转LONG，但账户比例不代表仓位或资金比例，不足以支撑方向。综合为NO_EDGE。\",\"marketMechanism\":\"24h价格上行5.81%同时OI数量增加1.43%，与部分新增敞口参与上行的可能性相容；最近1h价格与OI均近乎持平（+0.02%、+0.00%），与短线新增敞口停滞相容；4h价格-0.26%与OI-0.08%同向收缩，与部分敞口了结的可能性相容。以上均为条件性可能机制，不确认单侧开平仓、强平或资金流入。\",\"supportingEvidenceIds\":[\"WLFIUSDT:price.closed24h\",\"WLFIUSDT:oi.24h\",\"WLFIUSDT:price.rolling24h\",\"WLFIUSDT:volume.rolling24h\"],\"conflictingEvidenceIds\":[\"WLFIUSDT:price.closed1h\",\"WLFIUSDT:oi.1h\",\"WLFIUSDT:volume.relative1h\",\"WLFIUSDT:volume.relative5m\",\"WLFIUSDT:price.drawdown\",\"WLFIUSDT:price.closed4h\",\"WLFIUSDT:oi.4h\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"未来24h内价格在0.0570附近维持震荡整理，24h价格变化保持在-2.90%以上，OI数量变化不出现≤-5%的明显收缩；短线方向不明确，等待价格与OI同向扩张且相对量回升后再评估方向。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_24h\",\"OI_REVERSED_24h\"],\"description\":\"若后续新收盘滚动24h价格变化≤-2.9046%，或新采样精确24h OI数量变化≤-5.0000%，则当前弱倾向失效或需复核。\"},\"alternativeScenario\":\"若未来24h价格转为明显下行且OI数量同步收缩（24h价格变化≤-2.9046%或OI数量变化≤-5%），则当前价格与OI同向扩张的观察被否定，需转向偏空评估；若价格上行但OI数量明显收缩，则上行缺乏新增敞口参与，同样需重新评估。\",\"followUpChecks\":[\"跟踪后续新收盘1h价格变化与精确1h OI数量变化是否同向扩张，并观察1h相对量能否回升至1倍以上，以判断短线参与量是否恢复。\",\"跟踪后续新收盘24h价格变化是否接近-2.9046%阈值，以及24h OI数量变化是否接近-5%阈值，用于触发方向命题失效或复核。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6535,
+      "completion_tokens": 890,
+      "total_tokens": 7425,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 5383
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "hourly_20261010_2100_MAGICUSDT_a1_85632b55-4052-4a2b-a3e6-5f8bc78b5970",
+  "attempt": 1,
+  "requestTimestamp": "2026-10-10T17:02:13.640Z",
+  "responseTimestamp": "2026-10-10T17:02:18.184Z",
+  "latencyMs": 4544,
+  "model": "deepseek-flash",
+  "inputTokenUsage": 6614,
+  "outputTokenUsage": 1003,
+  "usage": {
+    "prompt_tokens": 6614,
+    "completion_tokens": 1003,
+    "total_tokens": 7617,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 5462
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"MAGICUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h窗口价格与OI同向收缩：已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h），同期OI数量变化-0.97%（MAGICUSDT:oi.1h），且最近已收盘1h成交量为前24根均值的0.88倍（MAGICUSDT:volume.relative1h），短周期动能与参与量同步走弱，故以1h为评估窗口。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度仍为强势上涨（已收盘24h价格变化38.45%，MAGICUSDT:price.closed24h；24h OI数量变化69.02%，MAGICUSDT:oi.24h），但快照最新价较24h区间高点回落-34.53%（MAGICUSDT:price.drawdown），且最近已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h）伴随1h OI数量变化-0.97%（MAGICUSDT:oi.1h）与1h相对量0.88倍（MAGICUSDT:volume.relative1h），显示短周期上行动能减弱、参与量收缩，1h倾向偏空；因缺少对齐的强扩张OI与主动流数据，强度仅LOW。\",\"marketMechanism\":\"24h价格大幅上行且24h OI数量变化+69.02%（MAGICUSDT:oi.24h），与新增敞口参与上行的可能性相容；随后1h价格-5.49%（MAGICUSDT:price.closed1h）与1h OI数量变化-0.97%（MAGICUSDT:oi.1h）同向收缩，与部分多头减仓或敞口了结的可能性相容，但无法确认单侧开平仓、强平或资金流向。\",\"supportingEvidenceIds\":[\"MAGICUSDT:price.closed1h\",\"MAGICUSDT:oi.1h\",\"MAGICUSDT:volume.relative1h\",\"MAGICUSDT:price.drawdown\",\"MAGICUSDT:volume.relative5m\"],\"conflictingEvidenceIds\":[\"MAGICUSDT:price.closed24h\",\"MAGICUSDT:oi.24h\",\"MAGICUSDT:price.closed4h\",\"MAGICUSDT:funding.latest\",\"MAGICUSDT:global.flip\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"1h内价格在-5.49%回落（MAGICUSDT:price.closed1h）后延续偏弱整理，OI数量变化维持负向或低位（参考MAGICUSDT:oi.1h），相对量不放大（MAGICUSDT:volume.relative1h），不出现反向强扩张。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"若后续新收盘滚动1h价格变化≥2.7462%（PRICE_OPPOSITE_1h）则当前1h偏空命题失效；若后续新采样精确1h OI数量变化≥5.0000%（OI_REVERSED_1h）则触发复核，仅提示敞口条件逆转。\"},\"alternativeScenario\":\"若1h价格重新转正并伴随OI数量变化回升至正向扩张（对照MAGICUSDT:price.closed1h与MAGICUSDT:oi.1h），则短周期偏空判断被削弱，行情可能重回24h上行延续（MAGICUSDT:price.closed24h、MAGICUSDT:oi.24h）。\",\"followUpChecks\":[\"跟踪下一根已收盘1h价格变化与同期OI数量变化是否同向：若价格转正且OI回升，则1h偏空倾向减弱；若价格续跌且OI继续收缩，则维持偏弱判断。\",\"观察最近已收盘1h相对量能否回到1倍以上（对照MAGICUSDT:volume.relative1h），以及Funding结算是否延续负值（MAGICUSDT:funding.latest），用于判断参与量与持仓成本条件是否变化。\"]}",
+  "raw": {
+    "id": "b820f59e-9caf-41ac-af01-cfde9421872b",
+    "object": "chat.completion",
+    "created": 1791651733,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"MAGICUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"BEARISH\",\"horizon\":\"1h\",\"horizonReason\":\"1h窗口价格与OI同向收缩：已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h），同期OI数量变化-0.97%（MAGICUSDT:oi.1h），且最近已收盘1h成交量为前24根均值的0.88倍（MAGICUSDT:volume.relative1h），短周期动能与参与量同步走弱，故以1h为评估窗口。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度仍为强势上涨（已收盘24h价格变化38.45%，MAGICUSDT:price.closed24h；24h OI数量变化69.02%，MAGICUSDT:oi.24h），但快照最新价较24h区间高点回落-34.53%（MAGICUSDT:price.drawdown），且最近已收盘1h价格变化-5.49%（MAGICUSDT:price.closed1h）伴随1h OI数量变化-0.97%（MAGICUSDT:oi.1h）与1h相对量0.88倍（MAGICUSDT:volume.relative1h），显示短周期上行动能减弱、参与量收缩，1h倾向偏空；因缺少对齐的强扩张OI与主动流数据，强度仅LOW。\",\"marketMechanism\":\"24h价格大幅上行且24h OI数量变化+69.02%（MAGICUSDT:oi.24h），与新增敞口参与上行的可能性相容；随后1h价格-5.49%（MAGICUSDT:price.closed1h）与1h OI数量变化-0.97%（MAGICUSDT:oi.1h）同向收缩，与部分多头减仓或敞口了结的可能性相容，但无法确认单侧开平仓、强平或资金流向。\",\"supportingEvidenceIds\":[\"MAGICUSDT:price.closed1h\",\"MAGICUSDT:oi.1h\",\"MAGICUSDT:volume.relative1h\",\"MAGICUSDT:price.drawdown\",\"MAGICUSDT:volume.relative5m\"],\"conflictingEvidenceIds\":[\"MAGICUSDT:price.closed24h\",\"MAGICUSDT:oi.24h\",\"MAGICUSDT:price.closed4h\",\"MAGICUSDT:funding.latest\",\"MAGICUSDT:global.flip\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"1h内价格在-5.49%回落（MAGICUSDT:price.closed1h）后延续偏弱整理，OI数量变化维持负向或低位（参考MAGICUSDT:oi.1h），相对量不放大（MAGICUSDT:volume.relative1h），不出现反向强扩张。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_1h\",\"OI_REVERSED_1h\"],\"description\":\"若后续新收盘滚动1h价格变化≥2.7462%（PRICE_OPPOSITE_1h）则当前1h偏空命题失效；若后续新采样精确1h OI数量变化≥5.0000%（OI_REVERSED_1h）则触发复核，仅提示敞口条件逆转。\"},\"alternativeScenario\":\"若1h价格重新转正并伴随OI数量变化回升至正向扩张（对照MAGICUSDT:price.closed1h与MAGICUSDT:oi.1h），则短周期偏空判断被削弱，行情可能重回24h上行延续（MAGICUSDT:price.closed24h、MAGICUSDT:oi.24h）。\",\"followUpChecks\":[\"跟踪下一根已收盘1h价格变化与同期OI数量变化是否同向：若价格转正且OI回升，则1h偏空倾向减弱；若价格续跌且OI继续收缩，则维持偏弱判断。\",\"观察最近已收盘1h相对量能否回到1倍以上（对照MAGICUSDT:volume.relative1h），以及Funding结算是否延续负值（MAGICUSDT:funding.latest），用于判断参与量与持仓成本条件是否变化。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6614,
+      "completion_tokens": 1003,
+      "total_tokens": 7617,
+      "prompt_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "prompt_cache_hit_tokens": 1152,
+      "prompt_cache_miss_tokens": 5462
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  }
+}

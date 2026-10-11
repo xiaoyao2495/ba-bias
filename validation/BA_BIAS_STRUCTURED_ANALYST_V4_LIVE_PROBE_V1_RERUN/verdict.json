@@ -1,0 +1,10 @@
+{
+  "verdict": "V4_PROBE_PASSED",
+  "contractReliability": "PASS_THIS_PROBE",
+  "factualSafety": "PASS_OBSERVED",
+  "directionalUsefulness": "UNCERTAIN",
+  "productionIntegration": "NOT_TESTED",
+  "causalBacktestEligible": false,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "noFurtherRequests": true
+}

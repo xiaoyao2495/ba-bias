@@ -1,0 +1,622 @@
+{
+  "id": "hourly_20261010_2100_WIFUSDT_a2_cc42f6e3-5765-44a7-8650-ff3d0eafc4df",
+  "attempt": 2,
+  "requestTimestamp": "2026-10-10T17:03:03.807Z",
+  "responseTimestamp": "2026-10-10T17:03:08.245Z",
+  "latencyMs": 4438,
+  "model": "deepseek-flash",
+  "inputTokenUsage": 15296,
+  "outputTokenUsage": 1100,
+  "usage": {
+    "prompt_tokens": 15296,
+    "completion_tokens": 1100,
+    "total_tokens": 16396,
+    "prompt_tokens_details": {
+      "cached_tokens": 6528
+    },
+    "prompt_cache_hit_tokens": 6528,
+    "prompt_cache_miss_tokens": 8768
+  },
+  "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"WIFUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h窗口是唯一出现同长度真实转向的窗口：已收盘24h价格变化2.94%（WIFUSDT:price.closed24h）对比此前已收盘24h价格变化-4.66%（WIFUSDT:directional.price.previous24h），且24h OI数量变化-0.82%（WIFUSDT:oi.24h）与价格上行并存；但1h价格-0.18%（WIFUSDT:price.closed1h）、4h价格-0.64%（WIFUSDT:price.closed4h）仍为负，短周期未确认，故以24h为评估horizon。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h口径价格由前一同长度窗口的-4.66%（WIFUSDT:directional.price.previous24h）转为+2.94%（WIFUSDT:price.closed24h），同时24h OI数量变化-0.82%（WIFUSDT:oi.24h），价格上行与OI小幅收缩并存；但1h价格-0.18%（WIFUSDT:price.closed1h）、4h价格-0.64%（WIFUSDT:price.closed4h）仍为负，1h OI-0.08%（WIFUSDT:oi.1h）、4h OI-0.52%（WIFUSDT:oi.4h）同步收缩，最近已收盘1小时成交量仅为前24根均值的0.40倍（WIFUSDT:volume.relative1h），参与量不足，方向延续无法确认，故不给出方向性倾向。\",\"marketMechanism\":\"24h价格上行（+2.94%，WIFUSDT:price.closed24h）与24h OI数量收缩（-0.82%，WIFUSDT:oi.24h）同时出现，与部分空头回补推动价格、而非新增多头敞口扩张的可能性相容；1h与4h价格小幅下行且OI同步收缩，与短周期敞口继续减少相容。以上仅为条件性可能机制，不构成已确认的单侧开平仓、强平或资金流入结论。\",\"supportingEvidenceIds\":[\"WIFUSDT:price.closed24h\",\"WIFUSDT:directional.price.previous24h\",\"WIFUSDT:oi.24h\",\"WIFUSDT:global.flip\",\"WIFUSDT:global.long.change24h\",\"WIFUSDT:global.short.change24h\"],\"conflictingEvidenceIds\":[\"WIFUSDT:price.closed1h\",\"WIFUSDT:price.closed4h\",\"WIFUSDT:oi.1h\",\"WIFUSDT:oi.4h\",\"WIFUSDT:volume.relative1h\",\"WIFUSDT:volume.relative5m\",\"WIFUSDT:price.drawdown\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"24h内价格在0.2171000 USDT附近（WIFUSDT:price.last）维持震荡偏稳，24h口径价格变化保持正值，OI数量变化继续在零附近小幅波动，不出现1h与4h价格同步明显走弱；全市场账户多方占比维持略占优（当前多方52.08%，WIFUSDT:global.long.latest）。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_24h\"],\"description\":\"若后续新收盘滚动24h价格变化≤-1.4706%（PRICE_OPPOSITE_24h），则当前24h价格转正的方向命题失效；若后续新采样精确24h OI数量变化≥5.0000%（OI_REVERSED_24h），仅触发复核而非自动失效。\"},\"alternativeScenario\":\"若1h与4h价格由当前-0.18%（WIFUSDT:price.closed1h）、-0.64%（WIFUSDT:price.closed4h）进一步走弱并伴随OI数量继续收缩，则24h价格转正可能只是短窗口修复，价格重回下行；若24h OI数量变化转为明显扩张且价格同步上行，则需重新评估敞口扩张而非回补的解释。\",\"followUpChecks\":[\"观察后续新收盘1h与4h价格变化是否由负转正并与24h方向一致，同时核对对应1h/4h OI数量变化是否同步扩张，以判断24h价格转正能否延续。\",\"跟踪全市场多空账户占比是否维持多方略占优（当前多方52.08%，WIFUSDT:global.long.latest），以及24h OI数量变化是否接近零或转为扩张，用于区分回补与新增敞口两种解释。\"]}",
+  "raw": {
+    "id": "7f3d9a1c-fa79-4db0-a218-04ec079baffa",
+    "object": "chat.completion",
+    "created": 1791651784,
+    "model": "deepseek-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"WIFUSDT\",\"evaluationTime\":\"2026-10-10T13:00:15.062Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h窗口是唯一出现同长度真实转向的窗口：已收盘24h价格变化2.94%（WIFUSDT:price.closed24h）对比此前已收盘24h价格变化-4.66%（WIFUSDT:directional.price.previous24h），且24h OI数量变化-0.82%（WIFUSDT:oi.24h）与价格上行并存；但1h价格-0.18%（WIFUSDT:price.closed1h）、4h价格-0.64%（WIFUSDT:price.closed4h）仍为负，短周期未确认，故以24h为评估horizon。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h口径价格由前一同长度窗口的-4.66%（WIFUSDT:directional.price.previous24h）转为+2.94%（WIFUSDT:price.closed24h），同时24h OI数量变化-0.82%（WIFUSDT:oi.24h），价格上行与OI小幅收缩并存；但1h价格-0.18%（WIFUSDT:price.closed1h）、4h价格-0.64%（WIFUSDT:price.closed4h）仍为负，1h OI-0.08%（WIFUSDT:oi.1h）、4h OI-0.52%（WIFUSDT:oi.4h）同步收缩，最近已收盘1小时成交量仅为前24根均值的0.40倍（WIFUSDT:volume.relative1h），参与量不足，方向延续无法确认，故不给出方向性倾向。\",\"marketMechanism\":\"24h价格上行（+2.94%，WIFUSDT:price.closed24h）与24h OI数量收缩（-0.82%，WIFUSDT:oi.24h）同时出现，与部分空头回补推动价格、而非新增多头敞口扩张的可能性相容；1h与4h价格小幅下行且OI同步收缩，与短周期敞口继续减少相容。以上仅为条件性可能机制，不构成已确认的单侧开平仓、强平或资金流入结论。\",\"supportingEvidenceIds\":[\"WIFUSDT:price.closed24h\",\"WIFUSDT:directional.price.previous24h\",\"WIFUSDT:oi.24h\",\"WIFUSDT:global.flip\",\"WIFUSDT:global.long.change24h\",\"WIFUSDT:global.short.change24h\"],\"conflictingEvidenceIds\":[\"WIFUSDT:price.closed1h\",\"WIFUSDT:price.closed4h\",\"WIFUSDT:oi.1h\",\"WIFUSDT:oi.4h\",\"WIFUSDT:volume.relative1h\",\"WIFUSDT:volume.relative5m\",\"WIFUSDT:price.drawdown\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"24h内价格在0.2171000 USDT附近（WIFUSDT:price.last）维持震荡偏稳，24h口径价格变化保持正值，OI数量变化继续在零附近小幅波动，不出现1h与4h价格同步明显走弱；全市场账户多方占比维持略占优（当前多方52.08%，WIFUSDT:global.long.latest）。\",\"invalidation\":{\"type\":\"OBSERVABLE_CONDITION\",\"ruleIds\":[\"PRICE_OPPOSITE_24h\"],\"description\":\"若后续新收盘滚动24h价格变化≤-1.4706%（PRICE_OPPOSITE_24h），则当前24h价格转正的方向命题失效；若后续新采样精确24h OI数量变化≥5.0000%（OI_REVERSED_24h），仅触发复核而非自动失效。\"},\"alternativeScenario\":\"若1h与4h价格由当前-0.18%（WIFUSDT:price.closed1h）、-0.64%（WIFUSDT:price.closed4h）进一步走弱并伴随OI数量继续收缩，则24h价格转正可能只是短窗口修复，价格重回下行；若24h OI数量变化转为明显扩张且价格同步上行，则需重新评估敞口扩张而非回补的解释。\",\"followUpChecks\":[\"观察后续新收盘1h与4h价格变化是否由负转正并与24h方向一致，同时核对对应1h/4h OI数量变化是否同步扩张，以判断24h价格转正能否延续。\",\"跟踪全市场多空账户占比是否维持多方略占优（当前多方52.08%，WIFUSDT:global.long.latest），以及24h OI数量变化是否接近零或转为扩张，用于区分回补与新增敞口两种解释。\"]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 15296,
+      "completion_tokens": 1100,
+      "total_tokens": 16396,
+      "prompt_tokens_details": {
+        "cached_tokens": 6528
+      },
+      "prompt_cache_hit_tokens": 6528,
+      "prompt_cache_miss_tokens": 8768
+    },
+    "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+  },
+  "parsedResponse": {
+    "version": "DIRECTIONAL_ANALYST_V2",
+    "symbol": "WIFUSDT",
+    "evaluationTime": "2026-10-10T13:00:15.062Z",
+    "marketBias": "NO_EDGE",
+    "horizon": "24h",
+    "horizonReason": "24h窗口是唯一出现同长度真实转向的窗口：已收盘24h价格变化2.94%（WIFUSDT:price.closed24h）对比此前已收盘24h价格变化-4.66%（WIFUSDT:directional.price.previous24h），且24h OI数量变化-0.82%（WIFUSDT:oi.24h）与价格上行并存；但1h价格-0.18%（WIFUSDT:price.closed1h）、4h价格-0.64%（WIFUSDT:price.closed4h）仍为负，短周期未确认，故以24h为评估horizon。",
+    "conviction": "LOW",
+    "marketThesis": "24h口径价格由前一同长度窗口的-4.66%（WIFUSDT:directional.price.previous24h）转为+2.94%（WIFUSDT:price.closed24h），同时24h OI数量变化-0.82%（WIFUSDT:oi.24h），价格上行与OI小幅收缩并存；但1h价格-0.18%（WIFUSDT:price.closed1h）、4h价格-0.64%（WIFUSDT:price.closed4h）仍为负，1h OI-0.08%（WIFUSDT:oi.1h）、4h OI-0.52%（WIFUSDT:oi.4h）同步收缩，最近已收盘1小时成交量仅为前24根均值的0.40倍（WIFUSDT:volume.relative1h），参与量不足，方向延续无法确认，故不给出方向性倾向。",
+    "marketMechanism": "24h价格上行（+2.94%，WIFUSDT:price.closed24h）与24h OI数量收缩（-0.82%，WIFUSDT:oi.24h）同时出现，与部分空头回补推动价格、而非新增多头敞口扩张的可能性相容；1h与4h价格小幅下行且OI同步收缩，与短周期敞口继续减少相容。以上仅为条件性可能机制，不构成已确认的单侧开平仓、强平或资金流入结论。",
+    "supportingEvidenceIds": [
+      "WIFUSDT:price.closed24h",
+      "WIFUSDT:directional.price.previous24h",
+      "WIFUSDT:oi.24h",
+      "WIFUSDT:global.flip",
+      "WIFUSDT:global.long.change24h",
+      "WIFUSDT:global.short.change24h"
+    ],
+    "conflictingEvidenceIds": [
+      "WIFUSDT:price.closed1h",
+      "WIFUSDT:price.closed4h",
+      "WIFUSDT:oi.1h",
+      "WIFUSDT:oi.4h",
+      "WIFUSDT:volume.relative1h",
+      "WIFUSDT:volume.relative5m",
+      "WIFUSDT:price.drawdown"
+    ],
+    "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+    "preferredScenario": "24h内价格在0.2171000 USDT附近（WIFUSDT:price.last）维持震荡偏稳，24h口径价格变化保持正值，OI数量变化继续在零附近小幅波动，不出现1h与4h价格同步明显走弱；全市场账户多方占比维持略占优（当前多方52.08%，WIFUSDT:global.long.latest）。",
+    "invalidation": {
+      "type": "OBSERVABLE_CONDITION",
+      "ruleIds": [
+        "PRICE_OPPOSITE_24h"
+      ],
+      "description": "若后续新收盘滚动24h价格变化≤-1.4706%（PRICE_OPPOSITE_24h），则当前24h价格转正的方向命题失效；若后续新采样精确24h OI数量变化≥5.0000%（OI_REVERSED_24h），仅触发复核而非自动失效。"
+    },
+    "alternativeScenario": "若1h与4h价格由当前-0.18%（WIFUSDT:price.closed1h）、-0.64%（WIFUSDT:price.closed4h）进一步走弱并伴随OI数量继续收缩，则24h价格转正可能只是短窗口修复，价格重回下行；若24h OI数量变化转为明显扩张且价格同步上行，则需重新评估敞口扩张而非回补的解释。",
+    "followUpChecks": [
+      "观察后续新收盘1h与4h价格变化是否由负转正并与24h方向一致，同时核对对应1h/4h OI数量变化是否同步扩张，以判断24h价格转正能否延续。",
+      "跟踪全市场多空账户占比是否维持多方略占优（当前多方52.08%，WIFUSDT:global.long.latest），以及24h OI数量变化是否接近零或转为扩张，用于区分回补与新增敞口两种解释。"
+    ]
+  },
+  "schemaValid": true,
+  "validationResult": {
+    "ok": false,
+    "errors": [
+      "UNTRUSTED_SYMBOL_OR_METRIC",
+      "UNTRUSTED_NUMBER_OR_PROBABILITY",
+      "UNSUPPORTED_CAUSE_OR_ORDER"
+    ],
+    "diagnostics": [
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "2.94%",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "WIFUSDT:price.closed24h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-4.66%",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": true
+        },
+        "evidenceIds": [
+          "WIFUSDT:directional.price.previous24h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.82%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "WIFUSDT:oi.24h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.18%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "WIFUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.64%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "WIFUSDT:price.closed4h"
+        ],
+        "ruleId": null,
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "horizonReason",
+        "role": "OBSERVATION_AND_HORIZON",
+        "path": "/horizonReason"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "-4.66%",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+2.94%",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.82%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "WIFUSDT:oi.24h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.18%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "WIFUSDT:price.closed1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.64%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [
+          "WIFUSDT:price.closed4h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.08%",
+        "window": "1h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "WIFUSDT:oi.1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.52%",
+        "window": "4h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "WIFUSDT:oi.4h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "0.40倍",
+        "window": "1h",
+        "metric": {
+          "kind": "volume"
+        },
+        "evidenceIds": [
+          "WIFUSDT:volume.relative1h"
+        ],
+        "ruleId": null,
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketThesis",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/marketThesis"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "+2.94%",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "VERIFIED_NUMERIC_FACT",
+        "literal": "-0.82%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [
+          "WIFUSDT:oi.24h"
+        ],
+        "ruleId": null,
+        "field": "marketMechanism",
+        "role": "MECHANISM"
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "回补",
+        "span": "与部分空头回补推动价格、而非新增多头敞口扩张的可能性相容",
+        "denied": false,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "平仓",
+        "span": "不构成已确认的单侧开平仓、强平或资金流入结论",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "强平",
+        "span": "不构成已确认的单侧开平仓、强平或资金流入结论",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "资金流入",
+        "span": "不构成已确认的单侧开平仓、强平或资金流入结论",
+        "denied": true,
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "allowed": true
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "marketMechanism",
+        "role": "MECHANISM",
+        "path": "/marketMechanism"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "0.2171000 USDT",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "52.08%",
+        "window": "24h",
+        "metric": {
+          "kind": "ratio",
+          "side": "long",
+          "scope": "global"
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/preferredScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/preferredScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "preferredScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/preferredScenario"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "-0.18%",
+        "window": "4h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "-0.64%",
+        "window": "1h",
+        "metric": {
+          "kind": "price",
+          "rolling": false,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "PERMITTED_UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "回补",
+        "span": "则需重新评估敞口扩张而非回补的解释",
+        "denied": true,
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "allowed": true
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/alternativeScenario"
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "alternativeScenario",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/alternativeScenario"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "-1.4706%",
+        "window": "24h",
+        "metric": {
+          "kind": "price",
+          "rolling": true,
+          "previous": false
+        },
+        "evidenceIds": [],
+        "ruleId": "PRICE_OPPOSITE_24h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "VERIFIED_RULE_LITERAL",
+        "literal": "5.0000%",
+        "window": "24h",
+        "metric": {
+          "kind": "oi"
+        },
+        "evidenceIds": [],
+        "ruleId": "OI_REVERSED_24h",
+        "field": "invalidation",
+        "role": "REASSESSMENT"
+      },
+      {
+        "code": "UNVERIFIED_NUMERIC_FACT",
+        "literal": "52.08%",
+        "window": "24h",
+        "metric": null,
+        "evidenceIds": [],
+        "ruleId": null,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS"
+      },
+      {
+        "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+        "match": "回补",
+        "span": "用于区分回补与新增敞口两种解释",
+        "denied": false,
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS",
+        "allowed": false
+      },
+      {
+        "code": "UNTRUSTED_SYMBOL_OR_METRIC",
+        "field": "followUp1",
+        "role": "FORECAST_HYPOTHESIS",
+        "path": "/followUpChecks/1"
+      },
+      {
+        "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+        "path": "/"
+      }
+    ],
+    "contractVersion": "DIRECTIONAL_ANALYST_V2"
+  },
+  "failureCodes": [
+    "UNTRUSTED_SYMBOL_OR_METRIC",
+    "UNTRUSTED_NUMBER_OR_PROBABILITY",
+    "UNSUPPORTED_CAUSE_OR_ORDER"
+  ],
+  "evidenceIdsUsed": [
+    "WIFUSDT:price.closed24h",
+    "WIFUSDT:directional.price.previous24h",
+    "WIFUSDT:oi.24h",
+    "WIFUSDT:global.flip",
+    "WIFUSDT:global.long.change24h",
+    "WIFUSDT:global.short.change24h",
+    "WIFUSDT:price.closed1h",
+    "WIFUSDT:price.closed4h",
+    "WIFUSDT:oi.1h",
+    "WIFUSDT:oi.4h",
+    "WIFUSDT:volume.relative1h",
+    "WIFUSDT:volume.relative5m",
+    "WIFUSDT:price.drawdown"
+  ],
+  "status": "INVALID"
+}

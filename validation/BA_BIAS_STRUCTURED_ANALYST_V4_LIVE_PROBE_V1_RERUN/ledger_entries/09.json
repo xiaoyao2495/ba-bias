@@ -1,0 +1,10 @@
+{
+  "sampleId": "s_hourly_20261010_1200_ZKUSDT",
+  "attempt": 1,
+  "requestId": "f1061d96-57e9-4401-86ad-e30b124eec2e",
+  "intentId": "579e8060-c40e-4880-8be8-33ee98828acf",
+  "physicalRequests": 1,
+  "requestedAt": "2026-10-10T20:54:29.390Z",
+  "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+  "sourceType": "LIVE_MODEL_RESPONSE"
+}

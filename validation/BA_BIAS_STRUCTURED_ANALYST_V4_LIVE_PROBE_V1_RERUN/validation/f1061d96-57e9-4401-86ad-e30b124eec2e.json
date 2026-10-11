@@ -1,0 +1,452 @@
+{
+  "intentId": "579e8060-c40e-4880-8be8-33ee98828acf",
+  "requestId": "f1061d96-57e9-4401-86ad-e30b124eec2e",
+  "requestIdKind": "LOCAL_TRACKING_ID",
+  "sampleId": "s_hourly_20261010_1200_ZKUSDT",
+  "attempt": 1,
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "2026-10-10T04:00:27.099Z",
+  "availability": "UNKNOWN",
+  "causalBacktestEligible": false,
+  "isolatedFutureRows": [
+    {
+      "source": "hour",
+      "rows": 1,
+      "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+    },
+    {
+      "source": "five",
+      "rows": 1,
+      "policy": "Existing canonical engine excludes post-cutoff observations/unfinished bars; no retained input evidence exceeds cutoff"
+    }
+  ],
+  "retainedFutureEvidence": 0,
+  "meaning": "Acquisition availability is unproven; later market observations are not part of retained evidence.",
+  "researchExecutedAt": "2026-10-10T20:54:29.390Z",
+  "receivedAt": "2026-10-10T20:54:31.438Z",
+  "actualModel": "deepseek-flash",
+  "physicalRequests": 1,
+  "apiResponseStatus": "SUCCESS_RESPONSE_RETURNED",
+  "httpStatus": "UNKNOWN_CLIENT_DOES_NOT_EXPOSE_STATUS",
+  "serverResponseId": "98c1693a-7de6-4e68-8d59-a70027e146d8",
+  "serverRequestId": null,
+  "rawText": "{\n  \"version\": \"STRUCTURED_ANALYST_V4_EXPERIMENT\",\n  \"status\": \"NOT_PRODUCTION\",\n  \"causalBacktestEligible\": false,\n  \"symbol\": \"ZKUSDT\",\n  \"evaluationTime\": \"2026-10-10T04:00:15.949Z\",\n  \"direction\": \"BEARISH\",\n  \"horizon\": \"1h\",\n  \"conviction\": \"LOW\",\n  \"supportingEvidenceIds\": [\n    \"ZKUSDT:price.closed1h\",\n    \"ZKUSDT:oi.1h\",\n    \"ZKUSDT:volume.relative1h\",\n    \"ZKUSDT:price.drawdown\"\n  ],\n  \"conflictingEvidenceIds\": [\n    \"ZKUSDT:price.closed24h\",\n    \"ZKUSDT:oi.24h\",\n    \"ZKUSDT:global.long.latest\"\n  ],\n  \"structureEvidenceIds\": [],\n  \"mechanismHypothesis\": {\n    \"type\": \"CONTRACT_CONTRACTION_COMPATIBLE\",\n    \"evidenceIds\": [\n      \"ZKUSDT:price.closed1h\",\n      \"ZKUSDT:oi.1h\"\n    ],\n    \"limitation\": \"PARTICIPANT_BEHAVIOR_UNCONFIRMED\"\n  },\n  \"directionalRationale\": {\n    \"hypothesis\": \"CONTINUATION\",\n    \"evidenceIds\": [\n      \"ZKUSDT:price.closed1h\",\n      \"ZKUSDT:oi.1h\",\n      \"ZKUSDT:volume.relative1h\",\n      \"ZKUSDT:price.drawdown\"\n    ],\n    \"alternative\": \"OPPOSITE_MOVE\",\n    \"certainty\": \"CONDITIONAL_NOT_CONFIRMED\"\n  },\n  \"tradeOpportunity\": \"WAIT_FOR_CONFIRMATION\",\n  \"reassessmentConditions\": [\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"PRICE_OPPOSITE_1h\"\n    },\n    {\n      \"conditionType\": \"PROGRAM_RULE\",\n      \"ruleId\": \"OI_REVERSED_1h\"\n    }\n  ]\n}",
+  "jsonParseable": true,
+  "schemaValid": true,
+  "validation": {
+    "ok": true,
+    "status": "EXPERIMENT_VALIDATED",
+    "errors": [],
+    "analysis": {
+      "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+      "status": "NOT_PRODUCTION",
+      "causalBacktestEligible": false,
+      "symbol": "ZKUSDT",
+      "evaluationTime": "2026-10-10T04:00:15.949Z",
+      "direction": "BEARISH",
+      "horizon": "1h",
+      "conviction": "LOW",
+      "supportingEvidenceIds": [
+        "ZKUSDT:price.closed1h",
+        "ZKUSDT:oi.1h",
+        "ZKUSDT:volume.relative1h",
+        "ZKUSDT:price.drawdown"
+      ],
+      "conflictingEvidenceIds": [
+        "ZKUSDT:price.closed24h",
+        "ZKUSDT:oi.24h",
+        "ZKUSDT:global.long.latest"
+      ],
+      "structureEvidenceIds": [],
+      "mechanismHypothesis": {
+        "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+        "evidenceIds": [
+          "ZKUSDT:price.closed1h",
+          "ZKUSDT:oi.1h"
+        ],
+        "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+      },
+      "directionalRationale": {
+        "hypothesis": "CONTINUATION",
+        "evidenceIds": [
+          "ZKUSDT:price.closed1h",
+          "ZKUSDT:oi.1h",
+          "ZKUSDT:volume.relative1h",
+          "ZKUSDT:price.drawdown"
+        ],
+        "alternative": "OPPOSITE_MOVE",
+        "certainty": "CONDITIONAL_NOT_CONFIRMED"
+      },
+      "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+      "reassessmentConditions": [
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "PRICE_OPPOSITE_1h"
+        },
+        {
+          "conditionType": "PROGRAM_RULE",
+          "ruleId": "OI_REVERSED_1h"
+        }
+      ]
+    },
+    "provenanceValid": true,
+    "analysisValid": true,
+    "provenance": {
+      "sourceType": "LIVE_MODEL_RESPONSE",
+      "executionKind": "LIVE_API",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "requestedModel": "deepseek-flash",
+      "requestId": "f1061d96-57e9-4401-86ad-e30b124eec2e",
+      "requestIdKind": "LOCAL_TRACKING_ID",
+      "serverResponseId": "98c1693a-7de6-4e68-8d59-a70027e146d8",
+      "requestedAt": "2026-10-10T20:54:29.390Z",
+      "receivedAt": "2026-10-10T20:54:31.438Z",
+      "requestHash": "f778252f37cd9756ca2dee759f9c2932f1da3b04b4b8009d07e07d9087bc694a",
+      "responseHash": "5c199847470394909093c11ca87455be675f89254d172c759a5e7ac9d0f208a1",
+      "inputHash": "2a13cc78b225a8e6bb075cddb9d2762d21012e48331dd4a19b722bbbec4621e6"
+    }
+  },
+  "trustedProvenance": {
+    "sourceType": "LIVE_MODEL_RESPONSE",
+    "executionKind": "LIVE_API",
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "requestedModel": "deepseek-flash",
+    "requestId": "f1061d96-57e9-4401-86ad-e30b124eec2e",
+    "requestIdKind": "LOCAL_TRACKING_ID",
+    "serverResponseId": "98c1693a-7de6-4e68-8d59-a70027e146d8",
+    "requestedAt": "2026-10-10T20:54:29.390Z",
+    "receivedAt": "2026-10-10T20:54:31.438Z",
+    "requestHash": "f778252f37cd9756ca2dee759f9c2932f1da3b04b4b8009d07e07d9087bc694a",
+    "responseHash": "5c199847470394909093c11ca87455be675f89254d172c759a5e7ac9d0f208a1",
+    "inputHash": "2a13cc78b225a8e6bb075cddb9d2762d21012e48331dd4a19b722bbbec4621e6"
+  },
+  "analysis": {
+    "version": "STRUCTURED_ANALYST_V4_EXPERIMENT",
+    "status": "NOT_PRODUCTION",
+    "causalBacktestEligible": false,
+    "symbol": "ZKUSDT",
+    "evaluationTime": "2026-10-10T04:00:15.949Z",
+    "direction": "BEARISH",
+    "horizon": "1h",
+    "conviction": "LOW",
+    "supportingEvidenceIds": [
+      "ZKUSDT:price.closed1h",
+      "ZKUSDT:oi.1h",
+      "ZKUSDT:volume.relative1h",
+      "ZKUSDT:price.drawdown"
+    ],
+    "conflictingEvidenceIds": [
+      "ZKUSDT:price.closed24h",
+      "ZKUSDT:oi.24h",
+      "ZKUSDT:global.long.latest"
+    ],
+    "structureEvidenceIds": [],
+    "mechanismHypothesis": {
+      "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+      "evidenceIds": [
+        "ZKUSDT:price.closed1h",
+        "ZKUSDT:oi.1h"
+      ],
+      "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+    },
+    "directionalRationale": {
+      "hypothesis": "CONTINUATION",
+      "evidenceIds": [
+        "ZKUSDT:price.closed1h",
+        "ZKUSDT:oi.1h",
+        "ZKUSDT:volume.relative1h",
+        "ZKUSDT:price.drawdown"
+      ],
+      "alternative": "OPPOSITE_MOVE",
+      "certainty": "CONDITIONAL_NOT_CONFIRMED"
+    },
+    "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+    "reassessmentConditions": [
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "PRICE_OPPOSITE_1h"
+      },
+      {
+        "conditionType": "PROGRAM_RULE",
+        "ruleId": "OI_REVERSED_1h"
+      }
+    ]
+  },
+  "rendererAudit": {
+    "ok": true,
+    "status": "PASS",
+    "errors": [],
+    "claims": [
+      {
+        "renderedClaim": "支持: ZKUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -1.73068805 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 -1.73%",
+        "evidenceId": "ZKUSDT:price.closed1h",
+        "factsFields": [
+          "evidence[3].result",
+          "evidence[3].phrase",
+          "evidence[3].dataTimes",
+          "evidence[3].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-1.73068805",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "ZKUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: ZKUSDT:oi.1h | OI_QUANTITY_CHANGE | -1.14448740 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 -1.14%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "ZKUSDT:oi.1h",
+        "factsFields": [
+          "evidence[11].result",
+          "evidence[11].phrase",
+          "evidence[11].dataTimes",
+          "evidence[11].formula",
+          "sources.oi.raw"
+        ],
+        "value": "-1.14448740",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791601200000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "ZKUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: ZKUSDT:volume.relative1h | RELATIVE_VOLUME | 0.66356946 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 0.66 倍",
+        "evidenceId": "ZKUSDT:volume.relative1h",
+        "factsFields": [
+          "evidence[8].result",
+          "evidence[8].phrase",
+          "evidence[8].dataTimes",
+          "evidence[8].formula",
+          "sources.hour.raw"
+        ],
+        "value": "0.66356946",
+        "unit": "multiple",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791514800000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "ZKUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: ZKUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -4.26173347 % | window=24h | observedAt=2026-10-10T04:00:10.028Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -4.26%",
+        "evidenceId": "ZKUSDT:price.drawdown",
+        "factsFields": [
+          "evidence[7].result",
+          "evidence[7].phrase",
+          "evidence[7].dataTimes",
+          "evidence[7].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-4.26173347",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791604799999,
+          1791604810028
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "ZKUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(lastPrice/high-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: ZKUSDT:price.closed24h | PRICE_CLOSED_CHANGE | 19.13006397 % | window=24h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘24小时价格变化 19.13%",
+        "evidenceId": "ZKUSDT:price.closed24h",
+        "factsFields": [
+          "evidence[5].result",
+          "evidence[5].phrase",
+          "evidence[5].dataTimes",
+          "evidence[5].formula",
+          "sources.hour.raw"
+        ],
+        "value": "19.13006397",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791518400000,
+          1791604799999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "ZKUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791604815949
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: ZKUSDT:oi.24h | OI_QUANTITY_CHANGE | 37.10210887 % | window=24h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 24小时OI数量变化 37.10%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "ZKUSDT:oi.24h",
+        "factsFields": [
+          "evidence[13].result",
+          "evidence[13].phrase",
+          "evidence[13].dataTimes",
+          "evidence[13].formula",
+          "sources.oi.raw"
+        ],
+        "value": "37.10210887",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791518400000,
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "ZKUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791604815949
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: ZKUSDT:global.long.latest | GLOBAL_ACCOUNT_SHARE | 65.08000000 % | window=UNDECLARED | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户：多 65.08%、空 34.92%（账户比例不代表仓位或资金比例）",
+        "evidenceId": "ZKUSDT:global.long.latest",
+        "factsFields": [
+          "sources.accounts.raw (canonical deterministic formula: longAccount * 100; exact retained dataTimes: 1791604800000)"
+        ],
+        "value": "65.08000000",
+        "unit": "%",
+        "window": null,
+        "scope": "GLOBAL_ACCOUNTS",
+        "dataTimes": [
+          1791604800000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "ZKUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791604815949
+          },
+          "formula": "longAccount * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      }
+    ],
+    "programRules": [
+      {
+        "renderedRule": {
+          "id": "PRICE_OPPOSITE_1h",
+          "horizon": "1h",
+          "metric": "PRICE_CLOSED_CHANGE",
+          "operator": "GTE",
+          "threshold": 1,
+          "outcome": "INVALIDATED",
+          "description": "后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+          "baselineEvidenceId": "ZKUSDT:price.closed1h"
+        },
+        "baselineFactsEvidenceId": "ZKUSDT:price.closed1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(1, abs(current price change)/2)"
+      },
+      {
+        "renderedRule": {
+          "id": "OI_REVERSED_1h",
+          "horizon": "1h",
+          "metric": "OI_QUANTITY_CHANGE",
+          "operator": "GTE",
+          "threshold": 5,
+          "outcome": "THESIS_WARNING",
+          "description": "后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+          "baselineEvidenceId": "ZKUSDT:oi.1h"
+        },
+        "baselineFactsEvidenceId": "ZKUSDT:oi.1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+      }
+    ],
+    "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+  },
+  "renderedText": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nZKUSDT BEARISH / 1h / LOW\noriginalEvaluationTime=2026-10-10T04:00:15.949Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: ZKUSDT:price.closed1h | PRICE_CLOSED_CHANGE | -1.73068805 % | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘1小时价格变化 -1.73%\n支持: ZKUSDT:oi.1h | OI_QUANTITY_CHANGE | -1.14448740 % | window=1h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 -1.14%（不代表资金净流入或多空加仓方向）\n支持: ZKUSDT:volume.relative1h | RELATIVE_VOLUME | 0.66356946 multiple | window=1h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 0.66 倍\n支持: ZKUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -4.26173347 % | window=24h | observedAt=2026-10-10T04:00:10.028Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -4.26%\n冲突: ZKUSDT:price.closed24h | PRICE_CLOSED_CHANGE | 19.13006397 % | window=24h | observedAt=2026-10-10T03:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间12:00，已收盘24小时价格变化 19.13%\n冲突: ZKUSDT:oi.24h | OI_QUANTITY_CHANGE | 37.10210887 % | window=24h | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 24小时OI数量变化 37.10%（不代表资金净流入或多空加仓方向）\n冲突: ZKUSDT:global.long.latest | GLOBAL_ACCOUNT_SHARE | 65.08000000 % | window=UNDECLARED | observedAt=2026-10-10T04:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户：多 65.08%、空 34.92%（账户比例不代表仓位或资金比例）\n机制假设: 与合约规模收缩相容，不确认具体开平仓行为。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=OPPOSITE_MOVE，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE GTE 1% => INVALIDATED; 后续新收盘滚动1h价格变化≥1.0000%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE GTE 5% => THESIS_WARNING; 后续新采样精确1h OI数量变化≥5.0000%，原敞口变化条件明显逆转，只触发复核",
+  "qualityReview": {
+    "status": "UNCERTAIN",
+    "directionalInclination": "PASS",
+    "futureHorizon": "PASS",
+    "supportEvidence": "PASS",
+    "majorConflictConsideration": "PASS",
+    "unaddressedOpposingPriceIds": [],
+    "unsupportedCausality": "PASS",
+    "beyondPastFactRecap": "UNCERTAIN",
+    "conditionalHypothesis": "PASS",
+    "observableReassessment": "PASS",
+    "concreteTradeOpportunity": "NOT_APPLICABLE",
+    "directionSeparatedFromTrade": "PASS",
+    "noEdgeReason": "NOT_APPLICABLE",
+    "limitation": "Finite hypothesis/evidence enums cannot expose detailed reasoning or prove predictive edge. Correct IDs do not establish interpretive relevance; no outcome-based assessment performed."
+  },
+  "tokenUsage": {
+    "prompt_tokens": 6102,
+    "completion_tokens": 469,
+    "total_tokens": 6571,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 4822
+  },
+  "rawResponsePath": "validation/BA_BIAS_STRUCTURED_ANALYST_V4_LIVE_PROBE_V1_RERUN/raw_responses/f1061d96-57e9-4401-86ad-e30b124eec2e.json",
+  "error": null
+}

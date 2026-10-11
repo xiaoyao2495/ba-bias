@@ -1,0 +1,240 @@
+{
+  "sampleId": "s_hourly_20261010_1400_JCTUSDT",
+  "text": "STRUCTURED_ANALYST_V4_EXPERIMENT\nNOT_PRODUCTION | LIVE_MODEL_RESPONSE | causalBacktestEligible=false\nJCTUSDT BULLISH / 1h / LOW\noriginalEvaluationTime=2026-10-10T06:00:13.760Z; POST_COLLECTION_HISTORICAL_RESEARCH\n支持: JCTUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 12.39892183 % | window=1h | observedAt=2026-10-10T05:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间14:00，已收盘1小时价格变化 12.40%\n支持: JCTUSDT:oi.1h | OI_QUANTITY_CHANGE | 1.41920547 % | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 1.42%（不代表资金净流入或多空加仓方向）\n支持: JCTUSDT:price.last | PRICE_SNAPSHOT | 0.0029130 USDT | window=UNDECLARED | observedAt=2026-10-10T06:00:08.601Z | availableAt=UNKNOWN | /fapi/v1/ticker/24hr | 快照最新价格 0.0029130 USDT\n支持: JCTUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -0.78337875 % | window=24h | observedAt=2026-10-10T06:00:08.601Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -0.78%\n冲突: JCTUSDT:volume.relative1h | RELATIVE_VOLUME | 0.44381487 multiple | window=1h | observedAt=2026-10-10T05:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 0.44 倍\n冲突: JCTUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | -1.79000000 pp | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 46.18% 到 47.97%，变化 1.79 个百分点；多方变化 -1.79 个百分点\n冲突: JCTUSDT:global.short.change1h | GLOBAL_ACCOUNT_SHARE | 1.79000000 pp | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 46.18% 到 47.97%，变化 1.79 个百分点；多方变化 -1.79 个百分点\n机制假设: 与合约规模扩张相容，不确认单侧新增仓位。不能凭这些统计确认具体参与者开仓、平仓、强平或资金流向。\n未来研究: 条件性延续假设；竞争情景=CONSOLIDATION，并非已证实事实。\n交易机会: WAIT_FOR_CONFIRMATION\nPRICE_OPPOSITE_1h: PRICE_CLOSED_CHANGE LTE -6.199460915% => INVALIDATED; 后续新收盘滚动1h价格变化≤-6.1995%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守\nOI_REVERSED_1h: OI_QUANTITY_CHANGE LTE -5% => THESIS_WARNING; 后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核\nJCTUSDT:volume.relative1h: 观察变化，仅复核，不自动失效",
+  "audit": {
+    "ok": true,
+    "status": "PASS",
+    "errors": [],
+    "claims": [
+      {
+        "renderedClaim": "支持: JCTUSDT:price.closed1h | PRICE_CLOSED_CHANGE | 12.39892183 % | window=1h | observedAt=2026-10-10T05:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 截至北京时间14:00，已收盘1小时价格变化 12.40%",
+        "evidenceId": "JCTUSDT:price.closed1h",
+        "factsFields": [
+          "evidence[3].result",
+          "evidence[3].phrase",
+          "evidence[3].dataTimes",
+          "evidence[3].formula",
+          "sources.hour.raw"
+        ],
+        "value": "12.39892183",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791608400000,
+          1791611999999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "JCTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791612013760
+          },
+          "formula": "(close_end/open_start-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: JCTUSDT:oi.1h | OI_QUANTITY_CHANGE | 1.41920547 % | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/openInterestHist | 1小时OI数量变化 1.42%（不代表资金净流入或多空加仓方向）",
+        "evidenceId": "JCTUSDT:oi.1h",
+        "factsFields": [
+          "evidence[11].result",
+          "evidence[11].phrase",
+          "evidence[11].dataTimes",
+          "evidence[11].formula",
+          "sources.oi.raw"
+        ],
+        "value": "1.41920547",
+        "unit": "%",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791608400000,
+          1791612000000
+        ],
+        "source": {
+          "endpoint": "/futures/data/openInterestHist",
+          "params": {
+            "symbol": "JCTUSDT",
+            "period": "1h",
+            "limit": 30,
+            "endTime": 1791612013760
+          },
+          "formula": "(sumOpenInterest_end / sumOpenInterest_start - 1) * 100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: JCTUSDT:price.last | PRICE_SNAPSHOT | 0.0029130 USDT | window=UNDECLARED | observedAt=2026-10-10T06:00:08.601Z | availableAt=UNKNOWN | /fapi/v1/ticker/24hr | 快照最新价格 0.0029130 USDT",
+        "evidenceId": "JCTUSDT:price.last",
+        "factsFields": [
+          "evidence[1].result",
+          "evidence[1].phrase",
+          "evidence[1].dataTimes",
+          "evidence[1].formula",
+          "sources.ticker.raw"
+        ],
+        "value": "0.0029130",
+        "unit": "USDT",
+        "window": null,
+        "scope": null,
+        "dataTimes": [
+          1791612008601
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/ticker/24hr",
+          "params": {},
+          "formula": "lastPrice"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "支持: JCTUSDT:price.drawdown | SNAPSHOT_DRAWDOWN | -0.78337875 % | window=24h | observedAt=2026-10-10T06:00:08.601Z | availableAt=UNKNOWN | /fapi/v1/klines | 已收盘24小时区间高点至快照最新价变化 -0.78%",
+        "evidenceId": "JCTUSDT:price.drawdown",
+        "factsFields": [
+          "evidence[7].result",
+          "evidence[7].phrase",
+          "evidence[7].dataTimes",
+          "evidence[7].formula",
+          "sources.hour.raw"
+        ],
+        "value": "-0.78337875",
+        "unit": "%",
+        "window": "24h",
+        "scope": null,
+        "dataTimes": [
+          1791611999999,
+          1791612008601
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "JCTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791612013760
+          },
+          "formula": "(lastPrice/high-1)*100"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: JCTUSDT:volume.relative1h | RELATIVE_VOLUME | 0.44381487 multiple | window=1h | observedAt=2026-10-10T05:59:59.999Z | availableAt=UNKNOWN | /fapi/v1/klines | 最近已收盘1小时成交量为前24根均值的 0.44 倍",
+        "evidenceId": "JCTUSDT:volume.relative1h",
+        "factsFields": [
+          "evidence[8].result",
+          "evidence[8].phrase",
+          "evidence[8].dataTimes",
+          "evidence[8].formula",
+          "sources.hour.raw"
+        ],
+        "value": "0.44381487",
+        "unit": "multiple",
+        "window": "1h",
+        "scope": null,
+        "dataTimes": [
+          1791522000000,
+          1791611999999
+        ],
+        "source": {
+          "endpoint": "/fapi/v1/klines",
+          "params": {
+            "symbol": "JCTUSDT",
+            "interval": "1h",
+            "limit": 80,
+            "endTime": 1791612013760
+          },
+          "formula": "last closed base volume / preceding 24 closed bars mean"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: JCTUSDT:global.long.change1h | GLOBAL_ACCOUNT_SHARE | -1.79000000 pp | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 46.18% 到 47.97%，变化 1.79 个百分点；多方变化 -1.79 个百分点",
+        "evidenceId": "JCTUSDT:global.long.change1h",
+        "factsFields": [
+          "sources.accounts.raw (canonical deterministic formula: (longAccount_end - longAccount_start) * 100; percentage points; exact retained dataTimes: 1791608400000,1791612000000)"
+        ],
+        "value": "-1.79000000",
+        "unit": "pp",
+        "window": "1h",
+        "scope": "GLOBAL_ACCOUNTS",
+        "dataTimes": [
+          1791608400000,
+          1791612000000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "JCTUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791612013760
+          },
+          "formula": "(longAccount_end - longAccount_start) * 100; percentage points"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      },
+      {
+        "renderedClaim": "冲突: JCTUSDT:global.short.change1h | GLOBAL_ACCOUNT_SHARE | 1.79000000 pp | window=1h | observedAt=2026-10-10T06:00:00.000Z | availableAt=UNKNOWN | /futures/data/globalLongShortAccountRatio | 全市场净多/净空头账户空方占比1小时从 46.18% 到 47.97%，变化 1.79 个百分点；多方变化 -1.79 个百分点",
+        "evidenceId": "JCTUSDT:global.short.change1h",
+        "factsFields": [
+          "sources.accounts.raw (canonical deterministic formula: (shortAccount_end - shortAccount_start) * 100; percentage points; exact retained dataTimes: 1791608400000,1791612000000)"
+        ],
+        "value": "1.79000000",
+        "unit": "pp",
+        "window": "1h",
+        "scope": "GLOBAL_ACCOUNTS",
+        "dataTimes": [
+          1791608400000,
+          1791612000000
+        ],
+        "source": {
+          "endpoint": "/futures/data/globalLongShortAccountRatio",
+          "params": {
+            "symbol": "JCTUSDT",
+            "period": "1h",
+            "limit": 3,
+            "endTime": 1791612013760
+          },
+          "formula": "(shortAccount_end - shortAccount_start) * 100; percentage points"
+        },
+        "additionalPhraseNumbers": "All inherited phrase numerals checked byte-for-byte against revalidated original Facts phrase; not model prose."
+      }
+    ],
+    "programRules": [
+      {
+        "renderedRule": {
+          "id": "PRICE_OPPOSITE_1h",
+          "horizon": "1h",
+          "metric": "PRICE_CLOSED_CHANGE",
+          "operator": "LTE",
+          "threshold": -6.199460915,
+          "outcome": "INVALIDATED",
+          "description": "后续新收盘滚动1h价格变化≤-6.1995%，与当前价格方向明显相反；这是预先定义的方向命题失效，不是结构支撑失守",
+          "baselineEvidenceId": "JCTUSDT:price.closed1h"
+        },
+        "baselineFactsEvidenceId": "JCTUSDT:price.closed1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(1, abs(current price change)/2)"
+      },
+      {
+        "renderedRule": {
+          "id": "OI_REVERSED_1h",
+          "horizon": "1h",
+          "metric": "OI_QUANTITY_CHANGE",
+          "operator": "LTE",
+          "threshold": -5,
+          "outcome": "THESIS_WARNING",
+          "description": "后续新采样精确1h OI数量变化≤-5.0000%，原敞口变化条件明显逆转，只触发复核",
+          "baselineEvidenceId": "JCTUSDT:oi.1h"
+        },
+        "baselineFactsEvidenceId": "JCTUSDT:oi.1h",
+        "thresholdSource": "Existing deterministic directionalInput rule formula (not a market observation)",
+        "formula": "opposite sign * max(5, abs(current OI quantity change)/2)"
+      }
+    ],
+    "otherNumerals": "Version/horizon/time metadata and existing deterministic rule thresholds; no model market numerical fields are allowed by strict business schema."
+  }
+}

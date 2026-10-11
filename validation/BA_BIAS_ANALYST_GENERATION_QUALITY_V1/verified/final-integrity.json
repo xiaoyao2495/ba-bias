@@ -1,0 +1,24 @@
+{
+  "baselineFiles": 2352,
+  "changedExisting": [
+    "src/analysis/directional-analyst.js"
+  ],
+  "productionFilesUnchanged": 2103,
+  "envUnchanged": true,
+  "oldHistoryAndValidationUnchanged": true,
+  "frozenContractHashesMatch": true,
+  "runtimeModelMatchesFrozen": true,
+  "realExternalApiCalls": 0,
+  "dingTalkSends": 0,
+  "scanStarted": false,
+  "reports": [
+    {
+      "file": "BA_BIAS_ANALYST_GENERATION_QUALITY_V1.md",
+      "sha256": "c63c70f9c61c6e97e9708c1a8892d23e39cca80a901361cb573d5bbf0799adee"
+    },
+    {
+      "file": "BA_BIAS_ANALYST_GENERATION_QUALITY_V1_CASES.md",
+      "sha256": "b50cedebe484f8b2c5f966eb2d615a30076244c160e78256bbdced83e2653a0c"
+    }
+  ]
+}

@@ -1,0 +1,590 @@
+[
+  {
+    "symbol": "POLUSDT",
+    "status": "FAILED",
+    "factsPath": "data/runs/hourly_20261011_1400/facts/POLUSDT.json",
+    "analystPath": "data/runs/hourly_20261011_1400/directional/POLUSDT.json",
+    "outboxPath": "data/outbox/hourly_20261011_1400_POLUSDT.json",
+    "attempts": [
+      {
+        "attemptName": "ATTEMPT_1",
+        "logicalAttemptRecorded": true,
+        "providerResponseAvailable": true,
+        "jsonParsed": true,
+        "schemaValid": true,
+        "provenanceValid": true,
+        "fullValid": false,
+        "errors": [
+          "UNKNOWN_OR_FOREIGN_EVIDENCE",
+          "UNSUPPORTED_STRUCTURE"
+        ],
+        "transportError": null,
+        "invalidPaths": [
+          {
+            "path": "structureEvidenceIds[0]",
+            "value": "INSUFFICIENT_STRUCTURE_DATA"
+          }
+        ],
+        "hashes": {
+          "inputHashMatches": true,
+          "responseHashMatches": true,
+          "requestHashMatches": true
+        },
+        "rawAnalysis": {
+          "version": "STRUCTURED_ANALYST_V4",
+          "status": "PRODUCTION",
+          "causalBacktestEligible": false,
+          "symbol": "POLUSDT",
+          "evaluationTime": "2026-10-11T06:00:14.747Z",
+          "direction": "NO_EDGE",
+          "horizon": "1h",
+          "conviction": "LOW",
+          "supportingEvidenceIds": [
+            "POLUSDT:price.closed1h",
+            "POLUSDT:oi.1h",
+            "POLUSDT:volume.relative1h"
+          ],
+          "conflictingEvidenceIds": [
+            "POLUSDT:directional.price.previous1h",
+            "POLUSDT:global.flip",
+            "POLUSDT:global.long.change1h"
+          ],
+          "structureEvidenceIds": [
+            "INSUFFICIENT_STRUCTURE_DATA"
+          ],
+          "mechanismHypothesis": {
+            "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+            "evidenceIds": [
+              "POLUSDT:price.closed1h",
+              "POLUSDT:oi.1h"
+            ],
+            "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+          },
+          "directionalRationale": {
+            "hypothesis": "NO_CLEAR_EDGE",
+            "evidenceIds": [
+              "POLUSDT:price.closed1h",
+              "POLUSDT:oi.1h",
+              "POLUSDT:volume.relative1h",
+              "POLUSDT:directional.price.previous1h",
+              "POLUSDT:global.flip"
+            ],
+            "alternative": "CONSOLIDATION",
+            "certainty": "CONDITIONAL_NOT_CONFIRMED"
+          },
+          "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+          "reassessmentConditions": [
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "PRICE_OPPOSITE_1h"
+            },
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "OI_REVERSED_1h"
+            },
+            {
+              "conditionType": "ABSTRACT_REASSESSMENT",
+              "metricOrStructureEvidenceId": "POLUSDT:global.flip",
+              "interpretation": "MONITOR_CHANGE",
+              "consequence": "REASSESS_ONLY"
+            }
+          ]
+        },
+        "provenance": {
+          "sourceType": "LIVE_MODEL_RESPONSE",
+          "executionKind": "LIVE_API",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "requestedModel": "deepseek-flash",
+          "requestId": "7b7368f2-0394-4dcb-b8ff-c4bcee22c8f2",
+          "requestIdKind": "LOCAL_TRACKING_ID",
+          "serverResponseId": "b6d3497b-0248-4911-808d-aef6c954552e",
+          "requestedAt": "2026-10-11T06:03:56.388Z",
+          "receivedAt": "2026-10-11T06:03:58.820Z",
+          "requestHash": "0bbb3a15bdedf4e20c8e65831d2215c78aa7891be006a8ffcf8db7cca16f6156",
+          "responseHash": "ded0b94513725faf9bd7985a340b2f6fb42170114bad444e4c38114a70730cbc",
+          "inputHash": "3ede88ad6ed0203f7ab2603d7369b358af973b8ba944d42c949abf3d6f5e2429"
+        },
+        "stages": {
+          "evidence": "FAILED",
+          "mechanism": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "direction": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "structure": "FAILED",
+          "condition": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "reversal": "NOT_APPLICABLE"
+        },
+        "classification": [
+          "UNKNOWN_OR_FOREIGN_EVIDENCE",
+          "UNSUPPORTED_STRUCTURE"
+        ]
+      },
+      {
+        "attemptName": "RECOVERY_1",
+        "logicalAttemptRecorded": true,
+        "providerResponseAvailable": true,
+        "jsonParsed": true,
+        "schemaValid": true,
+        "provenanceValid": true,
+        "fullValid": false,
+        "errors": [
+          "UNKNOWN_OR_FOREIGN_EVIDENCE",
+          "UNSUPPORTED_STRUCTURE"
+        ],
+        "transportError": null,
+        "invalidPaths": [
+          {
+            "path": "structureEvidenceIds[0]",
+            "value": "INSUFFICIENT_STRUCTURE_DATA"
+          }
+        ],
+        "hashes": {
+          "inputHashMatches": true,
+          "responseHashMatches": true,
+          "requestHashMatches": true
+        },
+        "rawAnalysis": {
+          "version": "STRUCTURED_ANALYST_V4",
+          "status": "PRODUCTION",
+          "causalBacktestEligible": false,
+          "symbol": "POLUSDT",
+          "evaluationTime": "2026-10-11T06:00:14.747Z",
+          "direction": "NO_EDGE",
+          "horizon": "1h",
+          "conviction": "LOW",
+          "supportingEvidenceIds": [
+            "POLUSDT:price.closed1h",
+            "POLUSDT:oi.1h",
+            "POLUSDT:volume.relative1h"
+          ],
+          "conflictingEvidenceIds": [
+            "POLUSDT:directional.price.previous1h",
+            "POLUSDT:global.flip",
+            "POLUSDT:global.long.change1h"
+          ],
+          "structureEvidenceIds": [
+            "INSUFFICIENT_STRUCTURE_DATA"
+          ],
+          "mechanismHypothesis": {
+            "type": "CONTRACT_CONTRACTION_COMPATIBLE",
+            "evidenceIds": [
+              "POLUSDT:price.closed1h",
+              "POLUSDT:oi.1h"
+            ],
+            "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+          },
+          "directionalRationale": {
+            "hypothesis": "NO_CLEAR_EDGE",
+            "evidenceIds": [
+              "POLUSDT:price.closed1h",
+              "POLUSDT:oi.1h",
+              "POLUSDT:volume.relative1h",
+              "POLUSDT:directional.price.previous1h",
+              "POLUSDT:global.flip"
+            ],
+            "alternative": "CONSOLIDATION",
+            "certainty": "CONDITIONAL_NOT_CONFIRMED"
+          },
+          "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+          "reassessmentConditions": [
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "PRICE_OPPOSITE_1h"
+            },
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "OI_REVERSED_1h"
+            },
+            {
+              "conditionType": "ABSTRACT_REASSESSMENT",
+              "metricOrStructureEvidenceId": "POLUSDT:global.flip",
+              "interpretation": "MONITOR_CHANGE",
+              "consequence": "REASSESS_ONLY"
+            }
+          ]
+        },
+        "provenance": {
+          "sourceType": "LIVE_MODEL_RESPONSE",
+          "executionKind": "LIVE_API",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "requestedModel": "deepseek-flash",
+          "requestId": "0adc896f-cda3-4115-92c3-bde809783f8b",
+          "requestIdKind": "LOCAL_TRACKING_ID",
+          "serverResponseId": "18db1e05-29bf-4226-a92a-2e224c41a8f4",
+          "requestedAt": "2026-10-11T06:03:58.824Z",
+          "receivedAt": "2026-10-11T06:04:01.128Z",
+          "requestHash": "ea48b9f49621222141a180887369216ead293d50262da525e59b17b1a438d18b",
+          "responseHash": "00b0955e40e6678964a6d3f5da3fcfe6ed12c69b3db98664701b696e748dc0b4",
+          "inputHash": "3ede88ad6ed0203f7ab2603d7369b358af973b8ba944d42c949abf3d6f5e2429"
+        },
+        "stages": {
+          "evidence": "FAILED",
+          "mechanism": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "direction": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "structure": "FAILED",
+          "condition": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "reversal": "NOT_APPLICABLE"
+        },
+        "classification": [
+          "UNKNOWN_OR_FOREIGN_EVIDENCE",
+          "UNSUPPORTED_STRUCTURE"
+        ]
+      }
+    ],
+    "inputEvidenceCount": 43,
+    "factsEvidenceNotInInput": [
+      "POLUSDT:funding.display",
+      "POLUSDT:accounts.short"
+    ],
+    "structureCandidates": [],
+    "outputStatus": "FAILED",
+    "deliveryStatus": "SENT",
+    "rawRequestRecord": "MISSING_RECORD; successful request reconstructed and hash verified where available",
+    "physicalRequestCount": 2,
+    "providerErrorBody": "MISSING_RECORD",
+    "physicalCountBasis": "Run result contains 21 V4 logical records, each with physicalRequests=1; 19 saved analyses account for all 21 attempts."
+  },
+  {
+    "symbol": "LAUSDT",
+    "status": "FAILED",
+    "factsPath": "data/runs/hourly_20261011_1400/facts/LAUSDT.json",
+    "analystPath": "data/runs/hourly_20261011_1400/directional/LAUSDT.json",
+    "outboxPath": "data/outbox/hourly_20261011_1400_LAUSDT.json",
+    "attempts": [
+      {
+        "attemptName": "ATTEMPT_1",
+        "logicalAttemptRecorded": true,
+        "providerResponseAvailable": true,
+        "jsonParsed": true,
+        "schemaValid": true,
+        "provenanceValid": true,
+        "fullValid": false,
+        "errors": [
+          "UNKNOWN_OR_FOREIGN_EVIDENCE",
+          "UNSUPPORTED_STRUCTURE"
+        ],
+        "transportError": null,
+        "invalidPaths": [
+          {
+            "path": "structureEvidenceIds[0]",
+            "value": "INSUFFICIENT_STRUCTURE_DATA"
+          }
+        ],
+        "hashes": {
+          "inputHashMatches": true,
+          "responseHashMatches": true,
+          "requestHashMatches": true
+        },
+        "rawAnalysis": {
+          "version": "STRUCTURED_ANALYST_V4",
+          "status": "PRODUCTION",
+          "causalBacktestEligible": false,
+          "symbol": "LAUSDT",
+          "evaluationTime": "2026-10-11T06:00:14.747Z",
+          "direction": "NO_EDGE",
+          "horizon": "1h",
+          "conviction": "LOW",
+          "supportingEvidenceIds": [
+            "LAUSDT:price.closed1h",
+            "LAUSDT:oi.1h",
+            "LAUSDT:volume.relative1h"
+          ],
+          "conflictingEvidenceIds": [
+            "LAUSDT:price.closed4h",
+            "LAUSDT:price.closed24h",
+            "LAUSDT:directional.price.previous1h"
+          ],
+          "structureEvidenceIds": [
+            "INSUFFICIENT_STRUCTURE_DATA"
+          ],
+          "mechanismHypothesis": {
+            "type": "CONTRACT_EXPANSION_COMPATIBLE",
+            "evidenceIds": [
+              "LAUSDT:price.closed1h",
+              "LAUSDT:oi.1h"
+            ],
+            "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+          },
+          "directionalRationale": {
+            "hypothesis": "NO_CLEAR_EDGE",
+            "evidenceIds": [
+              "LAUSDT:price.closed1h",
+              "LAUSDT:oi.1h",
+              "LAUSDT:volume.relative1h",
+              "LAUSDT:price.closed4h",
+              "LAUSDT:price.closed24h",
+              "LAUSDT:directional.price.previous1h"
+            ],
+            "alternative": "CONSOLIDATION",
+            "certainty": "CONDITIONAL_NOT_CONFIRMED"
+          },
+          "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+          "reassessmentConditions": [
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "PRICE_OPPOSITE_1h"
+            },
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "OI_REVERSED_1h"
+            },
+            {
+              "conditionType": "ABSTRACT_REASSESSMENT",
+              "metricOrStructureEvidenceId": "LAUSDT:volume.relative1h",
+              "interpretation": "MONITOR_CHANGE",
+              "consequence": "REASSESS_ONLY"
+            }
+          ]
+        },
+        "provenance": {
+          "sourceType": "LIVE_MODEL_RESPONSE",
+          "executionKind": "LIVE_API",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "requestedModel": "deepseek-flash",
+          "requestId": "6840506f-3254-4ae6-8580-d4c1d5f66baa",
+          "requestIdKind": "LOCAL_TRACKING_ID",
+          "serverResponseId": "1d618945-ec7f-4697-9c7d-57b18e0c67bf",
+          "requestedAt": "2026-10-11T06:04:12.667Z",
+          "receivedAt": "2026-10-11T06:04:14.933Z",
+          "requestHash": "010d359e87a8bb0887783ef1bcb34f14a7d0738e17d26aa09824bac7d5d1c6c8",
+          "responseHash": "e335e03c1bce4ea9ca08c66c40c6194e402d23ba6d4f974714edabdb1530a6f9",
+          "inputHash": "50b28aa1d6ea08622bf2393d4007e0071d9f248463c437a1622b74771404d126"
+        },
+        "stages": {
+          "evidence": "FAILED",
+          "mechanism": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "direction": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "structure": "FAILED",
+          "condition": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "reversal": "NOT_APPLICABLE"
+        },
+        "classification": [
+          "UNKNOWN_OR_FOREIGN_EVIDENCE",
+          "UNSUPPORTED_STRUCTURE"
+        ]
+      },
+      {
+        "attemptName": "RECOVERY_1",
+        "logicalAttemptRecorded": true,
+        "providerResponseAvailable": true,
+        "jsonParsed": true,
+        "schemaValid": true,
+        "provenanceValid": true,
+        "fullValid": false,
+        "errors": [
+          "UNKNOWN_OR_FOREIGN_EVIDENCE",
+          "UNSUPPORTED_STRUCTURE"
+        ],
+        "transportError": null,
+        "invalidPaths": [
+          {
+            "path": "structureEvidenceIds[0]",
+            "value": "INSUFFICIENT_STRUCTURE_DATA"
+          }
+        ],
+        "hashes": {
+          "inputHashMatches": true,
+          "responseHashMatches": true,
+          "requestHashMatches": true
+        },
+        "rawAnalysis": {
+          "version": "STRUCTURED_ANALYST_V4",
+          "status": "PRODUCTION",
+          "causalBacktestEligible": false,
+          "symbol": "LAUSDT",
+          "evaluationTime": "2026-10-11T06:00:14.747Z",
+          "direction": "NO_EDGE",
+          "horizon": "1h",
+          "conviction": "LOW",
+          "supportingEvidenceIds": [
+            "LAUSDT:price.closed1h",
+            "LAUSDT:oi.1h",
+            "LAUSDT:volume.relative1h"
+          ],
+          "conflictingEvidenceIds": [
+            "LAUSDT:price.closed4h",
+            "LAUSDT:price.closed24h",
+            "LAUSDT:directional.price.previous1h"
+          ],
+          "structureEvidenceIds": [
+            "INSUFFICIENT_STRUCTURE_DATA"
+          ],
+          "mechanismHypothesis": {
+            "type": "CONTRACT_EXPANSION_COMPATIBLE",
+            "evidenceIds": [
+              "LAUSDT:price.closed1h",
+              "LAUSDT:oi.1h"
+            ],
+            "limitation": "PARTICIPANT_BEHAVIOR_UNCONFIRMED"
+          },
+          "directionalRationale": {
+            "hypothesis": "NO_CLEAR_EDGE",
+            "evidenceIds": [
+              "LAUSDT:price.closed1h",
+              "LAUSDT:oi.1h",
+              "LAUSDT:volume.relative1h",
+              "LAUSDT:price.closed4h",
+              "LAUSDT:price.closed24h",
+              "LAUSDT:directional.price.previous1h"
+            ],
+            "alternative": "CONSOLIDATION",
+            "certainty": "CONDITIONAL_NOT_CONFIRMED"
+          },
+          "tradeOpportunity": "WAIT_FOR_CONFIRMATION",
+          "reassessmentConditions": [
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "PRICE_OPPOSITE_1h"
+            },
+            {
+              "conditionType": "PROGRAM_RULE",
+              "ruleId": "OI_REVERSED_1h"
+            },
+            {
+              "conditionType": "ABSTRACT_REASSESSMENT",
+              "metricOrStructureEvidenceId": "LAUSDT:volume.relative1h",
+              "interpretation": "MONITOR_CHANGE",
+              "consequence": "REASSESS_ONLY"
+            }
+          ]
+        },
+        "provenance": {
+          "sourceType": "LIVE_MODEL_RESPONSE",
+          "executionKind": "LIVE_API",
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "requestedModel": "deepseek-flash",
+          "requestId": "2d812964-7fbc-4647-bf0b-db2b861a9ac0",
+          "requestIdKind": "LOCAL_TRACKING_ID",
+          "serverResponseId": "caa789ed-4314-48c5-bb63-728fca35ce56",
+          "requestedAt": "2026-10-11T06:04:14.936Z",
+          "receivedAt": "2026-10-11T06:04:16.912Z",
+          "requestHash": "82e3c7ca4df0eb7143bc5964ddc35e50f896a4a6eb1d07448aa785b530c92b85",
+          "responseHash": "92a358eb34e7897cd2dccebee8e73fe06bcea5210adc1a11903cdd03a4e3e5dc",
+          "inputHash": "50b28aa1d6ea08622bf2393d4007e0071d9f248463c437a1622b74771404d126"
+        },
+        "stages": {
+          "evidence": "FAILED",
+          "mechanism": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "direction": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "structure": "FAILED",
+          "condition": "PASS_BY_COMPLETE_GUARD_ERROR_SET",
+          "reversal": "NOT_APPLICABLE"
+        },
+        "classification": [
+          "UNKNOWN_OR_FOREIGN_EVIDENCE",
+          "UNSUPPORTED_STRUCTURE"
+        ]
+      }
+    ],
+    "inputEvidenceCount": 42,
+    "factsEvidenceNotInInput": [
+      "LAUSDT:funding.display",
+      "LAUSDT:accounts.short"
+    ],
+    "structureCandidates": [],
+    "outputStatus": "FAILED",
+    "deliveryStatus": "SENT",
+    "rawRequestRecord": "MISSING_RECORD; successful request reconstructed and hash verified where available",
+    "physicalRequestCount": 2,
+    "providerErrorBody": "MISSING_RECORD",
+    "physicalCountBasis": "Run result contains 21 V4 logical records, each with physicalRequests=1; 19 saved analyses account for all 21 attempts."
+  },
+  {
+    "symbol": "IOSTUSDT",
+    "status": "FAILED",
+    "factsPath": "data/runs/hourly_20261011_1400/facts/IOSTUSDT.json",
+    "analystPath": "data/runs/hourly_20261011_1400/directional/IOSTUSDT.json",
+    "outboxPath": "data/outbox/hourly_20261011_1400_IOSTUSDT.json",
+    "attempts": [
+      {
+        "attemptName": "ATTEMPT_1",
+        "logicalAttemptRecorded": true,
+        "providerResponseAvailable": false,
+        "jsonParsed": "MISSING_RECORD",
+        "schemaValid": "MISSING_RECORD",
+        "provenanceValid": "MISSING_RECORD",
+        "fullValid": false,
+        "errors": [
+          "ERR_BAD_REQUEST"
+        ],
+        "transportError": "ERR_BAD_REQUEST",
+        "invalidPaths": [],
+        "hashes": null,
+        "rawAnalysis": null,
+        "provenance": null,
+        "stages": {
+          "evidence": "NOT_REACHED_OR_MISSING_RECORD",
+          "mechanism": "NOT_REACHED_OR_MISSING_RECORD",
+          "direction": "NOT_REACHED_OR_MISSING_RECORD",
+          "structure": "NOT_REACHED_OR_MISSING_RECORD",
+          "condition": "NOT_REACHED_OR_MISSING_RECORD"
+        },
+        "classification": [
+          "API_OR_TRANSPORT_FAILURE"
+        ]
+      }
+    ],
+    "inputEvidenceCount": 43,
+    "factsEvidenceNotInInput": [
+      "IOSTUSDT:funding.display",
+      "IOSTUSDT:accounts.short"
+    ],
+    "structureCandidates": [],
+    "outputStatus": "FAILED",
+    "deliveryStatus": "SENT",
+    "rawRequestRecord": "MISSING_RECORD; successful request reconstructed and hash verified where available",
+    "physicalRequestCount": 1,
+    "providerErrorBody": "MISSING_RECORD",
+    "physicalCountBasis": "Run result contains 21 V4 logical records, each with physicalRequests=1; 19 saved analyses account for all 21 attempts."
+  },
+  {
+    "symbol": "INJUSDT",
+    "status": "FAILED",
+    "factsPath": "data/runs/hourly_20261011_1400/facts/INJUSDT.json",
+    "analystPath": "data/runs/hourly_20261011_1400/directional/INJUSDT.json",
+    "outboxPath": "data/outbox/hourly_20261011_1400_INJUSDT.json",
+    "attempts": [
+      {
+        "attemptName": "ATTEMPT_1",
+        "logicalAttemptRecorded": true,
+        "providerResponseAvailable": false,
+        "jsonParsed": "MISSING_RECORD",
+        "schemaValid": "MISSING_RECORD",
+        "provenanceValid": "MISSING_RECORD",
+        "fullValid": false,
+        "errors": [
+          "ERR_BAD_REQUEST"
+        ],
+        "transportError": "ERR_BAD_REQUEST",
+        "invalidPaths": [],
+        "hashes": null,
+        "rawAnalysis": null,
+        "provenance": null,
+        "stages": {
+          "evidence": "NOT_REACHED_OR_MISSING_RECORD",
+          "mechanism": "NOT_REACHED_OR_MISSING_RECORD",
+          "direction": "NOT_REACHED_OR_MISSING_RECORD",
+          "structure": "NOT_REACHED_OR_MISSING_RECORD",
+          "condition": "NOT_REACHED_OR_MISSING_RECORD"
+        },
+        "classification": [
+          "API_OR_TRANSPORT_FAILURE"
+        ]
+      }
+    ],
+    "inputEvidenceCount": 43,
+    "factsEvidenceNotInInput": [
+      "INJUSDT:funding.display",
+      "INJUSDT:accounts.short"
+    ],
+    "structureCandidates": [],
+    "outputStatus": "FAILED",
+    "deliveryStatus": "SENT",
+    "rawRequestRecord": "MISSING_RECORD; successful request reconstructed and hash verified where available",
+    "physicalRequestCount": 1,
+    "providerErrorBody": "MISSING_RECORD",
+    "physicalCountBasis": "Run result contains 21 V4 logical records, each with physicalRequests=1; 19 saved analyses account for all 21 attempts."
+  }
+]

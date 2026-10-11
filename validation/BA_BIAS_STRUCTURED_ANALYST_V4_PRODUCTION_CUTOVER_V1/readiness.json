@@ -1,0 +1,27 @@
+{
+  "activeAnalyst": "V4",
+  "analystVersion": "V4",
+  "contractVersion": "STRUCTURED_ANALYST_V4",
+  "schemaValid": true,
+  "promptVersion": "V4_PRODUCTION_METADATA_PROMOTION_V1",
+  "promptHash": "4b24196483d7fa6694c1843ca6bd58da1457098c8511f67c03c0b131c46adab9",
+  "deepseekKeyPresent": true,
+  "binanceMarketDataKeyPresent": true,
+  "dingTalkConfigured": true,
+  "runLockExists": false,
+  "runLeaseExists": false,
+  "normalCommands": {
+    "doctor": "node src/main.js doctor",
+    "doctor:deepseek": "node src/main.js doctor --live-deepseek",
+    "scan": "node src/scan-daemon.js",
+    "once": "node src/main.js once",
+    "scheduler": "node src/scheduler.js",
+    "test": "node --test test/*.test.js",
+    "scan:once": "node src/main.js scan"
+  },
+  "liveProductionStatus": "LIVE_PRODUCTION_RUN_NOT_YET_OBSERVED",
+  "realBinanceCalls": 0,
+  "realDeepseekCalls": 0,
+  "realDingTalkSends": 0,
+  "scannerStarted": false
+}

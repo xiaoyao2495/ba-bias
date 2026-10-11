@@ -1,0 +1,12 @@
+A PIXELUSDT attempt=1 schema=true full=false errors=MECHANISM_SIGN_MISMATCH physical=1
+A PIXELUSDT attempt=2 schema=true full=true errors= physical=2
+A SENTUSDT attempt=1 schema=true full=true errors= physical=3
+A JCTUSDT attempt=1 schema=true full=true errors= physical=4
+A USUSDT attempt=1 schema=true full=true errors= physical=5
+A RLCUSDT attempt=1 schema=true full=true errors= physical=6
+B MINAUSDT attempt=1 schema=true full=true errors= physical=7
+B BRUSDT attempt=1 schema=true full=true errors= physical=8
+B ZKUSDT attempt=1 schema=true full=true errors= physical=9
+B XAIUSDT attempt=1 schema=true full=true errors= physical=10
+B XMRUSDT attempt=1 schema=true full=true errors= physical=11
+{"probeMode":"POST_COLLECTION_HISTORICAL_RESEARCH","causalBacktestEligible":false,"plannedSamples":10,"executedSamples":10,"completedFirstResponses":10,"firstJsonParseable":10,"firstSchemaValid":10,"firstFullValid":9,"recovery1Valid":1,"recovery2Valid":0,"finalValid":10,"finalFailed":0,"notExecuted":0,"physicalRequests":11,"conservativeBudgetReservations":11,"apiErrors":0,"validDirectionDistribution":{"BULLISH":3,"BEARISH":6,"BULLISH_REVERSAL":0,"BEARISH_REVERSAL":1,"NO_EDGE":0},"invalidResponseDirections":[{"sampleId":"s_hourly_20261010_1200_PIXELUSDT","attempt":1,"direction":"BEARISH_REVERSAL","errors":["MECHANISM_SIGN_MISMATCH"]}],"tokenUsage":{"prompt_tokens":69000,"completion_tokens":5707,"total_tokens":74707,"prompt_cache_hit_tokens":12800,"prompt_cache_miss_tokens":56200},"cost":null,"costReason":"No billed cost field captured; no guessed pricing.","validationErrors":{"MECHANISM_SIGN_MISMATCH":1},"batchGate":{"ok":true,"errors":[],"reviewedSamples":5,"reviewedAttempts":6,"review":"Independent original-Facts rebuild and source/renderer audit, full guard preserved, no structure objects supplied, failures never relabelled NO_EDGE; subjective quality separately recorded.","at":"2026-10-10T20:54:23.141Z","integrity":{"protectedFiles":2567,"productionFiles":2103,"changed":[],"newData":[]},"budget":{"transportAttempts":6,"livePhysicalRequests":6,"mockCalls":0},"binanceRequests":0,"dingTalkRequests":0,"scannerStarted":false},"stopReason":null}

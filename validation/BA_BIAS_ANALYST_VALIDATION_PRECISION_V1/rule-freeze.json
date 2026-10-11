@@ -1,0 +1,8 @@
+{
+  "frozenAt": "2026-10-10T17:45:22.409Z",
+  "files": {
+    "src/analysis/directional-alignment-guard.js": "42f0f96ec08aef8a205650d25556558f290aa48ba22f4c7d0a7adee31a379bfd",
+    "src/analysis/evidence-precision-validator.js": "b01c278f24c55804f20f24ba0f067ba0a34d67c726c522d34dacf5893b2a0ed9",
+    "test/analyst-precision.test.js": "d90a9d6c7a4ce4b8941ab3fe353bb907d320933c2e78aad369665cb4983ae4f5"
+  }
+}

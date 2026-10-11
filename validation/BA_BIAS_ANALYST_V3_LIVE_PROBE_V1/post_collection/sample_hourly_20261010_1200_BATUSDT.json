@@ -1,0 +1,597 @@
+{
+  "sampleId": "hourly_20261010_1200_BATUSDT_2026-10-10T04:00:15.949Z",
+  "symbol": "BATUSDT",
+  "runId": "hourly_20261010_1200",
+  "evaluationTime": "2026-10-10T04:00:15.949Z",
+  "originalFactsPath": "data/runs/hourly_20261010_1200/facts/BATUSDT.json",
+  "originalFactsHash": "0b4984f8abf571e8164a407a701173bc532eddd13cf73924b39824b0f560e422",
+  "evidenceCount": 23,
+  "scenarioTags": [
+    "PRICE_DOWN_OI_CONTRACTION",
+    "MULTI_WINDOW_CONFLICT"
+  ],
+  "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+  "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+  "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+  "causalBacktestEligible": false,
+  "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+  "selectionReason": "Deterministic original-facts coverage: PRICE_DOWN_OI_CONTRACTION",
+  "status": "FINAL_INVALID",
+  "attempts": [
+    {
+      "id": "hourly_20261010_1200_BATUSDT_a1_cf72980e-f95b-48c5-90c4-bcafe78594b3",
+      "attempt": 1,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "researchExecutedAt": "2026-10-10T18:50:34.868Z",
+      "responseAt": "2026-10-10T18:50:37.803Z",
+      "latencyMs": 2934,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 9914,
+        "completion_tokens": 549,
+        "total_tokens": 10463,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 8378
+      },
+      "raw": {
+        "id": "2ede4826-d5d1-4145-8ee0-fb73c0e6dc87",
+        "object": "chat.completion",
+        "created": 1791658234,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"BATUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h窗口是唯一具备强延续特征的周期：已收盘24h价格变化24.70%（BATUSDT:price.closed24h）且24h OI数量变化50.18%（BATUSDT:oi.24h）同向扩张；但1h与4h已收盘价格分别为-2.28%与-1.50%，与24h方向相反，短周期冲突使24h方向假设证据不足。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度价格与OI数量同步扩张，存在上行延续的假设空间，但1h、4h已收盘价格转负且1h OI收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。\",\"marketMechanism\":\"24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。\",\"supportingEvidenceIds\":[\"BATUSDT:price.closed24h\",\"BATUSDT:oi.24h\",\"BATUSDT:price.rolling24h\"],\"conflictingEvidenceIds\":[\"BATUSDT:price.closed1h\",\"BATUSDT:price.closed4h\",\"BATUSDT:oi.1h\",\"BATUSDT:price.drawdown\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"24h内价格在已收盘24h涨幅24.70%的基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。\",\"invalidation\":{\"type\":\"METRIC_BASED_REASSESSMENT\",\"ruleIds\":[],\"description\":\"无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。\"},\"alternativeScenario\":\"若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。\",\"followUpChecks\":[\"核对后续新收盘1h与4h价格变化是否转正并与24h方向一致\",\"核对后续1h与24h OI数量变化是否同向扩张\"]}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 9914,
+          "completion_tokens": 549,
+          "total_tokens": 10463,
+          "prompt_tokens_details": {
+            "cached_tokens": 1536
+          },
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 8378
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"BATUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h窗口是唯一具备强延续特征的周期：已收盘24h价格变化24.70%（BATUSDT:price.closed24h）且24h OI数量变化50.18%（BATUSDT:oi.24h）同向扩张；但1h与4h已收盘价格分别为-2.28%与-1.50%，与24h方向相反，短周期冲突使24h方向假设证据不足。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度价格与OI数量同步扩张，存在上行延续的假设空间，但1h、4h已收盘价格转负且1h OI收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。\",\"marketMechanism\":\"24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。\",\"supportingEvidenceIds\":[\"BATUSDT:price.closed24h\",\"BATUSDT:oi.24h\",\"BATUSDT:price.rolling24h\"],\"conflictingEvidenceIds\":[\"BATUSDT:price.closed1h\",\"BATUSDT:price.closed4h\",\"BATUSDT:oi.1h\",\"BATUSDT:price.drawdown\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"24h内价格在已收盘24h涨幅24.70%的基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。\",\"invalidation\":{\"type\":\"METRIC_BASED_REASSESSMENT\",\"ruleIds\":[],\"description\":\"无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。\"},\"alternativeScenario\":\"若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。\",\"followUpChecks\":[\"核对后续新收盘1h与4h价格变化是否转正并与24h方向一致\",\"核对后续1h与24h OI数量变化是否同向扩张\"]}",
+      "parsedResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "BATUSDT",
+        "evaluationTime": "2026-10-10T04:00:15.949Z",
+        "marketBias": "NO_EDGE",
+        "horizon": "24h",
+        "horizonReason": "24h窗口是唯一具备强延续特征的周期：已收盘24h价格变化24.70%（BATUSDT:price.closed24h）且24h OI数量变化50.18%（BATUSDT:oi.24h）同向扩张；但1h与4h已收盘价格分别为-2.28%与-1.50%，与24h方向相反，短周期冲突使24h方向假设证据不足。",
+        "conviction": "LOW",
+        "marketThesis": "24h维度价格与OI数量同步扩张，存在上行延续的假设空间，但1h、4h已收盘价格转负且1h OI收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。",
+        "marketMechanism": "24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。",
+        "supportingEvidenceIds": [
+          "BATUSDT:price.closed24h",
+          "BATUSDT:oi.24h",
+          "BATUSDT:price.rolling24h"
+        ],
+        "conflictingEvidenceIds": [
+          "BATUSDT:price.closed1h",
+          "BATUSDT:price.closed4h",
+          "BATUSDT:oi.1h",
+          "BATUSDT:price.drawdown"
+        ],
+        "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+        "preferredScenario": "24h内价格在已收盘24h涨幅24.70%的基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。",
+        "invalidation": {
+          "type": "METRIC_BASED_REASSESSMENT",
+          "ruleIds": [],
+          "description": "无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。"
+        },
+        "alternativeScenario": "若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。",
+        "followUpChecks": [
+          "核对后续新收盘1h与4h价格变化是否转正并与24h方向一致",
+          "核对后续1h与24h OI数量变化是否同向扩张"
+        ]
+      },
+      "validation": {
+        "ok": false,
+        "errors": [
+          "UNTRUSTED_NUMBER_OR_PROBABILITY",
+          "UNSUPPORTED_CAUSE_OR_ORDER",
+          "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+        ],
+        "diagnostics": [
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:price.closed24h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:oi.24h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "24.70%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "24h",
+            "metric": {
+              "kind": "price",
+              "rolling": false,
+              "previous": false
+            },
+            "evidenceIds": [
+              "BATUSDT:price.closed24h"
+            ],
+            "ruleId": null,
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "50.18%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "24h",
+            "metric": {
+              "kind": "oi"
+            },
+            "evidenceIds": [
+              "BATUSDT:oi.24h"
+            ],
+            "ruleId": null,
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "UNVERIFIED_NUMERIC_FACT",
+            "literal": "-2.28%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "price",
+              "rolling": false,
+              "previous": false
+            },
+            "evidenceIds": [],
+            "ruleId": null,
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "-1.50%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "4h",
+            "metric": {
+              "kind": "price",
+              "rolling": false,
+              "previous": false
+            },
+            "evidenceIds": [
+              "BATUSDT:price.closed4h"
+            ],
+            "ruleId": null,
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "平仓",
+            "span": "无法区分具体开平仓行为",
+            "denied": false,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": false
+          },
+          {
+            "code": "VERIFIED_NUMERIC_FACT",
+            "literal": "24.70%",
+            "numberType": "PERCENT_CHANGE",
+            "window": "24h",
+            "metric": {
+              "kind": "price",
+              "rolling": false,
+              "previous": false
+            },
+            "evidenceIds": [
+              "BATUSDT:price.closed24h"
+            ],
+            "ruleId": null,
+            "field": "preferredScenario",
+            "role": "FORECAST_HYPOTHESIS"
+          },
+          {
+            "code": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+            "match": "结构失效",
+            "span": "不设结构失效",
+            "denied": false,
+            "field": "invalidation",
+            "role": "REASSESSMENT",
+            "allowed": false
+          },
+          {
+            "code": "UNTRUSTED_NUMBER_OR_PROBABILITY",
+            "path": "/"
+          }
+        ],
+        "contractVersion": "DIRECTIONAL_ANALYST_V2"
+      },
+      "schemaValid": true,
+      "status": "INVALID"
+    },
+    {
+      "id": "hourly_20261010_1200_BATUSDT_a2_17f3f327-c0da-4df3-ae1d-a27a8495beef",
+      "attempt": 2,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "researchExecutedAt": "2026-10-10T18:50:38.172Z",
+      "responseAt": "2026-10-10T18:50:40.355Z",
+      "latencyMs": 2182,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 22044,
+        "completion_tokens": 553,
+        "total_tokens": 22597,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 20380
+      },
+      "raw": {
+        "id": "4cd5c02f-671b-4a6e-a931-ca0429d53caf",
+        "object": "chat.completion",
+        "created": 1791658238,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"BATUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h是唯一强延续周期：已收盘24h价格变化{{BATUSDT:price.closed24h}}与24h OI数量变化{{BATUSDT:oi.24h}}同向扩张；但已收盘1h价格变化{{BATUSDT:price.closed1h}}与已收盘4h价格变化{{BATUSDT:price.closed4h}}均为负，短周期与24h方向相反，故24h方向证据不足。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度价格与OI数量同步扩张，存在上行延续的假设空间；但1h、4h已收盘价格转负且1h OI数量收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。\",\"marketMechanism\":\"24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。\",\"supportingEvidenceIds\":[\"BATUSDT:price.closed24h\",\"BATUSDT:oi.24h\",\"BATUSDT:price.rolling24h\"],\"conflictingEvidenceIds\":[\"BATUSDT:price.closed1h\",\"BATUSDT:price.closed4h\",\"BATUSDT:oi.1h\",\"BATUSDT:price.drawdown\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"24h内价格在已收盘24h涨幅基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。\",\"invalidation\":{\"type\":\"METRIC_BASED_REASSESSMENT\",\"ruleIds\":[],\"description\":\"无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。\"},\"alternativeScenario\":\"若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。\",\"followUpChecks\":[\"核对后续新收盘1h与4h价格变化是否转正并与24h方向一致\",\"核对后续1h与24h OI数量变化是否同向扩张\"]}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 22044,
+          "completion_tokens": 553,
+          "total_tokens": 22597,
+          "prompt_tokens_details": {
+            "cached_tokens": 1664
+          },
+          "prompt_cache_hit_tokens": 1664,
+          "prompt_cache_miss_tokens": 20380
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"BATUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h是唯一强延续周期：已收盘24h价格变化{{BATUSDT:price.closed24h}}与24h OI数量变化{{BATUSDT:oi.24h}}同向扩张；但已收盘1h价格变化{{BATUSDT:price.closed1h}}与已收盘4h价格变化{{BATUSDT:price.closed4h}}均为负，短周期与24h方向相反，故24h方向证据不足。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度价格与OI数量同步扩张，存在上行延续的假设空间；但1h、4h已收盘价格转负且1h OI数量收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。\",\"marketMechanism\":\"24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。\",\"supportingEvidenceIds\":[\"BATUSDT:price.closed24h\",\"BATUSDT:oi.24h\",\"BATUSDT:price.rolling24h\"],\"conflictingEvidenceIds\":[\"BATUSDT:price.closed1h\",\"BATUSDT:price.closed4h\",\"BATUSDT:oi.1h\",\"BATUSDT:price.drawdown\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"24h内价格在已收盘24h涨幅基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。\",\"invalidation\":{\"type\":\"METRIC_BASED_REASSESSMENT\",\"ruleIds\":[],\"description\":\"无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。\"},\"alternativeScenario\":\"若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。\",\"followUpChecks\":[\"核对后续新收盘1h与4h价格变化是否转正并与24h方向一致\",\"核对后续1h与24h OI数量变化是否同向扩张\"]}",
+      "parsedResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "BATUSDT",
+        "evaluationTime": "2026-10-10T04:00:15.949Z",
+        "marketBias": "NO_EDGE",
+        "horizon": "24h",
+        "horizonReason": "24h是唯一强延续周期：已收盘24h价格变化{{BATUSDT:price.closed24h}}与24h OI数量变化{{BATUSDT:oi.24h}}同向扩张；但已收盘1h价格变化{{BATUSDT:price.closed1h}}与已收盘4h价格变化{{BATUSDT:price.closed4h}}均为负，短周期与24h方向相反，故24h方向证据不足。",
+        "conviction": "LOW",
+        "marketThesis": "24h维度价格与OI数量同步扩张，存在上行延续的假设空间；但1h、4h已收盘价格转负且1h OI数量收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。",
+        "marketMechanism": "24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。",
+        "supportingEvidenceIds": [
+          "BATUSDT:price.closed24h",
+          "BATUSDT:oi.24h",
+          "BATUSDT:price.rolling24h"
+        ],
+        "conflictingEvidenceIds": [
+          "BATUSDT:price.closed1h",
+          "BATUSDT:price.closed4h",
+          "BATUSDT:oi.1h",
+          "BATUSDT:price.drawdown"
+        ],
+        "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+        "preferredScenario": "24h内价格在已收盘24h涨幅基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。",
+        "invalidation": {
+          "type": "METRIC_BASED_REASSESSMENT",
+          "ruleIds": [],
+          "description": "无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。"
+        },
+        "alternativeScenario": "若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。",
+        "followUpChecks": [
+          "核对后续新收盘1h与4h价格变化是否转正并与24h方向一致",
+          "核对后续1h与24h OI数量变化是否同向扩张"
+        ]
+      },
+      "validation": {
+        "ok": false,
+        "errors": [
+          "UNSUPPORTED_CAUSE_OR_ORDER",
+          "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+        ],
+        "diagnostics": [
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:price.closed24h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:oi.24h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:price.closed1h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:price.closed4h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "平仓",
+            "span": "无法区分具体开平仓行为",
+            "denied": false,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": false
+          },
+          {
+            "code": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+            "match": "结构失效",
+            "span": "不设结构失效",
+            "denied": false,
+            "field": "invalidation",
+            "role": "REASSESSMENT",
+            "allowed": false
+          }
+        ],
+        "contractVersion": "DIRECTIONAL_ANALYST_V2"
+      },
+      "schemaValid": true,
+      "status": "INVALID"
+    },
+    {
+      "id": "hourly_20261010_1200_BATUSDT_a3_c5d7d73c-a578-4ffb-b586-34337253afa2",
+      "attempt": 3,
+      "probeMode": "POST_COLLECTION_HISTORICAL_RESEARCH",
+      "originalEvaluationTime": "2026-10-10T04:00:15.949Z",
+      "collectionCompletedAt": "2026-10-10T04:00:24.938Z",
+      "causalBacktestEligible": false,
+      "meaning": "Historical generation/quality research after acquisition. evaluationTime remains the original market observation cutoff, not the actual research execution time. No predictive backtest or production performance claim.",
+      "researchExecutedAt": "2026-10-10T18:50:40.711Z",
+      "responseAt": "2026-10-10T18:50:43.164Z",
+      "latencyMs": 2450,
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 21481,
+        "completion_tokens": 553,
+        "total_tokens": 22034,
+        "prompt_tokens_details": {
+          "cached_tokens": 2944
+        },
+        "prompt_cache_hit_tokens": 2944,
+        "prompt_cache_miss_tokens": 18537
+      },
+      "raw": {
+        "id": "4392a353-e243-4682-9412-12320a7a7811",
+        "object": "chat.completion",
+        "created": 1791658240,
+        "model": "deepseek-flash",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"BATUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h是唯一强延续周期：已收盘24h价格变化{{BATUSDT:price.closed24h}}与24h OI数量变化{{BATUSDT:oi.24h}}同向扩张；但已收盘1h价格变化{{BATUSDT:price.closed1h}}与已收盘4h价格变化{{BATUSDT:price.closed4h}}均为负，短周期与24h方向相反，故24h方向证据不足。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度价格与OI数量同步扩张，存在上行延续的假设空间；但1h、4h已收盘价格转负且1h OI数量收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。\",\"marketMechanism\":\"24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。\",\"supportingEvidenceIds\":[\"BATUSDT:price.closed24h\",\"BATUSDT:oi.24h\",\"BATUSDT:price.rolling24h\"],\"conflictingEvidenceIds\":[\"BATUSDT:price.closed1h\",\"BATUSDT:price.closed4h\",\"BATUSDT:oi.1h\",\"BATUSDT:price.drawdown\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"24h内价格在已收盘24h涨幅基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。\",\"invalidation\":{\"type\":\"METRIC_BASED_REASSESSMENT\",\"ruleIds\":[],\"description\":\"无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。\"},\"alternativeScenario\":\"若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。\",\"followUpChecks\":[\"核对后续新收盘1h与4h价格变化是否转正并与24h方向一致\",\"核对后续1h与24h OI数量变化是否同向扩张\"]}"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 21481,
+          "completion_tokens": 553,
+          "total_tokens": 22034,
+          "prompt_tokens_details": {
+            "cached_tokens": 2944
+          },
+          "prompt_cache_hit_tokens": 2944,
+          "prompt_cache_miss_tokens": 18537
+        },
+        "system_fingerprint": "aeb56401ca74e127821c4f9126dcb669"
+      },
+      "responseText": "{\"version\":\"DIRECTIONAL_ANALYST_V2\",\"symbol\":\"BATUSDT\",\"evaluationTime\":\"2026-10-10T04:00:15.949Z\",\"marketBias\":\"NO_EDGE\",\"horizon\":\"24h\",\"horizonReason\":\"24h是唯一强延续周期：已收盘24h价格变化{{BATUSDT:price.closed24h}}与24h OI数量变化{{BATUSDT:oi.24h}}同向扩张；但已收盘1h价格变化{{BATUSDT:price.closed1h}}与已收盘4h价格变化{{BATUSDT:price.closed4h}}均为负，短周期与24h方向相反，故24h方向证据不足。\",\"conviction\":\"LOW\",\"marketThesis\":\"24h维度价格与OI数量同步扩张，存在上行延续的假设空间；但1h、4h已收盘价格转负且1h OI数量收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。\",\"marketMechanism\":\"24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。\",\"supportingEvidenceIds\":[\"BATUSDT:price.closed24h\",\"BATUSDT:oi.24h\",\"BATUSDT:price.rolling24h\"],\"conflictingEvidenceIds\":[\"BATUSDT:price.closed1h\",\"BATUSDT:price.closed4h\",\"BATUSDT:oi.1h\",\"BATUSDT:price.drawdown\"],\"tradeOpportunity\":\"NO_ACTIONABLE_SETUP\",\"preferredScenario\":\"24h内价格在已收盘24h涨幅基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。\",\"invalidation\":{\"type\":\"METRIC_BASED_REASSESSMENT\",\"ruleIds\":[],\"description\":\"无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。\"},\"alternativeScenario\":\"若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。\",\"followUpChecks\":[\"核对后续新收盘1h与4h价格变化是否转正并与24h方向一致\",\"核对后续1h与24h OI数量变化是否同向扩张\"]}",
+      "parsedResponse": {
+        "version": "DIRECTIONAL_ANALYST_V2",
+        "symbol": "BATUSDT",
+        "evaluationTime": "2026-10-10T04:00:15.949Z",
+        "marketBias": "NO_EDGE",
+        "horizon": "24h",
+        "horizonReason": "24h是唯一强延续周期：已收盘24h价格变化{{BATUSDT:price.closed24h}}与24h OI数量变化{{BATUSDT:oi.24h}}同向扩张；但已收盘1h价格变化{{BATUSDT:price.closed1h}}与已收盘4h价格变化{{BATUSDT:price.closed4h}}均为负，短周期与24h方向相反，故24h方向证据不足。",
+        "conviction": "LOW",
+        "marketThesis": "24h维度价格与OI数量同步扩张，存在上行延续的假设空间；但1h、4h已收盘价格转负且1h OI数量收缩，短周期与长周期方向不一致，无法形成有依据的单向倾向，故取NO_EDGE。",
+        "marketMechanism": "24h内价格与OI数量同时上升，可解释为合约规模扩张伴随价格上行；1h价格下降且1h OI数量收缩，与部分多头敞口了结的可能性相容，但无法区分具体开平仓行为。",
+        "supportingEvidenceIds": [
+          "BATUSDT:price.closed24h",
+          "BATUSDT:oi.24h",
+          "BATUSDT:price.rolling24h"
+        ],
+        "conflictingEvidenceIds": [
+          "BATUSDT:price.closed1h",
+          "BATUSDT:price.closed4h",
+          "BATUSDT:oi.1h",
+          "BATUSDT:price.drawdown"
+        ],
+        "tradeOpportunity": "NO_ACTIONABLE_SETUP",
+        "preferredScenario": "24h内价格在已收盘24h涨幅基础上维持高位区间震荡，OI数量维持扩张，短周期跌势不再扩大，方向假设继续观察。",
+        "invalidation": {
+          "type": "METRIC_BASED_REASSESSMENT",
+          "ruleIds": [],
+          "description": "无价格结构可用，不设结构失效；当后续同期价格与OI数量变化方向重新一致或明显背离时复核方向假设。"
+        },
+        "alternativeScenario": "若1h与4h已收盘价格继续为负且1h OI数量继续收缩，24h上行延续假设被削弱，需转向下行或继续无方向评估。",
+        "followUpChecks": [
+          "核对后续新收盘1h与4h价格变化是否转正并与24h方向一致",
+          "核对后续1h与24h OI数量变化是否同向扩张"
+        ]
+      },
+      "validation": {
+        "ok": false,
+        "errors": [
+          "UNSUPPORTED_CAUSE_OR_ORDER",
+          "UNAVAILABLE_INDICATOR_OR_STRUCTURE"
+        ],
+        "diagnostics": [
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:price.closed24h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:oi.24h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:price.closed1h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_EVIDENCE_IDENTIFIER",
+            "literal": "BATUSDT:price.closed4h",
+            "numberType": "EVIDENCE_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "VERIFIED_PROTOCOL_IDENTIFIER",
+            "literal": "BATUSDT",
+            "numberType": "SYMBOL_IDENTIFIER",
+            "field": "horizonReason",
+            "role": "OBSERVATION_AND_HORIZON"
+          },
+          {
+            "code": "UNSUPPORTED_CAUSE_OR_ORDER",
+            "match": "平仓",
+            "span": "无法区分具体开平仓行为",
+            "denied": false,
+            "field": "marketMechanism",
+            "role": "MECHANISM",
+            "allowed": false
+          },
+          {
+            "code": "UNAVAILABLE_INDICATOR_OR_STRUCTURE",
+            "match": "结构失效",
+            "span": "不设结构失效",
+            "denied": false,
+            "field": "invalidation",
+            "role": "REASSESSMENT",
+            "allowed": false
+          }
+        ],
+        "contractVersion": "DIRECTIONAL_ANALYST_V2"
+      },
+      "schemaValid": true,
+      "status": "INVALID"
+    }
+  ],
+  "analysis": null
+}

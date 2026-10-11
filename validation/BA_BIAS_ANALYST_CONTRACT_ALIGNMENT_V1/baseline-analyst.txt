@@ -1,0 +1,74 @@
+import {directionalSchema,validateDirectional} from './directional-schema.js';
+import {directionalInput,suggestedHorizon} from './directional-context.js';
+import {safeError} from '../config.js';
+import {validateNumericText,semanticViolations,isDenied,assertionSpans} from './evidence-text-validator.js';
+export const analystRules=`你是独立行情方向研究员。新闻价值已由Story Judge判断，你只研究方向，不否决事实情报。严格只用输入已验证的事实，禁止额外指标、价格结构、资金流、具体开平仓、强平、聪明钱和确定性反转推断。OI为数量变化，不是新增多头/空头。正已结算Funding多头支付空头，负已结算Funding空头支付多头，Funding或账户分布不能单独决定方向。顶部账户与顶部持仓份额分开，缺失不等于中性。先比较同一horizon的price与OI；其他窗口仅作显式竞争背景，不能混入supportingEvidenceIds。反转必须引用previousPriceId与priceId，不能根据涨跌大、Funding极端直接反转。HIGH不是胜率且需强一致价格/参与量证据；不按相关指标数量计分。有明确强趋势证据时不要无理由NO_EDGE。方向与交易机会独立，没有priceStructure时不得LONG_SETUP/SHORT_SETUP。事实优先用{{真实evidenceId}}占位。允许与已声明Evidence严格匹配的数字：指标、窗口、单位、账户/持仓口径、符号及舍入必须一致；窗口写1h/4h/24h。规则阈值只能引用invalidation.ruleIds中当前周期规则，不能自行生成阈值。禁止无证据数字、概率、收益、额外Symbol或结构位置；Funding支付关系须引用实际已结算证据。否定说明应局部且明确，否定不能掩盖其他肯定断言；定性观点、竞争解释、机制必须标明假设。invalidation.ruleIds仅可选当前horizon的输入规则，价格规则为方向失效，OI规则仅THESIS_WARNING，不把OI小波动当失效；无结构可选INSUFFICIENT_STRUCTURE_DATA并说明缺失。followUpChecks最多两项。严格JSON，不添加字段。`;
+const idFunding=e=>e?.evidenceId.endsWith(':funding.latest');
+const proseFields=a=>[a.horizonReason,a.marketThesis,a.marketMechanism,a.preferredScenario,a.alternativeScenario,a.invalidation.description,...a.followUpChecks];
+export function guardDirectional(a,input){
+  const errors=[],diagnostics=[];if(!validateDirectional(a))return {ok:false,errors:['DIRECTIONAL_SCHEMA_INVALID'],diagnostics:[{code:'DIRECTIONAL_SCHEMA_INVALID',schemaErrors:structuredClone(validateDirectional.errors)}]};
+  if(a.symbol!==input.symbol||a.evaluationTime!==input.evaluationTime)errors.push('SYMBOL_OR_EVALUATION_MISMATCH');
+  const map=new Map(input.evidence.map(e=>[e.evidenceId,e])),w=input.windows.find(w=>w.horizon===a.horizon);
+  if(!w.allowedBiases.includes(a.marketBias))errors.push('PRICE_DIRECTION_OR_REVERSAL_UNSUPPORTED');
+  const ids=[...a.supportingEvidenceIds,...a.conflictingEvidenceIds];
+  for(const id of ids){const e=map.get(id);if(!e)errors.push('UNKNOWN_EVIDENCE');else if(e.dataTimes.some(t=>t>Date.parse(input.evaluationTime)))errors.push('FUTURE_EVIDENCE');}
+  for(const id of a.supportingEvidenceIds){const e=map.get(id);if(e?.window&&e.window!==a.horizon)errors.push('MIXED_SUPPORT_WINDOWS');}
+  for(const id of a.supportingEvidenceIds){const e=map.get(id),price=map.get(w.priceId);if(e?.window&&id!==w.previousPriceId&&price&&Math.abs(e.dataTimes.at(-1)-price.dataTimes.at(-1))>1)errors.push('SUPPORT_SAMPLES_NOT_ALIGNED');}
+  if(a.marketBias!=='NO_EDGE'&&(!w.priceId||!a.supportingEvidenceIds.includes(w.priceId)))errors.push('PRICE_BASIS_REQUIRED');
+  if(a.marketBias.includes('REVERSAL')&&(!w.previousPriceId||!a.supportingEvidenceIds.includes(w.previousPriceId)))errors.push('PRIOR_TREND_REQUIRED');
+  if(w.oiId&&a.supportingEvidenceIds.includes(w.oiId)&&!w.aligned)errors.push('PRICE_OI_NOT_ALIGNED');
+  if(a.marketBias==='NO_EDGE'&&input.windows.some(x=>x.strongContinuation)&&!a.conflictingEvidenceIds.some(id=>{const e=map.get(id);return e&&e.scope!=='PREVIOUS_PRICE_WINDOW'&&((e.window&&['price','oi'].some(k=>id.includes(':'+k+'.'))&&Number(e.result)*Number(map.get(w.priceId)?.result)<0)||id.includes('topGlobal.divergence'));}))errors.push('NO_EDGE_NEEDS_REAL_CONFLICT');
+  if(!w.aligned&&a.conviction!=='LOW')errors.push('LOW_REQUIRED_FOR_MISSING_OR_UNALIGNED_OI');
+  if(a.conviction==='HIGH'&&(!w.strongContinuation||a.conflictingEvidenceIds.length||a.marketBias==='NO_EDGE'||a.marketBias.includes('REVERSAL')||!a.supportingEvidenceIds.includes(w.oiId)||!a.supportingEvidenceIds.includes(input.symbol+':volume.relative1h')||a.horizon!=='1h'||input.windows.some(x=>x.priceId&&Number(map.get(x.priceId)?.result)*Number(map.get(w.priceId)?.result)<0)||Number(map.get(input.symbol+':volume.relative1h')?.result)<2))errors.push('HIGH_NOT_SUPPORTED');
+  if(['LONG_SETUP','SHORT_SETUP'].includes(a.tradeOpportunity))errors.push('ACTIONABLE_STRUCTURE_NOT_AVAILABLE');
+  if(a.marketBias==='NO_EDGE'&&a.tradeOpportunity!=='NO_ACTIONABLE_SETUP'&&a.tradeOpportunity!=='WAIT_FOR_CONFIRMATION')errors.push('NO_EDGE_SETUP_CONTRADICTION');
+  if(a.marketBias!=='NO_EDGE'&&a.invalidation.type==='OBSERVABLE_CONDITION'&&!a.invalidation.ruleIds.includes('PRICE_OPPOSITE_'+a.horizon))errors.push('PRICE_INVALIDATION_REQUIRED');
+  if(a.invalidation.type==='INSUFFICIENT_STRUCTURE_DATA'&&a.invalidation.ruleIds.length)errors.push('INVALIDATION_TYPE_CONFLICT');
+  for(const id of a.invalidation.ruleIds)if(!input.rules.some(r=>r.id===id&&r.horizon===a.horizon))errors.push('UNKNOWN_OR_MIXED_INVALIDATION');
+  // Literal facts are verified against the declared evidence registry; unavailable
+  // measurements and causal assertions still fail. Placeholders render exactly.
+  for(const [fieldIndex,text] of proseFields(a).entries()){
+    const refs=[...text.matchAll(/\{\{([^{}]+)\}\}/g)].map(m=>m[1]);
+    for(const id of refs)if(!ids.includes(id)||!map.has(id))errors.push('UNDECLARED_TEXT_EVIDENCE');
+    const p=text.replace(/\{\{[^{}]+\}\}/g,'');
+    const numeric=validateNumericText(text,input,a);diagnostics.push(...numeric.diagnostics.map(d=>({...d,fieldIndex})));
+    if(!numeric.ok)errors.push('UNTRUSTED_NUMBER_OR_PROBABILITY');
+    const semantic=semanticViolations(text);diagnostics.push(...semantic.map(d=>({...d,fieldIndex})));
+    for(const d of semantic)if(!d.denied)errors.push(d.code);
+    for(const span of assertionSpans(text))if(/支付|付给|付费/.test(span)){
+      const payment=span.match(/多头支付空头|空头支付多头|多头向空头支付|空头向多头支付|多头支付给空头|空头支付给多头/);
+      const relation=payment?.[0].startsWith('多头')?'多头支付空头':payment?'空头支付多头':null;
+      const funding=refs.map(id=>map.get(id)).find(e=>idFunding(e)&&ids.includes(e.evidenceId));
+      if(!payment||!funding||!funding.phrase.includes(relation))errors.push('FUNDING_DIRECTION_MUST_USE_EVIDENCE');
+    }
+    for(const flip of p.matchAll(/(SHORT|LONG)\s*(?:→|转为|转|->)\s*(SHORT|LONG)/g)){
+      const verified=refs.map(id=>map.get(id)).some(e=>e?.evidenceId.endsWith(':global.flip')&&e.phrase.includes(flip[1]+' → '+flip[2]));
+      if(!verified)errors.push('UNVERIFIED_ACCOUNT_FLIP_DESCRIPTION');
+    }
+    // Known contract labels are vocabulary, never new market measurements.
+    const vocabulary=['OI','Funding','NO_EDGE','BULLISH_REVERSAL','BEARISH_REVERSAL','BULLISH','BEARISH','SHORT','LONG','THESIS_WARNING',...a.invalidation.ruleIds];
+    let untrusted=p;for(const token of vocabulary)untrusted=untrusted.replaceAll(token,'');
+    for(const span of assertionSpans(untrusted))for(const m of span.matchAll(/\b[A-Z][A-Z0-9]{1,20}\b/g))if(!isDenied(span,m.index))errors.push('UNTRUSTED_SYMBOL_OR_METRIC');
+  }
+  const directionalProse=[a.marketThesis,a.preferredScenario].join(' ');
+  if(a.marketBias.startsWith('BEARISH')&&/倾向上涨|上涨延续|偏多|\bBULLISH(?:_REVERSAL)?\b/.test(directionalProse)||a.marketBias.startsWith('BULLISH')&&/倾向下跌|下跌延续|偏空|\bBEARISH(?:_REVERSAL)?\b/.test(directionalProse))errors.push('THESIS_DIRECTION_CONTRADICTION');
+  if(errors.length)return {ok:false,errors:[...new Set(errors)],diagnostics};
+  const render=s=>s.replace(/\{\{([^{}]+)\}\}/g,(_,id)=>map.get(id).phrase);
+  return {ok:true,errors:[],diagnostics,rendered:Object.fromEntries(['horizonReason','marketThesis','marketMechanism','preferredScenario','alternativeScenario'].map(k=>[k,render(a[k])]).concat([['invalidationDescription',render(a.invalidation.description)],['followUpChecks',a.followUpChecks.map(render)]]))};
+}
+export function fallbackAnalyst(input,reason='ANALYST_FAILED'){
+  const horizon=suggestedHorizon(input),w=input.windows.find(w=>w.horizon===horizon),ids=[w.priceId || input.entryReference?.evidenceId || input.evidence[0]?.evidenceId].filter(Boolean);
+  return {version:'DIRECTIONAL_ANALYST_V1',symbol:input.symbol,evaluationTime:input.evaluationTime,marketBias:'NO_EDGE',horizon,horizonReason:'研判服务未通过验证，保留可见事实供人工研究。',conviction:'LOW',marketThesis:'方向研判不可用，事实异常仍值得研究。',marketMechanism:'尚不能形成验证通过的方向解释。',supportingEvidenceIds:ids,conflictingEvidenceIds:[],tradeOpportunity:'NO_ACTIONABLE_SETUP',preferredScenario:'等待独立方向研究。',invalidation:{type:'INSUFFICIENT_STRUCTURE_DATA',ruleIds:[],description:'尚无可靠结构失效数据；需要后续完整价格和OI样本。'},alternativeScenario:'异常可能延续，也可能回归。',followUpChecks:['核对后续价格与OI变化。']};
+}
+export async function analyzeDirectional(llm,f,{signal}={}){
+  const input=directionalInput(f),attempts=[];
+  for(let attempt=0;attempt<2;attempt++){
+    signal?.throwIfAborted();
+    try{
+      const a=await llm.json(analystRules+'输出严格遵守Schema：'+JSON.stringify(directionalSchema),{...input, ...(attempt?{repairErrors:attempts.at(-1).errors}:{})},{maxTokens:6000});
+      const guard=guardDirectional(a,input);attempts.push({attempt:attempt+1,raw:a,errors:guard.errors,diagnostics:guard.diagnostics});
+      if(guard.ok)return {status:'VALIDATED',input,analysis:a,rendered:guard.rendered,attempts};
+    }catch(e){if(signal?.aborted)throw e;attempts.push({attempt:attempt+1,error:safeError(e),errors:[safeError(e)]});}
+  }
+  return {status:'FAILED',failureReason:'ANALYST_VALIDATION_OR_REQUEST_FAILED',input,analysis:fallbackAnalyst(input),rendered:null,attempts};
+}

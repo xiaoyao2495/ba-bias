@@ -1,0 +1,97 @@
+{
+  "live": {
+    "responses": 30,
+    "schemaPass": 27,
+    "validResponses": 8,
+    "failedResponses": 22,
+    "research": 10,
+    "validResearch": 3,
+    "failedResearch": 7,
+    "first": 2,
+    "recovery1": 1,
+    "recovery2": 0,
+    "biasCounts": {
+      "BULLISH": 1,
+      "BEARISH": 2,
+      "BULLISH_REVERSAL": 0,
+      "BEARISH_REVERSAL": 0,
+      "NO_EDGE": 0
+    },
+    "responseBiasCounts": {
+      "BULLISH": 3,
+      "BEARISH": 5,
+      "BULLISH_REVERSAL": 0,
+      "BEARISH_REVERSAL": 0,
+      "NO_EDGE": 0
+    }
+  },
+  "historical": {
+    "responses": 140,
+    "schemaPass": 95,
+    "validResponses": 32,
+    "failedResponses": 108,
+    "research": 70,
+    "validResearch": 26,
+    "failedResearch": 44,
+    "first": 13,
+    "recovery1": 13,
+    "recovery2": 0,
+    "biasCounts": {
+      "BULLISH": 3,
+      "BEARISH": 1,
+      "BULLISH_REVERSAL": 0,
+      "BEARISH_REVERSAL": 0,
+      "NO_EDGE": 22
+    },
+    "responseBiasCounts": {
+      "BULLISH": 3,
+      "BEARISH": 1,
+      "BULLISH_REVERSAL": 0,
+      "BEARISH_REVERSAL": 0,
+      "NO_EDGE": 28
+    }
+  },
+  "baselineHistorical": 25,
+  "regressions": [],
+  "holdout": {
+    "real": 10,
+    "realMatched": 10,
+    "legalFalseRejections": 0,
+    "unsupportedLeaks": 0,
+    "legalForecastPass": 6,
+    "language": 8,
+    "languageMatched": 8,
+    "languageFalseRejections": 0,
+    "languageLeaks": 0
+  },
+  "issueCounts": {
+    "FALSE_REJECTION": {
+      "total": 405,
+      "removed": 403,
+      "residual": 2
+    },
+    "TRUE_REJECTION": {
+      "total": 66,
+      "removed": 50,
+      "residual": 16
+    },
+    "CONTRACT_MISMATCH": {
+      "total": 103,
+      "removed": 81,
+      "residual": 22
+    },
+    "UNDETERMINED": {
+      "total": 43,
+      "removed": 20,
+      "residual": 23
+    }
+  },
+  "removed": {
+    "numericAtoms": 224,
+    "symbolAtoms": 298,
+    "denialAtoms": 9
+  },
+  "numericFullyClearedResponses": 17,
+  "symbolFullyClearedResponses": 23,
+  "overlapWithHistorical": 7
+}

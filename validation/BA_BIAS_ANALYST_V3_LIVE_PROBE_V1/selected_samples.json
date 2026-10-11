@@ -1,0 +1,6 @@
+{
+  "planned": 10,
+  "actualExecutable": 0,
+  "selected": [],
+  "reason": "No historical package proves complete core evidence acquired by its original evaluationTime. Excluding uncertain fields removes mandatory core input; original evaluationTime is not shifted."
+}

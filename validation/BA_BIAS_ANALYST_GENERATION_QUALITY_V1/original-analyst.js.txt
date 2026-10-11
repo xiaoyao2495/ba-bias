@@ -1,0 +1,32 @@
+import {directionalInput,suggestedHorizon} from './directional-context.js';
+import {safeError} from '../config.js';
+import {guardLegacyDirectional} from './directional-legacy-guard.js';
+import {guardAlignedDirectional} from './directional-alignment-guard.js';
+import {directionalSchemaV2} from './directional-schema.js';
+export const analystRules=`你是独立未来行情方向研究员，不否决已合格事实新闻。输出DIRECTIONAL_ANALYST_V2严格JSON，字段与Schema逐项一致，不添加extraNotes/解释字段。
+OBSERVATION：输入evidence是真实可引用集合，只能用其中精确Evidence ID。事实数字优先{{evidenceId}}，可手写但必须指标、单位、窗口、口径和舍入一致。OI为合约数量，不是名义价值或单侧仓位。账户比例不是仓位比例；顶部账户与顶部持仓分开；未接入/缺失不是中性。
+MECHANISM：marketMechanism可提出有价格及同窗口OI支持的可能机制，例如价格上行/OI下降与部分空头回补的可能性相容；绝不声称已确认单侧开平仓、强平或资金流入。不同候选不套固定机制。
+FORECAST_HYPOTHESIS：marketThesis、preferredScenario、alternativeScenario对未来明确horizon给出不确定倾向，证据证明依据事实，不证明未来结果。不要因无法证明预测必然正确一律NO_EDGE。与当下走势相反的倾向需要明确冲突/参与量依据；只有Funding或账户翻转不支持反转。禁止胜率、概率、收益率、目标价和未经验证的结构价位或ICT事件。
+引用规则：支持/冲突列表仅选真正支持论点或不利于论点的已有ID；正文的背景引用可不在列表，但必须在输入Registry。允许显式跨周期比较，不把24h写成1h，不把滚动与已收盘或此前等长窗口混淆；不同周期不是同时发生的证据。反转是假设，须当前与此前同长度价格窗口真实转向，不需要未接入MSS/BOS/FVG，不能声称结构反转已确认。
+LOW/MODERATE/HIGH为定性强度非胜率；缺少对齐OI必须LOW；HIGH需要当前1h价格/OI一致扩张和相对量佐证且无重大冲突。方向与交易机会分离，无可靠结构不得LONG_SETUP/SHORT_SETUP。
+invalidation：OBSERVABLE_CONDITION只用当前horizon真实rules，价格规则INVALIDATED，OI规则THESIS_WARNING。METRIC_BASED_REASSESSMENT可写未来同期价格/OI转弱等可观察条件，ruleIds可空；不得用模糊描述自动INVALIDATED。INSUFFICIENT_STRUCTURE_DATA须ruleIds空，说明缺失，不能编价格。PRICE_STRUCTURE_INVALIDATION只有实际结构可用才可用，当前未接入。HORIZON_EXPIRED由程序到期处理。已有程序阈值可作为指标观察参考，但不能自行造阈值。
+正已结算Funding多头支付空头，负已结算Funding空头支付多头，支付关系引用真实最新结算ID；Funding不能保证未来方向。否定风险说明不代表肯定相应行为。followUpChecks最多两项，各文字最多400字符。支持/冲突最多128 ID，不要求凑数。version固定为DIRECTIONAL_ANALYST_V2，使用输入contractVersion，不复制输入容器version；symbol/evaluationTime照输入；direction字段实际名marketBias。`;
+export function guardDirectional(a,input,{replayContractVersion}={}){
+  return a?.version==='DIRECTIONAL_ANALYST_V2'||replayContractVersion==='DIRECTIONAL_ANALYST_V2'?guardAlignedDirectional(a,input):guardLegacyDirectional(a,input);
+}
+export function fallbackAnalyst(input,reason='ANALYST_FAILED'){
+  const horizon=suggestedHorizon(input),w=input.windows.find(w=>w.horizon===horizon),ids=[w.priceId || input.entryReference?.evidenceId || input.evidence[0]?.evidenceId].filter(Boolean);
+  return {version:input.contractVersion || 'DIRECTIONAL_ANALYST_V1',symbol:input.symbol,evaluationTime:input.evaluationTime,marketBias:'NO_EDGE',horizon,horizonReason:'研判服务未通过验证，保留可见事实供人工研究。',conviction:'LOW',marketThesis:'方向研判不可用，事实异常仍值得研究。',marketMechanism:'尚不能形成验证通过的方向解释。',supportingEvidenceIds:ids,conflictingEvidenceIds:[],tradeOpportunity:'NO_ACTIONABLE_SETUP',preferredScenario:'等待独立方向研究。',invalidation:{type:'INSUFFICIENT_STRUCTURE_DATA',ruleIds:[],description:'尚无可靠结构失效数据；需要后续完整价格和OI样本。'},alternativeScenario:'异常可能延续，也可能回归。',followUpChecks:['核对后续价格与OI变化。']};
+}
+export async function analyzeDirectional(llm,f,{signal}={}){
+  const input=directionalInput(f,{contractVersion:'DIRECTIONAL_ANALYST_V2'}),attempts=[];
+  for(let attempt=0;attempt<2;attempt++){
+    signal?.throwIfAborted();
+    try{
+      const a=await llm.json(analystRules+'输出严格遵守Schema：'+JSON.stringify(directionalSchemaV2),attempt?{...input,repairErrors:attempts.at(-1).errors,contractRepair:{originalInput:input,originalResponse:attempts.at(-1).raw ?? null,preciseErrors:attempts.at(-1).diagnostics ?? attempts.at(-1).errors,allowedEvidenceIds:input.evidenceGuide.allowedEvidenceIds,mustFix:'Repair contract fields and unsupported assertions; do not invent observations or IDs.'}}:input,{maxTokens:6000});
+      const guard=!a?.version||a.version==='DIRECTIONAL_ANALYST_V2'?guardDirectional(a,input,{replayContractVersion:'DIRECTIONAL_ANALYST_V2'}):{ok:false,errors:['OUTPUT_CONTRACT_VERSION_MISMATCH'],diagnostics:[{code:'OUTPUT_CONTRACT_VERSION_MISMATCH',path:'/version'}]};attempts.push({attempt:attempt+1,raw:a,errors:guard.errors,diagnostics:guard.diagnostics});
+      if(guard.ok)return {status:'VALIDATED',validationRoute:attempt?'CONTROLLED_RECOVERY_PASS':'FIRST_PASS',contractVersion:'DIRECTIONAL_ANALYST_V2',input,analysis:a,rendered:guard.rendered,attempts};
+    }catch(e){if(signal?.aborted)throw e;attempts.push({attempt:attempt+1,error:safeError(e),errors:[safeError(e)]});if(!['INVALID_LLM_JSON','EMPTY_LLM_RESPONSE'].includes(e.message))break;}
+  }
+  return {status:'FAILED',validationRoute:'FINAL_FAILED',contractVersion:'DIRECTIONAL_ANALYST_V2',failureReason:'ANALYST_VALIDATION_OR_REQUEST_FAILED',input,analysis:fallbackAnalyst(input),rendered:null,attempts};
+}
