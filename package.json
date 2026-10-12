@@ -14,7 +14,10 @@
     "once": "node src/main.js once",
     "scheduler": "node src/scheduler.js",
     "test": "node --test test/*.test.js",
-    "scan:once": "node src/main.js scan"
+    "scan:once": "node src/main.js scan",
+    "web": "node src/web/server.js",
+    "web:doctor": "node scripts/dashboard-doctor.js",
+    "web:password": "node scripts/dashboard-password.js"
   },
   "dependencies": {
     "ajv": "^8.17.1",
