@@ -79,7 +79,7 @@ npm run scan
 node src/scan-daemon.js
 ```
 
-两种入口调用相同程序，终端保持运行。使用 node-cron，明确 `timezone: Asia/Shanghai`、`0 9-23 * * *`，每日09:00–23:00共15个计划小时。启动只显示配置和下一轮时间，不立即扫描或补跑历史；计划整点延迟10秒获取已收盘行情。稳定 runId 为 `hourly_YYYYMMDD_HH00`，归属计划小时。
+两种入口调用相同程序，终端保持运行。使用 node-cron，明确 `timezone: Asia/Shanghai`、`0 * * * *`，每日00:00–23:00共24个计划小时。启动只显示配置和下一轮时间，不立即扫描或补跑历史；计划整点延迟10秒获取已收盘行情。稳定 runId 为 `hourly_YYYYMMDD_HH00`，归属计划小时。
 
 常驻与手动研究共享 `runResearch`，保留事实口径和阈值；逐一评估全部有效深查候选，输出全部合格新情报，不限制输出数量。没有合格新情报只记本地日志。`npm run scan:once` 只读取市场/Facts，不调用 DeepSeek 或钉钉；`npm run once` 完整研究但不发送，`npm run once -- --send` 允许发送。`npm run scheduler` 保留为常驻入口兼容别名。
 

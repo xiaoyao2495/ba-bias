@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {EventEmitter} from 'node:events';
 import cron from 'node-cron';
 import {createScanner,isScheduledAt,hourlyRunId,nextScheduledAt,SCHEDULE,TIMEZONE} from '../src/scan-daemon.js';
@@ -60,13 +61,13 @@ async function pipeline({runId='TEST_HOURLY',mode='once',sendEnabled=true,judgeE
 }
 const record=()=>({runId:'TEST_CURRENT',symbol,storyKey:'TEST_FIXTURE_KEY',generatedAt:100,article:{},approval:{judgeEligible:true,claimGuardPassed:true},delivery:{status:'PENDING',attempts:0},risks:[]});
 const ack=()=>({status:'SENT',sent:true,acknowledgement:{errcode:0}});
-test('cron explicitly matches Asia/Shanghai 09-23 with exactly 15 daily slots',async()=>{
+test('cron explicitly matches Asia/Shanghai 00-23 with exactly 24 daily slots',async()=>{
   const task=cron.createTask(SCHEDULE,()=>{throw Error('NEVER_EXECUTE');},{timezone:TIMEZONE});
-  try{let matched=0;for(let h=0;h<24;h++){const t=ms(`2026-10-10T${String(h).padStart(2,'0')}:00:00`);assert.equal(task.match(new Date(t)),h>=9&&h<=23);if(task.match(new Date(t)))matched++;assert.equal(isScheduledAt(t),h>=9&&h<=23);}assert.equal(matched,15);}finally{await task.destroy();}
+  try{let matched=0;for(let h=0;h<24;h++){const t=ms(`2026-10-10T${String(h).padStart(2,'0')}:00:00`);assert.equal(task.match(new Date(t)),true);if(task.match(new Date(t)))matched++;assert.equal(isScheduledAt(t),true);}assert.equal(matched,24);}finally{await task.destroy();}
 });
-test('23:00 and non-running hours wait for next day 09:00',()=>{for(const time of ['23:00:00','23:00:10','23:59:59'])assert.equal(times(nextScheduledAt(ms('2026-10-10T'+time))).shanghai,'2026-10-11T09:00:00.000+08:00');assert.equal(times(nextScheduledAt(ms('2026-10-10T04:00:00'))).shanghai,'2026-10-10T09:00:00.000+08:00');});
+test('23:00 rolls to next day 00:00; early hours use the next hour',()=>{for(const time of ['23:00:00','23:00:10','23:59:59'])assert.equal(times(nextScheduledAt(ms('2026-10-10T'+time))).shanghai,'2026-10-11T00:00:00.000+08:00');assert.equal(times(nextScheduledAt(ms('2026-10-10T04:00:00'))).shanghai,'2026-10-10T05:00:00.000+08:00');});
 test('startup at scheduled hour does not scan immediately or catch up',async()=>{let runs=0;const h=harness(ms('2026-10-10T10:00:00'),async()=>runs++);await h.scanner.start();assert.equal(runs,0);assert.equal(h.taskOptions.timezone,TIMEZONE);await h.trigger(ms('2026-10-10T10:00:00'));await h.trigger(ms('2026-10-10T09:00:00'));assert.equal(runs,0);assert.equal(h.clock.timers.length,0);await h.scanner.stop();});
-test('off-hours and non-hourly events never scan',async()=>{let runs=0;const h=harness(ms('2026-10-10T00:00:00'),async()=>runs++);await h.scanner.start();for(const t of ['08:00:00','10:01:00','23:59:00']){h.clock.value=ms('2026-10-10T'+t);await h.trigger(h.clock.value);}assert.equal(runs,0);await h.scanner.stop();});
+test('non-hourly events never scan',async()=>{let runs=0;const h=harness(ms('2026-10-10T00:00:00'),async()=>runs++);await h.scanner.start();for(const t of ['08:00:01','10:01:00','23:59:00']){h.clock.value=ms('2026-10-10T'+t);await h.trigger(h.clock.value);}assert.equal(runs,0);await h.scanner.stop();});
 test('scheduled slot waits 10 seconds, stable hourly runId and enabled notices',async()=>{
   let received,deps;const h=harness(undefined,async(o,d)=>{received=o;deps=d;});await h.scanner.start();const slot=ms('2026-10-10T09:00:00');h.clock.value=slot;const p=h.trigger(slot);await h.clock.advance(slot+9999);assert.equal(received,undefined);await h.clock.advance(slot+10000);await p;
   assert.equal(received.runId,'hourly_20261010_0900');assert.equal(received.scheduledAt,slot);assert.equal(received.mode,'once');assert.equal(received.sendEnabled,true);assert.equal(received.triggerType,'HOURLY');assert.equal(received.handleSignals,false);assert.equal(deps.now,h.clock.now);await h.scanner.stop();
@@ -82,7 +83,7 @@ test('SIGINT stops pending delay, removes listeners and starts no research',asyn
 test('SIGTERM aborts active research and waits for persistence before stopping',async()=>{
   let persisted=false;const h=harness(undefined,async options=>{await new Promise(resolve=>options.signal.addEventListener('abort',resolve,{once:true}));await flush();persisted=true;});await h.scanner.start();h.clock.value=ms('2026-10-10T09:00:00');const p=h.trigger(h.clock.value);await h.clock.advance(h.clock.value+10000);h.signals.emit('SIGTERM');await h.scanner.stop();await p;assert.equal(persisted,true);assert.equal(h.scanner.state.running,false);assert.equal(h.task.stopped,1);
 });
-test('manual and hourly modes share exactly the same research function',()=>{assert.equal(run,runResearch);assert.equal(hourlyRunId(ms('2026-10-10T10:00:00')),'hourly_20261010_1000');assert.throws(()=>hourlyRunId(ms('2026-10-10T08:00:00')));});
+test('manual and hourly modes share exactly the same research function',()=>{assert.equal(run,runResearch);assert.equal(hourlyRunId(ms('2026-10-10T10:00:00')),'hourly_20261010_1000');assert.equal(hourlyRunId(ms('2026-10-10T08:00:00')),'hourly_20261010_0800');assert.throws(()=>hourlyRunId(ms('2026-10-10T08:00:01')));});
 test('new intelligence is saved first, then all DingTalk parts confirmed and counted',async()=>{
   const messages=[];const p=await pipeline({options:{triggerType:'HOURLY',scheduledAt:ms('2026-10-10T10:00:00')},transport:async request=>{messages.push(request.data.text.content);return {errcode:0};}});
   const text=messages.join('');assert.match(text,/检测 · BA-BIAS/);assert.match(text,/检测 · TESTUSDT｜/);assert.match(text,/RunId：TEST_HOURLY/);assert.match(text,/风险：/);
@@ -254,4 +255,46 @@ test('recovery does not downgrade a completed summary when history commit was in
     const file=path.join(p.dir,'state','history.json'),history=await readJson(file);history.runs.TEST_HOURLY.status='RUNNING';await atomicWrite(file,history);
     const before=p.apis;const r=await runResearch({mode:'once',runId:'TEST_HOURLY',sendEnabled:false,handleSignals:false},p.deps);assert.equal(r.status,'COMPLETE');assert.equal(p.apis,before);assert.equal((await readJson(path.join(p.dir,'runs','TEST_HOURLY','result.json'))).status,'COMPLETE');
   }});
+});
+
+// 24H schedule acceptance: Fake Clock, injected research, no external requests.
+for(const hour of ['00','01','08','09','23'])test(`24H ${hour}:00 uses Shanghai hour and original runId`,async()=>{
+ const slot=ms(`2026-10-12T${hour}:00:00`),calls=[];const h=harness(slot-60000,async o=>calls.push(o));
+ await h.scanner.start();try{assert.equal(calls.length,0);h.clock.value=slot;const pending=h.trigger(slot);await h.clock.advance(slot+9999);assert.equal(calls.length,0);await h.clock.advance(slot+10000);await pending;assert.equal(calls.length,1);assert.equal(calls[0].runId,`hourly_20261012_${hour}00`);assert.equal(calls[0].scheduledAt,slot);await h.trigger(slot);assert.equal(calls.length,1);}finally{await h.scanner.stop();}
+});
+test('24H full day has exactly 24 unique executions, no extra 25th from duplicate events',async()=>{
+ const midnight=ms('2026-10-12T00:00:00'),calls=[],h=harness(midnight-1000,async o=>calls.push(o));await h.scanner.start();
+ try{for(let hour=0;hour<24;hour++){const slot=midnight+hour*3600000;h.clock.value=slot;const p=h.trigger(slot);await h.clock.advance(slot+10000);await p;await h.trigger(slot);}assert.equal(calls.length,24);assert.equal(new Set(calls.map(c=>c.runId)).size,24);assert.equal(calls.at(-1).runId,'hourly_20261012_2300');assert.equal(h.skips.length,0);h.clock.value=midnight+86400000;assert.equal(calls.length,24);assert.equal(nextScheduledAt(midnight+86399999),midnight+86400000);}finally{await h.scanner.stop();}
+});
+test('24H 23:00 then next midnight preserves date-specific run identity',async()=>{
+ const slot=ms('2026-10-12T23:00:00'),calls=[],h=harness(slot-1000,async o=>calls.push(o.runId));await h.scanner.start();
+ try{for(const t of [slot,slot+3600000]){h.clock.value=t;const p=h.trigger(t);await h.clock.advance(t+10000);await p;}assert.deepEqual(calls,['hourly_20261012_2300','hourly_20261013_0000']);}finally{await h.scanner.stop();}
+});
+test('24H 23:59:59 startup waits for midnight; never runs an extra startup scan',async()=>{
+ const slot=ms('2026-10-13T00:00:00'),calls=[],h=harness(slot-1000,async o=>calls.push(o.runId));await h.scanner.start();
+ try{assert.equal(calls.length,0);assert.equal(nextScheduledAt(h.clock.value),slot);await h.trigger(slot-3600000);assert.equal(calls.length,0);h.clock.value=slot;const p=h.trigger(slot);await h.clock.advance(slot+10000);await p;assert.deepEqual(calls,['hourly_20261013_0000']);}finally{await h.scanner.stop();}
+});
+test('24H non-hour startup at 00:17 does not backfill newly enabled night hours',async()=>{
+ const start=ms('2026-10-12T00:17:00'),calls=[],h=harness(start,async o=>calls.push(o));await h.scanner.start();
+ try{for(const t of [ms('2026-10-11T23:00:00'),ms('2026-10-12T00:00:00')])await h.trigger(t);assert.equal(calls.length,0);assert.equal(h.skips.length,0);assert.equal(nextScheduledAt(start),ms('2026-10-12T01:00:00'));}finally{await h.scanner.stop();}
+});
+test('24H start is idempotent: only one cron task registered per Scanner instance',async()=>{const h=harness();await h.scanner.start();try{await h.scanner.start();assert.equal(h.task.started,1);assert.equal(h.signals.listenerCount('SIGINT'),1);assert.equal(h.taskOptions.timezone,'Asia/Shanghai');assert.ok(h.events.some(([k,v])=>k==='banner'&&v.includes('Schedule: 0 * * * *')));}finally{await h.scanner.stop();}});
+test('24H long 23:00 run skips midnight overlap and resumes next future hour',async()=>{
+ const slot=ms('2026-10-12T23:00:00'),calls=[];let finish;const h=harness(slot-1000,async o=>{calls.push(o.runId);if(calls.length===1)await new Promise(r=>finish=r);});await h.scanner.start();
+ try{h.clock.value=slot;const first=h.trigger(slot);await h.clock.advance(slot+10000);h.clock.value=slot+3600000;await h.trigger(h.clock.value);assert.equal(calls.length,1);assert.equal(h.skips[0].status,'SKIPPED_OVERLAP');assert.equal(h.skips[0].runId,'hourly_20261013_0000');finish();await first;h.clock.value=slot+7200000;const next=h.trigger(h.clock.value);await h.clock.advance(h.clock.value+10000);await next;assert.deepEqual(calls,['hourly_20261012_2300','hourly_20261013_0100']);}finally{finish?.();await h.scanner.stop();}
+});
+for(const delay of [59999,60000])test(`24H missed boundary unchanged at ${delay}ms`,async()=>{
+ const slot=ms('2026-10-12T00:00:00'),calls=[],h=harness(slot-1000,async o=>calls.push(o));await h.scanner.start();
+ try{h.clock.value=slot+delay;const p=h.trigger(slot);await h.clock.advance(slot+delay);await p;assert.equal(calls.length,delay<60000?1:0);assert.equal(h.skips.length,delay<60000?0:1);if(delay===60000)assert.equal(h.skips[0].status,'SKIPPED_MISSED');}finally{await h.scanner.stop();}
+});
+test('24H suspension during close delay still skips late run instead of catching up',async()=>{
+ const slot=ms('2026-10-12T00:00:00');let calls=0;const h=harness(slot-1000,async()=>calls++);await h.scanner.start();
+ try{h.clock.value=slot;const p=h.trigger(slot);h.clock.value=slot+60000;h.clock.timers.shift().resolve();await flush();await p;assert.equal(calls,0);assert.equal(h.skips[0].status,'SKIPPED_MISSED');}finally{await h.scanner.stop();}
+});
+for(const zone of ['America/Los_Angeles','Pacific/Honolulu','UTC'])test(`24H OS timezone ${zone} cannot alter Shanghai schedule`,()=>{
+ const code=`import assert from 'node:assert/strict';import cron from 'node-cron';import {SCHEDULE,TIMEZONE,hourlyRunId,nextScheduledAt} from './src/scan-daemon.js';const t=Date.parse('2026-10-11T16:00:00Z');const task=cron.createTask(SCHEDULE,()=>{throw Error('NO_REAL_RUN');},{timezone:TIMEZONE});assert.equal(TIMEZONE,'Asia/Shanghai');assert.equal(task.match(new Date(t)),true);assert.equal(task.match(new Date(t+1000)),false);assert.equal(hourlyRunId(t),'hourly_20261012_0000');assert.equal(nextScheduledAt(t-1000),t);await task.destroy();`;
+ execFileSync(process.execPath,['--input-type=module','-e',code],{cwd:process.cwd(),env:{...process.env,TZ:zone},timeout:10000});
+});
+test('24H already persisted midnight run cannot repeat any market, model or delivery call',async()=>{
+ await pipeline({runId:'hourly_20261012_0000',before:async dir=>{await atomicWrite(path.join(dir,'state','history.json'),{...emptyHistory(),runs:{hourly_20261012_0000:{status:'COMPLETE',scheduledAt:ms('2026-10-12T00:00:00')}}});},after:async p=>{assert.equal(p.apis,0);assert.equal(p.sends,0);assert.equal(p.r.status,'COMPLETE');}});
 });

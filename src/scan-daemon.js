@@ -5,10 +5,10 @@ import {config,times,safeError} from './config.js';
 import {runResearch,saveSkippedRun} from './main.js';
 import {flushDeliveryQueue} from './storage/delivery-queue.js';
 import {terminalLogger} from './logging.js';
-export const SCHEDULE='0 9-23 * * *',TIMEZONE='Asia/Shanghai',CLOSE_DELAY_MS=10000;
+export const SCHEDULE='0 * * * *',TIMEZONE='Asia/Shanghai',CLOSE_DELAY_MS=10000;
 export function isScheduledAt(ms){
   if(!Number.isSafeInteger(ms)||ms%3600000!==0)return false;
-  const hour=Number(times(ms).shanghai.slice(11,13));return hour>=9 && hour<=23;
+  const hour=Number(times(ms).shanghai.slice(11,13));return hour>=0 && hour<=23;
 }
 export function hourlyRunId(ms){
   if(!isScheduledAt(ms))throw new Error('INVALID_SCHEDULED_AT');
@@ -57,7 +57,7 @@ export function createScanner({scheduler=cron,research=runResearch,deliveryWorke
       logger:{info:()=>{},warn:()=>log('Scheduler warning'),error:()=>log('Scheduler error'),debug:()=>{}}});
     task.on?.('execution:missed',ctx=>{void record(ctx.date.getTime(),'SKIPPED_MISSED');});
     signals.on('SIGINT',onSignal);signals.on('SIGTERM',onSignal);
-    write('BA-BIAS Shadow Scanner\nMode: HOURLY\nTimezone: Asia/Shanghai\nSchedule: 0 9-23 * * *\nDingTalk: ENABLED\nStatus: WAITING');next();
+    write('BA-BIAS Shadow Scanner\nMode: HOURLY\nTimezone: Asia/Shanghai\nSchedule: 0 * * * *\nDingTalk: ENABLED\nStatus: WAITING');next();
     try{await task.start();}catch(e){await stop();throw e;}
     if(deliveryWorker){queueTimer=scheduleQueuePoll(()=>{
       if(stopping || active || queueActive)return;
