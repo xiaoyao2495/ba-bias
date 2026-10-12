@@ -1,3 +1,5 @@
+import {publicDTO} from './public-dto.js';
+import {publicRoute,publicGet} from './public-routes.js';
 import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -10,8 +12,9 @@ const staticFiles={'/':'index.html','/assets/app.js':'assets/app.js','/assets/st
 const pagePattern=/^\/(?:selector|history|system|runs(?:\/[A-Za-z0-9_-]{1,100})?|symbol\/[\p{L}\p{N}]{1,40}USDT)$/u;
 const integer=(value,fallback,max)=>{if(value===null)return fallback;const n=Number(value);if(!Number.isInteger(n)||n<1||n>max)throw Object.assign(Error('INVALID_PAGINATION'),{status:400});return n;};
 async function body(req){let text='';for await(const b of req){text+=b.toString('utf8');if(Buffer.byteLength(text)>4096)throw Object.assign(Error('BODY_TOO_LARGE'),{status:413});}try{return JSON.parse(text);}catch{throw Object.assign(Error('INVALID_JSON'),{status:400});}}
-export function createWebServer(config,{reader=new Reader(config.dataDir,{secrets:Object.entries(process.env).filter(([k])=>/KEY|TOKEN|PASSWORD|WEBHOOK|SECRET/i.test(k)).map(([,v])=>v)}),now=Date.now,processProbe=scannerProcesses,log=event=>console.log(JSON.stringify({service:'ba-bias-web',event}))}={}){
- const auth=sessions({now,ttl:config.sessionMs}),rate=limiter({now,max:180}),loginRate=limiter({now,max:5,windowMs:15*60000}),globalLoginRate=limiter({now,max:20,windowMs:60000});let healthCache=null,healthAt=0,healthPending=null;let systemCache=null,systemAt=0,systemPending=null;
+export function createWebServer(config,{reader=new Reader(config.dataDir,{maxEntries:config.publicReadonly?100:500,maxFileBytes:config.publicReadonly?2*1024*1024:16*1024*1024,maxHistoryBytes:16*1024*1024,secrets:Object.entries(process.env).filter(([k])=>/KEY|TOKEN|PASSWORD|WEBHOOK|SECRET/i.test(k)).map(([,v])=>v)}),now=Date.now,processProbe=scannerProcesses,log=event=>console.log(JSON.stringify({service:'ba-bias-web',event}))}={}){
+ const auth=config.publicReadonly?null:sessions({now,ttl:config.sessionMs}),rate=limiter({now,max:config.publicReadonly?60:180}),loginRate=limiter({now,max:5,windowMs:15*60000}),globalLoginRate=limiter({now,max:20,windowMs:60000});let publicActive=0;let healthCache=null,healthAt=0,healthPending=null;let systemCache=null,systemAt=0,systemPending=null;
+ const dto=publicDTO(reader.secrets||Object.entries(process.env).filter(([k])=>/KEY|TOKEN|PASSWORD|WEBHOOK|SECRET/i.test(k)).map(([,v])=>v)),publicRate=limiter({now,max:600,capacity:1});
  const clean=v=>reader.clean(v);const cookie=(id,expired=false)=>`ba_bias_session=${id}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${expired?0:config.sessionMs/1000}${config.secure?'; Secure':''}`;
  async function health(){if(healthCache&&now()-healthAt<15000)return healthCache;if(healthPending)return healthPending;
   healthPending=(async()=>{const lock=await reader.json('state/run.lock'),probe=await processProbe(config.projectRoot,lock.value?.pid),idx=await reader.runsIndex(),latest=idx.items[0]?await reader.run(idx.items[0].runId).catch(()=>null):null;let heartbeat=null;try{const file=await reader.contained('state/run.lease');heartbeat=(await fs.stat(file)).mtimeMs;}catch{}
@@ -26,22 +29,34 @@ export function createWebServer(config,{reader=new Reader(config.dataDir,{secret
  }
  const server=http.createServer(async(req,res)=>{
   res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('X-Frame-Options','DENY');res.setHeader('Referrer-Policy','no-referrer');res.setHeader('Permissions-Policy','camera=(), microphone=(), geolocation=()');res.setHeader('Content-Security-Policy',"default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'");if(config.secure)res.setHeader('Strict-Transport-Security','max-age=31536000');
-  const send=(code,value)=>{res.writeHead(code,{'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(clean(value)));};
+  const send=(code,value)=>{const json=JSON.stringify(clean(value));if(config.publicReadonly&&Buffer.byteLength(json)>1048576){res.writeHead(503,{'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify({error:'PUBLIC_RESPONSE_LIMIT'}));return;}res.writeHead(code,{'Content-Type':'application/json; charset=utf-8'});res.end(json);};
   try{
    if(req.headers.host!==new URL(config.origin).host)return send(400,{error:'UNTRUSTED_HOST'});
    if(req.headers.origin&&req.headers.origin!==config.origin)return send(403,{error:'UNTRUSTED_ORIGIN'});
    if(req.headers['sec-fetch-site']==='cross-site')return send(403,{error:'CROSS_SITE_REQUEST'});
    const ip=req.socket.remoteAddress||'unknown';if(!rate(ip))return send(429,{error:'RATE_LIMITED'});
    if(/%2f|%5c|%00|\.\.|\\/i.test(req.url))return send(400,{error:'PATH_REJECTED'});
+   if(config.publicReadonly&&(req.url.length>2048))return send(414,{error:'PUBLIC_URL_LIMIT'});
+   if(config.publicReadonly&&(Number(req.headers['content-length']||0)>0||req.headers['transfer-encoding']))return send(413,{error:'PUBLIC_BODY_FORBIDDEN'});
    const url=new URL(req.url,config.origin),pathname=decodeURIComponent(url.pathname),q=url.searchParams;
-   const id=req.headers.cookie?.match(/(?:^|;\s*)ba_bias_session=([a-f0-9]{64})(?:;|$)/)?.[1],session=auth.get(id);
-   if(pathname==='/api/login'&&req.method==='POST'){
+   if(pathname==='/api/web-mode'&&req.method==='GET'){if(config.publicReadonly)res.setHeader('Set-Cookie',cookie('',true));return send(200,{mode:config.publicReadonly?'PUBLIC_READONLY':'PRIVATE_AUTHENTICATED'});}
+   if(config.publicReadonly){
+    if(req.method!=='GET')return send(405,{error:'PUBLIC_READ_ONLY'});
+    if(!publicRate('public'))return send(429,{error:'RATE_LIMITED'});
+    const route=publicRoute(pathname);if(!route)return send(403,{error:'PUBLIC_ROUTE_FORBIDDEN'});
+    // Ignore and expire legacy cookies; never create a public session.
+    res.setHeader('Set-Cookie',cookie('',true));
+    if(route==='API'){if(publicActive>=4)return send(503,{error:'PUBLIC_BUSY'});publicActive++;try{const output=await publicGet(pathname,q,reader,dto);return send(200,{...output,servedAt:now()});}finally{publicActive--;}}
+    // Approved static requests continue to the same fixed resource map below.
+   }
+   const id=config.publicReadonly?undefined:req.headers.cookie?.match(/(?:^|;\s*)ba_bias_session=([a-f0-9]{64})(?:;|$)/)?.[1],session=auth?.get(id);
+   if(!config.publicReadonly&&pathname==='/api/login'&&req.method==='POST'){
     if(req.headers.origin!==config.origin||!req.headers['content-type']?.startsWith('application/json'))return send(403,{error:'LOGIN_ORIGIN_REQUIRED'});
     if(!loginRate(ip)||!globalLoginRate('global'))return send(429,{error:'LOGIN_RATE_LIMITED'});
     const input=await body(req);if(!await verifyPassword(input.password,config.passwordHash)){log('LOGIN_FAILED');return send(401,{error:'INVALID_CREDENTIALS'});}
     const created=auth.create();res.setHeader('Set-Cookie',cookie(created.id));log('LOGIN_SUCCEEDED');return send(200,{ok:true,csrf:created.csrf});
    }
-   if(pathname.startsWith('/api/')){
+   if(!config.publicReadonly&&pathname.startsWith('/api/')){
     if(!session)return send(401,{error:'AUTHENTICATION_REQUIRED'});
     if(pathname==='/api/logout'&&req.method==='POST'){if(req.headers.origin!==config.origin||req.headers['x-csrf-token']!==session.csrf)return send(403,{error:'CSRF_REJECTED'});auth.remove(id);res.setHeader('Set-Cookie',cookie('',true));return send(200,{ok:true});}
     if(req.method!=='GET')return send(405,{error:'READ_ONLY_API'});
@@ -61,11 +76,11 @@ export function createWebServer(config,{reader=new Reader(config.dataDir,{secret
    }
    if(req.method!=='GET')return send(405,{error:'METHOD_NOT_ALLOWED'});
    const relative=staticFiles[pathname]||(pagePattern.test(pathname)?'index.html':null);if(!relative)return send(404,{error:'NOT_FOUND'});
-   const text=await fs.readFile(path.join(projectRoot,'web',relative));res.writeHead(200,{'Content-Type':relative.endsWith('.css')?'text/css; charset=utf-8':relative.endsWith('.js')?'text/javascript; charset=utf-8':'text/html; charset=utf-8'});res.end(text);
-  }catch(e){const status=e.status||500;log(status===500?'READ_ERROR':'REQUEST_REJECTED');send(status,{error:status===500?'WEB_READ_ERROR':e.message});}
+   let text=await fs.readFile(path.join(projectRoot,'web',relative));if(config.publicReadonly&&relative==='index.html')text=Buffer.from(text.toString('utf8').replace('id="system-status"','id="system-status" hidden'));res.writeHead(200,{'Content-Type':relative.endsWith('.css')?'text/css; charset=utf-8':relative.endsWith('.js')?'text/javascript; charset=utf-8':'text/html; charset=utf-8'});res.end(text);
+  }catch(e){const status=e.status||500;log(status===500?'READ_ERROR':'REQUEST_REJECTED');send(status,{error:config.publicReadonly?'PUBLIC_READ_ERROR':status===500?'WEB_READ_ERROR':e.message});}
  });
  server.requestTimeout=15000;server.headersTimeout=10000;server.keepAliveTimeout=5000;server.maxRequestsPerSocket=100;
  return {server,reader,health,system};
 }
-export async function startWeb(){loadWebEnvironment();const config=webConfig(),{server}=createWebServer(config);await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(config.port,config.host,resolve);});console.log(JSON.stringify({service:'ba-bias-web',event:'LISTENING',origin:config.origin,readOnly:true}));const stop=()=>server.close(()=>{process.exitCode=0;});process.once('SIGINT',stop);process.once('SIGTERM',stop);return server;}
+export async function startWeb(){loadWebEnvironment();const config=webConfig(),{server}=createWebServer(config);await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(config.port,config.host,resolve);});console.log(JSON.stringify({service:'ba-bias-web',event:'LISTENING',origin:config.origin,mode:config.mode,readOnly:true}));const stop=()=>server.close(()=>{process.exitCode=0;});process.once('SIGINT',stop);process.once('SIGTERM',stop);return server;}
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)startWeb().catch(e=>{console.error(e.code==='EADDRINUSE'?'WEB_PORT_IN_USE':e.message);process.exitCode=1;});
