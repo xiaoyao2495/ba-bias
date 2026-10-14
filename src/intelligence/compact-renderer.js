@@ -1,23 +1,19 @@
-import {displayConditions} from './v4-conditions.js';
+import {CONTRACT} from '../analysis/market-bias-v2/common.js';
+import {validateResearch} from '../analysis/market-bias-v2/parser.js';
 import {times} from '../config.js';
 
 // Presentation only: consume the persisted, verified packet; never judge eligibility
 // or derive a new market conclusion. Important text is never truncated.
 const labels={PRICE_24H:'滚动24h价格异动',PRICE_1H:'1h价格异动',OI_4H:'4h OI数量异动',FUNDING_EXTREME:'结算费率异常',FUNDING_CHANGE:'结算费率变化',FUNDING_FLIP:'结算费率翻转',VOLUME_SPIKE:'成交量异常',ACCOUNT_DISTRIBUTION_SHIFT:'全市场账户分布变化',ACCOUNT_DOMINANCE_FLIP:'多空账户翻转（已有记录）',TOP_ACCOUNT_DISTRIBUTION_SHIFT:'顶部账户分布变化',TOP_POSITION_DISTRIBUTION_SHIFT:'顶部持仓份额变化',TOP_GLOBAL_DIVERGENCE:'顶部与全市场账户背离'};
-const biases={BULLISH:'偏多延续',BEARISH:'偏空延续',BULLISH_REVERSAL:'偏向上反弹/反转',BEARISH_REVERSAL:'偏向下回落/反转',NO_EDGE:'暂无明确方向优势'};
-const opportunities={LONG_SETUP:'多头方案',SHORT_SETUP:'空头方案',WAIT_FOR_PULLBACK:'等待回踩',WAIT_FOR_CONFIRMATION:'等待确认',AVOID_CHASING:'避免追价',NO_ACTIONABLE_SETUP:'暂无可执行方案'};
 const finite=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v));
 const number=(v,digits=2,sign=false)=>finite(v)?`${sign&&Number(v)>0?'+':''}${Number(v).toFixed(digits)}`:'缺失';
 export const comparisonLabel=p=>Number.isSafeInteger(p.whatChanged?.previousObservedAt)?`相较上次有效快照（${time(p.whatChanged.previousObservedAt)}，北京）`:'相较此前记录（比较时间未知）';
 const time=v=>Number.isFinite(Number(v))&&Number(v)>0?times(Number(v)).shanghai.slice(5,16).replace('T',' '):'时间缺失';
-export function directionalDisplayState(d){
-  return d?.status==='VALIDATED'&&d.analysis&&d.rendered&&['LOW','MODERATE','HIGH'].includes(d.analysis.conviction)&&opportunities[d.analysis.tradeOpportunity]&&biases[d.analysis.marketBias]&&['1h','4h','24h'].includes(d.analysis.horizon)
-    ?d.analysis.marketBias==='NO_EDGE'?'VALID_NO_EDGE':'VALID_DIRECTION':'ANALYST_UNAVAILABLE';
-}
+export function directionalDisplayState(r){return r?.contract===CONTRACT&&validateResearch(r)&&r.executionState==='VALIDATED'?r.analysis.bias==='NO_EDGE'?'VALID_NO_EDGE':'VALID_DIRECTION':'ANALYST_UNAVAILABLE';}
 export function compactIntelligenceText(p,{runId}={}){
   const map=new Map((p.evidence || []).map(e=>[e.evidenceId,e]));
   const evidence=key=>map.get(`${p.symbol}:${key}`),kinds=new Set((p.anomalies || []).map(a=>a.kind));
-  const lines=[`检测 · ${p.symbol}｜${p.storyType==='MATERIAL_UPDATE'?'重要变化：':''}${[...kinds].map(k=>labels[k] || k).join('、') || '市场异常'}`,
+  const lines=[`检测 · BA-BIAS / ${p.symbol}｜${p.storyType==='MATERIAL_UPDATE'?'重要变化：':''}${[...kinds].map(k=>labels[k] || k).join('、') || '市场异常'}`,
     p.storyType==='MATERIAL_UPDATE'?'重要变化（MATERIAL_UPDATE）：本轮有实质新证据，见下列已验证数据。':'首次情报（NEW_STORY）：以下为本轮已核实的异常事实。'];
   if(p.identity?.projectName)lines.push(`身份：${p.identity.projectName}`);
   const shown=new Set();
@@ -73,23 +69,9 @@ export function compactIntelligenceText(p,{runId}={}){
       if(s?.quality?.available&&finite(before)&&finite(after)&&Number(before)>=0&&Number(before)<=100&&Number(after)===Number(s.latestLongAccountPct ?? s.topLongPositionShare)&&Number(before)!==Number(after))lines.push(`${comparisonLabel(p)}${label}多方：${number(before)}% → ${number(after)}%`);
     }
   }
-  const d=p.directional,state=directionalDisplayState(d);
-  if(state==='ANALYST_UNAVAILABLE'){
-    lines.push('市场判断：方向研判不可用，需人工复核。',`观察周期：${d?.fallbackHorizon || '未确定'}（仅供复核，非有效方向结论）。`,'观察：复核异常记录及后续同期价格、OI与成交量变化。');
-  }else{
-    const a=d.analysis,r=d.rendered;
-    lines.push(`方向${d.analystVersion==='V4'?'（V4）':''}：${biases[a.marketBias]}｜周期：${a.horizon}｜强度：${{LOW:'低',MODERATE:'中等',HIGH:'较强'}[a.conviction] || '未确定'}（定性，非胜率）`);
-    if(biases[d.previousValidatedDirection]&&d.previousValidatedDirection!==a.marketBias&&p.storyType==='MATERIAL_UPDATE'&&p.whatChanged?.previousRunId&&p.whatChanged?.reason==='MATERIAL_EVIDENCE_AND_DIRECTION_CHANGE')lines.push(`方向更新：此前${biases[d.previousValidatedDirection]} → 当前${biases[a.marketBias]}`);
-    if(r.marketThesis)lines.push(r.marketThesis);
-    if(d.analystVersion==='V4'&&r.marketMechanism)lines.push(r.marketMechanism);
-    for(const e of d.conflictingEvidence || [])if(e.phrase)lines.push(`竞争证据：${e.phrase}`);
-    lines.push(`交易观察：${opportunities[a.tradeOpportunity] || '待人工复核'}`);
-    const conditions=displayConditions(d);
-    if(conditions.descriptions.length||state==='VALID_NO_EDGE')lines.push(`${conditions.label}：${conditions.text}`);else lines.push('失效条件：可靠数据缺失，不能给出结构或价格位置。');
-    if(r.alternativeScenario)lines.push(`替代情景：${r.alternativeScenario}`);
-    if(conditions.followUpChecks.length)lines.push(`后续：${conditions.followUpChecks.join('；')}`);
-  }
-  lines.push(lsEvent?'风险：账户分布与OI不证明具体开平仓、资金流向或价格必然反转；顶部持仓份额不是全市场OI占比。':'风险：统计异动不证明确定性因果或资金流向，方向仅为条件性研究假设。');
+  if(p.contract!==CONTRACT||directionalDisplayState(p.biasResearch)==='ANALYST_UNAVAILABLE'||typeof p.biasText!=='string')throw Error('V2_INTELLIGENCE_NOT_VALIDATED');
+  lines.push(p.biasText);
+  lines.push('风险：当前Bias是有条件的证据判断；账户分布和OI不证明具体开平仓、资金流向或价格必然反转。');
   if(lsEvent&&!p.longShort?.topAccounts?.quality?.available&&!kinds.has('TOP_GLOBAL_DIVERGENCE'))lines.push('顶部账户数据缺失，不能验证顶部与全市场背离。');
   lines.push(`数据截止：${time(p.dataCutoff)}（北京）`,`RunId：${runId || '未提供'}｜来源：Binance USDⓈ-M Futures`);
   return lines.join('\n');

@@ -1,10 +1,11 @@
+// Legacy snapshot/renderer assertions are archive-only; active V2 is covered by market-bias-v2 tests.
 import {protectedHash} from './output-quality-authorization.js';
 import {authorizedCutover} from './cutover-authorization.js';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';import os from 'node:os';import path from 'node:path';
 import {fixture} from './fixtures.js';import {mockDirectional} from './directional-fixture.js';
 import {buildFacts} from '../src/market/facts-engine.js';import {detect} from '../src/market/detector.js';
 import {directionalInput} from '../src/analysis/directional-context.js';import {guardDirectional,analyzeDirectional,analystRules} from '../src/analysis/directional-analyst.js';import {validateInput,validateDirectional,BIASES,HORIZONS} from '../src/analysis/directional-schema.js';
-import {buildIntelligence} from '../src/intelligence/packet.js';import {compare,emptyHistory} from '../src/storage/history.js';import {saveDirectionalSnapshot,evaluateDirectionalSnapshot} from '../src/analysis/directional-history.js';
+import {buildIntelligence} from './archive/packet-v1.js';import {compare,emptyHistory} from '../src/storage/history.js';import {saveDirectionalSnapshot,evaluateDirectionalSnapshot} from '../src/analysis/directional-history.js';
 const version='DIRECTIONAL_ANALYST_V2';
 function sample({down=false,contract=version,reversal=false,oiDown=false,flat=false}={}){const x=fixture();if(down){x.ticker.lastPrice='90';for(const b of x.sources.hour.raw)b[4]='90';}if(reversal){for(const b of x.sources.hour.raw)b[4]=down?'110':'90';for(const b of x.sources.hour.raw.slice(-4))b[4]=down?'90':'110';}if(oiDown)for(const r of x.sources.oi.raw)r.sumOpenInterest=String(200-Number(r.sumOpenInterest));if(flat){for(const b of x.sources.hour.raw)b[4]='100';for(const r of x.sources.oi.raw)r.sumOpenInterest='100';}const f=detect(buildFacts(x)),input=directionalInput(f,{contractVersion:contract}),a=mockDirectional(input,{horizon:'4h',...(reversal?{bias:down?'BEARISH_REVERSAL':'BULLISH_REVERSAL'}:{})});return {f,input,a};}
 const good=x=>assert.equal(x.ok,true,JSON.stringify(x));const bad=x=>assert.equal(x.ok,false,JSON.stringify(x));

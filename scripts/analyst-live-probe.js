@@ -1,3 +1,6 @@
+import {pathToFileURL as retiredEntryURL} from 'node:url';
+// Old CLI is audit-only; the production research entry is V2 exclusively.
+if(process.argv[1]&&import.meta.url===retiredEntryURL(process.argv[1]).href)throw Error('LEGACY_LIVE_RESEARCH_RETIRED');
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {fileURLToPath} from 'node:url';
 import {config,safeError} from '../src/config.js';import {DeepSeek} from '../src/clients/deepseek.js';import {Http} from '../src/clients/http.js';
 import {verifiedFacts} from '../src/intelligence/packet.js';import {directionalInput} from '../src/analysis/directional-context.js';import {analystRules,guardDirectional} from '../src/analysis/directional-analyst.js';import {directionalSchemaV2,validateDirectional,validateInput} from '../src/analysis/directional-schema.js';

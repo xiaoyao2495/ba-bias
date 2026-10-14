@@ -1,3 +1,6 @@
+import {pathToFileURL as retiredEntryURL} from 'node:url';
+// Old CLI is audit-only; the production research entry is V2 exclusively.
+if(process.argv[1]&&import.meta.url===retiredEntryURL(process.argv[1]).href)throw Error('LEGACY_LIVE_RESEARCH_RETIRED');
 // Contract preflight only. No API client, secrets, state writer or scanner import.
 import fs from 'node:fs';import crypto from 'node:crypto';import {pathToFileURL} from 'node:url';
 import {buildStructuredInput} from '../src/analysis/experimental/structured-v4-input.js';

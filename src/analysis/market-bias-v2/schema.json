@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ba-bias:market-researcher-v2",
+  "$defs": {
+    "modelAnalysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "marketState": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 30000
+        },
+        "financialInterpretation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 30000
+        },
+        "supportingEvidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30000
+          }
+        },
+        "competingEvidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30000
+          }
+        },
+        "decisionBasis": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 30000
+        },
+        "bias": {
+          "enum": [
+            "BULLISH",
+            "BEARISH",
+            "NO_EDGE"
+          ]
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30000
+          }
+        }
+      },
+      "required": [
+        "marketState",
+        "financialInterpretation",
+        "supportingEvidence",
+        "competingEvidence",
+        "decisionBasis",
+        "bias",
+        "uncertainties"
+      ]
+    }
+  },
+  "type": "object",
+  "required": [
+    "contract",
+    "researchFormat",
+    "recordId",
+    "runId",
+    "symbol",
+    "factsPackageSha256",
+    "knowledgeRegistrySha256",
+    "contextId",
+    "asOf",
+    "executionState",
+    "analysis",
+    "dataQuality",
+    "error",
+    "reviewStatus",
+    "mode",
+    "promptHash",
+    "rawResponse"
+  ],
+  "properties": {
+    "contract": {
+      "const": "BA_BIAS_MARKET_BIAS_V2"
+    },
+    "researchFormat": {
+      "const": "MINIMAL_MARKET_RESEARCH_V1"
+    },
+    "recordId": {
+      "type": "string",
+      "pattern": "^bias_[a-f0-9]{32}$"
+    },
+    "runId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,100}$"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "factsPackageSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "knowledgeRegistrySha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "contextId": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "promptHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "mode": {
+      "enum": [
+        "LIVE",
+        "HISTORICAL_REPLAY"
+      ]
+    },
+    "reviewStatus": {
+      "const": "PENDING_MANUAL_REVIEW"
+    },
+    "executionState": {
+      "enum": [
+        "VALIDATED",
+        "UNAVAILABLE"
+      ]
+    },
+    "asOf": {
+      "type": "object",
+      "required": [
+        "factsAsOf",
+        "factsAvailableAt",
+        "factsCollectedAt",
+        "researchRequestedAt",
+        "decisionCompletedAt",
+        "validationCompletedAt"
+      ],
+      "properties": {
+        "factsAsOf": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "factsAvailableAt": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "factsCollectedAt": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "researchRequestedAt": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "decisionCompletedAt": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "validationCompletedAt": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "analysis": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/modelAnalysis"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dataQuality": {
+      "type": "object"
+    },
+    "error": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "rawResponse": {},
+    "rawResponseHash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "modelParameters": {
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "executionState": {
+            "const": "VALIDATED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "analysis": {
+            "$ref": "#/$defs/modelAnalysis"
+          },
+          "error": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "analysis": {
+            "type": "null"
+          },
+          "error": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ]
+}

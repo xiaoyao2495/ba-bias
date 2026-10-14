@@ -1,11 +1,14 @@
 import {splitBody} from './message-boundaries.js';
+import {CONTRACT,sha} from '../analysis/market-bias-v2/common.js';
+import {validateResearch} from '../analysis/market-bias-v2/parser.js';
+import {assertPrepared,loadV2Outbox,reconcileV2,saveV2Outbox,v2Dir} from './market-bias-v2-state.js';
 import path from 'node:path';
 import {setTimeout as pause} from 'node:timers/promises';
 import {config,safeError} from '../config.js';
 import {Http} from '../clients/http.js';
 import {sendText} from '../clients/dingtalk.js';
 import {compactIntelligenceText} from '../intelligence/compact-renderer.js';
-import {atomicWrite,readJson,loadOutbox,reconcile,emptyHistory,lock} from './history.js';
+import {atomicWrite,readJson,lock} from './history.js';
 import {deliveryId,deliveryFailure} from './delivery.js';
 export const MESSAGE_BYTES=1800,SPACING_MS=3500,MAX_ATTEMPTS=5;
 export function splitMessage(text,{id,symbol,maxBytes=MESSAGE_BYTES,onBoundaryFallback=()=>{}}={}){
@@ -19,7 +22,7 @@ export function prepareDelivery(record){
   const id=deliveryId(record),enabled=record.delivery.status==='PENDING';
   const boundaryDiagnostics=[];
   const parts=splitMessage(compactIntelligenceText(record.intelligence,record),{id,symbol:record.symbol,onBoundaryFallback:d=>boundaryDiagnostics.push(d)}).map((content,i)=>({
-    deliveryId:`${id}_part_${i+1}`,content,status:enabled?'PENDING':'SHADOW',attempts:0,nextAttemptAt:0}));
+    deliveryId:`${id}_part_${i+1}`,content,contentSha256:sha(content),status:enabled?'PENDING':'SHADOW',attempts:0,nextAttemptAt:0}));
   return {...record.delivery,deliveryId:id,queueVersion:1,parts,boundaryDiagnostics};
 }
 function deliveryStatus(parts){
@@ -29,17 +32,20 @@ function deliveryStatus(parts){
   return 'PENDING';
 }
 export function queueEligible(record){
+  if(record.contract===CONTRACT&&record.approval?.financialReviewApproved!==true)return false;
+  if(record.intelligence?.biasResearch?.researchFormat==='MINIMAL_MARKET_RESEARCH_V1')return false;
   const d=record.delivery;
-  return record.intelligence?.version===1 && d?.queueVersion===1 && record.approval?.judgeEligible && record.approval?.intelligenceGuardPassed &&
-    ['PENDING','FAILED'].includes(d.status) && d.parts?.some(p=>['PENDING','FAILED'].includes(p.status)&&p.attempts<MAX_ATTEMPTS&&p.retryable!==false);
+  return record.contract===CONTRACT && record.intelligence?.contract===CONTRACT && record.intelligenceSha256===sha(record.intelligence) && validateResearch(record.intelligence?.biasResearch) && record.intelligence.biasResearch.executionState==='VALIDATED' && record.intelligence.biasResearch.runId===record.runId && record.intelligence.biasResearch.symbol===record.symbol && d?.queueVersion===1 && record.approval?.selectorEligible && record.approval?.intelligenceGuardPassed &&
+    ['PENDING','FAILED'].includes(d.status) && d.parts?.every(p=>p.contentSha256===sha(p.content)) && d.parts?.some(p=>['PENDING','FAILED'].includes(p.status)&&p.attempts<MAX_ATTEMPTS&&p.retryable!==false);
 }
-export async function drainDeliveryQueue(records,{dataDir=config.dataDir,signal,now=Date.now,sleep=pause,http=new Http({signal,retries:0}),sender=sendText,spacingMs=SPACING_MS,persist}={}){
+export async function drainDeliveryQueue(records,{dataDir=config.dataDir,blockedDeliveryIds=[],signal,now=Date.now,sleep=pause,http=new Http({signal,retries:0}),sender=sendText,spacingMs=SPACING_MS,persist}={}){
   const counters={sent:0,failed:0,unknown:0,pending:0};
   const rateFile=path.join(dataDir,'state','dingtalk-rate.json');
-  const save=persist || (r=>atomicWrite(path.join(dataDir,'outbox',`${r.runId}_${r.symbol}.json`),r));
+  const save=persist || (r=>saveV2Outbox(dataDir,r));
   for(const record of records){
     if(signal?.aborted)break;
     if(!queueEligible(record))continue;
+    if(blockedDeliveryIds.includes(record.delivery.deliveryId))throw Error('LEGACY_DELIVERY_ID_COLLISION');
     const d=record.delivery;
     for(const part of d.parts){
       if(signal?.aborted || !['PENDING','FAILED'].includes(part.status) || part.attempts>=MAX_ATTEMPTS || part.retryable===false || part.nextAttemptAt>now())continue;
@@ -71,14 +77,14 @@ export async function drainDeliveryQueue(records,{dataDir=config.dataDir,signal,
   }
   return counters;
 }
-// Foreground scanner polls only this explicitly enabled v1 intelligence queue.
+// Foreground scanner polls only the explicitly enabled V2 research queue.
 // Legacy articles, dry runs and ambiguous/SENT deliveries cannot enter it.
 export async function flushDeliveryQueue({dataDir=config.dataDir,signal,now=Date.now,log=()=>{}}={},deps={}){
   let release;const controller=new AbortController(),budget=AbortSignal.timeout(120000),combined=AbortSignal.any([controller.signal,budget,...(signal?[signal]:[])]);
   try{
-    release=await lock(dataDir,{onCompromised:()=>controller.abort(new Error('LOCK_COMPROMISED'))});const outbox=await loadOutbox(dataDir);
-    const result=await drainDeliveryQueue(outbox,{dataDir,signal:combined,now,...deps});
-    const file=path.join(dataDir,'state','history.json');const history=await readJson(file,emptyHistory());reconcile(history,outbox);await atomicWrite(file,history);
+    release=await lock(dataDir,{onCompromised:()=>controller.abort(new Error('LOCK_COMPROMISED'))});const {history,manifest}=await assertPrepared(dataDir);const outbox=await loadV2Outbox(dataDir);
+    const result=await drainDeliveryQueue(outbox,{dataDir,blockedDeliveryIds:manifest.blockedDeliveryIds,signal:combined,now,...deps});
+    const file=path.join(v2Dir(dataDir),'state','history.json');reconcileV2(history,outbox);await atomicWrite(file,history);
     if(result.sent || result.failed || result.unknown)log('Delivery queue',{...result});
     return result;
   }catch(e){if(e.message!=='RUN_ALREADY_LOCKED')log('Delivery queue failed',{error:safeError(e)});return {busy:e.message==='RUN_ALREADY_LOCKED'};}

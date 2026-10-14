@@ -46,7 +46,7 @@ async function scanInternal(binance,{runId,history,save,budgetSignal}){
   let index=0;
   async function worker(){while(index<selected.length){if(binance.http.signal?.aborted)return;const e=selected[index++];
     try{
-      const sources={exchange:{...exchange,raw:e.s},ticker:{...tickerSource,raw:e.t},premium:{...premiumSource,raw:e.p || null},fundingInfo:{...fundingInfo,raw:fundingInfo.raw.filter(r=>r.symbol===e.s.symbol)}};
+      const sources={clockStart:time,serverTime:end,exchange:{...exchange,raw:e.s},ticker:{...tickerSource,raw:e.t},premium:{...premiumSource,raw:e.p || null},fundingInfo:{...fundingInfo,raw:fundingInfo.raw.filter(r=>r.symbol===e.s.symbol)}};
       for(const [key,endpoint,params] of [
         ['hour',endpoints.klines,{symbol:e.s.symbol,interval:'1h',limit:80,endTime:cutoff}],
         ['five',endpoints.klines,{symbol:e.s.symbol,interval:'5m',limit:40,endTime:cutoff}],

@@ -1,3 +1,4 @@
+// Legacy snapshot/renderer assertions are archive-only; active V2 is covered by market-bias-v2 tests.
 import {protectedHash} from './output-quality-authorization.js';
 import {authorizedCutover} from './cutover-authorization.js';
 import test from 'node:test';
@@ -6,8 +7,8 @@ import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import os from 'node:os';
 import path from 'node:path';
-import {compactIntelligenceText,directionalDisplayState} from '../src/intelligence/compact-renderer.js';
-import {prepareDelivery,splitMessage,drainDeliveryQueue,queueEligible,MESSAGE_BYTES} from '../src/storage/delivery-queue.js';
+import {compactIntelligenceText,directionalDisplayState} from './archive/compact-renderer-v1.js';
+import {prepareDelivery,splitMessage,drainDeliveryQueue,queueEligible,MESSAGE_BYTES} from './archive/delivery-queue-v1.js';
 import {atomicWrite,loadOutbox} from '../src/storage/history.js';
 import {mockCompact,wifRecord} from './compact-fixture.js';
 const render=r=>compactIntelligenceText(r.intelligence,r);

@@ -1,3 +1,6 @@
+import {pathToFileURL as retiredAuditEntryURL} from 'node:url';
+// Immutable old reports are retained; this legacy replay CLI cannot run after hard cutover.
+if(process.argv[1]&&import.meta.url===retiredAuditEntryURL(process.argv[1]).href)throw Error('LEGACY_REPLAY_RETIRED_USE_V2_OFFLINE_TESTS');
 // Offline only. No clients, credentials, scheduler, History or Outbox imports.
 import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';
 import {guardDirectional} from '../src/analysis/directional-analyst.js';import {directionalInput} from '../src/analysis/directional-context.js';import {verifiedFacts} from '../src/intelligence/packet.js';

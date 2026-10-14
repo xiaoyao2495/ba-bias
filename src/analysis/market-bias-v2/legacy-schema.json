@@ -1,0 +1,1006 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract": {
+      "const": "BA_BIAS_MARKET_BIAS_V2"
+    },
+    "recordId": {
+      "type": "string",
+      "pattern": "^bias_[a-f0-9]{32}$"
+    },
+    "runId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{1,100}$"
+    },
+    "symbol": {
+      "type": "string",
+      "pattern": "^[\\p{L}\\p{N}]{1,40}USDT$"
+    },
+    "factsPackageSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "knowledgeRegistrySha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "contextId": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "asOf": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "factsAsOf": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8640000000000000
+        },
+        "factsAvailableAt": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 8640000000000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "decisionCompletedAt": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 8640000000000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "validationCompletedAt": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 8640000000000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "factsAsOf",
+        "factsAvailableAt",
+        "decisionCompletedAt",
+        "validationCompletedAt"
+      ]
+    },
+    "executionState": {
+      "enum": [
+        "VALIDATED",
+        "UNAVAILABLE"
+      ]
+    },
+    "analysis": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/modelAnalysis"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dataQuality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "validForResearch": {
+          "type": "boolean"
+        },
+        "unavailableRequiredFactIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+          },
+          "minItems": 0,
+          "maxItems": 128
+        },
+        "unavailableOptionalFactIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+          },
+          "minItems": 0,
+          "maxItems": 128
+        },
+        "sourceAcquisitionTimeUnknownFactIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+          },
+          "minItems": 0,
+          "maxItems": 128
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "minItems": 0,
+          "maxItems": 128
+        },
+        "qualitySource": {
+          "const": "RUNNER_VERIFIED_FACTS"
+        }
+      },
+      "required": [
+        "validForResearch",
+        "unavailableRequiredFactIds",
+        "unavailableOptionalFactIds",
+        "sourceAcquisitionTimeUnknownFactIds",
+        "limitations",
+        "qualitySource"
+      ]
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "stage": {
+              "enum": [
+                "FACTS",
+                "INPUT",
+                "LLM",
+                "SCHEMA",
+                "FACT_GUARD",
+                "KNOWLEDGE_GUARD",
+                "SEMANTIC_GUARD",
+                "CLOCK",
+                "PERSISTENCE"
+              ]
+            },
+            "code": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9_]{1,79}$"
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 600
+            },
+            "affectedFactIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+              },
+              "minItems": 0,
+              "maxItems": 128
+            },
+            "retryable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "stage",
+            "code",
+            "message",
+            "affectedFactIds",
+            "retryable"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "contract",
+    "recordId",
+    "runId",
+    "symbol",
+    "factsPackageSha256",
+    "knowledgeRegistrySha256",
+    "contextId",
+    "asOf",
+    "executionState",
+    "analysis",
+    "dataQuality",
+    "error"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "executionState": {
+            "const": "VALIDATED"
+          }
+        },
+        "required": [
+          "executionState"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "analysis": {
+            "$ref": "#/$defs/modelAnalysis"
+          },
+          "error": {
+            "type": "null"
+          },
+          "asOf": {
+            "properties": {
+              "factsAvailableAt": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8640000000000000
+              },
+              "decisionCompletedAt": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8640000000000000
+              },
+              "validationCompletedAt": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 8640000000000000
+              }
+            },
+            "required": [
+              "factsAvailableAt",
+              "decisionCompletedAt",
+              "validationCompletedAt"
+            ],
+            "type": "object"
+          },
+          "dataQuality": {
+            "properties": {
+              "validForResearch": {
+                "const": true
+              },
+              "unavailableRequiredFactIds": {
+                "maxItems": 0,
+                "type": "array"
+              }
+            },
+            "required": [
+              "validForResearch",
+              "unavailableRequiredFactIds"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "else": {
+        "properties": {
+          "analysis": {
+            "type": "null"
+          },
+          "error": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "stage": {
+                "enum": [
+                  "FACTS",
+                  "INPUT",
+                  "LLM",
+                  "SCHEMA",
+                  "FACT_GUARD",
+                  "KNOWLEDGE_GUARD",
+                  "SEMANTIC_GUARD",
+                  "CLOCK",
+                  "PERSISTENCE"
+                ]
+              },
+              "code": {
+                "type": "string",
+                "pattern": "^[A-Z][A-Z0-9_]{1,79}$"
+              },
+              "message": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "affectedFactIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+                },
+                "minItems": 0,
+                "maxItems": 128
+              },
+              "retryable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "stage",
+              "code",
+              "message",
+              "affectedFactIds",
+              "retryable"
+            ]
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ba-bias:market-bias-v2",
+  "title": "Single Market Bias V2 research envelope; model payload is $defs.modelAnalysis",
+  "$defs": {
+    "modelAnalysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract": {
+          "const": "BA_BIAS_MARKET_BIAS_V2"
+        },
+        "contextId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "symbol": {
+          "type": "string",
+          "pattern": "^[\\p{L}\\p{N}]{1,40}USDT$"
+        },
+        "bias": {
+          "enum": [
+            "BULLISH",
+            "BEARISH",
+            "NO_EDGE"
+          ]
+        },
+        "strength": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            null
+          ]
+        },
+        "marketInterpretation": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+              },
+              "factRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/factRef"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "uniqueItems": true
+              },
+              "knowledgeRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/knowledgeRef"
+                },
+                "minItems": 1,
+                "maxItems": 32,
+                "uniqueItems": true
+              },
+              "observation": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "interpretation": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "applicationConditions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 600
+                },
+                "minItems": 1,
+                "maxItems": 16
+              },
+              "limitations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 600
+                },
+                "minItems": 1,
+                "maxItems": 16
+              },
+              "statementClass": {
+                "enum": [
+                  "MECHANISM",
+                  "CONDITIONAL_RELATION"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "factRefs",
+              "knowledgeRefs",
+              "observation",
+              "interpretation",
+              "applicationConditions",
+              "limitations",
+              "statementClass"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 32
+        },
+        "supportingEvidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "interpretationId": {
+                "type": "string",
+                "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+              },
+              "factRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/factRef"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "uniqueItems": true
+              },
+              "knowledgeRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/knowledgeRef"
+                },
+                "minItems": 1,
+                "maxItems": 32,
+                "uniqueItems": true
+              },
+              "relevance": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              }
+            },
+            "required": [
+              "interpretationId",
+              "factRefs",
+              "knowledgeRefs",
+              "relevance"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128
+        },
+        "conflictingEvidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "interpretationId": {
+                "type": "string",
+                "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+              },
+              "factRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/factRef"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "uniqueItems": true
+              },
+              "knowledgeRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/knowledgeRef"
+                },
+                "minItems": 1,
+                "maxItems": 32,
+                "uniqueItems": true
+              },
+              "relevance": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              }
+            },
+            "required": [
+              "interpretationId",
+              "factRefs",
+              "knowledgeRefs",
+              "relevance"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128
+        },
+        "knowledgeReferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/knowledgeRef"
+          },
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true
+        },
+        "decisionBasis": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "synthesis": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 600
+            },
+            "principalInterpretationIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+              },
+              "minItems": 1,
+              "maxItems": 128,
+              "uniqueItems": true
+            },
+            "relevantNonPriceFactRefs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/factRef"
+              },
+              "minItems": 0,
+              "maxItems": 128,
+              "uniqueItems": true
+            },
+            "nonPriceContribution": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 600
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "conflictAssessments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "interpretationId": {
+                    "type": "string",
+                    "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+                  },
+                  "disposition": {
+                    "enum": [
+                      "DOES_NOT_REMOVE_BIAS",
+                      "LIMITS_STRENGTH",
+                      "UNRESOLVED"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 600
+                  },
+                  "factRefs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/factRef"
+                    },
+                    "minItems": 1,
+                    "maxItems": 128,
+                    "uniqueItems": true
+                  },
+                  "knowledgeRefs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/knowledgeRef"
+                    },
+                    "minItems": 1,
+                    "maxItems": 32,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "interpretationId",
+                  "disposition",
+                  "reason",
+                  "factRefs",
+                  "knowledgeRefs"
+                ]
+              },
+              "minItems": 0,
+              "maxItems": 128
+            },
+            "noImportantConflictReason": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 600
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "unknownInformationImpact": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 600
+            },
+            "changeFactRefs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/factRef"
+              },
+              "minItems": 0,
+              "maxItems": 128,
+              "uniqueItems": true
+            },
+            "changeImpact": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 600
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "synthesis",
+            "principalInterpretationIds",
+            "relevantNonPriceFactRefs",
+            "nonPriceContribution",
+            "conflictAssessments",
+            "noImportantConflictReason",
+            "unknownInformationImpact",
+            "changeFactRefs",
+            "changeImpact"
+          ]
+        },
+        "noEdgeReasons": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "N1",
+              "N2",
+              "N3",
+              "N4",
+              "N5",
+              "N6"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 6,
+          "uniqueItems": true
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "enum": [
+                  "MISSING_OPTIONAL_FACT",
+                  "UNPROVEN_PARTICIPANT_BEHAVIOR",
+                  "SCOPE_LIMITATION",
+                  "SOURCE_TIME_UNKNOWN",
+                  "OTHER_FACT_LIMITATION"
+                ]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "relatedFactRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/factRef"
+                },
+                "minItems": 0,
+                "maxItems": 128,
+                "uniqueItems": true
+              },
+              "knowledgeRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/knowledgeRef"
+                },
+                "minItems": 0,
+                "maxItems": 32,
+                "uniqueItems": true
+              },
+              "effectOnBias": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              }
+            },
+            "required": [
+              "kind",
+              "description",
+              "relatedFactRefs",
+              "knowledgeRefs",
+              "effectOnBias"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128
+        },
+        "reassessmentTriggers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "enum": [
+                  "UPDATED_PRICE_OBSERVATION",
+                  "UPDATED_OI_OBSERVATION",
+                  "UPDATED_VOLUME_RELATION",
+                  "NEW_SETTLED_FUNDING",
+                  "UPDATED_POSITIONING",
+                  "SUPPORT_OR_CONFLICT_CHANGED",
+                  "QUALITY_CHANGED"
+                ]
+              },
+              "baselineFactRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/factRef"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "uniqueItems": true
+              },
+              "knowledgeRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/knowledgeRef"
+                },
+                "minItems": 0,
+                "maxItems": 32,
+                "uniqueItems": true
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              },
+              "existingConditionFactRef": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/factRef"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "effect": {
+                "const": "REASSESS_ONLY"
+              }
+            },
+            "required": [
+              "kind",
+              "baselineFactRefs",
+              "knowledgeRefs",
+              "description",
+              "existingConditionFactRef",
+              "effect"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "factCoverage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "factRef": {
+                "$ref": "#/$defs/factRef"
+              },
+              "treatment": {
+                "enum": [
+                  "SUPPORT",
+                  "CONFLICT",
+                  "CONTEXT",
+                  "NOT_RELEVANT"
+                ]
+              },
+              "interpretationIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[\\p{L}\\p{N}_.:-]{1,220}$"
+                },
+                "minItems": 0,
+                "maxItems": 128,
+                "uniqueItems": true
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 600
+              }
+            },
+            "required": [
+              "factRef",
+              "treatment",
+              "interpretationIds",
+              "reason"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 256
+        }
+      },
+      "required": [
+        "contract",
+        "contextId",
+        "symbol",
+        "bias",
+        "strength",
+        "marketInterpretation",
+        "supportingEvidence",
+        "conflictingEvidence",
+        "knowledgeReferences",
+        "decisionBasis",
+        "noEdgeReasons",
+        "uncertainties",
+        "reassessmentTriggers",
+        "factCoverage"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "bias": {
+                "const": "NO_EDGE"
+              }
+            },
+            "required": [
+              "bias"
+            ],
+            "type": "object"
+          },
+          "then": {
+            "properties": {
+              "strength": {
+                "type": "null"
+              },
+              "noEdgeReasons": {
+                "minItems": 1,
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "else": {
+            "properties": {
+              "strength": {
+                "enum": [
+                  "HIGH",
+                  "MEDIUM",
+                  "LOW"
+                ]
+              },
+              "noEdgeReasons": {
+                "maxItems": 0,
+                "type": "array"
+              },
+              "supportingEvidence": {
+                "minItems": 1,
+                "type": "array"
+              },
+              "decisionBasis": {
+                "properties": {
+                  "relevantNonPriceFactRefs": {
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "nonPriceContribution": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 600
+                  }
+                },
+                "required": [
+                  "relevantNonPriceFactRefs",
+                  "nonPriceContribution"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "conflictingEvidence": {
+                "maxItems": 0,
+                "type": "array"
+              }
+            },
+            "required": [
+              "conflictingEvidence"
+            ],
+            "type": "object"
+          },
+          "then": {
+            "properties": {
+              "decisionBasis": {
+                "properties": {
+                  "noImportantConflictReason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 600
+                  }
+                },
+                "required": [
+                  "noImportantConflictReason"
+                ],
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        }
+      ]
+    },
+    "factRef": {
+      "type": "string",
+      "pattern": "^(CURRENT|PREVIOUS):[\\p{L}\\p{N}]{1,40}USDT:[\\p{L}\\p{N}_.:-]{1,160}$"
+    },
+    "knowledgeRef": {
+      "type": "string",
+      "pattern": "^K[12]-[0-9]{2}$"
+    }
+  }
+}

@@ -1,3 +1,4 @@
+// Legacy snapshot tests are isolated from the active V2 consumers.
 import {authorizedCutover} from './cutover-authorization.js';
 // Mock research and immutable real archives only. No network clients are used.
 import test from 'node:test';
@@ -14,10 +15,10 @@ import {guardDirectional} from '../src/analysis/directional-analyst.js';
 import {validateNumericText,semanticViolations} from '../src/analysis/evidence-text-validator.js';
 import {judgeStory,inspectJudgeContract} from '../src/content/story-judge.js';
 import {validateJudge} from '../src/content/schemas.js';
-import {buildIntelligence,verifiedFacts} from '../src/intelligence/packet.js';
+import {buildIntelligence,verifiedFacts} from './archive/packet-v1.js';
 import {compare} from '../src/storage/history.js';
-import {compactIntelligenceText,directionalDisplayState} from '../src/intelligence/compact-renderer.js';
-import {splitMessage,MESSAGE_BYTES} from '../src/storage/delivery-queue.js';
+import {compactIntelligenceText,directionalDisplayState} from './archive/compact-renderer-v1.js';
+import {splitMessage,MESSAGE_BYTES} from './archive/delivery-queue-v1.js';
 const facts=()=>detect(buildFacts(fixture()));
 function example(){const f=facts(),input=directionalInput(f),a=mockDirectional(input,{horizon:'4h'});return {f,input,a};}
 function textGuard(text,{field='marketMechanism',mutate}={}){const x=example();mutate?.(x);x.a[field]=text;return guardDirectional(x.a,x.input);}

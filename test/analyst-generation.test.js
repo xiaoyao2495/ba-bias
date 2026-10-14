@@ -1,10 +1,11 @@
+// Legacy snapshot/renderer assertions are archive-only; active V2 is covered by market-bias-v2 tests.
 import {protectedHash} from './output-quality-authorization.js';
 import {authorizedCutover} from './cutover-authorization.js';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
 import {generationInput,evidenceDisplay,recoveryInput,generationRules,recoveryRules,GENERATION_VERSION,INPUT_FORMAT_VERSION,fieldRoles,outputGuide} from '../src/analysis/directional-generation.js';
 import {analyzeDirectional,guardDirectional} from '../src/analysis/directional-analyst.js';
 import {directionalInput} from '../src/analysis/directional-context.js';import {validateInput,directionalSchemaV2,BIASES,HORIZONS} from '../src/analysis/directional-schema.js';
-import {fixture} from './fixtures.js';import {mockDirectional} from './directional-fixture.js';import {buildFacts} from '../src/market/facts-engine.js';import {detect} from '../src/market/detector.js';import {verifiedFacts} from '../src/intelligence/packet.js';
+import {fixture} from './fixtures.js';import {mockDirectional} from './directional-fixture.js';import {buildFacts} from '../src/market/facts-engine.js';import {detect} from '../src/market/detector.js';import {verifiedFacts} from './archive/packet-v1.js';
 const read=p=>JSON.parse(fs.readFileSync(p));const facts=()=>detect(buildFacts(fixture()));const gen=()=>generationInput(facts());
 const displays=i=>Object.values(i.evidenceGuide.groups).flat();
 test('V3 presentation uses existing formal input schema',()=>assert.equal(validateInput(gen()),true));

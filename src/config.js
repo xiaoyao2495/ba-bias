@@ -14,6 +14,7 @@ export const config = {
   deepseekModel: process.env.DEEPSEEK_MODEL || 'deepseek-flash',
   deepseekKey: process.env.DEEPSEEK_API_KEY,
   webhook: process.env.DINGTALK_WEBHOOK,
+  maxSnapshotAgeMinutes:integer('BA_MAX_SNAPSHOT_AGE_MINUTES',5,1,1440),
   maxCandidates:integer('BA_MAX_CANDIDATES',24,2,30),
   concurrency:3, timeoutMs:15000, scanTimeoutMs:integer('BA_SCAN_TIMEOUT_MS',180000,1000), runTimeoutMs:integer('BA_RUN_TIMEOUT_MS',900000,1000),
   storyThreshold:65, // Historical Judge/packet compatibility only.

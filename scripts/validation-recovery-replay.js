@@ -1,3 +1,6 @@
+import {pathToFileURL as retiredAuditEntryURL} from 'node:url';
+// Immutable old reports are retained; this legacy replay CLI cannot run after hard cutover.
+if(process.argv[1]&&import.meta.url===retiredAuditEntryURL(process.argv[1]).href)throw Error('LEGACY_REPLAY_RETIRED_USE_V2_OFFLINE_TESTS');
 // Strict offline replay. Direct reads and pure validators only: no scanner,
 // HTTP client, LLM object, delivery worker or storage reconciliation is invoked.
 import fs from 'node:fs/promises';

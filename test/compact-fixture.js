@@ -1,10 +1,11 @@
+// Legacy snapshot tests are isolated from the active V2 consumers.
 // Mock research fixture; no external requests. WIF is a read-only saved record.
 import fs from 'node:fs';
 import {fixture} from './fixtures.js';
 import {buildFacts} from '../src/market/facts-engine.js';
 import {detect} from '../src/market/detector.js';
 import {compare,summary} from '../src/storage/history.js';
-import {buildIntelligence} from '../src/intelligence/packet.js';
+import {buildIntelligence} from './archive/packet-v1.js';
 import {directionalInput} from '../src/analysis/directional-context.js';
 import {guardDirectional} from '../src/analysis/directional-analyst.js';
 import {mockDirectional} from './directional-fixture.js';

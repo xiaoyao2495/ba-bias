@@ -1,3 +1,5 @@
+import {mockBias} from './market-bias-v2-fixture.js';
+import {initializeV2,loadV2Outbox,v2Dir,assertPrepared} from '../src/storage/market-bias-v2-state.js';
 import {selectOpportunities} from '../src/market/opportunity-selector.js';
 import {mockDirectional} from './directional-fixture.js';
 // TEST FIXTURE / MOCK CLOCK ONLY. No Binance, DeepSeek or DingTalk network calls.
@@ -19,7 +21,7 @@ import {Http} from '../src/clients/http.js';
 import {buildIntelligence,verifiedFacts} from '../src/intelligence/packet.js';
 import {buildFacts} from '../src/market/facts-engine.js';
 import {detect} from '../src/market/detector.js';
-import {prepareDelivery,drainDeliveryQueue,flushDeliveryQueue,splitMessage,queueEligible,MESSAGE_BYTES,MAX_ATTEMPTS,SPACING_MS} from '../src/storage/delivery-queue.js';
+import {prepareDelivery,drainDeliveryQueue,flushDeliveryQueue,splitMessage,queueEligible,MESSAGE_BYTES,MAX_ATTEMPTS,SPACING_MS} from './archive/delivery-queue-v1.js';
 import {terminalLogger} from '../src/logging.js';
 import {fixture,identity,symbol,cutoff} from './fixtures.js';
 import {endpoints} from '../src/clients/binance.js';
@@ -43,18 +45,18 @@ function harness(start=ms('2026-10-10T08:59:00'),research=async()=>{},extra={}){
   const scanner=createScanner({scheduler,research,deliveryWorker:null,recordSkipped:async x=>skips.push(x),now:clock.now,sleep:clock.sleep,signals,log:(...x)=>events.push(x),write:x=>events.push(['banner',x]),...extra});
   return {clock,events,skips,signals,task,scanner,trigger:date=>callback({date:new Date(date)}),get taskOptions(){return taskOptions;}};
 }
-async function pipeline({runId='TEST_HOURLY',mode='once',sendEnabled=true,judgeEligible=true,invalidDraft=false,syms=[symbol],transport=async()=>({errcode:0}),options={},before,after,mutateFixture,judgeFailureSymbol,judgePredicate}={}){
+async function pipeline({runId='TEST_HOURLY',mode='once',sendEnabled=true,judgeEligible=true,invalidDraft=false,syms=[symbol],transport=async()=>({errcode:0}),options={},before,after,mutateFixture,judgeFailureSymbol,judgePredicate,afterPrepare}={}){
   const dir=await fs.mkdtemp(path.join(os.tmpdir(),'ba-hourly-'));
   const oldDir=config.dataDir,oldWebhook=config.webhook;config.dataDir=dir;config.webhook='https://example.invalid/robot/send?access_token=TEST_FIXTURE';
   const x=fixture(),events=[];if(mutateFixture)mutateFixture(x);let llmCalls=0,sends=0,apis=0;
   const convert=(raw,s)=>Array.isArray(raw)?raw.map(r=>Array.isArray(r)?r:{...r,symbol:s}):{...raw,symbol:s};
   const binance={http:{},get:async(endpoint,params={})=>{apis++;let raw;const s=params.symbol;
     if(endpoint===endpoints.time)raw={serverTime:x.cutoff};else if(endpoint===endpoints.exchange)raw={symbols:syms.map(s=>({...identity,symbol:s,baseAsset:s.slice(0,-4)})),rateLimits:[]};else if(endpoint===endpoints.ticker)raw=syms.map(s=>convert(x.ticker,s));else if(endpoint===endpoints.premium)raw=syms.map(s=>convert(x.sources.premium.raw,s));else if(endpoint===endpoints.fundingInfo)raw=[];else if(endpoint===endpoints.klines)raw=params.interval==='1h'?x.sources.hour.raw:x.sources.five.raw;else if(endpoint===endpoints.oi)raw=convert(x.sources.oi.raw,s);else if(endpoint===endpoints.funding)raw=convert(x.sources.funding.raw,s);else if(endpoint===endpoints.accounts)raw=convert(x.sources.accounts.raw,s);return {endpoint,params,raw};}};
-  const llm={calls:[],json:async(_,input)=>{llmCalls++;if(['DIRECTIONAL_INPUT_V1','STRUCTURED_ANALYST_V4'].includes(input.version))return mockDirectional(input);const f=input.facts;if(!input.judge){if(f.symbol===judgeFailureSymbol)throw Object.assign(Error('TEST_JUDGE_FAILURE'),{code:'TEST_JUDGE_FAILURE'});const eligible=judgePredicate?judgePredicate(f):judgeEligible;return {eligible,storyType:input.comparison.storyType,newsworthinessScore:eligible?80:20,reason:'TEST FIXTURE',keyEvidenceIds:eligible?f.evidence.slice(0,2).map(e=>e.evidenceId):[],risks:[],storyAngle:'TEST FIXTURE'};}const ids=input.allowedEvidenceIds.slice(0,2);return {symbol:f.symbol,storyType:input.judge.storyType,title:'{{symbol}}行情观察',body:`{{${ids[0]}}}。{{${ids[1]}}}。这是值得关注的变化，但后续能否延续仍需要观察，保持谨慎。`,observation:invalidDraft?'上涨99%':'后续价格变化是否延续需要观察。',evidenceIds:ids};}};
+  const llm={calls:[],json:async(_,input)=>{llmCalls++;if(input.contract==='BA_BIAS_MARKET_BIAS_V2')return mockBias(input);const f=input.facts;if(!input.judge){if(f.symbol===judgeFailureSymbol)throw Object.assign(Error('TEST_JUDGE_FAILURE'),{code:'TEST_JUDGE_FAILURE'});const eligible=judgePredicate?judgePredicate(f):judgeEligible;return {eligible,storyType:input.comparison.storyType,newsworthinessScore:eligible?80:20,reason:'TEST FIXTURE',keyEvidenceIds:eligible?f.evidence.slice(0,2).map(e=>e.evidenceId):[],risks:[],storyAngle:'TEST FIXTURE'};}const ids=input.allowedEvidenceIds.slice(0,2);return {symbol:f.symbol,storyType:input.judge.storyType,title:'{{symbol}}行情观察',body:`{{${ids[0]}}}。{{${ids[1]}}}。这是值得关注的变化，但后续能否延续仍需要观察，保持谨慎。`,observation:invalidDraft?'上涨99%':'后续价格变化是否延续需要观察。',evidenceIds:ids};}};
   const deliveryHttp={request:async request=>{sends++;return transport(request);}};
   const deps={opportunitySelector:(facts,h)=>selectOpportunities(facts,h,{policy:judgeEligible?config.selector:{...config.selector,minimumFamilies:99,extremeStrength:99}}),binance,llm,deliveryHttp,deliverySpacingMs:0,log:(event,details)=>events.push({event,details})};
-  try{if(before)await before(dir);const r=await runResearch({mode,runId,sendEnabled,handleSignals:false,setExitCode:false,...options},deps);
-    const box=await loadOutbox(dir),history=await readJson(path.join(dir,'state','history.json'),emptyHistory());
+  try{if(before)await before(dir);if(await fs.access(path.join(dir,'outbox')).then(()=>true,()=>false))await atomicWrite(path.join(dir,'state','history.json'),{runs:{TEST_OLD:{status:'COMPLETE'}},snapshot:{},rotation:0});await initializeV2(dir);if(afterPrepare)await afterPrepare(dir);const r=await runResearch({mode,runId,sendEnabled,handleSignals:false,setExitCode:false,...options},deps);
+    const box=await loadV2Outbox(dir),history=(await assertPrepared(dir)).history;
     if(after)await after({r,dir,box,history,deps,fixture:x,get sends(){return sends;},get apis(){return apis;}});
     return {r,box,history,events,sends,llmCalls,apis,lockRemaining:await fs.access(path.join(dir,'state','run.lock')).then(()=>true,()=>false)};
   }finally{config.dataDir=oldDir;config.webhook=oldWebhook;await fs.rm(dir,{recursive:true,force:true});}
@@ -84,17 +86,13 @@ test('SIGTERM aborts active research and waits for persistence before stopping',
   let persisted=false;const h=harness(undefined,async options=>{await new Promise(resolve=>options.signal.addEventListener('abort',resolve,{once:true}));await flush();persisted=true;});await h.scanner.start();h.clock.value=ms('2026-10-10T09:00:00');const p=h.trigger(h.clock.value);await h.clock.advance(h.clock.value+10000);h.signals.emit('SIGTERM');await h.scanner.stop();await p;assert.equal(persisted,true);assert.equal(h.scanner.state.running,false);assert.equal(h.task.stopped,1);
 });
 test('manual and hourly modes share exactly the same research function',()=>{assert.equal(run,runResearch);assert.equal(hourlyRunId(ms('2026-10-10T10:00:00')),'hourly_20261010_1000');assert.equal(hourlyRunId(ms('2026-10-10T08:00:00')),'hourly_20261010_0800');assert.throws(()=>hourlyRunId(ms('2026-10-10T08:00:01')));});
-test('new intelligence is saved first, then all DingTalk parts confirmed and counted',async()=>{
-  const messages=[];const p=await pipeline({options:{triggerType:'HOURLY',scheduledAt:ms('2026-10-10T10:00:00')},transport:async request=>{messages.push(request.data.text.content);return {errcode:0};}});
-  const text=messages.join('');assert.match(text,/检测 · BA-BIAS/);assert.match(text,/检测 · TESTUSDT｜/);assert.match(text,/RunId：TEST_HOURLY/);assert.match(text,/风险：/);
-  assert.equal(p.r.generatedIntelligence,1);assert.equal(p.r.dingTalkSent,1);assert.equal(p.sends,p.box[0].delivery.parts.length);assert.equal(p.box[0].delivery.status,'SENT');assert.equal(p.box[0].delivery.acknowledgement.errcode,0);assert.equal(p.box[0].delivery.deliveryId,deliveryId(p.box[0]));assert.equal(p.history.sent,1);assert.ok(p.events.findIndex(e=>e.event==='Outbox saved')<p.events.findIndex(e=>e.event==='DingTalk sent'));assert.equal(p.lockRemaining,false);
-});
+test('minimal V2 replaces publication: new intelligence is saved first, then all DingTalk parts confirmed and counted',async()=>{const p=await pipeline();assert.equal(p.r.biasAnalyses,1);assert.equal(p.r.generatedIntelligence,0);assert.equal(p.sends,0);assert.equal(p.box.length,0);assert.equal(p.r.candidateEvaluations[0].status,'RESEARCH_READY');assert.equal(p.lockRemaining,false);});
 test('no eligible story saves empty summary and never sends a status message',async()=>{const p=await pipeline({judgeEligible:false});assert.equal(p.sends,0);assert.equal(p.r.generatedArticles,0);assert.equal(p.r.judgedCandidates,0);assert.equal(p.r.eligibleStories,0);assert.ok(p.r.finishedAt>=p.r.startedAt);for(const key of ['scheduledAt','dataCutoff','scannedSymbols','deepResearchedSymbols','factPackagesCount','rejectedArticles','rejectionReasons','dingTalkFailed','tokenUsage','totalDurationMs','errors'])assert.ok(key in p.r,key);});
 test('production rejects optional LLM Writer before creating any work',async()=>{await assert.rejects(()=>pipeline({options:{writeDrafts:true}}),/LLM_WRITER_REMOVED_FROM_PRODUCTION/);});
-test('manual dry-run and scan-only still never notify',async()=>{const manual=await pipeline({sendEnabled:false});assert.equal(manual.r.generated,1);assert.equal(manual.sends,0);assert.equal(manual.box[0].delivery.status,'SHADOW');const scanOnly=await pipeline({mode:'scan',sendEnabled:false});assert.equal(scanOnly.llmCalls,0);assert.equal(scanOnly.sends,0);});
+test('minimal V2 replaces publication: manual dry-run and scan-only still never notify',async()=>{const p=await pipeline({sendEnabled:false});assert.equal(p.r.biasAnalyses,1);assert.equal(p.box.length,0);assert.equal(p.sends,0);const scan=await pipeline({mode:'scan',sendEnabled:false});assert.equal(scan.llmCalls,0);assert.equal(scan.sends,0);});
 test('restart sees completed runId and never repeats API or notification',async()=>{await pipeline({after:async p=>{const api=p.apis,sends=p.sends;const repeated=await runResearch({mode:'once',runId:'TEST_HOURLY',sendEnabled:true,handleSignals:false},p.deps);assert.equal(repeated.status,'COMPLETE');assert.equal(p.apis,api);assert.equal(p.sends,sends);}});});
-test('HTTP 200 with nonzero errcode is FAILED, never SENT',async()=>{const p=await pipeline({transport:async()=>({errcode:310000,errmsg:'TEST FIXTURE'})});assert.equal(p.sends,1);assert.equal(p.box[0].delivery.status,'FAILED');assert.equal(p.r.dingTalkFailed,1);assert.equal(p.r.sent,0);assert.equal(p.box[0].delivery.businessCode,310000);});
-test('network timeout is UNKNOWN and receives no retry',async()=>{const p=await pipeline({transport:async()=>{throw Object.assign(Error('sensitive webhook'),{code:'ECONNABORTED'});}});assert.equal(p.sends,1);assert.equal(p.box[0].delivery.status,'UNKNOWN');assert.equal(p.r.dingTalkUnknown,1);assert.equal(p.r.sent,0);assert.ok(!JSON.stringify(p.box).includes('sensitive webhook'));});
+test('minimal V2 replaces publication: HTTP 200 with nonzero errcode is FAILED, never SENT',async()=>{const p=await pipeline({transport:async()=>({errcode:310000})});assert.equal(p.sends,0);assert.equal(p.r.sent,0);assert.equal(p.r.dingTalkFailed,0);assert.equal(p.box.length,0);});
+test('minimal V2 replaces publication: network timeout is UNKNOWN and receives no retry',async()=>{const p=await pipeline({transport:async()=>{throw Error('MUST_NOT_SEND');}});assert.equal(p.sends,0);assert.equal(p.r.dingTalkUnknown,0);assert.equal(p.box.length,0);});
 test('explicit rejection permits at most two attempts; no infinite retry',async()=>{const r=record(),states=[];let calls=0;const response=await deliverNewArticle(r,{}, {send:true,runId:r.runId,persist:async x=>states.push(x.delivery.status),notifier:async()=>{calls++;throw Object.assign(Error('TEST'),{httpStatus:429});},sleep:async()=>{},now:()=>100});assert.equal(calls,2);assert.equal(response.status,'FAILED');assert.equal(response.attempts,2);assert.deepEqual(states,['PENDING','SENDING','FAILED','SENDING','FAILED']);});
 test('confirmed SENT and ambiguous UNKNOWN/SENDING cannot resend',async()=>{for(const status of ['SENT','UNKNOWN','SENDING']){const r=record();r.delivery.status=status;let calls=0;await deliverNewArticle(r,{}, {send:true,runId:r.runId,persist:async()=>{},notifier:async()=>{calls++;return ack();}});assert.equal(calls,0);}});
 test('concurrent same article dispatch reserves single deliveryId',async()=>{const r=record();let calls=0,finish;const options={send:true,runId:r.runId,persist:async()=>{},notifier:async()=>{calls++;await new Promise(resolve=>finish=resolve);return ack();}};const first=deliverNewArticle(r,{},options);await flush();await deliverNewArticle(r,{},options);finish();await first;assert.equal(calls,1);});
@@ -103,7 +101,7 @@ test('crash during SENDING recovers UNKNOWN without sending old articles',async(
 test('dead PID and stale lease recover automatically and parallel winner stays exclusive',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'ba-lock-recovery-'));try{const state=path.join(dir,'state');await fs.mkdir(state,{recursive:true});await atomicWrite(path.join(state,'run.lock'),{pid:2147483647,started:1,token:'TEST_OLD'});await fs.mkdir(path.join(state,'run.lease'));await fs.utimes(path.join(state,'run.lease'),new Date(0),new Date(0));const recovered=await Promise.allSettled([lock(dir),lock(dir)]);assert.equal(recovered.filter(r=>r.status==='fulfilled').length,1);await recovered.find(r=>r.status==='fulfilled').value();assert.equal(await fs.access(path.join(state,'run.lock')).then(()=>true,()=>false),false);}finally{await fs.rm(dir,{recursive:true,force:true});}});
 test('active owner cannot be stolen and a released lock can be acquired again',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'ba-lock-live-'));try{const release=await lock(dir);await assert.rejects(lock(dir),/RUN_ALREADY_LOCKED/);await release();const next=await lock(dir);await next();}finally{await fs.rm(dir,{recursive:true,force:true});}});
 test('scheduled overlap summaries persist and cannot overwrite completed run',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'ba-skip-'));try{const runId='hourly_20261010_1000',scheduledAt=ms('2026-10-10T10:00:00');await saveSkippedRun({runId,scheduledAt,status:'SKIPPED_OVERLAP',dataDir:dir,now:()=>scheduledAt});const file=path.join(dir,'runs',runId,'result.json');assert.equal((await readJson(file)).status,'SKIPPED_OVERLAP');await atomicWrite(file,{runId,status:'COMPLETE'});await saveSkippedRun({runId,scheduledAt,status:'SKIPPED_OVERLAP',dataDir:dir});assert.equal((await readJson(file)).status,'COMPLETE');}finally{await fs.rm(dir,{recursive:true,force:true});}});
-test('hourly pipeline outputs all three and keeps independent daily sent counts',async()=>{const p=await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT']});assert.equal(p.r.generated,3);assert.equal(p.r.judgedCandidates,0);assert.equal(p.r.sent,3);const day=dayKey(p.box[0].generatedAt);assert.equal(p.history.daily[day].generated,3);assert.equal(p.history.daily[day].sent,3);});
+test('minimal V2 replaces publication: hourly pipeline outputs all three and keeps independent daily sent counts',async()=>{const p=await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT']});assert.equal(p.r.biasAnalyses,3);assert.equal(p.r.sent,0);assert.equal(p.r.generated,0);assert.equal(Object.keys(p.history.research).length,3);assert.equal(p.box.length,0);});
 test('DingTalk keyword mode sends the original webhook without signature parameters',async()=>{const old=config.webhook;config.webhook='https://example.invalid/send?access_token=TEST';try{let request;await sendNotification({symbol:'TEST',storyType:'PRICE',title:'TEST',body:'TEST',evidenceIds:[],observation:'TEST'},{runId:'TEST',evaluationTime:{ms:Date.now()},evidence:[]},{send:true,http:{request:async r=>{request=r;return {errcode:0};}}});assert.equal(request.url,config.webhook);assert.equal(request.data.msgtype,'text');assert.ok(request.data.text.content.includes('检测'));assert.equal(new URL(request.url).searchParams.has('sign'),false);assert.equal(new URL(request.url).searchParams.has('timestamp'),false);}finally{config.webhook=old;}});
 test('logs show Shanghai clock and omit secret fields',()=>{const lines=[];const log=terminalLogger({now:()=>ms('2026-10-10T10:00:00'),write:x=>lines.push(x)});log('TEST',{count:3,webhook:'TEST_SECRET',secret:'TEST_SECRET',key:'TEST_SECRET',url:'TEST_SECRET'});assert.equal(lines[0],'[10:00:00] TEST count=3');});
 
@@ -111,34 +109,16 @@ test('concurrent skipped writes preserve an existing complete run atomically',as
 test('stopping during close delay records interrupted slot without research',async()=>{let runs=0;const h=harness(undefined,async()=>runs++);await h.scanner.start();const slot=ms('2026-10-10T09:00:00');h.clock.value=slot;const p=h.trigger(slot);await h.scanner.stop();await p;assert.equal(runs,0);assert.equal(h.skips[0].status,'INTERRUPTED');});
 test('scheduler start failure cleans up tasks and signal handlers',async()=>{const h=harness();h.task.start=async()=>{throw Error('TEST_START_FAILURE');};await assert.rejects(h.scanner.start(),/TEST_START_FAILURE/);assert.equal(h.task.destroyed,1);assert.equal(h.signals.listenerCount('SIGINT'),0);assert.equal(h.signals.listenerCount('SIGTERM'),0);});
 
-test('seven qualified candidates are all scored, only top three researched',async()=>{
-  const syms=['ALPHAUSDT','BETAUSDT','GAMMAUSDT','DELTAUSDT','EPSILONUSDT','ZETAUSDT','KAIAUSDT'];
-  const p=await pipeline({syms});assert.equal(p.r.judgedCandidates,0);assert.equal(p.llmCalls,3);assert.equal(p.box.length,3);assert.equal(p.r.sent,3);
-  assert.equal(p.r.candidateEvaluations.filter(c=>c.status==='ELIGIBLE').length,3);assert.equal(p.r.candidateEvaluations.filter(c=>c.status==='QUALIFIED_BUT_NOT_SELECTED').length,4);assert.equal(p.r.unassessedCandidates.length,0);
-  assert.ok(p.r.candidateEvaluations.find(r=>r.symbol==='KAIAUSDT')); assert.ok(p.box.every(r=>r.delivery.parts.every(part=>part.status==='SENT')));
-});
-test('existing daily thirty entries do not block selected research',async()=>{
-  const p=await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT','DELTAUSDT','EPSILONUSDT','ZETAUSDT','ETAUSDT'],before:async dir=>{
-    for(let i=0;i<31;i++)await atomicWrite(path.join(dir,'outbox',`TEST_OLD_${i}.json`),{runId:'TEST_OLD',symbol:'OLDUSDT',storyKey:'TEST_FIXTURE',generatedAt:Date.now(),evaluationTime:cutoff,summary:{},delivery:{status:'SENT'}});
-  }});assert.equal(p.r.judgedCandidates,0);assert.equal(p.r.generated,3);assert.equal(p.r.sent,3);const counts=p.history.daily[dayKey(p.box.at(-1).generatedAt)];assert.equal(counts.generated,34);assert.equal(counts.sent,34);
-});
+test('minimal V2 replaces publication: seven qualified candidates are all scored, only top three researched',async()=>{const p=await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT','DELTAUSDT','EPSILONUSDT','ZETAUSDT','KAIAUSDT']});assert.equal(p.llmCalls,3);assert.equal(p.r.candidateEvaluations.filter(c=>c.status==='RESEARCH_READY').length,3);assert.equal(p.r.candidateEvaluations.filter(c=>c.status==='QUALIFIED_BUT_NOT_SELECTED').length,4);assert.equal(p.sends,0);});
+test('minimal V2 replaces publication: existing daily thirty entries do not block selected research',async()=>{const p=await pipeline({syms:['AAUSDT','BBUSDT','CCUSDT'],before:async dir=>{for(let i=0;i<31;i++)await atomicWrite(path.join(dir,'outbox',`TEST_OLD_${i}.json`),{runId:'TEST_OLD',symbol:'OLDUSDT',generatedAt:1,evaluationTime:cutoff,summary:{},delivery:{status:'SENT'}});}});assert.equal(p.r.biasAnalyses,3);assert.equal(p.r.generated,0);assert.equal(p.sends,0);});
 test('duplicate receives explicit terminal state and no second intelligence notification',async()=>{
   await pipeline({after:async p=>{const before=p.sends;const r=await runResearch({mode:'once',runId:'TEST_DUP',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);
     assert.equal(r.judgedCandidates,0);assert.equal(r.generated,0);assert.equal(r.candidateEvaluations[0].status,'NO_MATERIAL_UPDATE');assert.equal(r.candidateEvaluations[0].reason,'NO_MATERIAL_CHANGE');assert.equal(p.sends,before);
   }});
 });
-test('material price update is judged, persisted with comparison and sent again with new deliveryId',async()=>{
-  await pipeline({after:async p=>{const firstId=p.box[0].delivery.deliveryId;p.fixture.cutoff+=1000;p.fixture.ticker.lastPrice='150';p.fixture.ticker.priceChangePercent='50';
-    const r=await runResearch({mode:'once',runId:'TEST_UPDATE',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);
-    assert.equal(r.generated,1);assert.equal(r.sent,1);assert.equal(r.candidateEvaluations[0].status,'MATERIAL_UPDATE');
-    const box=await loadOutbox(p.dir),updated=box.find(x=>x.runId==='TEST_UPDATE');assert.notEqual(updated.delivery.deliveryId,firstId);assert.equal(updated.intelligence.whatChanged.previousRunId,'TEST_HOURLY');assert.ok(updated.intelligence.whatChanged.changes.some(c=>c.metric==='price'));assert.equal(updated.intelligence.storyType,'MATERIAL_UPDATE');
-  }});
-});
-test('failure of one intelligence delivery does not lose any later intelligence',async()=>{
-  const p=await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT'],transport:async request=>request.data.text.content.includes('/ ALPHAUSDT')?{errcode:310000,errmsg:'TEST rejection'}:{errcode:0}});
-  assert.equal(p.r.generated,3);assert.equal(p.r.sent,2);assert.equal(p.box.find(r=>r.symbol==='ALPHAUSDT').delivery.status,'FAILED');assert.ok(p.box.filter(r=>r.symbol!=='ALPHAUSDT').every(r=>r.delivery.status==='SENT'));
-});
-test('removed Judge failure injection is never called and cannot block candidates',async()=>{const p=await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT'],judgeFailureSymbol:'ALPHAUSDT'});assert.equal(p.r.judgedCandidates,0);assert.equal(p.r.generated,3);assert(!p.r.candidateEvaluations.some(c=>c.status==='JUDGE_FAILED'));});
+test('minimal V2 replaces publication: material price update is judged, persisted with comparison and sent again with new deliveryId',async()=>{await pipeline({after:async p=>{p.fixture.cutoff+=1000;p.fixture.ticker.lastPrice='150';p.fixture.ticker.priceChangePercent='50';const r=await runResearch({mode:'once',runId:'TEST_UPDATE',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);assert.equal(r.biasAnalyses,1);assert.equal(r.generated,0);assert.equal(r.sent,0);const h=(await assertPrepared(p.dir)).history;assert.equal(Object.keys(h.research).length,2);const stored=await readJson(path.join(v2Dir(p.dir),'research','TEST_UPDATE',symbol+'.json'));assert.equal(stored.reviewStatus,'PENDING_MANUAL_REVIEW');assert.equal(p.sends,0);}});});
+test('minimal V2 replaces publication: failure of one intelligence delivery does not lose any later intelligence',async()=>{const p=await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT'],transport:async()=>{throw Error('UNAPPROVED');}});assert.equal(Object.keys(p.history.research).length,3);assert.equal(p.sends,0);assert.equal(p.box.length,0);});
+test('minimal V2 replaces publication: removed Judge failure injection is never called and cannot block candidates',async()=>{const p=await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT'],judgeFailureSymbol:'ALPHAUSDT'});assert.equal(p.r.judgedCandidates,0);assert.equal(p.r.biasAnalyses,3);assert.equal(p.sends,0);assert(!p.r.candidateEvaluations.some(c=>c.status==='JUDGE_FAILED'));});
 test('interrupted evaluation lists unfinished candidates without claiming not-newsworthy',async()=>{
   const controller=new AbortController();await pipeline({syms:['ALPHAUSDT','BETAUSDT','GAMMAUSDT'],options:{signal:controller.signal},before:async()=>{},after:async p=>{
     p.fixture.cutoff+=1000;p.fixture.ticker.lastPrice='170';p.fixture.ticker.priceChangePercent='70';const original=p.deps.llm.json;p.deps.llm.json=async(system,input)=>{controller.abort(Error('TEST_ABORT'));return original(system,input);};
@@ -221,30 +201,13 @@ test('incomplete deep facts get a persisted evidence terminal state without call
   const p=await pipeline({mutateFixture:x=>{x.sources.oi.raw=[];}});assert.equal(p.r.judgedCandidates,0);assert.equal(p.r.generated,0);assert.equal(p.sends,0);assert.equal(p.r.candidateEvaluations[0].status,'INSUFFICIENT_EVIDENCE');assert.ok(p.r.candidateEvaluations[0].reason);
 });
 
-test('nineteen candidates are all scored and only top three are researched',async()=>{
-  const syms=Array.from({length:19},(_,i)=>`NEWS${i}USDT`),accepted=new Set(syms.slice(0,7));const p=await pipeline({syms,judgePredicate:f=>accepted.has(f.symbol)});
-  assert.equal(p.r.judgedCandidates,0);assert.equal(p.llmCalls,3);assert.equal(p.r.generated,3);assert.equal(p.r.sent,3);assert.equal(p.r.candidateEvaluations.filter(c=>c.status==='QUALIFIED_BUT_NOT_SELECTED').length,16);assert.equal(p.r.unassessedCandidates.length,0);
-});
-test('two same-day rounds each respect top three and independent identities',async()=>{
-  const syms=Array.from({length:19},(_,i)=>`FIRST${i}USDT`);await pipeline({syms,after:async p=>{
-    assert.equal(p.r.generated,3);assert.equal(p.r.sent,3);syms.splice(0,syms.length,...Array.from({length:19},(_,i)=>`NEXT${i}USDT`));
-    const second=await runResearch({mode:'once',runId:'TEST_SAME_DAY_NEXT',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);assert.equal(second.judgedCandidates,0);assert.equal(second.generated,3);assert.equal(second.sent,3);
-    const box=await loadOutbox(p.dir),history=await readJson(path.join(p.dir,'state','history.json'));assert.equal(box.length,6);assert.equal(history.daily[dayKey(box[0].generatedAt)].generated,6);assert.equal(history.daily[dayKey(box[0].generatedAt)].sent,6);
-  }});
-});
-
-test('dry-run archives do not suppress a fresh real-mode intelligence notification or resend the archived record',async()=>{
-  await pipeline({sendEnabled:false,after:async p=>{
-    assert.equal(p.box[0].delivery.status,'SHADOW');assert.equal(p.sends,0);
-    const r=await runResearch({mode:'once',runId:'TEST_FIRST_ENABLED',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);assert.equal(r.generated,1);assert.equal(r.sent,1);
-    const box=await loadOutbox(p.dir);assert.equal(box.find(r=>r.runId==='TEST_HOURLY').delivery.status,'SHADOW');assert.equal(box.find(r=>r.runId==='TEST_FIRST_ENABLED').delivery.status,'SENT');
-  }});
-});
-
+test('minimal V2 replaces publication: nineteen candidates are all scored and only top three are researched',async()=>{const p=await pipeline({syms:Array.from({length:19},(_,i)=>`TEST${i}USDT`)});assert.equal(p.r.selectorEvaluated,19);assert.equal(p.llmCalls,3);assert.equal(Object.keys(p.history.research).length,3);assert.equal(p.sends,0);});
+test('minimal V2 replaces publication: two same-day rounds each respect top three and independent identities',async()=>{const syms=Array.from({length:19},(_,i)=>`FIRST${i}USDT`);await pipeline({syms,after:async p=>{assert.equal(p.r.biasAnalyses,3);syms.splice(0,syms.length,...Array.from({length:19},(_,i)=>`NEXT${i}USDT`));const r=await runResearch({mode:'once',runId:'TEST_SAME_DAY_NEXT',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);assert.equal(r.biasAnalyses,3);assert.equal(Object.keys((await assertPrepared(p.dir)).history.research).length,6);assert.equal(p.sends,0);assert.equal((await loadV2Outbox(p.dir)).length,0);}});});
+test('minimal V2 replaces publication: dry-run archives do not suppress a fresh real-mode intelligence notification or resend the archived record',async()=>{await pipeline({sendEnabled:false,after:async p=>{assert.equal(p.box.length,0);const r=await runResearch({mode:'once',runId:'TEST_FIRST_ENABLED',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);assert.equal(r.biasAnalyses,0);assert.equal(r.generated,0);assert.equal(p.sends,0);assert.equal(Object.keys((await assertPrepared(p.dir)).history.research).length,1);}});});
 test('crash recovery preserves completed evaluations and explicitly identifies unfinished candidates',async()=>{
-  await pipeline({runId:'TEST_CRASH',before:async dir=>{
-    const history=emptyHistory();history.runs.TEST_CRASH={status:'RUNNING',startedAt:cutoff};await atomicWrite(path.join(dir,'state','history.json'),history);
-    await atomicWrite(path.join(dir,'runs','TEST_CRASH','result.json'),{runId:'TEST_CRASH',mode:'once',status:'RUNNING',candidateEvaluations:[{symbol:'ALPHAUSDT',status:'JUDGE_FAILED',reason:'TEST_SCHEMA_ERROR'},{symbol:'BETAUSDT',status:'NOT_EVALUATED',reason:'AWAITING_JUDGE'}],errors:[]});
+  await pipeline({runId:'TEST_CRASH',afterPrepare:async dir=>{
+    const history=(await assertPrepared(dir)).history;history.runs.TEST_CRASH={contract:'BA_BIAS_MARKET_BIAS_V2',status:'RUNNING',startedAt:cutoff};await atomicWrite(path.join(v2Dir(dir),'state','history.json'),history);
+    await atomicWrite(path.join(dir,'runs','TEST_CRASH','result.json'),{contract:'BA_BIAS_MARKET_BIAS_V2',runId:'TEST_CRASH',mode:'once',status:'RUNNING',candidateEvaluations:[{symbol:'ALPHAUSDT',status:'JUDGE_FAILED',reason:'TEST_SCHEMA_ERROR'},{symbol:'BETAUSDT',status:'NOT_EVALUATED',reason:'AWAITING_JUDGE'}],errors:[]});
   },after:async p=>{
     const r=await readJson(path.join(p.dir,'runs','TEST_CRASH','result.json'));assert.equal(r.status,'INTERRUPTED');assert.equal(r.candidateEvaluations[0].status,'JUDGE_FAILED');assert.equal(r.unassessedCandidates[0].symbol,'BETAUSDT');assert.equal(r.unassessedCandidates[0].reason,'PROCESS_CRASH_BEFORE_EVALUATION_COMPLETED');assert.equal(p.apis,0);assert.equal(p.sends,0);
   }});
@@ -252,7 +215,7 @@ test('crash recovery preserves completed evaluations and explicitly identifies u
 
 test('recovery does not downgrade a completed summary when history commit was interrupted',async()=>{
   await pipeline({sendEnabled:false,after:async p=>{
-    const file=path.join(p.dir,'state','history.json'),history=await readJson(file);history.runs.TEST_HOURLY.status='RUNNING';await atomicWrite(file,history);
+    const file=path.join(v2Dir(p.dir),'state','history.json'),history=await readJson(file);history.runs.TEST_HOURLY.status='RUNNING';await atomicWrite(file,history);
     const before=p.apis;const r=await runResearch({mode:'once',runId:'TEST_HOURLY',sendEnabled:false,handleSignals:false},p.deps);assert.equal(r.status,'COMPLETE');assert.equal(p.apis,before);assert.equal((await readJson(path.join(p.dir,'runs','TEST_HOURLY','result.json'))).status,'COMPLETE');
   }});
 });

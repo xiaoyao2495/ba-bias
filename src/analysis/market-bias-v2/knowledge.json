@@ -1,0 +1,329 @@
+{
+  "registryVersion": "MARKET_KNOWLEDGE_V2_20261012",
+  "sources": [
+    {
+      "id": "S01",
+      "requestedUrl": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ExplanatoryNotes/index.htm",
+      "verification": "VERIFIED_MECHANISM",
+      "accessScope": "正文 Explanatory Notes / Open Interest",
+      "boundary": "未平仓双边规模与COT统计口径；COT分组不能搬作Binance账户分组",
+      "checkedOn": "2026-10-12",
+      "retrievedBodySha256": null,
+      "hashUnavailableReason": "Web工具返回解析内容，未保存或宣称完整原网页副本"
+    },
+    {
+      "id": "S02",
+      "requestedUrl": "https://www.cmegroup.com/trading/about-volume.html",
+      "verification": "VERIFIED_MECHANISM",
+      "accessScope": "正文 About Volume / Volume / Open Interest",
+      "boundary": "成交量与OI计量定义；传统合约数量单位不能代替币本位/名义金额单位",
+      "checkedOn": "2026-10-12",
+      "retrievedBodySha256": null,
+      "hashUnavailableReason": "Web工具返回解析内容，未保存或宣称完整原网页副本"
+    },
+    {
+      "id": "S03",
+      "requestedUrl": "https://www.cmegroup.com/education/lessons/open-interest",
+      "verification": "SUPPORTED_CONDITIONAL",
+      "accessScope": "正文 Open Interest，定义及传统趋势参与解释",
+      "boundary": "只支持传统参与背景；其中现金流类比不能作为加密净流入事实",
+      "checkedOn": "2026-10-12",
+      "retrievedBodySha256": null,
+      "hashUnavailableReason": "Web工具返回解析内容，未保存或宣称完整原网页副本"
+    },
+    {
+      "id": "S04",
+      "requestedUrl": "https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-usd-s-m-futures/api/rest-api/market-data",
+      "verification": "VERIFIED_MECHANISM",
+      "accessScope": "市场API目录：Kline、OI Statistics、Global Account、Top Account、Top Position、Funding Info",
+      "boundary": "字段/分母/采样时间及结算间隔；不支持任何方向预测法则",
+      "checkedOn": "2026-10-12",
+      "retrievedBodySha256": null,
+      "hashUnavailableReason": "Web工具返回解析内容，未保存或宣称完整原网页副本"
+    },
+    {
+      "id": "S05",
+      "requestedUrl": "https://www.binance.com/en/support/faq/detail/360033525031",
+      "verification": "VERIFIED_MECHANISM",
+      "accessScope": "Funding Rates正文，支付、费率成分、频率说明",
+      "boundary": "支持支付方向和可变间隔；不是Funding符号方向门",
+      "checkedOn": "2026-10-12",
+      "retrievedBodySha256": null,
+      "hashUnavailableReason": "Web工具返回解析内容，未保存或宣称完整原网页副本"
+    },
+    {
+      "id": "S06",
+      "requestedUrl": "https://www.binance.com/en/support/announcement/detail/3243c81a35bd4f0c86a37315c3dc96cc",
+      "verification": "UNVERIFIED",
+      "accessScope": "目标公告重定向到公告列表，未取得公告正文",
+      "boundary": "不能从标题或URL推断公告内容，禁止正式引用",
+      "checkedOn": "2026-10-12",
+      "retrievedBodySha256": null,
+      "hashUnavailableReason": "Web工具返回解析内容，未保存或宣称完整原网页副本"
+    },
+    {
+      "id": "S07",
+      "requestedUrl": "https://www.binance.com/en/support/faq/detail/360033525271",
+      "verification": "VERIFIED_MECHANISM",
+      "accessScope": "Liquidation Protocols正文，mark price/maintenance margin说明",
+      "boundary": "风险机制，不证明某币当前发生强平",
+      "checkedOn": "2026-10-12",
+      "retrievedBodySha256": null,
+      "hashUnavailableReason": "Web工具返回解析内容，未保存或宣称完整原网页副本"
+    },
+    {
+      "id": "S08",
+      "requestedUrl": "https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/abs/relation-between-price-changes-and-trading-volume-a-survey/DBE2C70FA41E390EB8FA418BBFFD76C8",
+      "verification": "SUPPORTED_CONDITIONAL",
+      "accessScope": "出版页可访问摘要；未取得完整论文",
+      "boundary": "传统市场量价关联背景；不外推成加密永续未来预测",
+      "checkedOn": "2026-10-12",
+      "retrievedBodySha256": null,
+      "hashUnavailableReason": "Web工具返回解析内容，未保存或宣称完整原网页副本"
+    }
+  ],
+  "clauses": [
+    {
+      "id": "K1-01",
+      "tier": "K1",
+      "verification": "VERIFIED_MECHANISM",
+      "enabled": true,
+      "sourceIds": [
+        "S04"
+      ],
+      "scope": "PRICE",
+      "boundary": "已收盘事实，不保证延续",
+      "definition": "已收盘价格为已发生交易结果；S04 Kline定义",
+      "applicationConditions": "正确交易对/窗口",
+      "counterexamplesAndLimits": "正确交易对/窗口；过去表现不保证未来，最后成交价不等于强平标记价",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K1-02",
+      "tier": "K1",
+      "verification": "VERIFIED_MECHANISM",
+      "enabled": true,
+      "sourceIds": [
+        "S02",
+        "S04"
+      ],
+      "scope": "VOLUME",
+      "boundary": "成交活动不是主动买量或资金流",
+      "definition": "期间成交量为交易活动；S02、S04",
+      "applicationConditions": "区分base/quote单位",
+      "counterexamplesAndLimits": "区分base/quote单位；买卖双方共同成交，不能称主动买入或净流入",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K1-03",
+      "tier": "K1",
+      "verification": "VERIFIED_MECHANISM",
+      "enabled": true,
+      "sourceIds": [
+        "S01",
+        "S02"
+      ],
+      "scope": "OPEN_INTEREST",
+      "boundary": "双边未平仓规模，不识别主动方",
+      "definition": "OI为未平仓双边规模；S01、S02",
+      "applicationConditions": "同一合约数量/窗口",
+      "counterexamplesAndLimits": "同一合约数量/窗口；不能识别主动方、具体开平仓组合或资金流向",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K1-04",
+      "tier": "K1",
+      "verification": "VERIFIED_MECHANISM",
+      "enabled": true,
+      "sourceIds": [
+        "S04"
+      ],
+      "scope": "OPEN_INTEREST",
+      "boundary": "数量与名义金额独立",
+      "definition": "OI数量与名义金额独立口径；S04",
+      "applicationConditions": "保留sumOpenInterest与sumOpenInterestValue",
+      "counterexamplesAndLimits": "保留sumOpenInterest与sumOpenInterestValue；价格重估可使金额变动，不能替代数量增长",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K1-05",
+      "tier": "K1",
+      "verification": "VERIFIED_MECHANISM",
+      "enabled": true,
+      "sourceIds": [
+        "S04",
+        "S05"
+      ],
+      "scope": "FUNDING",
+      "boundary": "支付机制及真实间隔，非方向定律",
+      "definition": "Funding支付及区分结算/预测；S05、S04",
+      "applicationConditions": "按实际合约时间与频率",
+      "counterexamplesAndLimits": "按实际合约时间与频率；正值多付空、负值空付多，不表示下一步价格方向",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K1-06",
+      "tier": "K1",
+      "verification": "VERIFIED_MECHANISM",
+      "enabled": true,
+      "sourceIds": [
+        "S04"
+      ],
+      "scope": "POSITIONING",
+      "boundary": "全市场账户分母，非资金份额",
+      "definition": "Global Account为统计账户方向比例；S04",
+      "applicationConditions": "全市场账户口径、同样本时刻",
+      "counterexamplesAndLimits": "全市场账户口径、同样本时刻；不是资金份额或全OI持仓比",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K1-07",
+      "tier": "K1",
+      "verification": "VERIFIED_MECHANISM",
+      "enabled": true,
+      "sourceIds": [
+        "S04"
+      ],
+      "scope": "POSITIONING",
+      "boundary": "顶部账户/持仓分母独立，非全OI",
+      "definition": "Top Accounts与Top Positions口径独立；S04",
+      "applicationConditions": "顶部20%保证金余额群体",
+      "counterexamplesAndLimits": "顶部20%保证金余额群体；账户计数与持仓分母不能混用，也非全市场OI份额",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K1-08",
+      "tier": "K1",
+      "verification": "VERIFIED_MECHANISM",
+      "enabled": true,
+      "sourceIds": [
+        "S07"
+      ],
+      "scope": "MARGIN_MECHANISM",
+      "boundary": "强平机制不证明实际发生",
+      "definition": "强平依赖保证金和mark price等风控；S07",
+      "applicationConditions": "无实际强平/保证金证据只能说明限制，不能确认强平发生",
+      "counterexamplesAndLimits": "无实际强平/保证金证据只能说明限制，不能确认强平发生",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K2-01",
+      "tier": "K2",
+      "verification": "SUPPORTED_CONDITIONAL",
+      "enabled": true,
+      "sourceIds": [
+        "S02",
+        "S08"
+      ],
+      "scope": "PRICE_VOLUME",
+      "boundary": "仅可比活跃度背景，无延续保证",
+      "definition": "量价共同变化提供交易活跃背景；S02、S08摘要",
+      "applicationConditions": "同一时期同口径比较",
+      "counterexamplesAndLimits": "同一时期同口径比较；反例：活跃交易也可分歧/反复；不保证延续，论文不等同Crypto外推验证",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K2-02",
+      "tier": "K2",
+      "verification": "SUPPORTED_CONDITIONAL",
+      "enabled": true,
+      "sourceIds": [
+        "S03"
+      ],
+      "scope": "PRICE_OI",
+      "boundary": "扩张参与背景，非新增敞口主动方向",
+      "definition": "价格与OI扩张同时出现提供参与背景；S03",
+      "applicationConditions": "正确OI数量与窗口",
+      "counterexamplesAndLimits": "正确OI数量与窗口；反例：对冲/双方同步扩张；不能确定新增多空主动方",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K2-03",
+      "tier": "K2",
+      "verification": "SUPPORTED_CONDITIONAL",
+      "enabled": true,
+      "sourceIds": [
+        "S01",
+        "S03"
+      ],
+      "scope": "OI_CONTRACTION",
+      "boundary": "敞口减少；退出情景不指具体行为",
+      "definition": "OI下降提供敞口减少、退出可能性；S01、S03",
+      "applicationConditions": "同比数量",
+      "counterexamplesAndLimits": "同比数量；反例：常规平仓而非强平；不能确认哪方退出或去杠杆已经发生",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K2-04",
+      "tier": "K2",
+      "verification": "SUPPORTED_CONDITIONAL",
+      "enabled": true,
+      "sourceIds": [
+        "S05"
+      ],
+      "scope": "FUNDING_CONTEXT",
+      "boundary": "成本/相对定价，拥挤未经直接确认",
+      "definition": "Funding成本/相对定价可作拥挤风险背景；S05",
+      "applicationConditions": "真实费率类型/间隔",
+      "counterexamplesAndLimits": "真实费率类型/间隔；反例：费率可持续且价格相反；拥挤仅条件情景，不确认squeeze",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K2-05",
+      "tier": "K2",
+      "verification": "SUPPORTED_CONDITIONAL",
+      "enabled": true,
+      "sourceIds": [
+        "S04"
+      ],
+      "scope": "ACCOUNT_DISTRIBUTION",
+      "boundary": "可比群体方向分布，无盈利或正确推断",
+      "definition": "账户集中/变化是统计群体分布信息；S04",
+      "applicationConditions": "同口径同采样群体",
+      "counterexamplesAndLimits": "同口径同采样群体；反例：账户规模差异/对冲；不证明盈利、正确、资金主导或强平压力",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K2-06",
+      "tier": "K2",
+      "verification": "SUPPORTED_CONDITIONAL",
+      "enabled": true,
+      "sourceIds": [
+        "S04"
+      ],
+      "scope": "CROSS_SCOPE_COMPARISON",
+      "boundary": "比较义务，不是实证反转定律",
+      "definition": "可比价格/OI/账户分歧需讨论竞争解释；S04测量边界，冻结规范研究要求",
+      "applicationConditions": "是可审计比较义务，不是来源已验证的反转经验律",
+      "counterexamplesAndLimits": "是可审计比较义务，不是来源已验证的反转经验律；样本/时间可比；反例：异群体分母导致假背离；不预测反转",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K2-07",
+      "tier": "K2",
+      "verification": "UNVERIFIED",
+      "enabled": false,
+      "sourceIds": [],
+      "scope": "LIQUIDITY",
+      "boundary": "无现有事实与核验规则，停用",
+      "definition": "流动性不足决定方向或冲击的规则",
+      "applicationConditions": "现有输入无订单簿/价差/冲击Facts及核验依据，不新增采集",
+      "counterexamplesAndLimits": "现有输入无订单簿/价差/冲击Facts及核验依据，不新增采集；不能正式引用",
+      "noDirectionalSignal": true
+    },
+    {
+      "id": "K2-08",
+      "tier": "K2",
+      "verification": "UNVERIFIED",
+      "enabled": false,
+      "sourceIds": [],
+      "scope": "LEVERAGE_BEHAVIOR",
+      "boundary": "无实际保证金/强平事实，停用",
+      "definition": "用价格/OI推断实际杠杆/强平压力的规则",
+      "applicationConditions": "无账户杠杆/保证金/强平Facts",
+      "counterexamplesAndLimits": "无账户杠杆/保证金/强平Facts；风险一般机制限K1-08，不升级行为结论",
+      "noDirectionalSignal": true
+    }
+  ],
+  "k3DecisionUse": false
+}

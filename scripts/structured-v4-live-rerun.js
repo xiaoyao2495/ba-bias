@@ -1,3 +1,6 @@
+import {pathToFileURL as retiredEntryURL} from 'node:url';
+// Old CLI is audit-only; the production research entry is V2 exclusively.
+if(process.argv[1]&&import.meta.url===retiredEntryURL(process.argv[1]).href)throw Error('LEGACY_LIVE_RESEARCH_RETIRED');
 // Independent, append-only historical contract experiment. No production entry point.
 import fs from 'node:fs';
 import path from 'node:path';

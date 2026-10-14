@@ -1,8 +1,6 @@
+import {CONTRACT} from '../analysis/market-bias-v2/common.js';
+import {renderResearch,publicAnalysis} from '../analysis/market-bias-v2/render.js';
 import {flipRole,comparisonBaseline} from './notification-evidence.js';
-import {displayConditions} from './v4-conditions.js';
-import {groundedV4} from '../analysis/structured-v4-production.js';
-import {directionalInput,suggestedHorizon} from '../analysis/directional-context.js';
-import {guardDirectional} from '../analysis/directional-analyst.js';
 import {buildFacts} from '../market/facts-engine.js';
 import {classify,detect} from '../market/detector.js';
 import {guardDraft} from '../content/claim-guard.js';
@@ -30,7 +28,7 @@ export function coreEventEvidenceIds(canonical,judge){
   if(core.some(id=>!map.has(id)))throw new Error('CORE_EVENT_EVIDENCE_MISSING');
   return core;
 }
-export function buildIntelligence(f,judge,comparison,{directional}={}){
+export function buildIntelligence(f,judge,comparison,{biasResearch,biasInput}={}){
   const canonical=verifiedFacts(f),map=new Map(canonical.evidence.map(e=>[e.evidenceId,e]));
   if(judge.keyEvidenceIds.some(id=>!map.has(id)))throw new Error('JUDGE_EVIDENCE_NOT_VERIFIED');
   const ids=[...new Set([...judge.keyEvidenceIds,...canonical.evidence.map(e=>e.evidenceId)])].slice(0,4);
@@ -54,22 +52,7 @@ export function buildIntelligence(f,judge,comparison,{directional}={}){
     observations:['观察价格、OI多周期、成交量与后续实际结算费率是否延续或背离。','观察账户翻转是否获得后续小时样本确认，以及顶部与全市场分布差异是否延续。'],
     sources:[...new Set(evidence.map(e=>e.endpoint))],guard:{ok:true,evidenceRebuilt:true,claimGuardPassed:true}};
   if(judge.eligibilitySource==='DETERMINISTIC_SELECTOR_V1'){packet.eligibilitySource=judge.eligibilitySource;packet.selection={score:judge.newsworthinessScore,rank:judge.selection.rank,dimensions:judge.selection.dimensions,gate:judge.selection.gate,materialEvidence:judge.selection.materialEvidence};packet.whyMaterial={source:judge.eligibilitySource,score:judge.newsworthinessScore,reason:comparison.reason,qualifyingAnomalies:anomalies};}
-  if(directional?.analystVersion==='V4'){
-    packet.directional={...groundedV4(directional,canonical),snapshotId:directional.snapshotId??null};
-    const previous=comparison.previous?.directional;
-    if(packet.directional.status==='VALIDATED'&&comparison.eligible&&comparison.reason==='MATERIAL_EVIDENCE_AND_DIRECTION_CHANGE'&&previous?.status==='VALIDATED'&&previous.analysis?.horizon===packet.directional.analysis.horizon)packet.directional.previousValidatedDirection=previous.analysis.marketBias;
-  }else if(directional){
-    const input=directionalInput(canonical,{contractVersion:directional.analysis?.version || 'DIRECTIONAL_ANALYST_V1'}),check=directional.status==='VALIDATED'?guardDirectional(directional.analysis,input):{ok:false};
-    packet.directional={fallbackHorizon:suggestedHorizon(input),status:check.ok?'VALIDATED':'FAILED',snapshotId:directional.snapshotId ?? null,
-      analysis:check.ok?directional.analysis:null,rendered:check.ok?check.rendered:null,
-      rules:check.ok?input.rules.filter(r=>directional.analysis.invalidation.ruleIds.includes(r.id)):[],
-      evidence:check.ok?input.evidence.filter(e=>directional.analysis.supportingEvidenceIds.includes(e.evidenceId)):[],
-      conflictingEvidence:check.ok?input.evidence.filter(e=>directional.analysis.conflictingEvidenceIds.includes(e.evidenceId)):[],
-      unavailable:input.unavailable};
-    // Display metadata only; the existing comparison remains the sole eligibility decision.
-    const previous=comparison.previous?.directional;
-    if(check.ok&&comparison.eligible&&comparison.reason==='MATERIAL_EVIDENCE_AND_DIRECTION_CHANGE'&&previous?.status==='VALIDATED'&&previous.analysis?.horizon===directional.analysis.horizon)packet.directional.previousValidatedDirection=previous.analysis.marketBias;
-  }
+  if(biasResearch){if(biasResearch.contract!==CONTRACT||biasResearch.executionState!=='VALIDATED'||biasResearch.symbol!==f.symbol||biasResearch.asOf.factsAsOf!==f.dataCutoff)throw Error('V2_RESEARCH_NOT_VALIDATED');packet.contract=CONTRACT;packet.version=2;packet.biasResearch=biasResearch;packet.biasDisplay=publicAnalysis(biasResearch,biasInput);packet.biasText=renderResearch(biasResearch,biasInput);}
   return {packet,article:guard.article};
 }
 export function intelligenceText(packet,{runId,scheduledAt}={}){
@@ -78,7 +61,7 @@ export function intelligenceText(packet,{runId,scheduledAt}={}){
   const evidence=packet.evidence.filter(e=>!e.scope&&!(packet.longShort?.global.quality.available&&e.evidenceId.endsWith(':accounts.short'))).map(e=>`• ${e.phrase}\n  数据时间：${e.dataTimes.map(t=>t.shanghai).join(' / ')}；来源：${e.endpoint}`).join('\n');
   const ls=longShortText(packet.longShort,packet.anomalies);
   const lsChange=longShortChangeText(packet.whatChanged.changes.find(c=>c.metric==='longShort'));
-  return `检测 · BA-BIAS 市场情报\n\n币种：$${packet.symbol}\nRunId：${runId}\n身份：${packet.identity.baseAsset} / ${packet.identity.underlyingType}；${name}\n类型：${packet.storyType}\n异常类型：${packet.anomalies.map(a=>a.kind).join(', ')}\n计划时间：${scheduledAt?times(scheduledAt).shanghai:'手动运行'}\n数据截止：${times(packet.dataCutoff).shanghai}${packet.directional?'\n\n'+directionalText(packet.directional):''}\n\n关键已验证事实：\n${evidence}${ls?'\n\n多空分布研究：\n'+ls:''}\n\nWHAT_CHANGED：\n${packet.whatChanged.reason}\n${changes}${lsChange?'\n'+lsChange:''}\n\nNEW_EVIDENCE：\n新增：${packet.newEvidence.addedEvidenceIds.join(', ') || '无新增指标类型'}\n更新：${packet.newEvidence.updatedEvidenceIds.join(', ') || '无'}\n${packet.newEvidence.note}\n\nWHY_MATERIAL：\n${packet.eligibilitySource==='DETERMINISTIC_SELECTOR_V1'?'确定性研究价值评分 '+packet.newsworthinessScore+'（非胜率）':'新闻价值评分 '+packet.newsworthinessScore+'，通过阈值 '+packet.whyMaterial.threshold}；${packet.anomalies.map(a=>a.kind).join(', ')}达到既有异常规则，历史比较为${packet.whatChanged.reason}。\n\n尚未确认：\n${packet.unconfirmed.join('\n')}\n后续观察：\n${packet.observations.join('\n')}\n\nRunId：${runId}\n来源：BA-BIAS / Binance USDⓈ-M Futures 官方API\n状态：仅供人工审核，未自动发布`;
+  return `检测 · BA-BIAS 市场情报\n\n币种：$${packet.symbol}\nRunId：${runId}\n身份：${packet.identity.baseAsset} / ${packet.identity.underlyingType}；${name}\n类型：${packet.storyType}\n异常类型：${packet.anomalies.map(a=>a.kind).join(', ')}\n计划时间：${scheduledAt?times(scheduledAt).shanghai:'手动运行'}\n数据截止：${times(packet.dataCutoff).shanghai}${packet.biasResearch?'\n\n'+packet.biasText:''}\n\n关键已验证事实：\n${evidence}${ls?'\n\n多空分布研究：\n'+ls:''}\n\nWHAT_CHANGED：\n${packet.whatChanged.reason}\n${changes}${lsChange?'\n'+lsChange:''}\n\nNEW_EVIDENCE：\n新增：${packet.newEvidence.addedEvidenceIds.join(', ') || '无新增指标类型'}\n更新：${packet.newEvidence.updatedEvidenceIds.join(', ') || '无'}\n${packet.newEvidence.note}\n\nWHY_MATERIAL：\n${packet.eligibilitySource==='DETERMINISTIC_SELECTOR_V1'?'确定性研究价值评分 '+packet.newsworthinessScore+'（非胜率）':'新闻价值评分 '+packet.newsworthinessScore+'，通过阈值 '+packet.whyMaterial.threshold}；${packet.anomalies.map(a=>a.kind).join(', ')}达到既有异常规则，历史比较为${packet.whatChanged.reason}。\n\n尚未确认：\n${packet.unconfirmed.join('\n')}\n后续观察：\n${packet.observations.join('\n')}\n\nRunId：${runId}\n来源：BA-BIAS / Binance USDⓈ-M Futures 官方API\n状态：仅供人工审核，未自动发布`;
 }
 
 export function longShortText(ls,anomalies=[]){
@@ -112,12 +95,4 @@ function longShortChangeText(change){
   return lines.join('\n');
 }
 
-export function directionalText(d){
-  if(d.status!=='VALIDATED')return `市场倾向：方向研判不可用（方向研判未通过验证，保留事实情报）\n观察周期：未来${d.fallbackHorizon}；仅供后续复核，不构成预测。\n证据强度：低（研判不可用，非胜率）\n当前交易机会：暂无可执行方案；待人工复核。`;
-  const a=d.analysis,r=d.rendered;
-  const bias={BULLISH:'短线偏多，倾向上涨延续',BEARISH:'短线偏空，倾向下跌延续',BULLISH_REVERSAL:'可能向上反转或反弹',BEARISH_REVERSAL:'可能向下反转或回落',NO_EDGE:'暂无明确方向优势'};
-  const opportunity={LONG_SETUP:'多头方案',SHORT_SETUP:'空头方案',WAIT_FOR_PULLBACK:'等待回踩',WAIT_FOR_CONFIRMATION:'等待确认',AVOID_CHASING:'避免追价',NO_ACTIONABLE_SETUP:'暂无可执行方案'};
-  const supporting=d.evidence.map(e=>e.phrase).join('；');
-  const condition=displayConditions(d),invalidation=condition.text;
-  return `方向研究（条件性假设）：\n市场倾向：${bias[a.marketBias]}\n观察周期：未来${a.horizon}；${r.horizonReason}\n证据强度：${{LOW:'低',MODERATE:'中等',HIGH:'较强'}[a.conviction]}（定性标签，非胜率）\n当前交易机会：${opportunity[a.tradeOpportunity]}\n核心判断：${r.marketThesis}\n机制解释：${r.marketMechanism}\n支持事实：${supporting}\n竞争情景：${r.alternativeScenario}\n${condition.label}条件：${invalidation}${condition.followUpChecks.length||a.marketBias!=='NO_EDGE'?'\n后续关注：'+condition.followUpChecks.join('；'):''}\n研判ID：${d.snapshotId || '尚未持久化'}`;
-}
+export function directionalText(){throw Error('LEGACY_RESEARCH_RETIRED');}

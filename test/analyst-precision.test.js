@@ -1,7 +1,8 @@
+// Legacy snapshot tests are isolated from the active V2 consumers.
 import {protectedHash} from './output-quality-authorization.js';
 // Offline-only contract cases through the same entry point used by production.
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
-import {fixture} from './fixtures.js';import {mockDirectional} from './directional-fixture.js';import {buildFacts} from '../src/market/facts-engine.js';import {detect} from '../src/market/detector.js';import {directionalInput} from '../src/analysis/directional-context.js';import {guardDirectional,analyzeDirectional} from '../src/analysis/directional-analyst.js';import {buildIntelligence} from '../src/intelligence/packet.js';import {compare} from '../src/storage/history.js';
+import {fixture} from './fixtures.js';import {mockDirectional} from './directional-fixture.js';import {buildFacts} from '../src/market/facts-engine.js';import {detect} from '../src/market/detector.js';import {directionalInput} from '../src/analysis/directional-context.js';import {guardDirectional,analyzeDirectional} from '../src/analysis/directional-analyst.js';import {buildIntelligence} from './archive/packet-v1.js';import {compare} from '../src/storage/history.js';
 const V2='DIRECTIONAL_ANALYST_V2';
 function sample({symbol='TESTUSDT',down=false,reversal=false,flat=false}={}){
  const x=fixture();x.symbol=symbol;x.identity.symbol=symbol;x.ticker.symbol=symbol;

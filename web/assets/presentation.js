@@ -1,5 +1,5 @@
 // Display-only adapters: never score candidates, infer a direction, or write records.
-export const convictionLabel=v=>({LOW:'低',MODERATE:'中等',HIGH:'高'})[v]||'强度未记录';
+export const strengthLabel=v=>({LOW:'低',MEDIUM:'中等',HIGH:'高'})[v]||(v===null?'不适用':'强度未记录');
 const finite=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v));
 export function validMetric(row,key){
  const m=row.metrics?.[key],definitions={price1h:['%','closed rolling 1h'],oi1h:['%','sumOpenInterest quantity, exact 1h'],volume1h:['×','closed 1h volume / previous 24 bars mean'],fundingSettled:['%','actual settlement']};
@@ -12,7 +12,7 @@ export function validMetric(row,key){
   if(Math.abs(Math.floor(Number(row.dataCutoff)/3600000)*3600000-Number(times.at(-1)))>1)return null;
  }
  if(key==='volume1h'&&(Number(m.value)<0||Math.abs(Math.floor(Number(row.dataCutoff)/3600000)*3600000-Math.max(...times.map(Number)))>1))return null;
- if(key==='fundingSettled'&&Number(row.dataCutoff)-Math.max(...times.map(Number))>8*3600000)return null;
+ if(key==='fundingSettled'&&Number(row.dataCutoff)-Math.max(...times.map(Number))>24*3600000)return null;
  return m;
 }
 export function factTags(row){
@@ -40,8 +40,8 @@ export function observationState(latest,completed,research){
  if(c.qualified===0)messages.push('本轮没有合格候选');else if(c.selected===0)messages.push('本轮没有选中研究对象');
  const selected=new Set(completed.selector?.rows?.filter(x=>x.status==='SELECTED').map(x=>x.symbol)||[]);
  const cards=research.filter(r=>r.runId===completed.record.runId&&selected.has(r.symbol)&&r.selection?.status==='SELECTED'&&r.analysis?.status==='VALIDATED').sort((a,b)=>(a.selection.rank??Infinity)-(b.selection.rank??Infinity)).slice(0,3);
- if(c.selected>0&&!cards.length)messages.push('有选中对象但V4不可用或研究记录无法读取');
- if(!cards.length&&!messages.length)messages.push('本轮没有有效V4研究；历史资格记录可能缺失');
+ if(c.selected>0&&!cards.length)messages.push('有选中对象但V2不可用或研究记录无法读取');
+ if(!cards.length&&!messages.length)messages.push('本轮没有有效V2研究；历史资格记录可能缺失');
  return {cards,messages};
 }
 export const categoryLabel=v=>({PRICE_EXTREMITY:'价格',OI_ABNORMALITY:'OI',VOLUME_ABNORMALITY:'成交量',FUNDING_EXTREMITY:'Funding',ACCOUNT_DISTRIBUTION:'账户',CROSS_METRIC_CONFIRMATION:'共振加分',MATERIAL_CHANGE:'实质更新',EVENT_NOVELTY:'新事件',HISTORICAL_RARITY:'历史稀有性'})[v]||v;

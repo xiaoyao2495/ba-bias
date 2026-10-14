@@ -1,3 +1,4 @@
+import {authorizedCutover} from './cutover-authorization.js';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
 import {config} from '../src/config.js';import {fixture,identity} from './fixtures.js';import {buildFacts} from '../src/market/facts-engine.js';import {detect,classify} from '../src/market/detector.js';import {selectOpportunities,materialEvidence,eligibilityCompatibility} from '../src/market/opportunity-selector.js';import {compare} from '../src/storage/history.js';import {buildIntelligence} from '../src/intelligence/packet.js';import {queueEligible,splitMessage} from '../src/storage/delivery-queue.js';
 const root='validation/BA_BIAS_DETERMINISTIC_SELECTOR_V1',baseline=JSON.parse(fs.readFileSync(root+'/before-hashes.json')),replay=JSON.parse(fs.readFileSync(root+'/replay.json'));const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
@@ -33,7 +34,7 @@ check('27 ambiguous identity excluded',()=>assert(!classify({...identity,symbol:
 check('28 scanner bytes unchanged',()=>assert.equal(sha('src/market/scanner.js'),baseline['src/market/scanner.js']));
 check('29 Facts bytes unchanged',()=>assert.equal(sha('src/market/facts-engine.js'),baseline['src/market/facts-engine.js']));
 check('30 detector thresholds unchanged',()=>assert.equal(sha('src/market/detector.js'),baseline['src/market/detector.js']));
-check('31 V4 all contract bytes unchanged',()=>{for(const [p,h] of Object.entries(baseline).filter(([p])=>p.startsWith('src/analysis/')))assert.equal(sha(p),h,p);});
+check('31 immutable archived V4 contract bytes unchanged; sole active entry separately tested',()=>{for(const [p,h] of Object.entries(baseline).filter(([p])=>p.startsWith('src/analysis/')&&!authorizedCutover.has(p)))assert.equal(sha(p),h,p);});
 check('32 no Judge/Writer/V3 production imports',()=>{const s=fs.readFileSync('src/main.js','utf8');for(const pattern of ['judgeStory(', 'writeDraft(', 'analyzeDirectional('])assert(!s.includes(pattern));});
 check('33 selector has no LLM dependency',()=>{const s=fs.readFileSync('src/market/opportunity-selector.js','utf8');assert(!/DeepSeek|llm\.json|Math\.random/.test(s));});
 check('34 SENT not redelivered',()=>assert(!queueEligible({delivery:{queueVersion:1,status:'SENT',parts:[]}})));
@@ -52,6 +53,6 @@ check('46 negative Funding preserves payment interpretation',()=>{const x=flat()
 check('47 absent OI rejected instead of manufactured zero',()=>{const x=flat();x.ticker.lastPrice='150';x.sources.oi.raw=[];const r=selectOpportunities([facts(x)]);assert.equal(r.selected.length,0);assert.equal(r.decisions[0].status,'INSUFFICIENT_EVIDENCE');});
 check('48 future candle rows cannot create event',()=>{const x=flat();for(const k of x.sources.hour.raw){k[0]+=864000000;k[6]+=864000000;}assert.equal(selectOpportunities([facts(x)]).selected.length,0);});
 check('49 incomplete old anomaly history is not new evidence',()=>{const f=extreme();assert.equal(materialEvidence(f,{summary:{},lastResearchTime:f.dataCutoff-1}).length,0);});
-check('50 program config leaves model and original thresholds unchanged',()=>{const old=fs.readFileSync(root+'/code-backup/src/config.js','utf8'),current=fs.readFileSync('src/config.js','utf8').replace(' // Historical Judge/packet compatibility only.','').split('\n').filter(s=>!s.startsWith('  selector:')).join('\n');assert.equal(current,old);});
+check('50 program config leaves model and original thresholds unchanged',()=>{const old=fs.readFileSync(root+'/code-backup/src/config.js','utf8'),current=fs.readFileSync('src/config.js','utf8').replace(/  maxSnapshotAgeMinutes:integer\('BA_MAX_SNAPSHOT_AGE_MINUTES',5,1,1440\),\n/,'').replace(' // Historical Judge/packet compatibility only.','').split('\n').filter(s=>!s.startsWith('  selector:')).join('\n');assert.equal(current,old);});
 check('51 account scope never mapped to position/flow by selector',()=>{const s=fs.readFileSync('src/market/opportunity-selector.js','utf8');assert(!s.includes('sumOpenInterestValue'));assert(!/看多|看空|新空头入场|资金净流入/.test(s));});
 check('52 duplicate and material distinctions are audited in replay',()=>{assert(replay.some(r=>r.statuses.NO_MATERIAL_UPDATE>0));assert(replay.every(r=>r.decisions.filter(d=>d.status==='SELECTED').every(d=>d.materialEvidence.length>0)));});

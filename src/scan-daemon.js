@@ -1,4 +1,5 @@
 import cron from 'node-cron';
+import {assertPrepared} from './storage/market-bias-v2-state.js';
 import {setTimeout as pause} from 'node:timers/promises';
 import {pathToFileURL} from 'node:url';
 import {config,times,safeError} from './config.js';
@@ -80,6 +81,7 @@ export function createScanner({scheduler=cron,research=runResearch,deliveryWorke
 }
 export async function startScanner(){
   if(!config.deepseekKey || !config.webhook)throw new Error('MISSING_SCANNER_ENVIRONMENT');
+  await assertPrepared(config.dataDir);
   const scanner=createScanner();await scanner.start();return scanner;
 }
 if(process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href){

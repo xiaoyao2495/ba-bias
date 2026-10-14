@@ -22,6 +22,7 @@ const cron={createTask(expression,cb,options){const task={expression,cb,options,
 const context=vm.createContext({process:proc,console:{log:x=>outputs.push(x),error:x=>errors.push(x)},Date:class extends Date{static now(){return now;}},AbortController,AbortSignal,setInterval:(fn,delay)=>{const p={fn,delay,cleared:false,unref(){}};polls.push(p);return p;},clearInterval:p=>{if(p)p.cleared=true;}});
 const synthetic=(identifier,exports)=>new vm.SyntheticModule(Object.keys(exports),function(){for(const [k,v]of Object.entries(exports))this.setExport(k,v);},{context,identifier});
 const map=new Map([
+ ['./storage/market-bias-v2-state.js',synthetic('v2-state',{assertPrepared:async()=>({})})],
  ['node-cron',synthetic('node-cron',{default:cron})],
  ['node:timers/promises',synthetic('timers',{setTimeout:async()=>{throw Error('NO_RESEARCH_SLEEP_AT_STARTUP');}})],
  ['node:url',synthetic('url',{pathToFileURL:nativePathToUrl})],

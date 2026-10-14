@@ -15,6 +15,7 @@ if(mode==='public-start'){cfg.publicReadonly=true;cfg.mode='PUBLIC_READONLY';cfg
 const fakeHTTP={createServer(){created++;const server=new EventEmitter();server.listen=(port,host,cb)=>{listenCount++;assert.equal(port,8787);assert.equal(host,mode==='public-start'?'0.0.0.0':'127.0.0.1');if(mode==='bind-failed')server.emit('error',Object.assign(Error('DO_NOT_LEAK_BIND_DETAILS'),{code:'EADDRINUSE'}));else cb();};server.close=cb=>{closed++;cb();};return server;}};
 const synthetic=(name,exports)=>new vm.SyntheticModule(Object.keys(exports),function(){for(const [k,v]of Object.entries(exports))this.setExport(k,v);},{context,identifier:name});
 const modules=new Map([
+ ['../analysis/market-bias-v2/common.js',synthetic('v2-common',{CONTRACT:'BA_BIAS_MARKET_BIAS_V2'})],
  ['./public-dto.js',synthetic('public-dto',{publicDTO:()=>({})})],['./public-routes.js',synthetic('public-routes',{publicRoute:()=>{throw Error('NO_PUBLIC_REQUEST');},publicGet:()=>{throw Error('NO_PUBLIC_REQUEST');}})],
  ['node:http',synthetic('http',{default:fakeHTTP})],['node:fs/promises',synthetic('fs',{default:{readFile:()=>{reads++;throw Error('NO_FILE_READ');}}})],['node:path',synthetic('path',{default:path})],['node:url',synthetic('url',{pathToFileURL:p=>win?new URL('file:///'+p.replaceAll('\\','/')):pathToFileURL(p)})],
  ['./config.js',synthetic('config',{projectRoot:'MOCK',loadWebEnvironment:()=>{loaded++;},webConfig:()=>{if(mode==='missing-hash')throw Error('WEB_PASSWORD_HASH_REQUIRED');return cfg;}})],
