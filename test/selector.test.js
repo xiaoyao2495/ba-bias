@@ -4,13 +4,13 @@ import {config} from '../src/config.js';import {fixture,identity} from './fixtur
 const root='validation/BA_BIAS_DETERMINISTIC_SELECTOR_V1',baseline=JSON.parse(fs.readFileSync(root+'/before-hashes.json')),replay=JSON.parse(fs.readFileSync(root+'/replay.json'));const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 function flat(){const x=fixture();x.sources.exchange={endpoint:'/fapi/v1/exchangeInfo',params:{},raw:identity};x.ticker.openPrice='100';x.ticker.lastPrice='100';x.ticker.priceChangePercent='0';for(const k of [...x.sources.hour.raw,...x.sources.five.raw]){for(const i of [1,2,3,4])k[i]='100';k[5]='100';}for(const o of x.sources.oi.raw)o.sumOpenInterest='100';for(const f of x.sources.funding.raw)f.fundingRate='0';return x;}
 const facts=x=>detect(buildFacts(x));const extreme=()=>{const x=flat();x.ticker.lastPrice='150';x.ticker.priceChangePercent='50';return facts(x);};const rename=(f,s)=>{const x=JSON.parse(JSON.stringify(f).replaceAll(f.symbol,s));x.sources.exchange.raw.baseAsset=s.slice(0,-4);x.identity.baseAsset=s.slice(0,-4);return x;};const check=(n,fn)=>test('Selector '+n,fn);
-check('01 default top K is three',()=>assert.equal(config.selector.maxCandidates,3));
+check('01 default top K is five',()=>assert.equal(config.selector.maxCandidates,5));
 check('02 empty yields zero',()=>assert.equal(selectOpportunities([]).selected.length,0));
 check('03 flat low value not researched',()=>assert.equal(selectOpportunities([facts(flat())]).selected.length,0));
 check('04 extreme single price passes',()=>assert.equal(selectOpportunities([extreme()]).selected.length,1));
 check('05 stable deterministic repeated call',()=>assert.deepEqual(selectOpportunities([extreme()]),selectOpportunities([extreme()])));
-check('06 ten qualified yield three only',()=>assert.equal(selectOpportunities(Array.from({length:10},(_,i)=>rename(extreme(),`EXT${i}USDT`))).selected.length,3));
-check('07 top rank leftovers explicit',()=>assert.equal(selectOpportunities(Array.from({length:7},(_,i)=>rename(extreme(),`EXT${i}USDT`))).decisions.filter(x=>x.status==='QUALIFIED_BUT_NOT_SELECTED').length,4));
+check('06 ten qualified yield five only',()=>assert.equal(selectOpportunities(Array.from({length:10},(_,i)=>rename(extreme(),`EXT${i}USDT`))).selected.length,5));
+check('07 top rank leftovers explicit',()=>assert.equal(selectOpportunities(Array.from({length:7},(_,i)=>rename(extreme(),`EXT${i}USDT`))).decisions.filter(x=>x.status==='QUALIFIED_BUT_NOT_SELECTED').length,2));
 check('08 configured zero is silent',()=>assert.equal(selectOpportunities([extreme()],{}, {policy:{...config.selector,maxCandidates:0}}).selected.length,0));
 check('09 never fill missing candidates',()=>assert.equal(selectOpportunities([extreme()]).selected.length,1));
 check('10 symbol tie order stable',()=>{const a=selectOpportunities(['ZZUSDT','AAUSDT'].map(s=>rename(extreme(),s)));assert.deepEqual(a.selected.map(x=>x.symbol),['AAUSDT','ZZUSDT']);});

@@ -18,7 +18,7 @@ export const config = {
   maxCandidates:integer('BA_MAX_CANDIDATES',24,2,30),
   concurrency:3, timeoutMs:15000, scanTimeoutMs:integer('BA_SCAN_TIMEOUT_MS',180000,1000), runTimeoutMs:integer('BA_RUN_TIMEOUT_MS',900000,1000),
   storyThreshold:65, // Historical Judge/packet compatibility only.
-  selector:{maxCandidates:integer('MAX_ANALYST_CANDIDATES_PER_RUN',3,0,1000),minimumFamilies:2,resonanceStrength:1.5,extremeStrength:3,strengthCap:3,crossMetricPoints:5,crossMetricCap:3,noveltyPoints:5,weights:{PRICE_EXTREMITY:20,OI_ABNORMALITY:20,FUNDING_EXTREMITY:20,VOLUME_ABNORMALITY:10,ACCOUNT_DISTRIBUTION:15},material:{pricePp:15,oiPp:10,fundingPp:0.05,volumeRatio:2}},
+  selector:{maxCandidates:integer('MAX_ANALYST_CANDIDATES_PER_RUN',5,0,1000),minimumFamilies:2,resonanceStrength:1.5,extremeStrength:3,strengthCap:3,crossMetricPoints:5,crossMetricCap:3,noveltyPoints:5,weights:{PRICE_EXTREMITY:20,OI_ABNORMALITY:20,FUNDING_EXTREMITY:20,VOLUME_ABNORMALITY:10,ACCOUNT_DISTRIBUTION:15},material:{pricePp:15,oiPp:10,fundingPp:0.05,volumeRatio:2}},
   thresholds:{price24:8,price1:3,oi4:10,funding:0.1,fundingDelta:0.05,volume:2},
   // Separate, explainable initial long/short rules; existing thresholds stay intact.
   longShort:{sampleLimit:30,discoveryTimeoutMs:90000,thresholds:{shiftPp:{'1h':5,'4h':10,'24h':15},divergencePp:15,oppositeChangePp:5,materialChangePp:5}},

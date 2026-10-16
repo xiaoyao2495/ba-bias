@@ -10,7 +10,7 @@ export function fixture(){
   const five=Array.from({length:30},(_,i)=>candle(cutoff-(30-i)*300000,300000));
   const end=Date.UTC(2026,9,10,4);
   const oi=Array.from({length:26},(_,i)=>({symbol,timestamp:end-(25-i)*3600000,sumOpenInterest:String(100+i*2),sumOpenInterestValue:String(10000+i*1000)}));
-  const ticker={symbol,lastPrice:'110',openPrice:'100',highPrice:'120',lowPrice:'90',priceChangePercent:'10',quoteVolume:'1000000',openTime:cutoff-86400000,closeTime:cutoff-1000};
+  const ticker={symbol,lastPrice:'110',openPrice:'100',highPrice:'120',lowPrice:'90',priceChangePercent:'10',quoteVolume:'100000000',openTime:cutoff-86400000,closeTime:cutoff-1000};
   const wrap=(endpoint,raw,params={symbol,endTime:cutoff})=>({endpoint,params,raw});
   const sources={ticker:wrap('/fapi/v1/ticker/24hr',ticker),hour:wrap('/fapi/v1/klines',hour,{symbol,interval:'1h',endTime:cutoff}),five:wrap('/fapi/v1/klines',five,{symbol,interval:'5m',endTime:cutoff}),oi:wrap('/futures/data/openInterestHist',oi,{symbol,period:'1h',endTime:cutoff}),funding:wrap('/fapi/v1/fundingRate',[
     {symbol,fundingTime:cutoff-36000000,fundingRate:'0.001'},

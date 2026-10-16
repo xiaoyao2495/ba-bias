@@ -1,12 +1,12 @@
 # BA-BIAS — Facts-Based Current Market Bias V2
 
-独立 Binance USDⓈ-M 原生加密资产永续市场情报系统。程序验证 Facts，原 Deterministic Selector V1 选择最多 Top 3 研究对象；DeepSeek 使用冻结的 K1/K2 市场知识形成当前 `BULLISH / BEARISH / NO_EDGE`。没有未来预测 Horizon、价格命中式失效、交易指令、LLM Story Judge、自动发帖或旧合同回退。
+独立 Binance USDⓈ-M 原生加密资产永续市场情报系统。程序验证 Facts，原 Deterministic Selector V1 选择最多 Top 5 研究对象；DeepSeek 使用冻结的 K1/K2 市场知识形成当前 `BULLISH / BEARISH / NO_EDGE`。没有未来预测 Horizon、价格命中式失效、交易指令、LLM Story Judge、自动发帖或旧合同回退。
 
 本地代码已经硬切换，生产部署需要单独批准。**不要直接在仍运行旧 Scanner 的生产目录执行准备或启动。** Windows 现有环境不会被本地改动自动更新。
 
 ## 研究和事实边界
 
-`Scheduler → Scanner/Facts → 原 Selector Top 3 → V2 Input → Prompt → Parser/Guards → V2 Research（待人工审阅）→ 只读 Dashboard；新研究不入 Outbox/Delivery`
+`Scheduler → Scanner/Facts → 原 Selector Top 5 → V2 Input → Prompt → Parser/Guards → V2 Research（待人工审阅）→ 只读 Dashboard；新研究不入 Outbox/Delivery`
 
 价格已收盘窗口与 ticker 滚动窗口分开；OI 数量与名义价值分开；Funding 已结算与展示值分开，不假定统一8小时结算；全市场账户、顶部账户、顶部持仓分别保留统计分母、时间、来源和质量。数据采集、Facts算术、Selector评分/排序、阈值和原运行预算不变。
 
@@ -51,7 +51,7 @@ Windows现有专用PM2入口仍为 `src/scan-pm2-entry.js` 与 `src/web/pm2-entr
 
 手动 `npm run once` 完整研究并保存待审记录，`--send` 不会恢复新研究投递；`npm run scan:once` 仅采集Facts。以上都访问外部服务，离线验收不要执行。doctor连通性命令也不是离线测试。
 
-`.env`、`.web.env`不提交、不覆盖。默认模型仍为配置中的deepseek-flash，可用原DEEPSEEK_MODEL配置；代理与Web变量不变。新的研究不进入DingTalk；旧投递实现的分片、限流、有限重试与UNKNOWN边界保留。本地改造没有发消息。原Top 3研究预算保留，研究记录保存在同一V2 History；用于研究去重的事实摘要可更新，但没有伪造发送状态。
+`.env`、`.web.env`不提交、不覆盖。默认模型仍为配置中的deepseek-flash，可用原DEEPSEEK_MODEL配置；代理与Web变量不变。新的研究不进入DingTalk；旧投递实现的分片、限流、有限重试与UNKNOWN边界保留。本地改造没有发消息。原Top 5研究预算保留，研究记录保存在同一V2 History；用于研究去重的事实摘要可更新，但没有伪造发送状态。
 
 ### 同一V2入口的离线Dry Run
 
@@ -81,3 +81,9 @@ NODE_OPTIONS="--import=$(pwd)/test/offline-guard.js" npm test
 `design/BA_BIAS_MARKET_RESEARCHER_MINIMAL_DESIGN_V1/`为现最小设计；旧`design/BA_BIAS_MARKET_BIAS_V2_HARD_CUTOVER/`为归档复杂合同；`implementation/BA_BIAS_MARKET_BIAS_V2_HARD_CUTOVER_V1/`为实际实施和测试证据。旧V4/Directional文档和审计报告为不可变历史材料，不是当前运行合同或部署指令；旧live/replay CLI已停用。本地离线验证不等于真实模型质量、未来收益或Windows现场验收。
 
 V2 新研究输入使用 `V2_ACCOUNT_RATIOS_ONLY_V1` 投影：保留 Price、OI、Volume、Funding、全市场账户比和顶部交易员账户比；暂时排除顶部交易员持仓份额及其变化。共享采集、原始 Facts 和历史研究展示保留，旧记录不重写。
+
+### 扫描流动性与研究名额
+
+扫描只接纳 `/fapi/v1/ticker/24hr` 的 `quoteVolume > 10000000` USDT（滚动24小时成交额，不是基础币成交量）。恰好1000万、低于门槛或字段无效的合约不会进入深查，也不会通过账户异常通道绕过；`scan.json` 保存筛选口径及拒绝原因。
+
+每轮默认最多研究5个合格候选，继续按原Selector评分、门槛和排序选择。已有环境变量 `MAX_ANALYST_CANDIDATES_PER_RUN` 优先于默认值；生产若显式配置为3，需要改为5，并检查PM2保存的同名环境变量。无需新增必填环境变量。本次未修改本地.env，不自动部署或重启。
