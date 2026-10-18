@@ -1,0 +1,66 @@
+{
+  "browser": "System Chrome via Playwright; mobile viewports (not actual iPhone Safari/WebKit)",
+  "results": [
+    {
+      "width": 320,
+      "rowHeight": 64,
+      "closedNoOverflow": true,
+      "expandedNoOverflow": true,
+      "longSymbolNoOverflow": true,
+      "visibleRows": 5,
+      "top10": true,
+      "nativeToggle": true,
+      "keyboardToggle": true
+    },
+    {
+      "width": 375,
+      "rowHeight": 64.390625,
+      "closedNoOverflow": true,
+      "expandedNoOverflow": true,
+      "longSymbolNoOverflow": true,
+      "visibleRows": 4,
+      "top10": true,
+      "nativeToggle": true,
+      "keyboardToggle": true
+    },
+    {
+      "width": 390,
+      "rowHeight": 64.390625,
+      "closedNoOverflow": true,
+      "expandedNoOverflow": true,
+      "longSymbolNoOverflow": true,
+      "visibleRows": 4,
+      "top10": true,
+      "nativeToggle": true,
+      "keyboardToggle": true
+    },
+    {
+      "width": 430,
+      "rowHeight": 64.390625,
+      "closedNoOverflow": true,
+      "expandedNoOverflow": true,
+      "longSymbolNoOverflow": true,
+      "visibleRows": 4,
+      "top10": true,
+      "nativeToggle": true,
+      "keyboardToggle": true
+    },
+    {
+      "width": 768,
+      "rowHeight": 65.734375,
+      "closedNoOverflow": true,
+      "expandedNoOverflow": true,
+      "longSymbolNoOverflow": true,
+      "visibleRows": 5,
+      "top10": true,
+      "nativeToggle": true,
+      "keyboardToggle": true
+    }
+  ],
+  "fullResearchLink": true,
+  "emptyState": true,
+  "publicPrivateProbeCalls": 0,
+  "externalRequests": [],
+  "pageErrors": [],
+  "outputDirectory": "<TEMP_PATH>"
+}

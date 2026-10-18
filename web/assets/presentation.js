@@ -51,3 +51,36 @@ export const mainNavigation=p=>p==='/selector'?'/selector':p==='/history'||p.sta
 export const watchSlotLabel=s=>({COMPLETE:'已完成',PARTIAL:'部分完成',FAILED:'运行失败',INTERRUPTED:'运行中断',SKIPPED_MISSED:'漏执行',SKIPPED_OVERLAP:'重叠跳过',RUNNING:'运行中',MISSING:'记录缺失',INVALID:'时间或记录无效',INCOMPLETE:'尚未完成'})[s]||'状态未知';
 export const watchBiasLabel=b=>({BULLISH:'当前偏多',BEARISH:'当前偏空',NO_EDGE:'当前无明确方向优势'})[b]||'研究方向未记录';
 export function marketWatchView(w){return {items:Array.isArray(w?.items)?w.items.slice(0,10):[],emptyMessage:!w?'4H聚合暂不可用；可查看最近扫描或历史。':w.emptyState==='NO_COMPLETED_SLOTS'?'四个时槽内暂无有效的已完成运行，请查看时槽状态。':'四个时槽内暂无有效研究；不等同于Scanner运行失败。',staleMessage:w?.stale?'最近有效扫描已过期或缺失；保存研究不代表当前行情。':null};}
+
+// Compact4H display adapters. Only persisted bias enums map to direction letters.
+const biasMarks=Object.freeze({BULLISH:'L',BEARISH:'S',NO_EDGE:'N'});
+export const watchBiasMark=b=>Object.hasOwn(biasMarks,b)?biasMarks[b]:'?';
+const validTime=t=>Number.isSafeInteger(t)&&t>=0&&t<=8640000000000000-28800000;
+export function compactWatchTime(t,reference=Date.now()){
+ if(!validTime(t)||!validTime(reference))return '—';
+ const s=new Date(t+28800000).toISOString(),r=new Date(reference+28800000).toISOString();
+ return (s.slice(0,10)===r.slice(0,10)?'':s.slice(5,10).replace('-','/')+' ')+s.slice(11,16);
+}
+export function compactAnomalyLabels(kinds=[]){
+ const labels=[];for(const k of kinds){let label;
+  if(['PRICE_1H','PRICE_4H','PRICE_24H'].includes(k))label='价格';
+  else if(['FUNDING_EXTREME','FUNDING_CHANGE','FUNDING_FLIP'].includes(k))label='资金费率';
+  else if(/^OI_/.test(k))label='持仓量';else if(/^VOLUME_/.test(k))label='成交量';
+  else if(['ACCOUNT_DISTRIBUTION_SHIFT','ACCOUNT_DOMINANCE_FLIP','TOP_ACCOUNT_DISTRIBUTION_SHIFT','TOP_GLOBAL_DIVERGENCE'].includes(k))label='账户分布';
+  else if(k==='TOP_POSITION_DISTRIBUTION_SHIFT')label='顶部持仓';else label=String(k||'异常未记录');
+  if(!labels.includes(label))labels.push(label);
+ }return labels;
+}
+export const orderedWatchSlots=slots=>[...(Array.isArray(slots)?slots:[])].slice(0,4).sort((a,b)=>a.scheduledAt-b.scheduledAt);
+export function watchHistory(item,slots){
+ return orderedWatchSlots(slots).map(slot=>{
+  const base={scheduledAt:slot.scheduledAt,runId:slot.runId,slotStatus:slot.status,mark:'—',bias:null,researchTime:null,dataCutoff:null};
+  if(!['COMPLETE','PARTIAL'].includes(slot.status))return {...base,state:'SLOT_UNAVAILABLE',label:watchSlotLabel(slot.status)+'；没有可用方向研究'};
+  // The V1 API only supplies validated research. Match both slot identity fields;
+  // duplicate entries follow its newest researchTime then dataCutoff convention.
+  const rows=(item.occurrences||[]).filter(o=>o.runId===slot.runId&&o.scheduledAt===slot.scheduledAt&&validTime(o.researchTime)).sort((a,b)=>b.researchTime-a.researchTime||(b.dataCutoff??0)-(a.dataCutoff??0));
+  const o=rows[0];if(!o)return {...base,state:slot.status==='PARTIAL'?'PARTIAL_NO_VALID_RESEARCH':'NO_VALID_RESEARCH',label:slot.status==='PARTIAL'?'运行部分完成；该币无有效方向研究':'运行已完成；该币无有效研究记录（未入选或研究不可用）'};
+  const mark=watchBiasMark(o.bias);return {...base,bias:o.bias??null,researchTime:o.researchTime,dataCutoff:o.dataCutoff,mark,state:mark==='?'?'UNKNOWN_DIRECTION':'VALID_RESEARCH',label:mark==='?'?'未识别方向：'+String(o.bias??'未记录'):watchBiasLabel(o.bias),record:o};
+ });
+}
+export const compactWatch=Object.freeze({time:compactWatchTime,anomalies:compactAnomalyLabels,slots:orderedWatchSlots,history:watchHistory,mark:watchBiasMark,score:v=>typeof v==='number'&&Number.isFinite(v)&&v>=0?v.toFixed(1):'—'});

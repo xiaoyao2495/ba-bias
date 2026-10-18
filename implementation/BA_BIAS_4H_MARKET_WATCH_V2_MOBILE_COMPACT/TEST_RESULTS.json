@@ -1,0 +1,48 @@
+{
+  "directed": {
+    "tests": 292,
+    "pass": 292,
+    "fail": 0
+  },
+  "baseline": {
+    "tests": 1283,
+    "pass": 1267,
+    "fail": 16
+  },
+  "full": {
+    "tests": 1318,
+    "pass": 1302,
+    "fail": 16
+  },
+  "newFailures": [],
+  "sameEnvironmentExistingFailures": [
+    "Judge recovery, detectors, queue, History, scheduler and production state remain byte-identical",
+    "NO_EDGE forensic 39 Binance untouched, no external invocation",
+    "NO_EDGE forensic 42 Scanner untouched, no external invocation",
+    "NO_EDGE forensic 43 History hashes immutable",
+    "NO_EDGE forensic 48 immutable production policies beyond renderer",
+    "Selector 28 scanner bytes unchanged",
+    "Selector 39 production files identical",
+    "V4 all pre-existing files including production and old experimental contracts remain identical",
+    "V4 protected existing files incl V3, state, env, snapshots are unchanged",
+    "all protected production logic and original tests remain unchanged",
+    "every protected market, scheduling and delivery implementation matches the pre-task snapshot",
+    "history/outbox/raw model responses/env remain byte identical in offline suite",
+    "output quality 49 Binance integration unchanged and offline replay excludes calls",
+    "output quality 52 Scanner integration unchanged and offline replay excludes calls",
+    "output quality 53 History immutable",
+    "production scan command and protected files retain baseline bytes"
+  ],
+  "static": {
+    "checked": 149,
+    "pass": 149
+  },
+  "browserEngine": "System Chrome, not actual iPhone Safari/WebKit",
+  "browserWidths": [
+    320,
+    375,
+    390,
+    430,
+    768
+  ]
+}

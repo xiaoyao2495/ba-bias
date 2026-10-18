@@ -1,0 +1,7 @@
+{
+  "protectedFiles": 8421,
+  "modifiedOrRemoved": [],
+  "added": [],
+  "packageJsonPreexistingChangePreserved": true,
+  "scope": "all src, data, .env, .web.env, package.json, package-lock.json; comparison against immediate pre-task snapshot"
+}
