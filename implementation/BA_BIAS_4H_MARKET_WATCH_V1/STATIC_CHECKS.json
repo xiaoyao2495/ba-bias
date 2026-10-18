@@ -1,0 +1,732 @@
+[
+  {
+    "file": "scripts/analyst-alignment-attribution.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-alignment-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-alignment-report.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-generation-offline.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-live-probe-report.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-live-probe.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-precision-prepare.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-precision-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-precision-report.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-semantic-grounding-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-v3-live-preflight.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-v3-post-collection-probe.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/analyst-version.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/compact-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/dashboard-doctor.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/dashboard-password.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/dashboard-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/dashboard-simplification-scenarios.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/dashboard-simplification-visual.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/dashboard-visual-check.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/market-bias-v2-prepare.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/market-researcher-release-check.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/public-web-visual.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/selector-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/structured-v4-live-preflight.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/structured-v4-live-rerun.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/structured-v4-provenance-offline.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/structured-v4-provenance-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/v4-failure-render-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/v4-output-quality-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/validation-recovery-replay.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/active-analyst.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/directional-alignment-guard.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/directional-analyst.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/directional-context.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/directional-generation.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/directional-history.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/directional-legacy-guard.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/directional-schema.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/evidence-precision-validator.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/evidence-text-validator.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/experimental/structured-v4-executor.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/experimental/structured-v4-guard.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/experimental/structured-v4-input.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/experimental/structured-v4-provenance.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/experimental/structured-v4-renderer.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/experimental/structured-v4-schema.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/market-bias-v2/common.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/market-bias-v2/executor.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/market-bias-v2/guard.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/market-bias-v2/input.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/market-bias-v2/parser.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/market-bias-v2/render.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/market-bias-v2/source-time.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/market-bias-v2/storage.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/analysis/structured-v4-production.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/clients/binance.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/clients/deepseek.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/clients/dingtalk.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/clients/http.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/config.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/content/claim-guard.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/content/draft-writer.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/content/schemas.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/content/story-judge.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/intelligence/compact-renderer.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/intelligence/notification-evidence.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/intelligence/packet.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/intelligence/v4-conditions.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/logging.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/main.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/market/detector.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/market/facts-engine.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/market/long-short-detector.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/market/long-short-discovery.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/market/long-short-facts.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/market/opportunity-selector.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/market/scanner.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/scan-daemon.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/scan-pm2-entry.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/scheduler.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/storage/delivery-queue.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/storage/delivery.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/storage/history.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/storage/market-bias-v2-state.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/storage/message-boundaries.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/config.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/market-watch.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/pm2-entry.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/process.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/public-dto.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/public-routes.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/reader.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/security.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "src/web/server.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/analyst-alignment.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/analyst-generation.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/analyst-live-probe.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/analyst-precision.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/analyst-v3-live-preflight.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/analyst-v3-post-collection.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/archive/compact-renderer-v1.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/archive/delivery-queue-v1.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/archive/packet-v1.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/archive/v2-complex-contract/market-bias-v2-contract-guard-minimal.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/archive/v2-complex-contract/market-bias-v2-contract.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/archive/v2-complex-contract/market-bias-v2-knowledge-reference-fix.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/archive/v2-complex-contract/market-bias-v2-llm-contract-fix.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/archive/v2-complex-contract/market-bias-v2-output-budget.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/compact-fixture.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/compact.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/core.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/cutover-authorization.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/dashboard-simplification.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/directional-fixture.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/directional.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/fixtures.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/fixtures/legacy-v2-analysis.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/hourly.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/long-short.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/market-bias-v2-contract.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/market-bias-v2-e2e.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/market-bias-v2-fixture.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/market-bias-v2-position-projection.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/market-bias-v2-source-time.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/market-watch.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/no-edge-render-forensic.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/offline-guard.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/output-quality-authorization.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/output-quality.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/pm2-entry-fixture.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/pm2-entry.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/public-web.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/scan-liquidity.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/selector.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/structured-v4-live-preflight.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/structured-v4-live-rerun.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/structured-v4-provenance.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/structured-v4.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/v4-production.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/validation-recovery.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/web-dashboard.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/web-pm2-fixture.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "test/web-pm2.test.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "web/assets/app.js",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "file": "web/assets/presentation.js",
+    "exitCode": 0,
+    "stderr": ""
+  }
+]

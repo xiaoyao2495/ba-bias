@@ -1,3 +1,4 @@
+import {watchWindow,aggregateWatch,watchScore,WATCH_HOUR} from './market-watch.js';
 import fs from 'node:fs/promises';
 import {CONTRACT,sha} from '../analysis/market-bias-v2/common.js';
 import {publicAnalysis,BIASES} from '../analysis/market-bias-v2/render.js';
@@ -78,11 +79,53 @@ export class Reader{
   for(let i=0;i<nodes.length-1;i++){const current=nodes[i],older=nodes.slice(i+1).find(n=>n.analysis?.status==='VALIDATED');if(current.analysis?.status==='VALIDATED'&&older&&current.dataCutoff>older.dataCutoff&&current.analysis.bias!==older.analysis.bias)current.biasChange={previous:older.analysis.bias,current:current.analysis.bias,previousRunId:older.runId,meaning:'V2 current evidence evolution; not confirmed price reversal'};}
   return {items:nodes,page,limit,total:ids.length,inspected,coverage:idx.items.length>500?'PARTIAL_RECENT_500_RUNS':'COMPLETE'};
  }
- async overview(){const idx=await this.runsIndex(),latest=idx.items[0];if(!latest)return {latest:null,researchRun:null,cards:[],emptyState:'尚无历史运行记录',lastSuccessfulAt:null};
+ async marketWatch(){
+  const window=watchWindow(this.now()),key=window.windowEnd;
+  if(this.watchCache&&this.watchCache.key===key&&this.now()-this.watchCache.at<this.ttl)return this.watchCache.value;
+  if(this.watchPending?.key===key)return this.watchPending.promise;
+  const promise=(async()=>{
+   const slots=[],observations=[];
+   for(const expected of window.slots){
+    const slot={...expected,status:'MISSING',dataCutoff:null,finishedAt:null,selectedCount:0,validResearchCount:0,unavailableResearchCount:0,coverage:'COMPLETE',reason:null};slots.push(slot);
+    let saved=await this.result(expected.runId);
+    if(saved.error==='MISSING'){const skip=await this.json(`market-bias-v2/skips/${expected.runId}.json`);if(skip.value?.contract===CONTRACT&&skip.value.runId===expected.runId)saved=skip;}
+    const r=saved.value;
+    if(!r){if(saved.error!=='MISSING'){slot.status='INVALID';slot.reason='RUN_UNREADABLE';}continue;}
+    if(r.scheduledAt!==expected.scheduledAt||r.triggerType&&r.triggerType!=='HOURLY'||r.startedAt!=null&&(!Number.isSafeInteger(r.startedAt)||r.startedAt<r.scheduledAt||r.startedAt>window.observedAt)){
+     slot.status='INVALID';slot.reason='RUN_TIME_MISMATCH';continue;
+    }
+    if(r.finishedAt!=null&&(!Number.isSafeInteger(r.finishedAt)||r.finishedAt<r.scheduledAt||r.finishedAt>window.observedAt||r.startedAt!=null&&r.finishedAt<r.startedAt)){slot.status='INVALID';slot.reason='RUN_TIME_MISMATCH';continue;}
+    slot.finishedAt=r.finishedAt??null;
+    if(r.status==='RUNNING'){slot.status='RUNNING';continue;}
+    if(['SKIPPED_MISSED','SKIPPED_OVERLAP','FAILED','INTERRUPTED'].includes(r.status)){slot.status=r.status;continue;}
+    if(!['COMPLETE','PARTIAL'].includes(r.status)){slot.status='INVALID';slot.reason='RUN_STATUS_INVALID';continue;}
+    if(r.finishedAt==null){slot.status='INCOMPLETE';continue;}
+    if(!Number.isSafeInteger(r.dataCutoff)||r.dataCutoff<r.scheduledAt||r.dataCutoff>=r.scheduledAt+WATCH_HOUR||r.dataCutoff>r.finishedAt){slot.status='INVALID';slot.reason='FACTS_TIME_MISMATCH';continue;}
+    slot.status=r.status;slot.dataCutoff=r.dataCutoff;
+    if(r.selector?.version!=='DETERMINISTIC_SELECTOR_V1'||!Array.isArray(r.selector.selected)){slot.reason='SELECTOR_UNAVAILABLE';slot.coverage='PARTIAL';slot.selectedCount=null;slot.unavailableResearchCount=null;continue;}
+    const selected=[...new Set((Array.isArray(r.selector.selected)?r.selector.selected:[]).filter(s=>typeof s==='string'&&SYMBOL.test(s)))];slot.selectedCount=selected.length;
+    const selections=await this.selections(expected.runId),scores=new Map(selections.rows.map(row=>[row.symbol,row]));
+    if(selected.length>1500)slot.coverage='PARTIAL';
+    for(const symbol of selected.slice(0,1500)){
+     const detail=await this.research(expected.runId,symbol).catch(()=>null),row=scores.get(symbol),a=detail?.analysis;
+     const researchTime=a?.asOf?.validationCompletedAt??a?.asOf?.decisionCompletedAt??a?.generatedAt;
+     const validTimes=Number.isSafeInteger(researchTime)&&researchTime>=r.dataCutoff&&researchTime<=r.finishedAt;
+     const evidence=new Set((detail?.evidence||[]).filter(e=>e.dataTimes?.length&&e.dataTimes.every(t=>Number.isSafeInteger(t.ms)&&t.ms<=r.dataCutoff)).map(e=>e.evidenceId));
+     if(a?.status!=='VALIDATED'||a.mode==='HISTORICAL_REPLAY'||!['BULLISH','BEARISH','NO_EDGE'].includes(a.bias)||a.asOf?.factsAsOf!==r.dataCutoff||!validTimes||row&&row.status!=='SELECTED'||!detail.anomalies?.length||detail.anomalies.some(x=>!x.evidenceIds?.length||x.evidenceIds.some(id=>!evidence.has(id))))continue;
+     const score=watchScore(row?.score);
+     observations.push({symbol,runId:expected.runId,scheduledAt:r.scheduledAt,researchTime,dataCutoff:r.dataCutoff,score,scoreStatus:score===null?'MISSING':'AVAILABLE',bias:a.bias,anomalyTypes:[...new Set(detail.anomalies.map(x=>x.kind))],metrics:detail.metrics});slot.validResearchCount++;
+    }
+    slot.unavailableResearchCount=slot.selectedCount-slot.validResearchCount;
+   }
+   return this.clean(aggregateWatch(window,slots,observations));
+  })();this.watchPending={key,promise};
+  try{const value=await promise;this.watchCache={key,at:this.now(),value};return value;}finally{if(this.watchPending?.promise===promise)this.watchPending=null;}
+ }
+ async overview(){const idx=await this.runsIndex(),latest=idx.items[0],marketWatch=await this.marketWatch();if(!latest)return {latest:null,researchRun:null,cards:[],emptyState:'尚无历史运行记录',lastSuccessfulAt:null,marketWatch};
   const run=await this.run(latest.runId).catch(()=>null);let cards=[],researchRun=null;
   // Keep the latest run and last valid research visibly separate, never mix their counters.
   for(const row of idx.items.slice(0,24)){const r=await this.result(row.runId);if(!r.value?.finishedAt||r.value.status==='RUNNING')continue;const symbols=(await this.names(`market-bias-v2/research/${row.runId}`)).filter(n=>n.endsWith('.json')&&SYMBOL.test(n.slice(0,-5)));for(const name of symbols){const detail=await this.research(row.runId,name.slice(0,-5)).catch(()=>null);if(detail?.analysis?.status==='VALIDATED')cards.push(detail);}if(cards.length){researchRun=row.runId;cards=cards.slice(0,3);break;}}
-  const lastSuccessful=idx.items.find(r=>r.status==='COMPLETE');return {latest:run,researchRun,cards,emptyState:run?.noMessageReason||'原因未能确定',lastSuccessfulAt:lastSuccessful?.finishedAt??null,stale:run?.record.dataCutoff==null?null:this.now()-run.record.dataCutoff>2*3600000};
+  const lastSuccessful=idx.items.find(r=>r.status==='COMPLETE');return {marketWatch,latest:run,researchRun,cards,emptyState:run?.noMessageReason||'原因未能确定',lastSuccessfulAt:lastSuccessful?.finishedAt??null,stale:run?.record.dataCutoff==null?null:this.now()-run.record.dataCutoff>2*3600000};
  }
 }
 export function unitFor(id=''){return /change\d+h|funding.change/.test(id)?'百分点':/volume.relative/.test(id)?'×':/price\.(?:closed|rolling|range|drawdown)|oi\.|funding|Account|Position|\.long|\.short/.test(id)?'%':null;}

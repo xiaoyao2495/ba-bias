@@ -1,0 +1,237 @@
+diff --git a/src/web/public-dto.js b/src/web/public-dto.js
+index a2da943..099d847 100644
+--- a/src/web/public-dto.js
++++ b/src/web/public-dto.js
+@@ -39,8 +39,10 @@ export function publicDTO(secrets=[]){
+  const record=r=>({runId:runId(r?.runId),status:enumOf(r?.status,['COMPLETE','PARTIAL','FAILED','RUNNING','INTERRUPTED','SKIPPED_MISSED','SKIPPED_OVERLAP']),scheduledAt:time(r?.scheduledAt),dataCutoff:time(r?.dataCutoff),finishedAt:time(r?.finishedAt)});
+  const selector=r=>({runId:runId(r?.runId),available:r?.available===true,rows:list(r?.rows,1500).map(x=>selection(x,symbol(x.symbol))),snapshotState:enumOf(r?.snapshotState,['COMPLETED_RECORD','IN_PROGRESS']),dataSource:enumOf(r?.dataSource,['DETERMINISTIC_SELECTOR_V1','LEGACY_RUN_NO_SELECTOR_RANKING']),policy:{maxCandidates:numeric(r?.policy?.maxCandidates)}});
+  const run=r=>({record:record(r?.record),counters:counters(r?.counters),selector:selector({runId:r?.record?.runId,available:r?.selector?.available,rows:r?.selector?.rows,snapshotState:r?.snapshotState,dataSource:r?.dataSource}),snapshotState:enumOf(r?.snapshotState,['COMPLETED_RECORD','IN_PROGRESS']),dataSource:enumOf(r?.dataSource,['DETERMINISTIC_SELECTOR_V1','LEGACY_RUN_NO_SELECTOR_RANKING']),noMessageReason:r?.counters?.selected===0?'本轮没有选中研究对象':r?.counters?.biasValid===0?'本轮暂无有效V2研究':'已保存市场研究'});
++ const occurrence=(r,s)=>({runId:runId(r?.runId),scheduledAt:time(r?.scheduledAt),researchTime:time(r?.researchTime),dataCutoff:time(r?.dataCutoff),score:typeof r?.score==='number'&&r.score>=0?numeric(r.score):null,scoreStatus:enumOf(r?.scoreStatus,['AVAILABLE','MISSING']),bias:enumOf(r?.bias,Object.keys(DIRECTIONS)),anomalyTypes:list(r?.anomalyTypes,30).map(code).filter(Boolean),metrics:metrics(r?.metrics,s)});
++ const marketWatch=w=>w?{version:'4H_MARKET_WATCH_V1',timeZone:'Asia/Shanghai',schedule:'0 * * * *',windowMeaning:'FOUR_SCHEDULED_HOURLY_SLOTS',windowStart:time(w.windowStart),windowEnd:time(w.windowEnd),observedAt:time(w.observedAt),expectedSlots:numeric(w.expectedSlots),counts:Object.fromEntries(['completed','complete','partial','failed','missing','skipped','running','incomplete','invalid'].map(k=>[k,numeric(w.counts?.[k])])),lastValidScanAt:time(w.lastValidScanAt),stale:w.stale===true,totalSymbols:numeric(w.totalSymbols),limit:10,sortRule:'HIGHEST_VALID_SELECTOR_SCORE_DESC__LATEST_RESEARCH_DESC__SYMBOL_ASC; MISSING_SCORES_LAST',occurrenceMeaning:'VALIDATED_LIVE_RESEARCH_PER_SYMBOL_PER_COMPLETED_SLOT; NOT_CONTINUING_STRENGTH',emptyState:enumOf(w.emptyState,['NO_VALID_RESEARCH','NO_COMPLETED_SLOTS']),slots:list(w.slots,4).map(r=>({runId:runId(r?.runId),scheduledAt:time(r?.scheduledAt),status:enumOf(r?.status,['COMPLETE','PARTIAL','FAILED','INTERRUPTED','SKIPPED_MISSED','SKIPPED_OVERLAP','RUNNING','MISSING','INVALID','INCOMPLETE']),dataCutoff:time(r?.dataCutoff),finishedAt:time(r?.finishedAt),selectedCount:numeric(r?.selectedCount),validResearchCount:numeric(r?.validResearchCount),unavailableResearchCount:numeric(r?.unavailableResearchCount),coverage:enumOf(r?.coverage,['COMPLETE','PARTIAL']),reason:enumOf(r?.reason,['RUN_UNREADABLE','RUN_TIME_MISMATCH','RUN_STATUS_INVALID','FACTS_TIME_MISMATCH','SELECTOR_UNAVAILABLE'])})),items:list(w.items,10).filter(r=>symbol(r?.symbol)).map(r=>{const s=symbol(r.symbol);return {symbol:s,firstSeenAt:time(r.firstSeenAt),latestResearchAt:time(r.latestResearchAt),occurrenceCount:numeric(r.occurrenceCount),highestScore:typeof r.highestScore==='number'&&r.highestScore>=0?numeric(r.highestScore):null,scoreStatus:enumOf(r.scoreStatus,['AVAILABLE','MISSING']),scoreSourceRunIds:list(r.scoreSourceRunIds,4).map(runId).filter(Boolean),latestBias:enumOf(r.latestBias,Object.keys(DIRECTIONS)),latestRunId:runId(r.latestRunId),anomalyTypes:list(r.anomalyTypes,30).map(code).filter(Boolean),dataCutoff:time(r.dataCutoff),stale:r.stale===true,metrics:metrics(r.metrics,s),runIds:list(r.runIds,4).map(runId).filter(Boolean),occurrences:list(r.occurrences,4).map(o=>occurrence(o,s))};})}:null;
+  return {text,research,selector,run,
+-  overview:d=>({latest:d?.latest?(d.latest.snapshotState==='COMPLETED_RECORD'?run(d.latest):{record:record(d.latest.record),snapshotState:'IN_PROGRESS',counters:counters(null),selector:selector({available:false,rows:[]})}):null,researchRun:runId(d?.researchRun),cards:list(d?.cards,3).filter(c=>!c.error).map(research),emptyState:d?.latest?'本轮暂无有效市场研究':'尚无历史运行记录',stale:typeof d?.stale==='boolean'?d.stale:null,lastSuccessfulAt:time(d?.lastSuccessfulAt)}),
++  overview:d=>({marketWatch:marketWatch(d?.marketWatch),latest:d?.latest?(d.latest.snapshotState==='COMPLETED_RECORD'?run(d.latest):{record:record(d.latest.record),snapshotState:'IN_PROGRESS',counters:counters(null),selector:selector({available:false,rows:[]})}):null,researchRun:runId(d?.researchRun),cards:list(d?.cards,3).filter(c=>!c.error).map(research),emptyState:d?.latest?'本轮暂无有效市场研究':'尚无历史运行记录',stale:typeof d?.stale==='boolean'?d.stale:null,lastSuccessfulAt:time(d?.lastSuccessfulAt)}),
+   runs:d=>({items:list(d?.items,12).map(r=>({runId:runId(r.runId),status:record(r).status,scheduledAt:time(r.scheduledAt),dataCutoff:time(r.dataCutoff),finishedAt:time(r.finishedAt),counters:counters(r.counters),noMessageReason:'已完成运行的市场研究摘要'})),page:numeric(d?.page),limit:numeric(d?.limit),total:numeric(d?.total),filterPartial:d?.filterPartial===true}),
+   timeline:d=>({items:list(d?.items,12).map(research),page:numeric(d?.page),limit:numeric(d?.limit),total:numeric(d?.total),coverage:enumOf(d?.coverage,['COMPLETE','PARTIAL_RECENT_500_RUNS'])})};
+ }
+diff --git a/src/web/reader.js b/src/web/reader.js
+index a6c0dcb..69be430 100644
+--- a/src/web/reader.js
++++ b/src/web/reader.js
+@@ -1,3 +1,4 @@
++import {watchWindow,aggregateWatch,watchScore,WATCH_HOUR} from './market-watch.js';
+ import fs from 'node:fs/promises';
+ import {CONTRACT,sha} from '../analysis/market-bias-v2/common.js';
+ import {publicAnalysis,BIASES} from '../analysis/market-bias-v2/render.js';
+@@ -78,11 +79,53 @@ export class Reader{
+   for(let i=0;i<nodes.length-1;i++){const current=nodes[i],older=nodes.slice(i+1).find(n=>n.analysis?.status==='VALIDATED');if(current.analysis?.status==='VALIDATED'&&older&&current.dataCutoff>older.dataCutoff&&current.analysis.bias!==older.analysis.bias)current.biasChange={previous:older.analysis.bias,current:current.analysis.bias,previousRunId:older.runId,meaning:'V2 current evidence evolution; not confirmed price reversal'};}
+   return {items:nodes,page,limit,total:ids.length,inspected,coverage:idx.items.length>500?'PARTIAL_RECENT_500_RUNS':'COMPLETE'};
+  }
+- async overview(){const idx=await this.runsIndex(),latest=idx.items[0];if(!latest)return {latest:null,researchRun:null,cards:[],emptyState:'尚无历史运行记录',lastSuccessfulAt:null};
++ async marketWatch(){
++  const window=watchWindow(this.now()),key=window.windowEnd;
++  if(this.watchCache&&this.watchCache.key===key&&this.now()-this.watchCache.at<this.ttl)return this.watchCache.value;
++  if(this.watchPending?.key===key)return this.watchPending.promise;
++  const promise=(async()=>{
++   const slots=[],observations=[];
++   for(const expected of window.slots){
++    const slot={...expected,status:'MISSING',dataCutoff:null,finishedAt:null,selectedCount:0,validResearchCount:0,unavailableResearchCount:0,coverage:'COMPLETE',reason:null};slots.push(slot);
++    let saved=await this.result(expected.runId);
++    if(saved.error==='MISSING'){const skip=await this.json(`market-bias-v2/skips/${expected.runId}.json`);if(skip.value?.contract===CONTRACT&&skip.value.runId===expected.runId)saved=skip;}
++    const r=saved.value;
++    if(!r){if(saved.error!=='MISSING'){slot.status='INVALID';slot.reason='RUN_UNREADABLE';}continue;}
++    if(r.scheduledAt!==expected.scheduledAt||r.triggerType&&r.triggerType!=='HOURLY'||r.startedAt!=null&&(!Number.isSafeInteger(r.startedAt)||r.startedAt<r.scheduledAt||r.startedAt>window.observedAt)){
++     slot.status='INVALID';slot.reason='RUN_TIME_MISMATCH';continue;
++    }
++    if(r.finishedAt!=null&&(!Number.isSafeInteger(r.finishedAt)||r.finishedAt<r.scheduledAt||r.finishedAt>window.observedAt||r.startedAt!=null&&r.finishedAt<r.startedAt)){slot.status='INVALID';slot.reason='RUN_TIME_MISMATCH';continue;}
++    slot.finishedAt=r.finishedAt??null;
++    if(r.status==='RUNNING'){slot.status='RUNNING';continue;}
++    if(['SKIPPED_MISSED','SKIPPED_OVERLAP','FAILED','INTERRUPTED'].includes(r.status)){slot.status=r.status;continue;}
++    if(!['COMPLETE','PARTIAL'].includes(r.status)){slot.status='INVALID';slot.reason='RUN_STATUS_INVALID';continue;}
++    if(r.finishedAt==null){slot.status='INCOMPLETE';continue;}
++    if(!Number.isSafeInteger(r.dataCutoff)||r.dataCutoff<r.scheduledAt||r.dataCutoff>=r.scheduledAt+WATCH_HOUR||r.dataCutoff>r.finishedAt){slot.status='INVALID';slot.reason='FACTS_TIME_MISMATCH';continue;}
++    slot.status=r.status;slot.dataCutoff=r.dataCutoff;
++    if(r.selector?.version!=='DETERMINISTIC_SELECTOR_V1'||!Array.isArray(r.selector.selected)){slot.reason='SELECTOR_UNAVAILABLE';slot.coverage='PARTIAL';slot.selectedCount=null;slot.unavailableResearchCount=null;continue;}
++    const selected=[...new Set((Array.isArray(r.selector.selected)?r.selector.selected:[]).filter(s=>typeof s==='string'&&SYMBOL.test(s)))];slot.selectedCount=selected.length;
++    const selections=await this.selections(expected.runId),scores=new Map(selections.rows.map(row=>[row.symbol,row]));
++    if(selected.length>1500)slot.coverage='PARTIAL';
++    for(const symbol of selected.slice(0,1500)){
++     const detail=await this.research(expected.runId,symbol).catch(()=>null),row=scores.get(symbol),a=detail?.analysis;
++     const researchTime=a?.asOf?.validationCompletedAt??a?.asOf?.decisionCompletedAt??a?.generatedAt;
++     const validTimes=Number.isSafeInteger(researchTime)&&researchTime>=r.dataCutoff&&researchTime<=r.finishedAt;
++     const evidence=new Set((detail?.evidence||[]).filter(e=>e.dataTimes?.length&&e.dataTimes.every(t=>Number.isSafeInteger(t.ms)&&t.ms<=r.dataCutoff)).map(e=>e.evidenceId));
++     if(a?.status!=='VALIDATED'||a.mode==='HISTORICAL_REPLAY'||!['BULLISH','BEARISH','NO_EDGE'].includes(a.bias)||a.asOf?.factsAsOf!==r.dataCutoff||!validTimes||row&&row.status!=='SELECTED'||!detail.anomalies?.length||detail.anomalies.some(x=>!x.evidenceIds?.length||x.evidenceIds.some(id=>!evidence.has(id))))continue;
++     const score=watchScore(row?.score);
++     observations.push({symbol,runId:expected.runId,scheduledAt:r.scheduledAt,researchTime,dataCutoff:r.dataCutoff,score,scoreStatus:score===null?'MISSING':'AVAILABLE',bias:a.bias,anomalyTypes:[...new Set(detail.anomalies.map(x=>x.kind))],metrics:detail.metrics});slot.validResearchCount++;
++    }
++    slot.unavailableResearchCount=slot.selectedCount-slot.validResearchCount;
++   }
++   return this.clean(aggregateWatch(window,slots,observations));
++  })();this.watchPending={key,promise};
++  try{const value=await promise;this.watchCache={key,at:this.now(),value};return value;}finally{if(this.watchPending?.promise===promise)this.watchPending=null;}
++ }
++ async overview(){const idx=await this.runsIndex(),latest=idx.items[0],marketWatch=await this.marketWatch();if(!latest)return {latest:null,researchRun:null,cards:[],emptyState:'尚无历史运行记录',lastSuccessfulAt:null,marketWatch};
+   const run=await this.run(latest.runId).catch(()=>null);let cards=[],researchRun=null;
+   // Keep the latest run and last valid research visibly separate, never mix their counters.
+   for(const row of idx.items.slice(0,24)){const r=await this.result(row.runId);if(!r.value?.finishedAt||r.value.status==='RUNNING')continue;const symbols=(await this.names(`market-bias-v2/research/${row.runId}`)).filter(n=>n.endsWith('.json')&&SYMBOL.test(n.slice(0,-5)));for(const name of symbols){const detail=await this.research(row.runId,name.slice(0,-5)).catch(()=>null);if(detail?.analysis?.status==='VALIDATED')cards.push(detail);}if(cards.length){researchRun=row.runId;cards=cards.slice(0,3);break;}}
+-  const lastSuccessful=idx.items.find(r=>r.status==='COMPLETE');return {latest:run,researchRun,cards,emptyState:run?.noMessageReason||'原因未能确定',lastSuccessfulAt:lastSuccessful?.finishedAt??null,stale:run?.record.dataCutoff==null?null:this.now()-run.record.dataCutoff>2*3600000};
++  const lastSuccessful=idx.items.find(r=>r.status==='COMPLETE');return {marketWatch,latest:run,researchRun,cards,emptyState:run?.noMessageReason||'原因未能确定',lastSuccessfulAt:lastSuccessful?.finishedAt??null,stale:run?.record.dataCutoff==null?null:this.now()-run.record.dataCutoff>2*3600000};
+  }
+ }
+ export function unitFor(id=''){return /change\d+h|funding.change/.test(id)?'百分点':/volume.relative/.test(id)?'×':/price\.(?:closed|rolling|range|drawdown)|oi\.|funding|Account|Position|\.long|\.short/.test(id)?'%':null;}
+diff --git a/test/public-web.test.js b/test/public-web.test.js
+index 7243f28..666eb7f 100644
+--- a/test/public-web.test.js
++++ b/test/public-web.test.js
+@@ -85,3 +85,5 @@ test('unknown embedded internal metadata cannot be published as a text field',()
+ test('bad history index fails closed without publishing arbitrary fallback as latest',async()=>{const old=reader.runsIndex;reader.runsIndex=async()=>({indexError:'FILE_TOO_LARGE',items:[{runId}],unindexedBeyondLimit:50});try{const r=await request('/api/overview');assert.equal(r.status,503);assert.deepEqual(await r.json(),{error:'PUBLIC_READ_ERROR'});}finally{reader.runsIndex=old;}});
+
+ test('in-progress overview releases only minimal status, no provisional ranking',async()=>{const d=await(await request('/api/overview')).json();assert.equal(d.latest.record.runId,pendingId);assert.equal(d.latest.snapshotState,'IN_PROGRESS');assert.deepEqual(d.latest.selector.rows,[]);assert.equal(d.latest.counters.selected,null);assert.equal(d.researchRun,runId);});
++
++test('anonymous overview exposes bounded4H slots without adding private fields',async()=>{const d=await(await request('/api/overview')).json();assert.equal(d.marketWatch.version,'4H_MARKET_WATCH_V1');assert.equal(d.marketWatch.expectedSlots,4);assert.equal(d.marketWatch.slots.length,4);assert(d.marketWatch.items.length<=10);const s=JSON.stringify(d.marketWatch);for(const k of ['rawResponse','providerHeaders','passwordHash',secret,sensitivePath])assert(!s.includes(k));assert(Object.hasOwn(d,'latest'));assert(Object.hasOwn(d,'cards'));});
+diff --git a/test/web-dashboard.test.js b/test/web-dashboard.test.js
+index f545982..d91c5ec 100644
+--- a/test/web-dashboard.test.js
++++ b/test/web-dashboard.test.js
+@@ -124,3 +124,5 @@ test('NO_EDGE transitions labeled as research evolution, not confirmed price rev
+ test('V2 view refuses an obsolete horizon field',()=>{const data=webResearch(fact());data.research.analysis.horizon='4h';assert.equal(publicAnalysis(data.research,data.input).status,'UNAVAILABLE');});
+
+ test('Origin secure mode is explicit and credential-free',()=>{const c=webConfig({BA_BIAS_WEB_PASSWORD_HASH:hash,BA_BIAS_WEB_ORIGIN:'https://dashboard.example'});assert.equal(c.secure,true);assert.equal(c.origin,'https://dashboard.example');});
++
++test('authenticated overview retains Latest Scan and adds four fixed watch slots',async()=>{const login=await request('/api/login',{method:'POST',auth:false,data:{password:'isolated-test-password'}});assert.equal(login.status,200);cookie=login.headers.get('set-cookie').split(';')[0];const d=await(await request('/api/overview')).json();assert.equal(d.marketWatch.version,'4H_MARKET_WATCH_V1');assert.equal(d.marketWatch.slots.length,4);assert.equal(d.latest.record.runId,run);assert.equal(d.latest.selector.available,true);assert(Object.hasOwn(d,'researchRun'));assert(Object.hasOwn(d,'cards'));});
+diff --git a/web/assets/app.js b/web/assets/app.js
+index b1edfce..7fd1fe9 100644
+--- a/web/assets/app.js
++++ b/web/assets/app.js
+@@ -1,4 +1,4 @@
+-import {strengthLabel,validMetric,factTags,evidenceSummary,observationState,categoryLabel,mainNavigation} from './presentation.js';
++import {strengthLabel,validMetric,factTags,evidenceSummary,observationState,categoryLabel,mainNavigation,watchSlotLabel,watchBiasLabel,marketWatchView} from './presentation.js';
+ const content=document.querySelector('#content'),notice=document.querySelector('#notice');
+ let publicMode=false,csrf=null,authenticated=false,requestGeneration=0,lastDataAt=null;const scrolls=new Map(),viewCache=new Map(),navQueries=new Map();
+ const E=(tag,text,className)=>{const n=document.createElement(tag);if(text!==undefined&&text!==null)n.textContent=String(text);if(className)n.className=className;return n;};
+@@ -32,6 +32,22 @@ function researchCard(r){
+  add(c,E('p',evidenceSummary(r),'evidence-summary'),caption('研究模式 / 审核',`${r.analysis.mode||'LEGACY'} / ${r.analysis.reviewStatus||'旧合同记录'}`),caption('支持 / 竞争证据',`${r.analysis.supportingEvidence?.length||0} / ${(r.analysis.competingEvidence||r.analysis.conflictingEvidence)?.length||0}`));
+  add(c,E('p',when(r.dataCutoff),'muted'),link('查看完整研究 →',href));return c;
+ }
++function marketWatchSection(w){
++ const view=marketWatchView(w),section=card('4H Market Watch');
++ if(!w){section.append(E('p',view.emptyMessage,'empty'));return section;}
++ add(section,caption('小时槽范围',`${when(w.windowStart)} → ${when(w.windowEnd)}`),caption('观察时间',when(w.observedAt)),E('p',`应运行 ${unknown(w.expectedSlots)} 轮 · 已完成 ${unknown(w.counts?.completed)}（完整 ${unknown(w.counts?.complete)} / 部分 ${unknown(w.counts?.partial)}） · 失败/中断 ${unknown(w.counts?.failed)} · 跳过 ${unknown(w.counts?.skipped)} · 缺失 ${unknown(w.counts?.missing)} · 运行中 ${unknown(w.counts?.running)} · 未完成 ${unknown(w.counts?.incomplete)} · 无效 ${unknown(w.counts?.invalid)}`,'muted'),caption('最近有效扫描数据截止',when(w.lastValidScanAt)));
++ if(view.staleMessage)section.append(E('p',view.staleMessage,'warning'));
++ const slots=E('div');for(const slot of w.slots||[]){const row=E('p',null,'row');add(row,E('span',when(slot.scheduledAt)),tag(watchSlotLabel(slot.status)),slot.finishedAt!=null&&['COMPLETE','PARTIAL','FAILED','INTERRUPTED','SKIPPED_MISSED','SKIPPED_OVERLAP'].includes(slot.status)?link('运行记录','/runs/'+encodeURIComponent(slot.runId)):null);if(slot.validResearchCount!=null)row.append(E('small',`有效研究 ${slot.validResearchCount} / 入选 ${slot.selectedCount}`));if(slot.coverage==='PARTIAL')row.append(tag('读取覆盖不完整','warning'));slots.append(row);}section.append(expandable('四个计划时槽状态',slots));
++ add(section,E('p',`按窗口最高有效Selector分排序；同分按最近研究时间、Symbol排序。评分缺失置后。展示 ${view.items.length} / ${unknown(w.totalSymbols)} 个币种。`,'muted'),E('p','Selector分不是上涨概率或胜率；重复出现不代表异常持续增强。','muted'));
++ if(!view.items.length)section.append(E('p',view.emptyMessage,'empty'));
++ const items=E('div',null,'cards');for(const item of view.items){
++  const c=card(),href=`/symbol/${encodeURIComponent(item.symbol)}?runId=${encodeURIComponent(item.latestRunId)}`;
++  add(c,add(E('div',null,'row'),link(item.symbol,href),tag(watchBiasLabel(item.latestBias))),caption('窗口最高Selector分',item.scoreStatus==='AVAILABLE'?num(item.highestScore):'评分缺失'),caption('最近有效研究',when(item.latestResearchAt)),caption('首次出现时槽',when(item.firstSeenAt)),caption('窗口有效研究次数',item.occurrenceCount),caption('最新快照数据截止',when(item.dataCutoff)),caption('最近研究异常',(item.anomalyTypes||[]).join(' / ')||'未记录'));
++  if(item.stale)c.append(E('p','该币种最新研究快照已超过2小时，请按原数据时间解读。','warning'));
++  const history=E('div');for(const o of item.occurrences||[]){const row=card();add(row,link(o.runId,`/symbol/${encodeURIComponent(item.symbol)}?runId=${encodeURIComponent(o.runId)}`),caption('事实截止 / 研究完成',`${when(o.dataCutoff)} / ${when(o.researchTime)}`),caption('本轮Selector分 / 方向',`${o.scoreStatus==='AVAILABLE'?num(o.score):'评分缺失'} / ${watchBiasLabel(o.bias)}`),caption('异常',(o.anomalyTypes||[]).join(' / ')),caption('本快照价格1h / OI数量1h / 已结算Funding',`${num(o.metrics?.price1h?.value,o.metrics?.price1h?.unit||'')} / ${num(o.metrics?.oi1h?.value,o.metrics?.oi1h?.unit||'')} / ${num(o.metrics?.fundingSettled?.value,o.metrics?.fundingSettled?.unit||'')}`));history.append(row);}
++  add(c,expandable('逐小时研究与事实（分别查看，不拼接）',history),link('查看最新完整研究 →',href),E('p',null,'muted'));items.append(c);
++ }section.append(items);return section;
++}
+ const COUNTERS={scanned:'扫描合约',facts:'Facts',selectorEvaluated:'Selector输入',hardGatePassed:'硬门槛通过',noMaterial:'去重/无更新',qualified:'合格候选',selected:'Selector入选',biasValid:'V2有效',biasFailed:'V2失败',outbox:'Outbox创建',sent:'投递成功'};
+ function counts(c,primary=false){const grid=E('div',null,'metrics');for(const k of publicMode?['facts','qualified','selected','biasValid']:primary?['facts','selected','biasValid','sent']:Object.keys(COUNTERS))grid.append(add(E('div',null,'stat'),E('b',unknown(c?.[k]),'number'),E('span',COUNTERS[k])));return grid;}
+ function statusPanel(h){const state=h?.scanner??'UNKNOWN',n=card();n.classList.add('status');if(['STOPPED','DEGRADED'].includes(state))n.classList.add('error');if(['UNKNOWN','STALE'].includes(state))n.classList.add('warning');add(n,E('h3',`Web正常 / Scanner ${state==='STOPPED'?'已停止':state}`),expandable('进程观察依据',add(E('div'),caption('观察依据',h?.process?.basis),caption('状态读取',when(h?.observedAt)))));return n;}
+@@ -45,6 +61,9 @@ async function overview(){
+  const state=observationState(latest,completed,research),head=card();head.classList.add('compact-status');
+  if(publicMode){add(head,E('h1','观察'),caption('数据更新',when(latest?.record.dataCutoff)),caption('状态',latest?.snapshotState==='IN_PROGRESS'?'研究尚未完成':latest?({COMPLETE:'已完成',PARTIAL:'部分完成',FAILED:'失败',INTERRUPTED:'中断',SKIPPED_MISSED:'未执行',SKIPPED_OVERLAP:'未执行'}[latest.record.status]||'状态未记录'):'暂无记录'),caption('最近完成研究',when(completed?.record.dataCutoff)));frag.append(head);if(d.stale)frag.append(E('p','最新数据已过期，保存研究不代表当前行情。','warning'));}
+  else{add(head,E('h1','观察'),link(`Scanner：${h.scanner==='STOPPED'?'已停止':h.scanner} · ${h.dataStale?'数据已过期':h.dataStale===false?'数据新鲜':'新鲜度未知'}`,'/system'),caption('最近扫描',when(latest?.record.dataCutoff??latest?.record.scheduledAt)),caption('最近完成扫描',when(completed?.record.dataCutoff)));frag.append(head);const status=document.querySelector('#system-status');status.title=`Scanner ${h.scanner}`;status.classList.toggle('warning',h.scanner!=='RUNNING');status.classList.toggle('up',h.scanner==='RUNNING');if(h.scanner==='STOPPED')frag.append(E('p','Scanner停止；展示已保存研究。','warning'));if(h.dataStale||d.stale)frag.append(E('p','最新数据已过期，保存研究不代表当前行情。','warning'));}
++ frag.append(marketWatchSection(d.marketWatch));
++ frag.append(E('h2','Latest Scan · 最近一轮扫描'));
++ if(latest)frag.append(add(E('p',null,'muted'),publicMode&&latest.snapshotState==='IN_PROGRESS'?E('span',latest.record.runId):link(latest.record.runId,'/runs/'+encodeURIComponent(latest.record.runId)),E('span',' · '+unknown(latest.record.status))));
+  for(const message of state.messages)frag.append(E('p',message,'empty'));
+  if(completed)frag.append(add(E('p',null,'muted'),E('span','最近完成运行 · '),link(completed.record.runId,'/runs/'+completed.record.runId)));
+  const cards=E('div',null,'cards');for(const row of state.cards)cards.append(researchCard(row));frag.append(cards);
+diff --git a/web/assets/presentation.js b/web/assets/presentation.js
+index 447a716..38704b9 100644
+--- a/web/assets/presentation.js
++++ b/web/assets/presentation.js
+@@ -46,3 +46,8 @@ export function observationState(latest,completed,research){
+ }
+ export const categoryLabel=v=>({PRICE_EXTREMITY:'价格',OI_ABNORMALITY:'OI',VOLUME_ABNORMALITY:'成交量',FUNDING_EXTREMITY:'Funding',ACCOUNT_DISTRIBUTION:'账户',CROSS_METRIC_CONFIRMATION:'共振加分',MATERIAL_CHANGE:'实质更新',EVENT_NOVELTY:'新事件',HISTORICAL_RARITY:'历史稀有性'})[v]||v;
+ export const mainNavigation=p=>p==='/selector'?'/selector':p==='/history'||p.startsWith('/runs')||p.startsWith('/symbol/')?'/history':p==='/'?'/':null;
++
++// Display labels only: repeated research never means strengthening or a price probability.
++export const watchSlotLabel=s=>({COMPLETE:'已完成',PARTIAL:'部分完成',FAILED:'运行失败',INTERRUPTED:'运行中断',SKIPPED_MISSED:'漏执行',SKIPPED_OVERLAP:'重叠跳过',RUNNING:'运行中',MISSING:'记录缺失',INVALID:'时间或记录无效',INCOMPLETE:'尚未完成'})[s]||'状态未知';
++export const watchBiasLabel=b=>({BULLISH:'当前偏多',BEARISH:'当前偏空',NO_EDGE:'当前无明确方向优势'})[b]||'研究方向未记录';
++export function marketWatchView(w){return {items:Array.isArray(w?.items)?w.items.slice(0,10):[],emptyMessage:!w?'4H聚合暂不可用；可查看最近扫描或历史。':w.emptyState==='NO_COMPLETED_SLOTS'?'四个时槽内暂无有效的已完成运行，请查看时槽状态。':'四个时槽内暂无有效研究；不等同于Scanner运行失败。',staleMessage:w?.stale?'最近有效扫描已过期或缺失；保存研究不代表当前行情。':null};}
+diff --git a/src/web/market-watch.js b/src/web/market-watch.js
+new file mode 100644
+index 0000000..7f6fe3b
+--- /dev/null
++++ b/src/web/market-watch.js
+@@ -0,0 +1,22 @@
++// Web-only aggregation of saved research. No detector, scoring, scheduler or write imports.
++export const WATCH_HOUR=3600000;
++export function watchWindow(now){
++ if(!Number.isSafeInteger(now)||now<3*WATCH_HOUR)throw Error('INVALID_WATCH_CLOCK');
++ const anchor=Math.floor(now/WATCH_HOUR)*WATCH_HOUR;
++ // Asia/Shanghai is UTC+8 with hourly boundaries matching UTC boundaries.
++ const slots=Array.from({length:4},(_,i)=>{const scheduledAt=anchor-(3-i)*WATCH_HOUR,s=new Date(scheduledAt+8*WATCH_HOUR).toISOString();return {scheduledAt,runId:`hourly_${s.slice(0,10).replaceAll('-','')}_${s.slice(11,13)}00`};});
++ return {version:'4H_MARKET_WATCH_V1',timeZone:'Asia/Shanghai',schedule:'0 * * * *',windowMeaning:'FOUR_SCHEDULED_HOURLY_SLOTS',windowStart:slots[0].scheduledAt,windowEnd:anchor,observedAt:now,expectedSlots:4,slots};
++}
++export const watchScore=v=>typeof v==='number'&&Number.isFinite(v)&&v>=0?v:null;
++export function aggregateWatch(window,slots,observations){
++ const grouped=new Map(),seen=new Set();
++ for(const o of observations){const key=o.symbol+'/'+o.runId;if(seen.has(key))continue;seen.add(key);if(!grouped.has(o.symbol))grouped.set(o.symbol,[]);grouped.get(o.symbol).push(o);}
++ const items=[...grouped].map(([symbol,rows])=>{
++  rows.sort((a,b)=>b.researchTime-a.researchTime||b.scheduledAt-a.scheduledAt||a.runId.localeCompare(b.runId,'en'));
++  const latest=rows[0],scores=rows.map(r=>r.score).filter(v=>watchScore(v)!==null),highestScore=scores.length?Math.max(...scores):null;
++  return {symbol,firstSeenAt:Math.min(...rows.map(r=>r.scheduledAt)),latestResearchAt:latest.researchTime,occurrenceCount:rows.length,highestScore,scoreStatus:highestScore===null?'MISSING':'AVAILABLE',scoreSourceRunIds:rows.filter(r=>highestScore!==null&&r.score===highestScore).map(r=>r.runId),latestBias:latest.bias,latestRunId:latest.runId,anomalyTypes:latest.anomalyTypes,dataCutoff:latest.dataCutoff,stale:window.observedAt-latest.dataCutoff>2*WATCH_HOUR,metrics:latest.metrics,runIds:rows.map(r=>r.runId),occurrences:rows};
++ }).sort((a,b)=>(a.highestScore===null)-(b.highestScore===null)||(b.highestScore??0)-(a.highestScore??0)||b.latestResearchAt-a.latestResearchAt||(a.symbol<b.symbol?-1:a.symbol>b.symbol?1:0));
++ const completed=slots.filter(s=>['COMPLETE','PARTIAL'].includes(s.status)),lastValidScanAt=completed.length?Math.max(...completed.map(s=>s.dataCutoff)):null;
++ const counts={completed:completed.length,complete:slots.filter(s=>s.status==='COMPLETE').length,partial:slots.filter(s=>s.status==='PARTIAL').length,failed:slots.filter(s=>['FAILED','INTERRUPTED'].includes(s.status)).length,missing:slots.filter(s=>s.status==='MISSING').length,skipped:slots.filter(s=>s.status.startsWith('SKIPPED_')).length,running:slots.filter(s=>s.status==='RUNNING').length,incomplete:slots.filter(s=>s.status==='INCOMPLETE').length,invalid:slots.filter(s=>s.status==='INVALID').length};
++ return {...window,slots,counts,lastValidScanAt,stale:lastValidScanAt===null||window.observedAt-lastValidScanAt>2*WATCH_HOUR,totalSymbols:items.length,limit:10,sortRule:'HIGHEST_VALID_SELECTOR_SCORE_DESC__LATEST_RESEARCH_DESC__SYMBOL_ASC; MISSING_SCORES_LAST',occurrenceMeaning:'VALIDATED_LIVE_RESEARCH_PER_SYMBOL_PER_COMPLETED_SLOT; NOT_CONTINUING_STRENGTH',items:items.slice(0,10),emptyState:items.length?null:completed.length?'NO_VALID_RESEARCH':'NO_COMPLETED_SLOTS'};
++}
+diff --git a/test/market-watch.test.js b/test/market-watch.test.js
+new file mode 100644
+index 0000000..250e08b
+--- /dev/null
++++ b/test/market-watch.test.js
+@@ -0,0 +1,46 @@
++// Synthetic filesystem fixtures only. No scanner, provider, delivery or production state imports.
++import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs/promises';import path from 'node:path';import os from 'node:os';
++import {Reader} from '../src/web/reader.js';import {watchWindow,WATCH_HOUR as H} from '../src/web/market-watch.js';import {publicDTO} from '../src/web/public-dto.js';import {publicGet,publicRoute} from '../src/web/public-routes.js';
++import {CONTRACT,sha} from '../src/analysis/market-bias-v2/common.js';import {webResearch,sampleResearch} from './market-bias-v2-fixture.js';import {marketWatchView,watchSlotLabel} from '../web/assets/presentation.js';
++const anchor=Date.UTC(2026,9,18,6),now=anchor+10*60000;
++async function fixture({clock=now}={}){const dir=await fs.mkdtemp(path.join(os.tmpdir(),'ba-watch-')),history={contract:CONTRACT,runs:{}};let time=clock;
++ const write=async(p,v)=>{const f=path.join(dir,p);await fs.mkdir(path.dirname(f),{recursive:true});await fs.writeFile(f,JSON.stringify(v));};
++ async function run(t,rows=[],overrides={}){const id=watchWindow(t).slots.at(-1).runId,dataCutoff=t+10000,r={contract:CONTRACT,runId:id,triggerType:'HOURLY',scheduledAt:t,startedAt:t+10,finishedAt:t+60000,status:'COMPLETE',dataCutoff,selector:{version:'DETERMINISTIC_SELECTOR_V1',selected:rows.map(x=>x.symbol),qualifiedCount:rows.length},selectorEvaluated:rows.length,biasAnalyses:rows.length,biasFailures:0,...overrides};await write(`runs/${id}/result.json`,r);history.runs[id]=r;await write('market-bias-v2/state/history.json',history);
++  for(const row of rows){const s=row.symbol,m=(suffix,value)=>({evidenceId:s+':'+suffix,result:String(value),dataTimes:[{ms:dataCutoff}],endpoint:'/fapi/v1/klines',phrase:'SYNTHETIC FACT'}),price=m('price.closed1h',row.price??1),oi=m('oi.1h',row.oi??2),funding=m('funding.settled',row.funding??.01),f={schemaVersion:'BA_BIAS_FACTS_V1',symbol:s,runId:id,evaluationTime:dataCutoff,dataCutoff,price:{closedWindows:{'1h':price}},openInterest:{windows:{'1h':oi}},funding:{settledLatest:funding},volume:{},evidence:[price,oi,funding],anomalies:[{kind:row.kind||'PRICE_1H',evidenceIds:[price.evidenceId],strength:2}]};await write(`runs/${id}/facts/${s}.json`,f);const binding=webResearch(f,{bias:row.bias||'BULLISH'});binding.input.mode=row.mode||'LIVE';delete binding.input.contextId;binding.input.contextId=sha(binding.input);binding.inputHash=sha(binding.input);binding.research=sampleResearch(binding.input,{runId:id,bias:row.bias||'BULLISH'});binding.research.mode=binding.input.mode;if(row.unavailable){binding.research.executionState='UNAVAILABLE';binding.research.analysis=null;binding.research.error={code:'MOCK_UNAVAILABLE'};}
++   await write(`market-bias-v2/audit/${id}/${s}.json`,binding);await write(`market-bias-v2/research/${id}/${s}.json`,binding.research);await write(`runs/${id}/selection/${s}.json`,{symbol:s,status:'SELECTED',score:row.score,rank:1,gate:{extreme:true},dimensions:[]});
++  }return {id,r};
++ }
++ const reader=new Reader(dir,{now:()=>time,ttl:0});return {dir,reader,write,run,setTime:n=>time=n,close:()=>fs.rm(dir,{recursive:true,force:true})};}
++async function using(fn,options){const f=await fixture(options);try{return await fn(f);}finally{await f.close();}}
++const row=(symbol,score,extra={})=>({symbol,score,...extra});
++test('14:10 Shanghai resolves exactly11,12,13,14 hourly slots',()=>{const w=watchWindow(now);assert.deepEqual(w.slots.map(s=>s.runId),['hourly_20261018_1100','hourly_20261018_1200','hourly_20261018_1300','hourly_20261018_1400']);assert.equal(w.expectedSlots,4);assert.equal(w.windowEnd,anchor);});
++test('four completed rounds aggregate all symbols, not just latest run',()=>using(async f=>{for(let i=0;i<4;i++)await f.run(anchor-(3-i)*H,[row('SYM'+i+'USDT',10+i)]);const w=await f.reader.marketWatch();assert.equal(w.counts.completed,4);assert.equal(w.items.length,4);assert.equal(w.counts.missing,0);assert.equal(w.lastValidScanAt,anchor+10000);}));
++test('same Symbol deduplicates; highest older score and newest bias remain distinct',()=>using(async f=>{for(let i=0;i<4;i++)await f.run(anchor-(3-i)*H,[row('MAGICUSDT',90-i*10,{bias:i===3?'BEARISH':'BULLISH',price:i+1,oi:20+i,funding:.01+i*.01,kind:i===3?'OI_4H':'PRICE_1H'})]);const w=await f.reader.marketWatch(),r=w.items[0];assert.equal(w.items.length,1);assert.equal(r.occurrenceCount,4);assert.equal(r.highestScore,90);assert.equal(r.latestBias,'BEARISH');assert.equal(r.firstSeenAt,anchor-3*H);assert.equal(r.dataCutoff,anchor+10000);assert.deepEqual(r.anomalyTypes,['OI_4H']);assert.equal(r.metrics.price1h.value,'4');assert.equal(r.metrics.oi1h.value,'23');assert.equal(r.occurrences.at(-1).metrics.price1h.value,'1');assert.equal(new Set(r.runIds).size,4);assert.equal(r.scoreSourceRunIds[0],r.occurrences.at(-1).runId);}));
++test('stable ordering: score descending then newest research then Symbol',()=>using(async f=>{await f.run(anchor-H,[row('OLDERUSDT',50),row('TOPUSDT',60)]);await f.run(anchor,[row('ZZUSDT',50),row('AAUSDT',50)]);const r=await f.reader.marketWatch();assert.deepEqual(r.items.map(x=>x.symbol),['TOPUSDT','AAUSDT','ZZUSDT','OLDERUSDT']);assert.deepEqual((await f.reader.marketWatch()).items,r.items);}));
++test('missing score sorts last with explicit status; zero is a valid score',()=>using(async f=>{await f.run(anchor-H,[row('OLDUSDT',undefined)]);await f.run(anchor,[row('MISSINGUSDT',undefined),row('ZEROUSDT',0),row('NANUSDT','99')]);const w=await f.reader.marketWatch();assert.equal(w.items[0].symbol,'ZEROUSDT');assert.equal(w.items[0].highestScore,0);assert.equal(w.items[1].symbol,'MISSINGUSDT');assert(w.items.slice(1).every(x=>x.highestScore===null&&x.scoreStatus==='MISSING'));}));
++for(const status of ['FAILED','INTERRUPTED','SKIPPED_MISSED','SKIPPED_OVERLAP'])test(status+' slot is visible, excludes even saved research, no older replacement',()=>using(async f=>{await f.run(anchor-4*H,[row('TOOOLDUSDT',100)]);await f.run(anchor,[row('FAILEDUSDT',99)],{status});const w=await f.reader.marketWatch();assert.equal(w.slots.at(-1).status,status);assert.equal(w.counts.missing,3);assert.equal(w.items.length,0);assert.equal(w.expectedSlots,4);}));
++test('completed slot with zero research is not a scanner failure',()=>using(async f=>{await f.run(anchor);const w=await f.reader.marketWatch();assert.equal(w.counts.completed,1);assert.equal(w.counts.failed,0);assert.equal(w.emptyState,'NO_VALID_RESEARCH');assert.match(marketWatchView(w).emptyMessage,/不等同于Scanner运行失败/);}));
++test('three absent slots remain missing, never padded from earlier results',()=>using(async f=>{await f.run(anchor-4*H,[row('OUTSIDEUSDT',100)]);await f.run(anchor,[row('INSIDEUSDT',1)]);const w=await f.reader.marketWatch();assert.equal(w.counts.completed,1);assert.equal(w.counts.missing,3);assert.deepEqual(w.items.map(r=>r.symbol),['INSIDEUSDT']);}));
++test('midnight crosses dates correctly; current schedule has24 hourly slots',()=>{const w=watchWindow(Date.UTC(2026,9,18,16,10));assert.deepEqual(w.slots.map(s=>s.runId),['hourly_20261018_2100','hourly_20261018_2200','hourly_20261018_2300','hourly_20261019_0000']);assert.equal(w.schedule,'0 * * * *');});
++test('night hours are scheduled; missing night slots and stale data remain explicit',()=>using(async f=>{await f.run(anchor-3*H,[row('OLDUSDT',20)]);const w=await f.reader.marketWatch();assert.equal(w.stale,true);assert.equal(w.counts.missing,3);assert.match(marketWatchView(w).staleMessage,/过期或缺失/);}));
++test('running latest round cannot release provisional score, bias or evidence',()=>using(async f=>{await f.run(anchor-H,[row('VALIDUSDT',20)]);await f.run(anchor,[row('PROVISIONALUSDT',99)],{status:'RUNNING',finishedAt:null});const w=await f.reader.marketWatch();assert.equal(w.counts.running,1);assert.deepEqual(w.items.map(x=>x.symbol),['VALIDUSDT']);assert.equal(w.slots.at(-1).selectedCount,0);assert(!JSON.stringify(publicDTO().overview({marketWatch:w})).includes('PROVISIONALUSDT'));}));
++test('finishedAt missing is incomplete, not completed',()=>using(async f=>{await f.run(anchor,[row('BADUSDT',90)],{finishedAt:null});const w=await f.reader.marketWatch();assert.equal(w.counts.incomplete,1);assert.equal(w.items.length,0);}));
++for(const [name,change] of [['wrong scheduledAt',{scheduledAt:anchor-1}],['future finish',{finishedAt:now+1}],['future cutoff',{dataCutoff:now+1}],['older cutoff',{dataCutoff:anchor-1}],['manual trigger',{triggerType:'MANUAL'}]])test(name+' excluded without silently using an older slot',()=>using(async f=>{await f.run(anchor,[row('BADUSDT',10)],change);const w=await f.reader.marketWatch();assert.equal(w.slots.at(-1).status,'INVALID');assert.equal(w.items.length,0);}));
++test('PARTIAL completed run may expose individually valid research, with partial count',()=>using(async f=>{await f.run(anchor,[row('VALIDUSDT',10),row('BADUSDT',99,{unavailable:true})],{status:'PARTIAL'});const w=await f.reader.marketWatch();assert.equal(w.counts.completed,1);assert.equal(w.counts.partial,1);assert.equal(w.counts.complete,0);assert.equal(w.items.length,1);assert.equal(w.slots.at(-1).unavailableResearchCount,1);}));
++test('historical replay is not current live market research',()=>using(async f=>{await f.run(anchor,[row('REPLAYUSDT',99,{mode:'HISTORICAL_REPLAY'})]);assert.equal((await f.reader.marketWatch()).items.length,0);}));
++test('Top10 display cap and actual total do not change original selector decisions',()=>using(async f=>{await f.run(anchor,Array.from({length:12},(_,i)=>row('MOCK'+i+'USDT',i)));const w=await f.reader.marketWatch();assert.equal(w.items.length,10);assert.equal(w.totalSymbols,12);assert.equal((await f.reader.selections(w.slots.at(-1).runId)).rows.length,12);}));
++test('hourly window cache cannot survive into next hour',()=>using(async f=>{f.reader.ttl=60000;f.setTime(anchor+H-1);const a=await f.reader.marketWatch();f.setTime(anchor+H);const b=await f.reader.marketWatch();assert.notEqual(a.windowEnd,b.windowEnd);assert.equal(b.windowEnd,anchor+H);}));
++test('aggregate read shares in-flight work and never reads outside four specific slots',()=>using(async f=>{let calls=0;const original=f.reader.result.bind(f.reader);f.reader.result=async id=>{calls++;return original(id);};await Promise.all([f.reader.marketWatch(),f.reader.marketWatch()]);assert.equal(calls,4);}));
++test('overview legacy fields and latest completed scan remain available',()=>using(async f=>{const {id}=await f.run(anchor,[row('VALIDUSDT',30)]);const o=await f.reader.overview();for(const k of ['latest','researchRun','cards','emptyState','lastSuccessfulAt','stale'])assert(Object.hasOwn(o,k));assert.equal(o.latest.record.runId,id);assert.equal(o.researchRun,id);assert.equal(o.cards.length,1);assert.equal(o.marketWatch.items.length,1);assert.equal(publicDTO().overview(o).latest.record.runId,id);}));
++test('public routes reuse overview, no anonymous private endpoint is added',()=>using(async f=>{await f.run(anchor,[row('SAFEUSDT',40)]);const d=await publicGet('/api/overview',new URLSearchParams(),f.reader,publicDTO());assert.equal(d.marketWatch.items.length,1);assert.equal(publicRoute('/api/health'),null);assert.equal(publicRoute('/api/outbox'),null);}));
++test('new public DTO excludes unknown nested secret/log/raw fields',()=>{const poison={secret:'DO_NOT_PUBLISH',rawResponse:'DO_NOT_PUBLISH',providerHeaders:{Authorization:'DO_NOT_PUBLISH'},path:'C:\\private\\DO_NOT_PUBLISH',prompt:'DO_NOT_PUBLISH'},w={...watchWindow(now),...poison,counts:{completed:1,...poison},slots:[{runId:'hourly_20261018_1400',status:'COMPLETE',...poison}],items:[{symbol:'SAFEUSDT',latestRunId:'hourly_20261018_1400',highestScore:1,latestBias:'BULLISH',...poison,metrics:{...poison,price1h:{value:1,...poison}},occurrences:[{runId:'hourly_20261018_1400',...poison}]}]};const s=JSON.stringify(publicDTO().overview({marketWatch:w}));assert(!s.includes('DO_NOT_PUBLISH'));for(const key of ['rawResponse','providerHeaders','prompt','Authorization'])assert(!s.includes(key));});
++test('no research or missing watch data renders explicit non-failure empty state',()=>{assert.equal(marketWatchView(null).items.length,0);assert.match(marketWatchView(null).emptyMessage,/暂不可用/);assert.equal(watchSlotLabel('SKIPPED_MISSED'),'漏执行');assert.equal(marketWatchView({items:[],emptyState:'NO_VALID_RESEARCH'}).items.length,0);});
++
++test('actual homepage renderer handles empty watch and preserves Latest Scan',async()=>{const source=await fs.readFile(new URL('../web/assets/app.js',import.meta.url),'utf8'),body=source.slice(source.indexOf('function marketWatchSection('),source.indexOf('const COUNTERS='));const E=(tag,text)=>({tag,text:text??'',children:[],append(...nodes){this.children.push(...nodes);}}),add=(p,...nodes)=>{p.append(...nodes.filter(Boolean));return p;},card=title=>add(E('section'),E('h2',title)),caption=(label,value)=>E('p',label+': '+value),link=(text,href)=>({...E('a',text),href});const render=new Function('E','card','add','caption','when','unknown','num','tag','link','expandable','marketWatchView','watchSlotLabel','watchBiasLabel',body+';return marketWatchSection;')(E,card,add,caption,String,String,String,x=>E('span',x),link,(title,child)=>add(E('details'),E('summary',title),child),marketWatchView,watchSlotLabel,x=>x);const empty=render({...watchWindow(now),items:[],counts:{completed:1},emptyState:'NO_VALID_RESEARCH'});const text=n=>String(n.text??'')+' '+n.children.map(text).join(' ');assert.match(text(empty),/4H Market Watch/);assert.match(text(empty),/不等同于Scanner运行失败/);const populated=render({...watchWindow(now),counts:{completed:4},totalSymbols:1,items:[{symbol:'MAGICUSDT',latestRunId:'hourly_20261018_1400',scoreStatus:'AVAILABLE',highestScore:90,latestBias:'BEARISH',occurrenceCount:2,anomalyTypes:['OI_4H'],occurrences:[{runId:'hourly_20261018_1400',scoreStatus:'AVAILABLE',score:40,bias:'BEARISH',metrics:{price1h:{value:9},oi1h:{value:4}}},{runId:'hourly_20261018_1100',scoreStatus:'AVAILABLE',score:90,bias:'BULLISH',metrics:{price1h:{value:-5},oi1h:{value:2}}}]}]});assert.match(text(populated),/MAGICUSDT/);assert.match(text(populated),/hourly_20261018_1400/);assert.match(text(populated),/hourly_20261018_1100/);assert.match(text(populated),/分别查看，不拼接/);assert(source.includes('Latest Scan · 最近一轮扫描'));assert(source.includes('observationState(latest,completed,research)'));assert(!source.includes('innerHTML'));});
++
++test('skip marker without a result file still identifies the specific missed slot',()=>using(async f=>{const id=watchWindow(now).slots.at(-1).runId;await f.write(`market-bias-v2/skips/${id}.json`,{contract:CONTRACT,runId:id,status:'SKIPPED_MISSED',triggerType:'HOURLY',scheduledAt:anchor,startedAt:null,finishedAt:anchor+60000});const w=await f.reader.marketWatch();assert.equal(w.slots.at(-1).status,'SKIPPED_MISSED');assert.equal(w.counts.skipped,1);assert.equal(w.counts.missing,3);}));
++test('missing selector score file cannot fabricate a zero or import another run score',()=>using(async f=>{const {id}=await f.run(anchor,[row('SCORELESSUSDT',100)]);await fs.unlink(path.join(f.dir,`runs/${id}/selection/SCORELESSUSDT.json`));const w=await f.reader.marketWatch();assert.equal(w.items.length,1);assert.equal(w.items[0].highestScore,null);assert.equal(w.items[0].scoreStatus,'MISSING');}));
++test('tampered research input fails existing guard and never enters the watch',()=>using(async f=>{const {id}=await f.run(anchor,[row('TAMPERUSDT',90)]);const file=path.join(f.dir,`market-bias-v2/audit/${id}/TAMPERUSDT.json`),a=JSON.parse(await fs.readFile(file));a.input.currentFacts[0].value='99999';await fs.writeFile(file,JSON.stringify(a));assert.equal((await f.reader.marketWatch()).items.length,0);}));
++test('fresh zero-research scan does not conceal an old card timestamp',()=>using(async f=>{await f.run(anchor-3*H,[row('OLDUSDT',50)]);await f.run(anchor,[]);const w=await f.reader.marketWatch();assert.equal(w.stale,false);assert.equal(w.items[0].stale,true);assert.equal(publicDTO().overview({marketWatch:w}).marketWatch.items[0].stale,true);}));
++test('market watch reads do not mutate any fixture files',()=>using(async f=>{await f.run(anchor,[row('SAFEUSDT',20)]);async function digest(p){const out={};for(const e of await fs.readdir(p,{withFileTypes:true})){const file=path.join(p,e.name);if(e.isDirectory())Object.assign(out,await digest(file));else out[file]=sha(await fs.readFile(file,'utf8'));}return out;}const before=await digest(f.dir);await f.reader.overview();await publicGet('/api/overview',new URLSearchParams(),f.reader,publicDTO());assert.deepEqual(await digest(f.dir),before);}));
++test('short-lived aggregate cache avoids repeated file reads and retains the original observation timestamp',()=>using(async f=>{await f.run(anchor,[row('CACHEUSDT',20)]);f.reader.ttl=10000;const a=await f.reader.marketWatch(),n=f.reader.readCount;f.setTime(now+1000);const b=await f.reader.marketWatch();assert.equal(f.reader.readCount,n);assert.equal(a.observedAt,b.observedAt);assert.deepEqual(a,b);}));

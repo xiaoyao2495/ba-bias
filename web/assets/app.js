@@ -1,4 +1,4 @@
-import {strengthLabel,validMetric,factTags,evidenceSummary,observationState,categoryLabel,mainNavigation} from './presentation.js';
+import {strengthLabel,validMetric,factTags,evidenceSummary,observationState,categoryLabel,mainNavigation,watchSlotLabel,watchBiasLabel,marketWatchView} from './presentation.js';
 const content=document.querySelector('#content'),notice=document.querySelector('#notice');
 let publicMode=false,csrf=null,authenticated=false,requestGeneration=0,lastDataAt=null;const scrolls=new Map(),viewCache=new Map(),navQueries=new Map();
 const E=(tag,text,className)=>{const n=document.createElement(tag);if(text!==undefined&&text!==null)n.textContent=String(text);if(className)n.className=className;return n;};
@@ -32,6 +32,22 @@ function researchCard(r){
  add(c,E('p',evidenceSummary(r),'evidence-summary'),caption('研究模式 / 审核',`${r.analysis.mode||'LEGACY'} / ${r.analysis.reviewStatus||'旧合同记录'}`),caption('支持 / 竞争证据',`${r.analysis.supportingEvidence?.length||0} / ${(r.analysis.competingEvidence||r.analysis.conflictingEvidence)?.length||0}`));
  add(c,E('p',when(r.dataCutoff),'muted'),link('查看完整研究 →',href));return c;
 }
+function marketWatchSection(w){
+ const view=marketWatchView(w),section=card('4H Market Watch');
+ if(!w){section.append(E('p',view.emptyMessage,'empty'));return section;}
+ add(section,caption('小时槽范围',`${when(w.windowStart)} → ${when(w.windowEnd)}`),caption('观察时间',when(w.observedAt)),E('p',`应运行 ${unknown(w.expectedSlots)} 轮 · 已完成 ${unknown(w.counts?.completed)}（完整 ${unknown(w.counts?.complete)} / 部分 ${unknown(w.counts?.partial)}） · 失败/中断 ${unknown(w.counts?.failed)} · 跳过 ${unknown(w.counts?.skipped)} · 缺失 ${unknown(w.counts?.missing)} · 运行中 ${unknown(w.counts?.running)} · 未完成 ${unknown(w.counts?.incomplete)} · 无效 ${unknown(w.counts?.invalid)}`,'muted'),caption('最近有效扫描数据截止',when(w.lastValidScanAt)));
+ if(view.staleMessage)section.append(E('p',view.staleMessage,'warning'));
+ const slots=E('div');for(const slot of w.slots||[]){const row=E('p',null,'row');add(row,E('span',when(slot.scheduledAt)),tag(watchSlotLabel(slot.status)),slot.finishedAt!=null&&['COMPLETE','PARTIAL','FAILED','INTERRUPTED','SKIPPED_MISSED','SKIPPED_OVERLAP'].includes(slot.status)?link('运行记录','/runs/'+encodeURIComponent(slot.runId)):null);if(slot.validResearchCount!=null)row.append(E('small',`有效研究 ${slot.validResearchCount} / 入选 ${slot.selectedCount}`));if(slot.coverage==='PARTIAL')row.append(tag('读取覆盖不完整','warning'));slots.append(row);}section.append(expandable('四个计划时槽状态',slots));
+ add(section,E('p',`按窗口最高有效Selector分排序；同分按最近研究时间、Symbol排序。评分缺失置后。展示 ${view.items.length} / ${unknown(w.totalSymbols)} 个币种。`,'muted'),E('p','Selector分不是上涨概率或胜率；重复出现不代表异常持续增强。','muted'));
+ if(!view.items.length)section.append(E('p',view.emptyMessage,'empty'));
+ const items=E('div',null,'cards');for(const item of view.items){
+  const c=card(),href=`/symbol/${encodeURIComponent(item.symbol)}?runId=${encodeURIComponent(item.latestRunId)}`;
+  add(c,add(E('div',null,'row'),link(item.symbol,href),tag(watchBiasLabel(item.latestBias))),caption('窗口最高Selector分',item.scoreStatus==='AVAILABLE'?num(item.highestScore):'评分缺失'),caption('最近有效研究',when(item.latestResearchAt)),caption('首次出现时槽',when(item.firstSeenAt)),caption('窗口有效研究次数',item.occurrenceCount),caption('最新快照数据截止',when(item.dataCutoff)),caption('最近研究异常',(item.anomalyTypes||[]).join(' / ')||'未记录'));
+  if(item.stale)c.append(E('p','该币种最新研究快照已超过2小时，请按原数据时间解读。','warning'));
+  const history=E('div');for(const o of item.occurrences||[]){const row=card();add(row,link(o.runId,`/symbol/${encodeURIComponent(item.symbol)}?runId=${encodeURIComponent(o.runId)}`),caption('事实截止 / 研究完成',`${when(o.dataCutoff)} / ${when(o.researchTime)}`),caption('本轮Selector分 / 方向',`${o.scoreStatus==='AVAILABLE'?num(o.score):'评分缺失'} / ${watchBiasLabel(o.bias)}`),caption('异常',(o.anomalyTypes||[]).join(' / ')),caption('本快照价格1h / OI数量1h / 已结算Funding',`${num(o.metrics?.price1h?.value,o.metrics?.price1h?.unit||'')} / ${num(o.metrics?.oi1h?.value,o.metrics?.oi1h?.unit||'')} / ${num(o.metrics?.fundingSettled?.value,o.metrics?.fundingSettled?.unit||'')}`));history.append(row);}
+  add(c,expandable('逐小时研究与事实（分别查看，不拼接）',history),link('查看最新完整研究 →',href),E('p',null,'muted'));items.append(c);
+ }section.append(items);return section;
+}
 const COUNTERS={scanned:'扫描合约',facts:'Facts',selectorEvaluated:'Selector输入',hardGatePassed:'硬门槛通过',noMaterial:'去重/无更新',qualified:'合格候选',selected:'Selector入选',biasValid:'V2有效',biasFailed:'V2失败',outbox:'Outbox创建',sent:'投递成功'};
 function counts(c,primary=false){const grid=E('div',null,'metrics');for(const k of publicMode?['facts','qualified','selected','biasValid']:primary?['facts','selected','biasValid','sent']:Object.keys(COUNTERS))grid.append(add(E('div',null,'stat'),E('b',unknown(c?.[k]),'number'),E('span',COUNTERS[k])));return grid;}
 function statusPanel(h){const state=h?.scanner??'UNKNOWN',n=card();n.classList.add('status');if(['STOPPED','DEGRADED'].includes(state))n.classList.add('error');if(['UNKNOWN','STALE'].includes(state))n.classList.add('warning');add(n,E('h3',`Web正常 / Scanner ${state==='STOPPED'?'已停止':state}`),expandable('进程观察依据',add(E('div'),caption('观察依据',h?.process?.basis),caption('状态读取',when(h?.observedAt)))));return n;}
@@ -45,6 +61,9 @@ async function overview(){
  const state=observationState(latest,completed,research),head=card();head.classList.add('compact-status');
  if(publicMode){add(head,E('h1','观察'),caption('数据更新',when(latest?.record.dataCutoff)),caption('状态',latest?.snapshotState==='IN_PROGRESS'?'研究尚未完成':latest?({COMPLETE:'已完成',PARTIAL:'部分完成',FAILED:'失败',INTERRUPTED:'中断',SKIPPED_MISSED:'未执行',SKIPPED_OVERLAP:'未执行'}[latest.record.status]||'状态未记录'):'暂无记录'),caption('最近完成研究',when(completed?.record.dataCutoff)));frag.append(head);if(d.stale)frag.append(E('p','最新数据已过期，保存研究不代表当前行情。','warning'));}
  else{add(head,E('h1','观察'),link(`Scanner：${h.scanner==='STOPPED'?'已停止':h.scanner} · ${h.dataStale?'数据已过期':h.dataStale===false?'数据新鲜':'新鲜度未知'}`,'/system'),caption('最近扫描',when(latest?.record.dataCutoff??latest?.record.scheduledAt)),caption('最近完成扫描',when(completed?.record.dataCutoff)));frag.append(head);const status=document.querySelector('#system-status');status.title=`Scanner ${h.scanner}`;status.classList.toggle('warning',h.scanner!=='RUNNING');status.classList.toggle('up',h.scanner==='RUNNING');if(h.scanner==='STOPPED')frag.append(E('p','Scanner停止；展示已保存研究。','warning'));if(h.dataStale||d.stale)frag.append(E('p','最新数据已过期，保存研究不代表当前行情。','warning'));}
+ frag.append(marketWatchSection(d.marketWatch));
+ frag.append(E('h2','Latest Scan · 最近一轮扫描'));
+ if(latest)frag.append(add(E('p',null,'muted'),publicMode&&latest.snapshotState==='IN_PROGRESS'?E('span',latest.record.runId):link(latest.record.runId,'/runs/'+encodeURIComponent(latest.record.runId)),E('span',' · '+unknown(latest.record.status))));
  for(const message of state.messages)frag.append(E('p',message,'empty'));
  if(completed)frag.append(add(E('p',null,'muted'),E('span','最近完成运行 · '),link(completed.record.runId,'/runs/'+completed.record.runId)));
  const cards=E('div',null,'cards');for(const row of state.cards)cards.append(researchCard(row));frag.append(cards);

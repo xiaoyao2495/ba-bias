@@ -1,0 +1,12 @@
+{
+  "protectedFilesBefore": 8412,
+  "protectedFilesAfter": 8412,
+  "changedOrAddedOrRemoved": [],
+  "scope": "src excluding src/web; data; .env/.web.env/package.json/package-lock.json",
+  "shadowState": "not read or written",
+  "productionNetworkCalls": 0,
+  "dingtalkMessages": 0,
+  "productionProcessesStarted": 0,
+  "gitCommit": false,
+  "gitPush": false
+}

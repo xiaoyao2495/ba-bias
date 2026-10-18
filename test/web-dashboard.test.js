@@ -124,3 +124,5 @@ test('NO_EDGE transitions labeled as research evolution, not confirmed price rev
 test('V2 view refuses an obsolete horizon field',()=>{const data=webResearch(fact());data.research.analysis.horizon='4h';assert.equal(publicAnalysis(data.research,data.input).status,'UNAVAILABLE');});
 
 test('Origin secure mode is explicit and credential-free',()=>{const c=webConfig({BA_BIAS_WEB_PASSWORD_HASH:hash,BA_BIAS_WEB_ORIGIN:'https://dashboard.example'});assert.equal(c.secure,true);assert.equal(c.origin,'https://dashboard.example');});
+
+test('authenticated overview retains Latest Scan and adds four fixed watch slots',async()=>{const login=await request('/api/login',{method:'POST',auth:false,data:{password:'isolated-test-password'}});assert.equal(login.status,200);cookie=login.headers.get('set-cookie').split(';')[0];const d=await(await request('/api/overview')).json();assert.equal(d.marketWatch.version,'4H_MARKET_WATCH_V1');assert.equal(d.marketWatch.slots.length,4);assert.equal(d.latest.record.runId,run);assert.equal(d.latest.selector.available,true);assert(Object.hasOwn(d,'researchRun'));assert(Object.hasOwn(d,'cards'));});

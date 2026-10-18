@@ -46,3 +46,8 @@ export function observationState(latest,completed,research){
 }
 export const categoryLabel=v=>({PRICE_EXTREMITY:'价格',OI_ABNORMALITY:'OI',VOLUME_ABNORMALITY:'成交量',FUNDING_EXTREMITY:'Funding',ACCOUNT_DISTRIBUTION:'账户',CROSS_METRIC_CONFIRMATION:'共振加分',MATERIAL_CHANGE:'实质更新',EVENT_NOVELTY:'新事件',HISTORICAL_RARITY:'历史稀有性'})[v]||v;
 export const mainNavigation=p=>p==='/selector'?'/selector':p==='/history'||p.startsWith('/runs')||p.startsWith('/symbol/')?'/history':p==='/'?'/':null;
+
+// Display labels only: repeated research never means strengthening or a price probability.
+export const watchSlotLabel=s=>({COMPLETE:'已完成',PARTIAL:'部分完成',FAILED:'运行失败',INTERRUPTED:'运行中断',SKIPPED_MISSED:'漏执行',SKIPPED_OVERLAP:'重叠跳过',RUNNING:'运行中',MISSING:'记录缺失',INVALID:'时间或记录无效',INCOMPLETE:'尚未完成'})[s]||'状态未知';
+export const watchBiasLabel=b=>({BULLISH:'当前偏多',BEARISH:'当前偏空',NO_EDGE:'当前无明确方向优势'})[b]||'研究方向未记录';
+export function marketWatchView(w){return {items:Array.isArray(w?.items)?w.items.slice(0,10):[],emptyMessage:!w?'4H聚合暂不可用；可查看最近扫描或历史。':w.emptyState==='NO_COMPLETED_SLOTS'?'四个时槽内暂无有效的已完成运行，请查看时槽状态。':'四个时槽内暂无有效研究；不等同于Scanner运行失败。',staleMessage:w?.stale?'最近有效扫描已过期或缺失；保存研究不代表当前行情。':null};}

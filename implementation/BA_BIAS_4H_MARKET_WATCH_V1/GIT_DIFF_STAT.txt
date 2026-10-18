@@ -1,0 +1,8 @@
+ package.json               |  5 ++++-
+ src/web/public-dto.js      |  4 +++-
+ src/web/reader.js          | 47 ++++++++++++++++++++++++++++++++++++++++++++--
+ test/public-web.test.js    |  2 ++
+ test/web-dashboard.test.js |  2 ++
+ web/assets/app.js          | 21 ++++++++++++++++++++-
+ web/assets/presentation.js |  5 +++++
+ 7 files changed, 81 insertions(+), 5 deletions(-)
