@@ -1,0 +1,3638 @@
+{
+  "boundaries": [
+    {
+      "funding": 0.149999,
+      "price": 8.8,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 2,
+        "strongest": 1.49999,
+        "extreme": false,
+        "resonance": false
+      },
+      "status": "LOW_RESEARCH_VALUE",
+      "reason": "BELOW_RESEARCH_GATE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "funding": 0.15,
+      "price": 8.8,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 2,
+        "strongest": 1.4999999999999998,
+        "extreme": false,
+        "resonance": false
+      },
+      "status": "LOW_RESEARCH_VALUE",
+      "reason": "BELOW_RESEARCH_GATE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "funding": 0.150001,
+      "price": 8.8,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 2,
+        "strongest": 1.5000099999999998,
+        "extreme": false,
+        "resonance": true
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 27.3334,
+      "rank": 1
+    },
+    {
+      "funding": 0.299999,
+      "price": 0,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 1,
+        "strongest": 2.99999,
+        "extreme": false,
+        "resonance": false
+      },
+      "status": "LOW_RESEARCH_VALUE",
+      "reason": "BELOW_RESEARCH_GATE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "funding": 0.3,
+      "price": 0,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 1,
+        "strongest": 2.9999999999999996,
+        "extreme": false,
+        "resonance": false
+      },
+      "status": "LOW_RESEARCH_VALUE",
+      "reason": "BELOW_RESEARCH_GATE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "funding": 0.300001,
+      "price": 0,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 1,
+        "strongest": 3.00001,
+        "extreme": true,
+        "resonance": false
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 25,
+      "rank": 1
+    },
+    {
+      "funding": -0.149999,
+      "price": 8.8,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 2,
+        "strongest": 1.49999,
+        "extreme": false,
+        "resonance": false
+      },
+      "status": "LOW_RESEARCH_VALUE",
+      "reason": "BELOW_RESEARCH_GATE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "funding": -0.15,
+      "price": 8.8,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 2,
+        "strongest": 1.4999999999999998,
+        "extreme": false,
+        "resonance": false
+      },
+      "status": "LOW_RESEARCH_VALUE",
+      "reason": "BELOW_RESEARCH_GATE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "funding": -0.150001,
+      "price": 8.8,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 2,
+        "strongest": 1.5000099999999998,
+        "extreme": false,
+        "resonance": true
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 27.3334,
+      "rank": 1
+    },
+    {
+      "funding": -0.299999,
+      "price": 0,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 1,
+        "strongest": 2.99999,
+        "extreme": false,
+        "resonance": false
+      },
+      "status": "LOW_RESEARCH_VALUE",
+      "reason": "BELOW_RESEARCH_GATE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "funding": -0.3,
+      "price": 0,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 1,
+        "strongest": 2.9999999999999996,
+        "extreme": false,
+        "resonance": false
+      },
+      "status": "LOW_RESEARCH_VALUE",
+      "reason": "BELOW_RESEARCH_GATE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "funding": -0.300001,
+      "price": 0,
+      "symbol": "TESTUSDT",
+      "gate": {
+        "families": 1,
+        "strongest": 3.00001,
+        "extreme": true,
+        "resonance": false
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 25,
+      "rank": 1
+    }
+  ],
+  "fixture": [
+    {
+      "symbol": "ROW0USDT",
+      "gate": {
+        "families": 1,
+        "strongest": 5,
+        "extreme": true,
+        "resonance": false
+      },
+      "status": "NO_MATERIAL_UPDATE",
+      "reason": "NO_MATERIAL_CHANGE",
+      "score": null,
+      "rank": null
+    },
+    {
+      "symbol": "ROW1USDT",
+      "gate": {
+        "families": 2,
+        "strongest": 5,
+        "extreme": true,
+        "resonance": true
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 43.333333,
+      "rank": 1
+    },
+    {
+      "symbol": "ROW2USDT",
+      "gate": {
+        "families": 1,
+        "strongest": 5,
+        "extreme": true,
+        "resonance": false
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 25,
+      "rank": 4
+    },
+    {
+      "symbol": "ROW3USDT",
+      "gate": {
+        "families": 2,
+        "strongest": 5,
+        "extreme": true,
+        "resonance": true
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 43.333333,
+      "rank": 2
+    },
+    {
+      "symbol": "ROW4USDT",
+      "gate": {
+        "families": 1,
+        "strongest": 5,
+        "extreme": true,
+        "resonance": false
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 25,
+      "rank": 5
+    },
+    {
+      "symbol": "ROW5USDT",
+      "gate": {
+        "families": 2,
+        "strongest": 5,
+        "extreme": true,
+        "resonance": true
+      },
+      "status": "SELECTED",
+      "reason": "TOP_K",
+      "score": 43.333333,
+      "rank": 3
+    },
+    {
+      "symbol": "ROW6USDT",
+      "gate": {
+        "families": 1,
+        "strongest": 5,
+        "extreme": true,
+        "resonance": false
+      },
+      "status": "QUALIFIED_BUT_NOT_SELECTED",
+      "reason": "RANK_BELOW_TOP_K",
+      "score": 25,
+      "rank": 6
+    }
+  ],
+  "archive": [
+    {
+      "runId": "hourly_20261011_1200",
+      "rows": [
+        {
+          "symbol": "APRUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 3.8018433175,
+            "extreme": true,
+            "resonance": false
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 25,
+          "rank": 16
+        },
+        {
+          "symbol": "BRUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 27.051779,
+          "rank": 14
+        },
+        {
+          "symbol": "CHIPUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 3.48333333375,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 40,
+          "rank": 7
+        },
+        {
+          "symbol": "ERAUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 4.13158,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 41.425307,
+          "rank": 5
+        },
+        {
+          "symbol": "GRASSUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "JCTUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 3.35900936,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 40,
+          "rank": 8
+        },
+        {
+          "symbol": "LAUSDT",
+          "gate": {
+            "families": 4,
+            "strongest": 2.60017,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 61.475722,
+          "rank": 1
+        },
+        {
+          "symbol": "LDOUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 26.666667,
+          "rank": 15
+        },
+        {
+          "symbol": "LUMIAUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 3.7416918425,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 36.476667,
+          "rank": 10
+        },
+        {
+          "symbol": "MAGICUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 4.5428449575,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 54.521267,
+          "rank": 2
+        },
+        {
+          "symbol": "METUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "MINAUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 30.784667,
+          "rank": 12
+        },
+        {
+          "symbol": "NIGHTUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 23.542535,
+          "rank": 18
+        },
+        {
+          "symbol": "PENGUUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "PIXELUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2.50100307625,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 32.116687,
+          "rank": 11
+        },
+        {
+          "symbol": "POLUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 2.661218775,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 40.537396,
+          "rank": 6
+        },
+        {
+          "symbol": "PUMPUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "QNTUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 1,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "RLCUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 29.3418,
+          "rank": 13
+        },
+        {
+          "symbol": "SEIUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "STRKUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 5,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 48.537521,
+          "rank": 3
+        },
+        {
+          "symbol": "TIAUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 3.153247845,
+            "extreme": true,
+            "resonance": false
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 25,
+          "rank": 17
+        },
+        {
+          "symbol": "USUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 3.370584803333333,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 40,
+          "rank": 9
+        },
+        {
+          "symbol": "WALUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 3.1056699999999995,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 43.07713,
+          "rank": 4
+        },
+        {
+          "symbol": "WLFIUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "ZROUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261011_1400",
+      "rows": [
+        {
+          "symbol": "AGTUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 3.21769396,
+            "extreme": true,
+            "resonance": false
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "APRUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 3.7868324125,
+            "extreme": true,
+            "resonance": false
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "BRUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "CHIPUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2.3664702525,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "ERAUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 4.13158,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 58.885474,
+          "rank": 2
+        },
+        {
+          "symbol": "GRASSUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "INJUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 1.09438883375,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "JCTUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 4.368267665,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 55,
+          "rank": 3
+        },
+        {
+          "symbol": "LAUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2.60017,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "LDOUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 26.666667,
+          "rank": 6
+        },
+        {
+          "symbol": "LUMIAUSDT",
+          "gate": {
+            "families": 4,
+            "strongest": 5,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 80.066156,
+          "rank": 1
+        },
+        {
+          "symbol": "MAGICUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 3.687873395,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "MINAUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "NIGHTUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "PENGUUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "PIXELUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 2.41903891375,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "POLUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 2.607146465,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 40.357155,
+          "rank": 4
+        },
+        {
+          "symbol": "PUMPUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "QNTUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "RLCUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "SEIUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "STRKUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 5,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "TIAUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2.942671275,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "USUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 4.17070398375,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 40,
+          "rank": 5
+        },
+        {
+          "symbol": "WALUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 3.1056699999999995,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        }
+      ]
+    },
+    {
+      "runId": "hourly_20261011_1600",
+      "rows": [
+        {
+          "symbol": "AGTUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 3.12016314625,
+            "extreme": true,
+            "resonance": false
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "APRUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2.898550725,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "CFXUSDT",
+          "gate": {
+            "families": 5,
+            "strongest": 4.25166732,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 71.231085,
+          "rank": 1
+        },
+        {
+          "symbol": "CHIPUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 2.81640181625,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "ERAUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 5,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 63.928526,
+          "rank": 3
+        },
+        {
+          "symbol": "GRASSUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "INJUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "JCTUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 3.4041591325,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "LAUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2.11699,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "LDOUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 26.666667,
+          "rank": 7
+        },
+        {
+          "symbol": "LUMIAUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 4.3586450475,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 70,
+          "rank": 2
+        },
+        {
+          "symbol": "MAGICUSDT",
+          "gate": {
+            "families": 3,
+            "strongest": 2.8583954400000002,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 50.992103,
+          "rank": 4
+        },
+        {
+          "symbol": "METUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "MINAUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 4.07454,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "SELECTED",
+          "reason": "TOP_K",
+          "score": 40,
+          "rank": 5
+        },
+        {
+          "symbol": "PENGUUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "PIXELUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 1.058,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "POLUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 24.768792,
+          "rank": 8
+        },
+        {
+          "symbol": "QNTUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "RLCUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "SEIUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "STRKUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 5,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "NO_MATERIAL_UPDATE",
+          "reason": "NO_MATERIAL_CHANGE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "TIAUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2.872654975,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        },
+        {
+          "symbol": "USUSDT",
+          "gate": {
+            "families": 2,
+            "strongest": 3.9351479575,
+            "extreme": true,
+            "resonance": true
+          },
+          "status": "QUALIFIED_BUT_NOT_SELECTED",
+          "reason": "RANK_BELOW_TOP_K",
+          "score": 40,
+          "rank": 6
+        },
+        {
+          "symbol": "WALUSDT",
+          "gate": {
+            "families": 1,
+            "strongest": 2.66135,
+            "extreme": false,
+            "resonance": false
+          },
+          "status": "LOW_RESEARCH_VALUE",
+          "reason": "BELOW_RESEARCH_GATE",
+          "score": null,
+          "rank": null
+        }
+      ]
+    }
+  ],
+  "scan": {
+    "candidates": [
+      {
+        "symbol": "SCAN29USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN28USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN27USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN26USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN25USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN24USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN23USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN22USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN21USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN20USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN19USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN18USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN0USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN1USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN2USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN3USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN4USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN5USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN6USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN7USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN8USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN9USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN10USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN11USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      },
+      {
+        "symbol": "SCAN49USDT",
+        "status": "FACTS_READY",
+        "reason": null
+      }
+    ],
+    "selected": [
+      {
+        "symbol": "SCAN29USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN29USDT:price.rolling24h"
+            ],
+            "value": "69.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN28USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN28USDT:price.rolling24h"
+            ],
+            "value": "68.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN27USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN27USDT:price.rolling24h"
+            ],
+            "value": "67.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN26USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN26USDT:price.rolling24h"
+            ],
+            "value": "66.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN25USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN25USDT:price.rolling24h"
+            ],
+            "value": "65.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN24USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN24USDT:price.rolling24h"
+            ],
+            "value": "64.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN23USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN23USDT:price.rolling24h"
+            ],
+            "value": "63.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN22USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN22USDT:price.rolling24h"
+            ],
+            "value": "62.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN21USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN21USDT:price.rolling24h"
+            ],
+            "value": "61.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN20USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN20USDT:price.rolling24h"
+            ],
+            "value": "60.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN19USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN19USDT:price.rolling24h"
+            ],
+            "value": "59.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN18USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN18USDT:price.rolling24h"
+            ],
+            "value": "58.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN0USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN0USDT:price.rolling24h"
+            ],
+            "value": "40.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN1USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN1USDT:price.rolling24h"
+            ],
+            "value": "41.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN2USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN2USDT:price.rolling24h"
+            ],
+            "value": "42.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN3USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN3USDT:price.rolling24h"
+            ],
+            "value": "43.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN4USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN4USDT:price.rolling24h"
+            ],
+            "value": "44.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN5USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN5USDT:price.rolling24h"
+            ],
+            "value": "45.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN6USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN6USDT:price.rolling24h"
+            ],
+            "value": "46.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN7USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN7USDT:price.rolling24h"
+            ],
+            "value": "47.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN8USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN8USDT:price.rolling24h"
+            ],
+            "value": "48.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN9USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN9USDT:price.rolling24h"
+            ],
+            "value": "49.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN10USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN10USDT:price.rolling24h"
+            ],
+            "value": "50.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN11USDT",
+        "candidateScore": 50,
+        "anomalies": [
+          {
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "SCAN11USDT:price.rolling24h"
+            ],
+            "value": "51.00000000",
+            "threshold": 8,
+            "strength": 5
+          }
+        ]
+      },
+      {
+        "symbol": "SCAN49USDT",
+        "candidateScore": 30,
+        "anomalies": [
+          {
+            "kind": "ACCOUNT_DISTRIBUTION_SHIFT",
+            "scope": "GLOBAL_ACCOUNTS",
+            "window": "1h",
+            "value": "15.00000000",
+            "unit": "percentage_points",
+            "threshold": 5,
+            "strength": 3,
+            "evidenceIds": [
+              "SCAN49USDT:global.short.change1h",
+              "SCAN49USDT:global.long.change1h",
+              "SCAN49USDT:global.short.change4h",
+              "SCAN49USDT:global.long.change4h",
+              "SCAN49USDT:global.short.change24h",
+              "SCAN49USDT:global.long.change24h"
+            ]
+          }
+        ]
+      }
+    ],
+    "deepOrder": [
+      "facts/SCAN29USDT.json",
+      "facts/SCAN28USDT.json",
+      "facts/SCAN27USDT.json",
+      "facts/SCAN26USDT.json",
+      "facts/SCAN25USDT.json",
+      "facts/SCAN24USDT.json",
+      "facts/SCAN23USDT.json",
+      "facts/SCAN22USDT.json",
+      "facts/SCAN21USDT.json",
+      "facts/SCAN20USDT.json",
+      "facts/SCAN19USDT.json",
+      "facts/SCAN18USDT.json",
+      "facts/SCAN0USDT.json",
+      "facts/SCAN1USDT.json",
+      "facts/SCAN2USDT.json",
+      "facts/SCAN3USDT.json",
+      "facts/SCAN4USDT.json",
+      "facts/SCAN5USDT.json",
+      "facts/SCAN6USDT.json",
+      "facts/SCAN7USDT.json",
+      "facts/SCAN8USDT.json",
+      "facts/SCAN9USDT.json",
+      "facts/SCAN10USDT.json",
+      "facts/SCAN11USDT.json",
+      "facts/SCAN49USDT.json"
+    ],
+    "rotation": 12,
+    "discoveryRotation": 0,
+    "calls": [
+      {
+        "endpoint": "/fapi/v1/time",
+        "params": {}
+      },
+      {
+        "endpoint": "/fapi/v1/exchangeInfo",
+        "params": {}
+      },
+      {
+        "endpoint": "/fapi/v1/ticker/24hr",
+        "params": {}
+      },
+      {
+        "endpoint": "/fapi/v1/premiumIndex",
+        "params": {}
+      },
+      {
+        "endpoint": "/fapi/v1/time",
+        "params": {}
+      },
+      {
+        "endpoint": "/fapi/v1/fundingInfo",
+        "params": {}
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN0USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN1USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN2USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN3USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN4USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN5USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN6USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN7USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN8USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN9USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN10USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN11USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN12USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN13USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN14USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN15USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN16USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN17USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN18USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN19USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN20USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN21USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN22USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN23USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN24USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN25USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN26USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN27USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN28USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN29USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN30USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN31USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN32USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN33USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN34USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN35USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN36USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN37USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN38USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN39USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN40USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN41USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN42USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN43USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN44USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN45USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN46USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN47USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN48USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/globalLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN49USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN29USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN28USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN27USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN29USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN28USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN27USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN29USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN28USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN27USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN29USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN28USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN27USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN29USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN28USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN27USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN29USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN28USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN27USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN26USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN25USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN24USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN26USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN25USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN24USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN26USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN25USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN24USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN26USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN25USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN24USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN26USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN25USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN24USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN26USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN25USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN24USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN23USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN22USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN21USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN23USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN22USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN21USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN23USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN22USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN21USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN23USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN22USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN21USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN23USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN22USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN21USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN23USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN22USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN21USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN20USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN19USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN18USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN20USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN19USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN18USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN20USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN19USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN18USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN20USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN19USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN18USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN20USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN19USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN18USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN20USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN19USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN18USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN0USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN1USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN2USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN0USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN1USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN2USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN0USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN1USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN2USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN0USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN1USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN2USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN0USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN1USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN2USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN0USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN1USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN2USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN3USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN4USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN5USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN3USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN4USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN5USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN3USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN4USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN5USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN3USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN4USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN5USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN3USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN4USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN5USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN3USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN4USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN5USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN6USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN7USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN8USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN6USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN7USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN8USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN6USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN7USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN8USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN6USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN7USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN8USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN6USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN7USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN8USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN6USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN7USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN8USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN9USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN10USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN11USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN9USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN10USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN11USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN9USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN10USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN11USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN9USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN10USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN11USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN9USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN10USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN11USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN9USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN10USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN11USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN49USDT",
+          "interval": "1h",
+          "limit": 80,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/klines",
+        "params": {
+          "symbol": "SCAN49USDT",
+          "interval": "5m",
+          "limit": 40,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/openInterestHist",
+        "params": {
+          "symbol": "SCAN49USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/fapi/v1/fundingRate",
+        "params": {
+          "symbol": "SCAN49USDT",
+          "startTime": 1791433800000,
+          "endTime": 1791606600000,
+          "limit": 1000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortAccountRatio",
+        "params": {
+          "symbol": "SCAN49USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      },
+      {
+        "endpoint": "/futures/data/topLongShortPositionRatio",
+        "params": {
+          "symbol": "SCAN49USDT",
+          "period": "1h",
+          "limit": 30,
+          "endTime": 1791606600000
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,401 @@
+diff --git a/src/main.js b/src/main.js
+index 5d9b2c9..fdfb013 100644
+--- a/src/main.js
++++ b/src/main.js
+@@ -14,6 +14,7 @@ import {Binance,endpoints} from './clients/binance.js';
+ import {DeepSeek} from './clients/deepseek.js';
+ import {scan} from './market/scanner.js';
+ import {selectOpportunities,eligibilityCompatibility} from './market/opportunity-selector.js';
++import {createRunDiagnostics,recordSelection,recordResearch,finishRunDiagnostics} from './market/run-diagnostics.js';
+ import {atomicWrite,readJson,lock,emptyHistory,compare,storyKey} from './storage/history.js';
+ import {buildIntelligence,verifiedFacts} from './intelligence/packet.js';
+ import {prepareDelivery,drainDeliveryQueue} from './storage/delivery-queue.js';
+@@ -118,7 +119,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+   binance ||= new Binance(new Http({signal:controller.signal}));if(mode==='doctor')llm ||= new DeepSeek(new Http({signal:controller.signal,concurrency:1,spacing:0,retries:1}));
+   if(binance.http)binance.http.signal=controller.signal;
+   if(llm?.http)llm.http.signal=controller.signal;
+-  let unlock,history,result,save,outbox,analystAdapter;
++  let unlock,history,result,save,outbox,analystAdapter,runDiagnostics;
+   const statePath=path.join(v2Dir(config.dataDir),'state','history.json');
+   const runId=options.runId || `${mode}_${times(start).shanghai.slice(0,13).replace(/[^0-9]/g,'')}`;
+   const emit=(event,details={})=>log(event,{runId,...details});
+@@ -138,9 +139,10 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+     if(old){emit('Run already executed',{status:old.status});return old;}
+     save=(file,value)=>atomicWrite(path.join(config.dataDir,'runs',runId,file),value);
+     result=runSummary({runId,mode,scheduledAt:options.scheduledAt ?? null,startedAt:start,triggerType:options.triggerType || 'MANUAL',sendEnabled});
++    runDiagnostics=createRunDiagnostics({runId,scheduledAt:result.scheduledAt,now});
+     history.runs[runId]={contract:CONTRACT,status:'RUNNING',scheduledAt:result.scheduledAt,startedAt:start};await atomicWrite(statePath,history);await save('result.json',result);
+     emit('Binance market scan started');
+-    const scanned=await scan(binance,{runId,history,save});result.scan=scanned.result;result.evaluationTime=scanned.result.evaluationTime;result.dataCutoff=result.evaluationTime;
++    const scanned=await scan(binance,{runId,history,save,scheduledAt:result.scheduledAt,diagnosticNow:now,onDiagnostics:d=>{runDiagnostics.scan=d;}});result.scan=scanned.result;result.evaluationTime=scanned.result.evaluationTime;result.dataCutoff=result.evaluationTime;
+     result.scannedSymbols=scanned.result.universeCount;result.deepResearchedSymbols=scanned.result.researched;result.factPackagesCount=scanned.result.researched;
+     emit('Symbols',{count:result.scannedSymbols});emit('Deep candidates',{count:result.deepResearchedSymbols});emit('Facts packages',{count:result.factPackagesCount,eligible:scanned.facts.length});
+     result.biasAnalyses=0;result.biasFailures=0;result.analystRecoveryRequests=0;
+@@ -158,6 +160,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+       result.analystVersion=CONTRACT;
+       const researchStories=selectorStories(history,outbox,{includeShadow:!sendEnabled});
+       const selection=opportunitySelector(scanned.facts,researchStories);
++      recordSelection(runDiagnostics,selection);
+       result.selector={version:selection.version,policy:selection.policy,qualifiedCount:selection.qualifiedCount,selected:selection.selected.map(r=>r.symbol)};
+       result.selectorEvaluated=selection.decisions.length;
+       for(const row of selection.decisions){
+@@ -167,7 +170,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+         else await evaluate(row.symbol,'NOT_EVALUATED','AWAITING_ANALYST',{selection:audit});
+       }
+       for(const row of selection.selected){
+-        controller.signal.throwIfAborted();let stage='facts';
++        controller.signal.throwIfAborted();let stage='facts',researchRecord=null;const modelRecordStart=analystAdapter.records().length;
+         const f=row.facts;
+         try{
+           const verified=verifiedFacts(f),comparison=row.comparison,judge=eligibilityCompatibility(row);
+@@ -176,7 +179,9 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+           const factsBytes=await fs.readFile(path.join(config.dataDir,'runs',runId,'facts',f.symbol+'.json'));
+           const existing=await readJson(path.join(v2Dir(config.dataDir),'research',runId,f.symbol+'.json'),null);
+           if(existing)throw Error('RESEARCH_ALREADY_SEALED');
++          const diagnosticCandidate=runDiagnostics.candidates.find(c=>c.symbol===f.symbol&&c.selected);if(diagnosticCandidate)diagnosticCandidate.v2.pipelineEntered=true;
+           const researched=await analyze(analystAdapter,verified,{signal:controller.signal,now,previousFacts:prior?.facts??null,factsPackageSha256:sha(factsBytes),materialEvidence:row.materialEvidence});
++          researchRecord=researched.research;
+           result.analystRecoveryRequests+=researched.attempts.filter(a=>a.attempt>1).length;
+           const sealed=await saveResearch(config.dataDir,researched,history,{now});
+           await atomicWrite(statePath,history);
+@@ -189,7 +194,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+           if(controller.signal.aborted)throw e;
+           const error=safeError(e),status=stage==='intelligence'||e.message==='INSUFFICIENT_EVIDENCE'?'INSUFFICIENT_EVIDENCE':'DATA_ERROR';
+           await evaluate(f.symbol,status,error);result.errors.push({symbol:f.symbol,stage,error});result.rejections.push({symbol:f.symbol,reason:error});emit('Candidate failed',{symbol:f.symbol,status,error});
+-        }
++        }finally{recordResearch(runDiagnostics,f.symbol,{research:researchRecord,records:analystAdapter.records().slice(modelRecordStart),evaluation:controller.signal.aborted?{reason:'RUN_INTERRUPTED_OR_TIMEOUT'}:result.candidateEvaluations.find(c=>c.symbol===f.symbol)});}
+       }
+       // Research is saved above. Outbox/Delivery remain paused pending manual approval.
+
+@@ -217,6 +222,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+       Object.assign(result.analystCost,{inputTokens:usageKnown?result.tokenUsage.promptTokens:null,outputTokens:usageKnown?result.tokenUsage.completionTokens:null,totalTokens:usageKnown?result.tokenUsage.totalTokens:null});
+       try{for(const entry of result.candidateEvaluations)await save(`evaluations/${entry.symbol}.json`,entry);
+         if(records.length)await immutableWrite(path.join(v2Dir(config.dataDir),'audit',runId,'model-calls.json'),{contract:CONTRACT,records});
++        if(runDiagnostics){try{finishRunDiagnostics(runDiagnostics,result,{now});await save('run-diagnostics.json',runDiagnostics);result.diagnostics={version:runDiagnostics.version,status:'SAVED',counts:runDiagnostics.counts};emit('Run coverage',runDiagnostics.counts);}catch(e){result.diagnostics={status:'WRITE_FAILED',error:safeError(e)};emit('Diagnostics persistence failed',{error:safeError(e)});}}
+         await save('deepseek-calls.json',llm?.calls || []);await save('result.json',result);
+         history.runs[runId]={contract:CONTRACT,status:result.status,scheduledAt:result.scheduledAt,startedAt:start,finishedAt:result.finishedAt,generated:result.generated,sent:result.sent,lastResearchTime:result.evaluationTime};await atomicWrite(statePath,history);
+         emit('Run completed',{status:result.status,generated:result.generated,sent:result.sent,durationMs:result.totalDurationMs,output:path.resolve(config.dataDir,'runs',runId)});
+diff --git a/src/market/detector.js b/src/market/detector.js
+index 00499d2..f6068bd 100644
+--- a/src/market/detector.js
++++ b/src/market/detector.js
+@@ -1,5 +1,6 @@
+ import {detectLongShort} from './long-short-detector.js';
+ import {config} from '../config.js';
++import Big from 'big.js';
+ const tradfi=/STOCK|EQUITY|TRADFI|COMMOD|FOREX|ETF|GOLD|SILVER|OIL|BOND|TREASURY|TOKENIZED|RWA|INDEX/i;
+ const excludedBase=/^(XAU|XAG|XAUT|PAXG|GOLD|SILVER|OIL|WTI|BRENT|EUR|GBP|JPY|AUD|CHF|CNH|SPX|SP500|NDX|NAS100|US30|DOW|AAPL|TSLA|NVDA|MSFT|AMZN|GOOGL|META|COIN|PLTR|MSTR)(USDT|X)?$/i;
+ export function classify(s) {
+@@ -10,7 +11,10 @@ export function classify(s) {
+ }
+ export function detect(f,thresholds=config.thresholds){
+   const a=[];
+-  const test=(kind,e,threshold)=>{if(e?.evidenceId && Math.abs(Number(e.result))>=threshold)a.push({kind,evidenceIds:[e.evidenceId],value:e.result,threshold,strength:Math.min(5,Math.abs(Number(e.result))/threshold)});};
++  // Funding Facts are decimal percentage strings. Dividing by the decimal 0.1
++  // in binary can turn exact 1.5/3 into values just below the research gate.
++  // Decimal division preserves those boundaries without tolerances or rounding.
++  const test=(kind,e,threshold)=>{if(e?.evidenceId && Math.abs(Number(e.result))>=threshold)a.push({kind,evidenceIds:[e.evidenceId],value:e.result,threshold,strength:Math.min(5,kind==='FUNDING_EXTREME'?new Big(e.result).abs().div(threshold).toNumber():Math.abs(Number(e.result))/threshold)});};
+   test('PRICE_24H',f.price.rolling24h,thresholds.price24);test('PRICE_1H',f.price.closedWindows['1h'],thresholds.price1);
+   test('OI_4H',f.openInterest.windows['4h'],thresholds.oi4);test('FUNDING_EXTREME',f.funding.settledLatest,thresholds.funding);
+   for(const e of [f.volume.relative1h,f.volume.relative5m])if(e&&Number(e.result)>=thresholds.volume)test('VOLUME_SPIKE',e,thresholds.volume);
+diff --git a/src/market/scanner.js b/src/market/scanner.js
+index e4e2c2a..ac406e4 100644
+--- a/src/market/scanner.js
++++ b/src/market/scanner.js
+@@ -4,6 +4,7 @@ import {config,safeError} from '../config.js';
+ import {endpoints} from '../clients/binance.js';
+ import {classify,detect} from './detector.js';
+ import {buildFacts,valid} from './facts-engine.js';
++import {scanDiagnostics,scanCounts} from './run-diagnostics.js';
+ export const MIN_QUOTE_VOLUME_24H=10000000; // USDT; strict greater-than admission.
+ export async function scan(binance,options){
+   const previousSignal=binance.http.signal;
+@@ -11,7 +12,7 @@ export async function scan(binance,options){
+   binance.http.signal=previousSignal?AbortSignal.any([previousSignal,budgetSignal]):budgetSignal;
+   try{return await scanInternal(binance,{...options,budgetSignal});}finally{binance.http.signal=previousSignal;}
+ }
+-async function scanInternal(binance,{runId,history,save,budgetSignal}){
++async function scanInternal(binance,{runId,history,save,budgetSignal,scheduledAt=null,onDiagnostics,diagnosticNow=Date.now}){
+   const time=await binance.get(endpoints.time);
+   const initial=time.raw.serverTime;
+   const exchange=await binance.get(endpoints.exchange);
+@@ -20,17 +21,20 @@ async function scanInternal(binance,{runId,history,save,budgetSignal}){
+   const end=await binance.get(endpoints.time);
+   const cutoff=end.raw.serverTime;
+   if(!Number.isSafeInteger(initial)||!Number.isSafeInteger(cutoff)||cutoff<initial)throw new Error('INVALID_SERVER_TIME');
++  const diagnostics=scanDiagnostics({runId,scheduledAt,cutoff,symbols:exchange.raw.symbols,now:diagnosticNow}),diagnosticRows=new Map(diagnostics.rows.map(r=>[r.symbol,r]));
++  onDiagnostics?.(diagnostics);
+   const limit=exchange.raw.rateLimits?.find(r=>r.rateLimitType==='REQUEST_WEIGHT'&&r.interval==='MINUTE')?.limit;
+   if(limit)binance.http.weightLimit=limit;
+   let fundingInfo;
+   try{fundingInfo=await binance.get(endpoints.fundingInfo);}catch(e){fundingInfo={endpoint:endpoints.fundingInfo,params:{},raw:[],error:safeError(e)};}
+   const rejected=[],eligible=[],crypto=[];
+   const tickers=new Map(tickerSource.raw.map(t=>[t.symbol,t])),premiums=new Map(premiumSource.raw.map(t=>[t.symbol,t]));
+-  for(const s of exchange.raw.symbols){const c=classify(s);if(!c.eligible){rejected.push({symbol:s.symbol,reason:c.reason});continue;}
++  for(const s of exchange.raw.symbols){const c=classify(s),d=diagnosticRows.get(s.symbol);d.identity=c;if(!c.eligible){rejected.push({symbol:s.symbol,reason:c.reason});continue;}
+     crypto.push(s);
+     const t=tickers.get(s.symbol),p=premiums.get(s.symbol);
+-    if(!t || !valid(t.priceChangePercent)||!valid(t.quoteVolume)){rejected.push({symbol:s.symbol,reason:'INVALID_TICKER'});continue;}
+-    if(!new Big(t.quoteVolume).gt(MIN_QUOTE_VOLUME_24H)){rejected.push({symbol:s.symbol,reason:'QUOTE_VOLUME_24H_NOT_ABOVE_MINIMUM',quoteVolume24h:t.quoteVolume,minimumExclusive:MIN_QUOTE_VOLUME_24H});continue;}
++    if(!t || !valid(t.priceChangePercent)||!valid(t.quoteVolume)){d.liquidity={eligible:false,reason:'INVALID_TICKER'};rejected.push({symbol:s.symbol,reason:'INVALID_TICKER'});continue;}
++    if(!new Big(t.quoteVolume).gt(MIN_QUOTE_VOLUME_24H)){d.liquidity={eligible:false,reason:'QUOTE_VOLUME_24H_NOT_ABOVE_MINIMUM'};rejected.push({symbol:s.symbol,reason:'QUOTE_VOLUME_24H_NOT_ABOVE_MINIMUM',quoteVolume24h:t.quoteVolume,minimumExclusive:MIN_QUOTE_VOLUME_24H});continue;}
++    d.liquidity={eligible:true,reason:null};
+     const trigger=Math.abs(Number(t.priceChangePercent))>=config.thresholds.price24|| (valid(p?.lastFundingRate)&&Math.abs(Number(p.lastFundingRate)*100)>=config.thresholds.funding);
+     const prior=history.snapshot?.[s.symbol];
+     const fundingChange=prior&&valid(prior.rate)&&valid(p?.lastFundingRate) && (Math.abs((Number(p.lastFundingRate)-Number(prior.rate))*100)>=config.thresholds.fundingDelta || Number(p.lastFundingRate)*Number(prior.rate)<0);
+@@ -41,13 +45,19 @@ async function scanInternal(binance,{runId,history,save,budgetSignal}){
+   const liquid=eligible.filter(e=>!triggered.some(t=>t.s.symbol===e.s.symbol)).sort((a,b)=>Number(b.t.quoteVolume)-Number(a.t.quoteVolume));
+   const rotation=history.rotation || 0;
+   const probes=Array.from({length:Math.min(config.maxCandidates-triggered.length,liquid.length)},(_,i)=>liquid[(rotation+i)%liquid.length]);
++  const triggeredSymbols=new Set(triggered.map(e=>e.s.symbol)),probeSymbols=new Set(probes.map(e=>e.s.symbol));
++  for(const e of eligible){const d=diagnosticRows.get(e.s.symbol);d.trigger={matched:e.trigger,selected:triggeredSymbols.has(e.s.symbol),reason:e.trigger?(triggeredSymbols.has(e.s.symbol)?'TRIGGER_SELECTED':'TRIGGER_RANK_BELOW_BUDGET'):'NO_INITIAL_TRIGGER'};d.rotation={selected:probeSymbols.has(e.s.symbol),reason:triggeredSymbols.has(e.s.symbol)?'ALREADY_TRIGGER_SELECTED':probeSymbols.has(e.s.symbol)?'ROTATION_SELECTED':'NO_ROTATION_OPPORTUNITY'};}
+   const discovery=await discoverAccounts(binance,{symbols:eligible.map(e=>e.s.symbol),cutoff,history,save});
++  diagnostics.accountCoverage={requested:discovery.coverage.requested,fullyEvaluated:discovery.coverage.fullyEvaluated,insufficientData:discovery.coverage.insufficientData,budgetExceeded:discovery.coverage.budgetExceeded};
++  for(const entry of discovery.coverage.entries||[]){const d=diagnosticRows.get(entry.symbol);if(d)d.accountDiscovery={status:entry.status,complete:entry.complete??false,reason:entry.reason??null,anomalyKinds:entry.anomalyKinds||[]};}
++  for(const d of diagnostics.rows)if(!d.liquidity?.eligible)d.accountDiscovery={status:'NOT_APPLICABLE',reason:'NOT_IN_LIQUIDITY_POOL'};
+   const original=[...triggered,...probes];
+   const selected=[...new Map([...original,...eligible.filter(e=>discovery.anomalous.has(e.s.symbol))].map(e=>[e.s.symbol,e])).values()],facts=[];
++  for(const e of selected){const d=diagnosticRows.get(e.s.symbol);d.deep.planned=true;d.deep.status='PLANNED';d.deep.channels=[...(triggeredSymbols.has(e.s.symbol)?['TRIGGER']:[]),...(probeSymbols.has(e.s.symbol)?['ROTATION']:[]),...(discovery.anomalous.has(e.s.symbol)?['ACCOUNT_ANOMALY']:[])];}
+   history.rotation=liquid.length?(rotation+probes.length)%liquid.length:0;
+   history.snapshot=Object.fromEntries(eligible.map(e=>[e.s.symbol,{rate:e.p?.lastFundingRate ?? null,time:e.p?.time ?? null}]));
+   let index=0;
+-  async function worker(){while(index<selected.length){if(binance.http.signal?.aborted)return;const e=selected[index++];
++  async function worker(){while(index<selected.length){if(binance.http.signal?.aborted)return;const e=selected[index++],d=diagnosticRows.get(e.s.symbol).deep;d.startedAt=diagnosticNow();d.status='STARTED';
+     try{
+       const sources={clockStart:time,serverTime:end,exchange:{...exchange,raw:e.s},ticker:{...tickerSource,raw:e.t},premium:{...premiumSource,raw:e.p || null},fundingInfo:{...fundingInfo,raw:fundingInfo.raw.filter(r=>r.symbol===e.s.symbol)}};
+       for(const [key,endpoint,params] of [
+@@ -58,17 +68,22 @@ async function scanInternal(binance,{runId,history,save,budgetSignal}){
+         ['accounts',endpoints.accounts,{symbol:e.s.symbol,period:'1h',limit:config.longShort.sampleLimit,endTime:cutoff}],
+         ['topAccounts',endpoints.topAccounts,{symbol:e.s.symbol,period:'1h',limit:config.longShort.sampleLimit,endTime:cutoff}],
+         ['topPositions',endpoints.topPositions,{symbol:e.s.symbol,period:'1h',limit:config.longShort.sampleLimit,endTime:cutoff}]
+-      ]){try{sources[key]=key==='accounts'&&discovery.sources.has(e.s.symbol)?discovery.sources.get(e.s.symbol):await binance.get(endpoint,params);}catch(err){sources[key]={endpoint,params,raw:[],retrievedAt:Date.now(),error:safeError(err)};}}
++      ]){try{sources[key]=key==='accounts'&&discovery.sources.has(e.s.symbol)?discovery.sources.get(e.s.symbol):await binance.get(endpoint,params);}catch(err){d.sourceErrors.push({source:key,error:safeError(err)});sources[key]={endpoint,params,raw:[],retrievedAt:Date.now(),error:safeError(err)};}}
+       const identity={symbol:e.s.symbol,baseAsset:e.s.baseAsset,quoteAsset:e.s.quoteAsset,underlyingType:e.s.underlyingType,underlyingSubType:e.s.underlyingSubType,classification:classify(e.s),projectName:null,metadataSource:endpoints.exchange};
+       const f=detect(buildFacts({runId,symbol:e.s.symbol,identity,ticker:e.t,sources,cutoff}));
+       await save(`facts/${f.symbol}.json`,f);facts.push(f);
++      d.factsSaved=true;d.factsComplete=f.dataCompleteness.eligible;d.anomalyCount=f.anomalies.length;d.status=!d.factsComplete?'INSUFFICIENT_EVIDENCE':d.anomalyCount?'COMPLETE_WITH_ANOMALY':'COMPLETE_NO_ANOMALY';d.reason=!d.factsComplete?f.dataCompleteness.reason:d.anomalyCount?null:'NO_DEEP_ANOMALY';
+       if(!f.dataCompleteness.eligible && binance.http.signal?.aborted)rejected.push({symbol:f.symbol,reason:'SCAN_TIME_BUDGET_EXHAUSTED'});
+       else if(!f.dataCompleteness.eligible || !f.anomalies.length)rejected.push({symbol:f.symbol,reason:!f.dataCompleteness.eligible?f.dataCompleteness.reason:'NO_DEEP_ANOMALY'});
+-    }catch(err){rejected.push({symbol:e.s.symbol,reason:safeError(err)});}
++    }catch(err){d.status='FAILED';d.reason=safeError(err);rejected.push({symbol:e.s.symbol,reason:safeError(err)});}finally{d.finishedAt=diagnosticNow();}
+   }}
+   await Promise.all(Array.from({length:config.concurrency},worker));
+-  for(const e of selected.slice(index))rejected.push({symbol:e.s.symbol,reason:'SCAN_TIME_BUDGET_EXHAUSTED'});
++  for(const e of selected.slice(index)){const d=diagnosticRows.get(e.s.symbol).deep;d.status='NOT_STARTED';d.reason=budgetSignal.aborted?'SCAN_TIME_BUDGET_EXHAUSTED':'SCAN_OR_RUN_ABORTED';rejected.push({symbol:e.s.symbol,reason:'SCAN_TIME_BUDGET_EXHAUSTED'});}
+   const ranked=facts.filter(f=>f.dataCompleteness.eligible&&f.anomalies.length).sort((a,b)=>b.candidateScore-a.candidateScore);
+   const result={runId,evaluationTime:cutoff,universeCount:exchange.raw.symbols.length,cryptoCount:eligible.length,nativeCryptoCount:crypto.length,liquidityFilter:{field:'quoteVolume',endpoint:endpoints.ticker,window:'rolling24h',unit:'USDT',operator:'>',minimum:MIN_QUOTE_VOLUME_24H,eligibleCount:eligible.length,rejectedCount:rejected.filter(r=>r.reason==='QUOTE_VOLUME_24H_NOT_ABOVE_MINIMUM').length},longShortCoverage:discovery.coverage,researched: facts.length,scanBudgetExceeded:budgetSignal.aborted,httpMetrics:binance.http.metrics || null,selection:{triggerSlots:slots,rotatingLiquidityProbes:probes.length,accountAnomalyAdditions:selected.filter(e=>!original.some(o=>o.s.symbol===e.s.symbol)).length,coverage:'Original bounded probe set: 1h/OI/volume-only anomalies outside probes can be missed; rotation advances each scan. Independent global-account discovery adds all detected symbols without a candidate quota'},researchCandidates:selected.map(e=>{const f=facts.find(f=>f.symbol===e.s.symbol),rejection=rejected.find(r=>r.symbol===e.s.symbol);return {symbol:e.s.symbol,status:f?.dataCompleteness.eligible&&f.anomalies.length?'FACTS_READY':rejection?.reason==='SCAN_TIME_BUDGET_EXHAUSTED'?'NOT_EVALUATED':f&&!f.dataCompleteness.eligible?'INSUFFICIENT_EVIDENCE':f?'NOT_NEWSWORTHY':'DATA_ERROR',reason:rejection?.reason || null};}),candidates:ranked.map(f=>({symbol:f.symbol,candidateScore:f.candidateScore,anomalies:f.anomalies})),rejected};
+-  await save('scan.json',result);return {result,facts:ranked};
++  diagnostics.scanBudgetExceeded=budgetSignal.aborted;diagnostics.aborted=Boolean(binance.http.signal?.aborted);
++  diagnostics.complete=true;diagnostics.finishedAt=diagnosticNow();diagnostics.counts=scanCounts(diagnostics);
++  try{await save('scan-coverage.json',diagnostics);}catch(e){diagnostics.persistenceError=safeError(e);}
++  result.coverageSummary={...diagnostics.counts,persistenceError:diagnostics.persistenceError??null};
++  await save('scan.json',result);return {result,facts:ranked,diagnostics};
+ }
+diff --git a/test/selector.test.js b/test/selector.test.js
+index b28287c..6d4933b 100644
+--- a/test/selector.test.js
++++ b/test/selector.test.js
+@@ -1,4 +1,7 @@
+ import {authorizedCutover} from './cutover-authorization.js';
++import Big from 'big.js';
++import {detectLongShort} from '../src/market/long-short-detector.js';
++import {precisionSource} from './selector-precision-fixture.js';
+ import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
+ import {config} from '../src/config.js';import {fixture,identity} from './fixtures.js';import {buildFacts} from '../src/market/facts-engine.js';import {detect,classify} from '../src/market/detector.js';import {selectOpportunities,materialEvidence,eligibilityCompatibility} from '../src/market/opportunity-selector.js';import {compare} from '../src/storage/history.js';import {buildIntelligence} from '../src/intelligence/packet.js';import {queueEligible,splitMessage} from '../src/storage/delivery-queue.js';
+ const root='validation/BA_BIAS_DETERMINISTIC_SELECTOR_V1',baseline=JSON.parse(fs.readFileSync(root+'/before-hashes.json')),replay=JSON.parse(fs.readFileSync(root+'/replay.json'));const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+@@ -33,7 +36,55 @@ check('26 TradFi remains excluded',()=>assert(!classify({...identity,underlyingS
+ check('27 ambiguous identity excluded',()=>assert(!classify({...identity,symbol:'OTHERUSDT'}).eligible));
+ check('28 scanner bytes unchanged',()=>assert.equal(sha('src/market/scanner.js'),baseline['src/market/scanner.js']));
+ check('29 Facts bytes unchanged',()=>assert.equal(sha('src/market/facts-engine.js'),baseline['src/market/facts-engine.js']));
+-check('30 detector thresholds unchanged',()=>assert.equal(sha('src/market/detector.js'),baseline['src/market/detector.js']));
++check('30 detector thresholds unchanged',()=>{
++  // The original guard froze all Detector bytes before Selector was introduced.
++  // Keep that trusted original, then permit only the audited decimal Funding
++  // expression. Do not accept a replacement hash of today's entire source.
++  const originalFile='test/fixtures/detector-pre-funding-precision.txt';
++  // LF normalization is test-only: checkout line endings do not change rules.
++  const original=fs.readFileSync(originalFile,'utf8').replace(/\r\n/g,'\n'),current=fs.readFileSync('src/market/detector.js','utf8').replace(/\r\n/g,'\n');
++  assert.equal(crypto.createHash('sha256').update(original).digest('hex'),baseline['src/market/detector.js'],'original Detector fixture must retain the pre-Selector baseline');
++  assert.deepEqual(config.thresholds,{price24:8,price1:3,oi4:10,funding:0.1,fundingDelta:0.05,volume:2});
++  assert.deepEqual(config.longShort.thresholds,{shiftPp:{'1h':5,'4h':10,'24h':15},divergencePp:15,oppositeChangePp:5,materialChangePp:5});
++  const oldExpression='Math.abs(Number(e.result))/threshold';
++  const decimalExpression="kind==='FUNDING_EXTREME'?new Big(e.result).abs().div(threshold).toNumber():"+oldExpression;
++  const note='  // Funding Facts are decimal percentage strings. Dividing by the decimal 0.1\n  // in binary can turn exact 1.5/3 into values just below the research gate.\n  // Decimal division preserves those boundaries without tolerances or rounding.\n';
++  function assertAllowedSource(source){
++    for(const text of ["import Big from 'big.js';\n",note,decimalExpression])assert.equal(source.split(text).length-1,1,'authorized Funding change must occur exactly once');
++    const projected=source.replace("import Big from 'big.js';\n",'').replace(note,'').replace(decimalExpression,oldExpression);
++    assert.equal(projected,original,'all non-Funding Detector logic must remain the trusted original');
++  }
++  assertAllowedSource(current);
++  // Demonstrate that this guard does not whitelist unrelated changes or a
++  // different Funding policy under the precision authorization.
++  for(const [from,to]of [
++    ['config.thresholds','config.otherThresholds'],["test('PRICE_24H'","test('PRICE_OTHER'"],
++    ['Math.min(5,','Math.min(6,'],['10*x.strength','11*x.strength'],
++    ['strength:1}','strength:2}'],['f.funding.settledLatest','f.funding.currentDisplay'],
++    ["s.status!=='TRADING'","s.status!=='BREAK'"],['.div(threshold)','.div(threshold*0.999)'],
++    [oldExpression,'Math.abs(Number(e.result))/(threshold*2)']
++  ]){assert(current.includes(from));assert.throws(()=>assertAllowedSource(current.replace(from,to)),undefined,'must reject unauthorized mutation: '+from);}
++  // Execute only the hash-verified, local, pure original functions. Its imports
++  // are supplied explicitly; no module startup, requests, or persistence occurs.
++  const reference=new Function('config','detectLongShort',original.replace(/^import .*;\n/gm,'').replaceAll('export function','function')+'\nreturn {detect,classify};')(config,detectLongShort);
++  function compareRaw(options,mutate=()=>{}){
++    const raw=precisionSource(options);mutate(raw);const f=buildFacts(raw),old=reference.detect(structuredClone(f)),actual=detect(structuredClone(f));
++    assert.deepEqual(actual.anomalies.filter(a=>a.kind!=='FUNDING_EXTREME'),old.anomalies.filter(a=>a.kind!=='FUNDING_EXTREME'),'non-Funding events must be identical');
++    const clean=x=>Object.fromEntries(Object.entries(x).filter(([k])=>!['anomalies','candidateScore'].includes(k)));
++    assert.deepEqual(clean(actual),clean(old),'Detector must not mutate source Facts');
++    const a=actual.anomalies.find(a=>a.kind==='FUNDING_EXTREME'),b=old.anomalies.find(a=>a.kind==='FUNDING_EXTREME');
++    if(!a){assert.equal(b,undefined);assert.deepEqual(actual,old);}
++    else{assert.deepEqual({...a,strength:null},{...b,strength:null});assert.equal(a.strength,Math.min(5,new Big(f.funding.settledLatest.result).abs().div(config.thresholds.funding).toNumber()));assert.equal(actual.candidateScore,Number(actual.anomalies.reduce((n,a)=>n+10*a.strength,0).toFixed(2)));}
++    return actual;
++  }
++  for(const [key,values]of Object.entries({price:[0,7.999999,8,12,24,40],price1h:[0,2.999999,3,4.5,9,15],oi:[0,9.999999,10,15,30,50],volume:[1,1.999999,2,3,6,10],accountShift:[0,4.999999,5,7.5,10,15,30]}))for(const value of values)for(const sign of key==='volume'?[1]:[1,-1])compareRaw({[key]:value*sign});
++  for(const sign of [1,-1])for(const value of [.099999,.1,.149999,.15,.150001,.299999,.3,.300001,.4,.5])compareRaw({funding:sign*value});
++  compareRaw({price:40,funding:.1,oi:20,volume:3,accountShift:10},r=>{r.sources.funding.raw[0].fundingRate='-0.001';});
++  for(const candidate of [identity,{...identity,status:'BREAK'},{...identity,contractType:'CURRENT_QUARTER'},{...identity,underlyingSubType:['TradFi']},{...identity,symbol:'OTHERUSDT'}])assert.deepEqual(classify(candidate),reference.classify(candidate));
++  for(const sign of [1,-1])for(const [funding,price,passed]of [[.149999,8.8,false],[.15,8.8,true],[.150001,8.8,true],[.299999,0,false],[.3,0,true],[.300001,0,true]]){
++    const f=compareRaw({funding:sign*funding,price}),row=selectOpportunities([f]).decisions[0];assert.equal(row.status==='SELECTED',passed,'raw settlement boundary: '+sign*funding);if(!passed)assert.equal(row.score,null);
++  }
++});
+ check('31 immutable archived V4 contract bytes unchanged; sole active entry separately tested',()=>{for(const [p,h] of Object.entries(baseline).filter(([p])=>p.startsWith('src/analysis/')&&!authorizedCutover.has(p)))assert.equal(sha(p),h,p);});
+ check('32 no Judge/Writer/V3 production imports',()=>{const s=fs.readFileSync('src/main.js','utf8');for(const pattern of ['judgeStory(', 'writeDraft(', 'analyzeDirectional('])assert(!s.includes(pattern));});
+ check('33 selector has no LLM dependency',()=>{const s=fs.readFileSync('src/market/opportunity-selector.js','utf8');assert(!/DeepSeek|llm\.json|Math\.random/.test(s));});
+diff --git a/src/market/run-diagnostics.js b/src/market/run-diagnostics.js
+new file mode 100644
+index 0000000..fc23e3a
+--- /dev/null
++++ b/src/market/run-diagnostics.js
+@@ -0,0 +1,39 @@
++// Observability only: never selects candidates, calculates scores, or makes requests.
++const family=k=>k.startsWith('PRICE')?'PRICE_EXTREMITY':k.startsWith('OI_')?'OI_ABNORMALITY':k.startsWith('FUNDING')?'FUNDING_EXTREMITY':k==='VOLUME_SPIKE'?'VOLUME_ABNORMALITY':/ACCOUNT|POSITION|DIVERGENCE/.test(k)?'ACCOUNT_DISTRIBUTION':null;
++export function scanDiagnostics({runId,scheduledAt=null,cutoff,symbols,now=Date.now}){
++ const rows=symbols.map(s=>({symbol:s.symbol,identity:null,liquidity:null,trigger:null,rotation:null,accountDiscovery:{status:'NOT_EVALUATED',reason:'DISCOVERY_NOT_COMPLETED'},deep:{planned:false,channels:[],status:'NOT_PLANNED',startedAt:null,finishedAt:null,factsSaved:false,factsComplete:null,anomalyCount:null,reason:null,sourceErrors:[]}}));
++ return {version:'BA_BIAS_RUN_DIAGNOSTICS_V1',runId,scheduledAt,evaluationTime:cutoff,startedAt:now(),finishedAt:null,complete:false,accountCoverage:null,counts:{universe:symbols.length},rows};
++}
++export function scanCounts(d){
++ const c={universe:d.rows.length,identityEligible:0,liquidityEligible:0,triggerMatched:0,triggerSelected:0,rotationSelected:0,accountAnomalies:0,accountAdded:0,accountNotEvaluated:0,accountInsufficient:0,plannedDeep:0,startedDeep:0,factsSaved:0,completeFacts:0,factsIncomplete:0,noAnomaly:0,deepFailed:0,sourceRequestFailures:0,plannedNotStarted:0,selectorInput:0};
++ for(const r of d.rows){const x=r.deep;
++  if(r.identity?.eligible)c.identityEligible++;if(r.liquidity?.eligible)c.liquidityEligible++;if(r.trigger?.matched)c.triggerMatched++;if(r.trigger?.selected)c.triggerSelected++;if(r.rotation?.selected)c.rotationSelected++;
++  const a=r.accountDiscovery;if(a.status==='ANOMALY')c.accountAnomalies++;if(a.status==='NOT_EVALUATED'||a.status==='NOT_COVERED')c.accountNotEvaluated++;if(a.status==='INSUFFICIENT_DATA'||a.status==='ANOMALY'&&a.complete===false)c.accountInsufficient++;
++  if(x.channels.includes('ACCOUNT_ANOMALY')&&!x.channels.some(k=>k==='TRIGGER'||k==='ROTATION'))c.accountAdded++;
++  if(x.planned)c.plannedDeep++;if(x.startedAt!==null)c.startedDeep++;if(x.factsSaved)c.factsSaved++;if(x.factsComplete===true)c.completeFacts++;if(x.factsSaved&&x.factsComplete===false)c.factsIncomplete++;if(x.status==='COMPLETE_NO_ANOMALY')c.noAnomaly++;if(x.status==='FAILED')c.deepFailed++;c.sourceRequestFailures+=x.sourceErrors.length;if(x.planned&&x.startedAt===null)c.plannedNotStarted++;if(x.factsComplete===true&&x.anomalyCount>0)c.selectorInput++;
++ }if(!d.accountCoverage){c.accountAnomalies=null;c.accountInsufficient=null;}c.accountRequested=d.accountCoverage?.requested??null;return c;
++}
++export function createRunDiagnostics({runId,scheduledAt=null,now=Date.now}){return {version:'BA_BIAS_RUN_DIAGNOSTICS_V1',runId,scheduledAt,startedAt:now(),finishedAt:null,scan:null,selector:null,candidates:[],complete:false,limitations:['No extra market requests. Uncovered discovery is not evidence of no anomaly. Counts describe observed stages, not hypothetical full-market eligibility.']};}
++export function recordSelection(d,selection){
++ d.selector={version:selection.version,policy:selection.policy};
++ d.candidates=selection.decisions.map(r=>{
++  const groups=new Map();for(const a of r.facts?.anomalies||[]){const k=family(a.kind);if(!k)continue;const old=groups.get(k);if(!old||a.strength>old.strength)groups.set(k,{family:k,strength:a.strength,kind:a.kind,evidenceIds:a.evidenceIds});}
++  const scored=r.score!==null&&r.score!==undefined;
++  return {runId:d.runId,symbol:r.symbol,factsComplete:r.facts?.dataCompleteness?.eligible??null,events:(r.facts?.anomalies||[]).map(a=>({kind:a.kind,scope:a.scope??null,window:a.window??null,rawValue:a.value,threshold:a.threshold??null,strength:a.strength,evidenceIds:a.evidenceIds})),families:[...groups.values()],gate:r.gate?{...r.gate,passed:r.gate.extreme||r.gate.resonance}:null,gateReason:r.reason==='BELOW_RESEARCH_GATE'?r.reason:null,materialUpdate:r.materialEvidence?{passed:r.materialEvidence.length>0,evidence:r.materialEvidence,storyType:r.comparison?.storyType??null}:null,score:scored?r.score:null,dimensions:r.dimensions,rank:r.rank??null,status:r.status,reason:r.reason,selected:r.status==='SELECTED',v2:{pipelineEntered:false,attempted:false,requestRecords:0,physicalRequests:0,technicalState:'NOT_STARTED',reason:r.status==='SELECTED'?'AWAITING_ANALYST':r.reason}};
++ });
++}
++export function recordResearch(d,symbol,{entered=false,research,records=[],evaluation}={}){
++ const row=d?.candidates.find(r=>r.symbol===symbol&&r.selected);if(!row)return;
++ const v=row.v2;v.pipelineEntered ||= entered;v.requestRecords+=records.length;v.physicalRequests+=records.reduce((n,r)=>n+(r.physicalRequests||0),0);v.attempted=v.requestRecords>0;
++ if(research){v.technicalState=research.executionState;v.reason=research.error?.code??research.reviewStatus;v.recordId=research.recordId;v.decisionCompletedAt=research.asOf?.decisionCompletedAt??null;}
++ if(evaluation){v.pipelineStatus=evaluation.status??null;v.pipelineReason=evaluation.reason;v.persistedAndReady=evaluation.status==='RESEARCH_READY';}
++ if(!research&&evaluation){v.technicalState=v.attempted?'FAILED':'NOT_EVALUATED';v.reason=evaluation.reason;}
++}
++export function finishRunDiagnostics(d,result,{now=Date.now}={}){
++ d.finishedAt=now();d.runStatus=result.status;d.complete=true;
++ if(d.scan){d.scan.counts=scanCounts(d.scan);if(!d.scan.complete){d.scan.interruptionReason=result.status==='INTERRUPTED'?'RUN_INTERRUPTED_OR_TIMEOUT':'SCAN_DID_NOT_COMPLETE';for(const r of d.scan.rows)if(r.deep.planned&&r.deep.startedAt===null)r.deep.reason=d.scan.interruptionReason;}}
++ const evaluations=new Map((result.candidateEvaluations||[]).map(e=>[e.symbol,e]));
++ for(const row of d.candidates){if(!row.selected||['VALIDATED','UNAVAILABLE','FAILED'].includes(row.v2.technicalState))continue;const e=evaluations.get(row.symbol);row.v2.technicalState='NOT_EVALUATED';row.v2.reason=e?.reason||'RUN_ENDED_BEFORE_RESEARCH';}
++ d.counts={scan:d.scan?.counts??null,selector:d.selector?{evaluated:d.candidates.length,gatePassed:d.candidates.filter(r=>r.gate?.passed).length,historyPassed:d.candidates.filter(r=>r.materialUpdate?.passed).length,qualified:d.candidates.filter(r=>r.status==='SELECTED'||r.status==='QUALIFIED_BUT_NOT_SELECTED').length,selected:d.candidates.filter(r=>r.selected).length,qualifiedNotSelected:d.candidates.filter(r=>r.status==='QUALIFIED_BUT_NOT_SELECTED').length}:null,research:{attempted:d.candidates.filter(r=>r.v2.attempted).length,succeeded:d.candidates.filter(r=>r.v2.technicalState==='VALIDATED'&&r.v2.persistedAndReady).length,unavailable:d.candidates.filter(r=>r.v2.technicalState==='UNAVAILABLE').length,failed:d.candidates.filter(r=>r.v2.technicalState==='FAILED'||r.selected&&['DATA_ERROR','INSUFFICIENT_EVIDENCE'].includes(r.v2.pipelineStatus)).length,notEvaluated:d.candidates.filter(r=>r.selected&&r.v2.technicalState==='NOT_EVALUATED').length}};
++ return d;
++}
+diff --git a/test/selector-precision-fixture.js b/test/selector-precision-fixture.js
+new file mode 100644
+index 0000000..2a92eb9
+--- /dev/null
++++ b/test/selector-precision-fixture.js
+@@ -0,0 +1,28 @@
++// Raw synthetic sources only. No network, Scanner startup, credentials or production state.
++import Big from 'big.js';
++import {fixture,identity} from './fixtures.js';
++import {buildFacts} from '../src/market/facts-engine.js';
++import {detect} from '../src/market/detector.js';
++import {endpoints} from '../src/clients/binance.js';
++export function precisionSource({symbol='TESTUSDT',price=0,price1h=0,oi=0,funding=0,volume=1,accountShift=0}={}){
++ let x=fixture();x=JSON.parse(JSON.stringify(x).replaceAll(x.symbol,symbol));x.identity.baseAsset=symbol.slice(0,-4);
++ x.sources.exchange={endpoint:endpoints.exchange,params:{},raw:{...identity,symbol,baseAsset:symbol.slice(0,-4)}};
++ Object.assign(x.ticker,{lastPrice:new Big(100).plus(price).toString(),openPrice:'100',priceChangePercent:String(price),highPrice:String(Math.max(100,100+Number(price))),lowPrice:String(Math.min(100,100+Number(price)))});x.sources.ticker.raw=x.ticker;
++ for(const k of [...x.sources.hour.raw,...x.sources.five.raw]){for(const i of [1,2,3,4])k[i]='100';k[5]='100';}
++ Object.assign(x.sources.hour.raw.at(-1),{4:new Big(100).plus(price1h).toString(),2:String(Math.max(100,100+Number(price1h))),3:String(Math.min(100,100+Number(price1h))),5:new Big(100).times(volume).toString()});
++ for(const r of x.sources.oi.raw)r.sumOpenInterest='100';x.sources.oi.raw.at(-1).sumOpenInterest=new Big(100).plus(oi).toString();
++ for(const r of x.sources.funding.raw)r.fundingRate='0';x.sources.funding.raw.at(-1).fundingRate=new Big(funding).div(100).toString();
++ x.sources.premium.raw.lastFundingRate='0';
++ const end=Math.floor(x.cutoff/3600000)*3600000;
++ x.sources.accounts={endpoint:endpoints.accounts,params:{symbol,period:'1h',limit:30,endTime:x.cutoff},raw:Array.from({length:30},(_,i)=>{const l=i===29?new Big('.5').minus(new Big(accountShift).div(100)):new Big('.5'),s=new Big(1).minus(l);return {symbol,timestamp:end-(29-i)*3600000,longAccount:l.toString(),shortAccount:s.toString(),longShortRatio:l.div(s).toString()};})};
++ return x;
++}
++export const precisionFacts=o=>detect(buildFacts(precisionSource(o)));
++export function precisionMarket(rows,{failure,delayHourMs=0,parentSignal}={}){
++ const sources=new Map(rows.map(r=>[r.symbol,precisionSource(r)])),calls=[];
++ return {http:{signal:parentSignal},calls,async get(endpoint,params={}){calls.push({endpoint,params});const first=sources.values().next().value,x=sources.get(params.symbol)||first;
++  if(failure?.(endpoint,params))throw Object.assign(Error('MOCK_SOURCE_FAILURE'),{code:'MOCK_SOURCE_FAILURE'});
++  let raw;if(endpoint===endpoints.time)raw={serverTime:first.cutoff};else if(endpoint===endpoints.exchange)raw={symbols:rows.map(r=>({...sources.get(r.symbol).sources.exchange.raw,...r.identity})),rateLimits:[]};else if(endpoint===endpoints.ticker)raw=rows.map(r=>({...sources.get(r.symbol).ticker,...r.ticker}));else if(endpoint===endpoints.premium)raw=rows.map(r=>sources.get(r.symbol).sources.premium.raw);else if(endpoint===endpoints.fundingInfo)raw=[];else if(endpoint===endpoints.klines){if(delayHourMs&&params.interval==='1h'){await new Promise(resolve=>setTimeout(resolve,delayHourMs));}raw=params.interval==='1h'?x.sources.hour.raw:x.sources.five.raw;}else if(endpoint===endpoints.oi)raw=x.sources.oi.raw;else if(endpoint===endpoints.funding)raw=x.sources.funding.raw;else if(endpoint===endpoints.accounts)raw=x.sources.accounts.raw;else raw=[];
++  return {endpoint,params,raw:structuredClone(raw)};
++ }};
++}
+diff --git a/test/selector-precision-coverage.test.js b/test/selector-precision-coverage.test.js
+new file mode 100644
+index 0000000..4a1a078
+--- /dev/null
++++ b/test/selector-precision-coverage.test.js
+@@ -0,0 +1,28 @@
++import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs/promises';import os from 'node:os';import path from 'node:path';
++import {precisionSource,precisionFacts,precisionMarket} from './selector-precision-fixture.js';
++import {buildFacts} from '../src/market/facts-engine.js';import {detect} from '../src/market/detector.js';import {selectOpportunities} from '../src/market/opportunity-selector.js';import {summary,emptyHistory} from '../src/storage/history.js';import {scan} from '../src/market/scanner.js';import {config} from '../src/config.js';import {endpoints} from '../src/clients/binance.js';import {publicDTO} from '../src/web/public-dto.js';import {createRunDiagnostics,recordSelection,finishRunDiagnostics,scanDiagnostics,scanCounts} from '../src/market/run-diagnostics.js';import {initializeV2,loadV2Outbox} from '../src/storage/market-bias-v2-state.js';import {runResearch} from '../src/main.js';import {mockBias} from './market-bias-v2-fixture.js';
++const decide=o=>selectOpportunities([precisionFacts(o)]).decisions[0];
++for(const sign of [1,-1])for(const [funding,price,pass]of [[.149999,8.8,false],[.15,8.8,true],[.150001,8.8,true],[.299999,0,false],[.3,0,true],[.300001,0,true]])test(`decimal Funding ${sign*funding}% price ${price}: exact gate ${pass}`,()=>{const x=precisionSource({funding:sign*funding,price}),f=detect(buildFacts(x)),r=selectOpportunities([f]).decisions[0];assert.equal((Number(x.sources.funding.raw.at(-1).fundingRate)*100).toFixed(8),f.funding.settledLatest.result);assert.equal(r.status==='SELECTED',pass);assert.equal(r.score===null,!pass);if(funding===.15)assert.equal(f.anomalies.find(a=>a.kind==='FUNDING_EXTREME').strength,1.5);if(funding===.3)assert.equal(f.anomalies.find(a=>a.kind==='FUNDING_EXTREME').strength,3);});
++for(const [name,below,at]of [
++ ['price24 resonance',{price:11.999999,volume:2},{price:12,volume:2}],['price1 resonance',{price1h:4.499999,volume:2},{price1h:4.5,volume:2}],['OI resonance',{oi:14.999999,volume:2},{oi:15,volume:2}],['volume resonance',{volume:2.999999,price:8},{volume:3,price:8}],['account resonance',{accountShift:7.499999,volume:2},{accountShift:7.5,volume:2}],['price extreme',{price:23.999999},{price:24}],['price1 extreme',{price1h:8.999999},{price1h:9}],['OI extreme',{oi:29.999999},{oi:30}],['volume extreme',{volume:5.999999},{volume:6}],['account extreme',{accountShift:14.999999},{accountShift:15}]
++])test('other family shared gate unchanged: '+name,()=>{assert.equal(decide(below).reason,'BELOW_RESEARCH_GATE');assert.equal(decide(at).status,'SELECTED');});
++test('display Funding cannot substitute for actual settlement',()=>{const x=precisionSource({price:8.8,funding:.149999});x.sources.premium.raw.lastFundingRate='-.01';const r=selectOpportunities([detect(buildFacts(x))]).decisions[0];assert.equal(r.reason,'BELOW_RESEARCH_GATE');assert.equal(r.facts.funding.currentDisplay.result,'-1.00000000');assert.equal(r.facts.funding.settledLatest.result,'0.14999900');});
++test('far from boundaries ranking, caps, default budget and material unchanged',()=>{const f=Array.from({length:8},(_,i)=>precisionFacts({symbol:`TIE${i}USDT`,price:40+i})),r=selectOpportunities(f);assert.equal(r.selected.length,5);assert.deepEqual(r.selected.map(r=>r.symbol),f.slice(0,5).map(r=>r.symbol));assert(r.decisions.every(r=>r.score===25));assert.equal(config.selector.maxCandidates,5);assert.equal(selectOpportunities([f[0]],{[f[0].symbol]:{summary:summary(f[0]),lastResearchTime:f[0].dataCutoff-1}}).decisions[0].reason,'NO_MATERIAL_CHANGE');});
++async function scanned(rows,options={}){const b=precisionMarket(rows,options),saved=new Map(),r=await scan(b,{runId:'MOCK_COVERAGE',scheduledAt:123,history:options.history||emptyHistory(),save:async(k,v)=>saved.set(k,structuredClone(v))});return {...r,b,saved};}
++const universe=n=>Array.from({length:n},(_,i)=>({symbol:`COIN${i}USDT`,price:i<30?40+i:0}));
++test('trigger Top12, rotation and no-opportunity are distinct without changing order',async()=>{const r=await scanned(universe(50)),d=r.diagnostics,c=d.counts;assert.equal(c.universe,50);assert.equal(c.triggerMatched,30);assert.equal(c.triggerSelected,12);assert.equal(c.rotationSelected,12);assert.equal(c.plannedDeep,24);assert.equal(c.startedDeep,24);assert.deepEqual(r.result.researchCandidates.slice(0,12).map(r=>r.symbol),Array.from({length:12},(_,i)=>`COIN${29-i}USDT`));const outside=d.rows.filter(x=>!x.deep.planned);assert(outside.some(x=>x.trigger.reason==='TRIGGER_RANK_BELOW_BUDGET'));assert(outside.some(x=>x.rotation.reason==='NO_ROTATION_OPPORTUNITY'));assert(outside.every(x=>x.deep.status==='NOT_PLANNED'));assert.equal(d.scheduledAt,123);assert(r.saved.has('scan-coverage.json'));});
++test('non-trigger rotation and account addition overlap remain independently traceable',async()=>{const rows=universe(50);rows[49].accountShift=15;rows[29].accountShift=15;const r=await scanned(rows,{history:{...emptyHistory(),rotation:18}}),d=r.diagnostics;assert.equal(d.counts.plannedDeep,25);assert.equal(d.counts.accountAdded,1);assert.deepEqual(d.rows.find(x=>x.symbol==='COIN49USDT').deep.channels,['ACCOUNT_ANOMALY']);assert.deepEqual(d.rows.find(x=>x.symbol==='COIN29USDT').deep.channels,['TRIGGER','ACCOUNT_ANOMALY']);assert.equal(r.result.researchCandidates.filter(x=>x.symbol==='COIN29USDT').length,1);assert(d.rows.some(x=>!x.trigger.matched&&x.rotation.selected));});
++test('identity and liquidity failures do not become discovery-no-anomaly or gate rejects',async()=>{const r=await scanned([{symbol:'BADUSDT',identity:{status:'BREAK'}},{symbol:'LOWUSDT',ticker:{quoteVolume:'10000000'}},{symbol:'VALIDUSDT',price:40}]);assert.equal(r.diagnostics.counts.identityEligible,2);assert.equal(r.diagnostics.counts.liquidityEligible,1);const low=r.diagnostics.rows[1];assert.equal(low.liquidity.reason,'QUOTE_VOLUME_24H_NOT_ABOVE_MINIMUM');assert.equal(low.accountDiscovery.status,'NOT_APPLICABLE');assert.equal(low.deep.status,'NOT_PLANNED');assert(!Object.hasOwn(low,'gate'));});
++test('account request failure remains insufficient, never no anomaly',async()=>{const r=await scanned([{symbol:'FAILUSDT',price:40}],{failure:ep=>ep===endpoints.accounts});assert.equal(r.diagnostics.rows[0].accountDiscovery.status,'INSUFFICIENT_DATA');assert.match(r.diagnostics.rows[0].accountDiscovery.reason,/MOCK_SOURCE_FAILURE/);assert.equal(r.diagnostics.counts.accountInsufficient,1);});
++test('OI network error, missing Funding and no anomaly are separate deep outcomes',async()=>{const rows=[{symbol:'OIUSDT',price:40},{symbol:'FUNDUSDT',price:40},{symbol:'FLATUSDT'}];const r=await scanned(rows,{failure:(ep,p)=>ep===endpoints.oi&&p.symbol==='OIUSDT'||ep===endpoints.funding&&p.symbol==='FUNDUSDT'});const d=new Map(r.diagnostics.rows.map(r=>[r.symbol,r.deep]));assert.equal(d.get('OIUSDT').factsComplete,false);assert(d.get('OIUSDT').sourceErrors.some(e=>e.source==='oi'));assert.equal(d.get('FUNDUSDT').factsComplete,false);assert(d.get('FUNDUSDT').sourceErrors.some(e=>e.source==='funding'));assert.equal(d.get('FLATUSDT').status,'COMPLETE_NO_ANOMALY');assert.equal(r.diagnostics.counts.noAnomaly,1);assert.equal(r.diagnostics.counts.sourceRequestFailures,2);assert.equal(r.facts.length,0);});
++test('planned but not started after real isolated scan budget is explicit',async()=>{const old=config.scanTimeoutMs;config.scanTimeoutMs=10;try{const r=await scanned(universe(50),{delayHourMs:30});assert(r.result.scanBudgetExceeded);assert(r.diagnostics.counts.plannedNotStarted>0);assert(r.diagnostics.rows.some(r=>r.deep.planned&&r.deep.startedAt===null&&r.deep.reason==='SCAN_TIME_BUDGET_EXHAUSTED'));}finally{config.scanTimeoutMs=old;}});
++test('parent abort leaves discovery uncovered, not normal and deep not executed',async()=>{const r=await scanned(universe(50),{parentSignal:AbortSignal.abort(Error('MOCK_ABORT'))});assert.equal(r.diagnostics.counts.accountNotEvaluated,50);assert.equal(r.diagnostics.counts.startedDeep,0);assert(r.diagnostics.rows.every(x=>x.accountDiscovery.status==='NOT_COVERED'));});
++test('diagnostic write failure does not change selected Facts, records the error',async()=>{const b=precisionMarket([{symbol:'SAFEUSDT',price:40}]);const r=await scan(b,{runId:'MOCK_WRITE_FAIL',history:emptyHistory(),save:async k=>{if(k==='scan-coverage.json')throw Error('MOCK_WRITE_FAIL');}});assert.equal(r.facts.length,1);assert.equal(r.result.coverageSummary.persistenceError,'MOCK_WRITE_FAIL');});
++test('Selector diagnostics distinguish gate/history/rank, preserve uncopied values and nulls',()=>{const fsx=[precisionFacts({symbol:'GATEUSDT',price:8}),precisionFacts({symbol:'OLDUSDT',price:40}),...Array.from({length:6},(_,i)=>precisionFacts({symbol:`NEW${i}USDT`,price:40}))],old=fsx[1],selection=selectOpportunities(fsx,{OLDUSDT:{summary:summary(old),lastResearchTime:old.dataCutoff-1}}),d=createRunDiagnostics({runId:'MOCK'});recordSelection(d,selection);const gate=d.candidates.find(r=>r.symbol==='GATEUSDT');assert.equal(gate.gate.passed,false);assert.equal(gate.score,null);assert.equal(gate.rank,null);assert.equal(gate.families[0].strength,1);assert.equal(d.candidates.find(r=>r.symbol==='OLDUSDT').materialUpdate.passed,false);const outside=d.candidates.find(r=>r.reason==='RANK_BELOW_TOP_K');assert.equal(outside.score,25);assert.equal(outside.v2.attempted,false);const selected=d.candidates.find(r=>r.selected);assert.equal(selected.events[0].rawValue,'40.00000000');assert.equal(selected.events[0].strength,5);assert.equal(selected.dimensions[0].cap,3);});
++test('large Universe diagnostics are linear one-row-per-symbol and have no raw source payload',()=>{const symbols=Array.from({length:10000},(_,i)=>({symbol:`LARGE${i}USDT`})),d=scanDiagnostics({runId:'MOCK_LARGE',cutoff:1,symbols});assert.equal(d.rows.length,10000);assert.equal(scanCounts(d).universe,10000);assert.equal(scanCounts(d).accountNotEvaluated,10000);assert(!JSON.stringify(d).includes('rawResponse'));assert(JSON.stringify(d).length<7000000);});
++test('unfinished scan/run has unknown later-stage counts, not fabricated zero gate failures',()=>{const d=createRunDiagnostics({runId:'EARLY_FAIL'});finishRunDiagnostics(d,{status:'FAILED',candidateEvaluations:[]});assert.equal(d.counts.scan,null);assert.equal(d.counts.selector,null);});
++test('public DTO excludes injected coverage diagnostics and sensitive internals',()=>{const poison={path:'DO_NOT_PUBLISH',headers:{Authorization:'DO_NOT_PUBLISH'}},d=publicDTO().overview({latest:{snapshotState:'COMPLETED_RECORD',record:{runId:'MOCK',diagnostics:poison},diagnostics:poison},diagnostics:poison,coverage:poison});assert(!JSON.stringify(d).includes('DO_NOT_PUBLISH'));assert(!JSON.stringify(d).includes('diagnostics'));});
++test('full mocked run: five attempts, one model failure, four successes, no sixth/no delivery',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'ba-precision-run-')),old=config.dataDir;config.dataDir=dir;let calls=0;try{await initializeV2(dir);const binance=precisionMarket(Array.from({length:6},(_,i)=>({symbol:`MODEL${i}USDT`,price:40}))),llm={json:async(_s,input)=>{calls++;if(calls===1)throw Error('MOCK_MODEL_FAILURE');return mockBias(input);}};const r=await runResearch({mode:'once',runId:'MOCK_DIAGNOSTIC_RUN',sendEnabled:false,handleSignals:false,setExitCode:false},{binance,llm,log:()=>{}}),d=JSON.parse(await fs.readFile(path.join(dir,'runs/MOCK_DIAGNOSTIC_RUN/run-diagnostics.json'),'utf8'));assert.equal(calls,5);assert.equal(d.counts.selector.selected,5);assert.equal(d.counts.selector.qualifiedNotSelected,1);assert.equal(d.counts.research.succeeded,4);assert.equal(d.counts.research.unavailable,1);assert.equal(d.counts.research.attempted,5);assert.equal(r.diagnostics.status,'SAVED');assert.equal(d.candidates.find(c=>!c.selected).v2.attempted,false);assert.equal((await loadV2Outbox(dir)).length,0);assert.equal(r.generated,0);}finally{config.dataDir=old;await fs.rm(dir,{recursive:true,force:true});}});
++test('non-trigger liquidity probes select 24; remaining 26 have no deep opportunity',async()=>{const r=await scanned(Array.from({length:50},(_,i)=>({symbol:`QUIET${i}USDT`})));assert.equal(r.diagnostics.counts.triggerMatched,0);assert.equal(r.diagnostics.counts.rotationSelected,24);assert.equal(r.diagnostics.rows.filter(r=>r.deep.status==='NOT_PLANNED').length,26);assert.equal(r.diagnostics.counts.noAnomaly,24);});
++test('failed Facts persistence is deep failure rather than no anomaly or zero score',async()=>{const b=precisionMarket([{symbol:'WRITEUSDT',price:40}]);const r=await scan(b,{runId:'MOCK_FACT_WRITE',history:emptyHistory(),save:async k=>{if(k.startsWith('facts/'))throw Error('MOCK_FACT_WRITE');}});const d=r.diagnostics.rows[0].deep;assert.equal(d.status,'FAILED');assert.equal(d.factsSaved,false);assert.equal(d.factsComplete,null);assert.equal(r.diagnostics.counts.deepFailed,1);assert.equal(r.diagnostics.counts.selectorInput,0);});
++test('callback retains partial diagnostics if discovery persistence aborts scan',async()=>{const b=precisionMarket([{symbol:'PARTUSDT',price:40}]);let diagnostic;await assert.rejects(()=>scan(b,{runId:'MOCK_PARTIAL',history:emptyHistory(),onDiagnostics:d=>{diagnostic=d;},save:async k=>{if(k.startsWith('accounts-discovery/'))throw Error('MOCK_AUDIT_WRITE');}}),/MOCK_AUDIT_WRITE/);assert(diagnostic);assert.equal(diagnostic.complete,false);assert.equal(scanCounts(diagnostic).accountRequested,null);assert.equal(scanCounts(diagnostic).accountAnomalies,null);assert.equal(diagnostic.rows[0].accountDiscovery.status,'NOT_EVALUATED');assert.equal(diagnostic.rows[0].deep.startedAt,null);});
+diff --git a/test/fixtures/detector-pre-funding-precision.txt b/test/fixtures/detector-pre-funding-precision.txt
+new file mode 100644
+index 0000000..00499d2
+--- /dev/null
++++ b/test/fixtures/detector-pre-funding-precision.txt
+@@ -0,0 +1,20 @@
++import {detectLongShort} from './long-short-detector.js';
++import {config} from '../config.js';
++const tradfi=/STOCK|EQUITY|TRADFI|COMMOD|FOREX|ETF|GOLD|SILVER|OIL|BOND|TREASURY|TOKENIZED|RWA|INDEX/i;
++const excludedBase=/^(XAU|XAG|XAUT|PAXG|GOLD|SILVER|OIL|WTI|BRENT|EUR|GBP|JPY|AUD|CHF|CNH|SPX|SP500|NDX|NAS100|US30|DOW|AAPL|TSLA|NVDA|MSFT|AMZN|GOOGL|META|COIN|PLTR|MSTR)(USDT|X)?$/i;
++export function classify(s) {
++  if(s.status!=='TRADING'||s.contractType!=='PERPETUAL'||s.quoteAsset!=='USDT')return {eligible:false,reason:'NOT_TRADING_USDT_PERPETUAL'};
++  if(excludedBase.test(s.baseAsset || '') || tradfi.test([s.underlyingType,...(s.underlyingSubType || [])].join(' ')))return {eligible:false,reason:'TRADFI_OR_TRACKER_HARD_EXCLUSION'};
++  if(!/^[\p{L}\p{N}]{1,40}USDT$/u.test(s.symbol || '') || s.underlyingType!=='COIN' || !s.baseAsset || s.symbol!==s.baseAsset+'USDT' || !Array.isArray(s.underlyingSubType))return {eligible:false,reason:'AMBIGUOUS_OFFICIAL_CLASSIFICATION'};
++  return {eligible:true,reason:'Official exchangeInfo COIN metadata, base/symbol match, no TradFi/tracker flags; name unverified'};
++}
++export function detect(f,thresholds=config.thresholds){
++  const a=[];
++  const test=(kind,e,threshold)=>{if(e?.evidenceId && Math.abs(Number(e.result))>=threshold)a.push({kind,evidenceIds:[e.evidenceId],value:e.result,threshold,strength:Math.min(5,Math.abs(Number(e.result))/threshold)});};
++  test('PRICE_24H',f.price.rolling24h,thresholds.price24);test('PRICE_1H',f.price.closedWindows['1h'],thresholds.price1);
++  test('OI_4H',f.openInterest.windows['4h'],thresholds.oi4);test('FUNDING_EXTREME',f.funding.settledLatest,thresholds.funding);
++  for(const e of [f.volume.relative1h,f.volume.relative5m])if(e&&Number(e.result)>=thresholds.volume)test('VOLUME_SPIKE',e,thresholds.volume);
++  if(f.funding.change && (Math.abs(Number(f.funding.change.deltaPercentagePoints))>=thresholds.fundingDelta || f.funding.change.signFlip))a.push({kind:f.funding.change.signFlip?'FUNDING_FLIP':'FUNDING_CHANGE',evidenceIds:[f.funding.change.evidenceId,f.funding.settledLatest.evidenceId],value:f.funding.change.deltaPercentagePoints,strength:1});
++  a.push(...detectLongShort(f.longShort));
++  f.anomalies=a;f.candidateScore=Number(a.reduce((n,x)=>n+10*x.strength,0).toFixed(2));return f;
++}

@@ -1,0 +1,37 @@
+{
+  "originalProtectedFiles": 8421,
+  "unchangedOriginalFiles": 8418,
+  "authorizedModified": [
+    {
+      "file": "src/main.js",
+      "before": "03278f7ad7ffff846694a289816ddd2fe5ecc091fa4834dd01a51554cdc8be42",
+      "after": "42e1484a9aba5c8748715546cf9c53b750c743b999087cb659dad841fae333e3"
+    },
+    {
+      "file": "src/market/scanner.js",
+      "before": "62e8f92a33dc58e649043cbebe10475665ae82f43ee3888faaf4d597f227d81e",
+      "after": "5a5544901c2973df7c08b3dfd8f591268e4878c38be22676568a1c9dbb5decc1"
+    },
+    {
+      "file": "src/market/detector.js",
+      "before": "85f93a8c645e7feec7caa3a3bd16cc52590cb705d804f24b95a1eaeef1524f23",
+      "after": "376a2630b8c384ded08b50326bfdb73c04f63a50b74c0bb8ffadd6a5eaf5d0b5"
+    }
+  ],
+  "newSourceFiles": [
+    {
+      "file": "src/market/run-diagnostics.js",
+      "sha256": "95028e723771e1c4fcac1c9eca8bf363c87c507e27536a220069d7e14fe60ba8"
+    }
+  ],
+  "productionDataEnvUnchanged": true,
+  "selectorConfigFactsEngineKnowledgePromptSchemaGuardHistoryOutboxDeliveryUnchanged": true,
+  "existingPackageJsonChangePreserved": true,
+  "stagedFiles": [],
+  "testContractClosure": {
+    "protectedFilesChecked": 8422,
+    "differences": [],
+    "productionCodeChangedThisRound": false,
+    "oldBaselineChanged": false
+  }
+}

@@ -1,0 +1,48 @@
+✔ decimal Funding 0.149999% price 8.8: exact gate false (9.061208ms)
+✔ decimal Funding 0.15% price 8.8: exact gate true (2.948583ms)
+✔ decimal Funding 0.150001% price 8.8: exact gate true (2.39825ms)
+✔ decimal Funding 0.299999% price 0: exact gate false (2.750459ms)
+✔ decimal Funding 0.3% price 0: exact gate true (1.737167ms)
+✔ decimal Funding 0.300001% price 0: exact gate true (1.155208ms)
+✔ decimal Funding -0.149999% price 8.8: exact gate false (2.09625ms)
+✔ decimal Funding -0.15% price 8.8: exact gate true (2.175541ms)
+✔ decimal Funding -0.150001% price 8.8: exact gate true (4.130541ms)
+✔ decimal Funding -0.299999% price 0: exact gate false (1.983542ms)
+✔ decimal Funding -0.3% price 0: exact gate true (1.500375ms)
+✔ decimal Funding -0.300001% price 0: exact gate true (1.216708ms)
+✔ other family shared gate unchanged: price24 resonance (3.039208ms)
+✔ other family shared gate unchanged: price1 resonance (3.195917ms)
+✔ other family shared gate unchanged: OI resonance (3.091ms)
+✔ other family shared gate unchanged: volume resonance (2.016958ms)
+✔ other family shared gate unchanged: account resonance (3.130875ms)
+✔ other family shared gate unchanged: price extreme (2.578417ms)
+✔ other family shared gate unchanged: price1 extreme (3.075208ms)
+✔ other family shared gate unchanged: OI extreme (1.86025ms)
+✔ other family shared gate unchanged: volume extreme (2.235917ms)
+✔ other family shared gate unchanged: account extreme (2.277958ms)
+✔ display Funding cannot substitute for actual settlement (1.007667ms)
+✔ far from boundaries ranking, caps, default budget and material unchanged (20.319375ms)
+✔ trigger Top12, rotation and no-opportunity are distinct without changing order (45.324834ms)
+✔ non-trigger rotation and account addition overlap remain independently traceable (40.367708ms)
+✔ identity and liquidity failures do not become discovery-no-anomaly or gate rejects (1.588083ms)
+✔ account request failure remains insufficient, never no anomaly (0.966333ms)
+✔ OI network error, missing Funding and no anomaly are separate deep outcomes (3.610583ms)
+✔ planned but not started after real isolated scan budget is explicit (51.331542ms)
+✔ parent abort leaves discovery uncovered, not normal and deep not executed (6.017666ms)
+✔ diagnostic write failure does not change selected Facts, records the error (2.772792ms)
+✔ Selector diagnostics distinguish gate/history/rank, preserve uncopied values and nulls (8.4105ms)
+✔ large Universe diagnostics are linear one-row-per-symbol and have no raw source payload (18.867375ms)
+✔ unfinished scan/run has unknown later-stage counts, not fabricated zero gate failures (0.231833ms)
+✔ public DTO excludes injected coverage diagnostics and sensitive internals (0.772166ms)
+✔ full mocked run: five attempts, one model failure, four successes, no sixth/no delivery (113.957583ms)
+✔ non-trigger liquidity probes select 24; remaining 26 have no deep opportunity (41.036917ms)
+✔ failed Facts persistence is deep failure rather than no anomaly or zero score (1.048958ms)
+✔ callback retains partial diagnostics if discovery persistence aborts scan (0.975584ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 700.598584

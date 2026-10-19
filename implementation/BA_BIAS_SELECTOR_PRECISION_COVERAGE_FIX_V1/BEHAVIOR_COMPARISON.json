@@ -1,0 +1,446 @@
+{
+  "boundaryCases": [
+    {
+      "fundingPct": 0.149999,
+      "pricePct": 8.8,
+      "before": {
+        "funding": 0.149999,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.49999,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "funding": 0.149999,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.49999,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "eligibilityChanged": false
+    },
+    {
+      "fundingPct": 0.15,
+      "pricePct": 8.8,
+      "before": {
+        "funding": 0.15,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.4999999999999998,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "funding": 0.15,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.5,
+          "extreme": false,
+          "resonance": true
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 27.333333,
+        "rank": 1
+      },
+      "eligibilityChanged": true
+    },
+    {
+      "fundingPct": 0.150001,
+      "pricePct": 8.8,
+      "before": {
+        "funding": 0.150001,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.5000099999999998,
+          "extreme": false,
+          "resonance": true
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 27.3334,
+        "rank": 1
+      },
+      "after": {
+        "funding": 0.150001,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.50001,
+          "extreme": false,
+          "resonance": true
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 27.3334,
+        "rank": 1
+      },
+      "eligibilityChanged": false
+    },
+    {
+      "fundingPct": 0.299999,
+      "pricePct": 0,
+      "before": {
+        "funding": 0.299999,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 2.99999,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "funding": 0.299999,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 2.99999,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "eligibilityChanged": false
+    },
+    {
+      "fundingPct": 0.3,
+      "pricePct": 0,
+      "before": {
+        "funding": 0.3,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 2.9999999999999996,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "funding": 0.3,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 3,
+          "extreme": true,
+          "resonance": false
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1
+      },
+      "eligibilityChanged": true
+    },
+    {
+      "fundingPct": 0.300001,
+      "pricePct": 0,
+      "before": {
+        "funding": 0.300001,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 3.00001,
+          "extreme": true,
+          "resonance": false
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1
+      },
+      "after": {
+        "funding": 0.300001,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 3.00001,
+          "extreme": true,
+          "resonance": false
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1
+      },
+      "eligibilityChanged": false
+    },
+    {
+      "fundingPct": -0.149999,
+      "pricePct": 8.8,
+      "before": {
+        "funding": -0.149999,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.49999,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "funding": -0.149999,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.49999,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "eligibilityChanged": false
+    },
+    {
+      "fundingPct": -0.15,
+      "pricePct": 8.8,
+      "before": {
+        "funding": -0.15,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.4999999999999998,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "funding": -0.15,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.5,
+          "extreme": false,
+          "resonance": true
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 27.333333,
+        "rank": 1
+      },
+      "eligibilityChanged": true
+    },
+    {
+      "fundingPct": -0.150001,
+      "pricePct": 8.8,
+      "before": {
+        "funding": -0.150001,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.5000099999999998,
+          "extreme": false,
+          "resonance": true
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 27.3334,
+        "rank": 1
+      },
+      "after": {
+        "funding": -0.150001,
+        "price": 8.8,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 2,
+          "strongest": 1.50001,
+          "extreme": false,
+          "resonance": true
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 27.3334,
+        "rank": 1
+      },
+      "eligibilityChanged": false
+    },
+    {
+      "fundingPct": -0.299999,
+      "pricePct": 0,
+      "before": {
+        "funding": -0.299999,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 2.99999,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "funding": -0.299999,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 2.99999,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "eligibilityChanged": false
+    },
+    {
+      "fundingPct": -0.3,
+      "pricePct": 0,
+      "before": {
+        "funding": -0.3,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 2.9999999999999996,
+          "extreme": false,
+          "resonance": false
+        },
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "funding": -0.3,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 3,
+          "extreme": true,
+          "resonance": false
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1
+      },
+      "eligibilityChanged": true
+    },
+    {
+      "fundingPct": -0.300001,
+      "pricePct": 0,
+      "before": {
+        "funding": -0.300001,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 3.00001,
+          "extreme": true,
+          "resonance": false
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1
+      },
+      "after": {
+        "funding": -0.300001,
+        "price": 0,
+        "symbol": "TESTUSDT",
+        "gate": {
+          "families": 1,
+          "strongest": 3.00001,
+          "extreme": true,
+          "resonance": false
+        },
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1
+      },
+      "eligibilityChanged": false
+    }
+  ],
+  "authorizedEligibilityChanges": 4,
+  "nonBoundaryFixtureIdentical": true,
+  "historicalRowsCompared": 75,
+  "historicalGateFlagsScoresRanksStatusesIdentical": true,
+  "historicalStrengthTailDifferences": [
+    {
+      "runId": "hourly_20261011_1200",
+      "symbol": "WALUSDT",
+      "before": 3.1056699999999995,
+      "after": 3.10567
+    },
+    {
+      "runId": "hourly_20261011_1400",
+      "symbol": "WALUSDT",
+      "before": 3.1056699999999995,
+      "after": 3.10567
+    }
+  ],
+  "scannerCandidatesOrderRequestsRotationIdentical": true,
+  "baselinePolicyMaxCandidates": 5,
+  "realExternalRequests": 0,
+  "note": "Scanners in replay use precisionMarket Mock. Archive uses available saved Facts with legacy acknowledged-before-run history, not Windows production."
+}

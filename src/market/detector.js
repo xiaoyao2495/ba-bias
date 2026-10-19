@@ -1,5 +1,6 @@
 import {detectLongShort} from './long-short-detector.js';
 import {config} from '../config.js';
+import Big from 'big.js';
 const tradfi=/STOCK|EQUITY|TRADFI|COMMOD|FOREX|ETF|GOLD|SILVER|OIL|BOND|TREASURY|TOKENIZED|RWA|INDEX/i;
 const excludedBase=/^(XAU|XAG|XAUT|PAXG|GOLD|SILVER|OIL|WTI|BRENT|EUR|GBP|JPY|AUD|CHF|CNH|SPX|SP500|NDX|NAS100|US30|DOW|AAPL|TSLA|NVDA|MSFT|AMZN|GOOGL|META|COIN|PLTR|MSTR)(USDT|X)?$/i;
 export function classify(s) {
@@ -10,7 +11,10 @@ export function classify(s) {
 }
 export function detect(f,thresholds=config.thresholds){
   const a=[];
-  const test=(kind,e,threshold)=>{if(e?.evidenceId && Math.abs(Number(e.result))>=threshold)a.push({kind,evidenceIds:[e.evidenceId],value:e.result,threshold,strength:Math.min(5,Math.abs(Number(e.result))/threshold)});};
+  // Funding Facts are decimal percentage strings. Dividing by the decimal 0.1
+  // in binary can turn exact 1.5/3 into values just below the research gate.
+  // Decimal division preserves those boundaries without tolerances or rounding.
+  const test=(kind,e,threshold)=>{if(e?.evidenceId && Math.abs(Number(e.result))>=threshold)a.push({kind,evidenceIds:[e.evidenceId],value:e.result,threshold,strength:Math.min(5,kind==='FUNDING_EXTREME'?new Big(e.result).abs().div(threshold).toNumber():Math.abs(Number(e.result))/threshold)});};
   test('PRICE_24H',f.price.rolling24h,thresholds.price24);test('PRICE_1H',f.price.closedWindows['1h'],thresholds.price1);
   test('OI_4H',f.openInterest.windows['4h'],thresholds.oi4);test('FUNDING_EXTREME',f.funding.settledLatest,thresholds.funding);
   for(const e of [f.volume.relative1h,f.volume.relative5m])if(e&&Number(e.result)>=thresholds.volume)test('VOLUME_SPIKE',e,thresholds.volume);

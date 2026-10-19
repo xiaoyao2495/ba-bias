@@ -1,0 +1,882 @@
+{
+  "source": "SYNTHETIC_MOCK_ONLY",
+  "selector": {
+    "version": "BA_BIAS_RUN_DIAGNOSTICS_V1",
+    "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+    "scheduledAt": null,
+    "startedAt": 1792377361056,
+    "finishedAt": null,
+    "scan": null,
+    "selector": {
+      "version": "DETERMINISTIC_SELECTOR_V1",
+      "policy": {
+        "maxCandidates": 5,
+        "minimumFamilies": 2,
+        "resonanceStrength": 1.5,
+        "extremeStrength": 3,
+        "strengthCap": 3,
+        "crossMetricPoints": 5,
+        "crossMetricCap": 3,
+        "noveltyPoints": 5,
+        "weights": {
+          "PRICE_EXTREMITY": 20,
+          "OI_ABNORMALITY": 20,
+          "FUNDING_EXTREMITY": 20,
+          "VOLUME_ABNORMALITY": 10,
+          "ACCOUNT_DISTRIBUTION": 15
+        },
+        "material": {
+          "pricePp": 15,
+          "oiPp": 10,
+          "fundingPp": 0.05,
+          "volumeRatio": 2
+        }
+      }
+    },
+    "candidates": [
+      {
+        "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+        "symbol": "GATEUSDT",
+        "factsComplete": true,
+        "events": [
+          {
+            "kind": "PRICE_24H",
+            "scope": null,
+            "window": null,
+            "rawValue": "8.00000000",
+            "threshold": 8,
+            "strength": 1,
+            "evidenceIds": [
+              "GATEUSDT:price.rolling24h"
+            ]
+          }
+        ],
+        "families": [
+          {
+            "family": "PRICE_EXTREMITY",
+            "strength": 1,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "GATEUSDT:price.rolling24h"
+            ]
+          }
+        ],
+        "gate": {
+          "families": 1,
+          "strongest": 1,
+          "extreme": false,
+          "resonance": false,
+          "passed": false
+        },
+        "gateReason": "BELOW_RESEARCH_GATE",
+        "materialUpdate": null,
+        "score": null,
+        "dimensions": [],
+        "rank": null,
+        "status": "LOW_RESEARCH_VALUE",
+        "reason": "BELOW_RESEARCH_GATE",
+        "selected": false,
+        "v2": {
+          "pipelineEntered": false,
+          "attempted": false,
+          "requestRecords": 0,
+          "physicalRequests": 0,
+          "technicalState": "NOT_STARTED",
+          "reason": "BELOW_RESEARCH_GATE"
+        }
+      },
+      {
+        "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+        "symbol": "HISTORYUSDT",
+        "factsComplete": true,
+        "events": [
+          {
+            "kind": "PRICE_24H",
+            "scope": null,
+            "window": null,
+            "rawValue": "40.00000000",
+            "threshold": 8,
+            "strength": 5,
+            "evidenceIds": [
+              "HISTORYUSDT:price.rolling24h"
+            ]
+          }
+        ],
+        "families": [
+          {
+            "family": "PRICE_EXTREMITY",
+            "strength": 5,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "HISTORYUSDT:price.rolling24h"
+            ]
+          }
+        ],
+        "gate": {
+          "families": 1,
+          "strongest": 5,
+          "extreme": true,
+          "resonance": false,
+          "passed": true
+        },
+        "gateReason": null,
+        "materialUpdate": {
+          "passed": false,
+          "evidence": [],
+          "storyType": null
+        },
+        "score": null,
+        "dimensions": [],
+        "rank": null,
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "selected": false,
+        "v2": {
+          "pipelineEntered": false,
+          "attempted": false,
+          "requestRecords": 0,
+          "physicalRequests": 0,
+          "technicalState": "NOT_STARTED",
+          "reason": "NO_MATERIAL_CHANGE"
+        }
+      },
+      {
+        "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+        "symbol": "NEW0USDT",
+        "factsComplete": true,
+        "events": [
+          {
+            "kind": "PRICE_24H",
+            "scope": null,
+            "window": null,
+            "rawValue": "40.00000000",
+            "threshold": 8,
+            "strength": 5,
+            "evidenceIds": [
+              "NEW0USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "families": [
+          {
+            "family": "PRICE_EXTREMITY",
+            "strength": 5,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW0USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "gate": {
+          "families": 1,
+          "strongest": 5,
+          "extreme": true,
+          "resonance": false,
+          "passed": true
+        },
+        "gateReason": null,
+        "materialUpdate": {
+          "passed": true,
+          "evidence": [
+            {
+              "type": "NEW_STORY",
+              "evidenceIds": [
+                "NEW0USDT:price.rolling24h"
+              ]
+            }
+          ],
+          "storyType": "NEW_STORY"
+        },
+        "score": 25,
+        "dimensions": [
+          {
+            "dimension": "PRICE_EXTREMITY",
+            "points": 20,
+            "strength": 5,
+            "cap": 3,
+            "weight": 20,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW0USDT:price.rolling24h"
+            ]
+          },
+          {
+            "dimension": "CROSS_METRIC_CONFIRMATION",
+            "points": 0,
+            "families": [
+              "PRICE_EXTREMITY"
+            ]
+          },
+          {
+            "dimension": "EVENT_NOVELTY",
+            "points": 5,
+            "evidenceIds": [
+              "NEW0USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "rank": 1,
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "selected": true,
+        "v2": {
+          "pipelineEntered": false,
+          "attempted": false,
+          "requestRecords": 0,
+          "physicalRequests": 0,
+          "technicalState": "NOT_STARTED",
+          "reason": "AWAITING_ANALYST"
+        }
+      },
+      {
+        "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+        "symbol": "NEW1USDT",
+        "factsComplete": true,
+        "events": [
+          {
+            "kind": "PRICE_24H",
+            "scope": null,
+            "window": null,
+            "rawValue": "40.00000000",
+            "threshold": 8,
+            "strength": 5,
+            "evidenceIds": [
+              "NEW1USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "families": [
+          {
+            "family": "PRICE_EXTREMITY",
+            "strength": 5,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW1USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "gate": {
+          "families": 1,
+          "strongest": 5,
+          "extreme": true,
+          "resonance": false,
+          "passed": true
+        },
+        "gateReason": null,
+        "materialUpdate": {
+          "passed": true,
+          "evidence": [
+            {
+              "type": "NEW_STORY",
+              "evidenceIds": [
+                "NEW1USDT:price.rolling24h"
+              ]
+            }
+          ],
+          "storyType": "NEW_STORY"
+        },
+        "score": 25,
+        "dimensions": [
+          {
+            "dimension": "PRICE_EXTREMITY",
+            "points": 20,
+            "strength": 5,
+            "cap": 3,
+            "weight": 20,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW1USDT:price.rolling24h"
+            ]
+          },
+          {
+            "dimension": "CROSS_METRIC_CONFIRMATION",
+            "points": 0,
+            "families": [
+              "PRICE_EXTREMITY"
+            ]
+          },
+          {
+            "dimension": "EVENT_NOVELTY",
+            "points": 5,
+            "evidenceIds": [
+              "NEW1USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "rank": 2,
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "selected": true,
+        "v2": {
+          "pipelineEntered": false,
+          "attempted": false,
+          "requestRecords": 0,
+          "physicalRequests": 0,
+          "technicalState": "NOT_STARTED",
+          "reason": "AWAITING_ANALYST"
+        }
+      },
+      {
+        "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+        "symbol": "NEW2USDT",
+        "factsComplete": true,
+        "events": [
+          {
+            "kind": "PRICE_24H",
+            "scope": null,
+            "window": null,
+            "rawValue": "40.00000000",
+            "threshold": 8,
+            "strength": 5,
+            "evidenceIds": [
+              "NEW2USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "families": [
+          {
+            "family": "PRICE_EXTREMITY",
+            "strength": 5,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW2USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "gate": {
+          "families": 1,
+          "strongest": 5,
+          "extreme": true,
+          "resonance": false,
+          "passed": true
+        },
+        "gateReason": null,
+        "materialUpdate": {
+          "passed": true,
+          "evidence": [
+            {
+              "type": "NEW_STORY",
+              "evidenceIds": [
+                "NEW2USDT:price.rolling24h"
+              ]
+            }
+          ],
+          "storyType": "NEW_STORY"
+        },
+        "score": 25,
+        "dimensions": [
+          {
+            "dimension": "PRICE_EXTREMITY",
+            "points": 20,
+            "strength": 5,
+            "cap": 3,
+            "weight": 20,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW2USDT:price.rolling24h"
+            ]
+          },
+          {
+            "dimension": "CROSS_METRIC_CONFIRMATION",
+            "points": 0,
+            "families": [
+              "PRICE_EXTREMITY"
+            ]
+          },
+          {
+            "dimension": "EVENT_NOVELTY",
+            "points": 5,
+            "evidenceIds": [
+              "NEW2USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "rank": 3,
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "selected": true,
+        "v2": {
+          "pipelineEntered": false,
+          "attempted": false,
+          "requestRecords": 0,
+          "physicalRequests": 0,
+          "technicalState": "NOT_STARTED",
+          "reason": "AWAITING_ANALYST"
+        }
+      },
+      {
+        "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+        "symbol": "NEW3USDT",
+        "factsComplete": true,
+        "events": [
+          {
+            "kind": "PRICE_24H",
+            "scope": null,
+            "window": null,
+            "rawValue": "40.00000000",
+            "threshold": 8,
+            "strength": 5,
+            "evidenceIds": [
+              "NEW3USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "families": [
+          {
+            "family": "PRICE_EXTREMITY",
+            "strength": 5,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW3USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "gate": {
+          "families": 1,
+          "strongest": 5,
+          "extreme": true,
+          "resonance": false,
+          "passed": true
+        },
+        "gateReason": null,
+        "materialUpdate": {
+          "passed": true,
+          "evidence": [
+            {
+              "type": "NEW_STORY",
+              "evidenceIds": [
+                "NEW3USDT:price.rolling24h"
+              ]
+            }
+          ],
+          "storyType": "NEW_STORY"
+        },
+        "score": 25,
+        "dimensions": [
+          {
+            "dimension": "PRICE_EXTREMITY",
+            "points": 20,
+            "strength": 5,
+            "cap": 3,
+            "weight": 20,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW3USDT:price.rolling24h"
+            ]
+          },
+          {
+            "dimension": "CROSS_METRIC_CONFIRMATION",
+            "points": 0,
+            "families": [
+              "PRICE_EXTREMITY"
+            ]
+          },
+          {
+            "dimension": "EVENT_NOVELTY",
+            "points": 5,
+            "evidenceIds": [
+              "NEW3USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "rank": 4,
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "selected": true,
+        "v2": {
+          "pipelineEntered": false,
+          "attempted": false,
+          "requestRecords": 0,
+          "physicalRequests": 0,
+          "technicalState": "NOT_STARTED",
+          "reason": "AWAITING_ANALYST"
+        }
+      },
+      {
+        "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+        "symbol": "NEW4USDT",
+        "factsComplete": true,
+        "events": [
+          {
+            "kind": "PRICE_24H",
+            "scope": null,
+            "window": null,
+            "rawValue": "40.00000000",
+            "threshold": 8,
+            "strength": 5,
+            "evidenceIds": [
+              "NEW4USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "families": [
+          {
+            "family": "PRICE_EXTREMITY",
+            "strength": 5,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW4USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "gate": {
+          "families": 1,
+          "strongest": 5,
+          "extreme": true,
+          "resonance": false,
+          "passed": true
+        },
+        "gateReason": null,
+        "materialUpdate": {
+          "passed": true,
+          "evidence": [
+            {
+              "type": "NEW_STORY",
+              "evidenceIds": [
+                "NEW4USDT:price.rolling24h"
+              ]
+            }
+          ],
+          "storyType": "NEW_STORY"
+        },
+        "score": 25,
+        "dimensions": [
+          {
+            "dimension": "PRICE_EXTREMITY",
+            "points": 20,
+            "strength": 5,
+            "cap": 3,
+            "weight": 20,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW4USDT:price.rolling24h"
+            ]
+          },
+          {
+            "dimension": "CROSS_METRIC_CONFIRMATION",
+            "points": 0,
+            "families": [
+              "PRICE_EXTREMITY"
+            ]
+          },
+          {
+            "dimension": "EVENT_NOVELTY",
+            "points": 5,
+            "evidenceIds": [
+              "NEW4USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "rank": 5,
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "selected": true,
+        "v2": {
+          "pipelineEntered": false,
+          "attempted": false,
+          "requestRecords": 0,
+          "physicalRequests": 0,
+          "technicalState": "NOT_STARTED",
+          "reason": "AWAITING_ANALYST"
+        }
+      },
+      {
+        "runId": "MOCK_SELECTOR_DIAGNOSTICS",
+        "symbol": "NEW5USDT",
+        "factsComplete": true,
+        "events": [
+          {
+            "kind": "PRICE_24H",
+            "scope": null,
+            "window": null,
+            "rawValue": "40.00000000",
+            "threshold": 8,
+            "strength": 5,
+            "evidenceIds": [
+              "NEW5USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "families": [
+          {
+            "family": "PRICE_EXTREMITY",
+            "strength": 5,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW5USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "gate": {
+          "families": 1,
+          "strongest": 5,
+          "extreme": true,
+          "resonance": false,
+          "passed": true
+        },
+        "gateReason": null,
+        "materialUpdate": {
+          "passed": true,
+          "evidence": [
+            {
+              "type": "NEW_STORY",
+              "evidenceIds": [
+                "NEW5USDT:price.rolling24h"
+              ]
+            }
+          ],
+          "storyType": "NEW_STORY"
+        },
+        "score": 25,
+        "dimensions": [
+          {
+            "dimension": "PRICE_EXTREMITY",
+            "points": 20,
+            "strength": 5,
+            "cap": 3,
+            "weight": 20,
+            "kind": "PRICE_24H",
+            "evidenceIds": [
+              "NEW5USDT:price.rolling24h"
+            ]
+          },
+          {
+            "dimension": "CROSS_METRIC_CONFIRMATION",
+            "points": 0,
+            "families": [
+              "PRICE_EXTREMITY"
+            ]
+          },
+          {
+            "dimension": "EVENT_NOVELTY",
+            "points": 5,
+            "evidenceIds": [
+              "NEW5USDT:price.rolling24h"
+            ]
+          }
+        ],
+        "rank": 6,
+        "status": "QUALIFIED_BUT_NOT_SELECTED",
+        "reason": "RANK_BELOW_TOP_K",
+        "selected": false,
+        "v2": {
+          "pipelineEntered": false,
+          "attempted": false,
+          "requestRecords": 0,
+          "physicalRequests": 0,
+          "technicalState": "NOT_STARTED",
+          "reason": "RANK_BELOW_TOP_K"
+        }
+      }
+    ],
+    "complete": false,
+    "limitations": [
+      "No extra market requests. Uncovered discovery is not evidence of no anomaly. Counts describe observed stages, not hypothetical full-market eligibility."
+    ]
+  },
+  "scan": {
+    "counts": {
+      "universe": 50,
+      "identityEligible": 50,
+      "liquidityEligible": 50,
+      "triggerMatched": 30,
+      "triggerSelected": 12,
+      "rotationSelected": 12,
+      "accountAnomalies": 2,
+      "accountAdded": 1,
+      "accountNotEvaluated": 0,
+      "accountInsufficient": 0,
+      "plannedDeep": 25,
+      "startedDeep": 25,
+      "factsSaved": 25,
+      "completeFacts": 25,
+      "factsIncomplete": 0,
+      "noAnomaly": 12,
+      "deepFailed": 0,
+      "sourceRequestFailures": 0,
+      "plannedNotStarted": 0,
+      "selectorInput": 13,
+      "accountRequested": 50
+    },
+    "examples": [
+      {
+        "symbol": "COIN0USDT",
+        "identity": {
+          "eligible": true,
+          "reason": "Official exchangeInfo COIN metadata, base/symbol match, no TradFi/tracker flags; name unverified"
+        },
+        "liquidity": {
+          "eligible": true,
+          "reason": null
+        },
+        "trigger": {
+          "matched": true,
+          "selected": false,
+          "reason": "TRIGGER_RANK_BELOW_BUDGET"
+        },
+        "rotation": {
+          "selected": false,
+          "reason": "NO_ROTATION_OPPORTUNITY"
+        },
+        "accountDiscovery": {
+          "status": "EVALUATED_NO_ANOMALY",
+          "complete": true,
+          "reason": null,
+          "anomalyKinds": []
+        },
+        "deep": {
+          "planned": false,
+          "channels": [],
+          "status": "NOT_PLANNED",
+          "startedAt": null,
+          "finishedAt": null,
+          "factsSaved": false,
+          "factsComplete": null,
+          "anomalyCount": null,
+          "reason": null,
+          "sourceErrors": []
+        }
+      },
+      {
+        "symbol": "COIN29USDT",
+        "identity": {
+          "eligible": true,
+          "reason": "Official exchangeInfo COIN metadata, base/symbol match, no TradFi/tracker flags; name unverified"
+        },
+        "liquidity": {
+          "eligible": true,
+          "reason": null
+        },
+        "trigger": {
+          "matched": true,
+          "selected": true,
+          "reason": "TRIGGER_SELECTED"
+        },
+        "rotation": {
+          "selected": false,
+          "reason": "ALREADY_TRIGGER_SELECTED"
+        },
+        "accountDiscovery": {
+          "status": "ANOMALY",
+          "complete": true,
+          "reason": null,
+          "anomalyKinds": [
+            "ACCOUNT_DISTRIBUTION_SHIFT"
+          ]
+        },
+        "deep": {
+          "planned": true,
+          "channels": [
+            "TRIGGER",
+            "ACCOUNT_ANOMALY"
+          ],
+          "status": "COMPLETE_WITH_ANOMALY",
+          "startedAt": 1792377361096,
+          "finishedAt": 1792377361100,
+          "factsSaved": true,
+          "factsComplete": true,
+          "anomalyCount": 2,
+          "reason": null,
+          "sourceErrors": []
+        }
+      },
+      {
+        "symbol": "COIN30USDT",
+        "identity": {
+          "eligible": true,
+          "reason": "Official exchangeInfo COIN metadata, base/symbol match, no TradFi/tracker flags; name unverified"
+        },
+        "liquidity": {
+          "eligible": true,
+          "reason": null
+        },
+        "trigger": {
+          "selected": false,
+          "reason": "NO_INITIAL_TRIGGER"
+        },
+        "rotation": {
+          "selected": true,
+          "reason": "ROTATION_SELECTED"
+        },
+        "accountDiscovery": {
+          "status": "EVALUATED_NO_ANOMALY",
+          "complete": true,
+          "reason": null,
+          "anomalyKinds": []
+        },
+        "deep": {
+          "planned": true,
+          "channels": [
+            "ROTATION"
+          ],
+          "status": "COMPLETE_NO_ANOMALY",
+          "startedAt": 1792377361107,
+          "finishedAt": 1792377361110,
+          "factsSaved": true,
+          "factsComplete": true,
+          "anomalyCount": 0,
+          "reason": "NO_DEEP_ANOMALY",
+          "sourceErrors": []
+        }
+      },
+      {
+        "symbol": "COIN49USDT",
+        "identity": {
+          "eligible": true,
+          "reason": "Official exchangeInfo COIN metadata, base/symbol match, no TradFi/tracker flags; name unverified"
+        },
+        "liquidity": {
+          "eligible": true,
+          "reason": null
+        },
+        "trigger": {
+          "selected": false,
+          "reason": "NO_INITIAL_TRIGGER"
+        },
+        "rotation": {
+          "selected": false,
+          "reason": "NO_ROTATION_OPPORTUNITY"
+        },
+        "accountDiscovery": {
+          "status": "ANOMALY",
+          "complete": true,
+          "reason": null,
+          "anomalyKinds": [
+            "ACCOUNT_DISTRIBUTION_SHIFT"
+          ]
+        },
+        "deep": {
+          "planned": true,
+          "channels": [
+            "ACCOUNT_ANOMALY"
+          ],
+          "status": "COMPLETE_WITH_ANOMALY",
+          "startedAt": 1792377361115,
+          "finishedAt": 1792377361116,
+          "factsSaved": true,
+          "factsComplete": true,
+          "anomalyCount": 1,
+          "reason": null,
+          "sourceErrors": []
+        }
+      }
+    ],
+    "mockBinanceRequests": 206
+  },
+  "benchmarks": [
+    {
+      "symbols": 1000,
+      "rows": 1000,
+      "bytes": 360511,
+      "createCountAndSerializeMs": 1.2672500000000468,
+      "diskIoMeasured": false
+    },
+    {
+      "symbols": 10000,
+      "rows": 10000,
+      "bytes": 3609513,
+      "createCountAndSerializeMs": 9.292166000000009,
+      "diskIoMeasured": false
+    }
+  ]
+}

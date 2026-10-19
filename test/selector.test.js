@@ -1,4 +1,7 @@
 import {authorizedCutover} from './cutover-authorization.js';
+import Big from 'big.js';
+import {detectLongShort} from '../src/market/long-short-detector.js';
+import {precisionSource} from './selector-precision-fixture.js';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import crypto from 'node:crypto';
 import {config} from '../src/config.js';import {fixture,identity} from './fixtures.js';import {buildFacts} from '../src/market/facts-engine.js';import {detect,classify} from '../src/market/detector.js';import {selectOpportunities,materialEvidence,eligibilityCompatibility} from '../src/market/opportunity-selector.js';import {compare} from '../src/storage/history.js';import {buildIntelligence} from '../src/intelligence/packet.js';import {queueEligible,splitMessage} from '../src/storage/delivery-queue.js';
 const root='validation/BA_BIAS_DETERMINISTIC_SELECTOR_V1',baseline=JSON.parse(fs.readFileSync(root+'/before-hashes.json')),replay=JSON.parse(fs.readFileSync(root+'/replay.json'));const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
@@ -33,7 +36,55 @@ check('26 TradFi remains excluded',()=>assert(!classify({...identity,underlyingS
 check('27 ambiguous identity excluded',()=>assert(!classify({...identity,symbol:'OTHERUSDT'}).eligible));
 check('28 scanner bytes unchanged',()=>assert.equal(sha('src/market/scanner.js'),baseline['src/market/scanner.js']));
 check('29 Facts bytes unchanged',()=>assert.equal(sha('src/market/facts-engine.js'),baseline['src/market/facts-engine.js']));
-check('30 detector thresholds unchanged',()=>assert.equal(sha('src/market/detector.js'),baseline['src/market/detector.js']));
+check('30 detector thresholds unchanged',()=>{
+  // The original guard froze all Detector bytes before Selector was introduced.
+  // Keep that trusted original, then permit only the audited decimal Funding
+  // expression. Do not accept a replacement hash of today's entire source.
+  const originalFile='test/fixtures/detector-pre-funding-precision.txt';
+  // LF normalization is test-only: checkout line endings do not change rules.
+  const original=fs.readFileSync(originalFile,'utf8').replace(/\r\n/g,'\n'),current=fs.readFileSync('src/market/detector.js','utf8').replace(/\r\n/g,'\n');
+  assert.equal(crypto.createHash('sha256').update(original).digest('hex'),baseline['src/market/detector.js'],'original Detector fixture must retain the pre-Selector baseline');
+  assert.deepEqual(config.thresholds,{price24:8,price1:3,oi4:10,funding:0.1,fundingDelta:0.05,volume:2});
+  assert.deepEqual(config.longShort.thresholds,{shiftPp:{'1h':5,'4h':10,'24h':15},divergencePp:15,oppositeChangePp:5,materialChangePp:5});
+  const oldExpression='Math.abs(Number(e.result))/threshold';
+  const decimalExpression="kind==='FUNDING_EXTREME'?new Big(e.result).abs().div(threshold).toNumber():"+oldExpression;
+  const note='  // Funding Facts are decimal percentage strings. Dividing by the decimal 0.1\n  // in binary can turn exact 1.5/3 into values just below the research gate.\n  // Decimal division preserves those boundaries without tolerances or rounding.\n';
+  function assertAllowedSource(source){
+    for(const text of ["import Big from 'big.js';\n",note,decimalExpression])assert.equal(source.split(text).length-1,1,'authorized Funding change must occur exactly once');
+    const projected=source.replace("import Big from 'big.js';\n",'').replace(note,'').replace(decimalExpression,oldExpression);
+    assert.equal(projected,original,'all non-Funding Detector logic must remain the trusted original');
+  }
+  assertAllowedSource(current);
+  // Demonstrate that this guard does not whitelist unrelated changes or a
+  // different Funding policy under the precision authorization.
+  for(const [from,to]of [
+    ['config.thresholds','config.otherThresholds'],["test('PRICE_24H'","test('PRICE_OTHER'"],
+    ['Math.min(5,','Math.min(6,'],['10*x.strength','11*x.strength'],
+    ['strength:1}','strength:2}'],['f.funding.settledLatest','f.funding.currentDisplay'],
+    ["s.status!=='TRADING'","s.status!=='BREAK'"],['.div(threshold)','.div(threshold*0.999)'],
+    [oldExpression,'Math.abs(Number(e.result))/(threshold*2)']
+  ]){assert(current.includes(from));assert.throws(()=>assertAllowedSource(current.replace(from,to)),undefined,'must reject unauthorized mutation: '+from);}
+  // Execute only the hash-verified, local, pure original functions. Its imports
+  // are supplied explicitly; no module startup, requests, or persistence occurs.
+  const reference=new Function('config','detectLongShort',original.replace(/^import .*;\n/gm,'').replaceAll('export function','function')+'\nreturn {detect,classify};')(config,detectLongShort);
+  function compareRaw(options,mutate=()=>{}){
+    const raw=precisionSource(options);mutate(raw);const f=buildFacts(raw),old=reference.detect(structuredClone(f)),actual=detect(structuredClone(f));
+    assert.deepEqual(actual.anomalies.filter(a=>a.kind!=='FUNDING_EXTREME'),old.anomalies.filter(a=>a.kind!=='FUNDING_EXTREME'),'non-Funding events must be identical');
+    const clean=x=>Object.fromEntries(Object.entries(x).filter(([k])=>!['anomalies','candidateScore'].includes(k)));
+    assert.deepEqual(clean(actual),clean(old),'Detector must not mutate source Facts');
+    const a=actual.anomalies.find(a=>a.kind==='FUNDING_EXTREME'),b=old.anomalies.find(a=>a.kind==='FUNDING_EXTREME');
+    if(!a){assert.equal(b,undefined);assert.deepEqual(actual,old);}
+    else{assert.deepEqual({...a,strength:null},{...b,strength:null});assert.equal(a.strength,Math.min(5,new Big(f.funding.settledLatest.result).abs().div(config.thresholds.funding).toNumber()));assert.equal(actual.candidateScore,Number(actual.anomalies.reduce((n,a)=>n+10*a.strength,0).toFixed(2)));}
+    return actual;
+  }
+  for(const [key,values]of Object.entries({price:[0,7.999999,8,12,24,40],price1h:[0,2.999999,3,4.5,9,15],oi:[0,9.999999,10,15,30,50],volume:[1,1.999999,2,3,6,10],accountShift:[0,4.999999,5,7.5,10,15,30]}))for(const value of values)for(const sign of key==='volume'?[1]:[1,-1])compareRaw({[key]:value*sign});
+  for(const sign of [1,-1])for(const value of [.099999,.1,.149999,.15,.150001,.299999,.3,.300001,.4,.5])compareRaw({funding:sign*value});
+  compareRaw({price:40,funding:.1,oi:20,volume:3,accountShift:10},r=>{r.sources.funding.raw[0].fundingRate='-0.001';});
+  for(const candidate of [identity,{...identity,status:'BREAK'},{...identity,contractType:'CURRENT_QUARTER'},{...identity,underlyingSubType:['TradFi']},{...identity,symbol:'OTHERUSDT'}])assert.deepEqual(classify(candidate),reference.classify(candidate));
+  for(const sign of [1,-1])for(const [funding,price,passed]of [[.149999,8.8,false],[.15,8.8,true],[.150001,8.8,true],[.299999,0,false],[.3,0,true],[.300001,0,true]]){
+    const f=compareRaw({funding:sign*funding,price}),row=selectOpportunities([f]).decisions[0];assert.equal(row.status==='SELECTED',passed,'raw settlement boundary: '+sign*funding);if(!passed)assert.equal(row.score,null);
+  }
+});
 check('31 immutable archived V4 contract bytes unchanged; sole active entry separately tested',()=>{for(const [p,h] of Object.entries(baseline).filter(([p])=>p.startsWith('src/analysis/')&&!authorizedCutover.has(p)))assert.equal(sha(p),h,p);});
 check('32 no Judge/Writer/V3 production imports',()=>{const s=fs.readFileSync('src/main.js','utf8');for(const pattern of ['judgeStory(', 'writeDraft(', 'analyzeDirectional('])assert(!s.includes(pattern));});
 check('33 selector has no LLM dependency',()=>{const s=fs.readFileSync('src/market/opportunity-selector.js','utf8');assert(!/DeepSeek|llm\.json|Math\.random/.test(s));});

@@ -1,0 +1,445 @@
+{
+  "baseline": {
+    "tests": 1318,
+    "passed": 1302,
+    "failed": 16
+  },
+  "newTests": {
+    "tests": 40,
+    "passed": 40,
+    "failed": 0
+  },
+  "targeted": {
+    "tests": 474,
+    "passed": 472,
+    "failed": 2
+  },
+  "full": {
+    "tests": 1358,
+    "passed": 1342,
+    "failed": 16
+  },
+  "static": {
+    "checked": 152,
+    "passed": 152
+  },
+  "newFunctionalFailures": 0,
+  "existingFailures": [
+    {
+      "name": "Judge recovery, detectors, queue, History, scheduler and production state remain byte-identical",
+      "original": {
+        "location": "test/analyst-alignment.test.js:39:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "preClosure": {
+        "location": "test/analyst-alignment.test.js:39:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "final": {
+        "location": "test/analyst-alignment.test.js:39:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "production scan command and protected files retain baseline bytes",
+      "original": {
+        "location": "test/analyst-generation.test.js:42:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "preClosure": {
+        "location": "test/analyst-generation.test.js:42:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "final": {
+        "location": "test/analyst-generation.test.js:42:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "history/outbox/raw model responses/env remain byte identical in offline suite",
+      "original": {
+        "location": "test/analyst-precision.test.js:38:1",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/dingtalk-rate.json",
+        "actual": "d253bbb6b0e6c9356973c3f621f15903aa55d48db3feaf8dd6cc4997ebaebd5b",
+        "expected": "bc464e3f08949f3b9d796e564f7a4b9a79db190ab826b0f14690b1e071b06a3e"
+      },
+      "preClosure": {
+        "location": "test/analyst-precision.test.js:38:1",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/dingtalk-rate.json",
+        "actual": "d253bbb6b0e6c9356973c3f621f15903aa55d48db3feaf8dd6cc4997ebaebd5b",
+        "expected": "bc464e3f08949f3b9d796e564f7a4b9a79db190ab826b0f14690b1e071b06a3e"
+      },
+      "final": {
+        "location": "test/analyst-precision.test.js:38:1",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/dingtalk-rate.json",
+        "actual": "d253bbb6b0e6c9356973c3f621f15903aa55d48db3feaf8dd6cc4997ebaebd5b",
+        "expected": "bc464e3f08949f3b9d796e564f7a4b9a79db190ab826b0f14690b1e071b06a3e"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "all protected production logic and original tests remain unchanged",
+      "original": {
+        "location": "test/compact.test.js:45:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "preClosure": {
+        "location": "test/compact.test.js:45:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "final": {
+        "location": "test/compact.test.js:45:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "NO_EDGE forensic 39 Binance untouched, no external invocation",
+      "original": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "preClosure": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "final": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "NO_EDGE forensic 42 Scanner untouched, no external invocation",
+      "original": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "62e8f92a33dc58e649043cbebe10475665ae82f43ee3888faaf4d597f227d81e",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "preClosure": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "5a5544901c2973df7c08b3dfd8f591268e4878c38be22676568a1c9dbb5decc1",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "final": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "5a5544901c2973df7c08b3dfd8f591268e4878c38be22676568a1c9dbb5decc1",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "NO_EDGE forensic 43 History hashes immutable",
+      "original": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "preClosure": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "final": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "NO_EDGE forensic 48 immutable production policies beyond renderer",
+      "original": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "preClosure": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "final": {
+        "location": "test/no-edge-render-forensic.test.js:7:178",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "output quality 49 Binance integration unchanged and offline replay excludes calls",
+      "original": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "preClosure": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "final": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "output quality 52 Scanner integration unchanged and offline replay excludes calls",
+      "original": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: src/market/scanner.js",
+        "actual": "62e8f92a33dc58e649043cbebe10475665ae82f43ee3888faaf4d597f227d81e",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "preClosure": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: src/market/scanner.js",
+        "actual": "5a5544901c2973df7c08b3dfd8f591268e4878c38be22676568a1c9dbb5decc1",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "final": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: src/market/scanner.js",
+        "actual": "5a5544901c2973df7c08b3dfd8f591268e4878c38be22676568a1c9dbb5decc1",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "output quality 53 History immutable",
+      "original": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "preClosure": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "final": {
+        "location": "test/output-quality.test.js:12:29",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "Selector 28 scanner bytes unchanged",
+      "original": {
+        "location": "test/selector.test.js:6:343",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "62e8f92a33dc58e649043cbebe10475665ae82f43ee3888faaf4d597f227d81e",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "preClosure": {
+        "location": "test/selector.test.js:6:343",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "5a5544901c2973df7c08b3dfd8f591268e4878c38be22676568a1c9dbb5decc1",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "final": {
+        "location": "test/selector.test.js:9:343",
+        "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+        "actual": "5a5544901c2973df7c08b3dfd8f591268e4878c38be22676568a1c9dbb5decc1",
+        "expected": "fd5e284f694dac494016a04e1162b7716fe7f67f707410065ef2bb6ce3ba948c"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": true
+    },
+    {
+      "name": "Selector 39 production files identical",
+      "original": {
+        "location": "test/selector.test.js:6:343",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "preClosure": {
+        "location": "test/selector.test.js:6:343",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "final": {
+        "location": "test/selector.test.js:9:343",
+        "cause": "AssertionError [ERR_ASSERTION]: data/state/history.json",
+        "actual": "e41cc7684e3f1ae277eb780fe4120b03e79e0a8a13d7d211006bbafd71670862",
+        "expected": "1e7ba20441334b27f810cb2cba461c29176d3fe51b62cad052f0370834bad7ea"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": true
+    },
+    {
+      "name": "V4 all pre-existing files including production and old experimental contracts remain identical",
+      "original": {
+        "location": "test/structured-v4-live-preflight.test.js:16:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "preClosure": {
+        "location": "test/structured-v4-live-preflight.test.js:16:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "final": {
+        "location": "test/structured-v4-live-preflight.test.js:16:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "V4 protected existing files incl V3, state, env, snapshots are unchanged",
+      "original": {
+        "location": "test/structured-v4.test.js:46:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "preClosure": {
+        "location": "test/structured-v4.test.js:46:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "final": {
+        "location": "test/structured-v4.test.js:46:1",
+        "cause": "AssertionError [ERR_ASSERTION]: .gitignore",
+        "actual": "49c8fd7263c052f65c2159d9de7b0adc57dd346481d41388678033f7d2e284be",
+        "expected": "85ff6e9325b0fd4f98d5021a585a88aca6e74780480d0d4f11cfd48ae18dc746"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    },
+    {
+      "name": "every protected market, scheduling and delivery implementation matches the pre-task snapshot",
+      "original": {
+        "location": "test/validation-recovery.test.js:69:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "preClosure": {
+        "location": "test/validation-recovery.test.js:69:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "final": {
+        "location": "test/validation-recovery.test.js:69:1",
+        "cause": "AssertionError [ERR_ASSERTION]: src/clients/binance.js",
+        "actual": "cb34d35d4dd3529441263a7253d196e0da32388c5649335dc14e0d4995138766",
+        "expected": "5e657326c45e154652a38d889a00cc7e016d9e98cb0e6b92282a14a8d0a87647"
+      },
+      "sameCauseAndExpected": true,
+      "sameActualAsPreClosure": true,
+      "locationChangedOnlyForTestWrapper": false
+    }
+  ],
+  "newExplainedIntegrityFailure": null,
+  "legacyAssertionsModified": true,
+  "network": "offline-guard; only Mock and permitted loopback test servers",
+  "productionWrites": 0,
+  "preContractClosure": {
+    "full": {
+      "tests": 1358,
+      "passed": 1341,
+      "failed": 17
+    },
+    "targeted": {
+      "tests": 474,
+      "passed": 471,
+      "failed": 3
+    },
+    "newExplainedIntegrityFailure": {
+      "name": "Selector 30 detector thresholds unchanged",
+      "location": "test/selector.test.js:6:343",
+      "cause": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:",
+      "actual": "376a2630b8c384ded08b50326bfdb73c04f63a50b74c0bb8ffadd6a5eaf5d0b5",
+      "expected": "85f93a8c645e7feec7caa3a3bd16cc52590cb705d804f24b95a1eaeef1524f23",
+      "classification": "AUTHORIZED_SOURCE_BYTES_CHANGED; assertion hashes entire detector.js, not numeric thresholds"
+    }
+  },
+  "affected": {
+    "tests": 220,
+    "passed": 218,
+    "failed": 2
+  },
+  "legacyBaselineHashesModified": false,
+  "modifiedTestContract": "Selector 30 only: trusted old reference + differential semantics + narrow source projection; no test deleted/skipped",
+  "resolvedFailure": "Selector 30 detector thresholds unchanged"
+}

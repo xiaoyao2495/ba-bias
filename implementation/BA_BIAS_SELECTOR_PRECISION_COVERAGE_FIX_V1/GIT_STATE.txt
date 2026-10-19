@@ -1,0 +1,42 @@
+$ git status --short
+ M package.json
+ M src/main.js
+ M src/market/detector.js
+ M src/market/scanner.js
+ M test/selector.test.js
+?? BA_BIAS_MARKET_BIAS_SPEC_V1.md
+?? BA_BIAS_PUBLIC_WEB_GIT_RELEASE_V1.md
+?? audit/
+?? design/BA_BIAS_MARKET_BIAS_V2_HARD_CUTOVER/
+?? experiments/
+?? implementation/BA_BIAS_MARKET_BIAS_V2_CONTRACT_GUARD_MINIMAL_FIX_V1/
+?? implementation/BA_BIAS_MARKET_BIAS_V2_HARD_CUTOVER_V1/
+?? implementation/BA_BIAS_MARKET_BIAS_V2_LLM_CONTRACT_FIX_V1/
+?? implementation/BA_BIAS_SCAN_LIQUIDITY_TOP5_V1/CHANGES.patch
+?? implementation/BA_BIAS_SCAN_LIQUIDITY_TOP5_V1/STATIC_CHECKS.json
+?? implementation/BA_BIAS_SELECTOR_PRECISION_COVERAGE_FIX_V1/
+?? implementation/BA_BIAS_V2_KNOWLEDGE_REFERENCE_CONTRACT_FIX_V1/
+?? implementation/BA_BIAS_V2_OUTPUT_BUDGET_FIX_V1/
+?? shadow-data/
+?? src/market/run-diagnostics.js
+?? test/archive/v2-complex-contract/
+?? test/fixtures/detector-pre-funding-precision.txt
+?? test/fixtures/market-bias-v2-live-contract-failure.json
+?? test/selector-precision-coverage.test.js
+?? test/selector-precision-fixture.js
+?? validation/BA_BIAS_24H_HOURLY_SCHEDULER_V1/
+?? validation/BA_BIAS_DASHBOARD_SIMPLIFICATION_V1/
+?? validation/BA_BIAS_MOBILE_WEB_DASHBOARD_V1/
+?? validation/BA_BIAS_PM2_ENTRY_FIX_V1/
+?? validation/BA_BIAS_PUBLIC_READONLY_WEB_V1/
+?? validation/BA_BIAS_WEB_PM2_ENTRY_FIX_V1/
+
+$ git diff --check
+
+$ git diff --stat
+ package.json           |  5 ++++-
+ src/main.js            | 14 +++++++++----
+ src/market/detector.js |  6 +++++-
+ src/market/scanner.js  | 33 ++++++++++++++++++++++---------
+ test/selector.test.js  | 53 +++++++++++++++++++++++++++++++++++++++++++++++++-
+ 5 files changed, 95 insertions(+), 16 deletions(-)

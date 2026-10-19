@@ -14,6 +14,7 @@ import {Binance,endpoints} from './clients/binance.js';
 import {DeepSeek} from './clients/deepseek.js';
 import {scan} from './market/scanner.js';
 import {selectOpportunities,eligibilityCompatibility} from './market/opportunity-selector.js';
+import {createRunDiagnostics,recordSelection,recordResearch,finishRunDiagnostics} from './market/run-diagnostics.js';
 import {atomicWrite,readJson,lock,emptyHistory,compare,storyKey} from './storage/history.js';
 import {buildIntelligence,verifiedFacts} from './intelligence/packet.js';
 import {prepareDelivery,drainDeliveryQueue} from './storage/delivery-queue.js';
@@ -118,7 +119,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
   binance ||= new Binance(new Http({signal:controller.signal}));if(mode==='doctor')llm ||= new DeepSeek(new Http({signal:controller.signal,concurrency:1,spacing:0,retries:1}));
   if(binance.http)binance.http.signal=controller.signal;
   if(llm?.http)llm.http.signal=controller.signal;
-  let unlock,history,result,save,outbox,analystAdapter;
+  let unlock,history,result,save,outbox,analystAdapter,runDiagnostics;
   const statePath=path.join(v2Dir(config.dataDir),'state','history.json');
   const runId=options.runId || `${mode}_${times(start).shanghai.slice(0,13).replace(/[^0-9]/g,'')}`;
   const emit=(event,details={})=>log(event,{runId,...details});
@@ -138,9 +139,10 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
     if(old){emit('Run already executed',{status:old.status});return old;}
     save=(file,value)=>atomicWrite(path.join(config.dataDir,'runs',runId,file),value);
     result=runSummary({runId,mode,scheduledAt:options.scheduledAt ?? null,startedAt:start,triggerType:options.triggerType || 'MANUAL',sendEnabled});
+    runDiagnostics=createRunDiagnostics({runId,scheduledAt:result.scheduledAt,now});
     history.runs[runId]={contract:CONTRACT,status:'RUNNING',scheduledAt:result.scheduledAt,startedAt:start};await atomicWrite(statePath,history);await save('result.json',result);
     emit('Binance market scan started');
-    const scanned=await scan(binance,{runId,history,save});result.scan=scanned.result;result.evaluationTime=scanned.result.evaluationTime;result.dataCutoff=result.evaluationTime;
+    const scanned=await scan(binance,{runId,history,save,scheduledAt:result.scheduledAt,diagnosticNow:now,onDiagnostics:d=>{runDiagnostics.scan=d;}});result.scan=scanned.result;result.evaluationTime=scanned.result.evaluationTime;result.dataCutoff=result.evaluationTime;
     result.scannedSymbols=scanned.result.universeCount;result.deepResearchedSymbols=scanned.result.researched;result.factPackagesCount=scanned.result.researched;
     emit('Symbols',{count:result.scannedSymbols});emit('Deep candidates',{count:result.deepResearchedSymbols});emit('Facts packages',{count:result.factPackagesCount,eligible:scanned.facts.length});
     result.biasAnalyses=0;result.biasFailures=0;result.analystRecoveryRequests=0;
@@ -158,6 +160,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
       result.analystVersion=CONTRACT;
       const researchStories=selectorStories(history,outbox,{includeShadow:!sendEnabled});
       const selection=opportunitySelector(scanned.facts,researchStories);
+      recordSelection(runDiagnostics,selection);
       result.selector={version:selection.version,policy:selection.policy,qualifiedCount:selection.qualifiedCount,selected:selection.selected.map(r=>r.symbol)};
       result.selectorEvaluated=selection.decisions.length;
       for(const row of selection.decisions){
@@ -167,7 +170,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
         else await evaluate(row.symbol,'NOT_EVALUATED','AWAITING_ANALYST',{selection:audit});
       }
       for(const row of selection.selected){
-        controller.signal.throwIfAborted();let stage='facts';
+        controller.signal.throwIfAborted();let stage='facts',researchRecord=null;const modelRecordStart=analystAdapter.records().length;
         const f=row.facts;
         try{
           const verified=verifiedFacts(f),comparison=row.comparison,judge=eligibilityCompatibility(row);
@@ -176,7 +179,9 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
           const factsBytes=await fs.readFile(path.join(config.dataDir,'runs',runId,'facts',f.symbol+'.json'));
           const existing=await readJson(path.join(v2Dir(config.dataDir),'research',runId,f.symbol+'.json'),null);
           if(existing)throw Error('RESEARCH_ALREADY_SEALED');
+          const diagnosticCandidate=runDiagnostics.candidates.find(c=>c.symbol===f.symbol&&c.selected);if(diagnosticCandidate)diagnosticCandidate.v2.pipelineEntered=true;
           const researched=await analyze(analystAdapter,verified,{signal:controller.signal,now,previousFacts:prior?.facts??null,factsPackageSha256:sha(factsBytes),materialEvidence:row.materialEvidence});
+          researchRecord=researched.research;
           result.analystRecoveryRequests+=researched.attempts.filter(a=>a.attempt>1).length;
           const sealed=await saveResearch(config.dataDir,researched,history,{now});
           await atomicWrite(statePath,history);
@@ -189,7 +194,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
           if(controller.signal.aborted)throw e;
           const error=safeError(e),status=stage==='intelligence'||e.message==='INSUFFICIENT_EVIDENCE'?'INSUFFICIENT_EVIDENCE':'DATA_ERROR';
           await evaluate(f.symbol,status,error);result.errors.push({symbol:f.symbol,stage,error});result.rejections.push({symbol:f.symbol,reason:error});emit('Candidate failed',{symbol:f.symbol,status,error});
-        }
+        }finally{recordResearch(runDiagnostics,f.symbol,{research:researchRecord,records:analystAdapter.records().slice(modelRecordStart),evaluation:controller.signal.aborted?{reason:'RUN_INTERRUPTED_OR_TIMEOUT'}:result.candidateEvaluations.find(c=>c.symbol===f.symbol)});}
       }
       // Research is saved above. Outbox/Delivery remain paused pending manual approval.
 
@@ -217,6 +222,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
       Object.assign(result.analystCost,{inputTokens:usageKnown?result.tokenUsage.promptTokens:null,outputTokens:usageKnown?result.tokenUsage.completionTokens:null,totalTokens:usageKnown?result.tokenUsage.totalTokens:null});
       try{for(const entry of result.candidateEvaluations)await save(`evaluations/${entry.symbol}.json`,entry);
         if(records.length)await immutableWrite(path.join(v2Dir(config.dataDir),'audit',runId,'model-calls.json'),{contract:CONTRACT,records});
+        if(runDiagnostics){try{finishRunDiagnostics(runDiagnostics,result,{now});await save('run-diagnostics.json',runDiagnostics);result.diagnostics={version:runDiagnostics.version,status:'SAVED',counts:runDiagnostics.counts};emit('Run coverage',runDiagnostics.counts);}catch(e){result.diagnostics={status:'WRITE_FAILED',error:safeError(e)};emit('Diagnostics persistence failed',{error:safeError(e)});}}
         await save('deepseek-calls.json',llm?.calls || []);await save('result.json',result);
         history.runs[runId]={contract:CONTRACT,status:result.status,scheduledAt:result.scheduledAt,startedAt:start,finishedAt:result.finishedAt,generated:result.generated,sent:result.sent,lastResearchTime:result.evaluationTime};await atomicWrite(statePath,history);
         emit('Run completed',{status:result.status,generated:result.generated,sent:result.sent,durationMs:result.totalDurationMs,output:path.resolve(config.dataDir,'runs',runId)});
