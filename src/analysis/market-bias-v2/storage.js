@@ -4,11 +4,25 @@ import {readJson} from '../../storage/history.js';
 import {immutableWrite,v2Dir} from '../../storage/market-bias-v2-state.js';
 import {validateResearch} from './parser.js';
 import {CONTRACT,sha,fail} from './common.js';
-export async function previousResearch(root,history,symbol,cutoff){
- const entries=Object.values(history.research||{}).filter(r=>r.symbol===symbol&&r.executionState==='VALIDATED'&&r.factsAsOf<cutoff).sort((a,b)=>b.factsAsOf-a.factsAsOf);
- const e=entries[0];if(!e)return null;const r=await readJson(path.join(v2Dir(root),'research',e.runId,symbol+'.json'),null);
- if(!r||!validateResearch(r)||r.contract!==CONTRACT||r.recordId!==e.recordId||sha(r)!==e.researchSha256)throw fail('PREVIOUS_RESEARCH_CORRUPT','PERSISTENCE');
- const bytes=await fs.readFile(path.join(root,'runs',e.runId,'facts',symbol+'.json'));if(sha(bytes)!==r.factsPackageSha256)throw fail('PREVIOUS_FACTS_HASH_MISMATCH','PERSISTENCE');return {research:r,facts:JSON.parse(bytes)};
+import {config} from '../../config.js';
+import {historicalFreshness} from '../historical-freshness.js';
+export async function previousResearch(root,history,symbol,cutoff,{onDecision=()=>{}}={}){
+ if(historicalFreshness(cutoff,cutoff,config.previousResearchFreshnessHours).status==='INSUFFICIENT_HISTORICAL_EVIDENCE')throw fail('INSUFFICIENT_HISTORICAL_EVIDENCE','PERSISTENCE');
+ if(!history?.research||typeof history.research!=='object'||Array.isArray(history.research))throw fail('INSUFFICIENT_HISTORICAL_EVIDENCE','PERSISTENCE');
+ const entries=Object.entries(history.research||{}).filter(([,r])=>r?.symbol===symbol&&r.executionState==='VALIDATED');
+ for(const [key,e]of entries)if(e.contract!==CONTRACT||key!==e.recordId||!/^bias_[a-f0-9]{32}$/.test(key)||!(/^[A-Za-z0-9_-]{1,100}$/).test(e.runId)||!(/^[a-f0-9]{64}$/).test(e.researchSha256)||historicalFreshness(cutoff,e.factsAsOf,config.previousResearchFreshnessHours).status==='INSUFFICIENT_HISTORICAL_EVIDENCE')throw fail('INSUFFICIENT_HISTORICAL_EVIDENCE','PERSISTENCE');
+ const prior=entries.map(([,e])=>e).filter(e=>e.factsAsOf<cutoff).sort((a,b)=>b.factsAsOf-a.factsAsOf);
+ const e=prior[0]||entries.map(([,e])=>e).sort((a,b)=>a.factsAsOf-b.factsAsOf)[0];
+ if(!e){onDecision({status:'NO_HISTORY',source:'RESEARCH_INDEX',ageMs:null,previousFactsReadSkipped:true});return null;}
+ const decision={...historicalFreshness(cutoff,e.factsAsOf,config.previousResearchFreshnessHours),source:'RESEARCH_INDEX',runId:e.runId,recordId:e.recordId,historicalFactsAsOf:e.factsAsOf,previousFactsReadSkipped:true,integrity:'NOT_REVALIDATED'};
+ onDecision(decision);
+ if(decision.status!=='WITHIN_FRESHNESS_WINDOW')return {...decision,research:null,facts:null};
+ onDecision({...decision,integrity:'PENDING'});
+ const r=await readJson(path.join(v2Dir(root),'research',e.runId,symbol+'.json'),null);
+ if(!r||!validateResearch(r)||r.contract!==CONTRACT||r.recordId!==e.recordId||r.runId!==e.runId||r.symbol!==symbol||r.asOf.factsAsOf!==e.factsAsOf||sha(r)!==e.researchSha256)throw fail('PREVIOUS_RESEARCH_CORRUPT','PERSISTENCE');
+ onDecision({...decision,previousFactsReadSkipped:false,integrity:'PENDING'});
+ const bytes=await fs.readFile(path.join(root,'runs',e.runId,'facts',symbol+'.json'));if(sha(bytes)!==r.factsPackageSha256)throw fail('PREVIOUS_FACTS_HASH_MISMATCH','PERSISTENCE');
+ const verified={...decision,previousFactsReadSkipped:false,integrity:'VERIFIED'};onDecision(verified);return {...verified,research:r,facts:JSON.parse(bytes)};
 }
 export async function saveResearch(root,result,history,{now=Date.now}={}){
  const r=result.research;if(!validateResearch(r))throw fail('RESEARCH_SCHEMA_INVALID','PERSISTENCE');

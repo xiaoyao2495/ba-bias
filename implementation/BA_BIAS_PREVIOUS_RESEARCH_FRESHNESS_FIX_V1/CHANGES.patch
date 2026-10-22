@@ -1,0 +1,435 @@
+diff --git a/src/analysis/market-bias-v2/storage.js b/src/analysis/market-bias-v2/storage.js
+index 39a5b24..7f76bc4 100644
+--- a/src/analysis/market-bias-v2/storage.js
++++ b/src/analysis/market-bias-v2/storage.js
+@@ -4,11 +4,25 @@ import {readJson} from '../../storage/history.js';
+ import {immutableWrite,v2Dir} from '../../storage/market-bias-v2-state.js';
+ import {validateResearch} from './parser.js';
+ import {CONTRACT,sha,fail} from './common.js';
+-export async function previousResearch(root,history,symbol,cutoff){
+- const entries=Object.values(history.research||{}).filter(r=>r.symbol===symbol&&r.executionState==='VALIDATED'&&r.factsAsOf<cutoff).sort((a,b)=>b.factsAsOf-a.factsAsOf);
+- const e=entries[0];if(!e)return null;const r=await readJson(path.join(v2Dir(root),'research',e.runId,symbol+'.json'),null);
+- if(!r||!validateResearch(r)||r.contract!==CONTRACT||r.recordId!==e.recordId||sha(r)!==e.researchSha256)throw fail('PREVIOUS_RESEARCH_CORRUPT','PERSISTENCE');
+- const bytes=await fs.readFile(path.join(root,'runs',e.runId,'facts',symbol+'.json'));if(sha(bytes)!==r.factsPackageSha256)throw fail('PREVIOUS_FACTS_HASH_MISMATCH','PERSISTENCE');return {research:r,facts:JSON.parse(bytes)};
++import {config} from '../../config.js';
++import {historicalFreshness} from '../historical-freshness.js';
++export async function previousResearch(root,history,symbol,cutoff,{onDecision=()=>{}}={}){
++ if(historicalFreshness(cutoff,cutoff,config.previousResearchFreshnessHours).status==='INSUFFICIENT_HISTORICAL_EVIDENCE')throw fail('INSUFFICIENT_HISTORICAL_EVIDENCE','PERSISTENCE');
++ if(!history?.research||typeof history.research!=='object'||Array.isArray(history.research))throw fail('INSUFFICIENT_HISTORICAL_EVIDENCE','PERSISTENCE');
++ const entries=Object.entries(history.research||{}).filter(([,r])=>r?.symbol===symbol&&r.executionState==='VALIDATED');
++ for(const [key,e]of entries)if(e.contract!==CONTRACT||key!==e.recordId||!/^bias_[a-f0-9]{32}$/.test(key)||!(/^[A-Za-z0-9_-]{1,100}$/).test(e.runId)||!(/^[a-f0-9]{64}$/).test(e.researchSha256)||historicalFreshness(cutoff,e.factsAsOf,config.previousResearchFreshnessHours).status==='INSUFFICIENT_HISTORICAL_EVIDENCE')throw fail('INSUFFICIENT_HISTORICAL_EVIDENCE','PERSISTENCE');
++ const prior=entries.map(([,e])=>e).filter(e=>e.factsAsOf<cutoff).sort((a,b)=>b.factsAsOf-a.factsAsOf);
++ const e=prior[0]||entries.map(([,e])=>e).sort((a,b)=>a.factsAsOf-b.factsAsOf)[0];
++ if(!e){onDecision({status:'NO_HISTORY',source:'RESEARCH_INDEX',ageMs:null,previousFactsReadSkipped:true});return null;}
++ const decision={...historicalFreshness(cutoff,e.factsAsOf,config.previousResearchFreshnessHours),source:'RESEARCH_INDEX',runId:e.runId,recordId:e.recordId,historicalFactsAsOf:e.factsAsOf,previousFactsReadSkipped:true,integrity:'NOT_REVALIDATED'};
++ onDecision(decision);
++ if(decision.status!=='WITHIN_FRESHNESS_WINDOW')return {...decision,research:null,facts:null};
++ onDecision({...decision,integrity:'PENDING'});
++ const r=await readJson(path.join(v2Dir(root),'research',e.runId,symbol+'.json'),null);
++ if(!r||!validateResearch(r)||r.contract!==CONTRACT||r.recordId!==e.recordId||r.runId!==e.runId||r.symbol!==symbol||r.asOf.factsAsOf!==e.factsAsOf||sha(r)!==e.researchSha256)throw fail('PREVIOUS_RESEARCH_CORRUPT','PERSISTENCE');
++ onDecision({...decision,previousFactsReadSkipped:false,integrity:'PENDING'});
++ const bytes=await fs.readFile(path.join(root,'runs',e.runId,'facts',symbol+'.json'));if(sha(bytes)!==r.factsPackageSha256)throw fail('PREVIOUS_FACTS_HASH_MISMATCH','PERSISTENCE');
++ const verified={...decision,previousFactsReadSkipped:false,integrity:'VERIFIED'};onDecision(verified);return {...verified,research:r,facts:JSON.parse(bytes)};
+ }
+ export async function saveResearch(root,result,history,{now=Date.now}={}){
+  const r=result.research;if(!validateResearch(r))throw fail('RESEARCH_SCHEMA_INVALID','PERSISTENCE');
+diff --git a/src/config.js b/src/config.js
+index d90edac..8e68c0c 100644
+--- a/src/config.js
++++ b/src/config.js
+@@ -15,6 +15,7 @@ export const config = {
+   deepseekKey: process.env.DEEPSEEK_API_KEY,
+   webhook: process.env.DINGTALK_WEBHOOK,
+   maxSnapshotAgeMinutes:integer('BA_MAX_SNAPSHOT_AGE_MINUTES',5,1,1440),
++  previousResearchFreshnessHours:integer('PREVIOUS_RESEARCH_FRESHNESS_HOURS',48,1,8760),
+   maxCandidates:integer('BA_MAX_CANDIDATES',24,2,30),
+   concurrency:3, timeoutMs:15000, scanTimeoutMs:integer('BA_SCAN_TIMEOUT_MS',180000,1000), runTimeoutMs:integer('BA_RUN_TIMEOUT_MS',900000,1000),
+   storyThreshold:65, // Historical Judge/packet compatibility only.
+diff --git a/src/main.js b/src/main.js
+index fdfb013..90131d8 100644
+--- a/src/main.js
++++ b/src/main.js
+@@ -161,6 +161,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+       const researchStories=selectorStories(history,outbox,{includeShadow:!sendEnabled});
+       const selection=opportunitySelector(scanned.facts,researchStories);
+       recordSelection(runDiagnostics,selection);
++      for(const candidate of runDiagnostics.candidates)candidate.historicalBaseline=selection.decisions.find(r=>r.symbol===candidate.symbol)?.historicalBaseline??null;
+       result.selector={version:selection.version,policy:selection.policy,qualifiedCount:selection.qualifiedCount,selected:selection.selected.map(r=>r.symbol)};
+       result.selectorEvaluated=selection.decisions.length;
+       for(const row of selection.decisions){
+@@ -175,11 +176,13 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
+         try{
+           const verified=verifiedFacts(f),comparison=row.comparison,judge=eligibilityCompatibility(row);
+           stage='research';result.biasAnalyses++;
+-          const prior=await previousResearch(config.dataDir,history,f.symbol,f.dataCutoff);
++          const diagnosticCandidate=runDiagnostics.candidates.find(c=>c.symbol===f.symbol&&c.selected);
++          const prior=await previousResearch(config.dataDir,history,f.symbol,f.dataCutoff,{onDecision:decision=>{if(diagnosticCandidate)diagnosticCandidate.v2.previousResearch=decision;}});
++          if(prior&&['INSUFFICIENT_HISTORICAL_EVIDENCE','INVALID_OR_NON_PRIOR_HISTORY'].includes(prior.status))throw Error(prior.status);
+           const factsBytes=await fs.readFile(path.join(config.dataDir,'runs',runId,'facts',f.symbol+'.json'));
+           const existing=await readJson(path.join(v2Dir(config.dataDir),'research',runId,f.symbol+'.json'),null);
+           if(existing)throw Error('RESEARCH_ALREADY_SEALED');
+-          const diagnosticCandidate=runDiagnostics.candidates.find(c=>c.symbol===f.symbol&&c.selected);if(diagnosticCandidate)diagnosticCandidate.v2.pipelineEntered=true;
++          if(diagnosticCandidate)diagnosticCandidate.v2.pipelineEntered=true;
+           const researched=await analyze(analystAdapter,verified,{signal:controller.signal,now,previousFacts:prior?.facts??null,factsPackageSha256:sha(factsBytes),materialEvidence:row.materialEvidence});
+           researchRecord=researched.research;
+           result.analystRecoveryRequests+=researched.attempts.filter(a=>a.attempt>1).length;
+diff --git a/src/market/opportunity-selector.js b/src/market/opportunity-selector.js
+index 716f480..dc3dfd6 100644
+--- a/src/market/opportunity-selector.js
++++ b/src/market/opportunity-selector.js
+@@ -1,6 +1,7 @@
+ import {config} from '../config.js';
+ import {compare,longShortMaterial,storyKey,summary} from '../storage/history.js';
+ import {verifiedFacts} from '../intelligence/packet.js';
++import {historicalFreshness} from '../analysis/historical-freshness.js';
+ const family=kind=>kind.startsWith('PRICE')?'PRICE_EXTREMITY':kind.startsWith('OI_')?'OI_ABNORMALITY':kind.startsWith('FUNDING')?'FUNDING_EXTREMITY':kind==='VOLUME_SPIKE'?'VOLUME_ABNORMALITY':/ACCOUNT|POSITION|DIVERGENCE/.test(kind)?'ACCOUNT_DISTRIBUTION':null;
+ const numeric=x=>x!==null&&x!==undefined&&x!==''&&Number.isFinite(Number(x));
+ export function materialEvidence(f,previous,policy=config.selector){
+@@ -32,9 +33,19 @@ export function selectOpportunities(facts,stories={}, {policy=config.selector}={
+   const strengths=[...groups.values()].map(a=>a.strength),max=Math.max(0,...strengths);
+   row.gate={families:groups.size,strongest:max,extreme:max>=policy.extremeStrength,resonance:groups.size>=policy.minimumFamilies&&max>=policy.resonanceStrength};
+   if(!row.gate.extreme&&!row.gate.resonance){row.status='LOW_RESEARCH_VALUE';row.reason='BELOW_RESEARCH_GATE';continue;}
+-  const previous=stories[f.symbol];if(previous&&(!Array.isArray(previous.summary?.anomalies)||!Number.isSafeInteger(previous.lastResearchTime))){row.status='INSUFFICIENT_EVIDENCE';row.reason='INSUFFICIENT_HISTORICAL_EVIDENCE';continue;}const changes=materialEvidence(f,previous,policy);row.materialEvidence=changes;
++  const previous=stories[f.symbol];
++  const freshness=previous?historicalFreshness(f.dataCutoff,previous.lastResearchTime,config.previousResearchFreshnessHours):{status:'NO_HISTORY',ageMs:null,windowMs:config.previousResearchFreshnessHours*3600000};
++  const expired=freshness.status==='EXPIRED_FOR_CURRENT_COMPARISON';
++  row.historicalBaseline={...freshness,source:previous?.status==='OUTBOX'?'OUTBOX_PROJECTION':previous?'SELECTOR_BASELINE':null,runId:previous?.runId??null,historicalFactsAsOf:previous?.lastResearchTime??null,purpose:freshness.status==='EXPIRED_FOR_CURRENT_COMPARISON'?'ARCHIVED_EVENT_DEDUP_ONLY':'CURRENT_COMPARISON',dedupDecision:'NOT_EVALUATED'};
++  if(previous&&(!Array.isArray(previous.summary?.anomalies)||expired&&(['price','oi','oi1','oi24','funding','volume'].some(k=>typeof previous.summary[k]!=='number'||!Number.isFinite(previous.summary[k]))||previous.summary.anomalies.some(k=>typeof k!=='string'))||['INSUFFICIENT_HISTORICAL_EVIDENCE','INVALID_OR_NON_PRIOR_HISTORY'].includes(freshness.status))){row.status='INSUFFICIENT_EVIDENCE';row.reason=freshness.status==='INVALID_OR_NON_PRIOR_HISTORY'?freshness.status:'INSUFFICIENT_HISTORICAL_EVIDENCE';row.historicalBaseline.status=row.reason;row.historicalBaseline.dedupDecision='INSUFFICIENT_EVIDENCE';continue;}
++  // Archived summaries retain their event-dedup purpose. Age alone never earns
++  // eligibility; reuse the exact existing material rules, including small drift.
++  let changes;
++  try{changes=materialEvidence(f,previous,policy);}catch(e){if(!expired)throw e;row.status='INSUFFICIENT_EVIDENCE';row.reason='INSUFFICIENT_HISTORICAL_EVIDENCE';row.historicalBaseline.status=row.reason;row.historicalBaseline.dedupDecision='INSUFFICIENT_EVIDENCE';continue;}
++  row.materialEvidence=changes;
++  row.historicalBaseline.dedupDecision=previous?(changes.length?'MATERIAL_CHANGE':'NO_MATERIAL_CHANGE'):'NEW_STORY';
+   if(previous&&!changes.length){row.status='NO_MATERIAL_UPDATE';row.reason='NO_MATERIAL_CHANGE';continue;}
+-  const cmp=compare(f,previous);row.comparison={...cmp,eligible:true,reason:previous?'MATERIAL_EVIDENCE_CHANGE':'NO_PREVIOUS_OUTPUT'};row.storyKey=storyKey(f,row.comparison);
++  const cmp=expired?{current:summary(f),previous:null,storyType:'MATERIAL_UPDATE',historicalContext:row.historicalBaseline}:compare(f,previous);row.comparison={...cmp,eligible:true,reason:previous?'MATERIAL_EVIDENCE_CHANGE':'NO_PREVIOUS_OUTPUT'};row.storyKey=storyKey(f,row.comparison);
+   for(const [key,a] of groups){const weight=policy.weights[key];row.dimensions.push({dimension:key,points:weight*Math.min(a.strength,policy.strengthCap)/policy.strengthCap,strength:a.strength,cap:policy.strengthCap,weight,kind:a.kind,evidenceIds:a.evidenceIds});}
+   row.dimensions.push({dimension:'CROSS_METRIC_CONFIRMATION',points:policy.crossMetricPoints*Math.min(groups.size-1,policy.crossMetricCap),families:[...groups.keys()]});
+   row.dimensions.push({dimension:previous?'MATERIAL_CHANGE':'EVENT_NOVELTY',points:policy.noveltyPoints,evidenceIds:[...new Set(changes.flatMap(c=>c.evidenceIds))]});
+diff --git a/test/core.test.js b/test/core.test.js
+index b528919..fdeab42 100644
+--- a/test/core.test.js
++++ b/test/core.test.js
+@@ -51,7 +51,7 @@ test('full mocked pipeline, outbox, same run protection and duplicate story',asy
+   const binance={http:{},get:async(endpoint,params={})=>{apiCalls++;let raw;
+     if(endpoint===endpoints.time)raw={serverTime:cutoff};else if(endpoint===endpoints.exchange)raw={symbols:[identity],rateLimits:[]};else if(endpoint===endpoints.ticker)raw=[x.ticker];else if(endpoint===endpoints.premium)raw=[x.sources.premium.raw];else if(endpoint===endpoints.fundingInfo)raw=[];else if(endpoint===endpoints.klines)raw=params.interval==='1h'?x.sources.hour.raw:x.sources.five.raw;else if(endpoint===endpoints.oi)raw=x.sources.oi.raw;else if(endpoint===endpoints.funding)raw=x.sources.funding.raw;else if(endpoint===endpoints.accounts)raw=x.sources.accounts.raw;else throw new Error('UNKNOWN');return {endpoint,params,raw};}};
+   const llm={calls:[],json:async(_,input)=>{llmCalls++;if(input.contract==='BA_BIAS_MARKET_BIAS_V2')return mockBias(input);const f=facts();return input.judge?draft(f):{...judge(f),storyType:input.comparison.storyType};}};
+-  try{await initializeV2(dir);const result=await run({mode:'once',runId:'TEST_INTEGRATION',send:false},{binance,llm});assert.equal(result.status,'COMPLETE');assert.equal(result.generated,0);assert.equal(result.biasAnalyses,1);assert.equal(result.sent,0);assert.equal(llmCalls,1);const before=apiCalls;const again=await run({mode:'once',runId:'TEST_INTEGRATION',send:true},{binance,llm});assert.equal(again.generated,0);assert.equal(apiCalls,before);const duplicate=await run({mode:'once',runId:'TEST_DUPLICATE',send:false},{binance,llm});assert.equal(duplicate.generated,0);assert.equal(duplicate.rejections[0].reason,'NO_MATERIAL_CHANGE');assert.equal(llmCalls,1);assert.equal((await loadV2Outbox(dir)).length,0);}finally{config.dataDir=old;await fs.rm(dir,{recursive:true,force:true});}
++  try{await initializeV2(dir);const result=await run({mode:'once',runId:'TEST_INTEGRATION',send:false},{binance,llm});assert.equal(result.status,'COMPLETE');assert.equal(result.generated,0);assert.equal(result.biasAnalyses,1);assert.equal(result.sent,0);assert.equal(llmCalls,1);const before=apiCalls;const again=await run({mode:'once',runId:'TEST_INTEGRATION',send:true},{binance,llm});assert.equal(again.generated,0);assert.equal(apiCalls,before);const duplicate=await run({mode:'once',runId:'TEST_DUPLICATE',send:false},{binance,llm});assert.equal(duplicate.generated,0);assert.equal(duplicate.rejections[0].reason,'INVALID_OR_NON_PRIOR_HISTORY');assert.equal(duplicate.candidateEvaluations[0].status,'INSUFFICIENT_EVIDENCE');assert.equal(llmCalls,1);assert.equal((await loadV2Outbox(dir)).length,0);}finally{config.dataDir=old;await fs.rm(dir,{recursive:true,force:true});}
+ });
+ test('zero trading-volume candles are valid; zero baseline remains null',()=>{const x=fixture();for(const k of x.sources.hour.raw)k[5]='0';assert.equal(closedKlines(x.sources.hour.raw,cutoff,3600000).length,30);const f=buildFacts(x);assert.equal(f.volume.relative1h,null);assert.equal(f.dataCompleteness.eligible,false);});
+ test('ineligible judge may return empty evidence and stays rejected',async()=>{const f=facts();const j=judge(f);j.eligible=false;j.keyEvidenceIds=[];assert.equal((await judgeStory({json:async()=>j},f,compare(f))).eligible,false);j.eligible=true;await assert.rejects(judgeStory({json:async()=>j},f,compare(f)));});
+diff --git a/test/hourly.test.js b/test/hourly.test.js
+index b4c08e5..1c100b6 100644
+--- a/test/hourly.test.js
++++ b/test/hourly.test.js
+@@ -113,7 +113,7 @@ test('minimal V2 replaces publication: seven qualified candidates are all scored
+ test('minimal V2 replaces publication: existing daily thirty entries do not block selected research',async()=>{const p=await pipeline({syms:['AAUSDT','BBUSDT','CCUSDT'],before:async dir=>{for(let i=0;i<31;i++)await atomicWrite(path.join(dir,'outbox',`TEST_OLD_${i}.json`),{runId:'TEST_OLD',symbol:'OLDUSDT',generatedAt:1,evaluationTime:cutoff,summary:{},delivery:{status:'SENT'}});}});assert.equal(p.r.biasAnalyses,3);assert.equal(p.r.generated,0);assert.equal(p.sends,0);});
+ test('duplicate receives explicit terminal state and no second intelligence notification',async()=>{
+   await pipeline({after:async p=>{const before=p.sends;const r=await runResearch({mode:'once',runId:'TEST_DUP',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);
+-    assert.equal(r.judgedCandidates,0);assert.equal(r.generated,0);assert.equal(r.candidateEvaluations[0].status,'NO_MATERIAL_UPDATE');assert.equal(r.candidateEvaluations[0].reason,'NO_MATERIAL_CHANGE');assert.equal(p.sends,before);
++    assert.equal(r.judgedCandidates,0);assert.equal(r.generated,0);assert.equal(r.candidateEvaluations[0].status,'INSUFFICIENT_EVIDENCE');assert.equal(r.candidateEvaluations[0].reason,'INVALID_OR_NON_PRIOR_HISTORY');assert.equal(p.sends,before);
+   }});
+ });
+ test('minimal V2 replaces publication: material price update is judged, persisted with comparison and sent again with new deliveryId',async()=>{await pipeline({after:async p=>{p.fixture.cutoff+=1000;p.fixture.ticker.lastPrice='150';p.fixture.ticker.priceChangePercent='50';const r=await runResearch({mode:'once',runId:'TEST_UPDATE',sendEnabled:true,handleSignals:false,setExitCode:false},p.deps);assert.equal(r.biasAnalyses,1);assert.equal(r.generated,0);assert.equal(r.sent,0);const h=(await assertPrepared(p.dir)).history;assert.equal(Object.keys(h.research).length,2);const stored=await readJson(path.join(v2Dir(p.dir),'research','TEST_UPDATE',symbol+'.json'));assert.equal(stored.reviewStatus,'PENDING_MANUAL_REVIEW');assert.equal(p.sends,0);}});});
+diff --git a/test/market-bias-v2-e2e.test.js b/test/market-bias-v2-e2e.test.js
+index 0b288ff..a1cbf8a 100644
+--- a/test/market-bias-v2-e2e.test.js
++++ b/test/market-bias-v2-e2e.test.js
+@@ -24,7 +24,7 @@ test('immutable storage refuses differing payload and preserves first',async()=>
+ test('shared lock still blocks queue flush during research',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'v2-lock-'));try{await initializeV2(dir);const release=await lock(dir);try{assert((await flushDeliveryQueue({dataDir:dir})).busy);}finally{await release();}}finally{await fs.rm(dir,{recursive:true,force:true});}});
+ test('message split retains every numeric character',()=>{const t=('OI +12.34567890%，账户变化 -5.678900pp\n').repeat(100);assert.equal(splitMessage(t,{id:'MOCK',symbol}).map(p=>p.split('\n').slice(3).join('\n')).join(''),t);});
+ test('strict storage still rejects arbitrary/foreign record',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'v2-foreign-'));try{await assert.rejects(saveResearch(dir,{research:{analystVersion:'V4'}},{research:{}}),/RESEARCH_SCHEMA_INVALID/);}finally{await fs.rm(dir,{recursive:true,force:true});}});
+-test('previous minimal NO_EDGE is persisted with original source hash',()=>v2Pipeline({bias:'NO_EDGE',review:async c=>{const r=await previousResearch(c.dir,c.history,symbol,fixture().cutoff+1);assert.equal(r.research.analysis.bias,'NO_EDGE');assert.equal(await previousResearch(c.dir,c.history,symbol,fixture().cutoff),null);}}));
++test('previous minimal NO_EDGE is persisted with original source hash',()=>v2Pipeline({bias:'NO_EDGE',review:async c=>{const r=await previousResearch(c.dir,c.history,symbol,fixture().cutoff+1);assert.equal(r.research.analysis.bias,'NO_EDGE');assert.equal((await previousResearch(c.dir,c.history,symbol,fixture().cutoff)).status,'INVALID_OR_NON_PRIOR_HISTORY');}}));
+ test('no candidates creates no artificial research output',()=>v2Pipeline({syms:[],review:c=>{assert.equal(c.models,0);assert.equal(c.sends,0);assert.equal(c.boxes.length,0);}}));
+ test('corrupt ledger fails before acquisition/model',()=>v2Pipeline({review:async c=>{const h=c.history;h.research={bad:{contract:'BA_BIAS_MARKET_BIAS_V2',runId:'../outside'}};await atomicWrite(path.join(v2Dir(c.dir),'state','history.json'),h);await assert.rejects(runResearch({runId:'MOCK_BAD',mode:'once',handleSignals:false,setExitCode:false},c.dependencies),/V2_RESEARCH_INDEX_CORRUPT/);assert.equal(c.models,1);}}));
+ test('dry run historical OGN builds exact existing chain, no files/models',async()=>{const r=await prepare(['--research','--symbol','OGNUSDT','--from-snapshot','test/fixtures/v2-market-researcher/first/VERIFIED_FACTS.json','--mode','HISTORICAL_REPLAY','--dry-run']);assert.equal(r.operation,'DRY_RUN_NO_MODEL_NO_WRITES');assert.equal(r.factCount,34);});
+diff --git a/test/selector.test.js b/test/selector.test.js
+index 6d4933b..8871393 100644
+--- a/test/selector.test.js
++++ b/test/selector.test.js
+@@ -104,6 +104,6 @@ check('46 negative Funding preserves payment interpretation',()=>{const x=flat()
+ check('47 absent OI rejected instead of manufactured zero',()=>{const x=flat();x.ticker.lastPrice='150';x.sources.oi.raw=[];const r=selectOpportunities([facts(x)]);assert.equal(r.selected.length,0);assert.equal(r.decisions[0].status,'INSUFFICIENT_EVIDENCE');});
+ check('48 future candle rows cannot create event',()=>{const x=flat();for(const k of x.sources.hour.raw){k[0]+=864000000;k[6]+=864000000;}assert.equal(selectOpportunities([facts(x)]).selected.length,0);});
+ check('49 incomplete old anomaly history is not new evidence',()=>{const f=extreme();assert.equal(materialEvidence(f,{summary:{},lastResearchTime:f.dataCutoff-1}).length,0);});
+-check('50 program config leaves model and original thresholds unchanged',()=>{const old=fs.readFileSync(root+'/code-backup/src/config.js','utf8'),current=fs.readFileSync('src/config.js','utf8').replace(/  maxSnapshotAgeMinutes:integer\('BA_MAX_SNAPSHOT_AGE_MINUTES',5,1,1440\),\n/,'').replace(' // Historical Judge/packet compatibility only.','').split('\n').filter(s=>!s.startsWith('  selector:')).join('\n');assert.equal(current,old);});
++check('50 program config leaves model and original thresholds unchanged',()=>{const old=fs.readFileSync(root+'/code-backup/src/config.js','utf8'),current=fs.readFileSync('src/config.js','utf8').replace(/  maxSnapshotAgeMinutes:integer\('BA_MAX_SNAPSHOT_AGE_MINUTES',5,1,1440\),\n/,'').replace(/  previousResearchFreshnessHours:integer\('PREVIOUS_RESEARCH_FRESHNESS_HOURS',48,1,8760\),\n/,'').replace(' // Historical Judge/packet compatibility only.','').split('\n').filter(s=>!s.startsWith('  selector:')).join('\n');assert.equal(current,old);assert.equal(config.previousResearchFreshnessHours,48);});
+ check('51 account scope never mapped to position/flow by selector',()=>{const s=fs.readFileSync('src/market/opportunity-selector.js','utf8');assert(!s.includes('sumOpenInterestValue'));assert(!/看多|看空|新空头入场|资金净流入/.test(s));});
+ check('52 duplicate and material distinctions are audited in replay',()=>{assert(replay.some(r=>r.statuses.NO_MATERIAL_UPDATE>0));assert(replay.every(r=>r.decisions.filter(d=>d.status==='SELECTED').every(d=>d.materialEvidence.length>0)));});
+diff --git a/src/analysis/historical-freshness.js b/src/analysis/historical-freshness.js
+new file mode 100644
+index 0000000..6bcc9ff
+--- /dev/null
++++ b/src/analysis/historical-freshness.js
+@@ -0,0 +1,9 @@
++// Epoch milliseconds from Facts/History only; never wall-clock or completion time.
++export function historicalFreshness(currentFactsAsOf,historicalFactsAsOf,hours){
++ if(!Number.isSafeInteger(hours)||hours<=0||!Number.isSafeInteger(hours*3600000))throw Error('INVALID_PREVIOUS_RESEARCH_FRESHNESS');
++ const windowMs=hours*3600000;
++ if(!Number.isSafeInteger(currentFactsAsOf)||currentFactsAsOf<=0||!Number.isSafeInteger(historicalFactsAsOf)||historicalFactsAsOf<=0)return {status:'INSUFFICIENT_HISTORICAL_EVIDENCE',ageMs:null,windowMs};
++ const ageMs=currentFactsAsOf-historicalFactsAsOf;
++ if(!Number.isSafeInteger(ageMs))return {status:'INSUFFICIENT_HISTORICAL_EVIDENCE',ageMs:null,windowMs};
++ return {status:ageMs<=0?'INVALID_OR_NON_PRIOR_HISTORY':ageMs>windowMs?'EXPIRED_FOR_CURRENT_COMPARISON':'WITHIN_FRESHNESS_WINDOW',ageMs,windowMs};
++}
+diff --git a/test/previous-research-freshness.test.js b/test/previous-research-freshness.test.js
+new file mode 100644
+index 0000000..815e962
+--- /dev/null
++++ b/test/previous-research-freshness.test.js
+@@ -0,0 +1,196 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs/promises';
++import syncFs from 'node:fs';
++import os from 'node:os';
++import path from 'node:path';
++import {config} from '../src/config.js';
++import {historicalFreshness} from '../src/analysis/historical-freshness.js';
++import {selectOpportunities,materialEvidence} from '../src/market/opportunity-selector.js';
++import {compare,summary,storyKey,longShortMaterial,atomicWrite} from '../src/storage/history.js';
++import {verifiedFacts} from '../src/intelligence/packet.js';
++import {previousResearch} from '../src/analysis/market-bias-v2/storage.js';
++import {sha} from '../src/analysis/market-bias-v2/common.js';
++import {validateResearch} from '../src/analysis/market-bias-v2/parser.js';
++import {webResearch,mockBias} from './market-bias-v2-fixture.js';
++import {precisionFacts,precisionMarket} from './selector-precision-fixture.js';
++import {runResearch} from '../src/main.js';
++import {initializeV2,assertPrepared,immutableWrite,v2Dir,checkLegacyIntegrity,loadV2Outbox} from '../src/storage/market-bias-v2-state.js';
++import {Reader} from '../src/web/reader.js';
++const H=3600000,ages=[1,12,24,48,48+1/H,48+1000/H,72,168,720];
++const base=precisionFacts({price:40}),T=base.dataCutoff;
++const prior=(age=1,f=base)=>({runId:'OLD_RUN',status:'RESEARCH',summary:summary(f),storyKey:storyKey(f,{current:summary(f)}),lastResearchTime:f.dataCutoff-age*H});
++const source=syncFs.readFileSync(new URL('./fixtures/selector-pre-historical-freshness.txt',import.meta.url),'utf8');
++const legacy=new Function('config','compare','longShortMaterial','storyKey','summary','verifiedFacts',source.replace(/^import .*;\n/gm,'').replaceAll('export function','function')+'\nreturn {selectOpportunities};')(config,compare,longShortMaterial,storyKey,summary,verifiedFacts).selectOpportunities;
++const policy={...config.selector,maxCandidates:5};
++const core=r=>r.decisions.map(x=>({symbol:x.symbol,status:x.status,reason:x.reason,score:x.score,rank:x.rank,gate:x.gate,dimensions:x.dimensions,materialEvidence:x.materialEvidence,storyType:x.comparison?.storyType,storyKey:x.storyKey}));
++
++test('freshness defaults, immutable original Selector identity and unchanged policy',()=>{
++ assert.equal(config.previousResearchFreshnessHours,48);
++ assert.equal(sha(source),'0d96f55cafba6c73df6fa1603cd5937b2ae15ee6e03f1cbfee79a256668d8c26');
++ assert.equal(config.selector.maxCandidates,5);
++ assert.deepEqual(config.selector.material,{pricePp:15,oiPp:10,fundingPp:.05,volumeRatio:2});
++ assert.deepEqual(config.thresholds,{price24:8,price1:3,oi4:10,funding:.1,fundingDelta:.05,volume:2});
++});
++for(const age of ages)test('freshness exact boundary '+age+'h',()=>{
++ const r=historicalFreshness(T,T-age*H,48);
++ assert.equal(r.ageMs,age*H);
++ assert.equal(r.status,age<=48?'WITHIN_FRESHNESS_WINDOW':'EXPIRED_FOR_CURRENT_COMPARISON');
++});
++for(const [name,old,current,expected]of [
++ ['same',T,T,'INVALID_OR_NON_PRIOR_HISTORY'],['future',T+1,T,'INVALID_OR_NON_PRIOR_HISTORY'],
++ ['missing',undefined,T,'INSUFFICIENT_HISTORICAL_EVIDENCE'],['string',String(T),T,'INSUFFICIENT_HISTORICAL_EVIDENCE'],
++ ['NaN',NaN,T,'INSUFFICIENT_HISTORICAL_EVIDENCE'],['fraction',T-.1,T,'INSUFFICIENT_HISTORICAL_EVIDENCE'],
++ ['invalid current',T,undefined,'INSUFFICIENT_HISTORICAL_EVIDENCE']
++])test('freshness rejects '+name,()=>assert.equal(historicalFreshness(current,old,48).status,expected));
++test('one shared configurable window, no wall clock/timezone dependency',()=>{
++ const old=config.previousResearchFreshnessHours;try{
++ config.previousResearchFreshnessHours=24;
++ assert.equal(selectOpportunities([base],{[base.symbol]:prior(25)}).decisions[0].historicalBaseline.status,'EXPIRED_FOR_CURRENT_COMPARISON');
++ assert.equal(historicalFreshness(T,T-24*H,24).status,'WITHIN_FRESHNESS_WINDOW');
++ assert.equal(historicalFreshness(T,T-25*H,72).status,'WITHIN_FRESHNESS_WINDOW');
++ }finally{config.previousResearchFreshnessHours=old;}
++});
++const scenarios=[
++ ['same',{},false],['price drift',{price:40.001},false],['OI drift',{price:40,oi:.001},false],
++ ['Funding drift',{price:40,funding:.00001},false],['price reversal',{price:-40},true],
++ ['OI material',{price:40,oi:40},true],['Funding material',{price:40,funding:-.3},true]
++];
++for(const age of ages)for(const [name,options,accepted]of scenarios)test('Selector '+age+'h '+name,()=>{
++ const f=name==='same'?base:precisionFacts(options),stories={[f.symbol]:prior(age)},before=JSON.stringify(stories);
++ const a=selectOpportunities([f],stories,{policy}),b=legacy([f],stories,{policy});
++ assert.deepEqual(core(a),core(b));assert.equal(a.selected.length,accepted?1:0);assert.equal(JSON.stringify(stories),before);
++ const row=a.decisions[0];assert.equal(row.historicalBaseline.dedupDecision,accepted?'MATERIAL_CHANGE':'NO_MATERIAL_CHANGE');
++ if(age>48&&accepted){assert.equal(row.comparison.previous,null);assert.equal(row.comparison.historicalContext.purpose,'ARCHIVED_EVENT_DEDUP_ONLY');assert.equal(row.comparison.storyType,'MATERIAL_UPDATE');assert(!row.dimensions.some(x=>x.dimension==='EVENT_NOVELTY'));}
++ if(age<=48&&accepted)assert.deepEqual(row.comparison,b.decisions[0].comparison);
++});
++test('expired incomplete summary cannot be new eligibility; invalid time is explicit',()=>{
++ for(const bad of [{summary:{}},{summary:{anomalies:[]}},{lastResearchTime:null},{lastResearchTime:'invalid'},{summary:{...summary(base),price:null}}]){
++  const r=selectOpportunities([precisionFacts({price:-40})],{[base.symbol]:{...prior(168),...bad}}).decisions[0];assert.equal(r.status,'INSUFFICIENT_EVIDENCE');assert.equal(r.reason,'INSUFFICIENT_HISTORICAL_EVIDENCE');assert.equal(r.historicalBaseline.status,r.reason);
++ }
++ for(const time of [T,T+H])assert.equal(selectOpportunities([base],{[base.symbol]:{...prior(),lastResearchTime:time}}).decisions[0].reason,'INVALID_OR_NON_PRIOR_HISTORY');
++});
++test('unknown interruption gap does not create a new episode; same facts still duplicate',()=>{
++ assert.equal(selectOpportunities([base],{[base.symbol]:prior(720)}).decisions[0].reason,'NO_MATERIAL_CHANGE');
++ assert.equal(materialEvidence(base,prior(720)).length,0);
++});
++test('expired historical identity is distinct from absent history; both still need Gate',()=>{
++ const fresh=selectOpportunities([base]).selected[0];assert.equal(fresh.historicalBaseline.status,'NO_HISTORY');assert.equal(fresh.comparison.storyType,'NEW_STORY');
++ for(const stories of [{},{[base.symbol]:prior(168)}])assert.equal(selectOpportunities([precisionFacts({price:8})],stories).decisions[0].reason,'BELOW_RESEARCH_GATE');
++});
++test('seven expired repeats cannot displace a genuine new candidate; material variants keep ranks',()=>{
++ const facts=['AA','BB','CC','DD','EE','FF','GG'].map(s=>precisionFacts({symbol:s+'USDT',price:40}));const stories=Object.fromEntries(facts.map(f=>[f.symbol,prior(192,f)]));const fresh=precisionFacts({symbol:'ZZUSDT',price:40});
++ assert.deepEqual(selectOpportunities([...facts,fresh],stories,{policy}).selected.map(x=>x.symbol),['ZZUSDT']);
++ const naive=legacy([...facts,fresh],{},{policy});assert.equal(naive.selected.length,5);assert(!naive.selected.some(x=>x.symbol===fresh.symbol));
++ const changed=facts.map((f,i)=>precisionFacts({symbol:f.symbol,price:-40,oi:i*10,funding:i%2?.3:0}));
++ assert.deepEqual(core(selectOpportunities([...changed,fresh],stories,{policy})),core(legacy([...changed,fresh],stories,{policy})));
++});
++test('independent Symbol age and separate OUTBOX source identity',()=>{
++ const a=precisionFacts({symbol:'AAUSDT',price:-40}),b=precisionFacts({symbol:'BBUSDT',price:-40});
++ const r=selectOpportunities([a,b],{AAUSDT:{...prior(1),runId:'OUTBOX_RUN',status:'OUTBOX'},BBUSDT:prior(192)});
++ assert.equal(r.decisions[0].historicalBaseline.source,'OUTBOX_PROJECTION');assert.equal(r.decisions[0].historicalBaseline.runId,'OUTBOX_RUN');
++ assert.equal(r.decisions[1].historicalBaseline.ageMs,192*H);assert.equal(r.decisions[1].historicalBaseline.purpose,'ARCHIVED_EVENT_DEDUP_ONLY');
++});
++test('seven day hourly replay: legacy=0, naive TTL=3, fixed=0 repeat studies',()=>{
++ const advance=(f,d)=>JSON.parse(JSON.stringify(f),(_k,v)=>typeof v==='number'&&v>1e12?v+d:v);
++ function replay(select,ttl){let stories={[base.symbol]:prior(0)},count=0;for(let h=1;h<=168;h++){
++  const f=advance(base,h*H),s=ttl&&f.dataCutoff-stories[f.symbol].lastResearchTime>48*H?{}:stories;
++  const r=select([f],s);if(r.selected.length){count++;stories={[f.symbol]:{...prior(0,f),runId:'MOCK_'+h}};}
++ }return count;}
++ assert.equal(replay(legacy,false),0);assert.equal(replay(legacy,true),3);assert.equal(replay(selectOpportunities,false),0);
++});
++function memoryHistory(age=1){
++ const f=JSON.parse(JSON.stringify(base),(_k,v)=>typeof v==='number'&&v>1e12?v-age*H:v);f.runId='OLD_RUN';
++ const {research:r}=webResearch(f),bytes=Buffer.from(JSON.stringify(f));r.factsPackageSha256=sha(bytes);assert(validateResearch(r));
++ const entry={contract:r.contract,runId:r.runId,symbol:r.symbol,recordId:r.recordId,factsAsOf:r.asOf.factsAsOf,executionState:r.executionState,researchSha256:sha(r)};
++ return {r,bytes,h:{research:{[r.recordId]:entry}}};
++}
++async function memoryRead(t,age,damage='NONE',options={}){
++ const x=memoryHistory(age),reads=[],decisions=[];const root='/__FRESHNESS_MEMORY__';
++ const orig=fs.readFile;t.mock.method(fs,'readFile',async(file,encoding)=>{
++  if(!String(file).startsWith(root))return orig(file,encoding);reads.push(String(file));
++  let value;if(String(file).includes('/research/')){if(damage==='RESEARCH_MISSING')throw Object.assign(Error('MOCK_MISSING'),{code:'ENOENT'});value=Buffer.from(JSON.stringify(x.r));}
++  else {if(damage==='MISSING')throw Object.assign(Error('MOCK_MISSING'),{code:'ENOENT'});value=damage==='HASH'?Buffer.from('{}'):x.bytes;}
++  return encoding?value.toString():value;
++ });
++ const call=()=>previousResearch(root,x.h,base.symbol,T,{onDecision:d=>decisions.push(d),...options});return {...x,reads,decisions,call};
++}
++for(const age of ages)for(const damage of ['NONE','MISSING','HASH','RESEARCH_MISSING'])test('storage '+age+'h '+damage,async t=>{
++ const x=await memoryRead(t,age,damage),before=JSON.stringify(x.h);
++ if(age>48){const r=await x.call();assert.equal(r.status,'EXPIRED_FOR_CURRENT_COMPARISON');assert.equal(r.research,null);assert.equal(r.facts,null);assert.equal(r.integrity,'NOT_REVALIDATED');assert.equal(r.previousFactsReadSkipped,true);assert.equal(r.runId,'OLD_RUN');assert.equal(x.reads.length,0);}
++ else if(damage==='NONE'){const r=await x.call();assert.equal(r.status,'WITHIN_FRESHNESS_WINDOW');assert.equal(r.integrity,'VERIFIED');assert.equal(x.reads.length,2);assert.deepEqual(r.facts,JSON.parse(x.bytes));}
++ else await assert.rejects(x.call,damage==='MISSING'?/MOCK_MISSING/:damage==='HASH'?/PREVIOUS_FACTS_HASH_MISMATCH/:/PREVIOUS_RESEARCH_CORRUPT/);
++ assert.equal(JSON.stringify(x.h),before);
++});
++test('storage uses shared configured window',async t=>{const old=config.previousResearchFreshnessHours;try{config.previousResearchFreshnessHours=24;const x=await memoryRead(t,25);assert.equal((await x.call()).status,'EXPIRED_FOR_CURRENT_COMPARISON');assert.equal(x.reads.length,0);}finally{config.previousResearchFreshnessHours=old;}});
++for(const age of [0,-1])test('non-prior storage history is not null/no history '+age,async t=>{const x=await memoryRead(t,age);assert.equal((await x.call()).status,'INVALID_OR_NON_PRIOR_HISTORY');assert.equal(x.reads.length,0);});
++test('bad index is rejected even if claimed old; UNAVAILABLE never replaces valid',async t=>{
++ const x=await memoryRead(t,168);const e=Object.values(x.h.research)[0];e.researchSha256='bad';await assert.rejects(x.call,/INSUFFICIENT_HISTORICAL_EVIDENCE/);assert.equal(x.reads.length,0);
++ e.researchSha256=sha(x.r);e.factsAsOf='old';await assert.rejects(x.call,/INSUFFICIENT_HISTORICAL_EVIDENCE/);
++ e.factsAsOf=T-168*H;x.h.research.failed={...e,executionState:'UNAVAILABLE',factsAsOf:T-1};assert.equal((await x.call()).runId,'OLD_RUN');
++ assert.equal(await previousResearch('unused',{research:{}},base.symbol,T),null);
++ await assert.rejects(()=>previousResearch('unused',{research:[]},base.symbol,T),/INSUFFICIENT_HISTORICAL_EVIDENCE/);
++});
++test('latest strictly prior wins; no fallback around corrupt in-window Facts',async t=>{
++ const x=await memoryRead(t,1,'HASH'),entry=Object.values(x.h.research)[0];x.h.research.older={...entry,recordId:'older',factsAsOf:T-100*H};
++ // Index corruption must be explicit, not silently treated as absent or expired.
++ await assert.rejects(x.call,/INSUFFICIENT_HISTORICAL_EVIDENCE/);
++ delete x.h.research.older;await assert.rejects(x.call,/PREVIOUS_FACTS_HASH_MISMATCH/);
++});
++
++test('Mock pipeline: separate source diagnostics, expired missing files, unchanged archive/Manifest; no delivery',async()=>{
++ const dir=await fs.mkdtemp(path.join(os.tmpdir(),'freshness-e2e-')),oldDir=config.dataDir;config.dataDir=dir;let calls=0,sends=0;
++ try{
++  await atomicWrite(path.join(dir,'state/history.json'),{runs:{LEGACY:{status:'COMPLETE'}}});await atomicWrite(path.join(dir,'runs/LEGACY/scan.json'),{legacy:true});
++  await initializeV2(dir);const prepared=await assertPrepared(dir),h=prepared.history;
++  const oldResearch=memoryHistory(192);h.research=oldResearch.h.research;
++  h.selectorBaseline[base.symbol]={...prior(72),runId:'DIFFERENT_OUTBOX_RUN',status:'OUTBOX'};
++  await atomicWrite(path.join(v2Dir(dir),'state/history.json'),h);
++  const manifestBefore=await fs.readFile(path.join(v2Dir(dir),'state/cutover-manifest.json'));
++  const deps={binance:precisionMarket([{symbol:base.symbol,price:-40}]),llm:{json:async(_s,i)=>{calls++;return mockBias(i);}},deliverySender:async()=>{sends++;throw Error('NO_DELIVERY');},log:()=>{}};
++  const r=await runResearch({runId:'NEW_FRESHNESS_RUN',mode:'once',sendEnabled:false,handleSignals:false,setExitCode:false},deps);
++  assert.equal(r.status,'COMPLETE');assert.equal(calls,1);assert.equal(sends,0);
++  const d=JSON.parse(await fs.readFile(path.join(dir,'runs/NEW_FRESHNESS_RUN/run-diagnostics.json'),'utf8')).candidates[0];
++  assert.equal(d.historicalBaseline.ageMs,72*H);assert.equal(d.historicalBaseline.runId,'DIFFERENT_OUTBOX_RUN');assert.equal(d.v2.previousResearch.ageMs,192*H);assert.equal(d.v2.previousResearch.runId,'OLD_RUN');assert.equal(d.v2.previousResearch.previousFactsReadSkipped,true);
++  assert.equal((await new Reader(dir).research('NEW_FRESHNESS_RUN',base.symbol)).analysis.status,'VALIDATED');
++  assert((await checkLegacyIntegrity(dir)).ok);assert.deepEqual(await fs.readFile(path.join(v2Dir(dir),'state/cutover-manifest.json')),manifestBefore);assert.equal((await loadV2Outbox(dir)).length,0);
++  assert.equal((await assertPrepared(dir)).history.research[oldResearch.r.recordId].factsAsOf,T-192*H);
++ }finally{config.dataDir=oldDir;await fs.rm(dir,{recursive:true,force:true});}
++});
++test('Mock failures retain baseline and repeat existing retry semantics, never fill sixth slot',async()=>{
++ const dir=await fs.mkdtemp(path.join(os.tmpdir(),'freshness-fail-')),oldDir=config.dataDir;config.dataDir=dir;let calls=0;
++ try{await initializeV2(dir);const h=(await assertPrepared(dir)).history;const rows=Array.from({length:6},(_,i)=>({symbol:`FAIL${i}USDT`,price:-40}));
++ for(const row of rows){const f=precisionFacts({symbol:row.symbol,price:40});h.selectorBaseline[row.symbol]=prior(192,f);}await atomicWrite(path.join(v2Dir(dir),'state/history.json'),h);
++ for(let n=0;n<2;n++){const r=await runResearch({runId:'FAIL_ROUND_'+n,mode:'once',handleSignals:false,setExitCode:false},{binance:precisionMarket(rows),llm:{json:async()=>{calls++;throw Error('MOCK_FAILURE');}},log:()=>{}});assert.equal(r.selector.selected.length,5);assert.equal(r.biasFailures,5);}
++ assert.equal(calls,10);assert.deepEqual((await assertPrepared(dir)).history.selectorBaseline,h.selectorBaseline);assert.equal((await loadV2Outbox(dir)).length,0);
++ }finally{config.dataDir=oldDir;await fs.rm(dir,{recursive:true,force:true});}
++});
++for(const age of [1,0,-1])test('Mock main blocks missing/inapplicable Research before model, age '+age,async()=>{
++ const dir=await fs.mkdtemp(path.join(os.tmpdir(),'freshness-block-')),oldDir=config.dataDir;config.dataDir=dir;let calls=0;
++ try{await initializeV2(dir);const h=(await assertPrepared(dir)).history;h.research=memoryHistory(age).h.research;h.selectorBaseline[base.symbol]=prior(1);await atomicWrite(path.join(v2Dir(dir),'state/history.json'),h);
++ const r=await runResearch({runId:'BLOCKED_RESEARCH',mode:'once',handleSignals:false,setExitCode:false},{binance:precisionMarket([{symbol:base.symbol,price:-40}]),llm:{json:async()=>{calls++;return mockBias({});}},log:()=>{}});
++ assert.equal(calls,0);assert.equal(r.status,'PARTIAL');assert.equal(r.candidateEvaluations[0].status,'DATA_ERROR');assert.equal(r.candidateEvaluations[0].reason,age===1?'PREVIOUS_RESEARCH_CORRUPT':'INVALID_OR_NON_PRIOR_HISTORY');assert.deepEqual((await assertPrepared(dir)).history.selectorBaseline,h.selectorBaseline);
++ }finally{config.dataDir=oldDir;await fs.rm(dir,{recursive:true,force:true});}
++});
++test('invalid cutoff cannot be disguised as no history; optional old summary gaps fail closed',async()=>{
++ await assert.rejects(()=>previousResearch('unused',{research:{}},base.symbol,NaN),/INSUFFICIENT_HISTORICAL_EVIDENCE/);
++ for(const k of ['oi1','oi24']){const p=prior(168);delete p.summary[k];assert.equal(selectOpportunities([precisionFacts({price:-40})],{[base.symbol]:p}).decisions[0].reason,'INSUFFICIENT_HISTORICAL_EVIDENCE');}
++});
++test('valid prior research remains selectable when another index entry is future',async t=>{
++ const x=await memoryRead(t,1),e=Object.values(x.h.research)[0],id='bias_'+'a'.repeat(32);
++ x.h.research[id]={...e,recordId:id,runId:'FUTURE_RUN',factsAsOf:T+H};
++ assert.equal((await x.call()).runId,'OLD_RUN');assert.equal(x.reads.length,2);
++});
++test('materialEvidence source and all original financial policy values remain identical',()=>{
++ const current=syncFs.readFileSync(new URL('../src/market/opportunity-selector.js',import.meta.url),'utf8');
++ const body=s=>s.slice(s.indexOf('export function materialEvidence'),s.indexOf('export function selectOpportunities'));
++ assert.equal(body(current),body(source));
++ assert.deepEqual(config.selector,{maxCandidates:5,minimumFamilies:2,resonanceStrength:1.5,extremeStrength:3,strengthCap:3,crossMetricPoints:5,crossMetricCap:3,noveltyPoints:5,weights:{PRICE_EXTREMITY:20,OI_ABNORMALITY:20,FUNDING_EXTREMITY:20,VOLUME_ABNORMALITY:10,ACCOUNT_DISTRIBUTION:15},material:{pricePp:15,oiPp:10,fundingPp:.05,volumeRatio:2}});
++});
++test('in-window Research hash corruption is not bypassed and never advances to Facts',async t=>{
++ const x=await memoryRead(t,1);x.r.analysis.bias='BEARISH';await assert.rejects(x.call,/PREVIOUS_RESEARCH_CORRUPT/);assert.equal(x.reads.length,1);
++});
++test('corrupt expired scalar/nested summaries fail closed rather than renew eligibility',()=>{
++ for(const price of [false,'40',NaN,Infinity]){const p=prior(168);p.summary.price=price;assert.equal(selectOpportunities([precisionFacts({price:-40})],{[base.symbol]:p}).decisions[0].reason,'INSUFFICIENT_HISTORICAL_EVIDENCE');}
++ const p=prior(168);p.summary.longShort={global:{longPct:50,shortPct:50,changes:null}};assert.equal(selectOpportunities([base],{[base.symbol]:p}).decisions[0].reason,'INSUFFICIENT_HISTORICAL_EVIDENCE');
++});
+diff --git a/test/fixtures/selector-pre-historical-freshness.txt b/test/fixtures/selector-pre-historical-freshness.txt
+new file mode 100644
+index 0000000..716f480
+--- /dev/null
++++ b/test/fixtures/selector-pre-historical-freshness.txt
+@@ -0,0 +1,52 @@
++import {config} from '../config.js';
++import {compare,longShortMaterial,storyKey,summary} from '../storage/history.js';
++import {verifiedFacts} from '../intelligence/packet.js';
++const family=kind=>kind.startsWith('PRICE')?'PRICE_EXTREMITY':kind.startsWith('OI_')?'OI_ABNORMALITY':kind.startsWith('FUNDING')?'FUNDING_EXTREMITY':kind==='VOLUME_SPIKE'?'VOLUME_ABNORMALITY':/ACCOUNT|POSITION|DIVERGENCE/.test(kind)?'ACCOUNT_DISTRIBUTION':null;
++const numeric=x=>x!==null&&x!==undefined&&x!==''&&Number.isFinite(Number(x));
++export function materialEvidence(f,previous,policy=config.selector){
++ if(!previous)return [{type:'NEW_STORY',evidenceIds:f.anomalies.flatMap(a=>a.evidenceIds)}];
++ const old=previous.summary,now=f.dataCutoff;if(!old||!Number.isSafeInteger(previous.lastResearchTime)||now<=previous.lastResearchTime)return [];
++ const changes=[];
++ const delta=(key,e,min)=>{if(e&&numeric(e.result)&&numeric(old[key])&&Math.abs(Number(e.result)-Number(old[key]))>=min)changes.push({type:'METRIC_DELTA',metric:key,previous:old[key],current:e.result,delta:Number(e.result)-Number(old[key]),threshold:min,evidenceIds:[e.evidenceId]});};
++ delta('price',f.price.rolling24h,policy.material.pricePp);for(const [k,w] of [['oi','4h'],['oi1','1h'],['oi24','24h']])delta(k,f.openInterest.windows[w],policy.material.oiPp);
++ delta('funding',f.funding.settledLatest,policy.material.fundingPp);if(Number(f.volume.relative1h?.result)>=config.thresholds.volume)delta('volume',f.volume.relative1h,policy.material.volumeRatio);
++ const cmp={current:summary(f)};
++ if(longShortMaterial(cmp.current.longShort,old.longShort,{previousObservedAt:previous.lastResearchTime})){
++  // A one-point dominant-side crossing alone is not a material event.
++  const clean=x=>x&&Object.fromEntries(Object.entries(x).map(([k,v])=>[k,['global','topAccounts','topPositions'].includes(k)?{...v,dominantSide:null,flip:null}:v]));
++  const flip=cmp.current.longShort?.global?.flip;
++  if(longShortMaterial(clean(cmp.current.longShort),clean(old.longShort))||flip?.status==='CONFIRMED'&&flip.timestamp>previous.lastResearchTime)changes.push({type:'ACCOUNT_MATERIAL_CHANGE',evidenceIds:f.anomalies.filter(a=>family(a.kind)==='ACCOUNT_DISTRIBUTION').flatMap(a=>a.evidenceIds)});
++ }
++ for(const a of f.anomalies)if(Array.isArray(old.anomalies)&&!old.anomalies.includes(a.kind)&&a.kind!=='ACCOUNT_DOMINANCE_FLIP'&&a.strength>=policy.resonanceStrength)changes.push({type:'NEW_IMPORTANT_ANOMALY',kind:a.kind,evidenceIds:a.evidenceIds});
++ return changes;
++}
++export function selectOpportunities(facts,stories={}, {policy=config.selector}={}){
++ if(!Number.isInteger(policy.maxCandidates)||policy.maxCandidates<0)throw Error('INVALID_SELECTOR_TOP_K');
++ const seen=new Set(),decisions=[];
++ for(const original of [...facts].sort((a,b)=>a.symbol.localeCompare(b.symbol,'en'))){
++  const row={symbol:original.symbol,status:'REJECTED',reason:null,score:null,dimensions:[],rank:null};decisions.push(row);
++  let f;try{f=verifiedFacts(original);}catch(e){row.reason=e.message;row.status=e.message==='NO_DEEP_ANOMALY'?'LOW_RESEARCH_VALUE':'INSUFFICIENT_EVIDENCE';continue;}
++  row.facts=f;const map=new Map(f.evidence.map(e=>[e.evidenceId,e]));
++  if(f.anomalies.some(a=>a.evidenceIds.some(id=>!map.has(id)||map.get(id).dataTimes?.some(t=>Number(t.ms)>f.dataCutoff)))){row.status='INSUFFICIENT_EVIDENCE';row.reason='FUTURE_OR_MISSING_EVENT_EVIDENCE';continue;}
++  const groups=new Map();for(const a of f.anomalies){const key=family(a.kind);if(!key||!numeric(a.strength))continue;const prior=groups.get(key);if(!prior||a.strength>prior.strength)groups.set(key,a);}
++  const strengths=[...groups.values()].map(a=>a.strength),max=Math.max(0,...strengths);
++  row.gate={families:groups.size,strongest:max,extreme:max>=policy.extremeStrength,resonance:groups.size>=policy.minimumFamilies&&max>=policy.resonanceStrength};
++  if(!row.gate.extreme&&!row.gate.resonance){row.status='LOW_RESEARCH_VALUE';row.reason='BELOW_RESEARCH_GATE';continue;}
++  const previous=stories[f.symbol];if(previous&&(!Array.isArray(previous.summary?.anomalies)||!Number.isSafeInteger(previous.lastResearchTime))){row.status='INSUFFICIENT_EVIDENCE';row.reason='INSUFFICIENT_HISTORICAL_EVIDENCE';continue;}const changes=materialEvidence(f,previous,policy);row.materialEvidence=changes;
++  if(previous&&!changes.length){row.status='NO_MATERIAL_UPDATE';row.reason='NO_MATERIAL_CHANGE';continue;}
++  const cmp=compare(f,previous);row.comparison={...cmp,eligible:true,reason:previous?'MATERIAL_EVIDENCE_CHANGE':'NO_PREVIOUS_OUTPUT'};row.storyKey=storyKey(f,row.comparison);
++  for(const [key,a] of groups){const weight=policy.weights[key];row.dimensions.push({dimension:key,points:weight*Math.min(a.strength,policy.strengthCap)/policy.strengthCap,strength:a.strength,cap:policy.strengthCap,weight,kind:a.kind,evidenceIds:a.evidenceIds});}
++  row.dimensions.push({dimension:'CROSS_METRIC_CONFIRMATION',points:policy.crossMetricPoints*Math.min(groups.size-1,policy.crossMetricCap),families:[...groups.keys()]});
++  row.dimensions.push({dimension:previous?'MATERIAL_CHANGE':'EVENT_NOVELTY',points:policy.noveltyPoints,evidenceIds:[...new Set(changes.flatMap(c=>c.evidenceIds))]});
++  row.historicalRarity={status:'UNKNOWN',points:0,reason:'No complete prior anomaly observation denominator; sent-story frequency is not market rarity'};
++  row.score=Number(row.dimensions.reduce((n,d)=>n+d.points,0).toFixed(6));row.status='QUALIFIED';row.reason='RESEARCH_GATE_AND_NOVELTY_PASSED';
++ }
++ const ranked=decisions.filter(d=>d.status==='QUALIFIED').sort((a,b)=>b.score-a.score||a.symbol.localeCompare(b.symbol,'en')),qualified=[];
++ for(const row of ranked){if(seen.has(row.symbol)){row.status='DUPLICATE';row.reason='DUPLICATE_SYMBOL';}else{seen.add(row.symbol);qualified.push(row);}}
++ qualified.forEach((d,i)=>{d.rank=i+1;d.status=i<policy.maxCandidates?'SELECTED':'QUALIFIED_BUT_NOT_SELECTED';d.reason=i<policy.maxCandidates?'TOP_K':'RANK_BELOW_TOP_K';});
++ return {version:'DETERMINISTIC_SELECTOR_V1',policy:structuredClone(policy),decisions,selected:qualified.filter(d=>d.status==='SELECTED'),qualifiedCount:qualified.length};
++}
++export function eligibilityCompatibility(row){
++ const {facts,...audit}=row;
++ return {eligible:true,storyType:row.comparison.storyType,newsworthinessScore:row.score,reason:row.comparison.reason,keyEvidenceIds:[...new Set(row.dimensions.flatMap(d=>d.evidenceIds||[]))].slice(0,12),risks:[],storyAngle:'程序筛选的已验证异常；不构成方向判断',eligibilitySource:'DETERMINISTIC_SELECTOR_V1',selection:audit};
++}

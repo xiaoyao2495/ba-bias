@@ -1,0 +1,29 @@
+{
+  "checkedExistingFiles": 8490,
+  "changed": [
+    "src/config.js",
+    "src/main.js",
+    "src/market/opportunity-selector.js",
+    "src/analysis/market-bias-v2/storage.js",
+    "test/market-bias-v2-e2e.test.js",
+    "test/selector.test.js",
+    "test/core.test.js",
+    "test/hourly.test.js"
+  ],
+  "allowedChanged": [
+    "src/config.js",
+    "src/main.js",
+    "src/market/opportunity-selector.js",
+    "src/analysis/market-bias-v2/storage.js",
+    "test/selector.test.js",
+    "test/market-bias-v2-e2e.test.js",
+    "test/core.test.js",
+    "test/hourly.test.js"
+  ],
+  "unexpectedChanged": [],
+  "missing": [],
+  "newProductionDataFiles": [],
+  "packageUnchangedFromTaskStart": true,
+  "productionDataAndEnvUnchanged": true,
+  "allOtherProtectedFilesUnchanged": true
+}

@@ -1,0 +1,5 @@
+{
+  "src/analysis/market-bias-v2/storage.js:export async function saveResearch": true,
+  "src/main.js:async function recoverInterruptedRuns": true,
+  "src/market/opportunity-selector.js:export function materialEvidence": true
+}

@@ -1,0 +1,6 @@
+{
+  "command": "git apply --reverse --check implementation/BA_BIAS_PREVIOUS_RESEARCH_FRESHNESS_FIX_V1/CHANGES.patch",
+  "exitCode": 0,
+  "stderr": "",
+  "applied": false
+}

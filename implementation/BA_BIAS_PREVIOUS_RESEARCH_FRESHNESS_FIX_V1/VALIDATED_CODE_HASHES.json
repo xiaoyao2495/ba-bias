@@ -1,0 +1,13 @@
+{
+  "src/config.js": "a67ba611078fc876108ba778e80891e07a844de1f31764e18683b38ee58d1517",
+  "src/main.js": "3555966585fd58785a9270e72563fd66d4ca1f63c7c2b92d2d3ad7b0285b6942",
+  "src/market/opportunity-selector.js": "ec2d8dd9f994aee104932a2afed9e8e35c12eaa1cfda6aa4d004d239ea4707e0",
+  "src/analysis/market-bias-v2/storage.js": "1ec4950dbdbd733817f257025d69c953964ae5fd237bb726834df975504c6486",
+  "test/selector.test.js": "c5b25c97e7f356c5997e169a34e47bd34ff0894681f2803de5f526c76931cf7f",
+  "test/market-bias-v2-e2e.test.js": "7f2010359cff10f18f5d54402ad86d54db3fc9ebc1e2f4bdbebfebce1633e107",
+  "test/core.test.js": "340d27604e56e8a5124f54868c172403d8dc4090e4d79d640b83999ad3415a0e",
+  "test/hourly.test.js": "7965f7be55e3326457e1bc5f0b508e5de01ea77f7629371235c1f0fb1d2dfe3c",
+  "src/analysis/historical-freshness.js": "8221bee74770816c7a14e3ba8832aa89cdebc4ef10f100a69474c2b483ebbc10",
+  "test/previous-research-freshness.test.js": "f171fba2e49d493247d6910a0c8e3172f601671749165c961fb52b4323ba4e1e",
+  "test/fixtures/selector-pre-historical-freshness.txt": "0d96f55cafba6c73df6fa1603cd5937b2ae15ee6e03f1cbfee79a256668d8c26"
+}

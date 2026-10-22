@@ -161,6 +161,7 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
       const researchStories=selectorStories(history,outbox,{includeShadow:!sendEnabled});
       const selection=opportunitySelector(scanned.facts,researchStories);
       recordSelection(runDiagnostics,selection);
+      for(const candidate of runDiagnostics.candidates)candidate.historicalBaseline=selection.decisions.find(r=>r.symbol===candidate.symbol)?.historicalBaseline??null;
       result.selector={version:selection.version,policy:selection.policy,qualifiedCount:selection.qualifiedCount,selected:selection.selected.map(r=>r.symbol)};
       result.selectorEvaluated=selection.decisions.length;
       for(const row of selection.decisions){
@@ -175,11 +176,13 @@ export async function runResearch(options,{binance,llm,biasLlm,analystVersion,op
         try{
           const verified=verifiedFacts(f),comparison=row.comparison,judge=eligibilityCompatibility(row);
           stage='research';result.biasAnalyses++;
-          const prior=await previousResearch(config.dataDir,history,f.symbol,f.dataCutoff);
+          const diagnosticCandidate=runDiagnostics.candidates.find(c=>c.symbol===f.symbol&&c.selected);
+          const prior=await previousResearch(config.dataDir,history,f.symbol,f.dataCutoff,{onDecision:decision=>{if(diagnosticCandidate)diagnosticCandidate.v2.previousResearch=decision;}});
+          if(prior&&['INSUFFICIENT_HISTORICAL_EVIDENCE','INVALID_OR_NON_PRIOR_HISTORY'].includes(prior.status))throw Error(prior.status);
           const factsBytes=await fs.readFile(path.join(config.dataDir,'runs',runId,'facts',f.symbol+'.json'));
           const existing=await readJson(path.join(v2Dir(config.dataDir),'research',runId,f.symbol+'.json'),null);
           if(existing)throw Error('RESEARCH_ALREADY_SEALED');
-          const diagnosticCandidate=runDiagnostics.candidates.find(c=>c.symbol===f.symbol&&c.selected);if(diagnosticCandidate)diagnosticCandidate.v2.pipelineEntered=true;
+          if(diagnosticCandidate)diagnosticCandidate.v2.pipelineEntered=true;
           const researched=await analyze(analystAdapter,verified,{signal:controller.signal,now,previousFacts:prior?.facts??null,factsPackageSha256:sha(factsBytes),materialEvidence:row.materialEvidence});
           researchRecord=researched.research;
           result.analystRecoveryRequests+=researched.attempts.filter(a=>a.attempt>1).length;

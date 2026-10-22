@@ -1,6 +1,7 @@
 import {config} from '../config.js';
 import {compare,longShortMaterial,storyKey,summary} from '../storage/history.js';
 import {verifiedFacts} from '../intelligence/packet.js';
+import {historicalFreshness} from '../analysis/historical-freshness.js';
 const family=kind=>kind.startsWith('PRICE')?'PRICE_EXTREMITY':kind.startsWith('OI_')?'OI_ABNORMALITY':kind.startsWith('FUNDING')?'FUNDING_EXTREMITY':kind==='VOLUME_SPIKE'?'VOLUME_ABNORMALITY':/ACCOUNT|POSITION|DIVERGENCE/.test(kind)?'ACCOUNT_DISTRIBUTION':null;
 const numeric=x=>x!==null&&x!==undefined&&x!==''&&Number.isFinite(Number(x));
 export function materialEvidence(f,previous,policy=config.selector){
@@ -32,9 +33,19 @@ export function selectOpportunities(facts,stories={}, {policy=config.selector}={
   const strengths=[...groups.values()].map(a=>a.strength),max=Math.max(0,...strengths);
   row.gate={families:groups.size,strongest:max,extreme:max>=policy.extremeStrength,resonance:groups.size>=policy.minimumFamilies&&max>=policy.resonanceStrength};
   if(!row.gate.extreme&&!row.gate.resonance){row.status='LOW_RESEARCH_VALUE';row.reason='BELOW_RESEARCH_GATE';continue;}
-  const previous=stories[f.symbol];if(previous&&(!Array.isArray(previous.summary?.anomalies)||!Number.isSafeInteger(previous.lastResearchTime))){row.status='INSUFFICIENT_EVIDENCE';row.reason='INSUFFICIENT_HISTORICAL_EVIDENCE';continue;}const changes=materialEvidence(f,previous,policy);row.materialEvidence=changes;
+  const previous=stories[f.symbol];
+  const freshness=previous?historicalFreshness(f.dataCutoff,previous.lastResearchTime,config.previousResearchFreshnessHours):{status:'NO_HISTORY',ageMs:null,windowMs:config.previousResearchFreshnessHours*3600000};
+  const expired=freshness.status==='EXPIRED_FOR_CURRENT_COMPARISON';
+  row.historicalBaseline={...freshness,source:previous?.status==='OUTBOX'?'OUTBOX_PROJECTION':previous?'SELECTOR_BASELINE':null,runId:previous?.runId??null,historicalFactsAsOf:previous?.lastResearchTime??null,purpose:freshness.status==='EXPIRED_FOR_CURRENT_COMPARISON'?'ARCHIVED_EVENT_DEDUP_ONLY':'CURRENT_COMPARISON',dedupDecision:'NOT_EVALUATED'};
+  if(previous&&(!Array.isArray(previous.summary?.anomalies)||expired&&(['price','oi','oi1','oi24','funding','volume'].some(k=>typeof previous.summary[k]!=='number'||!Number.isFinite(previous.summary[k]))||previous.summary.anomalies.some(k=>typeof k!=='string'))||['INSUFFICIENT_HISTORICAL_EVIDENCE','INVALID_OR_NON_PRIOR_HISTORY'].includes(freshness.status))){row.status='INSUFFICIENT_EVIDENCE';row.reason=freshness.status==='INVALID_OR_NON_PRIOR_HISTORY'?freshness.status:'INSUFFICIENT_HISTORICAL_EVIDENCE';row.historicalBaseline.status=row.reason;row.historicalBaseline.dedupDecision='INSUFFICIENT_EVIDENCE';continue;}
+  // Archived summaries retain their event-dedup purpose. Age alone never earns
+  // eligibility; reuse the exact existing material rules, including small drift.
+  let changes;
+  try{changes=materialEvidence(f,previous,policy);}catch(e){if(!expired)throw e;row.status='INSUFFICIENT_EVIDENCE';row.reason='INSUFFICIENT_HISTORICAL_EVIDENCE';row.historicalBaseline.status=row.reason;row.historicalBaseline.dedupDecision='INSUFFICIENT_EVIDENCE';continue;}
+  row.materialEvidence=changes;
+  row.historicalBaseline.dedupDecision=previous?(changes.length?'MATERIAL_CHANGE':'NO_MATERIAL_CHANGE'):'NEW_STORY';
   if(previous&&!changes.length){row.status='NO_MATERIAL_UPDATE';row.reason='NO_MATERIAL_CHANGE';continue;}
-  const cmp=compare(f,previous);row.comparison={...cmp,eligible:true,reason:previous?'MATERIAL_EVIDENCE_CHANGE':'NO_PREVIOUS_OUTPUT'};row.storyKey=storyKey(f,row.comparison);
+  const cmp=expired?{current:summary(f),previous:null,storyType:'MATERIAL_UPDATE',historicalContext:row.historicalBaseline}:compare(f,previous);row.comparison={...cmp,eligible:true,reason:previous?'MATERIAL_EVIDENCE_CHANGE':'NO_PREVIOUS_OUTPUT'};row.storyKey=storyKey(f,row.comparison);
   for(const [key,a] of groups){const weight=policy.weights[key];row.dimensions.push({dimension:key,points:weight*Math.min(a.strength,policy.strengthCap)/policy.strengthCap,strength:a.strength,cap:policy.strengthCap,weight,kind:a.kind,evidenceIds:a.evidenceIds});}
   row.dimensions.push({dimension:'CROSS_METRIC_CONFIRMATION',points:policy.crossMetricPoints*Math.min(groups.size-1,policy.crossMetricCap),families:[...groups.keys()]});
   row.dimensions.push({dimension:previous?'MATERIAL_CHANGE':'EVENT_NOVELTY',points:policy.noveltyPoints,evidenceIds:[...new Set(changes.flatMap(c=>c.evidenceIds))]});

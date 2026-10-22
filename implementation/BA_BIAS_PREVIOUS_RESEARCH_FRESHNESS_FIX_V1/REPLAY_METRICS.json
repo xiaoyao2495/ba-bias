@@ -1,0 +1,24 @@
+{
+  "syntheticCases": 63,
+  "beforeStatus": {
+    "NO_MATERIAL_UPDATE": 36,
+    "SELECTED": 27
+  },
+  "afterStatus": {
+    "NO_MATERIAL_UPDATE": 36,
+    "SELECTED": 27
+  },
+  "expiredEligibleBeforeAndAfter": 15,
+  "newlyReleasedExpired": 0,
+  "knownRepeatsSelected": 0,
+  "selectedPathOldFactsAttemptsAssumingMatchingResearchIndex": {
+    "before": 27,
+    "after": 12
+  },
+  "modelCallsInReadOnlyReplay": 0,
+  "specialistMainMockModelCalls": 11,
+  "archiveFacts": 75,
+  "archiveQualified": 32,
+  "archiveNoMaterial": 17,
+  "archiveSelected": 15
+}

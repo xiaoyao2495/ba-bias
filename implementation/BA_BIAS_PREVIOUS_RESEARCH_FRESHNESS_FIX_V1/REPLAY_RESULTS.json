@@ -1,0 +1,2500 @@
+{
+  "synthetic": [
+    {
+      "ageHours": 1,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 1,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 1,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 1,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 1,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 1,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 1,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 12,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 12,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 12,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 12,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 12,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 12,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 12,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 24,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 24,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 24,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 24,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 24,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 24,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 24,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48.00000027777778,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48.00000027777778,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48.00000027777778,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48.00000027777778,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48.00000027777778,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48.00000027777778,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48.00000027777778,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48.000277777777775,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48.000277777777775,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48.000277777777775,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48.000277777777775,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 48.000277777777775,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48.000277777777775,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 48.000277777777775,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 72,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 72,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 72,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 72,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 72,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 72,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 72,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 168,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 168,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 168,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 168,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 168,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 168,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 168,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 720,
+      "name": "SAME",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 720,
+      "name": "PRICE_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 720,
+      "name": "OI_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 720,
+      "name": "FUNDING_DRIFT",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "NO_MATERIAL_UPDATE",
+        "reason": "NO_MATERIAL_CHANGE",
+        "score": null,
+        "rank": null
+      }
+    },
+    {
+      "ageHours": 720,
+      "name": "REVERSAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 25,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 720,
+      "name": "OI_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    },
+    {
+      "ageHours": 720,
+      "name": "FUNDING_MATERIAL",
+      "before": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      },
+      "after": {
+        "symbol": "TESTUSDT",
+        "status": "SELECTED",
+        "reason": "TOP_K",
+        "score": 50,
+        "rank": 1,
+        "storyType": "MATERIAL_UPDATE"
+      }
+    }
+  ],
+  "archive": [
+    {
+      "runId": "hourly_20261011_1200",
+      "status": "LOCAL_LEGACY_READONLY_REPLAY_NOT_WINDOWS_PRODUCTION",
+      "facts": 26,
+      "before": {
+        "qualified": 18,
+        "selected": [
+          {
+            "symbol": "LAUSDT",
+            "score": 61.475722
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "score": 54.521267
+          },
+          {
+            "symbol": "STRKUSDT",
+            "score": 48.537521
+          },
+          {
+            "symbol": "WALUSDT",
+            "score": 43.07713
+          },
+          {
+            "symbol": "ERAUSDT",
+            "score": 41.425307
+          }
+        ],
+        "noMaterial": 0,
+        "rows": [
+          {
+            "symbol": "APRUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 25,
+            "rank": 16,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "BRUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 27.051779,
+            "rank": 14,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "CHIPUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40,
+            "rank": 7,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "ERAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 41.425307,
+            "rank": 5,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "GRASSUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "JCTUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40,
+            "rank": 8,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 61.475722,
+            "rank": 1,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LDOUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 26.666667,
+            "rank": 15,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "LUMIAUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 36.476667,
+            "rank": 10,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 54.521267,
+            "rank": 2,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "METUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "MINAUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 30.784667,
+            "rank": 12,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "NIGHTUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 23.542535,
+            "rank": 18,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "PENGUUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "PIXELUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 32.116687,
+            "rank": 11,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "POLUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40.537396,
+            "rank": 6,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "PUMPUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "QNTUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "RLCUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 29.3418,
+            "rank": 13,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "SEIUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "STRKUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 48.537521,
+            "rank": 3,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "TIAUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 25,
+            "rank": 17,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "USUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40,
+            "rank": 9,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "WALUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 43.07713,
+            "rank": 4,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "WLFIUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "ZROUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          }
+        ]
+      },
+      "after": {
+        "qualified": 18,
+        "selected": [
+          {
+            "symbol": "LAUSDT",
+            "score": 61.475722
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "score": 54.521267
+          },
+          {
+            "symbol": "STRKUSDT",
+            "score": 48.537521
+          },
+          {
+            "symbol": "WALUSDT",
+            "score": 43.07713
+          },
+          {
+            "symbol": "ERAUSDT",
+            "score": 41.425307
+          }
+        ],
+        "noMaterial": 0,
+        "rows": [
+          {
+            "symbol": "APRUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 25,
+            "rank": 16,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "BRUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 27.051779,
+            "rank": 14,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "CHIPUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40,
+            "rank": 7,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "ERAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 41.425307,
+            "rank": 5,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "GRASSUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "JCTUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40,
+            "rank": 8,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 61.475722,
+            "rank": 1,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LDOUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 26.666667,
+            "rank": 15,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "LUMIAUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 36.476667,
+            "rank": 10,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 54.521267,
+            "rank": 2,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "METUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "MINAUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 30.784667,
+            "rank": 12,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "NIGHTUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 23.542535,
+            "rank": 18,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "PENGUUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "PIXELUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 32.116687,
+            "rank": 11,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "POLUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40.537396,
+            "rank": 6,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "PUMPUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "QNTUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "RLCUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 29.3418,
+            "rank": 13,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "SEIUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "STRKUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 48.537521,
+            "rank": 3,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "TIAUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 25,
+            "rank": 17,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "USUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40,
+            "rank": 9,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "WALUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 43.07713,
+            "rank": 4,
+            "storyType": "NEW_STORY"
+          },
+          {
+            "symbol": "WLFIUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "ZROUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          }
+        ]
+      },
+      "same": true,
+      "expiredSummaries": 0
+    },
+    {
+      "runId": "hourly_20261011_1400",
+      "status": "LOCAL_LEGACY_READONLY_REPLAY_NOT_WINDOWS_PRODUCTION",
+      "facts": 25,
+      "before": {
+        "qualified": 6,
+        "selected": [
+          {
+            "symbol": "LUMIAUSDT",
+            "score": 80.066156
+          },
+          {
+            "symbol": "ERAUSDT",
+            "score": 58.885474
+          },
+          {
+            "symbol": "JCTUSDT",
+            "score": 55
+          },
+          {
+            "symbol": "POLUSDT",
+            "score": 40.357155
+          },
+          {
+            "symbol": "USUSDT",
+            "score": 40
+          }
+        ],
+        "noMaterial": 11,
+        "rows": [
+          {
+            "symbol": "AGTUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "APRUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "BRUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "CHIPUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "ERAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 58.885474,
+            "rank": 2,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "GRASSUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "INJUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "JCTUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 55,
+            "rank": 3,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LAUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "LDOUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 26.666667,
+            "rank": 6,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LUMIAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 80.066156,
+            "rank": 1,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "MINAUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "NIGHTUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "PENGUUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "PIXELUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "POLUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 40.357155,
+            "rank": 4,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "PUMPUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "QNTUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "RLCUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "SEIUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "STRKUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "TIAUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "USUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 40,
+            "rank": 5,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "WALUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          }
+        ]
+      },
+      "after": {
+        "qualified": 6,
+        "selected": [
+          {
+            "symbol": "LUMIAUSDT",
+            "score": 80.066156
+          },
+          {
+            "symbol": "ERAUSDT",
+            "score": 58.885474
+          },
+          {
+            "symbol": "JCTUSDT",
+            "score": 55
+          },
+          {
+            "symbol": "POLUSDT",
+            "score": 40.357155
+          },
+          {
+            "symbol": "USUSDT",
+            "score": 40
+          }
+        ],
+        "noMaterial": 11,
+        "rows": [
+          {
+            "symbol": "AGTUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "APRUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "BRUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "CHIPUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "ERAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 58.885474,
+            "rank": 2,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "GRASSUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "INJUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "JCTUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 55,
+            "rank": 3,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LAUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "LDOUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 26.666667,
+            "rank": 6,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LUMIAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 80.066156,
+            "rank": 1,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "MINAUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "NIGHTUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "PENGUUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "PIXELUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "POLUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 40.357155,
+            "rank": 4,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "PUMPUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "QNTUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "RLCUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "SEIUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "STRKUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "TIAUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "USUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 40,
+            "rank": 5,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "WALUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          }
+        ]
+      },
+      "same": true,
+      "expiredSummaries": 0
+    },
+    {
+      "runId": "hourly_20261011_1600",
+      "status": "LOCAL_LEGACY_READONLY_REPLAY_NOT_WINDOWS_PRODUCTION",
+      "facts": 24,
+      "before": {
+        "qualified": 8,
+        "selected": [
+          {
+            "symbol": "CFXUSDT",
+            "score": 71.231085
+          },
+          {
+            "symbol": "LUMIAUSDT",
+            "score": 70
+          },
+          {
+            "symbol": "ERAUSDT",
+            "score": 63.928526
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "score": 50.992103
+          },
+          {
+            "symbol": "MINAUSDT",
+            "score": 40
+          }
+        ],
+        "noMaterial": 6,
+        "rows": [
+          {
+            "symbol": "AGTUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "APRUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "CFXUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 71.231085,
+            "rank": 1,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "CHIPUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "ERAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 63.928526,
+            "rank": 3,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "GRASSUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "INJUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "JCTUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "LAUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "LDOUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 26.666667,
+            "rank": 7,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LUMIAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 70,
+            "rank": 2,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 50.992103,
+            "rank": 4,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "METUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "MINAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 40,
+            "rank": 5,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "PENGUUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "PIXELUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "POLUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 24.768792,
+            "rank": 8,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "QNTUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "RLCUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "SEIUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "STRKUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "TIAUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "USUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40,
+            "rank": 6,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "WALUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          }
+        ]
+      },
+      "after": {
+        "qualified": 8,
+        "selected": [
+          {
+            "symbol": "CFXUSDT",
+            "score": 71.231085
+          },
+          {
+            "symbol": "LUMIAUSDT",
+            "score": 70
+          },
+          {
+            "symbol": "ERAUSDT",
+            "score": 63.928526
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "score": 50.992103
+          },
+          {
+            "symbol": "MINAUSDT",
+            "score": 40
+          }
+        ],
+        "noMaterial": 6,
+        "rows": [
+          {
+            "symbol": "AGTUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "APRUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "CFXUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 71.231085,
+            "rank": 1,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "CHIPUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "ERAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 63.928526,
+            "rank": 3,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "GRASSUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "INJUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "JCTUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "LAUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "LDOUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 26.666667,
+            "rank": 7,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "LUMIAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 70,
+            "rank": 2,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "MAGICUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 50.992103,
+            "rank": 4,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "METUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "MINAUSDT",
+            "status": "SELECTED",
+            "reason": "TOP_K",
+            "score": 40,
+            "rank": 5,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "PENGUUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "PIXELUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "POLUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 24.768792,
+            "rank": 8,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "QNTUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "RLCUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "SEIUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "STRKUSDT",
+            "status": "NO_MATERIAL_UPDATE",
+            "reason": "NO_MATERIAL_CHANGE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "TIAUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          },
+          {
+            "symbol": "USUSDT",
+            "status": "QUALIFIED_BUT_NOT_SELECTED",
+            "reason": "RANK_BELOW_TOP_K",
+            "score": 40,
+            "rank": 6,
+            "storyType": "MATERIAL_UPDATE"
+          },
+          {
+            "symbol": "WALUSDT",
+            "status": "LOW_RESEARCH_VALUE",
+            "reason": "BELOW_RESEARCH_GATE",
+            "score": null,
+            "rank": null
+          }
+        ]
+      },
+      "same": true,
+      "expiredSummaries": 0
+    }
+  ],
+  "externalCalls": 0,
+  "modelCalls": 0,
+  "writes": 0
+}
