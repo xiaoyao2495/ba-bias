@@ -5,6 +5,7 @@ import {publicAnalysis,BIASES} from '../analysis/market-bias-v2/render.js';
 import {guardResearch} from '../analysis/market-bias-v2/guard.js';
 import path from 'node:path';
 import {sanitize} from './security.js';
+import {assertRetentionIdle} from '../lifecycle/retention-state.js';
 export const RUN=/^[A-Za-z0-9_-]{1,100}$/;
 export const SYMBOL=/^[\p{L}\p{N}]{1,40}USDT$/u;
 export const DIRECTIONS={...BIASES};
@@ -26,7 +27,9 @@ export class Reader{
   })();this.pending.set(relative,p);try{return await p;}finally{this.pending.delete(relative);}
  }
  async names(relative){const c=this.namesCache.get(relative);if(c&&this.now()-c.at<this.ttl)return c.value;let value=[];try{const target=await this.contained(relative);value=await fs.readdir(target);}catch{}if(this.namesCache.size>=500)this.namesCache.delete(this.namesCache.keys().next().value);this.namesCache.set(relative,{at:this.now(),value});return value;}
+ async lifecycle(){const r=await assertRetentionIdle(this.root);if(this.retentionEpoch!==r.lastCompleted){this.index=null;this.cache.clear();this.namesCache.clear();this.retentionEpoch=r.lastCompleted;}return r;}
  async runsIndex(){
+  const lifecycle=await this.lifecycle();
   if(this.index&&this.now()-this.indexAt<this.ttl)return this.index;
   if(this.indexPending)return this.indexPending;
   this.indexPending=(async()=>{const h=await this.json('market-bias-v2/state/history.json'),entries=new Map();for(const [id,r]of Object.entries(h.value?.runs||{}))if(RUN.test(id)&&r.contract===CONTRACT)entries.set(id,{runId:id,...pick(r,['status','scheduledAt','startedAt','finishedAt','generated','sent']),indexTime:time(r)});
@@ -34,11 +37,12 @@ export class Reader{
    const dirs=await this.names('runs'),unknown=dirs.filter(id=>RUN.test(id)&&!entries.has(id));
    // Bounded orphan discovery; established production history is the authoritative index.
    for(const id of unknown.slice(0,100)){const r=await this.json(`runs/${id}/result.json`);if(r.value?.runId===id&&r.value.contract===CONTRACT)entries.set(id,{...pick(r.value,['runId','status','scheduledAt','startedAt','finishedAt','generated','sent']),indexTime:time(r.value)});}
-   this.index={items:[...entries.values()].sort((a,b)=>(b.indexTime??-Infinity)-(a.indexTime??-Infinity)||a.runId.localeCompare(b.runId)),indexError:h.error,unindexedBeyondLimit:Math.max(0,unknown.length-100)};this.indexAt=this.now();return this.index;
+   const finalLifecycle=await assertRetentionIdle(this.root);if(finalLifecycle.lastCompleted!==lifecycle.lastCompleted)throw Object.assign(Error('RETENTION_SNAPSHOT_CHANGED'),{status:503});
+   this.index={items:[...entries.values()].filter(r=>!lifecycle.retiredRuns[r.runId]).sort((a,b)=>(b.indexTime??-Infinity)-(a.indexTime??-Infinity)||a.runId.localeCompare(b.runId)),indexError:h.error,unindexedBeyondLimit:Math.max(0,unknown.length-100)};this.indexAt=this.now();return this.index;
   })();try{return await this.indexPending;}finally{this.indexPending=null;}
  }
  clean(v){return sanitize(v,this.secrets);}
- async result(id){validate(id,'run');const r=await this.json(`runs/${id}/result.json`);if(!r.value)return r;if(r.value?.contract!==CONTRACT)return {value:null,error:'SCOPE_NOT_INCLUDED'};if(r.value?.runId!==id)return {value:null,error:r.error||'RUN_ID_MISMATCH'};return r;}
+ async result(id){validate(id,'run');const lifecycle=await this.lifecycle(),history=await this.json('market-bias-v2/state/history.json');if(lifecycle.retiredRuns[id]||history.value?.legacyRunIds?.[id]?.status==='RETIRED')throw Object.assign(Error('RUN_RETIRED_RETENTION_120H'),{status:410});const r=await this.json(`runs/${id}/result.json`);if(!r.value)return r;if(r.value?.contract!==CONTRACT)return {value:null,error:'SCOPE_NOT_INCLUDED'};if(r.value?.runId!==id)return {value:null,error:r.error||'RUN_ID_MISMATCH'};return r;}
  async selections(id){validate(id,'run');const names=(await this.names(`runs/${id}/selection`)).filter(n=>n.endsWith('.json')&&SYMBOL.test(n.slice(0,-5)));const rows=[],errors=[];
   for(const name of names.slice(0,1500)){const r=await this.json(`runs/${id}/selection/${name}`),s=name.slice(0,-5);if(r.value?.symbol!==s){errors.push({symbol:s,error:r.error||'SYMBOL_MISMATCH'});continue;}rows.push(this.clean(pick(r.value,['symbol','status','reason','score','rank','gate','dimensions','materialEvidence','comparison','historicalRarity'])));}
   rows.sort((a,b)=>(a.rank??Infinity)-(b.rank??Infinity)||a.symbol.localeCompare(b.symbol,'en'));return {rows,errors,available:names.length>0,source:'saved production selection; no recomputation',truncated:names.length>1500};
@@ -50,6 +54,7 @@ export class Reader{
  async run(id){const record=await this.result(id);if(!record.value)throw Object.assign(Error(record.error==='MISSING'?'RUN_NOT_FOUND':record.error),{status:['MISSING','SCOPE_NOT_INCLUDED'].includes(record.error)?404:422});
   const r=record.value,[selector,boxes]=await Promise.all([this.selections(id),this.outboxes(id)]),newSelector=r.selector?.version==='DETERMINISTIC_SELECTOR_V1';
   const counters={scanned:r.scannedSymbols??null,facts:r.factPackagesCount??null,selectorEvaluated:newSelector?r.selectorEvaluated??null:null,hardGatePassed:selector.available?selector.rows.filter(x=>x.gate?.extreme||x.gate?.resonance).length:null,noMaterial:selector.available?selector.rows.filter(x=>['NO_MATERIAL_UPDATE','DUPLICATE'].includes(x.status)).length:null,qualified:newSelector?r.selector?.qualifiedCount??null:null,selected:newSelector?r.selector?.selected?.length??null:null,biasValid:r.biasAnalyses!=null&&r.biasFailures!=null?r.biasAnalyses-r.biasFailures:null,biasFailed:r.biasFailures??null,outbox:r.generated??null,sent:r.sent??null};
+  await this.result(id); // Do not serve a multi-file Run view across retirement.
   return this.clean({record:pick(r,['runId','status','mode','triggerType','scheduledAt','startedAt','finishedAt','evaluationTime','dataCutoff','totalDurationMs','errors','rejections','candidateEvaluations','selector','contract','analystVersion','analystCost','deepseekUsage','unassessedCandidates','scanBudgetExceeded']),counters,selector,dataSource:newSelector?'DETERMINISTIC_SELECTOR_V1':'LEGACY_RUN_NO_SELECTOR_RANKING',delivery:boxes.map(o=>({symbol:o.symbol,storyType:o.storyType,generatedAt:o.generatedAt,researchId:o.researchId,...pick(o.delivery,['deliveryId','status','acknowledgedAt','error','businessCode','parts'])})),noMessageReason:noMessageReason(r,boxes,counters),snapshotState:r.finishedAt!=null&&r.status!=='RUNNING'?'COMPLETED_RECORD':'IN_PROGRESS',cost:{...r.analystCost,usageStatus:r.analystCost?.usageStatus||'UNKNOWN',legacyRecordedUsage:r.analystCost?null:r.tokenUsage??null,moneyCost:null,moneyCostStatus:'UNKNOWN_NO_PRICING_RECORD'}});
  }
  async listRuns({page=1,limit=24,q='',status='',symbol='',notification='',bias='',delivery='',from='',to='',completedOnly=false}={}){
@@ -67,6 +72,7 @@ export class Reader{
   const saved=rr.value,input=audit.value?.input;let research=saved;
   if(saved?.executionState==='VALIDATED'&&(!input||saved.factsPackageSha256!==fr.sha256||audit.value.inputHash!==sha(input)||!guardResearch(saved,input).ok))research=null;
   const analysis=publicAnalysis(research,input),box=boxes.find(x=>x.symbol===symbol),selection=sr.value?.symbol===symbol?pick(sr.value,['symbol','status','reason','score','rank','gate','dimensions','historicalRarity','materialEvidence']):null;
+  await this.result(id); // Recheck retirement after the multi-file research read.
   const support=new Set(analysis.supportingEvidence?.flatMap(e=>e.factRefs)||[]),conflict=new Set(analysis.conflictingEvidence?.flatMap(e=>e.factRefs)||[]);
   const evidence=(f.evidence||[]).map(e=>({...pick(e,['evidenceId','endpoint','params','dataTimes','timestampMeaning','formula','result','phrase']),factRef:`CURRENT:${symbol}:${e.evidenceId}`,unit:unitFor(e.evidenceId),role:support.has(`CURRENT:${symbol}:${e.evidenceId}`)?'SUPPORTING':conflict.has(`CURRENT:${symbol}:${e.evidenceId}`)?'CONFLICTING':'FACT',event:(f.anomalies||[]).filter(a=>a.evidenceIds?.includes(e.evidenceId)).map(a=>pick(a,['kind','strength']))}));
   return this.clean({contract:CONTRACT,scope:'V2_ONLY',runId:id,symbol,evaluationTime:f.evaluationTime,dataCutoff:f.dataCutoff,schemaVersion:f.schemaVersion,identity:f.identity,metrics:metrics(f),anomalies:f.anomalies,longShort:longShortView(f.longShort),selection,analysis,evidence,previousEvidence:(input?.previousFacts||[]).map(e=>({factRef:e.factRef,evidenceId:e.originalId,result:e.value,unit:e.unit,window:e.window,endpoint:e.source?.endpoint,dataTimes:(e.dataTimes||[]).map(ms=>({ms})),timestampMeaning:e.timestampMeaning,formula:e.formula,role:'FACT',phrase:e.description})),delivery:box?{...pick(box.delivery,['deliveryId','status','acknowledgedAt','parts']),generatedAt:box.generatedAt}:null,storyType:box?.storyType??null,whatChanged:box?.intelligence?.whatChanged??null,newEvidence:box?.intelligence?.newEvidence??null,whyMaterial:box?.intelligence?.whyMaterial??null,unconfirmed:box?.intelligence?.unconfirmed??null,observations:box?.intelligence?.observations??null,message:{text:box?.intelligence?.biasText??null,source:'saved V2 research text; not a prediction',parts:box?.delivery?.parts??null},warnings:f.warnings??[],dataCompleteness:f.dataCompleteness,readErrors:{research:rr.error,selection:sr.error}});

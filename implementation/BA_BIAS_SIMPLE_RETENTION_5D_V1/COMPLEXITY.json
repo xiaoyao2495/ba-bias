@@ -1,0 +1,14 @@
+{
+  "before": {
+    "src/storage/retention.js": 186,
+    "src/storage/retention-manifest.js": 65,
+    "src/lifecycle/retention-state.js": 30,
+    "scripts/data-retention.js": 12
+  },
+  "after": {
+    "src/storage/retention.js": 155,
+    "src/storage/retention-manifest.js": 31,
+    "src/lifecycle/retention-state.js": 15,
+    "scripts/data-retention.js": 12
+  }
+}

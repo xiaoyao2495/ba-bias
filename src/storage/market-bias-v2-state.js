@@ -3,6 +3,8 @@ import path from 'node:path';
 import {readJson,atomicWrite,lock,emptyHistory} from './history.js';
 import {CONTRACT,NAMESPACE,sha,fail} from '../analysis/market-bias-v2/common.js';
 import {validateResearch} from '../analysis/market-bias-v2/parser.js';
+import {inspectManifest,SIMPLE_MANIFEST,fileHash} from './retention-manifest.js';
+import {assertRetentionIdle} from '../lifecycle/retention-state.js';
 export const v2Dir=root=>path.join(root,NAMESPACE);
 const projection=o=>Object.fromEntries(['storyKey','summary','lastResearchTime','lastOutputTime','runId','evidenceIds','status'].filter(k=>o[k]!==undefined).map(k=>[k,structuredClone(o[k])]));
 export async function immutableWrite(file,value){await atomicWrite(file,value,{overwrite:false});const read=await readJson(file,null);if(sha(read)!==sha(value))throw fail('IMMUTABLE_RECORD_COLLISION','PERSISTENCE');return read;}
@@ -35,14 +37,16 @@ export async function initializeV2(root,{now=Date.now}={}){
  }finally{await release();}
 }
 export async function assertPrepared(root){
+ const lifecycle=await assertRetentionIdle(root);
  const dir=v2Dir(root),[manifest,history]=await Promise.all([readJson(path.join(dir,'state','cutover-manifest.json'),null),readJson(path.join(dir,'state','history.json'),null)]);
  const object=x=>x&&typeof x==='object'&&!Array.isArray(x),id=/^[A-Za-z0-9_-]{1,100}$/;
  if(manifest?.contract!==CONTRACT||history?.contract!==CONTRACT||!object(manifest.legacyHashes)||!object(history.selectorBaseline)||!object(history.legacyRunIds)||!object(history.research)||!object(history.runs)||!Number.isSafeInteger(manifest.preparedAt)||!Array.isArray(manifest.blockedDeliveryIds)||!Array.isArray(manifest.legacyRunIds)||!/^([a-f0-9]{64})$/.test(manifest.seedSha256))throw fail('V2_CUTOVER_NOT_PREPARED','PERSISTENCE');
  if(Object.entries(manifest.legacyHashes).some(([p,h])=>path.isAbsolute(p)||p.split(/[\\/]/).includes('..')||!(/^[a-f0-9]{64}$/).test(h))||manifest.legacyRunIds.some(r=>!id.test(r))||manifest.blockedDeliveryIds.some(d=>typeof d!=='string'||d.length>200)||Object.keys(history.runs).some(r=>!id.test(r)))throw fail('V2_STATE_CORRUPT','PERSISTENCE');
  for(const [key,r]of Object.entries(history.research))if(r.contract!==CONTRACT||!/^bias_[a-f0-9]{32}$/.test(key)||r.recordId!==key||!id.test(r.runId)||!(/^[\p{L}\p{N}]{1,40}USDT$/u).test(r.symbol)||!Number.isSafeInteger(r.factsAsOf)||!['VALIDATED','UNAVAILABLE'].includes(r.executionState)||!(/^[a-f0-9]{64}$/).test(r.researchSha256))throw fail('V2_RESEARCH_INDEX_CORRUPT','PERSISTENCE');
+ if(manifest.legacyHandling===SIMPLE_MANIFEST&&(!lifecycle.manifestSha256||await fileHash(path.join(dir,'state/cutover-manifest.json'))!==lifecycle.manifestSha256))throw fail('RETENTION_MANIFEST_BINDING_INVALID','PERSISTENCE');
  return {manifest,history};
 }
-export async function checkLegacyIntegrity(root){const {manifest}=await assertPrepared(root),differences=[];for(const [relative,h]of Object.entries(manifest.legacyHashes)){try{if(sha(await fs.readFile(path.join(root,relative)))!==h)differences.push(relative);}catch{differences.push(relative);}}return {ok:differences.length===0,differences};}
+export async function checkLegacyIntegrity(root){const {manifest}=await assertPrepared(root),state=await assertRetentionIdle(root);const report=await inspectManifest(root,manifest,state);return {...report,differences:report.errors.map(e=>e.path)};}
 export async function loadV2Outbox(root){
  const dir=path.join(v2Dir(root),'outbox'),files=await fs.readdir(dir).catch(e=>{if(e.code==='ENOENT')return [];throw e;});const records=[];
  for(const file of files){if(!/^[A-Za-z0-9_-]+_[\p{L}\p{N}]{1,40}USDT\.json$/u.test(file))continue;const r=await readJson(path.join(dir,file),null);if(r?.contract!==CONTRACT||r.intelligence?.contract!==CONTRACT||!validateResearch(r.intelligence.biasResearch)||r.intelligence.biasResearch.executionState!=='VALIDATED'||r.intelligenceSha256!==sha(r.intelligence))throw fail('FOREIGN_QUEUE_RECORD','PERSISTENCE');

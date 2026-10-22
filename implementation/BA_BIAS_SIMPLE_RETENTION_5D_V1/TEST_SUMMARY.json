@@ -1,0 +1,84 @@
+{
+  "baseline.txt": {
+    "counts": {
+      "tests": 1588,
+      "pass": 1572,
+      "fail": 16,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "failures": [
+      "Judge recovery, detectors, queue, History, scheduler and production state remain byte-identical",
+      "production scan command and protected files retain baseline bytes",
+      "history/outbox/raw model responses/env remain byte identical in offline suite",
+      "all protected production logic and original tests remain unchanged",
+      "NO_EDGE forensic 39 Binance untouched, no external invocation",
+      "NO_EDGE forensic 42 Scanner untouched, no external invocation",
+      "NO_EDGE forensic 43 History hashes immutable",
+      "NO_EDGE forensic 48 immutable production policies beyond renderer",
+      "output quality 49 Binance integration unchanged and offline replay excludes calls",
+      "output quality 52 Scanner integration unchanged and offline replay excludes calls",
+      "output quality 53 History immutable",
+      "Selector 28 scanner bytes unchanged",
+      "Selector 39 production files identical",
+      "V4 all pre-existing files including production and old experimental contracts remain identical",
+      "V4 protected existing files incl V3, state, env, snapshots are unchanged",
+      "every protected market, scheduling and delivery implementation matches the pre-task snapshot"
+    ]
+  },
+  "specialist.txt": {
+    "counts": {
+      "tests": 250,
+      "pass": 250,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "failures": []
+  },
+  "full.txt": {
+    "counts": {
+      "tests": 1608,
+      "pass": 1592,
+      "fail": 16,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "failures": [
+      "Judge recovery, detectors, queue, History, scheduler and production state remain byte-identical",
+      "production scan command and protected files retain baseline bytes",
+      "history/outbox/raw model responses/env remain byte identical in offline suite",
+      "all protected production logic and original tests remain unchanged",
+      "NO_EDGE forensic 39 Binance untouched, no external invocation",
+      "NO_EDGE forensic 42 Scanner untouched, no external invocation",
+      "NO_EDGE forensic 43 History hashes immutable",
+      "NO_EDGE forensic 48 immutable production policies beyond renderer",
+      "output quality 49 Binance integration unchanged and offline replay excludes calls",
+      "output quality 52 Scanner integration unchanged and offline replay excludes calls",
+      "output quality 53 History immutable",
+      "Selector 28 scanner bytes unchanged",
+      "Selector 39 production files identical",
+      "V4 all pre-existing files including production and old experimental contracts remain identical",
+      "V4 protected existing files incl V3, state, env, snapshots are unchanged",
+      "every protected market, scheduling and delivery implementation matches the pre-task snapshot"
+    ]
+  },
+  "targeted.txt": {
+    "counts": {
+      "tests": 563,
+      "pass": 562,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "failures": [
+      "every protected market, scheduling and delivery implementation matches the pre-task snapshot"
+    ]
+  },
+  "newFailures": [],
+  "sameBaselineFailures": true
+}

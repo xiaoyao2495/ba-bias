@@ -1,0 +1,23 @@
+{
+  "checked": 8586,
+  "changed": [
+    "scripts/data-retention.js",
+    "src/lifecycle/retention-state.js",
+    "src/storage/market-bias-v2-state.js",
+    "src/storage/retention-manifest.js",
+    "src/storage/retention.js",
+    "src/web/reader.js",
+    "test/data-retention.test.js",
+    "test/retention-manifest-migration.test.js",
+    "test/retention-migration-fixture.js"
+  ],
+  "unexpected": [],
+  "productionEnvShadowUnchanged": true,
+  "previousReportsUnchanged": true,
+  "noRealApply": true,
+  "productionBefore": 8350,
+  "productionAfter": 8350,
+  "newProductionFiles": [],
+  "missingProductionFiles": [],
+  "allThreeShadowJournalBytesUnchangedThisTask": true
+}

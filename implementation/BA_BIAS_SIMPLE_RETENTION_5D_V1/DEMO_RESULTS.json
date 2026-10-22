@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "platform": "darwin",
+  "beforeLogicalBytes": 1656098,
+  "afterLogicalBytes": 208189,
+  "reclaimedNetBytes": 1447909,
+  "deletedBusinessBytes": 1445074,
+  "retiredRuns": 4,
+  "batches": [
+    3,
+    1
+  ],
+  "lifecycleFiles": [
+    "state.json"
+  ],
+  "lifecycleStateBytes": 652,
+  "verify": true,
+  "durationMs": 224,
+  "maxRssKiB": 92880,
+  "externalCalls": 0
+}

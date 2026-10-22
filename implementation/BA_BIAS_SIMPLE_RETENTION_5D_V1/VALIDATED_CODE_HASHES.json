@@ -1,0 +1,12 @@
+{
+  "src/storage/market-bias-v2-state.js": "b4f7ce367db3385cdde99ea3b561ddbdd020ba8bf7741fdba390cb1d86266601",
+  "src/web/reader.js": "4425fca6cb73ee0582b3d78fd0a8136d0bbd2307bcbbaa1a2478b1754433727e",
+  "src/lifecycle/retention-state.js": "b7ed0715ced5f0b17a8d2ad7f636a44d13a97e82b17840365623aa8cc2e40931",
+  "src/storage/retention.js": "154213210af2ef26a60233e5a1758f665d51c40134979e92cae72a24f1ed7464",
+  "src/storage/retention-manifest.js": "039b5a0f4976df9fe635f4dd8c658bde03171303309a8a8a48e065d97842e12f",
+  "scripts/data-retention.js": "a1d02d026984cd7a154b5668a4ce6ac04a05854dae0a03a31bb343309a6484bb",
+  "test/data-retention.test.js": "54604393caec9e811eabaf37fa81c40f283acaa8cb6a1b92d76ecd0caaaffa10",
+  "test/retention-manifest-migration.test.js": "fabc01b9d4f3aa1f7302a4277dacfca209d70177476a48e69ea48f5d806e268b",
+  "test/retention-migration-fixture.js": "99c8e59e82f765bb3eaea01a9c41c68be576361d762588c1bbbfcc3a5ba9fad7",
+  "test/simple-retention.test.js": "b7f40063725d62a0fd1a2b8dc38a0f2a686ed6426628769d102a3ae423497153"
+}
