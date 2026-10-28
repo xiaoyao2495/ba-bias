@@ -1,4 +1,4 @@
-import {strengthLabel,validMetric,factTags,evidenceSummary,observationState,categoryLabel,mainNavigation,watchSlotLabel,watchBiasLabel,marketWatchView,compactWatch,bullishWatchItems,formatTrendLabel,trendDirection,formatTrendNumber,recentTrendRuns,trendReason} from './presentation.js';
+import {strengthLabel,validMetric,factTags,evidenceSummary,observationState,categoryLabel,mainNavigation,watchSlotLabel,watchBiasLabel,marketWatchView,compactWatch,bullishWatchItems,formatTrendLabel,trendDirection,formatTrendNumber,trendReason,symbolTrendHistory} from './presentation.js';
 const content=document.querySelector('#content'),notice=document.querySelector('#notice');
 let publicMode=false,simpleMode=false,csrf=null,authenticated=false,requestGeneration=0,lastDataAt=null;const scrolls=new Map(),viewCache=new Map(),navQueries=new Map();
 const E=(tag,text,className)=>{const n=document.createElement(tag);if(text!==undefined&&text!==null)n.textContent=String(text);if(className)n.className=className;return n;};
@@ -60,17 +60,12 @@ const COUNTERS={scanned:'扫描合约',facts:'Facts',selectorEvaluated:'Selector
 function counts(c,primary=false){const grid=E('div',null,'metrics');for(const k of publicMode?['facts','qualified','selected','biasValid']:primary?['facts','selected','biasValid','sent']:Object.keys(COUNTERS))grid.append(add(E('div',null,'stat'),E('b',unknown(c?.[k]),'number'),E('span',COUNTERS[k])));return grid;}
 function statusPanel(h){const state=h?.scanner??'UNKNOWN',n=card();n.classList.add('status');if(['STOPPED','DEGRADED'].includes(state))n.classList.add('error');if(['UNKNOWN','STALE'].includes(state))n.classList.add('warning');add(n,E('h3',`Web正常 / Scanner ${state==='STOPPED'?'已停止':state}`),expandable('进程观察依据',add(E('div'),caption('观察依据',h?.process?.basis),caption('状态读取',when(h?.observedAt)))));return n;}
 async function simpleOverview(){
- const h=await api('/api/trend-simple/history'),frag=document.createDocumentFragment(),runs=recentTrendRuns(h.items);
- frag.append(E('h1','15M 看涨趋势观察'),E('p','最近6次扫描 · L/S/N 是趋势缩写，不是交易指令。','muted'));
- if(!runs.length)frag.append(E('p','暂无扫描记录。','muted'));
- for(const [index,run] of runs.entries()){
-  const detail=E('details',null,'simple-run');if(index===0)detail.open=true;
-  const title=E('summary',`${when(run.cycle)} · ${formatTrendLabel(run.status)}`);detail.append(title);
-  const stats=run.statistics||{};detail.append(E('p',`扫描 ${unknown(stats.scannedSymbols??run.coverage?.requested)} · 候选 ${unknown(stats.bullishCandidates)} · LLM ${unknown(stats.llmCalls??run.calls)} · 看涨 ${unknown(stats.validatedBullCount)} · 否决 ${unknown(stats.rejectedCount)} · 失败 ${unknown(stats.failedCount)}`,'simple-stats'));
-  const items=bullishWatchItems(run.items);if(!items.length)detail.append(E('p','本轮暂无通过验证的看涨趋势','muted'));
-  for(const row of items){const c=card();c.classList.add('simple-trend-card');const head=E('div',null,'simple-trend-head');head.append(E('strong',row.symbol),E('b',trendDirection(row),'simple-trend-direction'));c.append(head);add(c,caption('15m涨跌',formatTrendNumber(row.priceChange15m,2,100,'%')),caption('ADX / ER',`${formatTrendNumber(row.adx14,1)} · ${formatTrendNumber(row.er20,2)}`),caption('均线',formatTrendLabel(row.indicatorPath)),caption('结构',formatTrendLabel(row.structurePath)),caption('阶段',row.phaseStatus==='UNVERIFIED'?'未验证':formatTrendLabel(row.phase)),caption('证据强度',formatTrendLabel(row.evidenceStrength)),caption('依据',(row.derivedEvidence||[]).join('、')||'暂无摘要'),E('p',trendReason(row),'muted'));detail.append(c);}
-  frag.append(detail);
- }
+ const [run,h]=await Promise.all([api('/api/trend-simple'),api('/api/trend-simple/history')]),frag=document.createDocumentFragment();
+ frag.append(E('h1','15M 看涨趋势观察'),caption('扫描时间',when(run.cycle)),caption('运行状态',formatTrendLabel(run.status)));
+ const stats=run.statistics||{};if(stats.scannedSymbols!==null&&stats.scannedSymbols!==undefined)frag.append(E('p',`扫描 ${unknown(stats.scannedSymbols)} · 候选 ${unknown(stats.bullishCandidates)} · LLM ${unknown(stats.llmCalls)} · 看涨 ${unknown(stats.validatedBullCount)} · 否决 ${unknown(stats.rejectedCount)} · 失败 ${unknown(stats.failedCount)}`,'simple-stats'));
+ const items=bullishWatchItems(run.items);if(items.length)frag.append(E('p','历史：L 看涨 · S 看跌 · N 中性 · F 研究失败 · — 未研究','simple-stats'));
+ if(!items.length)frag.append(E('p','本轮暂无通过验证的看涨趋势','muted'));
+ for(const row of items){const c=card();c.classList.add('simple-trend-card');const head=E('div',null,'simple-trend-head'),marks=E('div',null,'simple-trend-history');marks.setAttribute('aria-label','最近扫描趋势，从旧到新');for(const [index,entry] of symbolTrendHistory(run,h.items,row.symbol).entries()){const classes={L:'bias-l',S:'bias-s',N:'bias-n',F:'simple-trend-fail','—':'bias-missing'},m=E('span',entry.mark,classes[entry.mark]);m.title=when(entry.cycle);if(entry.runId===run.runId)m.classList.add('simple-trend-direction');else m.classList.add('simple-trend-past');marks.append(m);}head.append(E('strong',row.symbol),marks);c.append(head);add(c,caption('15m涨跌',formatTrendNumber(row.priceChange15m,2,100,'%')),caption('ADX / ER',`${formatTrendNumber(row.adx14,1)} · ${formatTrendNumber(row.er20,2)}`),caption('均线',formatTrendLabel(row.indicatorPath)),caption('结构',formatTrendLabel(row.structurePath)),caption('阶段',row.phaseStatus==='UNVERIFIED'?'未验证':formatTrendLabel(row.phase)),caption('证据强度',formatTrendLabel(row.evidenceStrength)),caption('依据',(row.derivedEvidence||[]).join('、')||'暂无摘要'),E('p',trendReason(row),'muted'));frag.append(c);}
  return frag;
 }
 async function overview(){
