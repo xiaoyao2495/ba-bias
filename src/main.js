@@ -103,6 +103,7 @@ async function recoverInterruptedRuns(history,outbox,manifest,{now=Date.now}={})
   }
 }
 export async function runResearch(options,{binance,llm,biasLlm,analystVersion,opportunitySelector=selectOpportunities,deliveryHttp,deliverySender,deliverySleep,deliverySpacingMs,now=Date.now,log=(event,details)=>console.log(JSON.stringify({event,...details}))}={}){
+  if(process.env.RESEARCH_MODE==='TREND_SIMPLE_V1')throw new Error('TREND_V1_OLD_RESEARCH_DISABLED');
   if(options.runId && !/^[A-Za-z0-9_-]{1,100}$/.test(options.runId))throw new Error('INVALID_RUN_ID');
   if(options.mode && !['once','scan','doctor'].includes(options.mode))throw new Error('INVALID_MODE');
   const mockLlm=llm,selectedAnalyst=analystVersion||activeAnalyst();

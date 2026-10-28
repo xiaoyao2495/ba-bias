@@ -80,6 +80,10 @@ export function createScanner({scheduler=cron,research=runResearch,deliveryWorke
   return {start,stop,trigger,get state(){return {startedAt,stopping,running:Boolean(active)};}};
 }
 export async function startScanner(){
+  if(process.env?.RESEARCH_MODE==='TREND_SIMPLE_V1'){
+    const {startSimpleScanner}=await import('./trend-simple/daemon.js');
+    return startSimpleScanner();
+  }
   if(!config.deepseekKey || !config.webhook)throw new Error('MISSING_SCANNER_ENVIRONMENT');
   await assertPrepared(config.dataDir);
   const scanner=createScanner();await scanner.start();return scanner;

@@ -1,4 +1,5 @@
 // Display-only adapters: never score candidates, infer a direction, or write records.
+export const bullishWatchItems=items=>(Array.isArray(items)?items:[]).filter(r=>r?.status==='ASSESSED'&&r.validationContract==='STRUCTURED_V1'&&r.bias==='BULL');
 export const strengthLabel=v=>({LOW:'低',MEDIUM:'中等',HIGH:'高'})[v]||(v===null?'不适用':'强度未记录');
 const finite=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v));
 export function validMetric(row,key){

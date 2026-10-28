@@ -14,7 +14,7 @@ export function webConfig(env=process.env){
  if(!publicReadonly&&remote&&u.protocol!=='https:'&&env.BA_BIAS_WEB_PRIVATE_NETWORK!=='1')throw Error('REMOTE_REQUIRES_HTTPS_OR_EXPLICIT_PRIVATE_NETWORK');
  const passwordHash=env.BA_BIAS_WEB_PASSWORD_HASH||'';
  if(!publicReadonly&&!/^scrypt\$[a-f0-9]{32}\$[a-f0-9]{128}$/.test(passwordHash))throw Error('WEB_PASSWORD_HASH_REQUIRED');
- return {mode:publicReadonly?'PUBLIC_READONLY':'PRIVATE_AUTHENTICATED',publicReadonly,host,port,origin:u.origin,secure:u.protocol==='https:',passwordHash:publicReadonly?'':passwordHash,dataDir:path.resolve(projectRoot,env.BA_DATA_DIR||'data'),projectRoot,sessionMs:8*3600000,staleMs:2*3600000};
+ return {mode:publicReadonly?'PUBLIC_READONLY':'PRIVATE_AUTHENTICATED',researchMode:env.RESEARCH_MODE==='TREND_SIMPLE_V1'?env.RESEARCH_MODE:null,publicReadonly,host,port,origin:u.origin,secure:u.protocol==='https:',passwordHash:publicReadonly?'':passwordHash,dataDir:path.resolve(projectRoot,env.BA_DATA_DIR||'data'),projectRoot,sessionMs:8*3600000,staleMs:2*3600000};
 }
 export function loadWebEnvironment(){
  // Dedicated credentials never need edits to the scanner's .env.

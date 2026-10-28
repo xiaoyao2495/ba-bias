@@ -16,6 +16,8 @@ async function body(req){let text='';for await(const b of req){text+=b.toString(
 export function createWebServer(config,{reader=new Reader(config.dataDir,{maxEntries:config.publicReadonly?100:500,maxFileBytes:config.publicReadonly?2*1024*1024:16*1024*1024,maxHistoryBytes:16*1024*1024,secrets:Object.entries(process.env).filter(([k])=>/KEY|TOKEN|PASSWORD|WEBHOOK|SECRET/i.test(k)).map(([,v])=>v)}),now=Date.now,processProbe=scannerProcesses,log=event=>console.log(JSON.stringify({service:'ba-bias-web',event}))}={}){
  const auth=config.publicReadonly?null:sessions({now,ttl:config.sessionMs}),rate=limiter({now,max:config.publicReadonly?60:180}),loginRate=limiter({now,max:5,windowMs:15*60000}),globalLoginRate=limiter({now,max:20,windowMs:60000});let publicActive=0;let healthCache=null,healthAt=0,healthPending=null;let systemCache=null,systemAt=0,systemPending=null;
  const dto=publicDTO(reader.secrets||Object.entries(process.env).filter(([k])=>/KEY|TOKEN|PASSWORD|WEBHOOK|SECRET/i.test(k)).map(([,v])=>v)),publicRate=limiter({now,max:600,capacity:1});
+ const simpleView=async()=>{const {simpleDTO}=await import('./trend-simple-dto.js');return simpleDTO((await reader.json('trend-simple-v1/latest.json')).value);};
+ const simpleHistory=async()=>{const {simpleDTO}=await import('./trend-simple-dto.js');const ids=(await reader.names('trend-simple-v1/runs')).filter(x=>/^TREND_SIMPLE_V1_\d{8}_\d{4}$/.test(x)).sort().reverse().slice(0,12);const records=await Promise.all(ids.map(id=>reader.json(`trend-simple-v1/runs/${id}/run.json`)));return {items:records.filter(r=>r.value?.status==='COMPLETE').map(r=>simpleDTO(r.value))};};
  const clean=v=>reader.clean(v);const cookie=(id,expired=false)=>`ba_bias_session=${id}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${expired?0:config.sessionMs/1000}${config.secure?'; Secure':''}`;
  async function health(){if(healthCache&&now()-healthAt<15000)return healthCache;if(healthPending)return healthPending;
   healthPending=(async()=>{const lock=await reader.json('state/run.lock'),probe=await processProbe(config.projectRoot,lock.value?.pid),idx=await reader.runsIndex(),latest=idx.items[0]?await reader.run(idx.items[0].runId).catch(()=>null):null;let heartbeat=null;try{const file=await reader.contained('state/run.lease');heartbeat=(await fs.stat(file)).mtimeMs;}catch{}
@@ -40,14 +42,14 @@ export function createWebServer(config,{reader=new Reader(config.dataDir,{maxEnt
    if(config.publicReadonly&&(req.url.length>2048))return send(414,{error:'PUBLIC_URL_LIMIT'});
    if(config.publicReadonly&&(Number(req.headers['content-length']||0)>0||req.headers['transfer-encoding']))return send(413,{error:'PUBLIC_BODY_FORBIDDEN'});
    const url=new URL(req.url,config.origin),pathname=decodeURIComponent(url.pathname),q=url.searchParams;
-   if(pathname==='/api/web-mode'&&req.method==='GET'){if(config.publicReadonly)res.setHeader('Set-Cookie',cookie('',true));return send(200,{mode:config.publicReadonly?'PUBLIC_READONLY':'PRIVATE_AUTHENTICATED'});}
+   if(pathname==='/api/web-mode'&&req.method==='GET'){if(config.publicReadonly)res.setHeader('Set-Cookie',cookie('',true));return send(200,{mode:config.publicReadonly?'PUBLIC_READONLY':'PRIVATE_AUTHENTICATED',...(config.researchMode==='TREND_SIMPLE_V1'?{researchMode:config.researchMode}:{})});}
    if(config.publicReadonly){
     if(req.method!=='GET')return send(405,{error:'PUBLIC_READ_ONLY'});
     if(!publicRate('public'))return send(429,{error:'RATE_LIMITED'});
     const route=publicRoute(pathname);if(!route)return send(403,{error:'PUBLIC_ROUTE_FORBIDDEN'});
     // Ignore and expire legacy cookies; never create a public session.
     res.setHeader('Set-Cookie',cookie('',true));
-    if(route==='API'){if(publicActive>=4)return send(503,{error:'PUBLIC_BUSY'});publicActive++;try{const output=await publicGet(pathname,q,reader,dto);return send(200,{...output,servedAt:now()});}finally{publicActive--;}}
+    if(route==='API'){if(publicActive>=4)return send(503,{error:'PUBLIC_BUSY'});publicActive++;try{const output=pathname==='/api/trend-simple'?await simpleView():pathname==='/api/trend-simple/history'?await simpleHistory():await publicGet(pathname,q,reader,dto);return send(200,{...output,servedAt:now()});}finally{publicActive--;}}
     // Approved static requests continue to the same fixed resource map below.
    }
    const id=config.publicReadonly?undefined:req.headers.cookie?.match(/(?:^|;\s*)ba_bias_session=([a-f0-9]{64})(?:;|$)/)?.[1],session=auth?.get(id);
@@ -64,7 +66,9 @@ export function createWebServer(config,{reader=new Reader(config.dataDir,{maxEnt
     if(pathname==='/api/session')return send(200,{authenticated:true,csrf:session.csrf,expiresAt:session.expires});
     const pagination={page:integer(q.get('page'),1,10000),limit:integer(q.get('limit'),24,50)};
     let output;
-    if(pathname==='/api/health')output=await health();
+    if(pathname==='/api/trend-simple')output=await simpleView();
+    else if(pathname==='/api/trend-simple/history')output=await simpleHistory();
+    else if(pathname==='/api/health')output=await health();
     else if(pathname==='/api/overview')output=await reader.overview();
     else if(pathname==='/api/system')output=await system();
     else if(pathname==='/api/runs'){

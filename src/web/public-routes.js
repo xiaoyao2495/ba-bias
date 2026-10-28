@@ -4,7 +4,7 @@ export const publicPages=new Set(['/','/selector','/history','/runs']);
 export const publicAssets=new Set(['/assets/app.js','/assets/style.css','/assets/presentation.js']);
 export function publicRoute(path){
  if(publicPages.has(path)||publicAssets.has(path)||/^\/runs\/[A-Za-z0-9_-]{1,100}$/.test(path)||/^\/symbol\/[\p{L}\p{N}]{1,40}USDT$/u.test(path))return 'STATIC';
- if(['/api/overview','/api/runs','/api/selector'].includes(path)||/^\/api\/runs\/[A-Za-z0-9_-]{1,100}$/.test(path)||/^\/api\/symbols\/[\p{L}\p{N}]{1,40}USDT$/u.test(path))return 'API';
+ if(['/api/overview','/api/runs','/api/selector','/api/trend-simple','/api/trend-simple/history'].includes(path)||/^\/api\/runs\/[A-Za-z0-9_-]{1,100}$/.test(path)||/^\/api\/symbols\/[\p{L}\p{N}]{1,40}USDT$/u.test(path))return 'API';
  return null;
 }
 const fail=(message,status=400)=>{throw Object.assign(Error(message),{status});};
