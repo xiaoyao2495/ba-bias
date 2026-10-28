@@ -1,5 +1,13 @@
 // Display-only adapters: never score candidates, infer a direction, or write records.
 export const bullishWatchItems=items=>(Array.isArray(items)?items:[]).filter(r=>r?.status==='ASSESSED'&&r.validationContract==='STRUCTURED_V1'&&r.bias==='BULL');
+export function bindSymbolCopy(button,feedback,symbol,{clipboard=globalThis.navigator?.clipboard,setTimer=setTimeout,clearTimer=clearTimeout}={}){
+ let timer=null,sequence=0;
+ button.addEventListener('click',async event=>{event.preventDefault();event.stopPropagation();const turn=++sequence;if(timer!==null){clearTimer(timer);timer=null;}
+  try{if(typeof clipboard?.writeText!=='function')throw Error('CLIPBOARD_UNAVAILABLE');await clipboard.writeText(symbol);if(turn!==sequence)return;button.dataset.copyState='success';feedback.textContent='已复制';}
+  catch{if(turn!==sequence)return;button.dataset.copyState='error';feedback.textContent='复制失败';}
+  timer=setTimer(()=>{if(turn===sequence){button.dataset.copyState='';feedback.textContent='';timer=null;}},1500);
+ });
+}
 const trendLabels=Object.freeze({INDICATORS_BULLISH:'指标看涨',STRUCTURE_BULLISH:'结构看涨',INDICATORS_BEARISH:'指标看跌',STRUCTURE_BEARISH:'结构看跌',INDICATOR_PATH:'指标路径',STRUCTURE:'价格结构',BULLISH_INDICATORS:'看涨',BEARISH_INDICATORS:'看跌',MIXED_INDICATORS:'混合',INSUFFICIENT_INDICATORS:'证据不足',BULLISH_STRUCTURE:'上涨结构',BEARISH_STRUCTURE:'下跌结构',MIXED_STRUCTURE:'结构混合',INSUFFICIENT_STRUCTURE:'结构不足',ACTIVE_LEG:'活动结构腿（未锁定）',LOCKED:'已确认锁定',STRONG:'强',MODERATE:'中',WEAK:'弱',ADVANCING:'趋势推进',PULLBACK:'趋势回调',CONSOLIDATING:'整理',NONE:'无明确阶段',COMPLETE:'已完成',INTERRUPTED:'已中断',RUNNING:'运行中',FAILED:'失败',NOT_EVALUATED:'未评估',INVALID_DATA:'数据异常',STALE:'已过期',EXPIRED:'已失效',UNVERIFIED:'未验证'});
 export const formatTrendLabel=value=>trendLabels[value]||'未知状态';
 export function trendDirection(row){if(row?.status!=='ASSESSED'||row?.validationContract!=='STRUCTURED_V1')return row?.status==='FAILED'?'—（失败）':row?.status==='INVALID_DATA'?'—（数据异常）':'—（未评估）';return {BULL:'L',BEAR:'S',NEUTRAL:'N'}[row.bias]||'—（未知状态）';}
