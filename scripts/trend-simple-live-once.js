@@ -7,6 +7,7 @@ import {Binance} from '../src/clients/binance.js';
 import {DeepSeek} from '../src/clients/deepseek.js';
 import {Http} from '../src/clients/http.js';
 import {lock} from '../src/storage/history.js';
+import {DATA_NAMESPACE} from '../src/trend-simple/config.js';
 import {runSimpleRound,roundId,SLOT} from '../src/trend-simple/engine.js';
 
 export const latestCycle=now=>Math.floor((now-10000)/SLOT)*SLOT;
@@ -27,7 +28,7 @@ export async function runLiveOnce({settings=config,now=Date.now,acquire=lock,run
       if(llm.calls[0]?.raw?.choices?.[0]?.finish_reason!=='stop')throw new Error('LLM_INCOMPLETE');
       return value;
     });
-    const cycle=latestCycle(now()),diagnosticsDir=path.join(dataDir,'trend-simple-v1','runs',roundId(cycle),'llm-diagnostics');
+    const cycle=latestCycle(now()),diagnosticsDir=path.join(dataDir,DATA_NAMESPACE,'runs',roundId(cycle),'llm-diagnostics');
     const loggedJudge=async(system,input,signal)=>{
       const symbol=input?.symbol;
       if(typeof symbol!=='string'||!/^[A-Z0-9]{1,40}$/.test(symbol))throw Error('INVALID_DIAGNOSTIC_SYMBOL');
