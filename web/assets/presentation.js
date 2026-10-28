@@ -1,9 +1,16 @@
 // Display-only adapters: never score candidates, infer a direction, or write records.
 export const bullishWatchItems=items=>(Array.isArray(items)?items:[]).filter(r=>r?.status==='ASSESSED'&&r.validationContract==='STRUCTURED_V1'&&r.bias==='BULL');
-export function bindSymbolCopy(button,feedback,symbol,{clipboard=globalThis.navigator?.clipboard,setTimer=setTimeout,clearTimer=clearTimeout}={}){
+export function copySymbolFallback(symbol,doc=globalThis.document){
+ if(!doc?.body||typeof doc.execCommand!=='function')return false;
+ const previous=doc.activeElement,field=doc.createElement('textarea');field.value=symbol;field.setAttribute('readonly','');field.setAttribute('aria-hidden','true');Object.assign(field.style,{position:'fixed',left:'-9999px',top:'0',opacity:'0'});
+ try{doc.body.appendChild(field);field.focus();field.select();field.setSelectionRange(0,symbol.length);return doc.execCommand('copy')===true;}
+ catch{return false;}
+ finally{field.remove();try{previous?.focus?.({preventScroll:true});}catch{}}
+}
+export function bindSymbolCopy(button,feedback,symbol,{clipboard=globalThis.navigator?.clipboard,document=globalThis.document,setTimer=setTimeout,clearTimer=clearTimeout}={}){
  let timer=null,sequence=0;
  button.addEventListener('click',async event=>{event.preventDefault();event.stopPropagation();const turn=++sequence;if(timer!==null){clearTimer(timer);timer=null;}
-  try{if(typeof clipboard?.writeText!=='function')throw Error('CLIPBOARD_UNAVAILABLE');await clipboard.writeText(symbol);if(turn!==sequence)return;button.dataset.copyState='success';feedback.textContent='已复制';}
+  try{if(typeof clipboard?.writeText==='function')await clipboard.writeText(symbol);else if(!copySymbolFallback(symbol,document))throw Error('CLIPBOARD_UNAVAILABLE');if(turn!==sequence)return;button.dataset.copyState='success';feedback.textContent='已复制';}
   catch{if(turn!==sequence)return;button.dataset.copyState='error';feedback.textContent='复制失败';}
   timer=setTimer(()=>{if(turn===sequence){button.dataset.copyState='';feedback.textContent='';timer=null;}},1500);
  });
