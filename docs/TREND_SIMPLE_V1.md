@@ -1,10 +1,10 @@
 # TREND SIMPLE V1
 
-显式设置 `RESEARCH_MODE=TREND_SIMPLE_V1` 后，`npm run scan` 或现有 PM2 Scanner 入口使用独立简化链；默认模式不变。UTC 每小时整点与半点后 10 秒启动，使用已收盘 5m K 线、Fractal Pivot 2/2、EMA20/50、ADX/DI14、ER20 和 ATR14。
+显式设置 `RESEARCH_MODE=TREND_SIMPLE_V1` 后，`npm run scan` 或现有 PM2 Scanner 入口使用独立简化链；默认模式不变。UTC 每小时 :00、:15、:30、:45 后 10 秒启动（北京时间相同分钟），使用已收盘 5m K 线、Fractal Pivot 2/2、EMA20/50、ADX/DI14、ER20 和 ATR14。
 
 Binance USDT 永续 Universe 按现有原生 Crypto 和成交额规则筛选，仍为所有合格合约计算技术事实。只接受指标路径或结构路径至少一条看涨的候选；任一路径明确看跌或双路径冲突则排除。MIXED/INSUFFICIENT 不等于看跌；BEARISH_STRUCTURE_DAMAGED 不单独构成看涨资格。
 
-排序依次为双路径看涨、仅指标路径看涨、仅结构路径看涨；同级按 ADX14 降序、ER20 降序、Symbol 升序，最多选 5 个不同 Symbol，不足不凑数。每轮最多 5 次 LLM 物理请求，每个 Symbol 最多一次，并发最多 2。
+排序依次为双路径看涨、仅指标路径看涨、仅结构路径看涨；同级按 ADX14 降序、ER20 降序、Symbol 升序，最多选 3 个不同 Symbol，不足不凑数。每轮最多 3 次 LLM 物理请求，每个 Symbol 最多一次，并发最多 2。
 
 LLM 可以返回 BULL、BEAR 或 NEUTRAL；模型原始方向不是通过校验的结果。结果须通过 Schema、Fact ID、时间、方向与证据角色校验；失败为 FAILED 并保留 rawBias 供诊断。无法验证的阶段标记为 UNVERIFIED。首页只显示通过结构化校验的 BULL；BEAR、NEUTRAL 和 FAILED 不进入看涨观察列表，历史保留评估结果。
 
