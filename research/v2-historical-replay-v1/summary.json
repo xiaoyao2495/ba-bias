@@ -1,0 +1,32 @@
+{
+  "mode": "SUBSET_REPLAY_NOT_MARKET_TOP10",
+  "source": "Binance USD-M futures 5m previously acquired",
+  "historicalUniverse": "NOT_VERIFIED",
+  "rangeStart": 1793354400000,
+  "rangeEnd": 1793391300000,
+  "slots": 124,
+  "symbols": [
+    "IDOLUSDT",
+    "GWEIUSDT",
+    "AVAUSDT",
+    "BLURUSDT",
+    "AINUSDT",
+    "BULLAUSDT"
+  ],
+  "aOnly": 150,
+  "bOnly": 8,
+  "both": 17,
+  "candidateOccurrences": 175,
+  "cooldownExcluded": 159,
+  "selected": 16,
+  "belowTop10": 0,
+  "first": {
+    "BULLAUSDT": 1793354400000,
+    "AVAUSDT": 1793354700000,
+    "BLURUSDT": 1793354700000,
+    "IDOLUSDT": 1793355900000,
+    "GWEIUSDT": 1793355900000,
+    "AINUSDT": 1793360100000
+  },
+  "invalid": 0
+}

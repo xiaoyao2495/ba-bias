@@ -1,0 +1,80 @@
+[
+  {
+    "symbol": "IDOLUSDT",
+    "rows": 423,
+    "sha256": "6bd7a238a5f8283b896a664f8db40b2ee28b551c1f5add4a1faa74f622f8d6fe",
+    "endpoint": "https://fapi.binance.com/fapi/v1/klines",
+    "params": {
+      "symbol": "IDOLUSDT",
+      "interval": "5m",
+      "startTime": 1793264400000,
+      "endTime": 1793391299999,
+      "limit": 1000
+    }
+  },
+  {
+    "symbol": "GWEIUSDT",
+    "rows": 423,
+    "sha256": "9af3f3126699c34c12c15384e57b4ed693ea1871a9e99406f6e68cfa506318a5",
+    "endpoint": "https://fapi.binance.com/fapi/v1/klines",
+    "params": {
+      "symbol": "GWEIUSDT",
+      "interval": "5m",
+      "startTime": 1793264400000,
+      "endTime": 1793391299999,
+      "limit": 1000
+    }
+  },
+  {
+    "symbol": "AVAUSDT",
+    "rows": 423,
+    "sha256": "beb2c18a6aff52cfc530e7152cda8924de629f098403c93765ee6e1bc752f091",
+    "endpoint": "https://fapi.binance.com/fapi/v1/klines",
+    "params": {
+      "symbol": "AVAUSDT",
+      "interval": "5m",
+      "startTime": 1793264400000,
+      "endTime": 1793391299999,
+      "limit": 1000
+    }
+  },
+  {
+    "symbol": "BLURUSDT",
+    "rows": 423,
+    "sha256": "f7e4a323c5fee1c6abc4e1237908c575437bf7541ec8266c64b036d5b881f4f1",
+    "endpoint": "https://fapi.binance.com/fapi/v1/klines",
+    "params": {
+      "symbol": "BLURUSDT",
+      "interval": "5m",
+      "startTime": 1793264400000,
+      "endTime": 1793391299999,
+      "limit": 1000
+    }
+  },
+  {
+    "symbol": "AINUSDT",
+    "rows": 423,
+    "sha256": "17268cab619eba74b82e7e11c0d7da3accb9580410df5fc33774f6ae8bdc907c",
+    "endpoint": "https://fapi.binance.com/fapi/v1/klines",
+    "params": {
+      "symbol": "AINUSDT",
+      "interval": "5m",
+      "startTime": 1793264400000,
+      "endTime": 1793391299999,
+      "limit": 1000
+    }
+  },
+  {
+    "symbol": "BULLAUSDT",
+    "rows": 423,
+    "sha256": "ce61546fc01279ca91b2441ab1c7968c204bc37f02b6940d8bab8416621eb9c4",
+    "endpoint": "https://fapi.binance.com/fapi/v1/klines",
+    "params": {
+      "symbol": "BULLAUSDT",
+      "interval": "5m",
+      "startTime": 1793264400000,
+      "endTime": 1793391299999,
+      "limit": 1000
+    }
+  }
+]
