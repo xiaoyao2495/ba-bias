@@ -1,7 +1,7 @@
 import {DatabaseSync} from 'node:sqlite';
 import fs from 'node:fs';
 import path from 'node:path';
-export const COOLDOWN_MS=4*60*60*1000;
+export const COOLDOWN_MS=3*60*60*1000;
 // Explicit initialization is required. A missing existing ledger is never recreated by openLedger.
 export function initializeLedger(file){if(fs.existsSync(file))throw Error('LEDGER_ALREADY_EXISTS');fs.mkdirSync(path.dirname(path.resolve(file)),{recursive:true});const db=new DatabaseSync(file);try{configure(db);db.exec(`CREATE TABLE metadata(version INTEGER NOT NULL);INSERT INTO metadata VALUES(1);CREATE TABLE reservations(request_id TEXT PRIMARY KEY,symbol TEXT NOT NULL,reserved_at INTEGER NOT NULL,cooldown_until INTEGER NOT NULL,status TEXT NOT NULL,research_id TEXT NOT NULL);CREATE INDEX reservations_symbol_time ON reservations(symbol,reserved_at);CREATE TABLE scanner_rounds(run_id TEXT PRIMARY KEY,status TEXT NOT NULL);CREATE TABLE scanner_owner(singleton INTEGER PRIMARY KEY CHECK(singleton=1),run_id TEXT NOT NULL);`);}finally{db.close();}}
 function configure(db){db.exec('PRAGMA busy_timeout=5000');const mode=db.prepare('PRAGMA journal_mode=WAL').get();if(String(Object.values(mode)[0]).toLowerCase()!=='wal')throw Error('LEDGER_WAL_UNAVAILABLE');db.exec('PRAGMA synchronous=FULL; PRAGMA busy_timeout=5000');if(Number(Object.values(db.prepare('PRAGMA synchronous').get())[0])!==2||Number(Object.values(db.prepare('PRAGMA busy_timeout').get())[0])!==5000)throw Error('LEDGER_CONFIG_INVALID');}
