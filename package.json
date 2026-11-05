@@ -5,7 +5,7 @@
   "description": "Independent Binance Futures research and reviewed Square drafts",
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "doctor": "node src/main.js doctor",
