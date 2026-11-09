@@ -4,6 +4,7 @@ import {DatabaseSync} from 'node:sqlite';
 import {llmEnabled} from './llm-control.js';
 
 export const BULL_COOLDOWN_MS=90*60000;
+export const UNKNOWN_PROTECTION_MS=3*60*60000;
 export const DAILY_LIMIT=288;
 
 // This is a V1-only ledger. Committed reservations are never refunded.
@@ -34,7 +35,7 @@ function txn(db,fn){db.exec('BEGIN IMMEDIATE');try{const x=fn();db.exec('COMMIT'
 export function researchEligibility(db,symbol,at){
  const x=db.prepare('SELECT bias,cooldown_until FROM symbols WHERE symbol=?').get(symbol);
  if(x?.bias==='BULL'&&x.cooldown_until>at)return {ok:false,reason:'BULL_COOLDOWN',cooldownUntil:x.cooldown_until};
- if(db.prepare("SELECT 1 FROM requests WHERE symbol=? AND status IN ('UNKNOWN','BULL_PENDING') LIMIT 1").get(symbol))return {ok:false,reason:'REQUEST_UNKNOWN'};
+ if(db.prepare("SELECT 1 FROM requests WHERE symbol=? AND (status='BULL_PENDING' OR (status='UNKNOWN' AND reserved_at>?)) LIMIT 1").get(symbol,at-UNKNOWN_PROTECTION_MS))return {ok:false,reason:'REQUEST_UNKNOWN'};
  return {ok:true,cooldownUntil:x?.cooldown_until??null};
 }
 export function reserveResearch(db,{id,runId,symbol,at}){return txn(db,()=>{
