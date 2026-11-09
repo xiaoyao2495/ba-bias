@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {DatabaseSync} from 'node:sqlite';
+import {llmEnabled} from './llm-control.js';
 
 export const BULL_COOLDOWN_MS=90*60000;
 export const DAILY_LIMIT=288;
@@ -37,6 +38,7 @@ export function researchEligibility(db,symbol,at){
  return {ok:true,cooldownUntil:x?.cooldown_until??null};
 }
 export function reserveResearch(db,{id,runId,symbol,at}){return txn(db,()=>{
+ if(!llmEnabled(db))return {ok:false,reason:'LLM_PAUSED'};
  const unknown=db.prepare("SELECT value FROM ledger_meta WHERE key='migration_unknown_block_until'").get();if(unknown&&at<unknown.value)return {ok:false,reason:'MIGRATION_REQUEST_UNKNOWN'};
  const last=db.prepare('SELECT MAX(reserved_at) AS at FROM requests').get().at;if(last!==null&&at<last)throw Error('V1_CLOCK_ROLLBACK');
  const eligibility=researchEligibility(db,symbol,at);if(!eligibility.ok)return eligibility;
