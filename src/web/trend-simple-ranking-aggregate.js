@@ -2,7 +2,7 @@ const SYMBOL=/^[\p{L}\p{N}]{1,40}USDT$/u;
 const finite=value=>typeof value==='number'&&Number.isFinite(value)?value:null;
 const category=value=>['BOTH_BULLISH','INDICATOR_BULLISH','STRUCTURE_BULLISH'].includes(value)?value:null;
 
-export function aggregateRankingSnapshots(snapshots,windowSize=6){
+export function aggregateRankingSnapshots(snapshots,windowSize=24){
  const rounds=(Array.isArray(snapshots)?snapshots:[]).filter(x=>x?.schemaVersion==='BULL_CANDIDATE_RANKING_V1'&&Array.isArray(x.candidates)).slice(0,windowSize);
  const rows=new Map();
  for(let roundIndex=0;roundIndex<rounds.length;roundIndex++){
