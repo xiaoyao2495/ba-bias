@@ -15,7 +15,7 @@ const neutral = () => ({bias: 'NEUTRAL', phase: 'NONE', evidenceStrength: 'WEAK'
 function client(cycle) {
  return {get: async (endpoint) => {
   if (endpoint === endpoints.exchange) return {raw: {symbols: symbols.map(symbol => ({symbol, baseAsset: symbol.slice(0, -4), quoteAsset: 'USDT', status: 'TRADING', contractType: 'PERPETUAL', underlyingType: 'COIN', underlyingSubType: []}))}};
-  if (endpoint === endpoints.ticker) return {raw: symbols.map(symbol => ({symbol, quoteVolume: '50000000'}))};
+  if (endpoint === endpoints.ticker) return {raw: symbols.map(symbol => ({symbol, quoteVolume: '100000000'}))};
   assert.equal(endpoint, endpoints.klines);
   return {raw: Array.from({length: 300}, (_, i) => {const time = cycle - (300 - i) * SLOT, close = 100 + i; return [time, close, close + 1, close - 1, close, 10, time + SLOT - 1];})};
  }};
